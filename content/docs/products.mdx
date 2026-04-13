@@ -15,21 +15,23 @@ Products are the core of your store. This page covers how to create and manage y
 
 Go to **Products** in the admin sidebar to see your full catalog.
 
-**Photo:** Screenshot of the Products list with product names, status badges, and the Import/Export buttons in the top right.
+![Screenshot of the Products list showing product names, status badges, and the Import/Export buttons in the top right.](/product-list-view.jpeg)
 
 From here you can:
 
 - Search products by name
 - Click any product to edit it
 - Click **New Product** to create one
-- Use **Import** to bulk-load from a CSV
-- Use **Export** to download your catalog
+  {/* - Use **Import** to bulk-load from a CSV */}
+  {/* - Use **Export** to download your catalog */}
 
 ---
 
 ## Creating a Product
 
 Click **New Product** in the top right. The product form has two tabs: **Basics** and **Additional Info**.
+
+![Screenshot of the New Product form with the Basics and Additional Info tabs.](/new-product-form.jpeg)
 
 ### Basics Tab
 
@@ -58,7 +60,7 @@ Upload one or more photos for your product. Drag the images to reorder them — 
 - **Max file size:** 5 MB per image
 - Each image has an optional **Alt Text** field for accessibility
 
-**Photo:** Screenshot of the image uploader with multiple images loaded and drag handles visible.
+![Screenshot of the image uploader with multiple images loaded and drag handles visible.](/product-image-upload.png)
 
 #### Inventory
 
@@ -76,7 +78,7 @@ When the product has variants, inventory quantity is set per variant instead.
 
 Use variants for products that come in different sizes, colors, or other options. Click **Add Variant** to open the variant manager.
 
-**Photo:** Screenshot of the variant manager with option types defined and a table of generated variants.
+![Screenshot of the variant manager with option types defined and a table of generated variants.](/variant-creation.png)
 
 #### Defining Options
 
@@ -89,8 +91,8 @@ Each variant has its own:
 | Field            | Notes                                                                |
 | ---------------- | -------------------------------------------------------------------- |
 | Name             | Auto-generated from option values (e.g., "Small / Black"). Editable. |
-| Price            | Overrides the product-level price for this variant.                  |
-| Compare At Price | Variant-specific sale price display.                                 |
+| Price            | The current price of the variant.                                    |
+| Compare At Price | (Optional) The original price of the variant.                        |
 | SKU              | Optional stock-keeping unit for this variant.                        |
 | Inventory Qty    | Per-variant stock level (only relevant when Track Inventory is on).  |
 
@@ -104,6 +106,8 @@ Select multiple variants using the checkboxes and use **Bulk Edit** to update pr
 
 These fields are optional and their visibility on the storefront depends on which template your store uses.
 
+![Screenshot of the additional information section with a rich text editor.](/new-product-additional-info.jpeg)
+
 #### Additional Information
 
 A rich text editor (supports bold, italic, links, lists, and headings). On templates that support it, this content is rendered in an **"Additional Information"** tab on the product detail page — useful for care instructions, sizing guides, materials, etc.
@@ -112,7 +116,7 @@ A rich text editor (supports bold, italic, links, lists, and headings). On templ
 
 Add a list of short selling points, each with an icon and a label (e.g., a leaf icon + "100% Natural"). These appear as trust badges on the product page in supported templates.
 
-**Photo:** Screenshot of the Feature Highlights editor with a few icon + text rows added.
+![Screenshot of the feature highlights section with a list of short selling points.](/product-features-list.png)
 
 #### Presentation
 
@@ -143,61 +147,14 @@ To delete a product, click the **Delete** button in the toolbar and confirm. Del
 
 ---
 
-## Import & Export
+{/* ## Import & Export */}
 
-### Importing Products (CSV)
-
-Go to **Products → Import** to bulk-load products from a CSV file. SimplePress uses the WooCommerce CSV format.
-
-**Photo:** Screenshot of the import page showing the file upload area and options panel.
-
-**Supported import fields:**
-
-| CSV Column                | Notes                                                                |
-| ------------------------- | -------------------------------------------------------------------- |
-| Name                      | Product name                                                         |
-| SKU                       | Variant SKU                                                          |
-| Regular price             | Selling price (in dollars)                                           |
-| Sale price                | Compare At price (in dollars)                                        |
-| Description               | Product description                                                  |
-| Published                 | 1 = published, 0 = unpublished                                       |
-| Is featured?              | 1 = featured (for front-page display)                                |
-| In stock?                 | 1 = in stock, 0 = out of stock                                       |
-| Stock                     | Inventory quantity                                                   |
-| Weight (g)                | Converted automatically to kg on import                              |
-| Images                    | Comma-separated image URLs                                           |
-| Type                      | `simple` or `variable` (use `variation` for individual variant rows) |
-| Attribute 1–4 name/values | Defines variant options (up to 4 attributes per product)             |
-
-**Import options:**
-
-| Option                             | Choices                                                |
-| ---------------------------------- | ------------------------------------------------------ |
-| On duplicate SKU                   | Skip, Update existing, or Create new                   |
-| Import images                      | Toggle on/off                                          |
-| Create collections from categories | Toggle — imports WooCommerce categories as collections |
-
-#### How to Import
-
-1. Go to **Products → Import**
-2. Upload your CSV file. A preview of parsed rows is shown before anything is written to the database.
-3. Review any warnings or errors surfaced by the parser.
-4. Set your import options.
-5. Click **Run Import**.
-6. View the results summary. Past imports are saved in the import history.
-
-### Exporting Products (CSV)
-
-Go to **Products → Export** to download your catalog.
-
-Select the products you want to export (or select all), then click **Export**. The file downloads as a WooCommerce-compatible CSV and includes variants as separate rows.
-
----
+{/* --- */}
 
 ## Storefront Behavior
 
-- Products live at `/products/[slug]`
-- The shop listing is at `/shop`
+- Products live at `/shop/[slug]`
+- To see all products, the shop listing is at `/shop`
 - The storefront renders the product page using your active template
 - Product cards show the name, tagline (if set), price, compare-at price, and first image
 - If a compare-at price is set, a sale badge is displayed alongside the crossed-out original price
