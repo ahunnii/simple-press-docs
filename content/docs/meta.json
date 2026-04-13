@@ -16,6 +16,7 @@
 		"testimonials",
 		"galleries",
 		"payments-and-payouts",
+		"./stripe",
 		"---Settings---",
 		"general-settings",
 		"shipping",

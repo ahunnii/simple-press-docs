@@ -1,0 +1,5 @@
+{
+	"title": "Stripe Setup",
+	"defaultOpen": true,
+	"pages": ["index", "account-setup"]
+}

@@ -1,0 +1,80 @@
+---
+title: Stripe Setup
+description: Everything you need to get your Stripe account ready to accept payments through SimplePress.
+---
+
+## Overview
+
+SimplePress uses Stripe as its payment processor. Before your store can accept customer payments, your Stripe account needs to be configured with your business details, a connected bank account, and (optionally) sales tax collection.
+
+This section covers two paths:
+
+1. **Invite a developer** — you add your bank account privately first, then invite your developer to handle the rest (business info, tax zones, and sandbox setup).
+2. **Set up yourself** — a step-by-step guide for configuring everything on your own.
+
+> **Don't have a Stripe account yet?** Create one at [stripe.com](https://stripe.com) before continuing. It's free to sign up — Stripe only charges a small fee per transaction when you make a sale.
+
+---
+
+## Option 1: Invite a Developer (Recommended)
+
+If your developer is handling your SimplePress setup, you'll share access using Stripe's **Developer** role. This gives them what they need to configure your business profile, set up tax zones, and handle sandbox setup — without access to your banking or financial settings.
+
+**Your bank account is private.** Before inviting anyone, complete the bank account step yourself so your payout information stays between you and Stripe. See [Step 1 below](#step-1--add-your-bank-account-first).
+
+### Step 1 — Add your bank account first
+
+Before sharing access, add your payout bank account directly in Stripe. See the [Account Setup](account-setup#step-2--add-your-bank-account) guide for the full walkthrough.
+
+The short version:
+
+1. Sign in at [dashboard.stripe.com](https://dashboard.stripe.com).
+2. Go to **Settings → Bank accounts and scheduling**.
+3. Click **Add bank account** and enter your routing and account numbers.
+
+Once your bank account is saved, you're ready to invite your developer.
+
+### Step 2 — Invite your developer
+
+1. In the Stripe Dashboard, click the **gear icon** (Settings) in the top-right.
+2. Under **Your team**, select **Team and security**.
+3. Click **Invite user**.
+4. Enter **ahunn@umich.edu** in the email field.
+5. Under **Role**, select **Developer**.
+
+   > **Why Developer?** The Developer role gives access to API keys, webhooks, and account configuration — everything needed to set up your business profile, tax registrations, and connect your store to SimplePress. It does not include access to your bank account, payouts, or financial settings.
+
+6. Click **Send invite**.
+
+Your developer will receive an email from Stripe with a link to accept the invitation. Once accepted, they can get started on the rest of the configuration.
+
+**Photo:** Screenshot of the Stripe Team settings page showing the "Invite user" dialog with the Developer role selected.
+
+### What your developer will do
+
+Once they have access, your developer will:
+
+- Complete your business profile (legal name, address, business type)
+- Set up Stripe Tax zones for the states where you collect sales tax
+- Configure the sandbox environment for testing
+- Connect your Stripe account to your SimplePress store
+
+You'll be notified by Stripe any time a significant change is made to your account, so you always have visibility into what's happening.
+
+### Revoking access later
+
+You can remove your developer's access at any time from **Settings → Team and security**. Click the three-dot menu next to their name and select **Remove member**. This does not affect your Stripe account, your store, or any of the configuration they completed.
+
+---
+
+## Option 2: Set Up Yourself
+
+If you'd prefer to configure your Stripe account on your own, see the [Account Setup](account-setup) guide. It walks through:
+
+- Adding your bank account and configuring payouts
+- Completing your business profile
+- Completing identity and business verification
+- Setting up Stripe Tax registrations for sales tax collection
+- Connecting Stripe to your SimplePress store
+
+---
