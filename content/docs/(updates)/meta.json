@@ -1,5 +1,5 @@
 {
-  "title": "Updates",
-  "defaultOpen": true,
-  "pages": ["changelog", "planned-features"]
+	"title": "Updates",
+	"defaultOpen": false,
+	"pages": ["changelog", "planned-features"]
 }
