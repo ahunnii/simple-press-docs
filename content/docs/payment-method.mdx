@@ -1,0 +1,73 @@
+---
+title: Payment Providers
+description: "Connect your payment provider to your store from **Settings → Integrations**. This page will focus on Stripe."
+---
+
+## Overview
+
+Connect your payment provider to your store from **Settings → Integrations**. This page focuses on setting up Stripe as your payment provider.
+
+<Callout type="info" title="Super Important">
+
+As of right now, we only support Stripe as our payment provider. We are working on adding support for other payment providers in the future. Also, in regards to tax, we are NOT tax advisors or accountants. We are not responsible for any tax advice or tax related issues. Please consult a qualified tax professional for guidance specific to your business. Especially when it comes to registering for tax in your state (Michigan seems to not register in Stripe, you may need to do this registration yourself).
+
+</Callout>
+
+## Stripe Connect
+
+Stripe is the payment processor powering your storefront. Until you connect a Stripe account, your store cannot accept customer payments, process refunds, or display your balance and payout history.
+
+**📷 Photo:** Integrations page showing the Stripe Connect card with a "Not Connected" badge and the "Connect with Stripe" button.
+
+### Connecting your Stripe account
+
+1. Go to **Settings → Integrations**.
+2. In the **Stripe Connect** card, click **Connect with Stripe**.
+3. You'll be redirected to Stripe to authorize the connection. Sign in to your existing Stripe account or create a new one.
+4. After authorizing, you'll be returned to the Integrations page. The card will update to show a **Connected** badge and your Stripe Account ID.
+
+> Stripe handles the entire authorization handoff securely. Your Stripe credentials are never stored by SimplePress.
+
+![Stripe Connect card in the connected state — showing the Account ID field, "Open Dashboard" and "Disconnect" buttons, and the Connected badge.](/stripe-connected-integration.jpeg)
+
+### Once connected
+
+- Your Stripe Account ID is displayed for reference.
+- Payments from customer orders are deposited directly into your Stripe account according to your Stripe payout schedule.
+- You can open your Stripe Dashboard at any time using the **Open Dashboard** button.
+
+### Automatic Tax Collection
+
+When your Stripe account is connected, you'll see an **Automatic Tax Collection** toggle. When enabled, Stripe Tax automatically calculates and adds sales tax to every checkout session.
+
+**Before enabling this**, you must have active tax registrations set up on your Stripe account for the states where you collect tax. Enabling the toggle without registrations will return an error — no changes will be saved.
+
+- To manage your tax registrations, visit your Stripe Tax Dashboard (linked from the error message if one appears).
+- For a full guide on sales tax, nexus, and how to set up Stripe Tax, see **Settings → Tax**.
+
+![Auto Tax toggle section within the Stripe card — showing the label, description, and toggle in the on/off state. Include an example of the error alert if toggled without registrations.](/automatic-taxes.png)
+
+### Disconnecting Stripe
+
+Click **Disconnect** to remove your Stripe account from the store. You'll be asked to confirm before anything is removed.
+
+> **Important:** Disconnecting Stripe immediately disables payment acceptance on your storefront. Existing orders and their history are not affected, but you will not be able to process new refunds until you reconnect.
+
+---
+
+**What you can do:**
+
+- Connect a Stripe account via OAuth
+- View your connected Stripe Account ID
+- Open your Stripe Dashboard directly from the admin
+- Enable or disable Automatic Tax Collection
+- Disconnect your Stripe account
+
+**What you cannot do:**
+
+- Accept customer payments before Stripe is connected
+- Enable Automatic Tax Collection without active Stripe Tax registrations on your connected account
+- Change your payout schedule or timing — that is controlled by Stripe on your account directly
+- Process refunds without an active Stripe connection
+
+---
