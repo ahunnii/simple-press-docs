@@ -1,103 +1,200 @@
 ---
 title: Customers
-description: A read-only view of everyone who has placed an order or created an account on your storefront.
+description: See who shops with you, review their orders, keep private notes, adjust rewards points, and handle privacy requests.
 ---
 
 ## Overview
 
-The Customers section gives you a read-only view of everyone who has placed an order or created an account on your storefront. You can search your list, review individual purchase history, and see at a glance how many of your customers have opted into marketing emails.
+**Customers** is your address book for everyone who has bought from, or interacted with, your store. For each person you can see their orders, how much they've spent, and whether they've chosen to receive marketing emails. You can also keep private notes about them, adjust their rewards points, start an invoice, and anonymize their record when they ask to be forgotten.
+
+You don't add customers by hand, and you can't edit their name, email, phone or addresses. Customers manage those details themselves from their own account on your storefront.
+
+> **Who can do what:** Owners and Managers can edit notes, adjust points and anonymize customers. Staff can view the list and each customer's orders, but they can't see notes and they don't get the **Adjust points** button. See [Team and Roles](/docs/team-and-roles).
 
 ---
 
 ## The Customer List
 
-Navigate to **Customers** in your admin sidebar to see your full customer list.
+Open **Customers** in your admin sidebar (`/admin/customers`).
 
-At the top of the page you'll see two summary cards:
+![The Customers page with two summary cards, a search box, a Filters button and a table of customers with their orders, total spent, marketing status and join date](/images/customers/customers-list.png)
+*The Customers list. The two cards at the top always show your whole store, even while you search or filter.*
 
-- **Total Customers** — the total number of customer records in your store
-- **Accepts Marketing** — how many customers have opted in to receive marketing emails
+### Summary cards
 
-The table below shows every customer with the following columns:
+- **Total Customers**: everyone in your customer list.
+- **All customers accepting marketing**: how many have opted in to marketing emails.
 
-| Column      | What it shows                                                |
-| ----------- | ------------------------------------------------------------ |
-| Name        | First and last name (if provided)                            |
-| Email       | The email address used at checkout or signup                 |
-| Orders      | Total number of orders placed                                |
-| Total Spent | Lifetime spend across all orders                             |
-| Marketing   | Whether the customer has opted in or out of marketing emails |
-| Joined      | The date their customer record was first created             |
+### The table
 
-You can search by name or email using the search bar. The table updates to match your query.
+The list shows 25 customers per page.
 
-**📷 Photo needed:** Customer list showing the summary cards, search bar, and table with several rows — marketing badge variants (opted in vs. opted out) both visible.
+| Column | What it shows |
+| --- | --- |
+| **Customer** | Their name, with their email address underneath. A **Deletion requested** or **Anonymized** badge appears here when it applies. |
+| **Orders** | How many orders they've placed. |
+| **Total Spent** | Their lifetime spend across those orders. |
+| **Marketing** | A **Subscribed** badge if they've opted in to marketing emails, otherwise "—". |
+| **Joined** | The date their customer record was created. |
+| **View** | Opens their detail page. |
+
+### Search and filters
+
+Type a name or email into **Search customers…** and press **Search**. Use **Filters** to narrow or reorder the list.
+
+![The Filters popover open on the Customers page, showing Marketing, Privacy and Sort dropdowns](/images/customers/customers-filters.png)
+*The Filters popover: Marketing, Privacy and Sort.*
+
+| Filter | Choices |
+| --- | --- |
+| **Marketing** | All customers, Accepts marketing, Doesn't accept |
+| **Privacy** | All customers, Deletion requested, Anonymized |
+| **Sort** | Newest, Oldest, Name A–Z, Name Z–A, Most orders, Highest spend |
+
+If nothing matches, you'll see "No customers match your filters" with a **Clear filters** button. A brand-new store shows "No customers yet".
 
 ---
 
-## Customer Detail
+## A Customer's Detail Page
 
-Click **View** on any customer to open their detail page. This page is divided into two sections:
+Click **View** on any row. The top of the page shows the customer's name and a "Joined" date. The left side holds their order history, and cards down the right side hold everything else.
+
+![A customer's detail page with the Customer and Summary cards, plus Rewards, Invoices, Notes and Privacy cards down the right](/images/customers/customer-detail.png)
+*A customer's detail page. This customer hasn't ordered yet, so Order History is empty.*
 
 ### Order History
 
-A full table of every order this customer has placed, including order status, items, and totals. Clicking an order takes you directly to the order detail page.
+This reuses the same table you see on the Orders page: order number, items, total and status. Click an order to open it. If the customer hasn't ordered, you'll see "No orders yet. This customer hasn't placed any orders."
 
-### Customer Info
+![A customer detail page with two orders listed under Order History and an Opted in marketing badge](/images/customers/customer-detail-orders.png)
+*A customer with order history and marketing turned on.*
 
-A sidebar card shows:
+### The cards on the right
 
-- **Name** (if they provided one)
-- **Email**
-- **Phone** (if provided)
-- **Marketing preference** — opted in or opted out
-- **Total Orders** and **Total Spent** summary
+| Card | What it shows or lets you do |
+| --- | --- |
+| **Customer** | Name, Email, Phone, and a **Marketing** badge reading **Opted in** or **Opted out**. |
+| **Summary** | **Total Orders** and **Total Spent**. |
+| **Rewards** | Their points balance and a history of points earned and spent. Owners and Managers get an **Adjust points** button. |
+| **Invoices** | Their recent invoices, with a **New invoice** button. |
+| **Notes** | Private notes about the customer. |
+| **Privacy** | Deletion requests and the **Anonymize customer** button. |
 
-**📷 Photo needed:** Customer detail page showing the order history table on the left and the customer info / summary cards on the right.
+### Rewards
 
----
+The **Rewards** card shows how many points the customer has and what they earned or redeemed. To correct a balance, click **Adjust points**, enter the number of **Points** and a **Reason**, and save. Use a negative number to deduct points. You might do this to fix a mistake or to thank someone with a bonus.
 
-## How Customers Are Created
+The Rewards program itself is switched on in **Features**. See [Feature Flags](/docs/feature-flags).
 
-You never create customers manually — they are created automatically in two ways:
+### Invoices
 
-1. **Guest checkout:** When someone places an order without creating an account, a Customer record is created using their email address. They are not linked to a user account yet.
-2. **Account signup:** When a shopper creates an account on your storefront and verifies their email, they are linked to their Customer record. If they had placed orders as a guest with the same email address, those orders are automatically linked to their account — no action needed from you.
+The **Invoices** card lists the customer's latest invoices with their number, status, balance and due date. An **Overdue** badge appears on any that are past due. Click **New invoice** to start an invoice for this customer, or **View all invoices** to see everything on your Invoices page. If you've turned Invoices off and the customer has none, the card is hidden. See [Invoices](/docs/invoices).
 
----
+### Notes
 
-## What Customers See on the Storefront
+Use **Notes** to remember things about a customer: a preferred contact method, a special arrangement, how they like to be greeted. Click **Edit**, type under "Add notes about this customer...", then choose **Save**. A "Notes saved" message confirms it. **Cancel** discards your changes.
 
-Your customers have their own account area on your storefront at `/account`. From there they can:
-
-- **View order history** — a list of all their past orders with status and tracking details
-- **View order details** — individual order pages showing items, shipment tracking, and shipping address
-- **Manage their address book** — add, edit, delete, and set a default shipping address
-- **Update account settings** — change their display name, email, and password
-- **Update security settings** — manage their login credentials and connected accounts
-- **Set marketing preferences** — opt in or out of marketing emails
-
-> **Note:** Customers must be signed in to access their account area. Pages redirect to sign-in if a session is not active.
+Notes are private. Customers never see them, and Staff can't see them either.
 
 ---
 
-## Marketing Opt-In
+## Where Customers Come From
 
-The **Accepts Marketing** flag is set by the customer — either during checkout or from their account preferences page. You can see the status for every customer but **you cannot override it**. Customers control their own preference.
+Customer records are created for you. A person is added to your list when they:
+
+- place an order;
+- have a manual order or an invoice created for them;
+- leave a review or a testimonial;
+- join your rewards program;
+- save an address; or
+- subscribe to something on your store.
+
+> **Creating an account doesn't add someone to the list.** A shopper who signs up but never does any of the things above won't appear in Customers yet.
+
+When a shopper creates an account or verifies their email, SimplePress looks for an existing customer record with the same email and links it to their account. If they ordered as a guest earlier, those orders are already attached to them, so there's nothing for you to do.
+
+Customer Accounts is always on and managed by SimplePress. You don't need to switch it on.
 
 ---
 
-## What You Cannot Do
+## What Customers See on Your Storefront
 
-- **Edit customer profiles** — name, email, phone, and shipping addresses are read-only in the admin
-- **Delete customers** — customer records cannot be removed from the admin
-- **Message customers directly** — there is no built-in messaging or bulk email tool in the admin; the marketing opt-in status is informational only
-- **Merge duplicate customer records** — if the same person checks out as a guest multiple times with different emails, those records remain separate
+Your customers have their own account area on your site (`/account`) where they sign in to manage their own details.
+
+![A storefront account page called Preferences, showing the account menu, a Marketing Emails switch and a Data and Privacy card](/images/customers/account-preferences.png)
+*A customer's Preferences page: the Marketing Emails switch and the Data & Privacy card.*
+
+The account menu has these pages:
+
+| Page | What the customer does there |
+| --- | --- |
+| **Orders** | Review past orders and their status. |
+| **Address Book** | Add, edit, remove and choose default addresses. |
+| **Subscriptions** | Manage subscriptions, if you offer them. |
+| **Invoices** | View and pay invoices, if you use them. |
+| **Rewards** | See their points, if you run a rewards program. |
+| **Settings** | Update their name, email and password. |
+| **Security** | Manage sign-in options. |
+| **Preferences** | Choose marketing emails, download their data, or ask for deletion. |
+
+Some of these only appear when the matching feature is on for your store.
+
+On a phone, the account menu becomes a row of tabs across the top.
+
+![The Preferences page on a phone, with the account tabs along the top and the Marketing Emails and Data and Privacy cards below](/images/customers/account-preferences-mobile.png)
+*The same Preferences page on a phone.*
 
 ---
 
-## Feature Flag
+## Marketing Emails
 
-The `customerAccounts` feature is **on by default** and is not owner-toggleable. Contact platform support if you have questions about this feature.
+Marketing is always the customer's choice. You can see each customer's status, but you can't change it for them.
+
+- Customers **opt in** by turning on the **Marketing Emails** switch on their **Preferences** page. It reads **Subscribed** when on and **Unsubscribed** when off.
+- It's **off by default**. Checking out doesn't sign anyone up.
+- The switch only works once the customer has a customer record. A brand-new account with no record yet sees "Place your first order to enable email preferences."
+- Clicking the unsubscribe link at the bottom of one of your emails turns it off. So does anonymizing the customer.
+
+Customers who are opted in show a **Subscribed** badge on the list, and they're the ones who receive broadcasts from **Email Marketing**. That feature is off by default; turn it on in **Features**. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## Privacy Requests
+
+Shoppers can handle two privacy tasks themselves, under **Data & Privacy** on their Preferences page:
+
+- **Download my data** gives them a copy of their personal data.
+- **Request account deletion** flags their record for you.
+
+When a customer asks to be deleted, a **Deletion Requested** alert appears on their detail page, and a **Deletion requested** badge shows next to their name on the list. You can find all of them with **Filters → Privacy → Deletion requested**.
+
+### Anonymize a customer
+
+To act on a request, open the customer and use the **Privacy** card.
+
+1. Click **Anonymize customer**.
+2. In the "Anonymize this customer?" box, read the warning and click **Anonymize**.
+
+Anonymizing scrubs the customer's name, email, phone and saved addresses and removes their personal details from their reviews and testimonials. Their orders stay in your records, anonymized, so your sales and tax history remain complete. Afterwards the card says "Anonymized on" followed by the date.
+
+> **Anonymizing can't be undone.** There's no way to bring back the customer's details once you confirm, so check that you've picked the right person.
+
+There is no **Delete** button. Anonymizing is how you remove someone's personal information while keeping your order history intact.
+
+---
+
+## Exporting Your Customers
+
+There's no export button on the Customers page, and you can't tag customers. Your customer information is included in **Settings → Data & Export**, which downloads your whole site as one ZIP file. Customers appear there as spreadsheets. See [Data & Export](/docs/data-and-export).
+
+---
+
+## What You Can't Do
+
+- **Edit names, emails, phone numbers or addresses.** Customers update these themselves.
+- **Change someone's marketing choice.** Only the customer can.
+- **Delete a customer.** Use **Anonymize customer** instead.
+- **Merge duplicates.** If the same person used two email addresses, they stay as two customers.
+- **Create a customer by hand.** Start an order or an invoice instead and the record is created for you.
 
 ---

@@ -1,360 +1,554 @@
 ---
 title: Invoices
-description: Bill customers manually, record payments, send reminders, and track what is owed.
+description: Bill customers directly, record the payments they send you, and optionally send deposit and final invoices through QuickBooks Online.
 ---
 
 ## Overview
 
-Invoices let you bill customers manually for services, wholesale orders, or any custom arrangement outside your normal checkout flow. You can track payment methods (bank transfer, PayPal, Venmo, Cash App, Zelle, or cash/check), set due dates, record partial and full payments, send reminders, and integrate with QuickBooks. All invoice data is stored securely and visible only to authorized users.
+Invoices let you bill a customer for anything outside your normal checkout: a custom job, a wholesale order, a service you quoted by hand. You build the invoice, send it, and your customer opens a secure page that shows what they owe and how to pay you: bank transfer, PayPal, Venmo, Cash App, Zelle, cash or check, or any other way you list. When the money arrives, you record the payment and SimplePress keeps the balance, status and history up to date.
 
-> **Feature flag:** Invoices is off by default and owner-toggleable. Enabling it adds an Invoices section to your admin nav. Requires no other features as a dependency.
+There are two ways to invoice, and you can use either or both:
+
+| | **Invoices** | **QuickBooks Invoicing** |
+| --- | --- | --- |
+| **Best for** | Billing anyone, for anything | Quote-based businesses that take a deposit up front and bill the rest after the job |
+| **Who sends it** | SimplePress, from your store | QuickBooks Online, from your QuickBooks company |
+| **How customers pay** | With the methods you list (bank transfer, PayPal, Venmo and so on). There's no online card payment on these invoices. | Through QuickBooks' own invoice email |
+| **Who records payments** | You, by hand | QuickBooks; the status syncs back to SimplePress |
+
+Both kinds appear together on your **Invoices** page. Most of this page covers SimplePress invoices. [QuickBooks invoicing](#quickbooks-invoicing) has its own section near the end.
 
 ---
 
-## Turning Invoices On
+## Turning invoices on
 
-Go to **Settings → Features** and toggle **Invoices** to the on position. The change takes effect immediately. An **Invoices** section appears in your admin sidebar.
+**Invoices** is off until you switch it on:
 
-If you want to prepopulate your demo data with invoices enabled, contact support — or enable it manually once your store is live.
+1. Go to **Settings → Features**.
+2. Turn on **Invoices**. If you want to invoice through QuickBooks, turn on **QuickBooks Invoicing** too.
+
+**Invoices** then appears in your admin sidebar. It shows up when either feature is on. Only Owners and Managers can use invoices (see [Team & Roles](/docs/team-and-roles)).
+
+### If you turn Invoices off later
+
+Nothing is deleted. Your invoices stay listed, with an **Invoices are turned off** banner at the top of the Invoices page. You can still:
+
+- view every invoice;
+- record payments, and delete a payment you recorded by mistake;
+- cancel an invoice.
+
+Creating, editing, sending, sending reminders and deleting drafts are paused until you turn Invoices back on.
 
 ---
 
-## Invoice Settings
+## Set up your invoices
 
-All invoice defaults and payment method details are configured in one place.
+Before your first invoice, go to **Settings → Invoices** (`/admin/settings/invoices`). Everything here prefills new invoices, and you can change any of it on a single invoice while you build it. Click **Save changes** when you're done.
 
-Go to **Settings → Invoices** to access:
+![Settings → Invoices, with the Numbering, Defaults, Reminders and Payment methods cards](/images/invoices/invoice-settings.png)
+
+*Invoice settings. The "Next invoice" line under Numbering previews the number your next invoice will get.*
 
 ### Numbering
 
-| Setting             | Purpose                                                                                           |
-| ------------------- | ------------------------------------------------------------------------------------------------- |
-| **Number Prefix**   | Text prepended to the number (e.g., "INV-" makes invoice 1 display as "INV-1"). Optional.       |
-| **Number Padding**  | How many digits to use (e.g., padding of 4 makes invoice 1 display as "INV-0001"). Default is 0. |
-| **Starting Number** | The first invoice number to use (e.g., 1001). Subsequent invoices increment from here.           |
+| Setting | What it does | Default |
+| --- | --- | --- |
+| **Prefix** | Shown before every invoice number, like the `INV-` in `INV-0007`. | `INV-` |
+| **Zero-padding** | How many digits the number shows. With 4, invoice 7 reads `0007`. Anything from 1 to 8. | 4 |
+| **Starting number** | A floor for new invoices, not a counter. Your next invoice gets this number or one more than your highest existing number, whichever is bigger. | 1 |
 
-**Example:** Prefix "INV-", padding 4, starting 1000 → first invoice is "INV-1000", next is "INV-1001".
-
-### Payment Methods
-
-You can add one or more payment methods. Each method stores payment details (encrypted) that appear only on the secure invoice page your customers view — they are never emailed.
-
-To add a payment method, click **Add Payment Method** and select a type:
-
-| Type           | Fields                                                 | Notes                                          |
-| -------------- | ------------------------------------------------------ | ---------------------------------------------- |
-| Bank Account   | Account holder name, account number, routing number    | Displayed masked to protect sensitive details  |
-| PayPal         | Email address                                          | Customers can click to open PayPal             |
-| Venmo          | Venmo handle                                           | Customers can click to open Venmo              |
-| Cash App       | Cash App username                                      | Customers can click to open Cash App           |
-| Zelle          | Email address or phone                                 | Instructions displayed; no direct link         |
-| Cash or Check  | Free-text instructions (e.g., "Pay to: ABC Corp") | Displayed as-is; no account details stored     |
-
-Each payment method can be toggled on or off without deleting it, so you can temporarily disable one and re-enable it later.
+Below the fields, **Next invoice:** shows exactly what your next number will look like (for example, **INV-0001**). Changing these never renumbers invoices you've already created.
 
 ### Defaults
 
-| Setting              | Notes                                                                            |
-| -------------------- | -------------------------------------------------------------------------------- |
-| **Default Due Terms** | Number of days from invoice send date until due (e.g., 30, 15, 60). Can be 0.   |
-| **Default Tax Rate**  | Tax percentage applied to all line items by default (0–100%). Overridable per invoice. |
-| **Default Notes**     | Text shown on every invoice (e.g., "Thank you for your business").               |
-| **Default Terms**     | Additional text below notes (e.g., "Late payment charges may apply").            |
-
-All defaults can be overridden when you create or edit an individual invoice.
+| Setting | What it does |
+| --- | --- |
+| **Default due terms** | When new invoices are due: **Due on receipt**, **Net 7**, **Net 15**, **Net 30** or **Net 60**. Starts at **Net 30**. |
+| **Default tax rate** | A tax percentage to apply to new invoices. Starts at 0. |
+| **Default notes** | Text shown to the customer on every new invoice, like a thank-you. |
+| **Default terms** | Optional fine print, such as late fees or your refund policy. |
 
 ### Reminders
 
-| Setting                        | Behavior                                                                                                    |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| **Overdue Alerts** (toggle)    | When on: the day after an invoice becomes overdue, you receive an email alert listing which invoices are late. You are the only recipient. |
-| **Weekly Summary** (toggle)    | When on: every Monday morning (in your business time zone), you receive a summary showing outstanding and overdue invoice totals and recent collections. |
+Customers never get automatic reminder emails. The only reminders they receive are the ones you send by hand from an invoice. These two switches are for emails to **you**, and both start on:
 
-Customers never receive automatic reminder emails. You can manually send a reminder at most once per 24 hours (see [Reminders](#reminders) below).
+| Setting | What you get |
+| --- | --- |
+| **Email me when an invoice becomes past due** | An email shortly after one of your invoices passes its due date, listing what's past due. |
+| **Weekly summary every Monday morning** | Your outstanding, overdue and collected totals for the past week, sent on Monday morning in your business's time zone. It covers SimplePress invoices only, not QuickBooks invoices. |
+
+### Payment methods
+
+Payment methods are how customers pay you: the account details and instructions that appear on the invoice. Add the ones you accept:
+
+1. Under **Payment methods**, click **Add payment method**.
+2. Pick a **Type** and fill in the details.
+3. Click **Save**.
+
+![The Add payment method dialog with the Type dropdown open, listing Bank transfer, PayPal, Venmo, Cash App, Zelle, Cash or check and Other](/images/invoices/payment-method-dialog.png)
+
+*Pick a type, and the fields below change to match.*
+
+Every type also has an optional **Label**. You see it in your list, and emails use it as the method's name. Emails never include the details themselves.
+
+| Type | Fields | Good to know |
+| --- | --- | --- |
+| **Bank transfer** | Account holder name, Bank name, Routing number, Account number, Account type (Checking or Savings), SWIFT / BIC, Additional instructions | Account numbers are masked in your admin list. On the customer's invoice page they're shown in full, with copy buttons. |
+| **PayPal** | PayPal.Me username or link, and/or PayPal email | Fill in at least one. The **Pay with PayPal** button only appears when you give a PayPal.Me username. |
+| **Venmo** | Venmo username | Filled in for you from your donation settings if you've set a Venmo handle there. |
+| **Cash App** | $Cashtag | Filled in for you from your donation settings if you've set a Cashtag there. |
+| **Zelle** | Zelle email or phone, Recipient name | The recipient name is the name customers see in their banking app. |
+| **Cash or check** | Payable to, Mailing address, Additional instructions | |
+| **Other** | Title (for example, "Wire transfer"), Instructions | For anything else you accept. |
+
+You can save up to 10 payment methods. Use the arrows to move a method up or down, the pencil to edit it, and the bin to remove it. The order here is the order customers see on the invoice. There's no on/off switch; you choose which methods to offer on each invoice while you build it.
+
+<Callout type="info" title="Your account details stay private">
+  Payment details are stored encrypted. The full details only appear on the secure invoice page your customer opens, never in emails.
+</Callout>
 
 ---
 
-## Creating an Invoice
+## Create an invoice
 
-Click **Invoices → New Invoice** to create a draft.
+<video src="/videos/invoices/create-and-send-invoice.webm" poster="/videos/invoices/create-and-send-invoice-poster.png" controls muted playsInline className="rounded-lg border" />
 
-### Step 1: Customer
+*Creating an invoice: find the customer, add an item from the catalog, save the draft, mark it as sent and copy the link.*
 
-Select an existing customer from your list by name or email. If the customer doesn't exist yet, enter a name and email to create a new customer record.
+You can start a new invoice from any of these places:
 
-### Step 2: Line Items
+- **Invoices → New invoice** (`/admin/invoices/new`);
+- a customer's page, with the **New invoice** button on their **Invoices** card (see [Customers](/docs/customers));
+- the command palette (`Cmd + K` / `Ctrl + K`), by choosing **New invoice**.
 
-Add one or more line items:
+The header shows the number the invoice will get, such as **INV-0007 (assigned on save)**. The number is only taken once you save.
 
-**Option A: Add from Catalog**
-Click **Add from Catalog** to search and add products or services. Prices auto-populate from your catalog. You can adjust the quantity for each item.
+![The New invoice page, with Customer and Line items on the left and a live preview of the invoice on the right](/images/invoices/invoice-builder.png)
 
-**Option B: Custom Line Item**
-Click **Add Custom Item** to enter a custom description, quantity, and unit price. Useful for services, custom fees, or items not in your catalog.
+*As you fill in the form, the preview on the right shows exactly what your customer will see.*
 
-Each line item shows its total (quantity × unit price). Totals update automatically as you add or edit items.
+### Customer
 
-### Step 3: Adjustments
+Click **Find existing customer** and search by name or email, or type a **Customer name**, **Email** and (optionally) **Phone**. Click **Add billing address** if you want an address on the invoice (Street address, Apt/suite, City, State, ZIP).
 
-**Discount** (optional)
-- Select a discount type: Dollar Amount or Percentage.
-- Enter the discount value.
-- The discount applies to the subtotal before tax.
+SimplePress links the invoice to the customer with that email, or creates a new customer record if there isn't one yet. While the invoice is a draft, you can still change who it's for.
 
-**Tax** (optional)
-- Set a tax rate for this invoice. Defaults to your default tax rate.
-- Tax applies to the subtotal minus discount.
-- Leave at 0% if no tax applies.
+### Line items
 
-### Step 4: Due Date & Payment Methods
+A new invoice starts with one blank line. Fill in a **Description**, **Qty** and **Unit price**, and the **Amount** works itself out.
 
-**Due Terms**
-- Select how many days from send date the invoice is due (e.g., Net 30). Defaults to your default due terms.
-- You can also select "Upon Receipt" (due immediately).
+- **Add line** adds another blank line.
+- **Add from catalog** lets you search your products, variants and services and add them with their name and price filled in.
+- Use the arrows on a line to reorder it, and the bin to delete it.
 
-**Payment Methods to Show**
-- Check which payment methods this customer should see on the invoice. At least one must be selected.
-- Only payment methods you've configured in Settings appear here.
+Quantities can have up to three decimal places (handy for hours, like 1.5). If you only use catalog items, delete the blank starting line. Otherwise saving stops with "Description is required".
 
-### Step 5: Notes & Terms
+### Discount & tax
 
-**Notes** (optional)
-- Free-text note shown on the invoice (e.g., "Thank you for your business"). Defaults to your default notes.
+Under **Discount**, choose **No discount**, **Amount ($)** or **Percent (%)**, then enter the discount. Set the **Tax rate** as a percentage. Tax is worked out after the discount.
 
-**Terms** (optional)
-- Additional terms or conditions (e.g., "Late fees apply after 30 days"). Defaults to your default terms.
+### Due date
+
+Choose **Due on receipt**, **Net 7**, **Net 15**, **Net 30**, **Net 60** or **Custom date**. Preset terms are counted from the day you send the invoice, not the day you create it.
+
+### Payment methods
+
+Each payment method you saved in settings appears with a checkbox, and all of them start ticked. Untick any you don't want to offer on this invoice. You can untick every method, but then the invoice gives your customer no instructions for paying you, so we recommend leaving at least one ticked.
+
+### Notes & terms
+
+**Notes** and **Terms** start with your defaults from settings. Edit them for this invoice if you like.
 
 ### Saving
 
-When you click **Save**, the invoice is created as a **Draft**. A number is assigned immediately based on your numbering settings. Drafts are not visible to customers and can be edited at any time.
+Click **Save draft**. Drafts are only visible to you, and you can keep editing them until you send.
 
-**Photo:** New Invoice form showing customer selector, line items, discount/tax fields, payment method checkboxes, and notes.
+On a wide screen, the live preview sits next to the form. On a narrower screen, switch between the **Edit** and **Preview** tabs at the top.
 
----
-
-## Sending an Invoice
-
-A draft invoice is only visible to you. To make it visible to the customer, you must send it.
-
-Open a draft invoice and click **Send**. You'll see two options:
-
-**Option 1: Email**
-- An email is sent to the customer with a secure link to view and pay the invoice.
-- A message field lets you add a custom note (optional).
-- After sending, the invoice status changes to **Sent**.
-
-**Option 2: Mark as Sent (without email)**
-- The invoice changes to **Sent** status and gets a secure link, but no email is sent.
-- Use this if you sent the invoice out-of-band (e.g., printed or delivered in person).
-
-### What the Customer Receives
-
-If you choose email, the customer receives a message with:
-- A personalized greeting
-- A secure link to the invoice (valid for one year)
-- Any custom message you included
-- No login required to view the invoice
-
-The secure page shows the full invoice, all payment methods, how-to-pay instructions, and (if payment is outstanding) a copy button next to each payment method for easy reference.
-
-### After Sending
-
-Once an invoice is sent, **it cannot be edited** — the status becomes **Sent** or **Partially Paid** or **Paid**, depending on payments received. If you need to make changes:
-1. Cancel the sent invoice (optional reason shown to customer, optional email).
-2. Create a new invoice with the corrected details.
+**Limits:** an invoice can have up to 100 lines, each line's unit price can be up to $1,000,000, and the whole invoice can total up to $10,000,000.
 
 ---
 
-## Invoice List
+## Send it
 
-Go to **Invoices** to see all invoices.
+Open the draft and click **Send**. The **Send INV-0001** dialog gives you two choices:
 
-At the top, three summary cards show:
+| Option | What happens |
+| --- | --- |
+| **Email to** your customer's email | SimplePress emails the invoice with a link to view it. Add a **Message (optional)** to show above the invoice summary. Click **Send invoice**. |
+| **Mark as sent without emailing** | No email goes out. Use this when you'll share the link yourself, by text for example. Click **Mark as sent**. |
 
-- **Outstanding** — total amount awaiting payment and number of invoices
-- **Overdue** — total past-due amount and count of overdue invoices
-- **Collected (Last 7 Days)** — revenue collected in the past week
+![The Send INV-0001 dialog, with "Email to" selected, a Message box, and the total and due date summary](/images/invoices/send-dialog.png)
 
-Below are tabs and filters:
+*The dialog shows the total and the due date your terms work out to.*
 
-**Status Tabs**
-- **All** — every invoice in any status
-- **Outstanding** — drafts and sent invoices with a balance due
-- **Overdue** — sent invoices past their due date with a balance
+Once it's sent, the invoice can't be edited. If something's wrong, cancel it and create a new one.
 
-**Filters**
-- **Search** — find by invoice number, customer name, or email
-- **Source** — show Invoices (native) or QuickBooks invoices, or both
+You can't send an invoice that totals $0, or one whose custom due date has already passed.
 
-**Sort**
-- Newest, Oldest, Due Date Ascending, Amount (Descending or Ascending)
+### Sharing the link yourself
 
-**Columns**
-| Column       | Shows                                   |
-| ------------ | --------------------------------------- |
-| Number       | Invoice number and status badge         |
-| Customer     | Customer name and email                 |
-| Total        | Invoice total amount                    |
-| Balance Due  | Remaining balance or "Paid"             |
-| Due Date     | When payment is due (or "Overdue")      |
-| Created      | Date the invoice was created            |
-
-**Photo:** Invoice list showing summary cards, status tabs, filters, and a table with several invoices in different states (draft, sent, partially paid, paid, overdue).
+On a sent invoice, click **Copy link** to copy the link to the customer's secure invoice page. Each copied link works for 365 days from when you copied it. If a customer opens an older, expired link, they see "This invoice link has expired" and are asked to contact you for a new one. Copy a fresh link and send it to them.
 
 ---
 
-## Recording a Payment
+## What your customer sees
 
-When a customer pays (via bank transfer, check, cash, or any method), you record it in the invoice.
+The link opens a page showing your logo and business details, who the invoice is for, the line items and totals, and the balance due.
 
-### Option 1: From the Invoice Detail Page
+![The customer's invoice page, with line items, totals, How to pay cards for bank transfer and Zelle, and a Payments received table](/images/invoices/customer-invoice-page.png)
 
-Open the invoice and scroll to **Payments**. Click **Record Payment**.
+*The secure invoice page on a computer. Each payment detail has a copy button.*
 
-### Option 2: From the Invoice List
+- A status pill reads **Awaiting payment**, **Partially paid**, **Overdue**, **Paid ✓** or **Cancelled**.
+- **How to pay** lists the payment methods on the invoice, with copy buttons. Each one shows the invoice number as the **Reference**, so you can match payments up.
+- **Payments received** lists the payments you've recorded.
+- Once the invoice is paid, the payment instructions are replaced by "Paid in full — thank you." If you cancel it, the page says "This invoice was cancelled."
+- **Print / Save as PDF** at the top lets your customer print it or save a copy.
 
-Use the **Row Actions** menu (three dots) on any invoice → **Record Payment**.
+Customers don't need an account to open the link. They can't pay by card on this page; they pay you with one of the methods you listed, and you record the payment.
 
-### Payment Details
+![The customer's invoice page on a phone, with the payment methods stacked](/images/invoices/customer-invoice-page-mobile.png)
 
-| Field                  | Notes                                                                                     |
-| ---------------------- | ----------------------------------------------------------------------------------------- |
-| **Amount Paid**        | Dollar amount received (can be partial)                                                   |
-| **Date Paid**          | The date the payment was received (not recorded)                                          |
-| **Payment Method**     | Select the method: Bank Transfer, Check, Cash, PayPal, Venmo, Cash App, Zelle, or Other |
-| **Reference**          | Optional: check number, transaction ID, etc.                                             |
-| **Note**               | Optional: internal note (e.g., "Received via wire")                                      |
-| **Email Receipt**      | Check to send the customer a payment receipt (optional)                                   |
+*The same invoice on a phone.*
 
-Click **Save**. The payment is recorded and the invoice balance updates.
+### In their account
 
-### Partial Payments
+If a customer is signed in to your store, they can also find their invoices under **Account → Invoices** (`/account/invoices`). Each invoice shows its number and status, "Issued … · Due …", the total, how much is due (or "Paid in full"), and a **View invoice →** link to the secure page. Drafts never appear here. QuickBooks invoices don't appear here either; QuickBooks emails those to your customer.
 
-You can record multiple payments on a single invoice. Each payment updates the balance. Once the balance reaches zero, the invoice status becomes **Paid**.
+![The Invoices tab of a customer's account, listing two invoices with their status, dates, totals and a View invoice link](/images/invoices/account-invoices.png)
 
-### Payment Receipts
+*Invoices in the customer's account on a computer.*
 
-If you check **Email Receipt**, the customer receives a confirmation showing:
-- Payment amount
-- Date received
-- Method used
-- Remaining balance (if partial)
+![The Invoices tab of a customer's account on a phone](/images/invoices/account-invoices-mobile.png)
+
+*And on a phone.*
 
 ---
 
-## Sending Reminders
+## Record payments
 
-To send a customer a payment reminder:
+When a customer pays you, open the invoice and click **Record payment**.
 
-Open the invoice and click **Send Reminder**. A message is sent with:
-- A gentle reminder that payment is outstanding
-- The current balance due and due date
-- A link back to the secure invoice page
-- Any custom message you include (optional)
+![The Record a payment dialog, with Amount, Date, Method, Reference, Note, and an Email receipt to customer checkbox](/images/invoices/record-payment-dialog.png)
 
-**Cooldown:** You can send a reminder at most once per 24 hours per invoice to prevent spamming the customer.
+*The amount starts at the full balance due.*
 
-If sending a reminder fails (e.g., email delivery error), you'll see a message to try again later.
+| Field | Notes |
+| --- | --- |
+| **Amount** | Starts at the balance due. It can be less (a partial payment) but not more. |
+| **Date** | The day you received the money. |
+| **Method** | Bank transfer, PayPal, Venmo, Cash App, Zelle, Cash or check, Other, or Card. |
+| **Reference (optional)** | A check number or transaction ID. |
+| **Note (optional)** | Anything you want to remember about this payment. |
+| **Email receipt to customer** | Emails the customer a receipt. Ticked for you if the invoice was emailed, unticked if you marked it as sent without emailing. |
 
----
+Click **Record payment**. If a balance is left, the invoice becomes **Partially paid**. When the balance reaches zero, it becomes **Paid**. You can record as many payments as you need.
 
-## Cancelling an Invoice
-
-To cancel an invoice (e.g., if it was sent in error or the deal fell through):
-
-Open the invoice and click **More Options** (three dots) → **Cancel**.
-
-You'll see:
-
-| Option                   | Notes                                                           |
-| ------------------------ | --------------------------------------------------------------- |
-| **Reason** (optional)    | Free text (e.g., "Project cancelled"). Shown to the customer in the cancellation email. |
-| **Notify Customer** (optional) | Check to email the customer a cancellation notice.        |
-
-Once cancelled, the invoice status becomes **Cancelled** and no further payments can be recorded. The invoice remains visible in your list but is grayed out.
+SimplePress doesn't move money, so there's nothing to refund. If you recorded a payment by mistake, click the delete icon next to it in the **Payments** card and confirm **Delete this payment?** The balance goes back up.
 
 ---
 
-## Printing & Saving as PDF
+## The invoice page
 
-From the invoice detail page, click **Print** or use your browser's print-to-PDF feature. This opens a printer-friendly view of the invoice with all details, line items, totals, and payment instructions.
+Click any invoice to open it. The bar at the top shows only the actions that fit the invoice's status:
 
----
+| Button | When you see it |
+| --- | --- |
+| **Edit** | Drafts |
+| **Send** | Drafts |
+| **Delete draft** | Drafts. Drafts are deleted for good; they were never sent, so nothing needs cancelling. |
+| **Record payment** | Sent and partially paid invoices with a balance left |
+| **Send reminder** | Sent and partially paid invoices |
+| **Cancel invoice** | Sent and partially paid invoices |
+| **Print** | Any invoice except a draft |
+| **Copy link** | Any invoice except a draft |
 
-## What Customers See
+![An invoice's page, with the action bar, the invoice itself, and Payments, Details and Activity cards on the right](/images/invoices/invoice-detail.png)
 
-### On the Secure Invoice Page
+*A partially paid invoice, with its payment, details and activity on the right.*
 
-When a customer follows the link from an email or you share the link directly (no login required), they see:
+On the right:
 
-- Full invoice details (line items, totals, dates)
-- How-to-pay instructions for each enabled payment method
-- Copy buttons next to payment details (account number, email, etc.) for easy reference
-- A note showing how much is paid and how much is outstanding (if applicable)
-- Paid payment history if they've already made payments
+- **Payments** lists each payment's date, method, amount, reference, note and whether a receipt went out, with a delete icon.
+- **Details** shows how the invoice was sent (**Sent via**), when the customer **First viewed** and **Last viewed** it, and how many **Reminders sent**.
+- **Activity** is the invoice's history: Created, Edited, Emailed to customer, Marked as sent, Email failed to send, Viewed by customer, Reminder sent, Payment recorded, Payment deleted, Receipt sent, Cancelled, and Overdue alert sent to you.
 
-The page is read-only — customers cannot edit or delete anything. Invoices remain accessible for one year after send date.
+### Send a reminder
 
-### In Their Account
+Click **Send reminder**, add a **Message (optional)**, and send. Your customer gets a reminder email with a link back to the invoice.
 
-If a customer is signed in to their account on your storefront, they see an **Invoices** tab showing:
-- A list of all invoices sent to them
-- Status, total, balance due, and due date for each
-- Ability to click through to the full secure page
+You can send one reminder every 24 hours per invoice. Until then the button is greyed out, and hovering over it shows "You can send another reminder after …".
 
-Invoices are separate from Orders and appear in their own section.
+### Cancel an invoice
 
----
+Click **Cancel invoice**. In the **Cancel this invoice?** dialog:
 
-## Disabling Invoices
+- add a **Reason (shown to the customer)** if you like;
+- leave **Email the customer that this invoice was cancelled** ticked to let them know, or untick it.
 
-If you toggle Invoices off in **Settings → Features**:
+Click **Cancel invoice** to confirm, or **Keep invoice** to back out. Any payments you'd already recorded stay on the invoice. A cancelled invoice can't be reopened.
 
-- The Invoices section disappears from your admin sidebar.
-- **You can still:**
-  - View existing invoices
-  - Record payments on invoices
-  - Cancel invoices
-  - View payments and payment history
-- **You cannot:**
-  - Create new invoices
-  - Edit draft invoices
-  - Send invoices (drafts remain as drafts)
-  - Send reminders
-  - Change invoice settings
+### Print
 
-All invoice data is preserved. Re-enabling Invoices restores full functionality.
+Click **Print** to open a printer-friendly version, then use its **Print** button (or **Back to Invoice** to return). To get a PDF, choose "Save as PDF" in your browser's print window. SimplePress doesn't create a PDF file itself.
 
 ---
 
-## QuickBooks Integration
+## The Invoices list
 
-If you use QuickBooks Online, your invoices appear in the same list as your native invoices, with a **Source** filter to show one or the other. You cannot edit or send QuickBooks invoices from SimplePress — manage those in QuickBooks itself.
+**Invoices** in the sidebar (`/admin/invoices`) lists every invoice, newest first.
 
-Native invoices and QuickBooks invoices have separate numbering and settings. The Invoices settings you configure here apply only to native invoices.
+![The Invoices page, with Outstanding, Overdue and Paid last 30 days summary cards, status tabs, and a table of invoices](/images/invoices/invoices-list.png)
+
+*The Invoices list. SimplePress and QuickBooks invoices sit side by side.*
+
+At the top, three summary cards:
+
+- **Outstanding**: what you're still owed, and how many invoices that is. Click it to see them.
+- **Overdue**: what's past due. Click it to see those invoices.
+- **Paid, last 30 days**: payments received in the last 30 days.
+
+The tabs filter by status: **All**, **Draft**, **Outstanding**, **Overdue**, **Paid** and **Cancelled**. Outstanding covers sent and partially paid invoices; a sent invoice shows as **Outstanding** in the list.
+
+Use the search box to find an invoice by number, customer name or email. **Filters** lets you change the **Sort** (Newest first, Oldest first, Due soonest, Highest amount, Lowest amount), and, once you have QuickBooks invoices, the **Source** (All sources, SimplePress or QuickBooks).
+
+The columns are **Invoice**, **Customer**, **Status**, **Due**, **Total** and **Balance**. The **⋮** menu on a row has **View**, plus **Edit** and **Delete draft** on drafts. To record a payment, send a reminder or cancel, open the invoice.
+
+### Invoice statuses
+
+| Status | What it means |
+| --- | --- |
+| **Draft** | Saved but not sent. Only you can see it, and you can still edit or delete it. |
+| **Outstanding** | Sent and waiting for payment. |
+| **Partially paid** | Some of the balance has been paid. |
+| **Overdue** | Past its due date with a balance left. This is worked out from the due date in your business's time zone. |
+| **Paid** | Paid in full. |
+| **Cancelled** | Cancelled by you. No more payments can be recorded. |
 
 ---
 
-## Invoice Statuses
+## Emails
 
-| Status          | Meaning                                                                   |
-| --------------- | ------------------------------------------------------------------------- |
-| Draft           | Created but not sent. Visible only to you. Can be edited or deleted.      |
-| Sent            | Sent to customer. Cannot be edited. Awaiting payment.                     |
-| Partially Paid  | Received payment but balance remains due. Still awaiting full payment.    |
-| Paid            | Full payment received. Invoice complete.                                  |
-| Overdue         | Due date has passed and balance remains (used for filtering, not a status label). |
-| Cancelled       | Cancelled by you. No further payments recorded. Visible in history.       |
+**To your customer:**
+
+| Email | When it's sent |
+| --- | --- |
+| **Invoice Sent** | When you send an invoice by email. The subject starts as "Invoice INV-0001 from (your business)". |
+| **Invoice Reminder** | When you click **Send reminder**. |
+| Payment receipt ("Payment received for invoice INV-0001") | When you record a payment with **Email receipt to customer** ticked. |
+| Cancellation ("Invoice INV-0001 has been cancelled") | When you cancel with the email option ticked. |
+
+You can change the subject lines of **Invoice Sent** and **Invoice Reminder** under **Notification Emails**. See [Email Previews](/docs/email-preview).
+
+**To you** (switch these on or off in **Settings → Invoices**):
+
+| Email | When it's sent |
+| --- | --- |
+| Past-due alert ("1 invoice past due", "3 invoices past due") | Shortly after an invoice passes its due date. Each invoice triggers it once. |
+| **Your weekly invoice summary** | Monday from 8am in your business's time zone, with your **Outstanding**, **Overdue** and **Collected (7 days)** totals. If there's nothing to report that week, no email is sent. |
+
+---
+
+## QuickBooks invoicing
+
+If you run a quote-based business, QuickBooks invoicing lets you collect a deposit when a customer accepts your quote, then bill the rest after the job, all from SimplePress. The invoices are created in your own QuickBooks Online company and emailed by QuickBooks. Customers pay through QuickBooks' invoice email, so money never passes through SimplePress.
+
+### Connect QuickBooks
+
+1. Turn on **QuickBooks Invoicing** in **Settings → Features**.
+2. Go to **Settings → Integrations** and find the **QuickBooks Online** card. It only appears once the feature is on.
+3. Click **Connect QuickBooks**, sign in with your Intuit account, and choose your company. You come back to SimplePress when it's done.
+
+Only Owners and Managers can connect QuickBooks.
+
+![The QuickBooks Online card in Settings → Integrations, showing Connected, the company name and ID, Open QuickBooks and Disconnect buttons, and Deposit defaults](/images/invoices/qbo-integrations-card.png)
+
+*A connected QuickBooks company, with the deposit defaults below. (This screenshot is from a test company, which is why it says Sandbox.)*
+
+The card shows one of these states:
+
+| State | What it means |
+| --- | --- |
+| **Not configured** | QuickBooks isn't available for your store yet. [Contact us](mailto:help@generativejustice.org) and we'll set it up. |
+| **Not connected** | Click **Connect QuickBooks**. |
+| **Needs reconnect** | QuickBooks no longer accepts the saved connection. Intuit connections expire after about 100 days, or when access is revoked in QuickBooks. Click **Reconnect**. You can't send invoices until you do. |
+| **Connected** | Shows your **Company**, **Company ID**, and "Connected since … · Last synced …", with **Open QuickBooks** and **Disconnect** buttons. |
+
+**Disconnecting** asks you to confirm. Your existing invoices stay in QuickBooks and in SimplePress; you just can't send new ones until you reconnect. Your deposit settings are kept. If you reconnect to a **different** QuickBooks company, invoices from the old company are marked "Belongs to a previous QuickBooks company" and stop syncing.
+
+### Deposit defaults
+
+Below the connection, **Deposit defaults** prefill the deposit invoice on each quote. You can always change the amount on a single invoice.
+
+| Setting | What it does | Default |
+| --- | --- | --- |
+| **Deposit amount** | **Percent of quote** or **Fixed amount**. | Percent of quote |
+| **Deposit percent** / **Deposit amount** | The percentage (1 to 100) or the dollar amount. | 25% |
+| **Invoice due in (days)** | How many days customers get to pay a new QuickBooks invoice, from 0 to 90. | 7 days |
+
+Click **Save**.
+
+### Deposit and final invoices from a quote
+
+This works with the **Quote Calculator** feature. When a lead comes in, open it from **Quotes** (`/admin/quotes`). On the lead's page:
+
+1. In the **Final quote** card, enter the **Amount** you're charging and click **Save amount**. QuickBooks invoices are worked out from this number.
+2. In the **QuickBooks invoices** card, click **Send deposit invoice**.
+
+![A lead's Final quote card with a $2,500 amount, and the QuickBooks invoices card with Send deposit invoice and Send final invoice buttons](/images/invoices/qbo-lead-card-before.png)
+
+*Before any invoices: the summary line shows the quote, deposits invoiced so far and what's left.*
+
+The **New invoice** dialog opens with the deposit ready to go. Pick **25%**, **50%**, **75%** or **Custom** (each preset shows the dollar amount), and the dialog shows what's left after this deposit.
+
+![The New invoice dialog for a deposit, with 25%, 50%, 75% and Custom presets, Kind set to Deposit, and the customer's details filled in](/images/invoices/qbo-deposit-dialog.png)
+
+*A 25% deposit on a $2,500 quote. "Email the invoice from QuickBooks now" is unticked here, so the button reads Create invoice.*
+
+| Field | Notes |
+| --- | --- |
+| **Kind** | **Deposit**, **Final** or **Custom**. Locked when you open the dialog from a lead. |
+| **Amount** | The amount to bill. |
+| **Customer name**, **Customer email**, **Phone (optional)** | Filled in from the lead. |
+| **Due date** | Starts at your **Invoice due in (days)** default. |
+| **Billing address (optional)** | Click to expand. |
+| **Description (optional)** | The line on the invoice. Leave it empty to use "Deposit — (your business)", "Final balance — (your business)" or "Services — (your business)". |
+| **Memo to customer (optional)** | A message shown on the QuickBooks invoice. |
+| **Email the invoice from QuickBooks now** | Ticked by default, and the button reads **Send invoice**. Untick it to create the invoice in QuickBooks without emailing it yet; the button then reads **Create invoice**, and you can send it later. |
+
+Need another deposit? The button becomes **Send another deposit**. Deposits can't add up to more than the final quote.
+
+After the job, click **Send final invoice**. The dialog shows a breakdown: your **Final quote**, minus **Deposits invoiced**, equals **Remaining**, and the amount starts at what's remaining.
+
+![The New invoice dialog for a final invoice, showing Final quote $2,500, minus $625 in deposits invoiced, equals $1,875 remaining](/images/invoices/qbo-final-dialog.png)
+
+*The final invoice subtracts the deposit, even though the deposit hasn't been paid yet.*
+
+<Callout type="info" title="Unpaid deposits are still subtracted">
+  The final invoice subtracts every deposit you've invoiced, paid or not. An unpaid deposit is still collectible in QuickBooks, so don't add it back into the final. Deposits that failed or were voided aren't subtracted.
+</Callout>
+
+Each lead can have one final invoice. Once it exists, **Send final invoice** is greyed out with the note "Final invoice already sent".
+
+![The QuickBooks invoices card after sending, listing a Final and a Deposit invoice, each with amount, status, date, balance and an Open in QuickBooks link](/images/invoices/qbo-lead-card-after.png)
+
+*After invoicing: each invoice shows its kind, amount, status, date and balance, with an Open in QuickBooks link.*
+
+Click **Refresh statuses** to check QuickBooks for payments right away. If **Send deposit invoice** or **Send final invoice** is greyed out, the hint underneath tells you why: "Set a final quote or estimate first", "Set a final quote first" or "Final invoice already sent".
+
+### Invoices that aren't tied to a quote
+
+You can also send a QuickBooks invoice from the **Invoices** page:
+
+- Click the arrow next to **New invoice** and choose **Issue via QuickBooks**. If QuickBooks Invoicing is your only invoicing feature, **New invoice** opens the QuickBooks dialog directly.
+- Or open the command palette and choose **New QuickBooks invoice**.
+
+![The New invoice split button with its menu open, showing Issue via QuickBooks](/images/invoices/qbo-issue-menu.png)
+
+*Issue via QuickBooks sits under the arrow next to New invoice.*
+
+### QuickBooks invoices in the list
+
+QuickBooks invoices appear in the same **Invoices** list as your SimplePress ones, and count toward the summary cards. Use **Filters → Source** to show only one kind.
+
+![The Invoices list with the Filters menu open on Source (All sources, SimplePress, QuickBooks), and QuickBooks invoices marked with a QuickBooks badge](/images/invoices/invoices-list-quickbooks.png)
+
+*QuickBooks invoices carry a QuickBooks badge and their kind (Deposit or Final).*
+
+Each QuickBooks invoice has a **QuickBooks** badge, its kind underneath, and the invoice number QuickBooks gave it. If it came from a quote, the lead's name appears under the customer. The row's **⋮** menu offers:
+
+| Action | When |
+| --- | --- |
+| **Send** | The invoice was created but not emailed yet. |
+| **Resend** | The invoice is sent or overdue. |
+| **Refresh status** | Any invoice that exists in QuickBooks. |
+| **Retry** | The invoice failed or got stuck (Error or Pending). |
+| **Open in QuickBooks** | Any invoice that exists in QuickBooks. |
+
+**Sync now** at the top of the page checks QuickBooks for every invoice at once.
+
+### Statuses and syncing
+
+| Status | What it means | Which tab |
+| --- | --- | --- |
+| **Pending** | Waiting to be created in QuickBooks. | All only |
+| **Created** | In QuickBooks but not emailed yet. | Outstanding |
+| **Sent** | Emailed by QuickBooks. | Outstanding |
+| **Overdue** | Past its due date with a balance left. | Overdue |
+| **Paid** | Paid in QuickBooks. | Paid |
+| **Voided** | Voided in QuickBooks. | Cancelled |
+| **Error** | QuickBooks couldn't create or update it. The reason is shown in red on the row. | All only |
+
+SimplePress checks QuickBooks for changes automatically, roughly every 15 to 30 minutes. You can check right away with **Sync now**, **Refresh status** on a row, or **Refresh statuses** on a lead. The status, balance, due date and paid date come back from QuickBooks. The amount, memo and customer don't.
+
+To change or void a QuickBooks invoice, do it in QuickBooks. As the note at the bottom of the list says, the status syncs back within about 30 minutes, or straight away with **Sync now**.
+
+The weekly summary email covers SimplePress invoices only, not QuickBooks invoices.
+
+### What happens in QuickBooks
+
+- **Customers:** SimplePress looks for a QuickBooks customer with the same email and uses them, or creates a new customer.
+- **Products and services:** deposits are billed to a "Deposit" product/service; final and custom invoices use "Services". SimplePress creates these in QuickBooks the first time it needs them.
+- **Card and bank payments:** if your QuickBooks plan includes QuickBooks Payments, your customers can pay the invoice by card or bank transfer (ACH) from QuickBooks' email.
+
+### Troubleshooting
+
+| Message | What to do |
+| --- | --- |
+| "Connect QuickBooks in Settings → Integrations first" | You haven't connected a QuickBooks company yet. See [Connect QuickBooks](#connect-quickbooks). |
+| "QuickBooks needs to be reconnected" | The connection expired or was revoked. Go to **Settings → Integrations** and click **Reconnect**. |
+| "QuickBooks invoicing is turned off…" | Turn **QuickBooks Invoicing** back on in **Settings → Features**. Your QuickBooks invoices are kept while it's off, but they don't sync. |
+| "This QuickBooks connection was made in sandbox mode, but this deployment is configured for production…" (or the other way round) | Your store is connected to the wrong kind of QuickBooks company. Reconnect in **Settings → Integrations**. |
+| "Only open invoices (created, sent, or overdue) can be re-sent" | The invoice is already paid or voided, so there's nothing to email. |
+| A red error on an invoice's row | QuickBooks turned the invoice down and says why (for example, a missing or invalid detail). Fix the problem, then choose **Retry** from the row's **⋮** menu. |
+| "Not found in QuickBooks" | The invoice was deleted in QuickBooks. |
 
 ---
 
-## Cannot
+## Common questions
 
-- Edit an invoice after it's sent (cancel and create a new one)
-- Bulk-send or bulk-cancel invoices
-- Refund a payment recorded in an invoice (delete and re-record)
-- Assign an invoice to a different customer after creation
-- Set a future send or payment date (record payments on the actual date received)
-- Merge two invoices into one
+**Can customers pay a SimplePress invoice by card?**
+No. Customers pay you directly with the methods you list on the invoice, and you record the payment. If you want card payments on invoices, [QuickBooks invoicing](#quickbooks-invoicing) with QuickBooks Payments can do that.
+
+**Can I edit an invoice after sending it?**
+No. Only drafts can be edited. Cancel the sent invoice (you can tell the customer why) and create a new one.
+
+**I recorded a payment by mistake. How do I undo it?**
+Open the invoice and delete the payment from the **Payments** card. There's nothing to refund, because SimplePress never handled the money.
+
+**Can I delete a sent invoice?**
+No. Only drafts can be deleted. Cancel a sent invoice instead; it stays in your list for your records.
+
+**Do customers get automatic reminders?**
+No. Customers only get the reminders you send with **Send reminder**. You can get automatic past-due alerts and a weekly summary for yourself in **Settings → Invoices**.
+
+**My customer says their link doesn't work.**
+Links last 365 days from when they were made. Open the invoice, click **Copy link** to make a fresh one, and send it to them.
 
 ---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Customers"
+		description="See a customer's invoices and start a new one from their page."
+		href="/docs/customers"
+	/>
+	<Card
+		title="Feature Flags"
+		description="Turn Invoices and QuickBooks Invoicing on or off."
+		href="/docs/feature-flags"
+	/>
+	<Card
+		title="Email Previews"
+		description="Preview your emails and change their subject lines."
+		href="/docs/email-preview"
+	/>
+	<Card
+		title="Team & Roles"
+		description="Who on your team can use invoices."
+		href="/docs/team-and-roles"
+	/>
+</Cards>

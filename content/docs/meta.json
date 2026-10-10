@@ -15,6 +15,7 @@
 		"customers",
 		"invoices",
 		"subscriptions",
+		"donations",
 		"---Catalog---",
 		"products",
 		"inventory-management",

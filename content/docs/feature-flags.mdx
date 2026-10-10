@@ -37,7 +37,7 @@ These are the features that have a switch on your Features page. The **On by def
 | --- | --- | --- | --- |
 | **Products** | Yes | Nothing | Your product catalog and all product-related admin pages. Several other features depend on this one. |
 | **Orders** | Yes | Products | Receive and manage customer orders, including fulfillment. See [Orders](/docs/orders). |
-| **Shopping Cart & Checkout** | Yes | Products | Lets customers add items to a cart. |
+| **Shopping Cart & Checkout** | Yes | Products | Lets customers add items to a cart. Off, your shop works like a catalog with no Add to Cart button. |
 | **Checkout** | Yes | Products, Shopping Cart & Checkout | Lets customers finish and complete their purchase. |
 | **Payments** | Yes | Orders, Shopping Cart & Checkout | Lets customers pay for their purchase. See [Payments & Payouts](/docs/payments-and-payouts). |
 | **Inventory Management** | Yes | Nothing | Track stock levels, manage standalone inventory items, and get low-stock alerts. Works without Products, so it's handy for supplies and rentals you don't sell directly. See [Inventory Management](/docs/inventory-management). |
@@ -47,9 +47,9 @@ These are the features that have a switch on your Features page. The **On by def
 | **Wishlist** | Yes | Products | Lets shoppers save products to a wishlist, with heart icons on product cards and a wishlist page. |
 | **Back-in-Stock Notifications** | Yes | Products | Adds a "notify me" form to out-of-stock products and emails shoppers when the item is restocked. |
 | **Invoices** | No | Nothing | Build and send invoices and get paid by bank transfer, PayPal, Venmo, Cash App, Zelle, or cash. See [Invoices](/docs/invoices). |
-| **QuickBooks Invoicing** | No | Nothing | Send deposit and final invoices through a connected QuickBooks Online company. |
+| **QuickBooks Invoicing** | No | Nothing | Send deposit and final invoices through a connected QuickBooks Online company. See [Invoices](/docs/invoices#quickbooks-invoicing). |
 | **Product Subscriptions** | No | Products, Payments | Let customers subscribe to a product on a recurring schedule, billed through your connected Stripe account. See [Subscriptions](/docs/subscriptions). |
-| **Donations** | No | Nothing | Accept one-time donations or tips through Stripe, Venmo, or Cash App. |
+| **Donations** | No | Nothing | Accept one-time donations or tips through Stripe, Venmo, or Cash App. See [Donations & tips](/docs/donations). |
 
 ### Content
 
@@ -111,7 +111,7 @@ Re-enabling Products restores everything. Your products and orders are all prese
 
 ### Disabling Shopping Cart & Checkout, or Checkout
 
-- **Shopping Cart & Checkout** off: the cart page and checkout are turned off (they show "page not found"), so customers can't buy. Many templates also hide the cart icon, but on most the **Add to Cart** button still shows. A "Cart is disabled" notice appears at the top of your [Dashboard](/docs/dashboard).
+- **Shopping Cart & Checkout** off: your site works like a catalog. Products, prices, and options still show, but every template hides the **Add to Cart** button, the quantity picker, and the cart icon, and the cart page and checkout show "page not found". Customers can still save products to their wishlist and sign up for back-in-stock emails. A "Cart is disabled" notice appears at the top of your [Dashboard](/docs/dashboard).
 - **Checkout** off: customers can still fill a cart, but there's no way to check out. Use this if you want shoppers to browse and build a cart but not buy yet.
 - Payments off also stops checkout from starting.
 
@@ -172,6 +172,9 @@ Turn off Products. This removes the shop, cart, and orders from both your admin 
 
 **Content or portfolio site**
 Turn off Products, and turn on Blog and Galleries. Your storefront focuses on articles, images, and a contact form, with no shopping at all.
+
+**Catalog only**
+Keep Products on but turn off **Shopping Cart & Checkout**. Customers can browse your products and prices and get in touch, but there's no Add to Cart button or cart anywhere on your site.
 
 **Soft launch**
 Keep Products on but turn off **Checkout**. Your products are visible and customers can build a cart, but they can't buy yet. Turn Checkout back on when you're ready.

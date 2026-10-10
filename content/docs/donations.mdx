@@ -1,0 +1,305 @@
+---
+title: Donations & tips
+description: Add a page where people can give you a one-time donation or tip by card, Venmo, or Cash App, and see what's come in.
+---
+
+## Overview
+
+Donations add a page to your site at `/donate` where anyone can give you a one-time gift. They pick an amount, add their name and a message if they like, and pay by card through Stripe. You can also list your Venmo and Cash App so people can send money that way instead.
+
+You choose what to call it: **Donate**, **Tip**, or **Support**. A food truck might take tips, a community group might take donations, and an artist might ask for support. The wording follows your choice across the page, the menu link, the Stripe payment page, and the email you get.
+
+Here's the short version:
+
+1. Turn on **Donations** in **Settings → Features**.
+2. Go to **Settings → Donations** and choose your wording, your suggested amounts, and your Venmo or Cash App.
+3. Make sure people can find the page: check your menu, and add the link yourself if it isn't there.
+4. Watch gifts come in under **Donations** in the sidebar.
+
+You don't need to sell anything to use donations, and you don't need Products turned on. You don't even need Stripe if you only want Venmo and Cash App.
+
+---
+
+## Turn On Donations
+
+Donations are **off** until you switch them on.
+
+1. Go to **Settings → Features**.
+2. Find **Donations** ("Accept one-time donations or tips via Stripe, Venmo, or Cash App") and switch it on.
+
+As soon as it's on:
+
+- Your donate page goes live at `/donate`.
+- **Donations** appears in your admin sidebar, and a **Donations** card appears in **Settings**.
+
+<Callout type="warn" title="Set up a way to pay right away">
+  The page can only take money if Stripe is connected **or** you've added a Venmo or Cash App username. If neither is set up, visitors see "Donations aren't set up yet." and "Check back soon." instead of a way to give. In that case, a red warning at the top of **Settings → Donations** says "Your donation page has no way to pay yet" (it says "tip" or "contribution" if you picked those labels). Turning Donations on isn't blocked, but if Stripe isn't connected yet, add your Venmo or Cash App in **Settings → Donations** as soon as you turn the feature on.
+</Callout>
+
+If you turn Donations off later, the donate page shows a "not found" page and the automatic menu links go away. A Donate link you added to your own menu or footer links is hidden too. Your record of past donations is kept.
+
+See [Feature Flags](/docs/feature-flags) for more about turning features on and off.
+
+---
+
+## Set It Up
+
+Go to **Settings → Donations** (`/admin/settings/donations`). The page is called **Donations Settings**. Make your changes, then click **Save changes** at the top. **Reset** undoes anything you haven't saved yet.
+
+![The Donations Settings page, with the Label, Preset Amounts, Venmo & Cash App, and Placement cards](/images/donations/donations-settings.png)
+
+*Donations Settings. A QR code preview appears under your Venmo username once you've typed one in.*
+
+If Stripe isn't connected (or Stripe has paused your payments), a note at the top of the page says **Card donations are disabled until Stripe is connected**, with "Venmo/Cash App options will still be shown to shoppers." Its **Settings → Integrations** button takes you where you connect Stripe. See [Stripe Setup](/docs/stripe).
+
+If Stripe can't take card payments **and** you haven't saved a Venmo username or Cash App cashtag, a red warning shows instead: "Your donation page has no way to pay yet". It adds "Visitors who open it currently see an empty page. Connect Stripe to accept cards, or add a Venmo username or Cash App cashtag below." (The first word follows your label: "donation", "tip", or "contribution".) Its **Settings → Integrations** button takes you to Stripe. The warning goes away once either one is set up.
+
+### Label
+
+Pick **Donate**, **Tip**, or **Support**. This one choice sets the wording everywhere:
+
+| Label | Page title and button | Menu link | What a gift is called |
+| ----- | --------------------- | --------- | --------------------- |
+| **Donate** | Donate | Donate | Donation |
+| **Tip** | Leave a Tip | Tip | Tip |
+| **Support** | Support Us | Support | Contribution |
+
+The "what a gift is called" word is used on the Stripe payment page (for example "Tip to Your Store"), in the note on Venmo payments, in the email you get, and on the **Finances** page.
+
+### Preset Amounts
+
+These are the quick-pick amount buttons on the donate page. You can set up to four, in **Preset 1** to **Preset 4**.
+
+- Leave a slot blank to skip it.
+- If you leave them all blank, the page shows **$5**, **$10**, and **$25**.
+- Each amount has to be between **$1.00** and **$10,000.00**.
+
+Whatever presets you choose, people can always type their own amount instead, from $1.00 up to $10,000.00.
+
+### Venmo & Cash App
+
+These are optional, and they work even if Stripe isn't connected.
+
+- **Venmo Username**: your Venmo username. You can type it with or without the @.
+- **Cash App Cashtag**: your cashtag. You can type it with or without the $.
+
+Once you type a username, a preview shows the QR code and link people will use. Click the link to check it opens the right account before you save.
+
+### Placement
+
+- **Show link in header navigation**
+- **Show link in footer**
+
+Both are on to start with. Turning a switch on adds a link to that spot, even if you've customized your menu or footer links (unless they already link to the page). Turning a switch off never removes a link you added yourself in **Content → Navigation**. To put the link in a specific spot, see [Adding the link yourself](#adding-the-link-yourself) below, and [Where the Donate link shows up](#where-the-donate-link-shows-up) for how the automatic link is placed.
+
+---
+
+## Where the Donate Link Shows Up
+
+When a switch is on, the link is added to the end of your header menu or to the end of your footer links. This happens even if you've saved your own menu or footer links in **Content → Navigation**. It's the last item in the phone menu too.
+
+Pink is the exception for the header. There, the link appears as a button on the right side of the header, not as a menu item.
+
+If your own menu or footer links already link to the donate page, a second link isn't added. That includes a link inside a dropdown. Turning a switch off never removes a Donate link you added yourself.
+
+Some footers don't have a list of links. On those, the Donate link sits in the bottom row, next to **Privacy Policy** and **Terms**.
+
+The automatic link uses the short word from your label: **Donate**, **Tip**, or **Support**.
+
+### Adding the link yourself
+
+Use this when you want the link in a specific spot, such as inside a dropdown. The switches already add it to the end of your menu and footer, so you don't need to do this to get the link on your site.
+
+1. Go to **Content → Navigation**.
+2. In the **Quick Add** panel, click **Donate** (it shows **Tip** or **Support** if you picked one of those labels). The shortcut only appears while Donations is on.
+3. Move the link where you want it. You can make it a top-level link or drag it into a dropdown.
+4. To put it in your footer as well, use the Quick Add panel in the **Footer quick links** section.
+5. Click **Save navigation**.
+
+![A storefront header with the Misc dropdown open, showing Donate as its last item](/images/donations/donate-nav-link.png)
+
+*This store added Donate to its own Misc dropdown in Content → Navigation.*
+
+See [Navigation](/docs/storefront-and-branding#navigation) for more on building your menu.
+
+<Callout type="info" title="Turning Donations off later?">
+  A Donate link in your own header menu or footer quick links is hidden automatically while Donations is off. You don't need to remove it. Turn Donations back on and it shows again.
+</Callout>
+
+---
+
+## The Donate Page
+
+Your donate page lives at `/donate` on your site. If your template has its own design for this page, that's what visitors see. Otherwise it uses the Default design. The layout can differ from template to template, but every version works the same way. The pictures here show the Default design.
+
+![The donate page on a computer: a Donate heading, the intro line, $5, $10 and $25 buttons, a custom amount box, name and message boxes, and a Donate button](/images/donations/donate-page.png)
+
+*The donate page on a computer.*
+
+### Giving by card
+
+The card form appears only when Stripe is connected and able to take payments. It has:
+
+- Your preset amount buttons (the first one is picked to start).
+- **Or enter a custom amount**.
+- **Your name (optional)**. If someone leaves it blank, the gift shows as **Anonymous**.
+- **Message (optional)**, up to 500 characters.
+- A button with your label's wording: **Donate**, **Leave a Tip**, or **Support Us**.
+
+The button takes the donor to Stripe's secure payment page. Stripe asks for their email and card details there. The item reads like "Donation to Your Store", but Stripe's pay button always says **Donate**, even if your label is Tip or Support. Stripe doesn't offer other wording.
+
+After paying, the donor comes back to your donate page and sees a thank-you message at the top. If they back out of Stripe's page, they return to the donate page without being charged.
+
+### Venmo and Cash App
+
+If you've added a Venmo username or Cash App cashtag, the page shows an **Other ways to give** section with a card for each one. Each card shows:
+
+- your username (like @yourname or $yourname);
+- a QR code with your logo in the middle, for people to scan with their phone;
+- an **Open Venmo** or **Open Cash App** button.
+
+Venmo opens a payment to you with the note "Donation to Your Store" already filled in ("Tip to Your Store" or "Contribution to Your Store" if you picked those labels). Cash App opens your Cash App page. In both apps, the donor types the amount themselves.
+
+If Stripe isn't connected, the page shows only this section.
+
+![The donate page on a phone: the card form, then Other ways to give with a Venmo card, QR code, and Open Venmo button](/images/donations/donate-page-mobile.png)
+
+*On a phone, the Venmo and Cash App cards sit below the card form.*
+
+---
+
+## Edit the Page Wording
+
+Change the page's words in the [Site Editor](/docs/site-editor). Open it and choose the Donate page. On the Default design you'll find three sections:
+
+| Section | Field | Starts as |
+| ------- | ----- | --------- |
+| **Hero** | **Heading** | Blank, which shows your label's title (Donate, Leave a Tip, or Support Us). |
+| **Hero** | **Intro text** | "Every contribution helps us keep doing what we love." Clear it to hide the line. |
+| **Thank You** | **Heading** | "Thank you for your support!" |
+| **Thank You** | **Body text** | "Your gift has been received and means the world to us." Clear it to hide the line. |
+| **Other Ways to Give** | **Heading** | "Other ways to give" |
+
+If your template has its own donate design, its sections and field names may be different.
+
+Your amounts, your label, and your Venmo and Cash App details aren't in the Site Editor. Change those in **Settings → Donations**.
+
+---
+
+## When Someone Donates
+
+### Your Donations page
+
+Card donations are listed under **Donations** in the sidebar (`/admin/donations`). The page heading is **Donations**, with "One-time donations and tips received through your store" underneath.
+
+![The Donations page, with Total raised, Donations and This month tiles, a search box, and a table with one anonymous $10.00 donation](/images/donations/donations-list.png)
+
+*Every card donation appears here, newest first.*
+
+At the top are three totals:
+
+- **Total raised**: everything you've received by card, all time.
+- **Donations**: how many gifts.
+- **This month**: what's come in this calendar month.
+
+Below them, search with **Search by donor name, email, or message…**. The table shows:
+
+| Column | What it shows |
+| ------ | ------------- |
+| **Date** | When the gift was made. |
+| **Donor** | The name they gave, or **Anonymous**. |
+| **Amount** | How much they gave. |
+| **Message** | Their message. Long messages have **Show more** / **Show less**. |
+| **Email** | The email they gave Stripe. |
+
+The list shows 25 donations per page. Until your first gift arrives, you'll see **No donations yet** with a **Go to Donations settings** button.
+
+This page always says "Donations", whichever label you picked.
+
+### Finances
+
+**Finances** in the sidebar has its own card for gifts (titled **Donations**, **Tips**, or **Contributions** to match your label), with **Total raised**, the number of gifts, and the **Average** gift for the time period you've picked.
+
+![The Donations card on the Finances page, with Total raised, Donations, and Average tiles](/images/donations/finances-donations.png)
+
+*Donations get their own card on Finances, separate from your sales.*
+
+Donations are kept out of **Money in**, so your sales numbers stay about sales. The amounts are before Stripe's fees; Stripe's fee on each gift is counted in the **What Stripe took** card.
+
+### Emails
+
+**To you:** each card donation sends an email to your store's owner email address with the subject "New donation to Your Store" ("New tip…" or "New contribution…" if you picked those labels). It shows the amount, who it's from, their email and message, and a **View in admin** button. It also notes that "The full amount was charged on your own Stripe account and will settle with your normal payouts." Reply to the email to write back to the donor.
+
+**To the donor:** SimplePress doesn't send donors an email. If your Stripe account is set to email receipts for successful payments, Stripe sends one.
+
+---
+
+## Good to Know
+
+- **Donations aren't orders.** They don't appear under Orders, don't create a customer record, and don't touch stock, shipping, or sales tax. No tax is added, even if you've turned on automatic tax.
+- **The money goes straight to your Stripe account** and is paid out with your normal payouts. Stripe's usual card processing fee applies.
+- **Venmo and Cash App gifts aren't recorded.** They happen inside those apps, so they don't appear on your Donations page, on Finances, or in emails. Check the apps themselves.
+- **One-time gifts only.** There are no monthly donations, fundraising goals, or progress bars.
+- **No tax-deductible receipts.** SimplePress doesn't produce donation receipts for tax purposes. If you're a nonprofit, talk to your accountant about what you need to send donors.
+- **Refunds happen in Stripe.** To give money back, refund the payment from your Stripe Dashboard. SimplePress doesn't track donation refunds yet, so the gift still shows on your Donations page and in your totals.
+- **Your donation history is included** when you download your site's data. See [Download Your Site](/docs/data-and-export).
+
+---
+
+## Common Questions
+
+**I turned on "Show link in header navigation" but I don't see the link.**
+The link can be missing for a few reasons:
+
+- **Donations** is switched off. Check **Settings → Features**. The link only appears while it's on.
+- The change isn't saved yet. Click **Save changes** at the top of **Settings → Donations**.
+- Your menu already links to the donate page somewhere, such as inside a dropdown. A second link isn't added. Check **Content → Navigation**.
+
+See [Adding the link yourself](#adding-the-link-yourself) if you want the link in a specific spot.
+
+**Can I use donations without Stripe?**
+Yes. Add a Venmo username, a Cash App cashtag, or both. The page then shows only those options. Those gifts aren't tracked in SimplePress, though.
+
+**Why does Stripe's button say "Donate" when I chose Tip?**
+Stripe only offers a few button wordings, and "Donate" is the closest one. Everything SimplePress controls uses your label.
+
+**Can someone give more than $10,000?**
+Not through the page. For larger gifts, have the donor contact you directly.
+
+**Can donors choose to give monthly?**
+Not yet. Donations are one-time only.
+
+**Where do I change "Every contribution helps us keep doing what we love."?**
+In the [Site Editor](/docs/site-editor), on the Donate page, in the **Hero** section.
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Feature Flags"
+		description="Turn Donations and other features on and off."
+		href="/docs/feature-flags"
+	/>
+	<Card
+		title="Stripe Setup"
+		description="Connect Stripe so people can give by card."
+		href="/docs/stripe"
+	/>
+	<Card
+		title="Storefront & branding"
+		description="Build your header menu and footer quick links."
+		href="/docs/storefront-and-branding"
+	/>
+	<Card
+		title="Site Editor"
+		description="Change the words on your donate page."
+		href="/docs/site-editor"
+	/>
+	<Card
+		title="Payments & Payouts"
+		description="See your Stripe balance and when money reaches your bank."
+		href="/docs/payments-and-payouts"
+	/>
+</Cards>

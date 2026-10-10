@@ -5,21 +5,37 @@ description: Your admin home screen, with sales numbers, orders that need attent
 
 ## Overview
 
-The Dashboard is the first screen you see when you sign in to your admin. It answers three questions at a glance: how is the store doing, what needs my attention, and where do I go next?
+The Dashboard is your admin home screen. It answers three questions at a glance: how is the store doing, what needs my attention, and where do I go next?
 
-Everything on the Dashboard is read-only. It shows you what's happening and gives you shortcuts, and you make changes on the pages it links to.
+It's mostly a window onto your store. It shows you what's happening and gives you shortcuts, and you make changes on the pages it links to. The one thing you can change from here is hiding the Search readiness strip (see [Search Readiness](#search-readiness)).
+
+![The full Dashboard, with the setup card, Needs Attention, sales cards, Recent Orders, Low Stock Alerts, the revenue chart and Top Products](/images/dashboard/dashboard-full-page.png)
+
+*The whole Dashboard on a store with a few orders. Your own page shows only the cards that apply to you.*
 
 To open it any time, click **Dashboard** at the top of the admin sidebar.
 
-**Photo:** Screenshot of the full Dashboard with sales cards, the revenue chart, and the Recent Orders and Low Stock Alerts cards.
+> **Where signing in takes you:** When you go to your admin, SimplePress sends you to the [Setup Guide](/docs/launch-checklist) until three things are done: Stripe is connected, you have at least one product, and a custom domain is set. After that, you land on the Dashboard. The Setup Guide has a **Continue to dashboard** button if you want to skip ahead. See [Getting back to the Setup Guide](#getting-back-to-the-setup-guide).
 
-> **Who can see it:** Owners and Managers. Staff don't have a Dashboard. When a Staff member signs in, they go straight to Orders. See [Team & Roles](/docs/team-and-roles).
+> **Who can see it:** Owners and Managers. Staff don't have a Dashboard. When a Staff member signs in, they go straight to Orders, and they only see Orders, Customers and Inventory in the sidebar. See [Team & Roles](/docs/team-and-roles).
 
-> **Time periods:** The numbers on the Dashboard use rolling windows, not the calendar year. "7 Days" means the last seven days, "30 Days" means the last thirty days, and "Today" means since midnight. There's no custom date range here. For deeper reports, see **Finances** in the sidebar and [Payments & Payouts](/docs/payments-and-payouts).
+> **Time periods:** The numbers on the Dashboard use rolling windows, not the calendar year. "7 Days" means the last seven days and "30 Days" means the last thirty days. "Today" means since midnight in your store's time zone, and the days along the revenue chart are your store's days too. There's no custom date range here. For deeper reports, see **Finances** in the sidebar and [Payments & Payouts](/docs/payments-and-payouts).
 
 ---
 
-## Quick Actions
+## Payments-Paused Banner
+
+If Stripe ever turns off charges on your account, a banner appears across the top of every admin page, not only the Dashboard:
+
+**Payments are paused.** Stripe has disabled charges on your account, so checkout is failing for every shopper.
+
+It has two links: **Fix in Stripe** opens your Stripe dashboard in a new tab, and **Details** opens **Settings → Integrations**. The banner can't be dismissed. It goes away on its own once Stripe turns charges back on. Staff members don't see it.
+
+You won't see this banner in normal use. It only appears when Stripe has confirmed a problem with your account.
+
+---
+
+## The Buttons at the Top
 
 Four buttons sit at the top right, next to the welcome message:
 
@@ -30,13 +46,17 @@ Four buttons sit at the top right, next to the welcome message:
 | **Customize**    | Opens the Site Editor, where you edit your pages and look.                |
 | **View Store**   | Opens your live storefront in a new tab, on your custom domain if you have one. |
 
-**Photo:** Screenshot of the Quick Actions buttons in the Dashboard header.
+**Add Product** and **New Order** only show when the Products and Orders features are turned on. See [Feature toggles](/docs/feature-flags).
+
+![The four buttons at the top of the Dashboard: Add Product, New Order, Customize and View Store](/images/dashboard/quick-actions.png)
+
+*The buttons at the top right of the Dashboard.*
 
 ---
 
 ## Finish Setting Up Your Store
 
-New stores see a **Finish setting up your store** card at the top. It shows a progress bar, how many steps you've completed, and the next step to tackle. The five steps are:
+New stores see a **Finish setting up your store** card at the top. It shows a progress bar, "N of 5 steps complete", and a **Next:** line naming the next step to tackle. The five steps are:
 
 1. **Store created.** Already done when you arrive.
 2. **Connect payment processing.** Connect Stripe so you can take payments.
@@ -44,13 +64,25 @@ New stores see a **Finish setting up your store** card at the top. It shows a pr
 4. **Add your first product.**
 5. **Customize your storefront.** Add a logo or edit your pages in the Site Editor.
 
-Click **Continue setup** to open the Welcome page, which shows all five steps with buttons to complete each one, a link to preview your store, and links to this documentation and to support. The card disappears once every step is done.
+Click **Continue setup** to open the Setup Guide, which shows all five steps with buttons to complete each one, a link to preview your store, and links to this documentation and to support. The card disappears once every step is done.
 
-You can open the Welcome page again whenever you like. Press the search shortcut described under [Finding Things Fast](#finding-things-fast) and look for **View setup guide**.
+![The Finish setting up your store card showing 4 of 5 steps complete, the next step, and the Continue setup button](/images/dashboard/finish-setup-card.png)
 
-**Photo:** Screenshot of the Finish setting up card showing "3 of 5 steps complete."
+*This store has four of five steps done, and the next one is connecting a custom domain.*
 
-See [Getting Started](/docs/getting-started) for a full walkthrough of the setup steps.
+See [Getting Started](/docs/getting-started) and the [Launch checklist](/docs/launch-checklist) for a full walkthrough of the setup steps.
+
+### Getting back to the Setup Guide
+
+You can open the Setup Guide again whenever you like, even after you've finished setup:
+
+- Click **Setup Guide** in the sidebar, just below **Settings**.
+- While Stripe isn't connected, you have no products yet, or you don't have a custom domain, a small **Almost there!** box at the bottom of the sidebar says "Complete setup to start selling" and has a **Finish setup** button. It goes away once Stripe is connected, you have a product, and you have a custom domain.
+- Press the search shortcut described under [Finding Things Fast](#finding-things-fast) and choose **View setup guide**.
+
+![The admin sidebar, ending with Settings and Setup Guide just above your account name](/images/dashboard/welcome-sidebar.png)
+
+*The Setup Guide link sits below Settings at the bottom of the sidebar.*
 
 ---
 
@@ -67,15 +99,17 @@ The strip shows:
 
 The strip disappears by itself once you reach 100%.
 
+![The Search readiness strip at 58 percent, with the Hide and Improve search results buttons](/images/dashboard/search-readiness.png)
+
+*The Search readiness strip, with its next suggested step.*
+
 ### Hiding or showing the strip
 
-Click **Hide** to remove the strip from your Dashboard. This turns off the **Search readiness on dashboard** feature, so it applies to everyone on your team, not just you. You'll see a message confirming it's hidden.
+Click **Hide** to remove the strip from your Dashboard. Hide switches off the **Search readiness on dashboard** feature for the whole store, so it disappears for everyone on your team, not just you. You'll see a message: "Search readiness hidden. Turn it back on under Settings → Features."
 
 To bring it back, go to **Settings → Features**, find **Search readiness on dashboard**, and turn it on. This feature is on by default. See [Feature toggles](/docs/feature-flags).
 
 Hiding the strip only hides it from the Dashboard. You can still open the full report any time under **Site Setup → SEO & Meta**.
-
-**Photo:** Screenshot of the Search readiness strip with the Hide and Improve search results buttons.
 
 ---
 
@@ -83,17 +117,25 @@ Hiding the strip only hides it from the Dashboard. You can still open the full r
 
 When something is waiting on you, colored cards appear in a strip below the setup and search cards. Each card is clickable and takes you straight to the right list. Cards only appear when there's something to do.
 
-| Card                            | What it means                                                                 | Where it takes you                          |
+| Card                            | What it says                                                                  | Where it takes you                          |
 | ------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------- |
-| **Orders to fulfill**           | Customers have paid, but the order isn't fully shipped or handed over yet.    | The Orders list, filtered to unfulfilled, paid orders. |
-| **Orders awaiting payment**     | Orders were started but payment hasn't been confirmed yet.                    | The Orders list, filtered to pending payment. |
-| **No store policies published** | Your Terms of Service or Refund Policy is missing, empty, or not published.   | **Site Setup → Policies**.                  |
+| **N orders to fulfill**         | "Paid but not yet shipped." Customers have paid, but the order hasn't shipped or been handed over yet. | The Orders list, filtered to **Open**, **Unfulfilled** and **Paid**. |
+| **N orders awaiting payment**   | "Pending payment confirmation." Orders were started but payment hasn't been confirmed yet. | The Orders list, filtered to pending payment. |
+| **No store policies published** | "Add a Terms of Service & Refund Policy." Your Terms of Service or Refund Policy is missing, empty, or not published. | **Site Setup → Policies**.                  |
 
 Cancelled and refunded orders aren't counted in the first two cards.
 
-**Photo:** Screenshot of the Needs Attention strip with all three cards showing.
+> **Partially shipped orders:** The "to fulfill" number counts only open, paid orders that haven't shipped at all. Partially shipped orders aren't counted, so the number always matches the list the card opens. It also matches the **Needs fulfillment** card on the Orders page. To see partially shipped orders, use the **Fulfillment** filter on the Orders page and choose **Partially Fulfilled**.
+
+![The Needs Attention card reading 20 orders to fulfill, Paid but not yet shipped](/images/dashboard/needs-attention.png)
+
+*One Needs Attention card. When the other two apply, they appear beside it.*
 
 See [Orders](/docs/orders) for how to fulfill orders and [Pages & Policies](/docs/pages-and-policies) for writing your policies.
+
+### The "Cart is disabled" notice
+
+If **Shopping Cart & Checkout** is turned off for your store, a **Cart is disabled** notice appears at the top of the Dashboard. Customers can't add items to a cart while it's off. Go to **Settings → Features** to turn it back on. See [Feature toggles](/docs/feature-flags).
 
 ---
 
@@ -103,27 +145,29 @@ A row of cards sums up your sales. Dollar amounts include tax and shipping.
 
 ### Revenue Today
 
-Money from paid orders placed since midnight, minus any refunds. Underneath you'll see your **all-time** revenue and a **Full breakdown** link to the Finances page.
+Money from paid orders placed since midnight in your store's time zone, minus any refunds. Underneath you'll see "All time (incl. tax & shipping)" with your all-time revenue, and a **Full breakdown →** link to the Finances page.
 
 ### Revenue (7 Days)
 
-Sales from the last seven days. If you refunded anything in that time, a line underneath shows how much. The small arrow compares this week to the seven days before it, in green when it's up and red when it's down. A dash means there's nothing from the earlier period to compare against.
+Sales from the last seven days, with "Last 7 days, paid orders" underneath. If you refunded anything in that time, the line also shows how much. Above that line is a small comparison, such as "▲ 14% vs prior 7 days" in green when it's up or "▼ 6% vs prior 7 days" in red when it's down. A dash ("— vs prior 7 days") means there's nothing from the earlier period to compare against.
 
 ### Orders (7 Days)
 
-How many orders came in over the last seven days, compared to the seven days before, plus the total number of orders your store has ever received. This counts every order placed, including ones still waiting on payment.
+How many orders came in over the last seven days, compared to the seven days before, plus "All time:" with the total number of orders your store has ever received. This counts every order placed, including ones still waiting on payment.
 
 ### Avg. Order Value
 
-What a customer spends per paid order, averaged over the last 30 days, compared to the 30 days before. The card also shows how many paid orders that average is based on.
+What a customer spends per paid order, averaged over the last 30 days, compared to the 30 days before ("vs prior 30 days"). Underneath it says, for example, "30-day avg · 10 paid orders", so you can see how many orders the average is based on.
 
 ### Conversion Rate
 
-This card only appears if you've turned on **Analytics** under **Settings → Features** and connected Umami analytics for your store under **Settings → Integrations**. It shows the share of your visitors from the last 30 days who placed a paid order, for example "12 paid orders / 640 visitors." It stays hidden until your store has recorded visitors. If analytics can't connect for a moment, the card shows a short "unavailable" note instead of a number.
+This card only appears if you've turned on **Analytics** under **Settings → Features** and connected Umami analytics for your store under **Settings → Integrations**. It shows the share of your visitors from the last 30 days who placed a paid order, with a note like "12 paid orders / 640 visitors · 30 days." It stays hidden until your store has recorded visitors. If analytics can't connect for a moment, the card shows a dash with "Analytics can't connect right now" or "Analytics is temporarily unavailable" instead of a number.
 
 See [Integrations](/docs/integrations) for connecting Umami.
 
-**Photo:** Screenshot of the row of sales cards, including green and red comparison arrows.
+![The row of sales cards: Revenue Today, Revenue (7 Days), Orders (7 Days) and Avg. Order Value, with a green comparison arrow on the average order value](/images/dashboard/sales-cards.png)
+
+*The sales cards. This store has nothing to compare against for the 7-day cards yet, so they show a dash.*
 
 > **Refunds:** Seven-day and thirty-day revenue show what you sold and, separately, what you refunded. The up and down arrows compare your totals after refunds, so a big refund will pull the arrow down even if the headline number looks high.
 
@@ -133,24 +177,32 @@ See [Integrations](/docs/integrations) for connecting Umami.
 
 Shows your six most recent orders, newest first. Each row has the order number, a status label, the customer's name, how long ago it was placed, and the total. Click any row to open that order. Click **View All** to open the full Orders list.
 
-If you have no orders yet, this card says so and explains that orders will appear once customers start buying.
+If you have no orders yet, this card says "No orders yet" and explains that orders will appear once customers start purchasing.
 
 ---
 
 ## Low Stock Alerts
 
-Lists items that are running low so you can restock before you sell out. An item shows up here when you have **10 or fewer** left. The list shows up to five products or variants, lowest first, followed by any [inventory items](/docs/inventory-management) that are running low. A red warning icon on an inventory item means it's at zero or below.
+Lists items that are running low so you can restock before you sell out. Each row shows how many are "N left." The list shows up to five products or variants, lowest first, followed by any [inventory items](/docs/inventory-management) that are running low.
+
+**How "low" is decided:**
+
+- Each product uses its own **Low Inventory Threshold**, which you set on the product form. Variants use their product's threshold.
+- Each inventory item uses its own **Low stock alert at** number, set on the item.
+- If you haven't set a number, the cutoff is **10**.
 
 What's included:
 
-- Published products and variants that have **Track Inventory** turned on.
+- Published products and variants that have **Track Inventory** turned on. Inventory items show "Inventory item" under their name.
 - Inventory items you've set up as stock. Rental items aren't included, because a rental showing a low number may just mean the rest are out with customers.
 
-Click an inventory item to open its details. Click **Manage Stock** to open your products and update quantities.
+Click an inventory item to open its details. Click **Manage Stock** to open your products and update quantities. A red warning icon on an inventory item means it's at zero or below.
 
-When nothing is running low, the card shows "All stock levels are good!"
+When nothing is running low, the card shows "All stock levels are good!" and "No products are running low."
 
-**Photo:** Screenshot of the Low Stock Alerts card with a few amber warnings.
+![The Low Stock Alerts card, with product variants showing 0 left and an inventory item showing 5 left](/images/dashboard/low-stock.png)
+
+*Low Stock Alerts. The last row is an inventory item, marked "Inventory item."*
 
 ---
 
@@ -166,37 +218,41 @@ This box only appears when it happens, and it clears itself once the 30-day wind
 
 ### Revenue (Last 30 Days)
 
-A bar chart with one bar for each of the last 30 days. Hover over a bar to see that day's total. Above the chart is your 30-day total, the refunded amount and net total when there were refunds, and an arrow comparing it to the previous 30 days.
+A bar chart with one bar for each of the last 30 days. Hover over a bar to see that day's total. Days with no sales show as zero, so a quiet store sees a mostly flat chart rather than an empty message. Above the chart is your 30-day total, the refunded amount and net total when there were refunds, and an arrow comparing it to the previous 30 days.
 
 ### Top Products (Last 30 Days)
 
-Your five best sellers by revenue over the last 30 days, with each product's photo, how many units sold, and the revenue it brought in. When there are no sales yet, this card says so.
+Your five best sellers by revenue over the last 30 days, with each product's photo, how many units sold, and the revenue it brought in. When there are no sales yet, this card says "No sales data yet."
 
-**Photo:** Screenshot of the revenue chart and Top Products list.
+![The Revenue (Last 30 Days) bar chart above the Top Products list](/images/dashboard/revenue-top-products.png)
+
+*The revenue chart and Top Products list.*
 
 ---
 
 ## Finding Things Fast
 
-You don't have to click through the sidebar every time. A search box at the top of every admin page (a magnifying glass icon on small screens) opens the **command palette**, which can jump to any page and look up records.
+You don't have to click through the sidebar every time. A search box at the top of every admin page opens the **command palette**, which can jump to any page and look up records. On a wide screen the box reads "Search…" with ⌘K beside it. On small screens it's a magnifying glass icon.
 
 To open it, press **Command + K** on a Mac or **Ctrl + K** on Windows, or click the search box. Press the same keys again, or click outside the box, to close it.
 
-Start typing and the results narrow as you go. The list is grouped like this:
+The palette's search field says "Search orders, customers, products, or jump to a page…". Start typing and the results narrow as you go. The list is grouped like this:
 
-- **Actions** start common tasks, such as **Add product**, **Create discount**, **Create manual order**, **Add event**, **Invite team member**, **New invoice**, or **View setup guide**.
+- **Actions** start common tasks. These can include **Edit site**, **Add product**, **Create discount**, **Create manual order**, **Add event**, **Add video**, **Invite team member**, **Send email marketing**, **New quote calculator**, **New form**, **New invoice**, **New QuickBooks invoice**, **View setup guide**, **Business settings**, **Rewards settings**, and **Tax Guide**.
 - **Go to** jumps to any section of your admin, such as Orders, Products, or Finances.
 - **Settings** and **Content** jump to the pages in those areas, such as **Brand & Appearance**, **SEO & Meta**, **Policies**, or **Team**.
 - **Orders, Customers, and Products** show up once you've typed at least two characters, with up to five matches in each group. Click a result to open it.
-  - **Orders** match on the order number or the customer's name or email.
+  - **Orders** read "#1042 — Customer Name" with the total and status on the right. They match on the order number or the customer's name or email. Typing a number such as `1042` or `#1042` finds that order.
   - **Customers** match on name or email.
   - **Products** match on the product name, its web address (slug), or the SKU of the product or any of its variants.
 
 It also understands everyday words. Typing "coupon" finds **Discounts**, and typing "newsletter" finds **Email Marketing**.
 
-The palette only lists things you're allowed to use and features that are switched on. For example, **Add product** and product results won't appear if Products is turned off. Staff members see only what they can use: Orders, Customers, and Inventory. They get no Settings or Content groups and no product results. See [Team and Roles](/docs/team-and-roles).
+The palette only lists things you're allowed to use and features that are switched on. For example, **Add product** and product results won't appear if Products is turned off. Staff members see only what they can use: Orders, Customers, and Inventory. They get no Settings or Content groups and no product results. See [Team & Roles](/docs/team-and-roles).
 
 ![The command palette open with a few search results](/images/dashboard/command-palette.png)
+
+*The command palette after typing "clay," showing matching pages and a product.*
 
 ---
 
@@ -205,17 +261,23 @@ The palette only lists things you're allowed to use and features that are switch
 **I see a "Cart is disabled" notice at the top.**
 Shopping Cart & Checkout is turned off for your store, so customers can't add items to a cart. Go to **Settings → Features** and turn it on. See [Feature toggles](/docs/feature-flags).
 
+**I see a "Payments are paused" banner.**
+Stripe has disabled charges on your account, so shoppers can't check out. Click **Fix in Stripe** to see what Stripe needs from you, or **Details** to open **Settings → Integrations**. The banner clears once Stripe turns charges back on. See [Payments & Payouts](/docs/payments-and-payouts).
+
 **The numbers look different from my Stripe account.**
 The Dashboard shows orders recorded in SimplePress, using rolling time windows. Stripe reports on its own schedule, and payouts arrive after payments. See [Payments & Payouts](/docs/payments-and-payouts).
 
 **A product I'm low on isn't showing in Low Stock Alerts.**
-The product must be published and have **Track Inventory** turned on. Products that aren't tracked are always treated as in stock.
+The product must be published and have **Track Inventory** turned on. Products that aren't tracked are always treated as in stock. Also check its **Low Inventory Threshold**: the product only shows once its stock is at or below that number (or 10, if you haven't set one).
 
 **I hid Search readiness and want it back.**
 Go to **Settings → Features** and turn on **Search readiness on dashboard**.
 
 **I don't see the Conversion Rate card.**
 It needs the **Analytics** feature turned on, Umami analytics connected under **Settings → Integrations**, and at least some visitors recorded in the last 30 days.
+
+**I signed in and ended up on the Setup Guide instead of the Dashboard.**
+Your store is still missing Stripe, a product, or a custom domain. Finish those, or click **Continue to dashboard** on the Setup Guide. See the [Launch checklist](/docs/launch-checklist).
 
 **A team member can't see the Dashboard.**
 Staff don't have access to it. Change their role to Manager if they need it. See [Team & Roles](/docs/team-and-roles).
@@ -233,7 +295,7 @@ Staff don't have access to it. Change their role to Manager if they need it. See
 | Search for orders, customers, and products from anywhere in the admin   | Yes                                                               |
 | Choose a custom date range                                              | No. The Dashboard uses fixed windows: today, 7 days, and 30 days  |
 | Choose which cards appear or rearrange them                             | No                                                                |
-| Hide the setup, Needs Attention, or Low Stock cards                     | No. They disappear on their own when there's nothing to show      |
-| Change a low-stock cutoff                                               | No. The Dashboard flags items at 10 or fewer                      |
+| Hide the setup or Needs Attention cards                                 | No. They disappear on their own when there's nothing to show      |
+| Change when something counts as low stock                               | Yes, per product (**Low Inventory Threshold**) or per inventory item (**Low stock alert at**). Without one, the cutoff is 10 |
 | Export Dashboard numbers                                                | No. Use Finances and the Orders export for reports                |
 | Show the Dashboard to Staff                                             | No. Staff go to Orders. Use the Manager role for dashboard access |
