@@ -1,0 +1,446 @@
+---
+title: Forms
+description: Build your own forms, such as applications, intake forms, and catering inquiries, place them on any page, and manage every answer in your admin.
+---
+
+## Overview
+
+Forms lets you build a form with your own questions and put it on your site. Every time someone fills it out, the answers are saved in your admin as an **entry**, and you get an email about it. You can sort entries by status, tag them, search them, and download them as a spreadsheet.
+
+Typical uses:
+
+- A **catering or event inquiry** with the date, guest count, and menu choices
+- A **job or vendor application**
+- A **client intake form** before a first appointment
+- A **sign-up sheet** for a class, a waitlist, or a volunteer day
+
+You build a form once, then insert it into one of your pages or blog posts, much like a [gallery](/docs/galleries). A form doesn't get a page or link of its own. See [Putting a Form on Your Site](#putting-a-form-on-your-site).
+
+<Callout type="info" title="Forms is off by default">
+  Turn it on under **Settings → Features**, in the **Marketing** section. See [Feature Flag](#feature-flag).
+</Callout>
+
+<Callout type="info" title="Who can use Forms">
+  Owners and Managers can build forms and work with entries. Staff can't open Forms. A few delete actions are Owner only; see [Who Can Do What](#who-can-do-what) and [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+> **Forms or the Contact Form?** Your store's built-in [Contact Form](/docs/contact-form) at `/contact` has fixed questions and simply emails you. Use Forms when you want to ask your own questions and keep the answers in your admin.
+
+---
+
+## Where to Find It
+
+In your admin sidebar, go to **Marketing → Forms** (or open `/admin/forms`). You can also type "New form" into the command palette search box at the top of the admin to jump straight to a blank form.
+
+### The Forms List
+
+The page is titled **Forms**. Each row shows:
+
+| Column      | What it shows                                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| **Form**    | The form's name. Click it to open the form.                                                                           |
+| **Status**  | **Published** (visitors can fill it out) or **Draft** (they can't).                                                   |
+| **Entries** | How many entries the form has collected. A badge such as **3 new** counts entries you haven't opened yet. Click the number to go to the entries. |
+| **Updated** | When the form was last changed, such as "2 days ago".                                                                 |
+
+The most recently changed forms are at the top. On a phone, the status, entry count, and update time appear under the form's name.
+
+If you have no forms yet, the page says **No forms yet**, with a **Create form** button.
+
+![The Forms list with four forms: two published, two drafts, and a "5 new" badge next to Catering inquiry's entry count](/images/forms/forms-list.png)
+
+### Row Menu
+
+The three-dot menu at the end of each row has:
+
+- **Edit**: opens the form builder
+- **Entries**: opens the form's entries
+- **Duplicate**: makes a copy named after the original with "(copy)" on the end, for example "Catering inquiry (copy)". The copy has the same fields and settings, but it starts as a **Draft** and has no entries.
+- **Delete**: see [Deleting a Form](#deleting-a-form)
+
+---
+
+## Building a Form
+
+Click **New form**. The builder has a toolbar across the top, the **Form** and **Fields** cards on the left, and the **Preview** and **After submit** cards on the right. (On narrower screens, they stack in one column.)
+
+<video src="/videos/forms/build-a-form.webm" poster="/videos/forms/build-a-form-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*A short clip: building a "Workshop sign-up" form with name, email, date, and dropdown fields, watching the preview update, switching Published on, and saving.*
+
+### The Toolbar
+
+- **Back** returns to the Forms list.
+- A status badge shows where the form stands: **Draft** for a new form you haven't saved yet, **Published** or **Unpublished** for a saved form, and **Unsaved Changes** whenever you've edited something you haven't saved.
+- The **Published** switch decides whether visitors can fill out the form. **New forms start unpublished.** Switch it on when you're ready, then save.
+- The **More Options** menu (⋯) has **Reset**, which throws away your unsaved changes, and **Delete** (saved forms only).
+- **Save** saves the form. When you save a new form, you're taken to its builder page.
+
+If something needs fixing, the save stops and a message says "Please fix the highlighted fields and try again." Collapsed fields with a problem show a red **Needs attention** badge. If you try to leave the page with unsaved changes, you'll be warned first.
+
+Once a form is saved, a line under the toolbar shows **View entries (n)**, a link to its entries, and a reminder of how to place it on a page.
+
+![The top of the saved Catering inquiry form: the toolbar with the Published badge and switch, the View entries (11) line, the Form card, the collapsed fields with their type and Required badges, and the Preview card](/images/forms/builder-top.png)
+
+### The Form Card
+
+Give the form a **Name** (required, up to 120 characters), such as "Catering inquiry". The name is how you find the form in your admin and in the page editor. It isn't shown above the form on your site, but it does appear in the confirmation email a visitor can receive (see [Emails](#emails)), so pick something you're happy for customers to see.
+
+### The Fields Card
+
+The fields are the questions visitors answer, in the order shown. A form needs at least one field, and can have up to 50.
+
+To add one, click **Add field** and choose a type. The new field opens so you can fill it in.
+
+![The Add field menu open, listing all eleven field types with a one-line description of each](/images/forms/add-field-menu.png)
+
+#### Field Types
+
+| Type                | What visitors see                                         | Extra settings                                                                   |
+| ------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Short text**      | One line of text                                          | **Placeholder**, **Max length** (500 to start, up to 5,000 characters)           |
+| **Long text**       | A larger box for several lines                            | **Placeholder**, **Max length** (5,000 to start, up to 20,000 characters)        |
+| **Email**           | An email address, checked to make sure it looks real      | **Placeholder**. It can also receive a confirmation email (see [After Submit](#the-after-submit-card)). |
+| **Phone**           | A phone number. Most formats are accepted.                | **Placeholder**                                                                  |
+| **Number**          | A number the visitor types                                | **Placeholder**, **Minimum**, **Maximum**, **Step** (all optional)               |
+| **Dropdown**        | One answer picked from a menu                             | **Options**                                                                      |
+| **Multiple choice** | One answer, shown as round buttons                        | **Options**                                                                      |
+| **Checkboxes**      | Any number of answers from a list                         | **Options**                                                                      |
+| **Single checkbox** | One yes-or-no box. The label is the statement, such as "I agree to the cancellation policy." | None                                      |
+| **Date**            | A calendar date                                           | **Earliest allowed date**                                                        |
+| **Time**            | A time of day, shown in the visitor's usual clock format  | None                                                                             |
+
+#### Settings on Every Field
+
+Click a field to open it. Every field has:
+
+- **Label** (required, up to 200 characters): the question, such as "Event date".
+- **Help text** (optional, up to 500 characters): a short note shown under the label.
+- **Type**: change the field to another type. See [Changing a Field's Type](#changing-a-fields-type).
+- **Required**: when on, visitors can't submit the form without answering. Required fields show a red asterisk on your site.
+
+The field's own ⋯ menu has **Duplicate** (adds a copy right below, with "(copy)" added to the label) and **Delete**. Use the small up and down arrows on the left of a field to move it. Deleting a field doesn't ask first, so if you delete one by mistake, use **Reset** before you save.
+
+#### Labels Must Be Different
+
+Each field needs its own label. Two fields can't share one, even if they differ only by capital letters or spaces, because each label becomes a column when you export or import entries. For the same reason, you can't name a field **Submitted at**, **Status**, or **Tags**; those names are saved for the spreadsheet.
+
+#### Options
+
+**Dropdown**, **Multiple choice**, and **Checkboxes** fields have an **Options** box. Type each answer, use **Add option** for more, and use the arrows and trash can to reorder or remove them.
+
+- Each field needs at least 2 options and can have up to 30.
+- Each option needs its own label (up to 200 characters).
+- Options can't contain semicolons (`;`).
+
+![An open Dropdown field named "Event type" with Required on and four options: Wedding, Birthday, Corporate, and Other](/images/forms/dropdown-field.png)
+
+#### Earliest Allowed Date
+
+**Date** fields have an **Earliest allowed date** setting:
+
+- **Any date**: visitors can pick any date.
+- **Today or later**: visitors can't pick a date in the past. "Today" means today in your business's time zone.
+
+This is handy for event and booking dates.
+
+#### Changing a Field's Type
+
+When you pick a new **Type** for a field, a box asks you to confirm, for example **Change to Dropdown?** It tells you what carries over (the label, help text, required setting, and placeholder) and warns you if anything will be lost:
+
+- Changing a **Dropdown**, **Multiple choice**, or **Checkboxes** field to a type without options removes its options. Switching among those three keeps them.
+- If the field is the one that receives the confirmation email and you change it away from **Email**, that setting is cleared.
+
+Click **Change type** to go ahead, or **Cancel**.
+
+### The Preview Card
+
+The **Preview** card shows the form as visitors will see it, and updates as you work. You can type into it and click the submit button to test your required fields and see your success message. Nothing is sent or saved. Click **Reset preview** to clear it.
+
+If two fields share a label or something else needs fixing, the preview says **Fix errors to preview** until you fix it.
+
+### The After Submit Card
+
+This card controls what happens when a visitor sends the form.
+
+- **Submit button label** (required, up to 60 characters): the words on the button. It starts as "Submit". Try something specific, such as "Send inquiry".
+- **Success message** (up to 1,000 characters): what visitors see after sending the form. It starts as "Thanks! We received your submission."
+- **Send confirmation email to**: choose one of your **Email** fields to send the visitor a copy of their answers, or keep **Don't send a confirmation**. If the form has no Email field, add one first. When a customer is signed in to their account, that field is filled in with their account email for them.
+- **Confirmation subject** (up to 200 characters): the subject line of the confirmation email. It starts as "We received your submission". You can type `{businessName}` anywhere in it and it's replaced with your business name, for example `Thanks for contacting {businessName}`.
+- **Confirmation message** (up to 2,000 characters): the note at the top of the confirmation email. Line breaks are kept.
+- **Notify email**: where the email about each new entry goes. Leave it blank to use your **Support Email**. Fill it in to send this form's entries somewhere else, such as your catering manager.
+
+The confirmation subject and message can only be edited once you've picked a field under **Send confirmation email to**.
+
+![The After submit card with "Send inquiry" as the button label, a custom success message, the Email field chosen for the confirmation email, a confirmation subject and message, and a notify email](/images/forms/after-submit-card.png)
+
+---
+
+## Putting a Form on Your Site
+
+A form doesn't have its own page or link to share. To show it, you insert it into a page or blog post, or into a rich-text field in the Site Editor. You can put the same form in more than one place, and every copy sends its entries to the same list.
+
+<video src="/videos/forms/embed-a-form.webm" poster="/videos/forms/embed-a-form-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*A short clip: inserting the "Catering inquiry" form into the Catering page with Insert elements → Form, saving the page, and viewing the form on the live site.*
+
+### In a Page or Blog Post
+
+1. Go to **Content → Pages** (or **Content → Blog**) and open the page or post. See [Pages & Policies](/docs/pages-and-policies) and [Blog](/docs/blog).
+2. Click in the content where you want the form.
+3. Open **Insert elements** (the **+** button at the end of the toolbar) and choose **Form**. You can also click the form button in the toolbar (its tooltip reads **Insert form**).
+4. A box titled **Insert Form** appears. Open **Select a form...** and pick your form. Forms that aren't published yet are marked **(draft)**.
+5. Save the page.
+
+In the editor, the form shows as a card with its name and entry count. Hover over it for **Change** (pick a different form) and an **X** to take it out of the page. A form that isn't published shows a **Draft** badge and the reminder "Publish this form so visitors can see it". The card's **Edit form** link opens the form in a new tab.
+
+If you haven't made any forms yet, the box says "No forms found." with a **Create a Form** button.
+
+![The Insert Form box in the page editor with the Select a form list open, showing published forms and drafts marked "(draft)"](/images/forms/insert-form-picker.png)
+
+### In the Site Editor
+
+Rich-text fields in the [Site Editor](/docs/site-editor) have the same **Insert elements** menu, so you can place a form in a template section that has a rich-text field. See [Rich text](/docs/template-fields#rich-text). Other rich-text boxes in your admin, such as a product's **Additional information**, offer it too.
+
+**Form** only appears in the **Insert elements** menu while the Forms feature is on.
+
+### What Visitors See
+
+On the Default template, the form appears in the page at a comfortable reading width: each field's label (with a red asterisk if it's required), any help text under it, and your submit button at the bottom. Other templates show the same form styled to match their own look.
+
+![The Catering page on the Default template: a short intro, then the Catering inquiry form with text, email, phone, date, number, dropdown, checkbox, and long-text fields, a consent box, and the Send inquiry button](/images/forms/storefront-form.png)
+
+![The same page on a phone, with the form fields stacked full width](/images/forms/storefront-form-phone.png)
+
+When a visitor clicks the button:
+
+- If a required question is empty or an answer isn't valid, the form doesn't send. A note at the top says how many errors there are, such as "There are 2 errors in this form.", and each problem is shown under its field.
+- If everything is fine, the form is replaced by your **Success message**.
+
+![The same page after sending the form: the form is replaced by the success message](/images/forms/success-message.png)
+
+#### "This Form Is Not Available"
+
+Where a form should be, visitors see a grey box that says **This form is not available** when:
+
+- the form isn't published
+- the form was deleted
+- the Forms feature is turned off
+
+The rest of the page shows as normal. You don't need to remove the form from the page first; publish the form (or turn Forms back on) and it reappears.
+
+#### Spam Protection
+
+Every form is protected by Google reCAPTCHA. It runs quietly in the background, so visitors don't have puzzles to solve, and a short "This site is protected by reCAPTCHA" line appears under the button.
+
+Each visitor can also send at most 5 forms every 15 minutes on your site. After that they see "Too many submissions — please wait a moment and try again."
+
+---
+
+## Working With Entries
+
+Open a form's entries from the **Entries** column or row menu on the Forms list, or with **View entries** in the builder. The page is titled with the form's name, such as **Catering inquiry — Entries**, with the total collected underneath. At the top are **Edit form**, **Import CSV**, and **Export CSV**.
+
+If the form has no entries yet, the page says **No entries yet**.
+
+### Finding Entries
+
+- **Search entries…** looks through the answers.
+- **Filters** opens a **Status** choice: **All statuses**, **New**, **Read**, or **Archived**.
+- **More filters** opens extra choices. Click **Apply filters** when you're done:
+  - **Tags**: show entries with certain tags.
+  - **Date range**: show entries sent between two dates.
+  - **Field filter**: show entries with a certain answer to a **Dropdown**, **Multiple choice**, **Checkboxes**, or **Single checkbox** field (for a single checkbox, the answer is **Yes** or **No**).
+
+Active filters show as small chips you can remove one at a time. The list shows 25 entries per page, newest first.
+
+### The Entries List
+
+| Column                | What it shows                                                                       |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| **Submitted**         | The date and time the entry came in. Entries brought in from a spreadsheet also show an **Imported** badge. |
+| **Status**            | **New**, **Read**, or **Archived**                                                  |
+| *Your first 3 fields* | The answers to the form's first three questions, shortened if long                 |
+| **Tags**              | Any tags you've added                                                               |
+
+Click a row, or its **View** button, to open the entry. On a phone, the status and answers appear under the date.
+
+![The Catering inquiry entries page: eleven entries in New, Read, and Archived statuses, tags such as "wedding" and "follow up", one entry with an Imported badge, and the search box, Filters, and More filters buttons above the table](/images/forms/entries-list.png)
+
+### Doing Several at Once
+
+Tick the checkboxes on the left (or the box in the header to select the whole page). A bar appears with:
+
+- **Mark read**, **Mark new**, and **Archive**
+- **Add tag**: adds one tag to every selected entry, keeping the tags they already have
+- **Remove tag**: removes one of the tags already used on this form (only shown once the form has tags)
+- **Delete**: only the store **Owner** sees this
+
+You can change the status of or tag up to 100 entries at a time, and delete up to 25 at a time. Deleting asks you to confirm and can't be undone.
+
+### An Entry's Details
+
+Opening an entry shows:
+
+- **Answers**: every question and answer. Email addresses and phone numbers are links you can click to write or call. If you've since removed a question from the form, its answer is still here with the note "Field removed from form".
+- **Details**: when it was submitted, and its **Source**: **Web submission** or **Imported**.
+- **Tags**: type a tag and press Enter or click **Add**. Tags you've used on other entries of this form appear underneath for one-click adding. Click the **x** on a tag to remove it. An entry can have up to 20 tags, each up to 40 characters.
+
+The status picker in the toolbar lets you set the entry to **New**, **Read**, or **Archived**. **Opening an entry marks it Read**, so it no longer counts toward the **new** badge. Set it back to **New** if you want to come back to it.
+
+The Owner also sees **Delete entry** in the toolbar's ⋯ menu.
+
+Entries keep the questions and answers exactly as they were when they were sent, so editing your form later never changes old entries.
+
+![One entry's page: the status picker set to Read, the Answers card with every question and answer, the Details card showing Web submission, and the Tags card with one tag and suggested tags below](/images/forms/entry-detail.png)
+
+### Exporting Entries
+
+Click **Export CSV** to download the entries as a spreadsheet you can open in Excel, Numbers, or Google Sheets. The export follows your current search and filters, so filter first if you only want some entries. If nothing matches, you'll see "No entries match these filters."
+
+The file has these columns, in order:
+
+1. **Submitted at**: the date and time, in UTC (world time)
+2. **Status**
+3. **Tags**: several tags are separated by semicolons
+4. One column per question, named after its label. Questions you've removed from the form come after the current ones.
+
+Checkbox answers with more than one choice are separated by semicolons too.
+
+### Importing Entries
+
+Use **Import CSV** to bring in entries you collected somewhere else, such as an old form service or a paper sign-up sheet you typed up.
+
+1. Click **Import CSV**, then **Choose a CSV file**. The file can be up to 2 MB.
+2. SimplePress matches the spreadsheet's column headings to your questions by label (capital letters and extra spaces don't matter). **Submitted at**, **Status**, and **Tags** columns are used if they're there.
+3. A preview shows the number of **Rows**, **Valid** rows, rows with **Errors**, and **Empty skipped** rows, which columns matched, which questions have no matching column, which columns will be ignored, the problems found in each row, and a sample of the first few entries.
+4. Click **Import N entries** to bring in the valid rows. Rows with errors are skipped.
+
+Imported entries show an **Imported** badge. Rows without a status come in as **Read**, and rows without a date get the time of the import. Importing never sends emails.
+
+**Tip:** the easiest way to get the column headings right is to export first and use that file as your template.
+
+![The Import entries box after choosing a CSV: 4 rows, 3 valid, 1 error, the matched and ignored columns, the row error, a sample of the entries, and the Import 3 entries button](/images/forms/import-preview.png)
+
+---
+
+## Emails
+
+Forms sends two kinds of email. Both are sent only for entries that come in through your website, never for imported ones.
+
+### The Email You Get
+
+Each new entry sends an email with the subject **New submission: [form name]**. It lists every question and answer and has a **View entry** button that opens the entry in your admin.
+
+It goes to the first of these that's set:
+
+1. the form's **Notify email**
+2. your **Support Email** (see [General Settings](/docs/general-settings#support-email))
+3. the store owner's account email
+
+If the form sends a confirmation email and the visitor filled in that Email field, you can reply to the notification and your reply goes straight to the visitor. Otherwise, replies go to the store owner's email.
+
+### The Email Your Visitor Gets
+
+A visitor only gets a confirmation email when you've chosen a field under **Send confirmation email to** **and** the visitor filled in that field. It uses your **Confirmation subject** and **Confirmation message**, followed by a copy of their answers under the heading "Your submission to" and your form's name. If they reply, the reply goes to your Support Email.
+
+Neither email appears on the [Email Preview](/docs/email-preview) page.
+
+---
+
+## Deleting a Form
+
+Choose **Delete** from the form's row menu, or from the ⋯ menu inside the builder. A box asks you to confirm, for example **Delete "Catering inquiry"?**
+
+**Deleting a form also deletes every entry it collected.** The box tells you how many, and suggests exporting them first. Any page showing the form then shows "This form is not available" in its place. This can't be undone.
+
+If you only want to stop taking new entries, switch **Published** off instead. The form and its entries stay.
+
+---
+
+## Who Can Do What
+
+| Action                                   | Owner | Manager | Staff |
+| ---------------------------------------- | ----- | ------- | ----- |
+| Build, edit, publish, and duplicate forms | Yes   | Yes     | No    |
+| Read, tag, archive, search, and export entries | Yes | Yes  | No    |
+| Import entries                           | Yes   | Yes     | No    |
+| Delete entries (one or several)          | Yes   | No      | No    |
+| Delete a whole form, with all its entries | Yes  | Yes     | No    |
+
+Note the last row: a Manager can't delete individual entries, but a Manager **can** delete an entire form, and that deletes all of its entries too. If that matters to you, export your entries regularly. See [Team and Roles](/docs/team-and-roles).
+
+---
+
+## Tips
+
+- **Test it yourself.** After publishing, fill out the form on your live site once. You'll see the success message, get the notification email, and find the entry in your admin.
+- **Keep it short.** Ask only what you need to reply. Use **Required** sparingly so people don't give up.
+- **Use help text** for anything a visitor might be unsure about, such as "Approximate is fine."
+- **Use Today or later** on date fields for bookings and events, so no one picks a date that's already passed.
+- **Name your button.** "Send inquiry" or "Apply now" tells people what happens better than "Submit".
+- **Duplicate to start a new version.** Make a copy, change it while it's a draft, then swap it into your page when it's ready.
+- **Tag as you go.** Tags like "Booked" or "Follow up" make it easy to filter and export just the entries you need.
+
+---
+
+## Feature Flag
+
+| Feature   | Default | Where to toggle                    | Requires |
+| --------- | ------- | ---------------------------------- | -------- |
+| **Forms** | Off     | Settings → Features (Marketing)    | Nothing  |
+
+You can turn Forms on or off yourself. While it's off:
+
+- **Forms** disappears from your admin sidebar, and the Forms pages say the feature isn't enabled.
+- **Form** disappears from the editor's **Insert elements** menu. Forms already placed on your pages show "This form is not available" to visitors.
+- Your forms and entries are kept. Turn the feature back on and everything returns as it was.
+
+See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Build as many forms as you like, each with up to 50 questions of eleven types
+- Make questions required, add help text, and limit dates to today or later
+- Place a form on any page or blog post, or in a rich-text field in the Site Editor, and use the same form in several places
+- Get an email for each new entry, sent to a different address per form if you like
+- Send visitors a confirmation email with a copy of their answers
+- Search, filter, tag, and archive entries, and export them to a spreadsheet
+- Import past entries from a spreadsheet
+- Duplicate a form to start a new version
+
+**You cannot:**
+
+- Give a form its own page or a shareable link. It has to be placed on a page.
+- Put a form on another website
+- Let visitors upload files or photos, or sign their name
+- Show or hide questions based on earlier answers, or split a form into steps
+- Take payments through a form
+- Send entries to more than one notify address, or to other apps automatically
+- Change the look of the form beyond what your template does
+- Get emails for imported entries
+
+---
+
+## Frequently Asked Questions
+
+**Can I link to a form directly, for example from my menu or an email?**
+Not to the form itself. Put the form on a page (for example a page called "Catering"), then link to that page. You can add the page to your menu in [Navigation](/docs/navigation).
+
+**Why does my page say "This form is not available"?**
+The form is either not published, deleted, or the Forms feature is off. Open the form, switch **Published** on, and save.
+
+**I changed a question. What happens to old entries?**
+Nothing. Each entry keeps the questions and answers as they were when it was sent. In the entries list, the columns follow your form's current first three questions.
+
+**I'm not getting the notification emails.**
+Check the form's **Notify email** in the **After submit** card, then your Support Email in [General Settings](/docs/general-settings#support-email). Also check your spam folder. Your entries are always saved in your admin, even if an email doesn't arrive.
+
+**Are form entries included when I download my site?**
+Yes. The [Download your site](/docs/data-and-export) file includes a spreadsheet of entries for each form that has any.
+
+Questions? Email [help@generativejustice.org](mailto:help@generativejustice.org).

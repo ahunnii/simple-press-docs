@@ -1,0 +1,394 @@
+---
+title: Videos
+description: Show your YouTube videos on a Videos page by pasting links or by connecting a channel or playlist that keeps itself up to date.
+---
+
+## Overview
+
+The Videos feature puts a **Videos** page on your storefront at `/videos`. It shows your YouTube videos in a tidy grid. Visitors click a video to play it right on your site.
+
+You can fill the page two ways, and you can use both together:
+
+- **Add videos one at a time** by pasting a YouTube link.
+- **Connect a channel or a playlist.** SimplePress checks it regularly and brings in new videos for you, so you don't have to paste each one.
+
+Typical uses are behind-the-scenes clips, how-to tutorials, event recaps, and product demos. Videos must be on YouTube. You can't upload video files here, and other video sites aren't supported.
+
+<Callout type="info" title="Videos is off by default">
+  You turn it on under **Settings → Features**. Until then, the Videos pages in your admin show a "Videos is not enabled for this business" notice, and your storefront has no `/videos` page. See [Feature Flag](#feature-flag) below.
+</Callout>
+
+<Callout type="info" title="Who can use it">
+  Owners and Managers can manage videos. Staff can't open the Videos pages. See [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+---
+
+## Getting Here
+
+In your admin sidebar, go to **Content → Videos**. The Videos page has two buttons at the top:
+
+- **Channels & Playlists** opens the page where you connect YouTube feeds. See [Channels and Playlists](#channels-and-playlists).
+- **Add Video** opens a box where you paste a YouTube link. See [Adding a Video](#adding-a-video).
+
+If you have no videos yet, the page says **No videos yet** and offers **Add Your First Video** and **Connect a channel or playlist**.
+
+---
+
+## The Videos List
+
+The list has two tabs. The number in brackets is the total for that tab.
+
+- **Published (n)** are the videos visitors can see on your storefront.
+- **Drafts (n)** are videos that are saved but hidden from visitors.
+
+![The Videos page on the Published tab, with the Channels & Playlists and Add Video buttons, the Published and Drafts tabs, the search box, and rows for videos from a channel, a playlist, and one added manually](/images/videos/videos-list.png)
+
+### What Each Row Shows
+
+- **Video:** a thumbnail and the video's title. Click the title to open its edit page.
+- **Channel:** the YouTube channel that posted it.
+- **Date:** the date it was posted on YouTube. For a video you added by hand, this is the day you added it.
+- **A badge** next to the title shows where it came from:
+  - **Added manually** means you pasted the link yourself.
+  - A name, such as the playlist or channel's display name, means it was brought in by a connected source. A small icon shows whether the source is a playlist or a channel.
+  - **Hidden by rule** appears on drafts that one of your publish rules held back. See [Publish Rules](#publish-rules).
+
+On a phone, the Channel and Date columns fold up under the title.
+
+### Publishing and Unpublishing
+
+Each row has an eye button. Click it to publish a draft or unpublish a live video. A short message confirms it ("Video published" or "Video unpublished"). Unpublishing keeps the video in your list, just hidden from visitors.
+
+When you publish a video that was marked **Hidden by rule**, the badge goes away.
+
+### The Three-Dot Menu
+
+The three-dot menu (⋮) on a row has:
+
+- **Watch on YouTube** (opens in a new tab)
+- **Edit**
+- **Delete**
+
+### Putting Videos in Order
+
+Drag a row by its handle (the six dots on the left) to move it. The order you set is the order visitors see. It saves as soon as you let go.
+
+A few things to know:
+
+- Each tab keeps its own order. You arrange the Published tab for what visitors see.
+- New videos go to the **end** of the list. Drag them up if you want them first.
+- **Reordering turns off while you're searching.** If you type in the **Search videos…** box, the handles go grey and a note says "Reordering is turned off while searching — clear the search to drag videos into order." This stops a partly hidden list from scrambling the videos you can't see. Clear the search and the handles work again.
+
+Search looks at the title, the channel, and the source badge, so typing a playlist's name finds that playlist's videos. When you switch between the two tabs, your search goes with you.
+
+![The Videos list with a word typed in the search box, showing the note that reordering is turned off while searching and the greyed-out drag handles](/images/videos/videos-search-reorder-off.png)
+
+---
+
+## Adding a Video
+
+1. Click **Add Video**.
+2. Paste a YouTube link into **YouTube URL**.
+3. Click **Add video**.
+
+![The Add a video box with a YouTube link pasted into the YouTube URL field](/images/videos/add-video-dialog.png)
+
+SimplePress looks the video up and fills in its title, channel, and thumbnail for you. A message says **Video added**.
+
+**The video goes live right away.** New videos you add this way start as **Published**, so visitors can see them as soon as you click the button. If you'd rather review it first, add it, then click its eye button to unpublish it.
+
+### Links That Work
+
+- A normal watch link, like `youtube.com/watch?v=…`
+- A short link, like `youtu.be/…`
+- A Shorts link
+- An embed link
+- A live-stream link
+
+Links from the YouTube site or the YouTube phone app's **Share** button both work.
+
+### If Something Goes Wrong
+
+| You see | What it means |
+| --- | --- |
+| **Paste a YouTube video link first.** | The box was empty. |
+| **That doesn't look like a YouTube video link.** | The link isn't from YouTube, or it isn't a link to a single video. Paste the full address. |
+| **That video could not be found — it may be private, deleted, or age-restricted.** | YouTube wouldn't share the video's details. Make the video Public or Unlisted on YouTube, then try again. |
+| **This video has already been added.** | It's already in your list, possibly on the Drafts tab. Each video can be on your site only once. |
+
+---
+
+## Editing a Video
+
+Click a video's title (or choose **Edit** from the three-dot menu) to open its page. The page has two cards side by side, and a bar at the top.
+
+![A video's edit page with the From YouTube card on the left, the Your overrides card on the right with a Title and Description typed in, and the top bar showing Unsaved Changes](/images/videos/video-edit-page.png)
+
+### From YouTube
+
+The **From YouTube** card shows the video as YouTube describes it: the thumbnail, title, channel, date, and the start of the description. You can't change it here. For videos that came from a connected channel or playlist, it refreshes automatically about every 30 minutes. Videos you added by hand don't refresh on their own, unless a connected source also carries that video.
+
+### Your Overrides
+
+Use the **Your overrides** card when you want your site to say something different from YouTube. Anything you fill in here replaces YouTube's version **on your site only**. It doesn't change anything on YouTube.
+
+| Field | What it does |
+| --- | --- |
+| **Title** | Up to 200 characters. Leave blank to use YouTube's title. |
+| **Description** | Up to 5,000 characters. Leave blank to use YouTube's description. Visitors see the first two lines on the Default template. |
+| **Thumbnail** | Upload a picture to replace YouTube's thumbnail on your site. If the Media Library is on, you can pick one you've already uploaded. Leave it blank to use YouTube's. |
+
+Each field shows what YouTube currently says, so you can compare. To go back to YouTube's version:
+
+- For the title or description, click **Use YouTube's title** or **Use YouTube's description** (the link appears once you've typed something there), then save.
+- For the thumbnail, remove the uploaded picture, then save.
+
+**Your overrides survive YouTube renames.** If you rename the video on YouTube, or YouTube changes its description or thumbnail, the "From YouTube" card updates, but anything in "Your overrides" stays exactly as you set it. If you leave a field blank, your site follows YouTube and changes with it.
+
+### Saving, Publishing, and the Menu
+
+- The **Published** switch in the top bar controls whether visitors can see the video. Changes apply when you click **Save changes**. The label next to the title shows **Unsaved Changes** until you do.
+- The **More Options** menu has **View on storefront**, **Reset** (throws away unsaved changes), and **Delete**.
+
+---
+
+## Deleting a Video
+
+You can delete from the three-dot menu in the list or from the video's edit page. A box asks you to confirm. What it says depends on where the video came from:
+
+- **A video you added by hand** is gone for good when you delete it. Nothing brings it back. You can add it again later by pasting the link.
+- **A video that came from a connected channel or playlist** is a different story. If it's still in that channel or playlist, **the next sync adds it back**. If you just want it off your site, **unpublish it instead**. Sync never turns a video you unpublished back on.
+
+---
+
+## Channels and Playlists
+
+Instead of pasting each video, you can connect a YouTube channel or a playlist. SimplePress then watches it and brings new videos in.
+
+In your admin, go to **Content → Videos** and click **Channels & Playlists**. Each connected source is a card showing its name, whether it's a channel or a playlist, how many videos it has brought in, and when it last synced ("Synced 20 minutes ago" or "Never synced").
+
+![The Channels & Playlists page with the Playlists vs. channels explanation and two source cards, one playlist and one channel](/images/videos/video-sources-page.png)
+
+### Playlists vs. Channels
+
+The page opens with a short explanation. In plain words:
+
+- A **channel** brings in everything that channel posts.
+- A **playlist** can hold videos from many channels, including other people's. You can build your own playlist of the videos you want, and SimplePress follows it. This is the easiest way to feature videos you don't own.
+- **Turn auto-publish off** for a playlist you fill with other people's videos, so new finds arrive as drafts for you to review.
+- **Turn auto-publish on** for your own channel, where everything is fair game.
+- **Add publish rules** to a channel that mixes your shows with guest spots, so only the videos you want go live. See [Publish Rules](#publish-rules).
+
+### Adding a Channel or Playlist
+
+1. Click **Add Channel or Playlist**.
+2. Paste the link into **Channel or playlist URL**.
+3. Optionally type a **Display name**, like "Our channel" or "Featured makers". This is the name shown on the badges in your list. If you leave it blank, the badge just says "Channel" or "Playlist".
+4. Choose whether **Auto-publish new videos** is on or off. It starts on.
+5. Click **Add source**.
+
+A message says "Connected — the first sync runs shortly". If you don't want to wait, click **Sync now** on the new card.
+
+What you can paste:
+
+- **A channel link** like `youtube.com/@yourhandle`. Older-style channel links (`/channel/…`, `/c/…`, `/user/…`) work too.
+- **A handle on its own**, starting with `@`, like `@yourhandle`.
+- **A playlist link.** The link must include the playlist part (`list=…`). Playlist IDs are visible right in the link.
+- **A bare channel or playlist ID** if you have one. Channel IDs start with `UC`. Playlist IDs usually start with `PL`.
+
+If SimplePress can't work out the channel from a handle, it says "We couldn't resolve that channel handle." In that case, paste the channel's ID instead. Channel IDs aren't shown in the channel's link. Find yours in **YouTube Studio → Settings → Channel → Advanced**.
+
+If the source is already connected, you'll see "This channel or playlist has already been added."
+
+![The Add a channel or playlist box with a channel link pasted in, a Display name typed, and Auto-publish new videos switched on](/images/videos/video-source-add-dialog.png)
+
+### What Each Card Offers
+
+- **Sync now** checks the source immediately. A message tells you how many videos were added and how many were updated.
+- **Rules** opens the publish rules. See [Publish Rules](#publish-rules).
+- **Edit** (pencil) lets you change the **Display name** and the **Auto-publish** setting. You can't change which channel or playlist the card points to. To follow a different one, connect a new source.
+- **Remove** (trash can) disconnects the source. See [Removing a Source](#removing-a-source).
+- **Sync enabled** is a switch. Turn it off to stop automatic checks without disconnecting. The card shows a **Disabled** badge while it's off.
+- **Auto-publish new videos** is a switch. On means new videos go live on their own. Off means they arrive as drafts.
+
+If the last check failed, a red **Last sync failed** note appears on the card with the reason.
+
+### Auto-Publish Applies to New Videos Only
+
+The **Auto-publish new videos** switch decides what happens to videos SimplePress finds **from now on**. Videos it already brought in stay as they are, and anything you've published or unpublished yourself stays that way.
+
+---
+
+## Publish Rules
+
+Publish rules let a source publish only the videos you want and hold the rest as drafts. They're useful for a channel that posts more than you want on your site, such as a channel that mixes your own shows with trailers or guest appearances.
+
+Click **Rules** on a source card to open **Publish rules**.
+
+![The Publish rules box filled in with Moon and Artemis in Title must contain any of, Trailer in Title must not contain any of, and the Mon and Thu day buttons switched on](/images/videos/video-rules-dialog.png)
+
+| Rule | How it works |
+| --- | --- |
+| **Title must contain any of** | Type one or more phrases separated by commas. A video qualifies if its title has at least one of them. |
+| **Title must not contain any of** | A video is held back if its title has any of these phrases. |
+| **Only videos published on** | Pick the days of the week. Only videos posted on those days qualify. Leave every day off to allow any day. Days are counted in your store's time zone, which you set under **Settings → General** (see [General Settings](/docs/general-settings)). |
+
+Good to know:
+
+- You can enter up to **20 phrases** in each box, and each phrase can be up to 100 characters.
+- Matching is **not case-sensitive**: "trailer" also catches "Trailer".
+- Phrases are matched against **YouTube's title**, not a custom title you set under "Your overrides".
+- **A video must pass every rule you've set** to be published. Leave a rule empty and it isn't checked.
+- A video that fails is **not thrown away**. It's saved as a draft marked **Hidden by rule**, so you can still publish it by hand with the eye button.
+
+![The Drafts tab showing videos from a playlist with the amber Hidden by rule badge and an eye button on each row](/images/videos/videos-drafts-hidden-by-rule.png)
+
+Click **Save rules** to save. Click **Clear rules** (shown once rules exist) to remove them. The source card shows a summary line, such as `Rules: title contains "Moon" or "Artemis" · not "Trailer" · Mon, Thu`. Without rules it says "No publish rules — every new video follows Auto-publish."
+
+When both a rule and auto-publish apply, a new video goes live only if **Auto-publish new videos is on and it passes your rules**. A video that passes the rules but arrives while auto-publish is off becomes an ordinary draft, without the "Hidden by rule" badge.
+
+### Re-Applying Rules to Videos You Already Have
+
+Saving rules affects videos found **from then on**. For videos already in your list, click **Re-apply rules** on the card. (The button shows when the source has rules and has brought in at least one video. After you save rules, the confirmation message also offers a "Re-apply" shortcut.)
+
+A box tells you the result before anything changes. For example: "12 videos from this source will be checked against the rules: 3 will be published, 4 will move to Drafts, 5 stay as they are." Videos you added by hand aren't affected.
+
+Click **Re-apply** to go ahead. Be careful with this one:
+
+- Videos that **fail** the rules move to Drafts, **even ones you published yourself**.
+- Videos that **pass** the rules are published, **even ones you deliberately unpublished**.
+- It ignores the **Auto-publish** switch.
+
+If you've hand-picked what's live, think twice before re-applying, or note which videos you'll need to fix afterward.
+
+---
+
+## Removing a Source
+
+Click the trash can on a source card and confirm. SimplePress stops syncing that channel or playlist. **Its videos stay on your site.** They become regular entries you can keep, edit, or delete one by one. A message confirms: "Removed — its videos are still on your site as manual entries".
+
+---
+
+## How Syncing Works
+
+Here is what to expect from automatic syncing:
+
+- **About every 30 minutes.** SimplePress checks each connected source roughly twice an hour. Click **Sync now** if you want a check right away.
+- **It only sees the latest videos.** YouTube shares only about the **15 most recent uploads** of a channel or playlist. If you connect a channel with hundreds of old videos, only the latest ones come in. To show an older video, add it with **Add Video**. After that it stays on your site.
+- **It never deletes.** If a video is removed from the channel or the playlist, or made private, it stays in your list until you remove it yourself.
+- **It keeps your choices.** A sync refreshes the "From YouTube" details but never touches your overrides, your published or draft setting, or your order.
+- **It brings back deleted videos.** If you delete a synced video and it's still among the latest uploads, the next sync adds it again. Unpublish instead.
+- **It pauses while the feature is off.** If you turn Videos off under **Settings → Features**, no syncing happens until you turn it back on. Your videos and sources are kept.
+- **New videos go to the end of the list.** Drag them where you want them.
+
+If a sync fails, the source card shows **Last sync failed** with the reason. A failed check doesn't remove anything, and the next check tries again.
+
+---
+
+## What Visitors See
+
+The **Videos** page lives at `/videos`. On the **Default** template it opens with a heading area, then a grid of your **published** videos: three across on a computer, two on a tablet, and one on a phone. Other templates lay the page out their own way, but they show the same videos, in the same order.
+
+![The Videos page on the Default storefront, with the Watch label, the Videos heading, the intro line, and a grid of video thumbnails with play buttons and titles](/images/videos/storefront-videos.png)
+
+Each video shows:
+
+- A thumbnail with a play button and the title
+- The title below it (your override if you set one)
+- The first two lines of the description, if there is one
+
+**Visitors click to play.** The video plays right on your page, with no need to go to YouTube. The YouTube player only loads when someone clicks play, so the page stays fast and no YouTube player is loaded for people who just scroll past. When it does load, it uses YouTube's privacy-friendly mode.
+
+There is **no separate page for each video**. Everything happens on the one `/videos` page. Search engines can read your videos as structured data, which helps them understand what's on the page.
+
+![The Videos page on a phone, with the heading above a single column of video cards](/images/videos/storefront-videos-phone.png)
+
+### Changing the Page's Wording
+
+In the [Site Editor](/docs/site-editor), open the **Videos** page (it appears in the page list once the feature is on). There are two sections:
+
+- **Hero:** **Small label** (starts as "Watch"), **Heading** (starts as "Videos"), and **Intro text** (starts as "Behind the scenes, tutorials, and more."). Clear the small label or the intro text to hide it.
+- **List:** **Empty state heading** (starts as "No videos yet") and **Empty state message** (starts as "Check back soon — new videos are posted here."). Visitors see these when you have no published videos.
+
+The videos themselves are managed in **Content → Videos**, not in the Site Editor.
+
+### Getting the Page Into Your Menu
+
+The Default template's starter menu doesn't include Videos. To add it, open **Site Setup → Navigation**, and in the **Quick Add** card click **Videos** (it shows once the feature is on), then **Save navigation**. See [Navigation](/docs/navigation).
+
+While the feature is off, links to `/videos` in your header and footer are hidden automatically, and the page itself shows a "page not found" message. Nothing breaks, and the links come back when you turn the feature on.
+
+---
+
+## Tips
+
+- **Start with a few links.** Paste your best three or four videos with **Add Video** and see how the page looks before connecting a channel.
+- **Use a playlist to choose.** Build a playlist on YouTube for the videos you want on your site, connect it, and add to it whenever you like. It's the easiest way to curate.
+- **Turn auto-publish off for other people's videos** so you can look at each one before it goes live.
+- **Check your drafts now and then.** Synced videos that weren't auto-published, or were held by a rule, wait in **Drafts**.
+- **Write your own titles** when YouTube's are long or full of hashtags. Use **Your overrides**. They won't be overwritten.
+- **Keep videos Public or Unlisted on YouTube.** Private videos can't be played on your site.
+- **Add older videos by link.** Syncing only sees the latest uploads, so paste the older ones in yourself.
+
+---
+
+## Feature Flag
+
+| Feature    | Default | Where to toggle     | Requires |
+| ---------- | ------- | ------------------- | -------- |
+| **Videos** | Off     | Settings → Features | Nothing  |
+
+You can turn Videos on or off yourself from **Settings → Features** (in the Content section). Turning it off hides the Videos pages in your admin, removes the storefront page and its menu links, and pauses syncing. Your videos, overrides, and connected sources are kept for when you turn it back on. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Add any public or unlisted YouTube video by pasting its link
+- Connect YouTube channels and playlists to bring in new videos automatically
+- Review synced videos as drafts before they go live
+- Set publish rules by title words and day of the week
+- Replace a video's title, description, and thumbnail on your site without touching YouTube
+- Drag videos into any order you like
+- Publish, unpublish, and delete videos one at a time
+- Reword the Videos page's heading and empty-state text in the Site Editor
+- Add a Videos link to your menu with Quick Add
+
+**You cannot:**
+
+- Use videos from other sites such as Vimeo, or upload video files to this page (to place a single video inside a page, see [Embeds](/docs/embeds))
+- Get a separate page for each video
+- Sync a channel's older videos automatically (only the latest uploads come in, so add the rest by link)
+- Have synced videos removed automatically when they leave YouTube
+- Publish or unpublish several videos at once
+- Sort the list by date or name, because the order is the one you set by hand
+- Show video comments, view counts, or categories
+- Play videos in a pop-up or on their own page
+
+---
+
+## Frequently Asked Questions
+
+**Do visitors have to leave my site to watch?**
+No. The video plays on your Videos page when they click it.
+
+**A video I deleted came back. Why?**
+It came from a connected channel or playlist and is still among its latest videos, so the next sync added it again. Unpublish it instead of deleting it.
+
+**Why are some of my channel's videos missing?**
+Syncing only sees roughly the latest 15 uploads. Add older videos with **Add Video** by pasting their links.
+
+**I renamed a video on YouTube. Will my site change?**
+Only if you haven't set your own title. A title in **Your overrides** stays as you wrote it. If you left it blank, your site follows YouTube's new name.
+
+**Why isn't a new upload showing yet?**
+Syncing runs about every 30 minutes, so give it a little time, or click **Sync now**. Also check the **Drafts** tab: with auto-publish off, or a publish rule that held it back, the video waits there for you.
+
+**What happens to the videos if I turn the feature off?**
+They're kept, but not shown, and syncing pauses. Turn Videos back on and everything returns.
+
+**Can I add the Videos page to my menu?**
+Yes. Use **Quick Add → Videos** in [Navigation](/docs/navigation). It only appears once the feature is on.

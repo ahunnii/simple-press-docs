@@ -1,0 +1,271 @@
+---
+title: FAQ
+description: Write the questions your customers ask most, publish them on your own FAQ page, and show a few of them on other pages of your site.
+---
+
+## Overview
+
+Your FAQ is a list of questions and answers that you write once and keep in one place. Visitors read them on your **FAQ page** (at `yourstore.com/faq`), where each question opens and closes like an accordion. Some templates can also show a handful of your questions on other pages, such as Contact.
+
+Typical uses are shipping times, your return policy, how custom orders work, how to book, what to bring, and how to care for what you sell. Every question you answer here is one fewer email in your inbox.
+
+Search engines can also read your questions and answers as structured data, which helps them understand your page and can make it eligible to show answers right in search results.
+
+<Callout type="info" title="Owners and Managers only">
+  FAQ is part of Site Setup, which only Owners and Managers can open. Staff members can't. See [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+<Callout type="info" title="Always on">
+  FAQ has no feature switch. It is available on every store and never appears in **Settings → Features**. See [Feature Flag](#feature-flag).
+</Callout>
+
+---
+
+## Where to Find It
+
+Open **Site Setup** from the **Content** group in your sidebar, then click the **FAQ** card ("Frequently asked questions"). The page is titled **FAQ**, and a **Back** button returns you to Site Setup.
+
+At the top, a badge next to the title counts your questions (for example "7 items"). It counts drafts too. The **Add Question** button sits on the right.
+
+![The FAQ page in your admin with seven questions, one expanded to show its answer and the last marked Draft](/images/faq/faq-admin-list.png)
+
+Below the toolbar, a card called **FAQ Items** lists every question, in the order visitors will see them. Each row has:
+
+- **Move up** and **Move down** arrows on the left.
+- The question. Click it to open or close its answer right in the list, which is handy for checking your wording.
+- A **Published** or **Draft** badge, and the question's position number (such as #3).
+- A pencil (**Edit**) and a trash can (**Delete**) on the right. They appear when you point at the row.
+
+### When You Have No Questions Yet
+
+A new store shows **No FAQ items yet** with a short note and an **Add Your First Question** button.
+
+![The FAQ page in your admin before any questions have been added](/images/faq/faq-admin-empty.png)
+
+---
+
+## Adding a Question
+
+1. Click **Add Question** (or **Add Your First Question** if the list is empty). The **Add FAQ Item** box opens.
+2. Type the **Question**. A counter shows how many of the 500 allowed characters you've used.
+3. Type the **Answer**, up to 10,000 characters. It is plain text. Line breaks you type are kept.
+4. Leave **Published** on to show the question on your site right away, or switch it off to save it as a draft.
+5. Click **Add Question**. A "FAQ item added" message confirms it.
+
+![The Add FAQ Item box with a question and answer filled in and the Published switch on](/images/faq/faq-add-dialog.png)
+
+Both the question and the answer are required. The **Add Question** button stays greyed out until you've filled them in, and the box tells you "Question is required" or "Answer is required" if you leave one empty.
+
+New questions are added to the **end** of the list. Use the arrows to move them where you want them.
+
+<Callout type="info" title="Answers are plain text">
+  There is no bold, no bullets, and no links in an answer. If you type a web address, visitors see the address as text but can't click it. Write the address out in full (for example "visit yourstore.com/shipping") or point people to a page in your menu instead. Line breaks are kept, so you can separate short paragraphs.
+</Callout>
+
+---
+
+## Editing, Hiding, and Deleting
+
+### Editing
+
+Point at a row, click the pencil, and the **Edit FAQ Item** box opens with the current wording. Change anything, including the **Published** switch, and click **Save Changes**. A "FAQ item updated" message confirms it.
+
+### Drafts
+
+Switch **Published** off to keep a question without showing it. The row shows a **Draft** badge. Drafts:
+
+- don't appear on your FAQ page,
+- aren't offered in the question pickers in the [Site Editor](/docs/site-editor), and
+- aren't read by search engines.
+
+If a draft was already picked for a section, that section quietly stops showing it until you publish it again. Drafts still take up a position number in your admin list.
+
+Use drafts for answers you're still working on, or for seasonal questions you want to bring back later (a holiday shipping cutoff, for example).
+
+### Changing the Order
+
+Use the **Move up** and **Move down** arrows to move a question one place at a time. The change saves immediately. The first row can't move up, and the last can't move down. The order you set here is the order on your FAQ page. Sections that show "the first few questions" use the same order.
+
+### Deleting
+
+Click the trash can. Your browser asks you to confirm: Delete "your question"? This cannot be undone. Click **OK** to delete it, and a "FAQ item deleted" message appears. A deleted question is gone for good, so use a draft if you might want it back. A question that was picked in a section is simply dropped from that section.
+
+---
+
+## What Visitors See
+
+### The FAQ Page
+
+On the Default template, your FAQ page has:
+
+- A heading, **Frequently Asked Questions** unless you've changed it.
+- A line under it: "Answers to common questions about" followed by your store name.
+- Your published questions in the order you set, each one a row that opens to show its answer.
+
+Each question opens and closes by itself, so a visitor can have several open at once. It works with a keyboard too. Line breaks in your answers are shown as you typed them.
+
+![The Default template's FAQ page on a computer with one answer open](/images/faq/faq-storefront-desktop.png)
+
+![The FAQ page on a phone with one answer open](/images/faq/faq-storefront-phone.png)
+
+*The same page on a phone.*
+
+If you have no published questions, the subtitle line is left out and visitors see "No FAQ items available yet. Check back soon." instead. You can change that message. See [Editing the FAQ Page's Wording](#editing-the-faq-pages-wording).
+
+<Callout type="info" title="Other templates lay it out their own way">
+  Every template has a FAQ page, but each one styles it differently. The questions, answers, and order all come from **Site Setup → FAQ**, so you only write them once. Modern and Elegant use the same page as Default. Custom templates have their own look, and some give the page extra wording you can edit in the Site Editor.
+</Callout>
+
+### Search Engines
+
+Whenever you have at least one published question, your FAQ page includes your questions and answers in a form that search engines can read. Your FAQ page is also listed in your site's sitemap only once at least one question is published.
+
+Drafts are never included. Search engines decide for themselves whether to show your answers in results, so there is no guarantee. Writing clear, direct answers helps.
+
+---
+
+## Adding the FAQ Page to Your Menu
+
+A new store's menu doesn't link to the FAQ page by default. To add it:
+
+1. Go to **Site Setup → Navigation**.
+2. In the **Quick Add** card, under **Common Pages**, click **FAQ**. It is always there, whatever features you have on.
+3. Click **Save navigation**.
+
+![The Navigation page's Quick Add card with the FAQ button highlighted](/images/faq/faq-quick-add.png)
+
+This adds a link labeled "FAQ" that goes to `/faq`. You can rename it or drag it into a dropdown like any other item. You can also add it to your footer links in the same way. Because FAQ has no feature switch, this link is never hidden automatically.
+
+Publish at least one question before you add the link. Without one, visitors who click it land on a page that says there are no questions yet. See [Navigation](/docs/navigation) for all the details.
+
+---
+
+## Editing the FAQ Page's Wording
+
+On the Default template, you can change two pieces of text on the FAQ page in the [Site Editor](/docs/site-editor).
+
+1. Open the **Site Editor** and choose **FAQ** in the page picker (under **Site pages**).
+2. Open the section called **FAQ page**.
+3. Change either field:
+   - **Heading**: the main title. It reads "Frequently Asked Questions" until you change it.
+   - **Empty state message**: the text shown when there are no published questions. It reads "No FAQ items available yet. Check back soon." until you change it.
+4. Click **Publish**.
+
+![The Site Editor on the FAQ page with the FAQ page section open showing the Heading and Empty state message fields](/images/faq/faq-site-editor.png)
+
+The questions and answers themselves are not edited in the Site Editor. They are always managed in **Site Setup → FAQ**. For how the editor works, see [Site Editor](/docs/site-editor) and [Template Fields](/docs/template-fields).
+
+### Page Title and Description for Search
+
+To control how the FAQ page appears in search results and when shared, go to **Site Setup → SEO & Meta**, open the **Individual pages** tab, and find the row named **FAQ**. Leave a box blank to keep the defaults. See [SEO & Meta](/docs/storefront-and-branding#seo--meta).
+
+---
+
+## Showing Questions on Other Pages
+
+Some pages show a few of your questions as well. They don't have their own copy: they use a **FAQ picker** in the Site Editor, which lets you choose which of your published questions to show and in what order.
+
+On the Default template, the **Contact** page ends with an optional **FAQ** section ("Frequently asked" and "Quick answers." by default). You can pick up to 6 questions for it, or leave the picker empty to show your first 6 published questions. The section is left out if you have no published questions.
+
+![The Default template's Contact page with the FAQ section below the contact form](/images/faq/faq-contact-section.png)
+
+For the step-by-step on that section, see [FAQ Section on the Contact Page](/docs/contact-form#faq-section-on-the-contact-page). For how the picker itself works (adding rows, reordering, removing, and the hint when it's empty), see [FAQ Picker](/docs/template-fields#faq-picker). The picker also looks like this in the editor:
+
+![The FAQ picker with two questions picked](/images/template-fields/faq-picker.png)
+
+### Templates With a FAQ Picker
+
+The Default template is not the only one. These places have a picker:
+
+| Where | Template | Limit | If you pick none |
+| ----- | -------- | ----- | ---------------- |
+| Contact page, **FAQ** section | Default, Olive, Modern | 6 | Shows the first 6 published questions |
+| Contact page, **FAQ** section | Elegant, Bamboo, Happy Bamboo, Sledge, Noise | 10 | Shows the first 10 published questions |
+| Homepage, **Questions** section | UMSC | 3 | Shows the first 3 published questions; the section stays hidden until at least one is published |
+| Services page, FAQ section | Pollen | 10 | Shows the first 10 published questions; the section hides if there are none |
+| Service pages, FAQ section | Pink | 8 | The section is hidden |
+
+Modern and Elegant are available to every store. The others are custom templates that are made for specific stores, so you'll only see the ones that belong to your store. If you aren't sure whether your template has one, open the Site Editor, look at the Contact page's sections, or ask [help@generativejustice.org](mailto:help@generativejustice.org).
+
+A few things to know about pickers:
+
+- They only offer **published** questions. A draft can't be picked, and a picked question that you later switch to draft disappears from that section until you publish it again.
+- They always show your question's current wording. Edit a question under **Site Setup → FAQ** and every place that shows it updates.
+- Deleting a question removes it from every section that showed it.
+
+---
+
+## Tips
+
+- **Write the way customers ask.** "Do you ship to Canada?" works better than "International shipping policy".
+- **Put the most common questions first.** Most visitors only read the first few rows.
+- **Keep answers short.** A few sentences is usually enough. Line breaks help if you need more.
+- **Answer directly.** The first sentence should be the answer. Details can come after.
+- **Add it to your menu or footer.** A FAQ page nobody can find doesn't help anyone. Use Quick Add in [Navigation](/docs/navigation).
+- **Use drafts for seasonal answers.** Switch a question off when it's out of date and back on when it's needed.
+- **Review it now and then.** If your prices, hours, or policies change, change the matching answers too. Your policies themselves live in [Pages and Policies](/docs/pages-and-policies).
+
+---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| ------- | ------- | --------------- | -------- |
+| **FAQ** | Always on | No switch. It isn't listed in Settings → Features | Nothing |
+
+FAQ cannot be turned off, and its card in Site Setup is always there for Owners and Managers. If you don't want a FAQ page, simply leave your menu without a link to it and add no questions. The page still exists at `/faq`, so visitors who find the address would see the "no questions yet" message. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Add as many questions as you like, each with a question up to 500 characters and an answer up to 10,000 characters
+- Save a question as a draft, and publish it later
+- Reorder questions with the arrows, and edit or delete them any time
+- Check an answer's wording by opening it in the admin list
+- Change the FAQ page's heading and its empty-state message in the Site Editor (Default template)
+- Set the FAQ page's search title and description in SEO & Meta
+- Add a link to the FAQ page with one click in Navigation's Quick Add
+- Choose which questions appear in sections that have a FAQ picker, such as the Contact page
+
+**You cannot:**
+
+- Format an answer or add links, images, or lists. Answers are plain text with line breaks.
+- Group questions into categories or sections on the FAQ page
+- Show different questions to different visitors
+- Turn the FAQ off with a switch
+- Let visitors search the FAQ or send in their own questions
+- Pick a draft in a section's question picker
+- Bring a deleted question back (draft it instead)
+- Import or bulk-edit questions. You add them one at a time.
+- Edit questions from the Site Editor. They're written in **Site Setup → FAQ**.
+
+---
+
+## Frequently Asked Questions
+
+**Do I need to turn anything on?**
+No. FAQ is always available. Add your first question and it's live on your `/faq` page as soon as it's published.
+
+**Who can manage the FAQ?**
+Owners and Managers. Staff members can't open Site Setup. See [Team and Roles](/docs/team-and-roles).
+
+**Why isn't my new question showing on my site?**
+Check its badge. A question marked **Draft** is hidden. Open it with the pencil icon and switch **Published** on. Also check the page you're looking at: a section with a FAQ picker only shows questions you picked, or the first few if you picked none, so a new question added at the end of a long list may not appear there.
+
+**Can I put a link or a bold word in an answer?**
+No. Answers are plain text. You can add line breaks. If you need to point people somewhere, write out the page name or address.
+
+**Can I organize questions into groups like Shipping and Returns?**
+Not at the moment. Questions are one list. A clear order and well-worded questions are the best tools available.
+
+**Can customers ask a question through the FAQ page?**
+No. The FAQ page only shows what you've written. For a way for customers to contact you, see [Contact Form](/docs/contact-form).
+
+**I deleted a question by mistake. Can I get it back?**
+No. Deleting is permanent. You'll need to add it again. Use **Published** off (a draft) when you only want to hide a question.
+
+**Does the FAQ page work on phones?**
+Yes. Each question taps open and closed. The exact look depends on your template, so check it on your phone after you add questions.

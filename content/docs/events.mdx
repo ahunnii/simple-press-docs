@@ -1,0 +1,328 @@
+---
+title: Events
+description: Publish markets, pop-ups, classes, and other dates on your storefront, with fliers, links, and QR codes.
+---
+
+## Overview
+
+Events lets you list the dates your customers should know about: a farmers market booth, a pop-up shop, a class, a trunk show, a fundraiser. Each event has a name, a date and time, a place, and an optional flier (a photo or a short video), a link, a QR code, and a price note.
+
+Your events appear on an **Events** page on your storefront (`/events`), and every event also gets its own page that you can share. You add them once and SimplePress takes care of the rest: events that have ended drop off the list on their own.
+
+Events is for *telling people when and where to find you*. It does not sell tickets or take sign-ups (see [What You Can and Cannot Do](#what-you-can-and-cannot-do)). Instead, you add a link to wherever people should go to buy a ticket or sign up.
+
+<Callout type="info" title="Events is off by default">
+  Turn it on in **Settings → Features** (see [Feature Flags](/docs/feature-flags)). Until then, **Events** doesn't appear in your admin and the `/events` page on your site shows "not found".
+</Callout>
+
+<Callout type="info" title="Who can use it">
+  Owners and Managers can add, edit, archive, and delete events. Staff can't open Events (see [Team and Roles](/docs/team-and-roles)). Only the store **Owner** can delete several events at once.
+</Callout>
+
+---
+
+## Where to Find It
+
+In your admin sidebar, go to **Content → Events**. The page is titled **Events**, with the line "Manage the markets, pop-ups, and dates shown on your site".
+
+You can also use the admin's search and type **Add event** to jump straight to a blank form.
+
+If you haven't added anything yet, you'll see **No events yet** ("Add a market, pop-up, or workshop date so shoppers can see when to find you.") with an **Add Your First Event** button.
+
+![The Events page in your admin before any events exist, with the No events yet message and the Add Your First Event button](/images/events/events-empty.png)
+
+---
+
+## The Events List
+
+Once you have events, they appear in a table with these columns: **Event** (a small thumbnail of the flier plus the event name, which you click to edit), **Date**, **Location**, and **Status**. On a phone, the date, location, and status are shown in a line under the event name instead.
+
+![The Events list in your admin with five events, showing flier thumbnails and the Date, Location, and Status columns, including one Draft and one Archived event](/images/events/events-list.png)
+
+### Finding and Sorting
+
+- **Search events…** looks at the event name and the location.
+- Click **Filters** to open the filter options:
+  - **When**: **All events**, **Upcoming**, or **Past**.
+  - **Status**: **Any status**, **Published**, **Drafts**, or **Archived**.
+  - **Sort**: **Latest first** (the default, newest date at the top), **Soonest first**, **Recently added**, **First added**, **Name A–Z**, or **Name Z–A**.
+- The list shows 25 events per page.
+- If your filters match nothing, you'll see **No events match your filters** with a **Clear filters** button.
+
+A few things worth knowing about the filters:
+
+- **Past** includes events that have ended *and* events you've archived by hand, even if their date is still in the future. That keeps the **Upcoming** view limited to events that are really still on.
+- An event's **Status** is **Archived** if it's archived, otherwise **Draft** if it isn't published, otherwise **Published**. Archived wins over the others.
+
+### Row Actions
+
+Click the three-dot menu at the end of a row:
+
+- **Edit** opens the event.
+- **Archive (hides from your site)** takes the event off your Events page. If the event is already archived, this reads **Move to upcoming** instead. See [Past Events and Archiving](#past-events-and-archiving).
+- **Delete** asks you to confirm ("It will disappear from your site immediately. This action cannot be undone."), then removes the event for good.
+
+### Doing Several at Once
+
+Tick the checkboxes on the left. A bar appears above the table with a count (such as "3 events selected") and these buttons:
+
+- **Publish** and **Unpublish**
+- **Archive** and **Unarchive**
+- **Delete**: shown only to the store **Owner**. Managers don't see this button.
+- **Clear**, which unticks everything
+
+Publish, Unpublish, Archive, and Unarchive work on up to 100 events at a time, and each one gives you an **Undo** button in the confirmation message that appears. Delete is limited to 25 events at a time and asks you to confirm first. It can't be undone.
+
+![The Events list with three events ticked and the bar above the table showing Publish, Unpublish, Archive, Unarchive, Delete and Clear](/images/events/events-bulk-bar.png)
+
+---
+
+## Adding an Event
+
+1. Go to **Content → Events** and click **Add Event**.
+2. Fill in **Basic Information**, **When**, and **Details** (described below).
+3. Make sure the **Published** switch at the top is how you want it. **New events start Published**, so switch it off first if you're not ready to show it.
+4. Click **Save changes**.
+
+After you save a new event, SimplePress opens it for editing so you can keep going. Click **Back** at the top left to return to the list.
+
+The top bar of the form shows the event name and a status label (**Draft** for a new event, **Unsaved Changes** while you're editing, **Saved** once it's saved). Next to the **Published** switch is a **More Options** menu:
+
+- **View on storefront** opens the event's public page (or the Events page if the event isn't published yet).
+- **Reset** throws away your unsaved changes.
+- **Delete** (saved events only) removes the event after you confirm.
+
+![An event's form with the toolbar (Published switch, More Options menu, Save changes), the Basic Information card with a flier photo, and the Details card beside it](/images/events/event-form-top.png)
+
+### Basic Information
+
+- **Event name** *(required)*: up to 120 characters.
+- **Description**: up to 2,000 characters. A few sentences about what's happening and who it's for. Line breaks are kept on the event's own page.
+- **Flier or cover media**: choose **Photo** or **Video**. An event can have one or the other, not both.
+  - **Photo** (**Flier or cover image**): up to 5 MB. Visitors can tap it to see it full size. A portrait flier (taller than wide) fits the frame best, but any shape works because the whole picture is shown without cropping.
+  - **Video** (**Video flier**): MP4 or WebM recommended, up to 50 MB.
+  - If the [Media Library](/docs/media-library) is on, you can also **Choose from library** instead of uploading again.
+
+The flier is uploaded when you click **Save changes**, so if you leave without saving, nothing is stored.
+
+### When
+
+- **All day**: switch this on for events with no set hours, like a weekend festival. The date boxes change to plain dates with no time. The switch's note reads "No specific start or end time".
+- **Start** *(required)*: the date and time the event starts.
+- **End**: optional ("Optional — leave blank for a single point in time"). If you fill it in, it must be on or after the start, or you'll see "End must be on or after the start."
+
+Under the date boxes, a note says **Times are shown to visitors in** your store's time zone, with a **Settings → General** link. The time you type is always understood as your store's own time, so it won't shift for visitors elsewhere. To change your time zone, go to [General Settings](/docs/general-settings) and edit **Time Zone**. You can't set a different time zone for one event.
+
+![The When card of the event form with the All day switch off, Start and End filled in, and the time-zone note with its Settings → General link](/images/events/event-form-bottom.png)
+
+### Details
+
+- **Location**: up to 200 characters, such as "Eastern Market, Detroit". It's shown as plain text (there's no map).
+- **Link**: a full web address (starting with `https://`) where people can learn more: "Tickets, a signup form, or a Facebook event — opens in a new tab". Addresses that aren't safe to open are refused with an error message.
+- **Link label**: the words on the link, up to 60 characters, such as "Get tickets". If you leave it blank, visitors see "More details".
+- **Show a scannable QR code**: shows a QR code that opens your link when scanned with a phone, useful when your Events page is up on a screen at the venue. This switch is greyed out until you enter a **Link**.
+- **Price**: up to 60 characters, such as "Free, or $10 at the door". This is **display only. It never charges anyone.**
+
+### The Web Address of an Event
+
+Each event gets its own address, like `yourstore.com/events/summer-night-market`, made from the event name when you first save it. The address **doesn't change** if you rename the event later, so links you've already shared keep working.
+
+---
+
+## Editing and Deleting
+
+To change an event, click its name in the list (or **Edit** in the row menu), make your changes, and click **Save changes**. If you try to leave with unsaved changes, you'll be warned.
+
+To delete one event, use **Delete** in the row menu or in the form's **More Options** menu, and confirm. Deleting is permanent and the event disappears from your site right away. If you'd rather keep a record but take it off your site, **archive** it or switch **Published** off instead.
+
+Deleting an event doesn't delete its flier from your [Media Library](/docs/media-library).
+
+---
+
+## Past Events and Archiving
+
+You don't have to clean up after your events. SimplePress checks about every 15 minutes and **archives events that have ended**. An event with an end time ends then; one with only a start time is over once that time passes; an all-day event runs through the end of its last day in your store's time zone.
+
+What that means for your visitors and for you:
+
+- **Your Events page only lists upcoming events.** An event drops off the list as soon as it's over, even before the next check. An event that has started but not ended yet (a three-day festival on day two) still shows.
+- **A past event's own page still works.** Anyone with the link can still open it, and it shows a **This event has passed** badge. This keeps shared and bookmarked links from breaking.
+- **In your admin**, a past event shows under **Past** in the **When** filter and as **Archived**.
+
+### Archiving by Hand
+
+Use **Archive (hides from your site)** in the row menu to take an event off your Events page without deleting it, for example if an event is cancelled. The event's own page still opens for people who have the link, so if you want it fully gone, switch **Published** off instead.
+
+### Move to Upcoming
+
+An archived event's row menu shows **Move to upcoming**. Use it to bring back an event you archived by mistake, such as one you archived ahead of time. It also works for a past event, but if the event's date has already passed, SimplePress will archive it again within about 15 minutes. To reuse an old event, edit its dates and save, then move it to upcoming.
+
+<Callout type="info" title="Archiving runs even if Events is off">
+  Archiving keeps running in the background if you switch Events off, so nothing is out of date when you switch it back on.
+</Callout>
+
+---
+
+## What Visitors See
+
+The look depends on your active [template](/docs/templates). On the **Default** template:
+
+### The Events Page
+
+The `/events` page has a heading (**Events** by default) with a small **What's on** label above it and the line "Dates, times, and where to find us." Below that, upcoming events are listed soonest first. Each event shows:
+
+- The **flier**: a photo (tap to see it full size) or a video that visitors can open larger
+- The **date and time**, with the time zone (for example "Sat, Aug 15 · 7:00 – 10:00 PM EDT"). All-day events show just the date or the date range
+- The **event name**, which links to the event's own page
+- The **location**
+- The **description**
+- The **price** note, and the **link** (with your label, or "More details")
+- The **QR code**, if you turned it on, with the words "Scan with your phone"
+
+At the bottom there's a banner, **Want us at your event?**, with a **Get in touch** button that goes to your Contact page.
+
+If nothing is coming up, visitors see **No upcoming events** and "Check back soon — new dates are posted here."
+
+![The Default template's Events page on a computer, with the heading, three upcoming events with fliers, and the Want us at your event banner](/images/events/events-storefront-desktop.png)
+
+![The Events page on a phone, with the heading and the first event stacked under its flier](/images/events/events-storefront-phone.png)
+
+### An Event's Own Page
+
+Each event's page (`/events/[slug]`) has a **← All events** link back to the list, a larger flier, the date, name, location, description, price, link, and (if enabled) a bigger QR code. If the event is over, a **This event has passed** badge sits above the date.
+
+![An upcoming event's own page showing the flier, date, name, location, description, price, link, and QR code](/images/events/event-detail-page.png)
+
+![A past event's own page with the This event has passed badge above the date](/images/events/event-detail-past.png)
+
+### What Draft and Archived Events Do
+
+| Event is... | Shown on `/events` list | Opens at its own link |
+| --- | --- | --- |
+| **Published**, upcoming | Yes | Yes |
+| **Published**, over (past or archived) | No | Yes, with **This event has passed** if the date is past |
+| **Draft** (**Published** switched off) | No | No ("not found"), even for you |
+| **Deleted** | No | No |
+
+To check how a draft will look, publish it, then use **View on storefront**.
+
+Other templates lay out the Events page their own way, so the arrangement, fonts, and colors differ, though the same event details are shown. Not every detail is available on every template; if something is missing on your live site, check your template or contact [help@generativejustice.org](mailto:help@generativejustice.org).
+
+---
+
+## Changing the Events Page Wording
+
+You can change the words on the Events page in the [Site Editor](/docs/site-editor). Choose the **Events** page, and you'll find these sections and fields on the Default template (see also [Template Fields](/docs/template-fields)):
+
+| Section | Field | What it changes | Starts as |
+| --- | --- | --- | --- |
+| **Hero** | **Small label** | Short text above the heading. Leave blank to hide it. | What's on |
+| | **Heading** | Main heading | Events |
+| | **Intro text** | Line under the heading. Leave blank to hide it. | Dates, times, and where to find us. |
+| **List** | **Default link label** | Words for an event's link when that event has no **Link label** of its own | More details |
+| | **Empty state heading** | Shown when there are no upcoming events | No upcoming events |
+| | **Empty state message** | Line under that heading. Leave blank to hide it. | Check back soon — new dates are posted here. |
+| **Closing banner** | **Heading** | Banner title | Want us at your event? |
+| | **Body text** | Line under the title | Tell us the room and roughly how many people. |
+| | **Button text** | Words on the button | Get in touch |
+| | **Button link** | Where the button goes | /contact |
+
+You can show or hide the **Closing banner** as a whole. The **List** section has a **Related content** link to open **Events** in your admin so you can add events.
+
+Two limits to know about:
+
+- You add and edit the events themselves in your admin, not in the Site Editor.
+- An event's own page is not editable in the Site Editor on the Default template. The **Default link label** applies on the Events list; on an event's own page, a blank **Link label** shows "More details".
+
+---
+
+## Adding Events to Your Menu
+
+Once Events is on, you can link to it from your navigation.
+
+- On the **Default** template's starter menu (**Shop, About, Services, Events, Reviews, Donate, Contact**), **Events** is included automatically while Events is on and you haven't saved a menu of your own. Other templates have their own starter menus.
+- In **Site Setup → Navigation**, the **Quick Add** card has an **Events** button under **Common Pages**. It appears only when Events is on. Click it, then click **Save navigation**. See [Navigation](/docs/navigation).
+- You can also type `/events` as the address of a custom menu link.
+
+If you switch Events off, links to `/events` are hidden from your header and footer automatically, so visitors never land on a "not found" page. The links come back when you switch it on again.
+
+---
+
+## Search Engines
+
+Search engines read your events as structured data, which can help them understand and show your events in search results. For each event, SimplePress shares the name, start and end dates, location, description, flier photo, and the web address of the event's page. Your Events page also gives search engines a list of your upcoming events.
+
+- Your events are included in your site's sitemap, and your Events page is included while at least one event is not archived.
+- Past events' own pages stay listed so old links keep working.
+- When someone shares an event link, the event name, description, and flier photo are used for the preview. A flier **video** isn't used as a preview picture, so add a photo if sharing matters for that event.
+
+You can't edit an event's search title or description separately. They're taken from the event name and description.
+
+---
+
+## Tips
+
+- **Add a flier.** Events with a photo or video stand out and are easier to share.
+- **Use a clear link label.** "Get tickets" or "RSVP on Facebook" works better than the default "More details".
+- **Use the QR code for in-person events.** Put your Events page on a screen or a tablet at your booth so passersby can scan it.
+- **Write the price note the way you'd say it.** "Free", "$10 at the door", or "Pay what you can". Remember it's only text and doesn't collect any money.
+- **Plan ahead with drafts.** Switch **Published** off while you're still working on the details, then publish when you're ready. Use **Publish** in the bulk bar to release a whole season at once.
+- **Check your time zone once.** Go to **Settings → General** and make sure **Time Zone** matches where your events are.
+
+---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Events** | Off | Settings → Features (Content) | Nothing |
+
+You can turn Events on or off yourself from **Settings → Features**. Turning it off removes it from your admin, and `/events` and every event page show "not found" on your site. Your events are kept and come back when you turn it on again. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Add events with a name, description, dates, location, price note, and a flier photo or video
+- Set all-day events and multi-day date ranges
+- Add a link (with your own label) and an optional QR code to each event
+- Save events as drafts, publish them, and publish or unpublish many at once
+- Archive events by hand, and move them back to upcoming
+- Let ended events clear themselves off your Events page automatically
+- Reword the Events page in the Site Editor
+- Add Events to your menu, and link to individual events
+
+**You cannot:**
+
+- Sell tickets, take payments, or collect RSVPs. Link to another service instead (**Price** is display only)
+- Make repeating events (for example "every Saturday"). Add each date as its own event
+- Download events to a calendar file or show them on a map
+- Duplicate an event. You'd add a new one
+- Choose a different time zone for one event. Times follow your store's time zone in **Settings → General**
+- Change an event's web address after it's first saved
+- Show both a flier photo and a flier video on the same event
+- Let Staff manage events
+
+---
+
+## Frequently Asked Questions
+
+**Why don't I see Events in my admin?**
+Events is off by default. Turn it on under **Settings → Features**. If you're signed in as Staff, you won't see it at all; ask an Owner or Manager.
+
+**An event I added isn't showing on my Events page.**
+Check that **Published** is on, that it's not archived, and that its end date (or start date, if you left **End** blank) hasn't passed. The **Status** and **When** filters in your admin list show how SimplePress sees it.
+
+**Can people still find an event after it's over?**
+Yes. Its own page keeps working for anyone with the link, with a **This event has passed** badge. It just stops being listed on your Events page. To remove it completely, delete it, or switch **Published** off.
+
+**I changed an event's name. Did its link change?**
+No. The web address is set when you first save the event and stays the same, so shared links keep working.
+
+**Can I sell tickets here?**
+Not directly. Put the link to your ticket seller, sign-up form, or Facebook event in the **Link** field. You can also sell tickets as a product if you have [Products](/docs/products) turned on, and link to that product.
+
+**Can I edit an event from the Site Editor?**
+No, only the page's wording. Use **Content → Events** to edit events themselves.

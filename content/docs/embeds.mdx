@@ -1,0 +1,277 @@
+---
+title: Embeds
+description: Show outside content, such as a booking calendar, a map, or a sign-up form from another site, right inside your pages, blog posts, and service pages.
+---
+
+## Overview
+
+An embed is a window on your page that shows content from another website. Your visitors can use it without leaving your site. Typical uses are:
+
+- A booking calendar from Vagaro, Mindbody, Acuity, or a similar tool
+- A Google Map showing where you are
+- A form or survey from another service, such as Google Forms
+- A video from Vimeo
+
+Embeds doesn't have an admin page of its own. It's a switch that adds an **Embed** option to the places where you write and edit content: the page and blog editor, rich-text sections in the [Site Editor](/docs/site-editor), the Site Editor's own embed spots, and the booking settings on your [Services](/docs/services).
+
+<Callout type="info" title="Embeds is off by default">
+  You turn it on yourself under **Settings → Features**, in the **Content** card. Owners and Managers can do this and can add embeds. Staff can't open the editors where embeds live. See [Feature Flag](#feature-flag) and [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+---
+
+## Where Embeds Can Go
+
+| Where | How you add it | Learn more |
+| --- | --- | --- |
+| Pages and blog posts | **Insert elements → Embed** in the editor toolbar | [Adding an Embed to a Page or Post](#adding-an-embed-to-a-page-or-post) |
+| Rich-text sections in the Site Editor | The same **Insert elements → Embed** in the rich-text toolbar | [Site Editor](/docs/site-editor) |
+| A product's **Additional information** section | The same **Insert elements → Embed** | [Products](/docs/products) |
+| Embed spots built into your template | An **Embed** field in the Site Editor (some templates only), or the **Booking widget** on a service's **Page content** tab | [Embed Fields](#embed-fields-in-the-site-editor-and-on-service-pages) |
+| Each specific service | **Booking embed (optional)** in the item dialog | [Booking Embeds on Services](#booking-embeds-on-services) |
+
+---
+
+## Adding an Embed to a Page or Post
+
+1. Open the page or blog post in the editor (see [Pages and Policies](/docs/pages-and-policies) or [Blog](/docs/blog)).
+2. Click where you want the embed to go.
+3. Open **Insert elements** (the **+** menu at the end of the toolbar) and choose **Embed**. You can also click the **Insert embed** button (the frame icon) in the toolbar.
+4. A blue box titled **Insert Embed** appears in your page: "Paste a URL or embed code (e.g. a booking widget, map, or video)".
+5. Paste your link or embed code into **URL or embed code**.
+6. Fill in **Title**, a short name for the embed such as "Booking calendar".
+7. Choose the size and display options (see the table below). A **Preview** appears as soon as the link is valid and the Title is filled in.
+8. Click **Save** in the box, then save the page as usual.
+
+![The page editor toolbar with the Insert elements menu open, showing Embed in the list with Code block, Blockquote, Divider, Gallery, Quote calculator, Form, and Table](/images/embeds/insert-elements-menu.png)
+
+![The Insert Embed box in the page editor, filled in with a map link, the Title "Our studio on the map", Fit content (set height), Full width, a Height of 450, Display mode set to Inline, and the live Preview showing the map](/images/embeds/insert-embed-panel.png)
+
+### The Insert Embed Options
+
+| Option | What it does |
+| --- | --- |
+| **URL or embed code** | The web address of the content, or the `<iframe>` embed code the other site gives you. See [What You Can Paste](#what-you-can-paste). |
+| **Title** | A short description, such as "Booking calendar". Screen readers announce it, and it's the heading of the window when the embed opens in a dialog. It's required. |
+| **Aspect ratio** | The shape of the embed: **Video (16:9)**, **Classic (4:3)**, **Square (1:1)**, **Vertical (9:16)**, or **Fit content (set height)**. Video links (Vimeo and YouTube) start on **Video (16:9)**. Everything else starts on **Fit content (set height)**. |
+| **Width** | **Full width**, **Large**, **Medium**, or **Small**. Anything narrower than full width is centered on the page. |
+| **Height (px)** | Only shown with **Fit content (set height)**. The box accepts 100 to 2,000 pixels and starts at 600. If your embed code includes its own height, that height is used. |
+| **Display mode** | **Inline** shows the embed right in the page. **Dialog (opens in a modal)** shows a button instead, and the embed opens in a window over the page when it's clicked. |
+| **Button label** | Only shown with **Dialog (opens in a modal)**. The words on the button. If you leave it empty, the button says "Open". |
+
+For booking calendars and forms, **Fit content (set height)** usually works best. Pick a height tall enough that the calendar doesn't need its own scroll bar.
+
+### Editing or Removing an Embed
+
+Point at a saved embed in the editor and two buttons appear in its corner:
+
+- **Edit** reopens the Insert Embed box so you can change any option. Click **Save** when you're done, or **Cancel** to keep it as it was.
+- The red **X** removes the embed. Your browser asks "Remove this embed?" first.
+
+If you open a new Insert Embed box and click **Cancel** before saving, the empty box is removed.
+
+In the editor you always see the embed itself, even when it's set to open in a dialog. The button only appears on your live site.
+
+---
+
+## What You Can Paste
+
+**These work:**
+
+- **A web address that starts with `https://`**, such as a booking page or a map's embed link.
+- **An `<iframe>` embed code**, the kind many sites offer under a "Share" or "Embed" button. SimplePress only keeps the web address inside it (and, in the page editor, its height). Everything else in the code is ignored, so you set the size with the options above.
+- **Vimeo links.** A normal video link, such as `vimeo.com/123456`, is turned into a video player for you.
+
+**These don't work:**
+
+- **Embed codes that use a `<script>`.** Many tools give you a code made of a `<div>` and a `<script>` line. SimplePress can't run outside scripts on your site, so it can't use this kind of code.
+- **Instagram, TikTok, X (Twitter), and Facebook post embeds.** Their embed codes are a quote block plus a script, so they fall under the rule above. Link to the post instead, or show your photos with a [Gallery](/docs/galleries).
+- **Calendly's embed code.** Calendly's "inline embed" and "popup" codes are script codes. Instead, copy your **scheduling page link** (it looks like `https://calendly.com/your-name/30min`) and paste that. It shows the same calendar.
+- **Links that start with `http://`** (without the "s"). Only secure `https://` links are accepted.
+- **Links to SimplePress itself**, including your own store's address. See [Addresses You Can't Embed](#addresses-you-cant-embed).
+
+### Error Messages
+
+| Where you see it | Message | What to do |
+| --- | --- | --- |
+| Page and blog editor | "Enter a valid https:// URL or embed code." | The link isn't a full `https://` address, the code is a script code, or the address points at SimplePress. Paste the provider's direct link or an `<iframe>` code instead. |
+| Page and blog editor | "Title is required for accessibility." | Fill in **Title**, then click **Save**. |
+| Site Editor embed field | "Enter a valid https:// URL or embed code" | Same as above. |
+| Service item dialog | "Booking embed URL must be a valid HTTPS URL." | Shown when you save the item. Same fixes as above. |
+
+![The Insert Embed box with a script-style embed code pasted in and the red message "Enter a valid https:// URL or embed code." under the box](/images/embeds/embed-script-error.png)
+
+---
+
+## Embed Fields in the Site Editor and on Service Pages
+
+Some templates have a spot built for an embed, such as a video on the Glove homepage or a booking widget on the VII services page. In the [Site Editor](/docs/site-editor) these spots use an **Embed** field. The Default template has no embed spots in the Site Editor, so on Default you add embeds to pages and rich-text sections instead.
+
+The same field is used for the **Booking widget** on each service's **Page content** tab (see [Booking Embeds on Services](#booking-embeds-on-services)).
+
+The field has the same options as the Insert Embed box, with a few differences:
+
+- The display choice is labeled **Display**, with **Inline** or **Open in dialog**.
+- **Title** sits at the bottom, with the note "Describes the embed for screen readers." The field isn't saved at all until Title has text in it, and there's no warning, so always fill it in.
+- A preview only appears for **Inline** embeds. With **Open in dialog** you'll see "Preview not shown for dialog embeds — the embed opens in a modal on the storefront."
+- There's no separate Save button in the field. Your changes save with the rest of the Site Editor (or with the service, on its **Page content** tab).
+
+See [Template Fields: Embed](/docs/template-fields#embed) for the full field reference.
+
+Rich-text sections in the Site Editor work just like the page editor. Use **Insert elements → Embed** there.
+
+---
+
+## Booking Embeds on Services
+
+Each specific service can have its own booking page. In the item dialog, open **Booking embed** and paste your booking link or `<iframe>` code into **Booking embed (optional)**. Set **Embed height (px)** from 100 to 2,000, or leave it blank for 600. On your site, the item's **Book** button opens a window titled "Book — [item name]" with your booking page inside.
+
+A service page can also have one **Booking widget** for the whole page. Both are covered step by step in [Services: Letting Customers Book](/docs/services#letting-customers-book).
+
+---
+
+## What Visitors See
+
+**Inline embeds** sit in the page where you placed them, at the shape and width you chose. While the other site loads, a grey box with "Loading…" holds the space.
+
+**Dialog embeds** show a button with your **Button label**. Clicking it opens a window over the page with your **Title** at the top and the embed below. Visitors close it with the **X**, the Escape key, or by clicking outside it.
+
+On phones, embeds shrink to the width of the screen. Embeds with a set shape (such as **Video (16:9)**) keep that shape. **Fit content** embeds keep the height you set, so check a booking calendar on your phone to make sure it isn't too tall or too short.
+
+This is how embeds look on the Default template. Other templates use their own fonts, colors, and button styles, and some show service booking buttons differently. See [Templates](/docs/templates).
+
+![A custom page on the Default template with a heading, a short paragraph, and an inline map embed at Large width below it](/images/embeds/storefront-inline-embed.png)
+
+![The same page and inline map on a phone, shrunk to the width of the screen](/images/embeds/storefront-inline-embed-phone.png)
+
+![A dialog-mode embed on the page, shown as a button labeled "See our location" under a paragraph](/images/embeds/storefront-dialog-button.png)
+
+![The window open over a darkened page after clicking the button, with the Title "Our location" at the top and the map inside](/images/embeds/storefront-dialog-open.png)
+
+---
+
+## YouTube Videos
+
+Paste a YouTube link (a watch link, a `youtu.be` share link, or YouTube's own `<iframe>` code) and SimplePress turns it into a player. Visitors play the video right on your page. Vimeo links work the same way.
+
+An embed shows one video. To show many videos, or to keep your site in step with a YouTube channel or playlist, use the [Videos](/docs/videos) feature instead. It adds a Videos page and can add new uploads for you.
+
+---
+
+## When an Embed Shows Up Blank
+
+### Some sites refuse to appear inside other sites
+
+Many websites, including some booking tools, banks, and social networks, block other sites from showing them in a window. When that happens, the embed shows a blank box or the other site's own error message (such as "refused to connect"), even though the link is correct. Opening it in a dialog doesn't help, because the dialog uses the same kind of window.
+
+What to do:
+
+- Look for an "Embed" or "Share" option on the other site. The address in their embed code is often different from the normal page address and is made to be shown inside other sites.
+- If there isn't one, link to the page instead. Add a link in your page text (see [Rich-Text Tools](/docs/pages-and-policies#rich-text-tools)), or, on a service page, use the **Button link** so the booking page opens on the provider's own site.
+
+### Embeds run in a walled-off box
+
+For your visitors' safety, every embed runs in a separate, walled-off box. The content inside can work normally: it can show forms, take bookings, and open its own pop-up windows. But it can't reach into your site, your visitors' carts, or their sign-ins. A few tools expect more access than that and may not work fully inside the box. If a tool loads but a button inside it does nothing, link to it instead.
+
+### Addresses you can't embed
+
+You can't embed a page from SimplePress, including another page of your own store. The editor shows the error message above for SimplePress addresses. If your store uses its own domain (see [Domain](/docs/domain)), an embed that points at that domain is accepted in the editor but stays empty on your site. To show your own content, link to the page, or use the built-in features such as [Forms](/docs/forms), [Galleries](/docs/galleries), and [Videos](/docs/videos).
+
+---
+
+## Embed Engagement in Analytics
+
+If the **Analytics** feature is on and your store's analytics are connected (see [Integrations: Umami Analytics](/docs/integrations#umami-analytics)), the Analytics page shows an **Embed Engagement** section while Embeds is on. It has two numbers:
+
+- **Embed Click-Ins**: "Times a visitor clicked into an embed"
+- **Dwell Sessions**: times a visitor clicked back out again
+
+What visitors do inside another site's window is private to that site, so this is all SimplePress can count. Dwell Sessions is approximate and can run high, because switching browser tabs counts too. Sessions longer than 30 minutes are left out.
+
+---
+
+## Your Privacy Policy
+
+When an embed loads, the other site can collect information about your visitor under its own privacy policy. SimplePress's privacy policy starter covers this. If **Embeds**, **Videos**, or **Services** is switched on when you click **Use Template** on the Privacy tab (under **Site Setup → Policies**), the "How We Share Your Information" section includes a line about third-party tools you embed, such as booking calendars or videos, collecting information under their own policies.
+
+The starter is a snapshot. If you saved your privacy policy before switching Embeds on, the line isn't there. Loading the template again replaces your whole policy, so if you've edited it, add a sentence like that yourself instead. See [Using a Template](/docs/pages-and-policies#using-a-template).
+
+---
+
+## Turning Embeds Off
+
+Turning Embeds off doesn't delete anything. Every embed you've added is kept and comes back when you switch the feature on again. While it's off:
+
+- **In the page and blog editor**, the **Embed** option and the **Insert embed** button disappear. Embeds already in a page show a yellow note: "Embeds are currently disabled for this business. Re-enable the embed feature to display this content."
+- **In the Site Editor and on a service's Page content tab**, embed fields show "Embeds are disabled for this business. Enable the Embeds feature in **Settings → Features**."
+- **On your site**, each embed in a page or post becomes a small link button that opens the content in a new tab. The button shows your **Button label** for dialog embeds, or your **Title** otherwise.
+- **On service pages**, item **Book** buttons become links that open your booking page in a new tab, and a page-level booking widget becomes an **Open booking page** link. See [Services](/docs/services#what-customers-see).
+- The **Embed Engagement** section disappears from Analytics.
+
+---
+
+## Tips
+
+- **Always fill in Title.** It's required in the page editor, the Site Editor field won't save without it, and it's what screen readers and the dialog heading use.
+- **Prefer the provider's embed link.** Booking tools, maps, and form builders usually have an "Embed" or "Share" option. Use the address or `<iframe>` code from there, not the address bar.
+- **Check your live site and your phone** after adding an embed. The preview in the editor is a good guide, but some sites only refuse to appear once they're on a live page.
+- **Use a dialog for big widgets.** A full booking calendar in a dialog keeps a short page tidy, and the window gives the calendar more room.
+- **Use the built-in feature when there is one.** For a whole YouTube channel or playlist use [Videos](/docs/videos), for your own photos use [Galleries](/docs/galleries), and for sign-ups and applications use [Forms](/docs/forms).
+
+---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Embeds** | Off | Settings → Features (Content card) | Nothing |
+
+Owners and Managers can switch it on or off. Turning it off keeps all your embeds and shows them as links instead (see [Turning Embeds Off](#turning-embeds-off)). See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Embed any `https://` page that allows being shown inside other sites, from a link or an `<iframe>` code
+- Add embeds to pages, blog posts, rich-text sections in the Site Editor, and a product's Additional information
+- Give each service item its own booking window, and add a booking widget to a service page
+- Choose an embed's shape, width, and height, and show it inline or behind a button
+- Paste YouTube and Vimeo links and have them turned into players
+- Switch Embeds off without losing anything you've added
+
+**You cannot:**
+
+- Use embed codes that rely on a `<script>`, including Instagram, TikTok, X, and Facebook post embeds and Calendly's embed codes
+- Embed `http://` links, SimplePress pages, or pages from your own store
+- Make a site appear that refuses to be shown inside other sites
+- Add embeds to the announcement banner, the homepage popup, or your policies
+- See what visitors do inside an embed beyond click-ins and approximate time
+- Keep an embed in sync with a YouTube channel or playlist (use [Videos](/docs/videos))
+
+---
+
+## Frequently Asked Questions
+
+**Can I embed a Google Map?**
+
+Yes. In Google Maps, open your place, click **Share**, then **Embed a map**, and copy the HTML code. Paste it into **URL or embed code**. A plain Google Maps share link doesn't work, because Google doesn't allow that page to appear inside other sites.
+
+**My booking provider only gave me a script code. What now?**
+
+Look in your provider's settings for a direct booking page link (sometimes called a "booking URL", "share link", or "direct link") and paste that instead. For Calendly, use your scheduling page link.
+
+**Why doesn't my Instagram post embed work?**
+
+Instagram's embed code needs a script, which SimplePress can't run. Link to the post, or upload the photos to a [Gallery](/docs/galleries).
+
+**The preview worked, but my live page shows a blank box. Why?**
+
+The other site may be refusing to appear inside your site, or the address may point at your own domain. See [When an Embed Shows Up Blank](#when-an-embed-shows-up-blank).
+
+**Does an embed slow down my page?**
+
+Embeds load only when a visitor scrolls near them, and dialog embeds load only when the button is clicked. A page with many large embeds can still feel slow on phones, so use dialogs for big widgets.
+
+Questions? Email [help@generativejustice.org](mailto:help@generativejustice.org).
