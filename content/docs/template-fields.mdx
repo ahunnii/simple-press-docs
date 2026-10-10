@@ -1,161 +1,296 @@
 ---
-title: Template Fields (Content Customization)
-description: Customize the content of your storefront.
+title: "Template fields: field types"
+description: What each kind of box in the Site Editor does, what it accepts, and how to fill it in.
 ---
 
 ## Overview
 
-Template fields are how you fill in your storefront with your own words, images, and media. Think of your template as the design framework — template fields are the content slots inside it. Every headline, hero image, about section, feature callout, and contact detail you see on your storefront comes from a template field you can edit here.
+**Template fields** are the editable words, pictures, and settings in your template: a hero headline, a button label, a row of feature cards, a background photo, and so on. You edit them in the [Site Editor](/docs/site-editor), on top of a live preview of your site. See that page for how to open the editor, pick a page and section, and **Publish**.
 
-Navigate to **Content → Template Fields** in your admin dashboard to get started.
+Two things to know up front:
 
----
+- **Changes go to a draft first.** Nothing you type reaches your customers until you click **Publish**. Until then the editor keeps your work as a private draft.
+- **You're never staring at a blank site.** Anything you haven't filled in falls back to your template's built-in wording or picture.
 
-## How It Works
+This page is a reference for the kinds of fields you'll run into. Which ones you see depends on your template and the section you opened.
 
-Your storefront template defines a set of named content slots. When you save a value into one of those slots, it shows up immediately on your live storefront. If you haven't filled in a slot yet, the template's built-in placeholder or default text is shown instead — your storefront is never blank.
-
-Fields are organized into **tabs by page** — Homepage, About, Contact, Blog, Products, Collections, Testimonials, Global, and more, depending on your template. The **Global** tab contains site-wide elements like announcement banners or universal contact info.
-
-**[PHOTO: Template fields editor — full view with page tabs (Homepage, About, etc.) across the top and field groups below]**
-
----
-
-## Field Types
-
-Depending on your template, you'll encounter several types of fields:
-
-| Type          | What It Is                                                                                         |
-| ------------- | -------------------------------------------------------------------------------------------------- |
-| **Text**      | A single line — headlines, labels, taglines                                                        |
-| **Textarea**  | A longer block of plain text — paragraphs, descriptions                                            |
-| **Rich Text** | Formatted content with bold, italics, links, and lists via the TipTap editor                       |
-| **Image**     | A single uploaded image — heroes, section backgrounds, team photos                                 |
-| **Video**     | A video URL (e.g. a hosted video link) — used in select templates for background or feature videos |
-| **URL**       | A plain link — useful for external references or custom media                                      |
-| **Color**     | A color picker — accent colors, button colors, background fills                                    |
-| **Number**    | A numeric value — e.g. years in business, item counts                                              |
-| **Boolean**   | An on/off toggle — show or hide a section                                                          |
-| **Gallery**   | Link one of your saved Galleries to a template section (e.g. a homepage photo grid)                |
-| **List**      | A repeating set of rows — e.g. a row of feature cards, each with an icon, title, and description   |
-
-Not every field type appears in every template — you'll only see what your active template supports.
-
-**[PHOTO: Close-up of a rich text field with TipTap editor open (bold, links, lists visible)]**
-
-**[PHOTO: Close-up of a list-type field showing multiple rows with expand/collapse handles and add/remove row controls]**
+<Callout type="info" title="The old Template Fields screen">
+  Earlier versions of SimplePress had a **Content → Template Fields** screen with page tabs and a Save button. That screen is now a tool for the SimplePress team. As an owner, you'll do all of this in the Site Editor.
+</Callout>
 
 ---
 
-## Working with List Fields
+## Quick Reference
 
-List fields (feature cards, badge rows, FAQ-style repeating content, and similar) use a collapsible row editor:
-
-- Each row starts collapsed, showing a drag handle, a small preview/icon, and a one-line summary of that row's content — tap the row to expand it and edit its sub-fields.
-- **Drag the handle** to reorder rows, or open the **⋯** menu on a row for **Move up** / **Move down**.
-- Deleting a row shows an **Undo** option for a few seconds, so a stray tap on the trash icon is never permanent.
-- Some list fields fall back to built-in, template-designed rows when you haven't added any of your own — while the list is empty, a hint tells you your site is currently showing those built-in rows, and that adding one replaces them.
-
-**[PHOTO: List field row expanded, showing drag handle, ⋯ menu, and the Undo toast after a row delete]**
-
----
-
-## Defaults, Number Ranges, and Conditional Fields
-
-- **Defaults shown as real values.** A field you haven't touched isn't a blank input — it shows the template's actual default value (or image, or toggle state) right in the editor, so you can see exactly what your storefront is currently rendering before you change anything.
-- **Number fields with ranges.** Some number fields (like a photo fade strength) render as a slider with a min/max range and a live value readout instead of a bare number box, making it easy to stay in a sane range.
-- **Fields that depend on another field.** A handful of fields only make sense once a related toggle or setting is turned on — for example, a background-photo fade slider only appears once a background photo is set. Those fields simply stay hidden until the field they depend on is switched on, so you never see controls that wouldn't do anything yet.
-
----
-
-## Fields Are Organized by Page and Group
-
-Within each page tab, fields are grouped into logical sections (e.g. "Hero Section", "About Section", "Values", "Story"). Each group has a title and description to help you understand what part of the page it controls.
-
-**[PHOTO: A single page tab open (e.g. Homepage) showing multiple field groups with their section titles]**
+| Field                                   | What it's for                                             | Limits or things to know                                    |
+| --------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------- |
+| [Text](#text)                           | A single line, such as a headline or button label         | Shows the template's built-in wording until you change it   |
+| [Paragraph](#paragraph)                 | A few lines of plain text                                 | No formatting                                               |
+| [Rich text](#rich-text)                 | Formatted writing with headings, lists, links, and images | **Insert elements** only offers features you've turned on   |
+| [Link](#link)                           | A web address for a button or link                        | A page on your site like `/shop`, or a full `https://` address |
+| [Color](#color)                         | A color picker                                            | **Clear** removes the color                                 |
+| [Number and slider](#number-and-slider) | A number, or a slider with a live readout                 | Sliders have **Reset**                                      |
+| [On/off switch](#onoff-switch)          | Shows or hides a small piece of the page                  |                                                             |
+| [Image](#image)                         | One photo                                                 | Up to 5MB; JPG, PNG, GIF, WebP, AVIF                        |
+| [Video](#video)                         | One video file                                            | Up to 50MB; MP4, WebM, MOV, AVI                             |
+| [Gallery picker](#gallery-picker)       | Shows one of your saved galleries                         | Only on templates that have a gallery spot                  |
+| [Collection picker](#collection-picker) | Features one of your collections                          | **None (use featured products)** is the fallback            |
+| [Embed](#embed)                         | Outside content, such as a booking widget                 | Needs the **Embeds** feature                                |
+| [Lists](#lists)                         | Repeating rows, such as cards, steps, or team members     | Some have a minimum and a maximum number of rows            |
+| [FAQ picker](#faq-picker)               | Chooses which published FAQ questions to show             | Questions are written under **Site Setup → FAQ**            |
 
 ---
 
-## Default Values
+## Text
 
-Every field has a built-in default. If you clear a field or haven't filled it in yet, the default text or image is shown on your storefront — so your site always looks complete even before you've customized everything.
+A single-line box for short copy: headlines, labels, taglines, button words. A text field you haven't touched shows the wording your site is using right now, not an empty box, so you can see exactly what you're changing.
+
+If you clear a text box completely and publish, that text is removed from the page. For some labels and buttons the template uses its own built-in wording instead.
+
+---
+
+## Paragraph
+
+A taller box for a few lines of plain text, such as an intro or description. It has no formatting options, so plain sentences and line breaks are all you get. For bold, links, or lists, look for a [Rich text](#rich-text) field instead, if the section has one.
+
+---
+
+## Rich text
+
+A formatted editor for longer writing. The toolbar covers the usual things: text styles and headings, bold and italics, lists, links, and text color. Images go in right where you want them, and you upload them from the editor itself.
+
+The **Insert elements** menu adds extras to the text. It always offers a few basics (**Code block**, **Blockquote**, **Divider**, **Table**). The rest only appear when you've switched on the matching feature in **Settings → Features** (see [Feature Flags](/docs/feature-flags)):
+
+| Menu item            | Appears when you've turned on |
+| -------------------- | ----------------------------- |
+| **Gallery**          | Galleries                     |
+| **Embed**            | Embeds                        |
+| **Quote calculator** | Quote Calculator              |
+| **Form**             | Forms                         |
+
+Banner, popup, and policy editors don't have this menu.
+
+![A rich text field with the Insert elements menu open, listing Code block, Blockquote, Divider, Gallery, Embed, Quote calculator, Form, and Table](/images/template-fields/richtext-field.png)
+
+*The Insert elements menu is the **+** button at the end of the toolbar. This store has Galleries, Embeds, the Quote Calculator, and Forms switched on, so all of them appear.*
+
+<Callout type="info" title="Galleries in template sections">
+  To show a gallery in a template section, look for a [Gallery picker](#gallery-picker) field. If your template doesn't have one, insert the gallery into one of your own pages instead. See [Galleries](/docs/galleries).
+</Callout>
+
+---
+
+## Link
+
+A box for a web address, used for buttons and links. Use a page on your own site (like `/shop`) or a full address (like `https://example.com`). A link you haven't touched shows the address your template is currently using.
+
+---
+
+## Color
+
+A color swatch you click to open a color picker, with the color's code shown next to it. **Clear** removes the color completely, and the field then reads **None**. Templates treat **None** as "no color here", which is different from a field you've never touched (that one shows the template's own color).
+
+---
+
+## Number and slider
+
+Most number fields are a plain box, sometimes with a unit shown beside it (like `px` or `%`) and a minimum and maximum it won't go beyond.
+
+Some are shown as a **slider** instead, with a live readout of the value and its unit next to it (for example, how strongly a background photo is darkened). Drag it to a new value, and the change is applied when you let go. The **Reset** button under the slider puts it back to the template's own setting.
+
+Only some templates use sliders. The Default template doesn't, so you may not see one in your Site Editor.
+
+---
+
+## On/off switch
+
+A simple switch that turns a small piece of the page on or off, such as an extra line of text or a badge. An untouched switch shows the template's current setting. To hide a whole section, use the eye icon in the Sections list instead (see [Site Editor](/docs/site-editor)).
+
+---
+
+## Image
+
+One photo. Click the box to upload, or drag a file onto it. The options are:
+
+- **Upload from device**
+- **Choose from library**, to pick something already in your [Media Library](/docs/media-library) (shown when the Media Library feature is on, which it is by default)
+- **Replace image** and **Remove image** once a photo is in place
+
+| Limit      | Images                                                                                           |
+| ---------- | ------------------------------------------------------------------------------------------------ |
+| File types | JPG, PNG, GIF, WebP, AVIF                                                                        |
+| File size  | Up to 5MB. Large phone photos are resized automatically, and iPhone (HEIC) photos are converted. |
+
+<Callout type="warn" title="An untouched image field looks empty">
+  If your template shows a built-in picture in a spot, the image field for it still looks empty until you upload your own. That's expected, and your site isn't missing the picture. Upload one to replace the built-in picture.
+</Callout>
+
+Uploaded photos also show up in your Media Library, so you can reuse them elsewhere.
+
+---
+
+## Video
+
+One video file, set up like an image: **Upload from device** or **Choose from library**. You upload or pick a file. You don't paste a web address into it.
+
+| Limit      | Videos              |
+| ---------- | ------------------- |
+| File types | MP4, WebM, MOV, AVI |
+| File size  | Up to 50MB          |
+
+To show a video that lives on YouTube, Vimeo, or similar, use an [Embed](#embed) field instead, if the section has one.
+
+---
+
+## Gallery picker
+
+A drop-down that shows one of your saved [galleries](/docs/galleries) in that spot, with the number of images listed next to each name. Choose **None** to show no gallery.
+
+Only templates that build a gallery spot into a section have this field. On the Default template there isn't one, so insert galleries into your pages instead (see [Galleries](/docs/galleries)).
+
+---
+
+## Collection picker
+
+A drop-down that features one of your [collections](/docs/collections) in that spot, with its product count listed next to each name. **None (use featured products)** shows your featured products instead.
+
+![The collection picker open, showing None (use featured products) and several collections with their product counts](/images/template-fields/collection-picker.png)
+
+---
+
+## Embed
+
+Outside content shown on your site, such as a booking widget or a video. You'll see:
+
+| Control               | What it does                                                                                                                                  |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **URL or embed code** | Paste a web address (YouTube, Vimeo, a booking page) or an `<iframe>` embed code. A red message appears if it isn't a valid `https://` address. |
+| **Aspect ratio**      | The shape of the embed (video, classic, square, vertical), or **Fit content (set height)**.                                                  |
+| **Width**             | **Full width**, **Large**, **Medium**, or **Small**.                                                                                          |
+| **Height (px)**       | Only shown with **Fit content (set height)**.                                                                                                 |
+| **Display**           | **Inline** shows it on the page. **Open in dialog** shows a button that opens it in a window.                                                 |
+| **Button label**      | Only shown with **Open in dialog**. The words on the button.                                                                                  |
+| **Title**             | A short description for screen readers, such as "Booking widget". Fill it in: the embed isn't saved without one.                              |
+
+Inline embeds show a preview right in the panel. Some providers refuse to appear inside other websites, so if yours looks blank on your site, try **Open in dialog**, or use a regular button link instead.
+
+Embeds need the **Embeds** feature. Without it, the field says "Embeds are disabled for this business" and points you to **Settings → Features** (see [Feature Flags](/docs/feature-flags)). Booking widgets for a service page are set on that service instead (see [Services](/docs/services)).
+
+---
+
+## Lists
+
+Lists are sets of repeating rows: feature cards, steps, team members, logos, and so on. Each row starts collapsed, showing a small preview and a one-line summary. Click a row to open it and edit its parts.
+
+| To do this       | Do this                                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Add a row**    | Click the add button under the list (for example, **Add card** or **Add step**). The new row opens, ready to fill in.  |
+| **Reorder rows** | Drag the handle on the left of a row, or open its **⋯** menu and choose **Move up** or **Move down**.                  |
+| **Remove a row** | Click the trash icon. An **Undo** button appears for a few seconds.                                                    |
+
+![A list field with one row expanded, showing the drag handle, the ⋯ menu, and the trash icon](/images/template-fields/list-field.png)
+
+### Limits
+
+- **Maximum.** Some lists cap how many rows you can have. At the cap, the add button is replaced by a note such as "Maximum of 6 cards". A list with no stated cap stops at 50.
+- **Minimum.** Some lists need a minimum number of rows. At the minimum, the trash icon is greyed out.
+
+### What's inside a row
+
+Each row has its own small set of fields. Depending on the list, a row can include:
+
+- **Text** and **paragraph** boxes
+- An **image** or a **video**
+- A **link**
+- An **icon picker**: a drop-down showing each icon next to its name, with the chosen icon previewed beside it
+- An **on/off switch**
+
+Some of these are marked **(optional)** after their label, which means you can leave them blank.
+
+### Built-in rows
+
+Many templates start with ready-made rows so a new site never looks empty. There are two versions of this:
+
+- **Editable starter rows.** The list shows the starter rows as real rows, with the note "Showing the built-in … — edit any of them to make them your own." As soon as you edit, add, remove, or reorder any of them, the whole list becomes yours.
+- **Built-in rows you can't edit one by one.** The list shows "No cards yet." and "Your site is showing the built-in cards. Add one to replace them." Your first added row replaces all the built-in ones.
+
+If you delete every row of a list, your site goes back to its built-in rows, and a message says "All cards removed — your site shows the built-in ones. Use the section's visibility toggle to hide them." To get rid of the section completely, hide it with the eye icon in the Sections list instead. Click **Undo** straight away to bring back the row you just removed (just that one, not the built-in ones too).
+
+---
+
+## FAQ picker
+
+Picks which of your **published** FAQ questions a section shows, and in what order. You don't type questions here. They're written under **Site Setup → FAQ**.
+
+- **Add question** adds a row. Choose a question from the drop-down, which lists your published questions that you haven't already picked in this field.
+- Reorder rows with the drag handle, or the **⋯** menu's **Move up** and **Move down**.
+- The trash icon removes a row, and an **Undo** button appears.
+- Each section has a maximum (10 unless stated otherwise). At the maximum, **Add question** is greyed out. It's also greyed out if you have no published questions yet.
+- **If you pick none,** the section shows your first published questions, and a hint says how many. A link in the hint takes you to **Site Setup → FAQ**. On a few templates, an empty picker hides the section instead, and the hint says so.
+- **Older hand-typed questions.** If the section still has questions typed in before this picker existed, a notice lists them and offers **Replace with picked questions** (with **Undo**). Add those questions under **Site Setup → FAQ** first if you want to keep them.
+
+![The FAQ picker with two questions picked, with drag handles, ⋯ menus, and the Add question button underneath](/images/template-fields/faq-picker.png)
+
+---
+
+## Conditional Fields
+
+Some fields only appear once a related setting is on. A "darken photo" slider, for example, might not show until you've added a background photo. That's normal: the editor hides controls that wouldn't do anything yet. If you can't find a field, look for the switch or photo it depends on, in the same section.
+
+---
+
+## The Modified Tag
+
+Any field you've changed since your last publish shows a **Modified** tag next to its name, so you can see what's about to go live. The tag goes away once you publish.
+
+There is no single "undo" for a field, but you can take changes back like this:
+
+| What you want to undo                | How                                                              |
+| ------------------------------------ | ---------------------------------------------------------------- |
+| Everything since your last publish   | Click **Discard** in the Site Editor's top bar.                  |
+| A slider                             | Click its **Reset** button.                                      |
+| A color                              | Click **Clear** to remove it.                                    |
+| A deleted list or FAQ row            | Click **Undo** in the message that appears right after.          |
+| A customized list                    | Delete all its rows to return to the template's built-in rows.   |
+
+See [Site Editor](/docs/site-editor) for the full picture of saving, publishing, and discarding.
+
+---
+
+## Per-Service Fields
+
+The extra fields for an individual service's page (its top image, intro, and booking button) are not in the Site Editor. They live on the service itself: open the service and go to its **Page content** tab. Each service has its own, and each layout has different fields. See [Services](/docs/services).
+
+---
+
+## Things That Aren't Template Fields
+
+Some details are used all over your site, so they're set once in one place instead of as a field in every section. If you can't find a field for something, check here:
+
+| What                                 | Where to change it                                                                                                              |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| Social media links                   | **Site Setup → Brand & Appearance**. See [Brand & Appearance](/docs/storefront-and-branding).                                  |
+| Business address, phone, and map pin | **Settings → General**. See [General Settings](/docs/general-settings). Map sections pick up your address automatically.       |
+| Opening hours                        | **Settings → Business Hours**                                                                                                   |
+| Announcement bar and popup           | **Site Setup → Banner & Popup**. See [Banner and Popup](/docs/banner-and-popup).                                               |
+| Navigation menus                     | See [Navigation](/docs/navigation).                                                                                             |
+| FAQ questions                        | **Site Setup → FAQ**                                                                                                            |
+| Cart and checkout wording            | Not editable by owners. Email [help@generativejustice.org](mailto:help@generativejustice.org) if you'd like something changed. |
+
+### Related content
+
+When a section shows things that live elsewhere in your admin (products, testimonials, blog posts, FAQ questions), the Site Editor lets you change the section's headings and wording but not the items themselves. At the bottom of the panel, a **Related content** box links to the admin page that manages them. The links open in a new tab, so you don't lose your place in the editor.
 
 ---
 
 ## Switching Templates
 
-If you switch to a different template (via **Content → Branding**), the new template's fields will be shown in the editor. Your previously saved values for the old template are preserved in the database but won't be displayed — they're simply not used by the new template. If you ever switch back, your old values will reappear.
+Each template keeps its own field values, so the words, photos, and lists you set up belong to the template you set them up in. After you switch, the editor shows the new template's sections and built-in content, and your old content comes back if you switch back.
 
----
-
-## Galleries in Template Fields
-
-Some templates have a `gallery` field type that lets you link a named gallery you've created in **Content → Galleries**. This is how you embed photo grids or carousels into homepage or about sections — you create the gallery separately, then assign it here.
-
-> **Note:** You can only link a gallery to a field if your template defines a gallery-type slot on that page. Galleries cannot be dropped into rich text content.
-
----
-
-## Saving Your Changes
-
-Changes are not auto-saved. Use the **Save** button at the top of the page to apply your edits. A confirmation toast will appear when your storefront is updated. You can also use the **Reset** button to discard unsaved changes and revert to the last saved state.
-
----
-
-## What You Can Do
-
-- Edit any field defined by your active template
-- Leave fields blank to use the template's default value
-- Upload images directly in image-type fields
-- Add a video URL in video-type fields (where supported by your template)
-- Link galleries to gallery-type fields
-- Add, reorder, and remove rows in list-type fields
-- Search across all fields using the search bar at the top
-
----
-
-## What You Cannot Do
-
-- Add custom fields outside what your template defines — the available slots are set by the template
-- See or edit fields from a template you're not currently using
-- Embed a gallery directly in a rich text editor — galleries are template-field-based only
-
----
-
-## Some Content Lives in Settings, Not Here
-
-A few pieces of content are shared across your whole storefront and are set once, in Settings, rather than as a template field — so you never have to update the same detail in two places:
-
-- Your **address and map pin** (Settings → General) — once set, your storefront's map sections pick it up automatically.
-- Your **phone, email, and hours** (Settings → General / Contact).
-- Your **social links** (Settings → General).
-- The site-wide **announcement bar**.
-- Your **footer tagline** (Content → Branding).
-- **FAQ** content (Content → FAQ) and **testimonials** (Admin → Testimonials) — template fields only let you pick which published items to feature, not write new ones.
-
-Where a template section uses one of these, its field group links you straight to the Settings page that owns it — look for the link next to the section's description in the field editor.
+A couple of things can carry over: a section you hid stays hidden if the new template has a section with the same name, and a theme preset with the same name in both templates can carry over too. See [Switching Templates](/docs/site-editor#switching-templates) and [Templates](/docs/templates) for the details.
 
 ---
 
 ## Something Missing?
 
-We've built templates to make as much of the storefront editable as possible — text, images, videos, colors, toggles, and more. That said, some design elements are fixed in the template and aren't currently exposed as editable fields.
-
-If there's something on your storefront you'd like to change but can't find a field for it, [reach out to us](mailto:help@generativejustice.org) and we'll look into it.
-
----
-
-## Screenshots Needed
-
-- [ ] Full template fields editor with page tabs visible across the top
-- [ ] A page tab open (e.g. Homepage) showing multiple field groups
-- [ ] Rich text (TipTap) editor open in a richtext field
-- [ ] A list-type field showing multiple rows with add/remove controls
-- [ ] A list-field row expanded with its ⋯ menu open (Move up / Move down)
-- [ ] The Undo toast after deleting a list row
-- [ ] A number field rendered as a slider with min/max and a value readout
-- [ ] Image upload field with a preview visible
-- [ ] Gallery selector field (dropdown showing saved galleries)
-- [ ] The Save / Reset toolbar
-
----
+Templates are built to make as much as possible editable, but some design elements are fixed in the template and don't have a field. If there's something on your site you'd like to change and can't find a field for, send a note from the Site Editor or email [help@generativejustice.org](mailto:help@generativejustice.org) and we'll look into it.

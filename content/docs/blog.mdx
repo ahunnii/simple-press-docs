@@ -1,123 +1,164 @@
 ---
 title: Blog
-description: The blog lets you publish articles, news, announcements, or any long-form content directly on your storefront.
+description: Publish articles, news, and announcements on your storefront, and schedule them to go live later.
 ---
 
 ## Overview
 
-The blog lets you publish articles, news, announcements, or any long-form content directly on your storefront. Each post gets its own page, and all published posts appear on a dedicated listing page at `/blog`.
+The blog lets you publish articles, news, announcements, or any long-form writing on your storefront. Each post gets its own page at `/blog/[slug]`, and all published posts appear on a listing page at `/blog`. You can write a post now and **schedule** it to go live later.
 
-> **This feature is off by default.** Enable it in **Settings > Features** before it will appear in your admin or on your storefront.
+Owners and Managers can manage the blog. Staff can't open it.
+
+<Callout type="info" title="Blog is off by default">
+  Turn it on in **Settings → Features** (see [Feature Flags](/docs/feature-flags)). Until then it won't appear in your admin or on your storefront.
+</Callout>
 
 ---
 
-## Getting to Blog
+## The Blog Posts List
 
-In the admin sidebar, go to **Content > Blog**. This opens your list of all blog posts with their title, slug, publish status, and last-updated date.
+In the admin sidebar, go to **Content → Blog**. The page is titled **Blog Posts**, and each row shows the post's cover image, title, excerpt, and `/slug`, plus its **Published** date and **Status**.
 
-**[Photo: Blog post list view — table with title, slug, status badges (Published/Draft), updated date, and action dropdown]**
+![The Blog Posts list with search, Filters, and a Published date column](/images/blog/blog-list.png)
 
-Use the search bar at the top to filter posts by title or slug.
+### Finding and sorting
+
+- **Search** matches the title, the slug, and the excerpt. Click **Filters** to open the **Status** and **Sort** options.
+- **Status** filters between **All posts**, **Published**, **Scheduled**, and **Drafts**.
+- **Sort** offers **Recently published**, **Oldest published**, **Recently updated**, **Least recently updated**, **Title A–Z**, and **Title Z–A**.
+
+### Row actions
+
+Click a post's title to open it, or use the three-dot menu at the end of the row for **Edit**, **View on storefront** (published posts only, opens in a new tab), and **Delete**.
+
+### Doing several at once
+
+Tick the checkboxes on the left. A bar appears with:
+
+- **Publish** and **Unpublish**
+- **Delete**: only the store **Owner** sees this button. Managers don't.
+
+Deleting asks you to confirm and is permanent.
 
 ---
 
 ## Creating a Blog Post
 
-Click **Create Blog Post** (top right of the list). The editor has two tabs: **Content** and **SEO**.
+Click **Create Blog Post**. The editor has a toolbar across the top and two tabs: **Content** and **SEO**.
+
+The toolbar has:
+
+- A status label: **Unsaved Changes** or **Saved**
+- The **Published** switch. **New posts start Published**, so switch it off before you save if you're not ready, or if you want to schedule it.
+- A **More Options** menu: **View on storefront** (published posts only), **Reset** (throws away unsaved changes), and **Delete** (saved posts only)
+- **Save & create another** (new posts only)
+- **Save changes**
 
 ### Content Tab
 
-| Field              | What it's for                                                                                                                                                                                      |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Title**          | The post's headline — shown on the listing and post pages                                                                                                                                          |
-| **Slug**           | The URL for this post: `yourstore.com/blog/[slug]`. Auto-generated from the title when creating a new post; you can edit it manually. Must be unique across all posts and pages for your business. |
-| **Excerpt**        | A short summary of the post — shown in listing cards and used as the fallback meta description if no SEO description is set                                                                        |
-| **Featured Image** | The primary image for this post — shown in the listing card and at the top of the post page                                                                                                        |
-| **Content**        | The full post body, written in the rich text editor (TipTap). Supports headings, bold/italic, links, lists, block quotes, and images.                                                              |
+The **Post Content** card has:
 
-**[Photo: Blog post editor — Content tab showing title, slug, excerpt, image upload, and TipTap editor open]**
+- **What is the post title?** _(required)_: the headline on the listing and post pages.
+- **Publish date**: the date used to order your posts. "Leave blank to use the date the post was created."
+- **Schedule publish**: a date and time. Only appears while **Published** is off (see [Scheduling a Post](#scheduling-a-post)).
+- **Provide a short description of the post**: the excerpt. Shown on listing cards and used as the fallback meta description.
+- **Upload an image that represents this post**: the post's cover image, shown on the listing card and at the top of the post. Choose **Upload from device**, or **Choose from library** if the [Media Library](/docs/media-library) is turned on.
+- **Write out your post content**: the full post in the rich text editor.
 
-#### Embedding a Gallery in Post Content
+Under the title you'll see the post's **Storefront URL** with an **Edit in SEO** link. The slug itself is on the SEO tab.
 
-If you have the **Galleries** feature enabled, you can insert a gallery directly into your post body using the TipTap toolbar. This is separate from the featured image and lets you display a full image gallery inline within the post.
+![The post editor Content tab with Publish date and Schedule publish shown](/images/blog/post-content-tab.png)
+
+*Schedule publish appears once the Published switch is turned off.*
+
+### Rich-text tools
+
+The editor has the same tools as [Pages](/docs/pages-and-policies#rich-text-tools): headings, bold, italic, underline, strikethrough, text color, links, lists, quotes, code, dividers, tables, images, and video. The **Insert elements** menu can add a **Gallery** (see [Galleries](/docs/galleries)), **Embed**, **Quote calculator**, or **Form**, but each only shows up when that feature is switched on in **Settings → Features**.
 
 ### SEO Tab
 
-| Field                | Notes                                                                                                                  |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **Meta Title**       | Shown in browser tabs and search results. Aim for under 60 characters. Falls back to the post title if left blank.     |
-| **Meta Description** | Shown as the preview snippet in search results. Aim for under 160 characters. Falls back to the excerpt if left blank. |
+- **Meta Tags**:
+  - **URL Slug** _(required)_: the post's address, `yourstore.com/blog/[slug]`.
+  - **Meta Title**: shown in browser tabs and search results. Falls back to the post title.
+  - **Meta Description**: the search snippet. Falls back to the excerpt.
+- **Open Graph Image**: the picture used when the post is shared on social media.
+- **Search Result Preview** and **Social Media Preview**: how the post may look in Google and when shared.
 
-**[Photo: Blog post editor — SEO tab showing meta title and meta description fields with character counts]**
+![The post editor SEO tab with URL Slug, Meta Title, Meta Description, Open Graph Image and the two preview cards](/images/blog/post-seo-tab.png)
 
-### Publish Toggle
+### How the URL slug works
 
-The **Published** toggle (top right of the editor toolbar) controls whether the post is visible on your storefront.
+- **Before the post is published or scheduled**, the slug follows the title as you type.
+- **Once it's been published**, changing the title doesn't change the URL. The Content tab shows "Title changed — the URL hasn't." with an **Update URL** button.
+- **Setting a schedule locks the slug**, because the post will go live on its own without you reopening the editor. The form says "the URL is locked from here on, so it won't follow further title edits."
+- If you change the slug of a saved post, the SEO tab warns "Heads up — this will change the post's URL."
 
-- **Off (Draft):** the post is invisible to customers — it doesn't appear in the blog listing and cannot be accessed directly by URL
-- **On (Published):** the post is live and publicly visible
+<Callout type="warn" title="Changing a URL breaks old links">
+  SimplePress does **not** create a redirect. Anyone with the old link will land on a "not found" page, and navigation menu items won't follow the rename. Update them under **Site Setup → Navigation**.
+</Callout>
 
-Toggle it on when the post is ready. You can switch it back off at any time to hide the post without deleting it.
-
----
-
-## Editing a Blog Post
-
-From the blog list, click a post title (or use the dropdown > **Edit**) to open the editor. All the same fields are available. Click **Save changes** when done.
-
-The toolbar shows an **Unsaved Changes** badge whenever you have edits that haven't been saved yet.
-
-**[Photo: Blog post editor toolbar — showing "Unsaved Changes" badge, Published toggle, Reset and Save buttons]**
+Slugs must be unique across your **blog posts, pages, and policies**.
 
 ---
 
-## Viewing a Live Post
+## Publishing, Drafts, and Scheduling
 
-From the blog list, open the dropdown menu (⋮) on any published post and click **View Live**. This opens the post on your storefront in a new tab.
+### The Published switch
 
----
+- **Off (Draft)**: the post is hidden from the blog and from direct links. Owners and Managers can still preview it.
+- **On (Published)**: the post is live.
 
-## Deleting a Blog Post
+### Scheduling a Post
 
-From the blog list, open the dropdown menu (⋮) and click **Delete**. You'll be asked to confirm before the post is permanently removed. This action cannot be undone.
+1. Switch **Published** off.
+2. Pick a date and time in **Schedule publish**.
+3. Click **Save changes**.
 
-You can also delete from within the editor itself.
+The post shows as **Scheduled** in the list (use the **Scheduled** status filter to find them), and SimplePress publishes it automatically at that time. To cancel, clear the date.
 
----
+### Publish date and ordering
 
-## How Posts Appear on the Storefront
-
-- **Listing page:** `/blog` — shows all published posts as cards, typically with the featured image, title, and excerpt. Ordered newest first.
-- **Individual post:** `/blog/[slug]` — full post content, featured image, and optionally related posts depending on your template.
-
-The exact visual design adapts to your active storefront template.
-
-**[Photo: Storefront blog listing page — cards with images, titles, and excerpts]**
-
-**[Photo: Storefront individual blog post — hero image, title, full content rendered]**
+Posts are shown **newest first by Publish date**. There's no drag-to-reorder. To move a post up or down, change its **Publish date**; backdating a post moves it further down the list.
 
 ---
 
-## What You Can and Cannot Do
+## Editing in the Site Editor
+
+You can also edit a post on your storefront preview in the [Site Editor](/docs/site-editor): change its **Title**, **Excerpt**, and **Content** as drafts, and use **Open post settings** to jump back to the full editor for the URL, SEO, and cover image. The Site Editor also lets you reword the blog's headings and labels on templates that offer them.
+
+---
+
+## How the Blog Looks on the Storefront
+
+The design adapts to your active [template](/docs/templates). On the **Default** template:
+
+- **`/blog`** has a heading (**Blog** unless you change it) with a small **Journal** label above it, an intro line ("News, tips, and updates from our team. Use the search box to find a topic."), and a **Search posts...** box. The newest post is shown large, followed by a **More posts** grid, each with a "Read article →" link.
+- **A post page** shows the hero image, the title, and the full content. At the bottom, up to three other posts appear under **Continue reading** and **More articles**.
+
+![The Default storefront blog page with the heading, search box, large featured post and More posts grid](/images/blog/blog-journal.png)
+
+![A Default storefront blog post with the hero image, content and the Continue reading section](/images/blog/blog-post.png)
+
+---
+
+## What You Can and Can't Do
 
 **You can:**
 
-- Create, edit, publish, unpublish, and delete posts at any time
-- Manually edit the slug on any post (including existing ones)
-- Set SEO metadata per post independently of the global site SEO
-- Embed galleries in post content (if Galleries is enabled)
-- Search and filter posts in the admin list
+- Create, edit, publish, unpublish, schedule, and delete posts
+- Backdate or change a post's Publish date
+- Change a post's URL slug (there's no redirect)
+- Set SEO details per post
+- Insert galleries and other elements into post content
+- Edit post text in the Site Editor
 
-**You cannot:**
+**You can't:**
 
-- Schedule a post to publish at a future date — the Published toggle takes effect immediately when you save
-- Use the same slug on two posts or pages for your business
-- Reorder posts manually — posts always display newest first on the storefront
+- Use a slug that another post, page, or policy already has
+- Reorder posts by hand; they follow the Publish date
 
 ---
 
 ## Feature Flag
 
-Blog is **off by default**. To turn it on: go to **Settings > Features** and enable **Blog**. Disabling it removes the blog from your admin nav and hides all blog pages from the storefront (posts are not deleted).
-
----
+Blog is **off by default**. Go to **Settings → Features** and switch on **Blog**. Switching it off removes the blog from your admin and makes `/blog` show "not found"; your posts are kept and come back if you switch it on again.

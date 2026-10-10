@@ -1,0 +1,168 @@
+---
+title: Navigation
+description: Build the menu in your site header and the quick links in your footer, with dropdowns, Quick Add shortcuts, and automatic hiding of links to features that are switched off.
+---
+
+## Overview
+
+Navigation is the set of links your visitors use to get around your site: the menu across the top (the header, and the tap-open menu on phones) and the column of quick links in the footer. You build both on one page, **Edit Navigation**.
+
+<Callout type="info" title="Owners and Managers only">
+  Navigation is part of Site Setup, which only Owners and Managers can open. See [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+---
+
+## Getting Here
+
+Open **Site Setup** from the **Content** group in your sidebar, then click the **Navigation** card ("Configure your site menu and links"). The page is titled **Edit Navigation**.
+
+The top bar has a **Saved** or **Unsaved Changes** badge and a **Save navigation** button. Nothing you do on the page reaches your site until you click **Save navigation**.
+
+![The Edit Navigation page with the custom-items alert, the Menu Items card and the Quick Add card](/images/navigation/edit-navigation.png)
+
+---
+
+## Your Template's Menu vs. Your Own
+
+Every template ships with a starter menu. On the Default template it is **Shop, About, Services, Events, Reviews, Donate, and Contact**, where Services, Events, Reviews, and Donate appear only when that feature is on. Other templates have their own starter menus, so the links you see on a new store depend on its template.
+
+If you've never saved a menu here, the **Menu Items** card shows "No menu items. Click "Add Item" to get started." That does not mean your site has no menu. It means you're still using the template's.
+
+<Callout type="warn" title="Custom items replace your template's menu">
+  Once you add an item and save, your list replaces the template's built-in menu entirely. That includes the "Nav Label" fields in the [Site Editor](/docs/site-editor), which stop controlling your menu. Footer links are set separately, in the **Footer quick links** card on this page.
+</Callout>
+
+<Callout type="warn" title="Saving an empty list means no links">
+  If you delete every item and click **Save navigation**, you've told SimplePress your menu is empty, and your header shows no links (apart from a Donate link added automatically if you've turned that on). To go back to the template's menu, you'll need to add the links again. Add your own items before you save, or leave the list untouched.
+</Callout>
+
+---
+
+## Menu Items
+
+### Adding a link
+
+Click **Add Item**. A new row appears with:
+
+- **Label**: the words visitors see, up to 100 characters.
+- **URL**: where the link goes, up to 500 characters. Use a path like `/shop` or `/about` for pages on your own site, or a full address like `https://example.com` for another website.
+- **Open in new tab**: tick this for links to other websites so your store stays open behind them.
+
+Use the up and down arrows (▲ ▼) on the left of a row to change the order, and the trash icon on the right to remove it.
+
+Links that could run code in the browser (such as ones beginning `javascript:`) are refused. If a link is refused, fix it and save again.
+
+### Dropdowns (sub-items)
+
+Click **Add sub-item** inside any row to turn it into a dropdown. Each sub-item has only a **Label** and a **URL**. There is no "Open in new tab" box for sub-items, and they can't be reordered, so add them in the order you want. Use the small trash icon to remove one. A dropdown has one level only.
+
+How dropdowns behave for your visitors:
+
+- **On a computer**, the dropdown opens when the visitor hovers over the item or clicks it. On some templates the parent's own link is also listed first inside the dropdown; on others, including Default, only the sub-items are shown, so add the parent's page as a sub-item too if visitors should still be able to reach it.
+- **On a phone**, the item expands in the menu when tapped.
+- **A parent with a blank URL** becomes a heading only. It opens the dropdown but doesn't go anywhere itself. This is handy for a group like "More".
+- **Sub-items with a blank label or URL** are left out when your site shows the menu.
+
+![A storefront header with the Services dropdown open](/images/navigation/dropdown-desktop.png)
+
+*Hovering the Services item opens its dropdown.*
+
+![The storefront menu on a phone with Services expanded to show its sub-item](/images/navigation/mobile-menu.png)
+
+### Quick Add
+
+The **Quick Add** card saves typing. Click a button and the link is added to the end of your menu, and a message confirms it.
+
+![The Quick Add card with Common Pages, Services, and Your Pages groups](/images/navigation/quick-add.png)
+
+- **Common Pages**:
+  - **Collections**, **Shop**, **Blog**, **Events**, and **Videos** each appear only when that feature is on.
+  - **FAQ**, **Contact**, and **About** are always there.
+  - **Donate** appears when Donations is on, using your own wording (for example "Contribute"). See [Donations](/docs/donations).
+- **Services**: **Add Services menu** adds a "Services" item with each of your published services as a sub-item, and shows how many services it will include. Appears only when Services is on. See [Services](/docs/services).
+- **Your Pages**: a button for each custom page you've created. See [Pages and Policies](/docs/pages-and-policies).
+
+Quick Add shortcuts to features you've switched off aren't offered. Quick Add only adds links. You still need to click **Save navigation**.
+
+---
+
+## Footer Quick Links
+
+Below the menu, the **Footer quick links** card controls the column of links in your storefront footer. It has two modes.
+
+![The Footer quick links card in Custom list mode with the Start from main navigation button and the first links](/images/navigation/footer-quick-links.png)
+
+### Use main navigation
+
+The footer shows the top-level links from your main menu. Dropdown sub-items are left out to keep the footer short, and a parent with a blank URL (a heading only) is skipped because it has nowhere to link to. A preview of the links appears in the card.
+
+<Callout type="info" title="Some templates show their own footer list instead">
+  On the Default, Noise, Pink, and UMSC templates, the first option is called **Use template's default links** instead. Until you save a custom list, the footer shows the template's own built-in list, not your main menu, and the card names the links. On Default, that's **About us, Reviews, Blog, and Services** (Reviews, Blog, and Services only when that feature is on), plus Donate when it's set to show in the footer. On UMSC, it's **FAQ, Contact, and Custom orders**. Switch to **Custom list** for full control on any template.
+</Callout>
+
+### Custom list
+
+Choose **Custom list** to write a footer list of your own.
+
+- If your custom list is empty when you switch, it's filled in from your main menu's top-level links so you have something to edit. Switching back to **Use main navigation** keeps your custom list in case you switch again.
+- **Add link** adds a row with a **Label**, **URL**, and **Open in new tab**, the same as the main menu. Rows have up and down arrows and a trash icon (**Remove link**).
+- **Start from main navigation** replaces your custom list with the main menu's top-level links. If you already have custom links, it asks "Replace your custom footer links with your main navigation's top-level links?" before it does.
+- **Quick Add** works here too, but adds plain links with no dropdowns. Its Services button adds a single "Services" link.
+- You can have at most **12** footer links. At 12, **Add link** is disabled and the card says "Footer quick links are limited to 12."
+- An empty custom list hides the footer links section. (A Donate link can still be added automatically, see below.)
+
+Click **Save navigation** to save the footer along with the menu.
+
+### Not shown on your current template
+
+If your template doesn't have a footer links column, the card shows a **Not shown on your current template** notice: "Your current template doesn't show a footer links column, so these links won't appear until you switch to a template that does." Your list is still saved, and it appears if you switch to a template that has the column.
+
+### The footer heading
+
+The heading above the footer links is a field in the [Site Editor](/docs/site-editor), not on this page.
+
+![A storefront footer with the Quick Links column on the right](/images/navigation/footer-column.png)
+
+---
+
+## Donate Links Are Added For You
+
+If you use [Donations](/docs/donations), go to **Settings → Donations** and use the **Show link in header navigation** and **Show link in footer** switches. Turning one on adds a Donate link to that spot automatically, even if you've saved a custom menu or custom footer list. These switches only add a link. They never remove one you placed yourself, and they don't add a second Donate link if one is already there.
+
+---
+
+## Links to Switched-Off Features Hide Themselves
+
+If you turn off a feature in **Settings → Features**, links to it disappear from your header, phone menu, and footer automatically. You don't have to delete them, and they come back when you turn the feature on again. If you turn off Blog, for instance, your **Blog** link is hidden.
+
+This covers links to these parts of your site: `/shop`, `/collections`, `/blog`, `/services`, `/events`, `/videos`, `/donate`, `/testimonials`, `/wishlist`, `/cart`, `/checkout`, `/subscribe`, and the customer account pages under `/account`. See [Feature Flags](/docs/feature-flags).
+
+Things to know:
+
+- **Links set to "Open in new tab" are never hidden**, even if they point to a page on your own site.
+- **Full web addresses are not hidden**, even when they point to your own store (for example `https://yourstore.com/blog`). Use a path like `/blog` so it can be hidden automatically.
+- **Custom pages, FAQ, and Contact are never hidden**, because they're not tied to a switch.
+- **A dropdown whose sub-items are all hidden is removed.** If the parent has its own URL, the parent stays as a plain link.
+
+Some templates (such as Coop and Wealth) don't use the menu from this page.
+
+---
+
+## Can and Can't
+
+**You can:**
+
+- Add, reorder, and remove header links, each with a label, URL, and optional new-tab setting
+- Add one level of dropdown under any item
+- Add links in one click with Quick Add, including a ready-made Services menu
+- Build a separate footer list of up to 12 links, or follow your main menu
+- Rely on Donations switches and feature switches to add and hide links for you
+
+**You cannot:**
+
+- Reorder sub-items, or open a sub-item in a new tab
+- Nest a dropdown inside a dropdown
+- Add icons to links or style individual links differently
+- Show a footer list on a template that has no footer links column
+- Link to a javascript or other unsafe address (it is refused)

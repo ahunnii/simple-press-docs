@@ -1,298 +1,192 @@
 ---
-title: Storefront & Branding
-description: Control the visual identity and navigation of your storefront.
+title: Brand & Appearance
+description: Set your logo, favicon, template, checkout color, footer tagline, and social links, and find the rest of your Site Setup.
 ---
 
 ## Overview
 
-Your storefront is the public-facing side of your store — the pages your customers see when they visit your URL. The **Content** section of your admin dashboard is where you control what it looks, feels, and reads like.
+**Brand & Appearance** is where you set the parts of your store that make it look like yours: which template it uses, your logo, your favicon (the little icon in a browser tab), a tagline for the footer, and links to your social profiles. It lives inside **Site Setup**, the hub for the store-wide settings you configure once and rarely change.
 
-There are four main areas under Content: **Branding**, **Navigation**, **SEO**, and **Template Fields**. This page covers all of them.
+Day-to-day wording, pictures, section order, colors, and fonts are edited in the [Site Editor](/docs/site-editor), not here.
+
+<Callout type="info" title="Owners and Managers only">
+  Site Setup and the Site Editor are for Owners and Managers. Staff can't open them. See [Team and Roles](/docs/team-and-roles).
+</Callout>
 
 ---
 
 ## Getting Here
 
-From your admin dashboard, click **Content** in the sidebar. You'll see links to each of the four sections below.
+In your admin sidebar, the **Content** group has two entries for your storefront:
 
-> **Photo:** Screenshot of the Content section in the admin sidebar, showing Branding, Navigation, SEO, and Template Fields.
+- **Site Editor**: change what your site says and shows. See [Site Editor](/docs/site-editor).
+- **Site Setup**: the one-time setup hub, described as "Brand, navigation, search listing, and policies."
 
----
+Open **Site Setup** and you'll see a card for each area:
 
-## Branding
+| Card | What it's for |
+|---|---|
+| **Brand & Appearance** | Template, logo, favicon, footer tagline, social links. This page. |
+| **Policies** | Privacy, Terms, Refunds, Shipping. See [Pages and Policies](/docs/pages-and-policies). |
+| **Navigation** | Your header menu and footer links. See [Navigation](/docs/navigation). |
+| **SEO & Meta** | How your store appears in search results and when shared. See [SEO & Meta](#seo--meta) below. |
+| **FAQ** | Add and manage the questions and answers shown on your storefront. |
+| **Banner & Popup** | Your announcement banner and homepage popup. Shown only when the banners or popups feature is on. See [Banner & Popup](/docs/banner-and-popup). |
 
-The Branding editor is where you set your store's visual identity: your template, logo, favicon, colors, social links, and footer text.
-
-> **Photo:** Full screenshot of the Branding editor with all sections visible (template selector, logo, favicon, colors, social links, footer text).
-
-### Template
-
-Your template controls the overall design and layout of your storefront — the structure of your homepage, product pages, shop, and more.
-
-To change your template, select one from the dropdown. The change takes effect immediately for your customers after you save.
-
-**Available templates** vary by account. Most stores have access to:
-
-- **Modern** — Clean, minimal layout
-- **Elegant** — Refined, editorial feel
-- **Default** — Simple fallback layout
-
-Some templates (Bamboo, Happy Bamboo, Pollen, Dark Trend, Noise, and others) are commercial and tied to specific accounts. You will only see the templates available to your store.
-
-> **Note:** Switching templates does not delete your content — all values you've entered for your previous template's fields are preserved in the database. However, they won't appear in the editor until you switch back to that template. See [Template Fields](#template-fields) below for more on this.
-
-**Cannot:**
-
-- Create or customize a template's layout/code — templates are managed by the platform
-- Access commercial templates not assigned to your account
+![The Site Setup page with a card for each area](/images/storefront-and-branding/site-setup.png)
 
 ---
 
-### Logo
+## Brand & Appearance
 
-Your logo appears in your storefront header and in transactional emails sent to customers.
+Click the **Brand & Appearance** card. The page has three cards: **Site Visuals**, **Business Branding**, and **Footer & social links**.
 
-- **Upload** a file directly, or paste in a URL
-- **Accepted formats:** JPG, JPEG, PNG, GIF, WebP, SVG, AVIF
-- **Recommended:** At least 200px wide, transparent PNG for best results
-- A preview is shown before you save
-- Uploading a new logo replaces the previous one
+![The Brand & Appearance page with the Site Visuals, Business Branding and Footer & social links cards](/images/storefront-and-branding/brand-appearance.png)
 
-If no logo is uploaded, your store name is shown as text instead.
+### Site Visuals
 
-> **Photo:** Logo upload area showing the upload button and live preview.
+This card is headed "How does your site look to people?" and has:
 
----
+- **Select a template**: "A template changes the overall look and feel of your storefront." Pick one from the list. You'll only see templates your store has access to. For what each one does and what happens to your content when you switch, see [Templates](/docs/templates).
+- **Checkout accent color**: one color, "Shown on checkout and cart buttons on supported templates." Click the swatch to pick a color. The same color also tints the install screen when a customer adds your store to an Android home screen.
+- A link, **Edit sections, colors and fonts in the Site Editor**, that opens the [Site Editor](/docs/site-editor).
 
-### Favicon
+<Callout type="info" title="Colors and fonts for the rest of your site live in the Site Editor">
+  The checkout accent color is the only color set on this page. Your site's main colors and fonts are chosen in the Site Editor under **Theme**, on the templates that offer it. See [Site Editor](/docs/site-editor).
+</Callout>
 
-Your favicon is the small icon that appears in the browser tab and home screen of devices that visit your store.
+A template switch isn't applied until you save (see [Saving](#saving)). If your store doesn't have access to the template you picked, saving fails with "This template is not available for your store."
 
-- **Accepted formats:** JPG, JPEG, PNG, GIF, WebP, SVG, AVIF, ICO.
-- **Upload a square image, 512×512 or larger; PNG or SVG works best.**
-- SimplePress generates every size from that one image and serves it from the store's own domain: the browser-tab icon (`/favicon.ico`, 16/32/48px), 48px and 192px icons for Google Search, the 180px Apple home-screen icon (on a white background), and 192/512px icons for the Android home-screen manifest.
-- Uploading a new favicon replaces the previous one.
-- Non-square images are padded to a square, not cropped.
-- If no favicon is set, the store's logo is used (padded to a square); if there is no logo either, the SimplePress icon is used.
-- The Branding page shows a tab and home-screen preview and warns when the image isn't square or is smaller than 192px.
+### Business Branding
 
-> **Photo:** Favicon upload field with the small preview icon visible.
+#### Logo
 
----
+Your logo appears in your storefront header and in the emails your store sends to customers. If you don't upload one, your store name is shown as text instead.
 
-### Colors
+1. Click **Choose image**. (Once an image is set, the button reads **Replace image**.)
+2. Pick **Upload from device**, or **Choose from library** to use a picture from your [Media Library](/docs/media-library). The library option appears only when the Media Library is turned on.
+3. Click **Save changes**.
 
-Three color values control your storefront's color palette — how they're applied depends on your template, but in general:
+The preview shows "New image selected. Upload on submit." until you save, because the file is uploaded when you save, not when you pick it. Click the trash icon next to the image to remove it, then save.
 
-| Color         | Typical Use                                   |
-| ------------- | --------------------------------------------- |
-| **Primary**   | Main brand color — buttons, accents, headings |
-| **Secondary** | Background tones, secondary UI elements       |
-| **Accent**    | Highlights, badges, calls to action           |
+- **Accepted formats:** JPG, PNG, GIF, WebP, AVIF, and SVG, up to 5MB.
+- A transparent PNG at least 200 pixels wide works well in most headers.
+- **Emails show your store name instead of an SVG logo.** Many email programs don't display SVG pictures, so if your logo is an SVG, customer emails use your store name as text. Upload a PNG if you want the logo itself in emails.
 
-Click any color swatch to open the color picker and choose your value.
+![The Logo field with the Replace image menu open, showing Upload from device and Choose from library](/images/storefront-and-branding/logo-menu.png)
 
-> **Photo:** Color section of the Branding editor with all three color pickers visible.
+#### Logo alt text
 
----
+Describes your logo to screen readers, and to search engines when the picture can't load. It's usually just your business name.
 
-### Social Links
+#### Favicon
 
-Add links to your social media profiles and they'll appear in your storefront footer. All fields are optional — only the ones you fill in will be displayed.
+The favicon is the small icon in the browser tab and on a phone's home screen. Upload a square image, 512×512 or larger. PNG or SVG works best.
 
-**Supported platforms:**
+Under the field, a live preview shows how the icon will look:
 
-- Instagram
-- Facebook
-- Twitter / X
-- LinkedIn
-- TikTok
+- **Browser tab**: the icon next to your page title.
+- **Home screen**: the icon on a white rounded tile, like a phone app icon.
+- **Using your logo**: shown when you haven't set a favicon and your logo is being used instead.
 
-Enter the full URL to your profile (e.g., `https://instagram.com/yourbusiness`).
+The preview updates as soon as you pick a file, before you save. It can also show a warning:
 
----
+- "This image isn't square. It'll be padded to fit."
+- "This image is small (W×H). Icons may look blurry on phones." This appears for images smaller than 192 pixels.
 
-### Footer Text
+![The Favicon field with the Browser tab and Home screen previews](/images/storefront-and-branding/favicon-preview.png)
 
-A short line of text shown in your storefront footer — use it for a tagline, mission statement, or copyright notice.
+*With no favicon set, the preview shows "Using your logo".*
 
-- **Maximum:** 500 characters
+A few things to know about favicons:
 
----
+- You upload one image. SimplePress makes every size from it and serves them from your store's own address: the browser-tab icon (`/favicon.ico`, in 16, 32, and 48 pixel sizes), 48 and 192 pixel icons for Google Search, a 180 pixel Apple home-screen icon on a white background, and 192 and 512 pixel icons for Android home screens, including a maskable 512 version.
+- Non-square images are padded to a square, never cropped.
+- If you leave the favicon blank, your logo is used. If there's no logo either, the SimplePress icon is used.
+- Browsers and Google cache favicons, so a new icon can take a while to appear everywhere.
 
-### Saving Your Branding Changes
+### Footer & social links
 
-All changes in the Branding editor are saved together when you click **Save**. The toolbar at the top of the page shows an **Unsaved Changes** badge whenever you have edits that haven't been saved yet. You can also click **Reset** to discard your changes and return to the last saved state.
+- **Footer tagline**: shown in your storefront footer. Use it for a mission statement or a short blurb about your business. Up to 500 characters.
+- **Social Links**: Instagram, Facebook, Twitter / X, LinkedIn, TikTok, Pinterest, and YouTube. Fill in only the ones you use; only those appear in your footer. Each link must be a full address starting with `http://` or `https://`, for example `https://instagram.com/yourstore`.
 
-> **Keyboard shortcut:** Press `Cmd + Enter` (Mac) or `Ctrl + Enter` (Windows) to save quickly.
+The links in your footer's quick-links column are set separately. See [Navigation](/docs/navigation#footer-quick-links).
 
----
+### Saving
 
-## Navigation
+All three cards save together with one button. The top bar shows an **Unsaved Changes** badge when you have edits, and **Saved** when everything is current.
 
-The Navigation editor lets you build the menu links that appear in your storefront header and footer. It has two sections: **Menu Items** (main navigation) and **Footer quick links** (footer navigation).
-
-> **Photo:** Navigation editor showing Menu Items and Footer quick links sections with label, URL, reorder controls, and Quick Add buttons.
-
-### Menu Items
-
-Your main navigation appears in the header of your storefront.
-
-#### Adding and Editing Items
-
-Each menu item has:
-
-- **Label** — The text shown in the nav (max 100 characters)
-- **URL** — Where the link goes (max 500 characters). Use relative paths for internal pages (e.g., `/products`, `/about`) or full URLs for external links.
-- **Open in new tab** — Toggle this on for links that point to external websites
-
-Click **+ Add Item** to add a new link. Use the trash icon to remove an item.
-
-#### Adding Sub-items
-
-Menu items can have one level of sub-items (dropdown links). Click **+ Add sub-item** to add a dropdown menu under any item.
-
-Each sub-item has the same fields as a main item: label, URL, and open-in-new-tab toggle. Sub-items appear as a dropdown menu on desktop (hover or focus to open) and as an indented list on mobile.
-
-#### Reordering
-
-Use the up/down arrow buttons next to each item to change the order. On mobile, active links highlight based on the current page.
-
-#### Quick Add (Menu Items)
-
-The sidebar provides quick-add buttons for common destinations:
-
-- **Common Pages:** Collections, Shop, Blog, Contact, About, Donate (if available)
-- **[Services](/docs/services)** — adds a Services menu with all your services as sub-items
-- **Your Pages** — any custom pages you've created
-
-#### Defaults
-
-If you haven't added any nav items, your storefront defaults to showing: **Home** (`/`) and **Shop** (`/shop`).
-
-### Footer quick links
-
-On templates that show a footer links section, you can choose whether the footer displays links from your main navigation or a separate custom list.
-
-#### Modes
-
-**Use main navigation** — The footer shows the top-level links from your main menu. Dropdown/sub-links are not shown to keep the footer compact.
-
-**Custom list** — Create a separate list of links just for the footer. You can include links from your main navigation or add entirely new ones.
-
-#### Custom List Editor
-
-When in Custom list mode, you can:
-
-- **Add links** — Click **+ Add link** to create a footer link. Max 12 links.
-- **Reorder** — Use the up/down arrows to change link order.
-- **Remove** — Click the trash icon to delete a link.
-- **Start from main navigation** — Click this button to populate your custom footer list with your main menu's top-level links. Useful as a starting point for editing.
-- **Quick Add (Footer)** — The Quick Add panel here works like the main nav version, but adds items as plain links (no sub-menus).
-
-When the custom list is empty, the footer quick links section is hidden from your storefront.
-
-#### Links to Disabled Features
-
-If you disable a feature (like Blog or Products), links to that feature in your storefront navigation are automatically hidden — both in the header and footer. You don't need to manually remove them.
-
-**Cannot:**
-
-- Add icons to nav items
-- Style individual items differently
+- **Save changes** saves everything on the page, including a template switch.
+- **Reset** throws away your unsaved edits and returns to the last saved state.
+- **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows) saves from the keyboard.
 
 ---
 
-## SEO
+## SEO & Meta
 
-The SEO editor sets the site-level meta tags — the title, description, and social sharing image used as defaults across all pages. Individual pages and products can override these with their own values.
+**SEO & Meta** controls how your store shows up in search results (Google, Bing) and in the preview when someone pastes your link into a message or social post. It has four tabs:
 
-> **Photo:** SEO editor with meta title, meta description, keywords, and OG image fields visible, and the search preview card below.
+- **Score**: a checklist with a percentage showing how complete your search setup is, with shortcuts to the tabs that need work.
+- **Your store**: your store's default wording, used on every page that doesn't set its own.
+- **Individual pages**: a title and description for each page, which replace the store defaults on that page.
+- **Search engines**: verification codes, local presence, and the AI crawler switch.
 
-### Meta Title
+![The SEO & Meta page on the Your store tab with character counters and the search and social preview](/images/storefront-and-branding/seo-meta.png)
 
-The title shown in Google search results and your browser tab.
+Key fields:
 
-- **Max:** 255 characters
-- **Optimal:** 50–60 characters (a live character counter guides you)
+- **Store title**: counter out of 60 characters, ideal 50 to 60.
+- **Short name for page titles**: added to the end of every page title as "| Name". Shorten it if your business name is long (ideal 15 to 30 characters).
+- **Store description**: counter out of 160 characters, ideal 150 to 160.
+- **Share image** (under **Image**): the picture shown when your link is shared. 1200 × 630 pixels is the size everything crops to. It uploads when you save.
+- **Page title** and **Page description** for each page on the **Individual pages** tab.
+- **Google verification code** and **Bing verification code**: paste the code, or the whole tag they give you. This unlocks their free reporting tools. It does not affect where you rank.
+- **Local presence** and **Areas served**: tell search engines you serve a local area.
+- **Allow AI answer engines to crawl this store**: on by default. Turning it off asks AI assistants to stay away.
 
-### Meta Description
+A **Preview** panel beside the fields shows how your store looks in a Google result and when shared.
 
-The short description shown below your title in search results.
-
-- **Max:** 500 characters
-- **Optimal:** 150–160 characters (a live character counter guides you)
-
-### Meta Keywords
-
-A comma-separated list of keywords (e.g., `handmade candles, soy wax, Detroit`). Modern search engines largely ignore this field, but it doesn't hurt to fill it in.
-
-- **Max:** 255 characters
-
-### Open Graph Image
-
-The image shown when someone shares your store link on Facebook, LinkedIn, Twitter/X, or other platforms that support Open Graph.
-
-- **Recommended size:** 1200×630px
-- **Accepted formats:** JPG, JPEG, PNG, GIF, WebP, SVG, AVIF
-- Upload a file or paste in a URL
-
-### Search Result Preview
-
-Below the fields, a live preview card shows how your meta title and description will appear in a Google search result. It updates in real time as you type.
+There is no keywords field. Search engines no longer use one.
 
 ---
 
-## Template Fields
+## Navigation and Menus
 
-Template fields are content slots defined by your template — things like hero headlines, about section text, feature callouts, and images. These let you customize the words and visuals inside your storefront pages without touching any code.
+Your header menu and footer links have their own page, **Site Setup → Navigation**. See [Navigation](/docs/navigation) for adding links, dropdowns, Quick Add, and footer quick links.
 
-> **Photo:** Template fields editor showing page tabs (Homepage, About, Contact, etc.) and grouped content sections below.
+---
 
-### How Fields Are Organized
+## Template Fields and Page Wording
 
-Fields are organized by **page** (e.g., Homepage, About, Contact, Shop, Blog, Global) with tabs across the top. Within each page, fields are grouped into named sections.
-
-### Field Types
-
-Depending on your template, you may see any of the following:
-
-| Field Type    | What It Is                                                       |
-| ------------- | ---------------------------------------------------------------- |
-| **Text**      | A single line of plain text                                      |
-| **Textarea**  | Multiple lines of plain text                                     |
-| **Rich Text** | Formatted content — headings, bold, lists, links                 |
-| **Image**     | A single uploaded image                                          |
-| **Gallery**   | A gallery you've created (see the Galleries section)             |
-| **Color**     | A color picker value                                             |
-| **Boolean**   | An on/off toggle                                                 |
-| **List**      | Repeating rows (e.g., feature cards, each with an icon and text) |
-| **Video**     | An uploaded video file (max 50MB; MP4, WebM, MOV, AVI)           |
-| **URL**       | A web link                                                       |
-| **Number**    | A numeric value                                                  |
-
-### Default Values
-
-Every field has a default value set by the template. If you haven't saved a value for a field, the default is shown on your storefront. You don't need to fill in every field — only the ones you want to customize.
-
-### Saving Template Fields
-
-Use the **Save** button in the toolbar. The **Unsaved Changes** badge appears when you have edits pending. You can **Reset** to discard changes and go back to the last saved state.
-
-> **Keyboard shortcut:** `Cmd + Enter` / `Ctrl + Enter` to save.
-
-> **Photo:** A list-type field showing repeating card rows with per-row inputs (e.g., icon + text).
-
-**Cannot:**
-
-- Add new field types outside what your template defines
-- See or edit fields for a template you're not currently using
+The headings, paragraphs, pictures, and lists on each page of your site are edited in the [Site Editor](/docs/site-editor). See [Template Fields](/docs/template-fields) for what each kind of field does.
 
 ---
 
 ## What You Cannot Change After Signup
 
-- **Subdomain** — Your subdomain (e.g., `yourstore.simplepress.co`) is set during onboarding and cannot be changed afterward. If you want a custom domain, see [Domain Settings](./domain.md).
-- **Template code** — Visual layout and structure are controlled by the platform, not editable by owners.
+- **Subdomain**: your subdomain (for example `yourstore.simplepress.co`) is set during onboarding and can't be changed afterward. To use your own address instead, see [Domain Settings](/docs/domain).
+- **Template layout and code**: templates are built and managed by the platform. You choose one and customize its content, but you can't edit its layout.
+- **Templates not assigned to your store**: some templates are made for specific accounts. You only see the ones available to you.
+
+Need something changed that you can't do yourself? Email help@generativejustice.org.
 
 ---
+
+## Can and Can't
+
+**You can:**
+
+- Switch templates and save the change from Brand & Appearance
+- Upload a logo (including SVG), set its alt text, and remove or replace it
+- Upload one favicon and let SimplePress make every size
+- Set the footer tagline and up to seven social links
+- Pick the checkout accent color
+- Tune your search title, description, and share image in SEO & Meta
+
+**You cannot:**
+
+- Set your main site colors or fonts here (use the Site Editor's Theme panel)
+- Change your subdomain
+- Add a keywords field to your search settings
+- Show an SVG logo inside customer emails (your store name is shown instead)
+- Change a template's layout or code

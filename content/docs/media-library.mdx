@@ -13,17 +13,19 @@ The Media Library shows every image and video uploaded to your store, whether it
 
 Go to **Media Library** in the admin sidebar. Files appear as a grid of cards with a thumbnail, file name, size, upload date, and a usage badge.
 
+- **Filters:** the **Filters** button opens the Type, Usage, and Sort menus.
 - **Type:** Images, Videos, Logo, Favicon, Testimonials, Gallery, or Other
-- **Usage:**
-  - **In Use:** shown somewhere on your store.
-  - **Inactive template only:** only used by a template you're no longer using.
+- **Usage:** each card shows one badge:
+  - **In use (N):** the file is shown in N places on your store.
+  - **Inactive template:** only used by a template you're no longer using.
   - **Unused:** not used anywhere.
-- **Sort:** newest, oldest, name, or file size
+- **Usage filter:** **In Use**, **Inactive template only**, or **Unused**.
+- **Sort:** Newest first, Oldest first, Name A–Z, Name Z–A, Largest file, or Smallest file. The library shows 24 files per page.
 - **Search:** by file name, or by where a file is used. For example, searching a product's name finds its photos.
 
-Hover over a usage badge to see exactly where a file is used.
+Hover over a usage badge to see exactly where a file is used. Each entry in that list links to the place it's used.
 
-**Photo:** Media Library grid with filters and usage badges.
+![The Media Library grid with usage badges, and the hover card listing where a file is used](/images/media-library/media-grid.png)
 
 ---
 
@@ -31,19 +33,24 @@ Hover over a usage badge to see exactly where a file is used.
 
 Owners and managers can click **Upload images** to add photos straight to the library.
 
-- Drag and drop images into the upload area, or click to choose them
-- Up to **50 images** at a time. If you pick more, the first 50 upload and you can add the rest afterwards.
-- Up to **5MB** per image. Large phone photos are resized automatically and HEIC photos are converted. Any image still over 5MB is listed as skipped.
+- Drag and drop images into the upload area, or click to choose them. The dialog reads **Up to 50 images at a time, 5MB each**.
+- Up to **50 images** at a time. If you pick more, the first 50 upload and a notice tells you to add the rest afterwards.
+- Large phone photos are resized automatically and HEIC photos are converted. Any image still over 5MB is skipped and listed by name.
 - Only images can be uploaded here. Other files are skipped with a message. Videos are still added where they're used, such as an event or a video page.
-- Keep the upload window open until it finishes. A progress bar shows how far along it is. When everything uploads, the window closes and your new images appear at the top of the library.
+- Keep the window open until it finishes. It shows **Preparing photos…** while your photos get ready, then **Uploading… x of y done** with a progress bar.
+- If every photo uploads, the window closes and your new images appear at the top of the library. If some don't, the window stays open with a summary: how many uploaded, plus the lists **Too large (over 5MB) — skipped** and **Failed to upload**. Click **Done** when you've read it.
 
-**Photo:** Upload images dialog with drag-and-drop area and progress bar.
+<video src="/videos/media-library/bulk-upload.webm" poster="/videos/media-library/bulk-upload-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*A short clip: opening Upload images, adding three photos, and seeing them appear at the top of the library.*
+
+![The Upload images dialog with the drag-and-drop area and Choose images button](/images/media-library/upload-dialog.png)
 
 ---
 
 ## Using Library Images
 
-Anywhere you can add an image in the admin, open the upload menu and choose **Choose from library**. That includes product images, collection images, galleries, pages, blog posts, [services](/docs/services) (cover images and service item images), SEO images, and template content fields. Product images and galleries let you select several at once.
+Anywhere you can add an image in the admin, open the upload menu and choose **Choose from library**. That includes product images, collection images, galleries, pages, blog posts, [services](/docs/services) (cover images and service item images), events, SEO images, the homepage popup image, your logo and favicon, template content fields, and videos, including a video inserted into rich text. Product images and galleries let you select several at once.
 
 The same image can be used in as many places as you like.
 
@@ -51,17 +58,19 @@ The same image can be used in as many places as you like.
 
 ## How Files Are Kept
 
-- **Images uploaded in the Media Library stay until you delete them here.** Removing one from a product or gallery, or deleting that product or gallery, never removes it from your library.
+- **Images uploaded in the Media Library stay until you delete them here.** Removing one from a product or gallery, or deleting that product or gallery, never removes it from your library. Library uploads are never cleaned up automatically.
 - **Images uploaded directly on a product or gallery** are cleaned up automatically once nothing uses them any more.
+- **Photos attached to Site Editor notes** are kept separately and never show in the library.
 
 ---
 
 ## Downloading and Deleting
 
-- **Download** saves a copy of the file to your computer.
-- **Delete** is only available for files that aren't in use. Remove the file from everywhere it's used first; the usage badge shows where. Deleting is permanent.
-- **Your logo and favicon** are always protected. Replace them by uploading a new one in branding settings.
-- **Bulk delete** (owners only): tick the cards, or use **Select all on page**, then click **Delete**. You can delete up to 25 files at a time. Any selected files that are in use are skipped and stay selected, so you can see which ones survived.
+- **Download** saves a copy of the file to your computer. The button reads **Getting link…** while the file is prepared.
+- **Delete** is only available for files that aren't in use by your active setup. For a file that is in use, the button is disabled and hovering shows **Cannot delete — file is in use by your active setup**. Remove the file from everywhere it's used first; the usage badge shows where. Clicking **Delete** on any other file asks **Delete file?** before it's removed. Deleting is permanent.
+- **A file used only by an inactive template** can be deleted. Deleting it also clears the leftover template fields that pointed to it.
+- **Your current logo and favicon** are protected. Replace them by uploading a new one in branding settings. An old logo or favicon file you've replaced (for example a logo.png after you uploaded a logo.svg) can be deleted like any other file.
+- **Bulk delete** (owners only): tick the cards, or use **Select all on page**, then click **Delete**. When more files match your filters, a **Select all N files** option also appears. You can delete up to 25 files at a time, and the Delete button is disabled if more than 25 are selected. Any selected files that are in use are skipped and stay selected, so you can see which ones survived.
 
 ---
 

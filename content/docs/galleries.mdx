@@ -1,129 +1,233 @@
 ---
 title: Galleries
-description: Build curated image collections that you can embed directly into your storefront through template content fields.
+description: Build a collection of photos once, choose how it looks, and show it on any page, blog post, or template section that supports it.
 ---
 
 ## Overview
 
-Galleries let you build curated image collections that you can embed directly into your storefront through template content fields. Instead of pasting individual image URLs into every field, you build a gallery once, choose how it displays, and reference it wherever your template supports one.
+A gallery is a collection of photos that you build once and show wherever you like. You pick the photos, put them in order, choose a layout (a grid, a slideshow, a collage, and so on), and decide whether customers can click a photo to see it full-size. Because the gallery lives in one place, you can change it later and every spot that shows it updates.
+
+There are two ways to show a gallery on your site:
+
+- **Insert it into a page or blog post.** In the page editor, open **Insert elements** and choose **Gallery**. This works on every template, and it is the only way to show a gallery on the Default template.
+- **Pick it in the Site Editor.** Some templates (including Dark Trend and many custom templates) have a spot built for a gallery, such as a homepage or About section. In the Site Editor you choose your gallery from a list. If your template has no gallery spot, insert the gallery into a page instead.
+
+<Callout type="info" title="Galleries don't get a page of their own">
+  A gallery only appears where you place it. Creating one doesn't publish anything until you insert it into a page or pick it in the Site Editor. See [Showing a Gallery on Your Site](#showing-a-gallery-on-your-site).
+</Callout>
+
+---
+
+## The Galleries List
+
+Go to **Content → Galleries** in your admin sidebar (or open `/admin/galleries`). Each gallery is a card showing a small preview of its photos, its name and description, its layout, and how many images it has. Cards also show when the gallery was last updated.
+
+Click **New Gallery** at the top to start one. If you have no galleries yet, click **Create Gallery** instead.
+
+![The Galleries list with two gallery cards showing the Embedded badge, the search box, and the Filters menu open with Layout and Sort](/images/galleries/galleries-list.png)
+
+### Finding and sorting
+
+- **Search galleries…** matches a gallery's name, its automatic URL name, and its description.
+- **Filters** opens a small menu with **Layout** and **Sort**.
+- **Layout** filters between **All layouts**, **Grid**, **Masonry**, **Carousel**, **Collage**, and **Justified**.
+- **Sort** offers **Recently updated** (the default), **Newest**, **Oldest**, **Name A–Z**, **Name Z–A**, **Most images**, and **Fewest images**.
+
+The list shows 12 galleries per page.
+
+### The Embedded badge
+
+A card shows an **Embedded** badge when the gallery is being used on your site. Hover over the badge to see where, such as which page or template section. You can't delete a gallery while it has this badge. Templates you aren't using don't count. See [Deleting a Gallery](#deleting-a-gallery).
+
+### Card actions
+
+Click a card to open it, or use the three-dot menu (⋮) on the card:
+
+- **Edit**
+- **Duplicate**: makes a copy with the same photos and settings
+- **Delete**
 
 ---
 
 ## Creating a Gallery
 
-Go to **Galleries** in the admin sidebar and click **New Gallery**.
+Click **New Gallery**. You can add your photos right on this page, along with the layout and display choices. Nothing is saved or uploaded until you click **Save changes**.
 
-You will need to provide:
+![The New Gallery page with the Basic Information, Images, Layout, Display Options, and Preview cards](/images/galleries/new-gallery.png)
 
-- **Name** — displayed internally in the admin (e.g., "Summer Lookbook")
-- **Slug** — the gallery's unique identifier, auto-generated from the name. You can edit it before saving, but **the slug cannot be changed after the gallery is created**
-- **Description** — optional; some templates display this alongside the gallery on the storefront
+1. **Basic Information.** Enter a **Gallery Name** (up to 120 characters), such as "Summer Lookbook". The name is for you; customers don't see it unless your template shows it. You can also add a **Description** (up to 1,000 characters). Some templates show the description next to the gallery. SimplePress creates the gallery's URL name for you from the name, so there's nothing else to fill in.
+2. **Images.** Click **Add images** and choose **Upload from device** to pick photos from your computer, or **Choose from library** to pick photos you've already uploaded. You can add many at once. New uploads are sent when you click **Save changes**.
+3. **Layout.** Choose how the photos are arranged. See [Layouts](#layouts).
+4. **Display Options.** Choose whether to show captions and whether photos open in a lightbox. See [Display Options](#display-options).
+5. **Preview.** A live preview updates as you change settings. Until you pick photos, it shows sample images so you can see how the layout behaves. Once you pick yours, you see your own.
+6. Click **Save changes**. SimplePress uploads your photos, creates the gallery, and takes you to its editor.
 
-Once the gallery is created, you land in the gallery editor where you can upload images and configure the display.
+To make several galleries in a row, click **Save & create another** instead. The form clears so you can start the next one.
 
-> **Photo:** New gallery form (name, slug, description fields).
+<Callout type="info" title="Captions come after the first save">
+  You can't write captions while creating a gallery. Save it first, then open the gallery and add captions in the **Images** tab. See [Editing a Gallery](#editing-a-gallery).
+</Callout>
 
----
-
-## Uploading and Managing Images
-
-Inside the gallery editor, use the **Images** tab to add photos.
-
-- Drag files directly onto the upload area, or click to browse
-- Multiple files can be uploaded at once
-- **Maximum file size: 5 MB per image**
-- After uploading, each image can be given:
-  - **Alt text** — describes the image for screen readers and SEO; recommended for every image
-  - **Caption** — optional text shown below or over the image (depending on your layout and caption settings)
-
-**Reordering images:** Drag images by their handle to change the display order. The order you set here is the order customers see on the storefront.
-
-**Editing an image:** Click the edit icon on any image to update its alt text or caption without re-uploading.
-
-**Deleting an image:** Click the delete icon on an image to remove it. This cannot be undone.
-
-> **Photo:** Gallery editor — Images tab with uploaded photos, drag handles, and edit/delete buttons visible.
-
-> **Photo:** Image edit modal showing alt text and caption fields.
+<Callout type="info" title="No Choose from library option?">
+  **Choose from library** only appears when the Media Library switch is on in **Settings → Features**. If it's off, you'll see a plain button for uploading from your device. See [Media Library](/docs/media-library) and [Feature Flags](/docs/feature-flags).
+</Callout>
 
 ---
 
-## Layout Options
+## Editing a Gallery
 
-Switch to the **Settings** tab in the gallery editor to choose how your images are arranged. There are five layout types:
+Click a gallery in the list to open its editor. The page title is the gallery's name followed by "Gallery", for example "Summer Lookbook Gallery", with a count of its images beside it. There are two tabs: **Images** and **Settings**.
 
-| Layout        | Description                                                                                                               |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **Grid**      | Uniform rows and columns — all images the same size                                                                       |
-| **Masonry**   | Pinterest-style cascading columns — variable heights create a waterfall effect                                            |
-| **Carousel**  | One image at a time with left/right navigation and dot indicators; keyboard arrow keys also work                          |
-| **Collage**   | The first image is large (spanning two columns), the remaining images fill smaller cells around it                        |
-| **Justified** | Images fill each row edge-to-edge at a fixed row height, stretching to maintain aspect ratio — similar to Flickr's layout |
+<Callout type="warn" title="Image changes save instantly. Settings need Save changes.">
+  In the **Images** tab, adding, removing, and reordering photos save as soon as you do them. Everything in the **Settings** tab (name, description, layout, display options) is saved only when you click **Save changes**. The status label next to the title shows **Unsaved Changes** until you do.
+</Callout>
 
-A **live preview** updates as you change settings so you can see the layout before saving.
+### The Images tab
 
-### Grid and Masonry settings
+![The Images tab showing the grid of photos, each with a drag handle and edit and remove buttons](/images/galleries/gallery-images-tab.png)
 
-When using Grid or Masonry, you can also set:
+- **Add photos.** Click **Add images** and choose **Upload from device** or **Choose from library**. You can also drag photos from your computer onto the Images card.
+- **Reorder.** Drag a photo by its handle to move it. The order you set is the order customers see, and it saves as soon as you let go.
+- **Edit a photo.** Click the edit button (the pencil) on a photo to open the **Edit Image** dialog (below). A small blue **ALT** tag in a photo's corner means it already has alt text.
+- **Remove a photo.** Click the remove button (the red trash can) on a photo. See [Removing a photo](#removing-a-photo).
 
-- **Columns** — how many columns across (2, 3, 4, or 5)
-- **Gap** — the space between images in pixels (0–64)
-- **Aspect ratio** — shape of each image cell: 1:1 (square), 4:3, 16:9, or Auto (preserves original proportions)
+#### Edit Image
 
-### Display settings (all layouts)
+The **Edit Image** dialog shows the photo with two fields:
 
-- **Show captions** — toggle whether image captions appear on the storefront
-- **Enable lightbox** — when on, customers can click any image to view it full-size in an overlay; keyboard navigation (arrow keys, Escape) works in the lightbox
+- **Alt Text**: a short description of the photo for people using screen readers, and for search engines. It's a good idea to fill this in for every photo.
+- **Caption**: optional text that appears with the photo if **Show captions** is on.
 
-> **Photo:** Gallery settings tab — layout selector, columns/gap/aspect ratio options, and the live layout preview side by side.
+Click **Save Changes** in the dialog to save them.
 
-> **Photo:** Side-by-side examples of the five layout types on a storefront.
+![The Edit Image dialog with the photo preview and the Alt Text and Caption fields](/images/galleries/edit-image-dialog.png)
 
----
+#### Removing a photo
 
-## Using a Gallery in Your Storefront
+Click the remove button on a photo and a dialog asks **Remove image from gallery?** Click **Remove** to confirm. This can't be undone.
 
-Galleries are not published to a standalone page — they appear on your storefront by being linked to a **template content field**. If your template includes a gallery-type field (for example, a homepage gallery section), you will see a gallery selector in the **Template Fields** editor under **Storefront > Content**.
+The photo disappears from the gallery. The picture file itself is also deleted, unless it's saved in your [Media Library](/docs/media-library) or used somewhere else on your store, in which case it stays where it is.
 
-To use a gallery:
+### The Settings tab
 
-1. Create and populate the gallery in **Galleries**
-2. Go to **Storefront > Content > Template Fields**
-3. Find the field that accepts a gallery (e.g., "Homepage Gallery")
-4. Select your gallery from the dropdown
-5. Save — the gallery appears live on your storefront immediately
+The Settings tab holds **Gallery Information** (the name and description), **Layout**, **Display Options**, and a live **Preview**. The options are the same ones you see when creating a gallery, covered in [Layouts](#layouts) and [Display Options](#display-options) below.
 
-If your current template does not define any gallery-type fields, you will not see a gallery selector in the template fields editor. Galleries can still be created and saved for later use.
+![The Settings tab with Gallery Information, Layout, Display Options, and the Preview card](/images/galleries/gallery-settings-tab.png)
 
-> **Photo:** Template fields editor showing a gallery-type field with the gallery selector dropdown open.
+### More Options
 
----
+The **More Options** menu in the toolbar has:
 
-## Managing Your Galleries
-
-The main **Galleries** page shows all your galleries as cards with a preview of the first few images and the total image count.
-
-From here you can:
-
-- **Edit** a gallery — opens the gallery editor to update images, layout, or settings
-- **Delete** a gallery — permanently removes the gallery and all its images; this cannot be undone
-
-> **⚠️ Note:** If a deleted gallery was linked to a template field, that field will show no gallery until you assign a replacement. Customers will see an empty section on the storefront in the meantime.
-
-> **Photo:** Galleries list page showing gallery cards with image previews and image counts.
+- **Reset**: throws away your unsaved settings changes and goes back to the last saved version
+- **Duplicate**: makes a copy of the gallery
+- **Delete**: see [Deleting a Gallery](#deleting-a-gallery)
 
 ---
 
-## What You Cannot Do
+## Layouts
 
-- **Change a gallery's slug** after it has been created — slugs are set once and locked
-- **Embed a gallery in a page or blog post** via the rich text editor — galleries are only available through template fields, not inline in text content
-- **Use a gallery in a template** that does not define a `gallery`-type field — if your template does not support it, the option will not appear
-- **Upload images larger than 5 MB** — files above this limit will be rejected at upload
-- **Recover deleted images or galleries** — deletion is permanent with no trash or undo
+Choose a layout under **Layout Style**. Each one arranges the same photos differently.
+
+| Layout | What it does |
+| --- | --- |
+| **Grid** | Equal-sized photos in neat rows and columns. |
+| **Masonry** | Photos keep their own proportions and stack in columns, like a Pinterest board. Tall and wide photos make a staggered look. |
+| **Carousel** | A slideshow that shows one photo at a time. Customers move through it with the Previous and Next buttons or the small dots beneath it. |
+| **Collage** | A mix of sizes. The first photo is shown large, filling a 2×2 block, and the rest fill in smaller around it. |
+| **Justified** | Photos fill each row edge to edge at the same height, like a photo-sharing site. |
+
+Which settings appear depends on the layout you pick:
+
+- **Columns**: 2, 3, 4, or 5 photos side by side on a computer. Narrower screens use fewer. Shown for **Grid** and **Masonry**.
+- **Gap between images (px)**: the space between photos, from 0 to 64. A gap of 0 makes the photos touch. Around 8 to 24 looks good for most galleries. Shown for every layout except **Carousel**.
+- **Aspect Ratio**: crops every photo to the same shape. Shown for **Grid** only. The choices are **1:1 — Square**, **4:3 — Landscape**, **16:9 — Widescreen**, **3:4 — Portrait**, and **Original — Natural size**, which keeps each photo's own proportions.
 
 ---
 
-## Feature Flag
+## Display Options
 
-Galleries are **on by default** and can be toggled by you in **Settings > Features**. Disabling the feature hides the Galleries section from your admin sidebar and removes any gallery content from your storefront. Your gallery data is preserved — re-enabling the feature restores everything.
+- **Show captions**: turn on to show each photo's caption. Add captions in each photo's **Edit Image** dialog.
+- **Caption Style** (appears when captions are on): **Always visible** puts a bar over the photo, **Show on hover** shows the bar when someone points at the photo, and **Below image** puts plain text under it. A Carousel always shows captions below the photo, so this setting only affects the other layouts.
+- **Enable lightbox**: when on, customers can click a photo to open it full-screen. Inside the lightbox, the arrow keys move between photos and **Esc** closes it.
+
+---
+
+## Showing a Gallery on Your Site
+
+### Insert it into a page or blog post
+
+1. Open the page or blog post in the editor.
+2. Place your cursor where you want the gallery.
+3. Open **Insert elements** in the toolbar and choose **Gallery**.
+4. A box titled **Insert Gallery** appears. Open the **Select a gallery...** list and pick your gallery. The list shows each gallery with its image count.
+5. Save the page.
+
+The gallery shows up in the page with the layout and options you set in the gallery. To take it out of the page, click the small **X** button beside the picker.
+
+If you haven't made a gallery yet, the box says "No galleries found." and offers a **Create a Gallery** button that opens the New Gallery page in a new tab.
+
+![The Insert Gallery box in the page editor with the Select a gallery list open](/images/galleries/insert-gallery-picker.png)
+
+### Pick it in the Site Editor
+
+On templates that have a gallery spot (see the list in the [Overview](#overview)), open the **Site Editor**, find the gallery field, and open **Select a gallery...**. Each gallery appears as its name followed by its image count, such as "Summer Lookbook (12 images)". Choose one, or choose **None** to leave the spot empty.
+
+![A storefront page showing a gallery as a grid of five columns with portrait photos](/images/galleries/gallery-on-page.png)
+
+<Callout type="info" title="Editing a gallery updates every place it appears">
+  Add, remove, or reorder photos and every page or template section showing that gallery updates. You don't need to touch the pages.
+</Callout>
+
+---
+
+## Deleting a Gallery
+
+Choose **Delete** from a card's three-dot menu, or from **More Options** inside the gallery.
+
+**If the gallery is not in use**, a dialog asks you to confirm. Deleting is permanent and can't be undone. The photos in the gallery are deleted too, unless they're saved in your [Media Library](/docs/media-library) or used elsewhere on your store.
+
+**If the gallery is embedded**, SimplePress won't let you delete it. A **Can’t delete** dialog tells you where it's being used and asks you to remove it from those places first. Take the gallery out of the page (or set the Site Editor field to **None**), then come back and delete it. Click **Close** to dismiss the dialog.
+
+**If the gallery is only saved in templates you're not using**, it isn't blocked. Each template keeps its own saved choices, so a template you switched away from may still point to the gallery. The delete confirmation lists those places (marked "not active") and says: "Deleting it clears those fields." If you switch back to that template later, its gallery section shows its default instead.
+
+![The Can’t delete dialog listing where the gallery is still used, with a Close button](/images/galleries/cant-delete-dialog.png)
+
+---
+
+## Limits
+
+- Up to **500 images** per gallery.
+- Photos can be **JPEG, PNG, WebP, GIF, or AVIF**.
+- Each photo can be up to **5 MB**.
+- A gallery's name can be up to 120 characters and its description up to 1,000.
+
+---
+
+## Turning Galleries On or Off
+
+Galleries is **on by default**. Go to **Settings → Features** and find **Galleries** in the **Content** card to turn it off or on.
+
+Turning it off hides Galleries from your admin sidebar, and galleries you've placed in pages show a "Gallery content is not available" note instead of the photos. Your galleries and photos are kept, so turning it back on restores everything. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Can't Do
+
+**You can:**
+
+- Insert a gallery into any page or blog post, on any template
+- Pick a gallery in the Site Editor on templates that have a gallery spot
+- Use the same gallery in several places
+- Reorder photos by dragging, and add alt text and captions to each
+- Choose from five layouts, with a lightbox if you want one
+- Duplicate a gallery to start a variation
+
+**You can't:**
+
+- Pick a gallery in a Site Editor field on a template that doesn't have one. On those templates, insert it into a page instead.
+- Write captions while first creating a gallery. Save it first, then add them.
+- Delete a gallery that's still on your site. Remove it from the page or Site Editor field first.
+- Upload photos over 5 MB, or put more than 500 photos in one gallery.
+- Undo a gallery or photo removal. Deleting is permanent.
+
+Questions? Email help@generativejustice.org.
