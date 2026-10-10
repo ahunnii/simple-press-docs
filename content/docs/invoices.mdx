@@ -1,0 +1,360 @@
+---
+title: Invoices
+description: Bill customers manually, record payments, send reminders, and track what is owed.
+---
+
+## Overview
+
+Invoices let you bill customers manually for services, wholesale orders, or any custom arrangement outside your normal checkout flow. You can track payment methods (bank transfer, PayPal, Venmo, Cash App, Zelle, or cash/check), set due dates, record partial and full payments, send reminders, and integrate with QuickBooks. All invoice data is stored securely and visible only to authorized users.
+
+> **Feature flag:** Invoices is off by default and owner-toggleable. Enabling it adds an Invoices section to your admin nav. Requires no other features as a dependency.
+
+---
+
+## Turning Invoices On
+
+Go to **Settings → Features** and toggle **Invoices** to the on position. The change takes effect immediately. An **Invoices** section appears in your admin sidebar.
+
+If you want to prepopulate your demo data with invoices enabled, contact support — or enable it manually once your store is live.
+
+---
+
+## Invoice Settings
+
+All invoice defaults and payment method details are configured in one place.
+
+Go to **Settings → Invoices** to access:
+
+### Numbering
+
+| Setting             | Purpose                                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| **Number Prefix**   | Text prepended to the number (e.g., "INV-" makes invoice 1 display as "INV-1"). Optional.       |
+| **Number Padding**  | How many digits to use (e.g., padding of 4 makes invoice 1 display as "INV-0001"). Default is 0. |
+| **Starting Number** | The first invoice number to use (e.g., 1001). Subsequent invoices increment from here.           |
+
+**Example:** Prefix "INV-", padding 4, starting 1000 → first invoice is "INV-1000", next is "INV-1001".
+
+### Payment Methods
+
+You can add one or more payment methods. Each method stores payment details (encrypted) that appear only on the secure invoice page your customers view — they are never emailed.
+
+To add a payment method, click **Add Payment Method** and select a type:
+
+| Type           | Fields                                                 | Notes                                          |
+| -------------- | ------------------------------------------------------ | ---------------------------------------------- |
+| Bank Account   | Account holder name, account number, routing number    | Displayed masked to protect sensitive details  |
+| PayPal         | Email address                                          | Customers can click to open PayPal             |
+| Venmo          | Venmo handle                                           | Customers can click to open Venmo              |
+| Cash App       | Cash App username                                      | Customers can click to open Cash App           |
+| Zelle          | Email address or phone                                 | Instructions displayed; no direct link         |
+| Cash or Check  | Free-text instructions (e.g., "Pay to: ABC Corp") | Displayed as-is; no account details stored     |
+
+Each payment method can be toggled on or off without deleting it, so you can temporarily disable one and re-enable it later.
+
+### Defaults
+
+| Setting              | Notes                                                                            |
+| -------------------- | -------------------------------------------------------------------------------- |
+| **Default Due Terms** | Number of days from invoice send date until due (e.g., 30, 15, 60). Can be 0.   |
+| **Default Tax Rate**  | Tax percentage applied to all line items by default (0–100%). Overridable per invoice. |
+| **Default Notes**     | Text shown on every invoice (e.g., "Thank you for your business").               |
+| **Default Terms**     | Additional text below notes (e.g., "Late payment charges may apply").            |
+
+All defaults can be overridden when you create or edit an individual invoice.
+
+### Reminders
+
+| Setting                        | Behavior                                                                                                    |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| **Overdue Alerts** (toggle)    | When on: the day after an invoice becomes overdue, you receive an email alert listing which invoices are late. You are the only recipient. |
+| **Weekly Summary** (toggle)    | When on: every Monday morning (in your business time zone), you receive a summary showing outstanding and overdue invoice totals and recent collections. |
+
+Customers never receive automatic reminder emails. You can manually send a reminder at most once per 24 hours (see [Reminders](#reminders) below).
+
+---
+
+## Creating an Invoice
+
+Click **Invoices → New Invoice** to create a draft.
+
+### Step 1: Customer
+
+Select an existing customer from your list by name or email. If the customer doesn't exist yet, enter a name and email to create a new customer record.
+
+### Step 2: Line Items
+
+Add one or more line items:
+
+**Option A: Add from Catalog**
+Click **Add from Catalog** to search and add products or services. Prices auto-populate from your catalog. You can adjust the quantity for each item.
+
+**Option B: Custom Line Item**
+Click **Add Custom Item** to enter a custom description, quantity, and unit price. Useful for services, custom fees, or items not in your catalog.
+
+Each line item shows its total (quantity × unit price). Totals update automatically as you add or edit items.
+
+### Step 3: Adjustments
+
+**Discount** (optional)
+- Select a discount type: Dollar Amount or Percentage.
+- Enter the discount value.
+- The discount applies to the subtotal before tax.
+
+**Tax** (optional)
+- Set a tax rate for this invoice. Defaults to your default tax rate.
+- Tax applies to the subtotal minus discount.
+- Leave at 0% if no tax applies.
+
+### Step 4: Due Date & Payment Methods
+
+**Due Terms**
+- Select how many days from send date the invoice is due (e.g., Net 30). Defaults to your default due terms.
+- You can also select "Upon Receipt" (due immediately).
+
+**Payment Methods to Show**
+- Check which payment methods this customer should see on the invoice. At least one must be selected.
+- Only payment methods you've configured in Settings appear here.
+
+### Step 5: Notes & Terms
+
+**Notes** (optional)
+- Free-text note shown on the invoice (e.g., "Thank you for your business"). Defaults to your default notes.
+
+**Terms** (optional)
+- Additional terms or conditions (e.g., "Late fees apply after 30 days"). Defaults to your default terms.
+
+### Saving
+
+When you click **Save**, the invoice is created as a **Draft**. A number is assigned immediately based on your numbering settings. Drafts are not visible to customers and can be edited at any time.
+
+**Photo:** New Invoice form showing customer selector, line items, discount/tax fields, payment method checkboxes, and notes.
+
+---
+
+## Sending an Invoice
+
+A draft invoice is only visible to you. To make it visible to the customer, you must send it.
+
+Open a draft invoice and click **Send**. You'll see two options:
+
+**Option 1: Email**
+- An email is sent to the customer with a secure link to view and pay the invoice.
+- A message field lets you add a custom note (optional).
+- After sending, the invoice status changes to **Sent**.
+
+**Option 2: Mark as Sent (without email)**
+- The invoice changes to **Sent** status and gets a secure link, but no email is sent.
+- Use this if you sent the invoice out-of-band (e.g., printed or delivered in person).
+
+### What the Customer Receives
+
+If you choose email, the customer receives a message with:
+- A personalized greeting
+- A secure link to the invoice (valid for one year)
+- Any custom message you included
+- No login required to view the invoice
+
+The secure page shows the full invoice, all payment methods, how-to-pay instructions, and (if payment is outstanding) a copy button next to each payment method for easy reference.
+
+### After Sending
+
+Once an invoice is sent, **it cannot be edited** — the status becomes **Sent** or **Partially Paid** or **Paid**, depending on payments received. If you need to make changes:
+1. Cancel the sent invoice (optional reason shown to customer, optional email).
+2. Create a new invoice with the corrected details.
+
+---
+
+## Invoice List
+
+Go to **Invoices** to see all invoices.
+
+At the top, three summary cards show:
+
+- **Outstanding** — total amount awaiting payment and number of invoices
+- **Overdue** — total past-due amount and count of overdue invoices
+- **Collected (Last 7 Days)** — revenue collected in the past week
+
+Below are tabs and filters:
+
+**Status Tabs**
+- **All** — every invoice in any status
+- **Outstanding** — drafts and sent invoices with a balance due
+- **Overdue** — sent invoices past their due date with a balance
+
+**Filters**
+- **Search** — find by invoice number, customer name, or email
+- **Source** — show Invoices (native) or QuickBooks invoices, or both
+
+**Sort**
+- Newest, Oldest, Due Date Ascending, Amount (Descending or Ascending)
+
+**Columns**
+| Column       | Shows                                   |
+| ------------ | --------------------------------------- |
+| Number       | Invoice number and status badge         |
+| Customer     | Customer name and email                 |
+| Total        | Invoice total amount                    |
+| Balance Due  | Remaining balance or "Paid"             |
+| Due Date     | When payment is due (or "Overdue")      |
+| Created      | Date the invoice was created            |
+
+**Photo:** Invoice list showing summary cards, status tabs, filters, and a table with several invoices in different states (draft, sent, partially paid, paid, overdue).
+
+---
+
+## Recording a Payment
+
+When a customer pays (via bank transfer, check, cash, or any method), you record it in the invoice.
+
+### Option 1: From the Invoice Detail Page
+
+Open the invoice and scroll to **Payments**. Click **Record Payment**.
+
+### Option 2: From the Invoice List
+
+Use the **Row Actions** menu (three dots) on any invoice → **Record Payment**.
+
+### Payment Details
+
+| Field                  | Notes                                                                                     |
+| ---------------------- | ----------------------------------------------------------------------------------------- |
+| **Amount Paid**        | Dollar amount received (can be partial)                                                   |
+| **Date Paid**          | The date the payment was received (not recorded)                                          |
+| **Payment Method**     | Select the method: Bank Transfer, Check, Cash, PayPal, Venmo, Cash App, Zelle, or Other |
+| **Reference**          | Optional: check number, transaction ID, etc.                                             |
+| **Note**               | Optional: internal note (e.g., "Received via wire")                                      |
+| **Email Receipt**      | Check to send the customer a payment receipt (optional)                                   |
+
+Click **Save**. The payment is recorded and the invoice balance updates.
+
+### Partial Payments
+
+You can record multiple payments on a single invoice. Each payment updates the balance. Once the balance reaches zero, the invoice status becomes **Paid**.
+
+### Payment Receipts
+
+If you check **Email Receipt**, the customer receives a confirmation showing:
+- Payment amount
+- Date received
+- Method used
+- Remaining balance (if partial)
+
+---
+
+## Sending Reminders
+
+To send a customer a payment reminder:
+
+Open the invoice and click **Send Reminder**. A message is sent with:
+- A gentle reminder that payment is outstanding
+- The current balance due and due date
+- A link back to the secure invoice page
+- Any custom message you include (optional)
+
+**Cooldown:** You can send a reminder at most once per 24 hours per invoice to prevent spamming the customer.
+
+If sending a reminder fails (e.g., email delivery error), you'll see a message to try again later.
+
+---
+
+## Cancelling an Invoice
+
+To cancel an invoice (e.g., if it was sent in error or the deal fell through):
+
+Open the invoice and click **More Options** (three dots) → **Cancel**.
+
+You'll see:
+
+| Option                   | Notes                                                           |
+| ------------------------ | --------------------------------------------------------------- |
+| **Reason** (optional)    | Free text (e.g., "Project cancelled"). Shown to the customer in the cancellation email. |
+| **Notify Customer** (optional) | Check to email the customer a cancellation notice.        |
+
+Once cancelled, the invoice status becomes **Cancelled** and no further payments can be recorded. The invoice remains visible in your list but is grayed out.
+
+---
+
+## Printing & Saving as PDF
+
+From the invoice detail page, click **Print** or use your browser's print-to-PDF feature. This opens a printer-friendly view of the invoice with all details, line items, totals, and payment instructions.
+
+---
+
+## What Customers See
+
+### On the Secure Invoice Page
+
+When a customer follows the link from an email or you share the link directly (no login required), they see:
+
+- Full invoice details (line items, totals, dates)
+- How-to-pay instructions for each enabled payment method
+- Copy buttons next to payment details (account number, email, etc.) for easy reference
+- A note showing how much is paid and how much is outstanding (if applicable)
+- Paid payment history if they've already made payments
+
+The page is read-only — customers cannot edit or delete anything. Invoices remain accessible for one year after send date.
+
+### In Their Account
+
+If a customer is signed in to their account on your storefront, they see an **Invoices** tab showing:
+- A list of all invoices sent to them
+- Status, total, balance due, and due date for each
+- Ability to click through to the full secure page
+
+Invoices are separate from Orders and appear in their own section.
+
+---
+
+## Disabling Invoices
+
+If you toggle Invoices off in **Settings → Features**:
+
+- The Invoices section disappears from your admin sidebar.
+- **You can still:**
+  - View existing invoices
+  - Record payments on invoices
+  - Cancel invoices
+  - View payments and payment history
+- **You cannot:**
+  - Create new invoices
+  - Edit draft invoices
+  - Send invoices (drafts remain as drafts)
+  - Send reminders
+  - Change invoice settings
+
+All invoice data is preserved. Re-enabling Invoices restores full functionality.
+
+---
+
+## QuickBooks Integration
+
+If you use QuickBooks Online, your invoices appear in the same list as your native invoices, with a **Source** filter to show one or the other. You cannot edit or send QuickBooks invoices from SimplePress — manage those in QuickBooks itself.
+
+Native invoices and QuickBooks invoices have separate numbering and settings. The Invoices settings you configure here apply only to native invoices.
+
+---
+
+## Invoice Statuses
+
+| Status          | Meaning                                                                   |
+| --------------- | ------------------------------------------------------------------------- |
+| Draft           | Created but not sent. Visible only to you. Can be edited or deleted.      |
+| Sent            | Sent to customer. Cannot be edited. Awaiting payment.                     |
+| Partially Paid  | Received payment but balance remains due. Still awaiting full payment.    |
+| Paid            | Full payment received. Invoice complete.                                  |
+| Overdue         | Due date has passed and balance remains (used for filtering, not a status label). |
+| Cancelled       | Cancelled by you. No further payments recorded. Visible in history.       |
+
+---
+
+## Cannot
+
+- Edit an invoice after it's sent (cancel and create a new one)
+- Bulk-send or bulk-cancel invoices
+- Refund a payment recorded in an invoice (delete and re-record)
+- Assign an invoice to a different customer after creation
+- Set a future send or payment date (record payments on the actual date received)
+- Merge two invoices into one
+
+---

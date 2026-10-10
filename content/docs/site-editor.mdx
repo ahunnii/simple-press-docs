@@ -1,0 +1,380 @@
+---
+title: Site Editor
+description: Edit your storefront's words, pictures, sections, and theme while you watch a live preview, then publish when you're ready.
+---
+
+## Overview
+
+The Site Editor is where you change what your storefront says and shows. You see your real site in the middle of the screen. Click any part of it, such as a headline, a photo, or a row of cards, and an editing panel opens beside it. As you type, the preview updates so you can see exactly how the change will look.
+
+Nothing you do in the Site Editor reaches your customers until you click **Publish**. Until then your changes are kept as a private draft, so you can experiment, leave, and come back later without anyone seeing a half-finished page.
+
+<Callout type="info" title="Replaces the old Template Fields screen">
+  The Site Editor is how you edit your template's content now. The fields described on the [Template Fields](/docs/template-fields) page are the same ones you edit here, but you edit them on top of a live preview instead of in a long form.
+</Callout>
+
+---
+
+## Opening the Site Editor
+
+There are three ways in:
+
+- Click **Site Editor** in the **Content** part of the admin sidebar.
+- Open the command palette (the search box at the top of any admin page, or `Cmd + K` / `Ctrl + K`) and choose **Edit site**.
+- On the **Brand & Appearance** page, click **Edit sections, colors and fonts in the Site Editor**.
+
+The editor opens full screen, without the admin sidebar. To leave, click **Exit** (the back arrow) in the top-left corner to go back to your admin.
+
+**Photo:** Screenshot of the admin sidebar with "Site Editor" highlighted under Content.
+
+---
+
+## The Editor Layout
+
+On a computer, the editor has a bar across the top and three columns underneath.
+
+**Photo:** Screenshot of the full Site Editor on desktop with the top bar, section list on the left, live preview in the middle, and an editing panel open on the right.
+
+| Area                 | What it does                                                                                                                                                                            |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Top bar**          | Exit button, your store name and template, the page picker, the Desktop / Tablet / Mobile preview buttons, **Notes**, your save status, **Discard**, and **Publish**.                    |
+| **Sections list**    | Left column. Lists every editable section on the page you're viewing, then the **Site-wide** sections (header, footer, and so on), shortcuts to other admin pages, and **Theme** if your template has one. |
+| **Live preview**     | Middle. Your actual storefront page, showing your draft changes. Hover over any part of it to see an **Edit** label, and click to edit that section.                                       |
+| **Editing panel**    | Right column. Opens when you pick a section, the Theme, Notes, or one of your own pages. Only one panel is open at a time. Close it with the X.                                            |
+
+Above the preview there are two small buttons: **Refresh preview** reloads the page, and **Open storefront in new tab** opens the page in its own browser tab so you can see it full size.
+
+### Two ways to pick something to edit
+
+- **Click it in the preview.** If you click a specific headline, photo, or list item, the editing panel opens with that exact field ready to type in.
+- **Pick it from the Sections list.** The preview scrolls to that section and briefly highlights it.
+
+---
+
+## Choosing a Page
+
+Use the page picker in the middle of the top bar to switch pages. It has up to three groups:
+
+- **Site pages:** the pages your template builds for you, such as Homepage, About, Contact, Shop, Collections, and others, depending on your template.
+- **Your pages:** custom pages you've created under **Pages**. Ones that aren't published yet are marked "(unpublished)".
+- **Blog posts:** your blog posts, if you have the Blog feature turned on.
+
+A few pages behave slightly differently:
+
+- **Product:** this previews one of your products, your newest published one. A note above the preview reminds you that changes here apply to **every** product page, not just the one you're looking at. To change a single product's name, photos, or description, edit the product itself in [Products](/docs/products).
+- **Authentication:** on templates that have one, this previews the sign-in screen. Changes appear on every sign-in and sign-up screen. The side image only shows on larger screens, so you won't see it in the tablet or mobile preview.
+- Pages for features you've turned off (for example, Blog or Events) don't appear in the picker, because they don't exist on your live site.
+
+**Photo:** Screenshot of the page picker open, showing the Site pages, Your pages, and Blog posts groups.
+
+---
+
+## Editing a Section
+
+When a section's panel opens, you'll see its name and a short description at the top, then the fields you can change. Some sections are split into smaller groups with their own headings.
+
+Any field you've changed since your last publish shows a **Modified** tag next to its name, so you can see at a glance what's about to go live.
+
+Fields you haven't touched show what your site is currently displaying. A headline box, for example, shows the template's built-in wording rather than an empty box.
+
+**Photo:** Screenshot of an editing panel for a hero section, with one field showing the "Modified" tag.
+
+### Field types
+
+Depending on your template and the section, you may see these kinds of fields:
+
+| Field               | What it's for                                                                                                                                       |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Text**            | A single line, such as a headline, button label, or tagline.                                                                                         |
+| **Paragraph**       | A few lines of plain text, such as an intro or description.                                                                                          |
+| **Rich text**       | Formatted writing with bold, italics, headings, lists, links, and images.                                                                           |
+| **Link**            | A web address for a button or link. Use a page on your site (like `/shop`) or a full address (like `https://example.com`).                         |
+| **Image**           | One photo. Upload one or choose from your Media Library. See [Images and Videos](#images-and-videos).                                               |
+| **Video**           | One video file. Upload one or choose from your Media Library.                                                                                       |
+| **Color**           | A color picker. **Clear** removes the color entirely (it shows as "None").                                                                          |
+| **Number / slider** | A number, sometimes shown as a slider with a live readout (for example, how strongly a photo is darkened). Sliders have a **Reset** button.         |
+| **On/off switch**   | Turns something on or off, such as showing an extra line or badge.                                                                                  |
+| **Gallery**         | Picks one of your saved [Galleries](/docs/galleries) to show in that spot.                                                                          |
+| **Collection**      | Picks one of your [Collections](/docs/collections) to feature in that spot.                                                                         |
+| **FAQ picker**      | Picks which of your published FAQ questions to show, and in what order.                                                                             |
+| **Embed**           | Paste a link or embed code for outside content, such as a booking widget or video. Requires the **Embeds** feature (see [Feature Flags](/docs/feature-flags)). |
+| **List**            | A set of repeating rows, such as feature cards, steps, or team members. See [Lists](#lists).                                                        |
+
+Some fields only appear once a related setting is on. For example, a "darken photo" slider might only show up after you add a background photo. That's normal: the editor hides controls that wouldn't do anything yet.
+
+### Related content
+
+Some sections show things that live elsewhere in your admin, such as a row of products, testimonials, or blog posts. The Site Editor lets you change those sections' headings and wording, but not the items themselves. At the bottom of the panel, a **Related content** box links to the admin page where you manage them. These links open in a new tab, so your place in the editor isn't lost.
+
+### Showing and hiding sections
+
+Some sections can be hidden. In the Sections list, hover over one (or look to the right of it on a touch screen) and click the eye icon.
+
+- A hidden section stays in the list, dimmed, with a crossed-out eye. You can still edit it while it's hidden.
+- Hiding and showing are part of your draft, like any other change. Visitors see the difference after you publish.
+- If a section has no eye icon, the template doesn't allow hiding it.
+
+**Photo:** Screenshot of the Sections list with one section hidden (dimmed, crossed-out eye icon).
+
+---
+
+## Lists
+
+Many sections use lists: a row of feature cards, a set of steps, a team, a set of logos, and so on. Each row starts collapsed, showing a small preview and a one-line summary. Click a row to open it and edit its parts.
+
+| To do this          | Do this                                                                                                     |
+| ------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Add a row**       | Click **Add** (for example, **Add card** or **Add step**) below the list. The new row opens ready to fill in. |
+| **Reorder rows**    | Drag the handle (the dotted grip) on the left of a row, or open the **⋯** menu and choose **Move up** or **Move down**. |
+| **Remove a row**    | Click the trash icon. An **Undo** button appears for a few seconds in case you didn't mean it.             |
+
+Some lists have a maximum number of rows. When you reach it, the add button is replaced by a note such as "Maximum of 6 cards". Some lists also require a minimum, so the trash icon is greyed out when you're at that number.
+
+**Photo:** Screenshot of a list field with one row expanded, showing the drag handle, ⋯ menu, and trash icon.
+
+### Built-in rows
+
+Many templates come with starter rows already filled in, so a new site never looks empty. When a list is still showing those, you'll see the note "Showing the built-in … — edit any of them to make them your own."
+
+- These rows behave like normal rows. As soon as you edit, add, remove, or reorder any of them, the whole list becomes yours.
+- If you delete every row, your site goes back to showing the built-in rows. To get rid of the section completely, hide it with the eye icon in the Sections list instead.
+
+---
+
+## Images and Videos
+
+Image and video fields show the current picture (or video) with options to replace or remove it.
+
+- **Upload from device:** drag a file onto the box, or click to choose one. On a phone, tap to pick from your photos.
+- **Choose from library:** pick something you've already uploaded to your [Media Library](/docs/media-library). This option appears when the Media Library feature is on, which it is by default.
+- **Remove:** clears the image from that spot. Depending on the section, the template either shows nothing there or falls back to its own built-in picture.
+
+| Limit      | Images                                                                                     | Videos   |
+| ---------- | ------------------------------------------------------------------------------------------ | -------- |
+| File size  | Up to 5MB. Large phone photos are resized automatically, and iPhone (HEIC) photos are converted. | Up to 50MB |
+
+Everything you upload in the Site Editor also shows up in your Media Library, so you can reuse it elsewhere.
+
+**Photo:** Screenshot of an image field showing the current photo with the "Replace image" menu open (Upload from device, Choose from library).
+
+---
+
+## Theme
+
+Some templates come with a **Theme** option, under **Design** at the bottom of the Sections list. It lets you restyle your whole site in a couple of clicks:
+
+- **Color palette:** choose from a few color schemes designed for your template. Each one shows three color dots.
+- **Fonts:** choose from a few font pairings designed for your template.
+- **Original** (at the top of each list) returns that part to the template's standard design.
+
+The choices are limited on purpose. Each one has been checked to look good with your template. Theme changes are part of your draft, so you can try them all in the preview before publishing.
+
+If you don't see **Theme** in the Sections list, your template doesn't offer theme presets. Your logo and checkout accent color are set on the [Brand & Appearance](/docs/storefront-and-branding) page instead.
+
+**Photo:** Screenshot of the Theme panel showing the color palette swatches and font pairings, with "Original" selected.
+
+---
+
+## Previewing on Different Screens
+
+Most of your visitors will probably be on their phones, so check your changes at more than one size.
+
+On a computer, use the three buttons in the top bar to switch the preview between **Desktop**, **Tablet**, and **Mobile** widths. The preview is still fully clickable at every size.
+
+### Editing from your phone or tablet
+
+You can use the Site Editor on a phone or a tablet held upright. The layout changes to fit the smaller screen:
+
+- Your site fills the screen. **Tap anything on your site to edit it.**
+- A **Sections** button at the bottom opens the list of sections (it's called **Content** when you're on one of your own pages).
+- The editing panel slides up from the bottom and covers about half the screen, so the section you're editing stays visible above it. Drag the handle at the top to make it taller. It moves up on its own when you start typing. Swipe it down or tap the X to close it.
+- The **⋯** menu in the top bar holds **Notes**, **Refresh preview**, **Open site in new tab**, and **Discard changes**.
+- Your save status shows as a small icon next to **Publish** (see the table below).
+
+**Photo:** Screenshot of the Site Editor on a phone with the editing sheet open at half height.
+
+---
+
+## Saving and Publishing
+
+### Your changes save automatically
+
+There is no Save button. About a second after you stop typing, your change is saved to your **draft**. The draft is kept on SimplePress's servers, not just in your browser, so you can close the editor, come back tomorrow, or open it on another device and pick up where you left off.
+
+The status in the top bar tells you where things stand:
+
+| Status                       | On a phone      | What it means                                                                                                      |
+| ---------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Saving…**                  | Spinning circle | Your latest change is being saved to your draft.                                                                   |
+| **Unpublished changes**      | Amber dot       | Your draft is saved but differs from your live site. Customers don't see these changes yet.                        |
+| **Published**                | Check mark      | Your live site matches what's in the editor.                                                                       |
+| **Couldn't save**            | Red alert icon  | The editor tried several times and couldn't save your latest change. Check your internet connection. Making another edit tries again. |
+
+If saving fails, the editor retries on its own a few times before showing **Couldn't save**.
+
+### Publishing
+
+When you're happy with what you see, click **Publish**. Every draft change goes live at once: field edits, hidden or shown sections, theme choices, and edits to your own pages and blog posts. A "Your changes are live" message confirms it.
+
+**Publish** is greyed out when there's nothing new to publish.
+
+### Discarding
+
+To throw away your draft and go back to what's currently live, click **Discard** (on a phone, it's in the **⋯** menu) and confirm. This undoes **every** unpublished change across all pages, including edits to your own pages and blog posts. It can't be undone.
+
+### Leaving the editor
+
+Once the status says **Unpublished changes** or **Published**, your work is safe and you can leave anytime. If you click **Exit** while a change is still saving, the editor asks whether you want to stay or leave anyway. Your browser also warns you if you try to close the tab at that moment.
+
+<Callout type="warn" title="One draft per store">
+  Your store has a single draft that everyone shares. If two people on your team edit in the Site Editor at the same time, one person's changes can overwrite the other's. Take turns, and publish (or discard) before handing over.
+</Callout>
+
+### Changes made outside the editor
+
+The Sections list has an **In your admin** group with shortcuts to **Navigation menu** and **Logo & brand**. These open in a new tab. Changes you save on those pages go live straight away. They aren't part of the editor's draft, and publishing from the editor won't undo them.
+
+---
+
+## Resetting to Defaults
+
+There is no single "reset everything" button. Here's how to undo different kinds of changes:
+
+| What you want to undo                                 | How                                                                                                                                  |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Everything you've changed since your last publish     | Click **Discard**.                                                                                                                    |
+| A theme color palette or font choice                  | Open **Theme** and choose **Original**.                                                                                               |
+| A slider                                              | Click its **Reset** button.                                                                                                          |
+| A list you've customized                              | Delete all of its rows. Your site goes back to the template's built-in rows (if it has them).                                        |
+| A hidden section                                      | Click the eye icon again to show it.                                                                                                 |
+| A deleted list row                                    | Click **Undo** in the message that appears right after you delete it.                                                                |
+
+If you clear a text box completely and publish, that text is removed from the page. For some links and buttons, the template uses its own built-in value instead. There's no button that brings back a template's original wording once you've published over it. If you need it back, [contact SimplePress support](mailto:support@simplepress.co).
+
+---
+
+## Editing Your Own Pages and Blog Posts
+
+Pages you've created under **Pages**, and blog posts if you use the [Blog](/docs/blog), also appear in the page picker. When you open one, the panel shows:
+
+- **Title** (required: changes can't be saved while it's empty)
+- **Excerpt**, the short summary
+- **Content**, the full page body, with the same rich-text editor you use elsewhere in your admin
+
+**Photo:** Screenshot of the Site Editor with a custom page open and its Title, Excerpt, and Content panel on the right.
+
+These edits use the same draft as the rest of the editor. They show in the preview right away and go live when you click **Publish**.
+
+A few things are still managed on the page's own admin screen, linked as **Site Admin** at the bottom of the panel: the page address (slug), SEO settings, whether the page is published, and, for blog posts, the hero image. Publishing from the Site Editor updates a page's content but does **not** publish a page that's set to unpublished. You'll see a note when you're editing a page visitors can't see yet.
+
+On a blog post, the Sections list also shows any **Article sections** your template adds to the end of every post (such as a sign-up or call-to-action box), plus your site-wide sections.
+
+To create a new page or delete one, use [Pages and Policies](/docs/pages-and-policies).
+
+---
+
+## Editor Notes
+
+Sometimes you'd rather ask for a change than make it yourself: a layout tweak, something the editor doesn't offer, or a question about a section. **Notes** lets you send that request to the SimplePress team without leaving the editor.
+
+**Photo:** Screenshot of the Notes panel with the Scope set to a section, a written note, and two attached photos.
+
+### Sending a note
+
+1. Click **Notes** in the top bar (on a phone, it's in the **⋯** menu).
+2. Choose what the note is about under **Scope**: **Whole site**, **This page**, or **A section on this page**.
+3. If you choose a section, pick it from the list, or just click that section in the preview. While Notes is open, clicking the preview picks a section for your note (the label says **Pick** instead of **Edit**).
+4. Write your note (up to 2,000 characters).
+5. Optionally click **Add photos** to attach up to **3 photos**, such as a screenshot or an example you like.
+6. Click **Send note**.
+
+### Following up
+
+Below the form you'll see every note sent from your store, with what it was about, any photos, and when it was sent. Each note is marked **Open** or **Resolved**. When the team responds, the reply appears under the note as **Reply from your site team**. A small number next to **Notes** shows how many notes are still open.
+
+Good to know:
+
+- Every owner and manager on your store can see all of the store's notes.
+- Notes are separate from your draft. Publishing or discarding doesn't affect them.
+- Photos attached to notes don't appear in your Media Library.
+- To prevent accidental floods, a store can send up to 10 notes an hour.
+
+---
+
+## Switching Templates
+
+You change your template on the [Brand & Appearance](/docs/storefront-and-branding) page, not in the Site Editor. A template switch goes live as soon as you save it there.
+
+What happens to your Site Editor work:
+
+- **Each template keeps its own content.** The words, photos, and lists you set up belong to the template you set them up in. After switching, the editor shows the new template's sections and built-in content. You'll need to fill those in again.
+- **Your old content isn't deleted.** If you switch back, it comes back.
+- **Theme choices are designed for one template.** A palette or font pairing from your old template won't apply to the new one, which starts with its original design (if it offers a Theme at all).
+- **Everything outside the editor stays the same**, including products, pages, blog posts, galleries, your logo, navigation, and settings.
+
+After switching, open the Site Editor and go through each page, including which sections are shown or hidden, before you tell customers about the new look.
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Edit any text, image, video, link, color, and list your template offers, on every page and in the site-wide header and footer
+- See every change in a live preview at desktop, tablet, and mobile sizes before it goes live
+- Hide and show sections that your template allows to be hidden
+- Choose a curated color palette and font pairing (on templates that offer a Theme)
+- Edit the title, summary, and content of your own pages and blog posts
+- Save a draft, come back later from any device, and publish when you're ready
+- Send notes, with photos, to the SimplePress team
+
+**You cannot:**
+
+- Move sections into a different order, or add new kinds of sections. Each template's layout is fixed.
+- Change a section's design beyond the fields and theme options it offers
+- Edit products, testimonials, FAQ questions, or other items from the Site Editor. Use the **Related content** links to reach the pages where you manage them.
+- Create or delete pages, or change a page's address, SEO, or published status. Do that in [Pages and Policies](/docs/pages-and-policies).
+- Change your template, logo, or navigation menu here. Use the **In your admin** shortcuts.
+- Edit the wording on your cart and checkout pages. If your template has text there you'd like changed, [contact SimplePress support](mailto:support@simplepress.co).
+- Schedule a publish for later, or roll back to an older published version
+
+If there's something on your site you'd like to change but can't find, send a note from the editor or [contact SimplePress support](mailto:support@simplepress.co).
+
+---
+
+## Who Can Use It
+
+| Role        | Can use the Site Editor?                                |
+| ----------- | ------------------------------------------------------- |
+| **Owner**   | Yes                                                     |
+| **Manager** | Yes                                                     |
+| **Staff**   | No. Staff members don't see it and can't open it.       |
+
+See [Team and Roles](/docs/team-and-roles) for what each role can do.
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Storefront & branding"
+		description="Template, logo, colors, navigation, and SEO."
+		href="/docs/storefront-and-branding"
+	/>
+	<Card
+		title="Template Fields"
+		description="A reference for the content slots your template offers."
+		href="/docs/template-fields"
+	/>
+	<Card
+		title="Media Library"
+		description="Upload photos in bulk and reuse them anywhere on your site."
+		href="/docs/media-library"
+	/>
+	<Card
+		title="Pages and Policies"
+		description="Create custom pages and manage your policies."
+		href="/docs/pages-and-policies"
+	/>
+</Cards>

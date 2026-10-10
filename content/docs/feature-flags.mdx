@@ -19,7 +19,7 @@ Features are grouped into four categories: E-Commerce, Content, Customers, and M
 
 Some features **depend on other features**. If a feature's dependency is disabled, the toggle for the dependent feature is grayed out and shows a badge like **"Requires Products"**. Re-enabling the dependency makes the dependent feature toggleable again.
 
-> **Important:** Disabling a feature removes its admin nav item and blocks access to those storefront pages, but it does **not** automatically update your storefront navigation menu. If you've added links to that section in your nav (e.g., a "Shop" link or "Blog" link), you'll need to remove them manually in **Settings → Storefront & Branding → Navigation**.
+> **Important:** Disabling a feature removes its admin nav item and blocks access to those storefront pages. On most templates, links to disabled features are automatically hidden from your storefront navigation (both header and footer). On some templates you may need to remove them manually in **Content → Navigation**.
 
 ---
 
@@ -29,16 +29,18 @@ Only a subset of features are owner-toggleable. The rest are always on or can on
 
 ### E-Commerce
 
-| Feature         | Default | Notes                                                                                                                                                                                    |
-| --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Products**    | On      | Enables your product catalog and all product-related admin pages. Disabling this also disables Orders, Cart, Inventory, Coupons, Collections, and Reviews — they all depend on Products. |
-| **Orders**      | On      | Enables order receiving, management, fulfillment, and all order-related features. Requires Products.                                                                                     |
-| **Collections** | Off     | Groups products into curated collections visible on your storefront. Requires Products.                                                                                                  |
+| Feature                  | Default | Notes                                                                                                                                                                              |
+| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Products**             | On      | Enables your product catalog and all product-related admin pages. Disabling this also disables Orders, Cart, Coupons, Collections, and Reviews — they all depend on Products.      |
+| **Orders**               | On      | Enables order receiving, management, fulfillment, and all order-related features. Requires Products.                                                                               |
+| **Invoices**             | Off     | Enables manual invoice creation, payment tracking, and customer billing. No dependencies.                                                                                          |
+| **Inventory Management** | On      | Enables standalone inventory items, stock tracking, and rental management. Independent of Products — useful for tracking supplies and rentables not sold directly. Can be toggled. |
+| **Rental Check-outs**    | Off     | Enables check-outs for rental items with due dates, partial returns, and damaged/lost tracking. Requires Inventory Management.                                                     |
+| **Collections**          | Off     | Groups products into curated collections visible on your storefront. Requires Products.                                                                                            |
 
 The following E-Commerce features are always on (platform-managed) and do not appear as toggles:
 
 - **Shopping Cart & Checkout** — The add-to-cart and checkout flow. Requires Products.
-- **Inventory Management** — Stock tracking and low-stock alerts. Requires Products.
 - **Coupons & Discounts** — Discount codes. Off by default; contact support to enable.
 
 ### Content
@@ -71,11 +73,26 @@ The following Marketing features are always on or require platform activation:
 This is the most impactful toggle. Disabling Products cascades to everything that depends on it:
 
 - Your `/shop` storefront page returns a 404
-- All product, order, inventory, and collection pages disappear from your admin
-- Coupons, Collections, and Reviews become unavailable
+- All product, order, collection, and review pages disappear from your admin
+- Coupons and Collections become unavailable
 - The Shopping Cart & Checkout feature is also deactivated
+- Inventory Management remains available (independent of Products) so you can still track standalone items and supplies
 
 Re-enabling Products restores everything — your products, orders, and inventory data are all preserved.
+
+### Disabling Inventory Management
+
+- The Inventory section disappears from your admin sidebar
+- Rental Check-outs tab is hidden (the feature depends on Inventory)
+- Existing item and check-out data is preserved and accessible again when you re-enable it
+- Products linked to an item keep drawing from that item's stock when they sell — orders don't check this flag
+
+### Disabling Rental Check-Outs
+
+- The Check-outs tab in Inventory is hidden; if units are still checked out, the Items page shows a banner linking to them
+- New check-outs cannot be created
+- Existing check-outs remain viewable and can still be checked in
+- Existing inventory data and items are preserved
 
 ### Disabling Orders
 
@@ -112,7 +129,7 @@ Re-enabling Products restores everything — your products, orders, and inventor
 ## Common Use Cases
 
 **Service business with no products**
-Disable Products. This removes the shop, cart, orders, and inventory from both your admin and storefront. Your site becomes a content- and contact-focused presence.
+Disable Products. This removes the shop, cart, and orders from both your admin and storefront. Your site becomes a content- and contact-focused presence. Inventory stays available for tracking supplies and rental equipment — turn it off too if you don't need it.
 
 **Content or portfolio site**
 Disable Products, enable Blog and Galleries. Your storefront focuses on articles, images, and a contact form — no shopping at all.
@@ -144,7 +161,7 @@ No. All data (products, orders, blog posts, gallery images, testimonials, etc.) 
 It has a dependency that's currently disabled. The badge next to the toggle tells you which feature needs to be enabled first.
 
 **I disabled Blog but the "Blog" link is still in my storefront header. Why?**
-Disabling a feature doesn't automatically remove links from your storefront navigation. Go to **Settings → Storefront & Branding → Navigation** to remove the link manually.
+On most templates, disabling a feature automatically hides links from your storefront navigation. If the link persists, go to **Content → Navigation** to remove it manually.
 
 **Can I disable Customer Accounts?**
 No. Customer Accounts is a platform feature that is always on.

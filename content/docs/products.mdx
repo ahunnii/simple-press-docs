@@ -22,8 +22,8 @@ From here you can:
 - Search products by name
 - Click any product to edit it
 - Click **New Product** to create one
-  {/* - Use **Import** to bulk-load from a CSV */}
-  {/* - Use **Export** to download your catalog */}
+- Use **Import** to bulk-load from a CSV
+- Use **Export** to download your catalog
 
 ---
 
@@ -91,8 +91,8 @@ Each variant has its own:
 | Field            | Notes                                                                |
 | ---------------- | -------------------------------------------------------------------- |
 | Name             | Auto-generated from option values (e.g., "Small / Black"). Editable. |
-| Price            | The current price of the variant.                                    |
-| Compare At Price | (Optional) The original price of the variant.                        |
+| Price            | Overrides the product-level price for this variant.                  |
+| Compare At Price | Variant-specific sale price display.                                 |
 | SKU              | Optional stock-keeping unit for this variant.                        |
 | Inventory Qty    | Per-variant stock level (only relevant when Track Inventory is on).  |
 
@@ -147,9 +147,56 @@ To delete a product, click the **Delete** button in the toolbar and confirm. Del
 
 ---
 
-{/* ## Import & Export */}
+## Import & Export
 
-{/* --- */}
+### Importing Products (CSV)
+
+Go to **Products → Import** to bulk-load products from a CSV file. SimplePress uses the WooCommerce CSV format.
+
+**Photo:** Screenshot of the import page showing the file upload area and options panel.
+
+**Supported import fields:**
+
+| CSV Column                | Notes                                                                |
+| ------------------------- | -------------------------------------------------------------------- |
+| Name                      | Product name                                                         |
+| SKU                       | Variant SKU                                                          |
+| Regular price             | Selling price (in dollars)                                           |
+| Sale price                | Compare At price (in dollars)                                        |
+| Description               | Product description                                                  |
+| Published                 | 1 = published, 0 = unpublished                                       |
+| Is featured?              | 1 = featured (for front-page display)                                |
+| In stock?                 | 1 = in stock, 0 = out of stock                                       |
+| Stock                     | Inventory quantity                                                   |
+| Weight (g)                | Converted automatically to kg on import                              |
+| Images                    | Comma-separated image URLs                                           |
+| Type                      | `simple` or `variable` (use `variation` for individual variant rows) |
+| Attribute 1–4 name/values | Defines variant options (up to 4 attributes per product)             |
+
+**Import options:**
+
+| Option                             | Choices                                                |
+| ---------------------------------- | ------------------------------------------------------ |
+| On duplicate SKU                   | Skip, Update existing, or Create new                   |
+| Import images                      | Toggle on/off                                          |
+| Create collections from categories | Toggle — imports WooCommerce categories as collections |
+
+#### How to Import
+
+1. Go to **Products → Import**
+2. Upload your CSV file. A preview of parsed rows is shown before anything is written to the database.
+3. Review any warnings or errors surfaced by the parser.
+4. Set your import options.
+5. Click **Run Import**.
+6. View the results summary. Past imports are saved in the import history.
+
+### Exporting Products (CSV)
+
+Go to **Products → Export** to download your catalog.
+
+Select the products you want to export (or select all), then click **Export**. The file downloads as a WooCommerce-compatible CSV and includes variants as separate rows.
+
+---
 
 ## Storefront Behavior
 

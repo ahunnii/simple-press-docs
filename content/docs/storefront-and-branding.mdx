@@ -66,13 +66,15 @@ If no logo is uploaded, your store name is shown as text instead.
 
 ### Favicon
 
-Your favicon is the small icon that appears in the browser tab when someone visits your store.
+Your favicon is the small icon that appears in the browser tab and home screen of devices that visit your store.
 
-- **Accepted formats:** JPG, JPEG, PNG, GIF, WebP, SVG, AVIF
-- **Recommended size:** 32×32px or 16×16px
-- Uploading a new favicon replaces the previous one
-
-If no favicon is set, the default SimplePress favicon is used.
+- **Accepted formats:** JPG, JPEG, PNG, GIF, WebP, SVG, AVIF, ICO.
+- **Upload a square image, 512×512 or larger; PNG or SVG works best.**
+- SimplePress generates every size from that one image and serves it from the store's own domain: the browser-tab icon (`/favicon.ico`, 16/32/48px), 48px and 192px icons for Google Search, the 180px Apple home-screen icon (on a white background), and 192/512px icons for the Android home-screen manifest.
+- Uploading a new favicon replaces the previous one.
+- Non-square images are padded to a square, not cropped.
+- If no favicon is set, the store's logo is used (padded to a square); if there is no logo either, the SimplePress icon is used.
+- The Branding page shows a tab and home-screen preview and warns when the image isn't square or is smaller than 192px.
 
 > **Photo:** Favicon upload field with the small preview icon visible.
 
@@ -128,11 +130,15 @@ All changes in the Branding editor are saved together when you click **Save**. T
 
 ## Navigation
 
-The Navigation editor lets you build the menu links that appear in your storefront header and footer.
+The Navigation editor lets you build the menu links that appear in your storefront header and footer. It has two sections: **Menu Items** (main navigation) and **Footer quick links** (footer navigation).
 
-> **Photo:** Navigation editor showing a list of menu items with label, URL, and reorder controls.
+> **Photo:** Navigation editor showing Menu Items and Footer quick links sections with label, URL, reorder controls, and Quick Add buttons.
 
-### Adding and Editing Menu Items
+### Menu Items
+
+Your main navigation appears in the header of your storefront.
+
+#### Adding and Editing Items
 
 Each menu item has:
 
@@ -142,21 +148,56 @@ Each menu item has:
 
 Click **+ Add Item** to add a new link. Use the trash icon to remove an item.
 
-### Reordering Items
+#### Adding Sub-items
 
-Use the up/down arrow buttons next to each item to change the order they appear in your menu.
+Menu items can have one level of sub-items (dropdown links). Click **+ Add sub-item** to add a dropdown menu under any item.
 
-### Quick Add
+Each sub-item has the same fields as a main item: label, URL, and open-in-new-tab toggle. Sub-items appear as a dropdown menu on desktop (hover or focus to open) and as an indented list on mobile.
 
-The sidebar provides quick-add buttons for common destinations — Products, Collections, and any custom pages you've already created — so you don't have to type URLs manually.
+#### Reordering
 
-### Defaults
+Use the up/down arrow buttons next to each item to change the order. On mobile, active links highlight based on the current page.
 
-If you haven't added any nav items, your storefront defaults to showing: **Home** (`/`) and **Products** (`/products`).
+#### Quick Add (Menu Items)
+
+The sidebar provides quick-add buttons for common destinations:
+
+- **Common Pages:** Collections, Shop, Blog, Contact, About, Donate (if available)
+- **Services** — adds a Services menu with all your services as sub-items
+- **Your Pages** — any custom pages you've created
+
+#### Defaults
+
+If you haven't added any nav items, your storefront defaults to showing: **Home** (`/`) and **Shop** (`/shop`).
+
+### Footer quick links
+
+On templates that show a footer links section, you can choose whether the footer displays links from your main navigation or a separate custom list.
+
+#### Modes
+
+**Use main navigation** — The footer shows the top-level links from your main menu. Dropdown/sub-links are not shown to keep the footer compact.
+
+**Custom list** — Create a separate list of links just for the footer. You can include links from your main navigation or add entirely new ones.
+
+#### Custom List Editor
+
+When in Custom list mode, you can:
+
+- **Add links** — Click **+ Add link** to create a footer link. Max 12 links.
+- **Reorder** — Use the up/down arrows to change link order.
+- **Remove** — Click the trash icon to delete a link.
+- **Start from main navigation** — Click this button to populate your custom footer list with your main menu's top-level links. Useful as a starting point for editing.
+- **Quick Add (Footer)** — The Quick Add panel here works like the main nav version, but adds items as plain links (no sub-menus).
+
+When the custom list is empty, the footer quick links section is hidden from your storefront.
+
+#### Links to Disabled Features
+
+If you disable a feature (like Blog or Products), links to that feature in your storefront navigation are automatically hidden — both in the header and footer. You don't need to manually remove them.
 
 **Cannot:**
 
-- Create dropdown menus or nested navigation
 - Add icons to nav items
 - Style individual items differently
 
@@ -226,7 +267,7 @@ Depending on your template, you may see any of the following:
 | **Color**     | A color picker value                                             |
 | **Boolean**   | An on/off toggle                                                 |
 | **List**      | Repeating rows (e.g., feature cards, each with an icon and text) |
-| **Video**     | An uploaded video file (max 20MB; MP4, WebM, MOV, AVI)           |
+| **Video**     | An uploaded video file (max 50MB; MP4, WebM, MOV, AVI)           |
 | **URL**       | A web link                                                       |
 | **Number**    | A numeric value                                                  |
 

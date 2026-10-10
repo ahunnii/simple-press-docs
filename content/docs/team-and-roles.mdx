@@ -1,0 +1,242 @@
+---
+title: Team & Roles
+description: Invite people to help run your store and choose what each person is allowed to see and do.
+---
+
+## Overview
+
+You don't have to run your store alone. The **Team** page lets you invite a business partner, a manager, or a part-time helper to your admin, and decide exactly how much they can do once they're in.
+
+Every person on your team gets one of three roles:
+
+| Role        | Best for                                   | In one sentence                                                                                  |
+| ----------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| **Owner**   | You, and any co-owner you fully trust      | Full access, including managing the team, payments, and store settings.                          |
+| **Manager** | A trusted person who runs the day-to-day   | Everything an Owner can do except managing the team and a few "can't be undone" bulk actions.    |
+| **Staff**   | Someone who packs orders or counts stock   | Fulfillment only: orders, customers, and inventory counts and check-outs.                        |
+
+Roles take effect immediately. If you change someone's role or remove them, their access changes the next time they click anything in the admin.
+
+> **Who can manage the team:** Only Owners can invite people, change roles, or remove members. Managers can open the Team page and see who's on the team, but they can't change anything. Staff can't open the Team page at all.
+
+> **Feature flag:** Team has no feature toggle. It's always available under **Settings → Team**.
+
+---
+
+## What Each Role Can Do
+
+Find your own role in this table to see what you'll have access to, or use it to decide which role to give someone else.
+
+| Area                                                                                  | Owner | Manager | Staff                           |
+| ------------------------------------------------------------------------------------- | ----- | ------- | ------------------------------- |
+| **Dashboard** (sales numbers, alerts, quick links)                                    | Yes   | Yes     | No                              |
+| **Orders**: view, mark fulfilled, ready for pickup, add or update tracking            | Yes   | Yes     | Yes                             |
+| **Orders**: refund, cancel, change status, edit internal note, resend emails          | Yes   | Yes     | No                              |
+| **Orders**: create a manual order, export orders                                      | Yes   | Yes     | No                              |
+| **Customers**: view the list and each customer's details                              | Yes   | Yes     | Yes (private notes are hidden)  |
+| **Inventory**: see items, adjust counts, record use and restock, check items out and in | Yes | Yes     | Yes (costs are hidden)          |
+| **Inventory**: add, edit, delete, import, or export items; see what items cost        | Yes   | Yes     | No                              |
+| **Products, Collections, Services**: add, edit, and delete one at a time              | Yes   | Yes     | No                              |
+| **Discounts, Events, Videos, Galleries, Reviews, Testimonials**: add, edit, delete one at a time | Yes | Yes | No                              |
+| **Bulk delete** (selecting many items and deleting them at once)                      | Yes   | No      | No                              |
+| **Forms and Quotes**: read entries and requests                                       | Yes   | Yes     | No                              |
+| **Forms and Quotes**: delete entries and requests                                     | Yes   | No      | No                              |
+| **Site Editor, Site Setup, Pages, Blog, Media Library**                               | Yes   | Yes     | No                              |
+| **Marketing**: Email Marketing, Notification Emails                                   | Yes   | Yes     | No                              |
+| **Finances and Analytics**                                                            | Yes   | Yes     | No                              |
+| **Connecting or disconnecting Stripe**                                                | Yes   | Yes     | No                              |
+| **Settings**: General, Shipping, Business Hours, Domain, Features, Integrations, Maintenance Mode | Yes | Yes | No                          |
+| **Data & Export**: Download your site                                                 | Yes   | No      | No                              |
+| **Team**: see who's on the team                                                       | Yes   | Yes (view only) | No                      |
+| **Team**: invite, change roles, remove people, revoke invitations                     | Yes   | No      | No                              |
+| **Your own account** (name, email, password, sign-in methods)                         | Yes   | Yes     | Yes                             |
+
+A few notes on this table:
+
+- **Features you've switched off stay hidden for everyone.** For example, if Inventory Management is off under **Settings → Features**, nobody sees the Inventory section, no matter their role. See [Feature toggles](/docs/feature-flags).
+- **Staff only see the sections they can use.** Their sidebar shows Orders, Customers, and Inventory. If a Staff member opens any other admin page, they're sent back to Orders.
+- **Staff can see order totals** (subtotal, tax, shipping, discounts, and total) because they need them for packing slips. They can't see the internal note on an order, and they can't see Stripe payment details.
+- **Staff can't see private notes on customers or what items cost you.**
+- **Deleting one thing is different from deleting many.** A Manager can delete a single product, page, discount, and so on. Bulk delete, and deleting form entries or quote requests, are Owner-only because they can't be undone.
+
+**Photo:** Screenshot of the admin sidebar as a Staff member sees it, showing only Orders, Customers, and Inventory.
+
+For the day-to-day details of each area, see [Orders](/docs/orders), [Customers](/docs/customers), and [Inventory](/docs/inventory-management).
+
+---
+
+## Choosing a Role
+
+- **Owner:** Choose this only for someone who should have the same control you do, such as a business partner or spouse. Owners can invite other people, remove you, and download your whole site. Give this role sparingly.
+- **Manager:** Choose this for someone who runs the store with you day to day: adding products, editing pages, handling refunds, and adjusting settings. They can't change who's on your team.
+- **Staff:** Choose this for someone who ships orders, packs boxes, or counts stock. They can do their job without ever seeing your sales numbers, settings, or customer notes.
+
+You can change a role at any time, so it's fine to start with the smaller role and promote later.
+
+---
+
+## Viewing Your Team
+
+1. Go to **Settings** in the admin sidebar.
+2. Click **Team**.
+
+**Photo:** Screenshot of the Team page with the Members table and the Invite Member button.
+
+The page shows:
+
+- **Members:** everyone who has access, with their name, email, and role. Your own row is marked **(you)**.
+- **Pending Invitations:** invitations you've sent that haven't been accepted yet, with the date each one expires.
+- **Expired Invitations:** invitations that went unanswered for too long. These only appear if you have any.
+
+---
+
+## Inviting Someone
+
+1. Go to **Settings → Team**.
+2. Click **Invite Member**.
+3. Enter the person's **Email Address**. Use the address they'll actually sign in with.
+4. Choose a **Role**: Manager, Staff, or Owner. A short description of the selected role appears under the dropdown.
+5. Click **Send Invite**.
+
+**Photo:** Screenshot of the Invite Team Member dialog with the Role dropdown open.
+
+SimplePress emails the person an invitation from your store's name. It says which role they've been offered and has an **Accept Invitation** button. If you reply to that email, the reply goes to your store's owner email address.
+
+You'll see a confirmation when the invite is sent. If the email couldn't be sent, you'll see a warning instead; see [Troubleshooting](#troubleshooting) below.
+
+### Things to know about invitations
+
+- **Invitations last 14 days** and can only be used once.
+- **You can't invite someone who's already on the team**, and you can't send a second invitation to an email that already has one waiting. You'll see a message explaining which it is.
+- **Anyone can be invited**, whether or not they already have a SimplePress account.
+- **There's no limit on team size.**
+
+---
+
+## What the Invited Person Does
+
+Here's what your teammate will see, in case they ask you for help:
+
+1. They open the email and click **Accept Invitation**. The link opens on your store's own web address.
+2. They see a page saying they've been invited to join your store in the role you chose.
+3. If they aren't signed in, they click **Sign In** (if they already have an account) or **Create Account** (if they're new). **They must use the same email address the invitation was sent to.**
+4. After signing in, they land back on the invitation page and click **Accept Invitation**.
+5. They're taken straight to your store's admin. Owners and Managers arrive at the Dashboard, and Staff are sent to Orders.
+
+If they're signed in with a different email than the one you invited, they'll see a **Wrong Account** message and a button to sign in with the right one. The invitation can't be accepted from the wrong account.
+
+> **Tip:** If your teammate is new to SimplePress, they'll also need to verify their email address before they can use the admin. See [Your Account & Security](/docs/your-account-and-security).
+
+**Photo:** Screenshot of the invitation page a teammate sees, with the Accept Invitation button.
+
+> **New Owners:** If you invite someone as an Owner, they may be asked to review and accept the SimplePress seller agreement the first time they open the admin. That's expected. Managers and Staff are never asked.
+
+---
+
+## Changing Someone's Role
+
+Only Owners can do this.
+
+1. Go to **Settings → Team**.
+2. In the **Members** table, find the person.
+3. Use the dropdown in their **Role** column to pick Owner, Manager, or Staff.
+
+The change saves right away and you'll see a "Role updated" message. You can't change your own role. To step down from Owner, see [Handing Over Ownership](#handing-over-ownership).
+
+**Photo:** Screenshot of the Role dropdown open in the Members table.
+
+---
+
+## Removing a Team Member
+
+Only Owners can do this.
+
+1. Go to **Settings → Team**.
+2. In the **Members** table, click the three-dot menu at the end of the person's row.
+3. Click **Remove**.
+4. Confirm in the dialog.
+
+They lose access to your admin immediately. Removing someone doesn't delete their SimplePress account, and it doesn't delete anything they did while on your team, such as orders they fulfilled. You can always invite them again later.
+
+You can't remove yourself from the Members table.
+
+**Photo:** Screenshot of the Remove confirmation dialog.
+
+---
+
+## Managing Pending and Expired Invitations
+
+### Cancel an invitation
+
+If you invited the wrong email, or changed your mind:
+
+1. Go to **Settings → Team**.
+2. In **Pending Invitations**, click **Revoke** next to the invitation.
+3. Confirm in the dialog.
+
+The invite link stops working right away. You can send a new invitation to the same email afterward.
+
+### Resend an invitation
+
+If an invitation expired before it was accepted, it moves to **Expired Invitations**. Click **Resend** next to it to send a fresh invitation to the same email with the same role.
+
+Pending invitations don't have a Resend button. If a pending invitation never arrived, **Revoke** it and send a new one.
+
+---
+
+## Handing Over Ownership
+
+A store can have more than one Owner, and there's no single "transfer" button. To hand your store to someone else:
+
+1. Invite the new person as an **Owner** (or change an existing member's role to Owner).
+2. Once they've accepted, ask them to open **Settings → Team**. They can then change your role to Manager or Staff, or remove you.
+
+A store must always have at least one Owner. If you try to demote or remove the last Owner, SimplePress stops you and asks you to promote someone else first.
+
+> **Before you hand over:** An Owner can invite and remove anyone, including you. Only make someone an Owner if you're comfortable with that.
+
+---
+
+## Troubleshooting
+
+**My teammate says they never got the invitation.**
+Ask them to check their spam or junk folder, and confirm you typed their email correctly. If the email is wrong, **Revoke** the invitation and send a new one to the right address.
+
+**I saw a warning that the email could not be sent.**
+The invitation was created, but the email didn't go out. **Revoke** it and invite them again. If it keeps happening, contact support.
+
+**They see "This invitation was sent to a different email address" or "Wrong Account."**
+They're signed in with another account. Have them sign out, then sign in or create an account using the exact email address you invited.
+
+**They see "This invite has expired."**
+Invitations last 14 days. Click **Resend** under **Expired Invitations**.
+
+**They see "This invite has already been used."**
+The invitation was accepted already or you revoked it. Check the **Members** table to see whether they're on the team, and invite them again if not.
+
+**A Staff member says a page they need is missing.**
+Staff can only reach Orders, Customers, and Inventory, and only when those features are switched on under **Settings → Features**. If they need more access, change their role to Manager.
+
+**I can see the Team page but there's no Invite Member button.**
+You're a Manager. Only Owners can invite people or change roles. Ask an Owner to do it, or ask to be made an Owner.
+
+---
+
+## What You Can and Cannot Do
+
+| Action                                                          | Available                                                    |
+| --------------------------------------------------------------- | ------------------------------------------------------------ |
+| Invite someone as Owner, Manager, or Staff                      | Yes (Owners only)                                            |
+| See who's on your team and what role they have                  | Yes (Owners and Managers)                                    |
+| Change a teammate's role                                        | Yes (Owners only)                                            |
+| Remove a teammate                                               | Yes (Owners only)                                            |
+| Cancel a pending invitation                                     | Yes (Owners only)                                            |
+| Resend an expired invitation                                    | Yes (Owners only)                                            |
+| Resend a pending invitation                                     | No. Revoke it and send a new one                             |
+| Change your own role or remove yourself                         | No. Another Owner has to do it                               |
+| Remove or demote the last Owner                                 | No. Promote someone else to Owner first                      |
+| Create custom roles or fine-tune individual permissions         | No. The three roles are fixed                                |
+| Give Staff access to products, settings, or the dashboard       | No. Use Manager instead                                      |
+| Limit a Manager so they can't change settings or payments       | No. Managers have full access except team management, bulk delete, and Data & Export |
+| Change the email address on an invitation                       | No. Revoke it and invite the correct address                 |
+| Set a team size limit or pay per seat                           | Not applicable. There's no limit and no extra cost           |

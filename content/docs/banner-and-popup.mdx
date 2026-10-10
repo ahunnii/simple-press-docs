@@ -1,0 +1,174 @@
+---
+title: Banner & Popup
+description: Announce sales, news, and offers with a site-wide banner and a popup on your homepage.
+---
+
+## Overview
+
+Banner & Popup gives you two simple ways to get a message in front of every visitor:
+
+- **Announcement Banner** — a thin bar across the top of your site with a short message and an optional link. It follows visitors from page to page until they close it.
+- **Homepage Popup** — a window that appears over your homepage with either a picture (like a sale poster) or a written message, and an optional button.
+
+Both are managed on one page, and you can use either one or both. Typical uses are a seasonal sale, a holiday closure notice, a new product launch, or a welcome offer.
+
+> **Both features are off by default.** You turn them on yourself under **Settings → Features**. See [Feature Flag](#feature-flag) below.
+
+---
+
+## Where to Find It
+
+Go to **Site Setup** in your admin and open the **Banner & Popup** card ("Announcement banner and homepage popup"). The card appears once at least one of the two features is turned on.
+
+**Photo:** Screenshot of the Banner & Popup page showing the Announcement Banner card above the Homepage Popup card.
+
+The page shows a card for each feature that is switched on. If you only turned on the banner, you will only see the banner card, and the same goes for the popup. If neither is on, the page tells you so and offers a button that takes you to **Settings → Features**.
+
+At the top of the page, a single **Save changes** button saves both cards at once. A badge next to the title shows **Unsaved Changes** or **Saved**, and **Reset** discards your edits. If you try to leave with unsaved changes, you'll be warned.
+
+---
+
+## The Announcement Banner
+
+### Setting It Up
+
+1. Switch **Show banner** on. (You can switch it off later without losing what you wrote.)
+2. Type your message into **Banner message**. It supports **bold** and underline. Keep it to one or two short sentences.
+3. Optionally add a link: enter a **Link URL** (where it goes) and a **Link label** (the words shown, such as "Shop the sale"). If you add a link but leave the label empty, visitors see "Learn more".
+4. Pick a **Background color** and a **Text color**. The text color also applies to the link. New banners start as white text on black.
+5. Click **Save changes**.
+
+**Photo:** Screenshot of the Announcement Banner card with the message editor, link fields, and the two color pickers.
+
+The banner only appears when it is switched on **and** has a message. A banner with an empty message is never shown, even if the switch is on.
+
+### What Visitors See
+
+The banner sits at the very top of your pages. The message is centered, the link (if any) appears beside it with an arrow, and a small **X** button closes it. Links to other websites open in a new tab.
+
+**Photo:** Screenshot of a storefront page with the announcement bar above the header.
+
+### How Closing Works
+
+When a visitor clicks the **X**, the banner is hidden for them and **stays hidden every time they come back** on that same device and browser. It is not a timer that expires.
+
+The banner comes back for everyone — including people who closed it — as soon as you **save changes to the banner** again. Even a small edit counts as a new announcement. This is how you re-announce something: edit the message (or just click Save after making any change) and everyone sees it again.
+
+Two details to know:
+
+- Saving only the popup does **not** bring the banner back, and saving only the banner does not bring the popup back. Each is tracked separately.
+
+### Links That Don't Work
+
+If your banner links to a part of your store that you have turned off (for example `/shop` while Products is off), the link would lead to a missing page. In that case the banner still shows your message, but the link is left out.
+
+---
+
+## The Homepage Popup
+
+### Setting It Up
+
+1. Switch **Show popup** on.
+2. Optionally enter a **Heading**, shown at the top of the popup.
+3. Choose a **Popup mode**:
+   - **Image** — shows a picture, with the heading and button underneath. Good for sale posters and event flyers.
+   - **Rich text** — shows your heading and a written message with formatting. Good for welcome notes or announcements.
+4. Fill in the fields for that mode (see below).
+5. Optionally add a button: enter a **CTA link URL** and a **CTA label** (the words on the button, such as "Shop the sale"). If you leave the label empty, the button reads "Learn more".
+6. Click **Save changes**.
+
+**Photo:** Screenshot of the Homepage Popup card in Image mode with the image upload, alt text, and button fields.
+
+### Image Mode
+
+- Upload a **Popup image**. For the best result use a picture at least 800 by 600 pixels. JPG, PNG, and WebP are supported. If the Media Library feature is on, you can also pick an image you've already uploaded (see [Media Library](/docs/media-library)).
+- Add **Image alt text**, a short description of the picture for visitors who use screen readers.
+- The image is shown at a 4-by-3 shape, so very tall or very wide pictures are cropped to fit. Put any important words inside the picture away from the edges.
+
+An Image-mode popup with no image is never shown.
+
+### Rich Text Mode
+
+- Write your **Popup message** in the editor. It supports rich text formatting.
+- A Rich-text popup with no message is never shown.
+
+If you switch modes, the other mode's content is kept but not displayed.
+
+### What Visitors See
+
+The popup appears in the middle of your **homepage** with a darkened background behind it. It does not appear on any other page. Visitors can close it by clicking the **X**, pressing the Escape key, or clicking outside it. Clicking the button also closes it as it takes them to the link.
+
+**Photo:** Screenshot of the homepage with a popup open over a darkened background.
+
+The popup also works with keyboards and screen readers, and it skips its entrance animation for visitors who have turned off motion on their device.
+
+### How Often It Appears
+
+A visitor sees the popup **once per visit**. After they close it, it won't appear again while they stay in the same browser tab or window. When they come back later in a new visit (for example the next day, or in a new browser session), it can appear again, because the popup is not remembered long-term.
+
+If you save changes to the popup, it is treated as a new popup and appears again — even in a visit where the visitor already closed the old one.
+
+### Links That Don't Work
+
+As with the banner, if the popup's button points to a part of your store that is switched off, the popup is shown without its button.
+
+---
+
+## Mobile
+
+Both the banner and the popup work on phones, and the popup is sized to fit within the screen. The exact look differs a little between templates, so it's worth viewing your store on your phone after you set them up.
+
+> **Template support:** The banner and popup are built into most templates, but not every template shows both — some templates show the banner but have no homepage popup. The layout of the popup (for example where the heading and button sit) also varies by template. If you've switched one on and don't see it on your live site, check your template or contact support.
+
+---
+
+## Banner vs. Discount Codes
+
+The announcement banner is a plain message that you write and update yourself. It is not connected to your discount codes — nothing about a code (its amount, its expiry, or how many times it has been used) changes the banner.
+
+To promote a discount code, include the code in your banner message or popup (for example, "Spring sale — use code SPRING20 at checkout") and link to your shop. Remember to remove or switch off the banner when the promotion ends, since the banner will not stop showing by itself. See [Discounts & Coupons](/docs/discounts-and-coupons) for creating codes.
+
+---
+
+## Tips
+
+- **Keep the banner short.** One line is easiest to read, especially on phones.
+- **Use strong color contrast.** Dark text on a dark background is hard to read. Light text on a dark color, or the reverse, works best.
+- **Don't run both for the same message.** A banner and a popup saying the same thing at once can feel pushy. Use the banner for ongoing news and the popup for a single big moment.
+- **Plan an end date yourself.** There is no scheduling, so set a reminder to switch the banner or popup off when your promotion ends.
+- **Re-announce by saving.** Making any edit and saving is all it takes to show your banner or popup again to returning visitors.
+
+---
+
+## Feature Flag
+
+There are two separate features, and either or both can be on:
+
+| Feature                | Default | Where to toggle            | Requires |
+| ---------------------- | ------- | -------------------------- | -------- |
+| **Announcement Banner** | Off     | Settings → Features        | Nothing  |
+| **Homepage Popup**      | Off     | Settings → Features        | Nothing  |
+
+You can turn each on or off yourself from **Settings → Features** (in the Marketing section). Turning a feature off hides it from your site and removes its card from the Banner & Popup page, but the content you wrote is kept for when you turn it back on. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Show one site-wide announcement banner with a short formatted message, an optional link, and your own colors
+- Show one homepage popup with either an image or a written message, an optional heading, and an optional button
+- Switch either one off without losing what you wrote
+- Re-show a banner or popup to returning visitors by saving a change
+- Use Media Library images in your popup, if that feature is on
+
+**You cannot:**
+
+- Schedule a banner or popup to start or end on a certain date — you switch them on and off yourself
+- Show more than one banner or one popup at a time
+- Show the popup on pages other than your homepage
+- Choose how long a closed banner or popup stays hidden — a closed banner stays closed on that device until you save a change, and the popup returns on the visitor's next visit
+- Target a banner or popup to certain visitors, customers, or pages
+- Collect email addresses or show a form inside the popup (the popup has a message and one button)
+- Tie the banner to a discount code so that it appears or disappears automatically

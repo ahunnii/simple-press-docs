@@ -1,0 +1,283 @@
+---
+title: Subscriptions
+description: Let customers subscribe to a product and be billed automatically every week, month, or quarter.
+---
+
+## Overview
+
+Subscriptions let a customer sign up once and receive a product on a repeating schedule — for example a bag of coffee every month, or a box of soap every two weeks. They are charged automatically each time, and every successful charge shows up in your **Orders** list as a normal order for you to fulfill.
+
+You choose which products can be subscribed to, how often they repeat, and whether subscribers get a discount for committing. Customers manage their own subscription (skip a delivery, pause, update their card, or cancel) from a link in their emails, so you don't have to field those requests.
+
+> **Requires Stripe.** Subscriptions are billed through your connected Stripe account, so your store must be connected and able to accept payments before shoppers can subscribe. See [Payments & Payouts](/docs/payments-and-payouts) and [Stripe](/docs/stripe).
+
+---
+
+## Turning Subscriptions On
+
+1. Go to **Settings → Features**.
+2. Switch on **Product Subscriptions**.
+3. A **Subscriptions** item now appears in your admin sidebar, and a new **Subscriptions** card appears when you edit a product.
+
+Turning the feature on does not change any of your products by itself. Nothing is offered as a subscription until you switch it on for a specific product.
+
+See [Feature Flags](/docs/feature-flags) for how the Features page works.
+
+---
+
+## Setting Up a Product for Subscription
+
+1. Go to **Products** and open the product you want to offer (see [Products](/docs/products)).
+2. Find the **Subscriptions** card.
+3. Switch on **Offer as a subscription**. This adds a Subscribe option alongside Add to Cart on the product page.
+4. Under **Cadence**, tick every repeat schedule you want to offer. You must choose at least one.
+5. Optionally enter a **Subscribe & save** percentage. Subscribers pay this much less than the regular price.
+6. Save the product.
+
+**Photo:** Screenshot of the Subscriptions card on the product edit page showing the Offer as a subscription switch, the cadence checkboxes, and the Subscribe & save field.
+
+### Available Cadences
+
+| Option            | How often the customer is charged |
+| ----------------- | --------------------------------- |
+| **Every week**    | Once a week                       |
+| **Every 2 weeks** | Every other week                  |
+| **Every month**   | Once a month                      |
+| **Every 2 months**| Every other month                 |
+| **Every 3 months**| Once a quarter                    |
+
+These five schedules are the only ones available. If you tick more than one, the customer picks their preferred schedule on the product page.
+
+### Subscribe & Save
+
+The discount is a whole-number percentage from 0 to 90. It is applied to the product's price on every delivery for as long as the customer stays subscribed, and the customer sees how much they are saving on the product page and at sign-up. Leave it at 0 to charge the regular price.
+
+### Products With Variants
+
+You switch subscriptions on for the whole product, not for individual variants. When a product has variants (size, flavor, and so on), the customer chooses a variant first, and the subscription is billed at that variant's price.
+
+### When the Subscribe Option Is Hidden
+
+The Subscribe option does not appear on a product page when:
+
+- the product is marked as coming soon,
+- the product or the chosen variant is out of stock,
+- Subscriptions is turned off for your store, or
+- the items in a delivery would cost less than $0.50 after the Subscribe & save discount (the lowest amount Stripe can charge).
+
+---
+
+## What Your Customers See
+
+### On the Product Page
+
+Below the Add to Cart button, a **Subscribe** panel shows the price per delivery (plus shipping), how much the customer saves compared to buying once, and — if you offered more than one cadence — a **Delivery frequency** choice. A **Subscribe** button takes them to the next step. If the heading reads "Subscribe & save 10%", that is your discount percentage.
+
+**Photo:** Screenshot of a product page with the Subscribe & save panel under the Add to Cart button.
+
+How this panel looks matches your template. Your customer does not need an account to subscribe.
+
+### The Subscribe Page
+
+Before paying, the customer fills in their email, full name, and phone number, then chooses between shipping and in-store pickup (pickup only appears if you have in-store pickup turned on in your settings). For shipping they enter an address, and your normal shipping rates are applied to quote the cost of each delivery.
+
+A summary on the page shows the price per unit, the Subscribe & save discount, shipping per delivery, tax (if you use automatic tax), the per-delivery total, and the delivery frequency. It states clearly that the customer will be charged today and then again every period until they cancel. If you have a Terms of Service or Refund Policy page, a notice links to them.
+
+The customer then continues to a secure Stripe checkout page to enter their card. When it succeeds they see a "You're subscribed!" page and receive a confirmation email.
+
+**Photo:** Screenshot of the Subscribe page showing contact details, shipping address, and the subscription summary.
+
+> **Shipping address and price are locked.** The address, the shipping rate quoted at sign-up, and the product price are frozen for the life of that subscription. If you change the product's price later, or the customer moves, existing subscriptions are not affected. A customer who moves must cancel and subscribe again with the new address.
+
+### Managing a Subscription
+
+Every email about a subscription includes a **manage** link. It opens a page where the customer can see:
+
+- the product, quantity, and how often they are billed,
+- the next delivery date and their per-delivery total,
+- their delivery address or pickup choice,
+- their five most recent orders and whether each has shipped, and
+- buttons to manage the subscription.
+
+**Photo:** Screenshot of the customer's Manage your subscription page showing the status, delivery details, recent orders, and action buttons.
+
+| Button                    | What it does                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------- |
+| **Skip next delivery**    | Skips one delivery with no charge. The customer can **Undo skip** until it takes effect.  |
+| **Pause**                 | Stops billing and deliveries until the customer (or you) resumes.                         |
+| **Resume**                | Starts a paused subscription again.                                                       |
+| **Update payment method** | Sends the customer to a secure Stripe page to change their card.                          |
+| **Cancel subscription**   | Ends the subscription immediately.                                                        |
+
+Manage links stay valid for about six months. If a link has expired, or the customer has lost the email, they can go to your store's `/subscriptions/manage` page, enter their email address, and a fresh secure link is emailed to them. Customers who have an account on your store can also see all their subscriptions under **Subscriptions** in their account area (see [For Your Customers](/docs/for-your-customers)).
+
+---
+
+## Managing Subscriptions in Your Admin
+
+Go to **Subscriptions** in your admin sidebar.
+
+### The Subscriptions List
+
+**Photo:** Screenshot of the Subscriptions admin page with the four summary tiles and the subscriptions table.
+
+At the top, four tiles summarize your whole store (they don't change when you filter the table):
+
+- **Active** — subscriptions that are billing normally
+- **Paused** — subscriptions on hold
+- **Past due** — subscriptions whose last payment failed
+- **Est. monthly recurring** — an estimate of the monthly money from active subscriptions, with weekly and quarterly schedules converted to a monthly equivalent. Treat it as a guide rather than an exact forecast, because it excludes tax and does not account for skipped deliveries.
+
+Below the tiles you can search by customer name, email, or product, and filter by status. The table shows each customer, the product and variant, how often they are billed, the quantity, the price per delivery, a date, and the status.
+
+The date column changes meaning with the status:
+
+| Status        | Date shown                                                      |
+| ------------- | --------------------------------------------------------------- |
+| **Active**    | Next billing date (or "one skipped" if the customer skipped one) |
+| **Past due**  | The date the payment failed                                     |
+| **Paused**    | When it resumes, or "Indefinitely"                              |
+| **Cancelled** | The date it was cancelled                                       |
+
+### Statuses
+
+| Status         | Meaning                                                                                                   |
+| -------------- | --------------------------------------------------------------------------------------------------------- |
+| **Active**     | Billing normally.                                                                                         |
+| **Past due**   | A payment attempt failed. Stripe keeps retrying and the customer has been asked to update their card.     |
+| **Paused**     | Billing and deliveries are on hold.                                                                       |
+| **Cancelled**  | Ended. Nothing more will be charged.                                                                      |
+| **Incomplete** | The customer started signing up but hasn't finished paying yet. Nothing has been charged.                 |
+
+Abandoned sign-ups that never reach the payment step are removed automatically after about a day, so they don't clutter your list.
+
+### The Subscription Detail Page
+
+Click a customer's email (or **View**) to open a subscription. You'll see the product, variant, quantity, how often it repeats, the regular price, the Subscribe & save discount, the price per unit, shipping per delivery, the per-delivery total, the delivery method, when it was created, and the next billing date. Paused and cancelled subscriptions also show when they resume or when and why they were cancelled. A **Customer** panel links to the customer's profile, and the delivery panel shows their locked shipping address or pickup choice.
+
+An **Orders** table lists every order this subscription has produced, each linking to the full order.
+
+**Photo:** Screenshot of a subscription detail page with the Pause and Cancel buttons, the Subscription card, and the Orders table.
+
+### Your Actions
+
+At the top right of the detail page:
+
+- **Pause** — puts the subscription on hold with no end date. The customer is emailed. The customer, or you, can resume it at any time. You can pause an active or past-due subscription.
+- **Resume** — restarts a paused subscription. If a customer skipped a delivery, this button reads **Undo skip** and puts that delivery back on.
+- **Cancel** — ends the subscription immediately. A confirmation asks you to be sure. **No refund is issued**, any delivery that was already paid for still ships, the customer is emailed, and it cannot be undone.
+
+A cancelled subscription shows who or what ended it:
+
+| Cancel reason on the detail page                                | What happened                                                          |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Cancelled by customer                                           | The customer cancelled from their manage page.                         |
+| Cancelled by store                                              | You cancelled it from the admin.                                       |
+| Payment failed / Ended by Stripe                                | Payment kept failing, or the subscription was removed or ended in Stripe. |
+| Checkout was never completed                                    | The customer didn't finish signing up.                                 |
+
+### Sync Now
+
+The **Sync now** button at the top of the list asks Stripe for the latest state of your subscriptions and updates the list. You rarely need it — SimplePress updates automatically as changes happen and also double-checks every few hours — but it's useful if something looks out of date.
+
+> **Make changes here, not in Stripe.** The detail page links to the subscription in your Stripe dashboard so you can look at payments. Don't change the quantity, price, or address there: those edits are not copied back to SimplePress and will cause renewal orders that don't match. Use Pause and Cancel in SimplePress instead.
+
+---
+
+## Renewals and Orders
+
+Every time a subscription is successfully charged — the first payment and each renewal — SimplePress creates an order automatically. You never need to open Stripe to find out that a delivery is due.
+
+- The order appears in **Orders** with a **Subscription** badge. Open it and click the badge to jump back to the subscription. See [Orders](/docs/orders) for fulfillment, shipping, and refunds.
+- It starts as **paid** and **unfulfilled**, ready for you to ship or hand over.
+- You receive the usual new order email, noting that it is a subscription order, and the customer receives an order confirmation with their manage link.
+- Stock is reduced for each renewal order just like a normal sale, and you get your usual low-stock alert if it applies. See [Inventory Management](/docs/inventory-management).
+- You can refund a subscription order like any other order. Refunding an order does not cancel the subscription — cancel it separately if the customer wants to stop.
+
+The order records the price the customer actually paid, including shipping and, if you use automatic tax, the tax Stripe collected.
+
+### Shipping, Tax, and Discount Codes
+
+- **Shipping** is calculated once, when the customer signs up, from their address and your shipping settings, and the same amount is charged with every delivery. If shipping is free for that order, nothing is added. In-store pickup subscriptions are never charged shipping. See [Shipping](/docs/shipping).
+- **Tax** is added to each charge only if you have automatic tax turned on. See [Tax](/docs/tax).
+- **Discount codes** cannot be used on a subscription. The Subscribe & save percentage is the only discount available. See [Discounts & Coupons](/docs/discounts-and-coupons).
+
+---
+
+## Failed Payments
+
+When a renewal charge fails (for example the card has expired):
+
+1. The subscription's status changes to **Past due**.
+2. The customer is emailed asking them to update their payment method, with a link to their manage page. You are also emailed so you know a renewal is failing.
+3. Stripe retries the charge. Each failed attempt sends the customer a new email.
+4. If a retry succeeds, the subscription returns to **Active** and the order is created as normal.
+5. If every retry fails and Stripe gives up, the subscription is cancelled and the reason reads "Ended by Stripe".
+
+The customer can fix a card problem at any time using **Update payment method** on their manage page. This stays available even if you have turned the Subscriptions feature off.
+
+---
+
+## Emails
+
+These emails are sent automatically:
+
+| Email                                  | Goes to                       | When                                                  |
+| -------------------------------------- | ----------------------------- | ----------------------------------------------------- |
+| Subscription confirmed                 | Customer                      | The customer finishes signing up                      |
+| New subscription                       | You                           | A customer signs up                                   |
+| Order confirmation / new order         | Customer / You                | Every successful charge, including renewals           |
+| Payment failed                         | Customer and You              | A renewal charge fails (once per attempt)             |
+| Subscription paused, resumed, or delivery skipped | Customer           | The subscription is paused, resumed, or a delivery is skipped |
+| Subscription cancelled                 | Customer and You              | The subscription ends for any reason                  |
+
+You can preview these emails, and change the subject line of the four customer emails (Subscription Started, Payment Failed, Cancelled, and Updated), under **Notification Emails** in your admin. See [Email Preview](/docs/email-preview).
+
+---
+
+## Feature Flag
+
+| Setting                    | Value                                                                        |
+| -------------------------- | ---------------------------------------------------------------------------- |
+| **Name**                   | Product Subscriptions                                                        |
+| **Default**                | Off                                                                          |
+| **Where to toggle**        | Settings → Features (you can turn it on or off yourself)                     |
+| **Requires**               | Products and Payments                                                        |
+
+Because Subscriptions depends on Products and Payments, switching either of those off also switches Subscriptions off. See [Feature Flags](/docs/feature-flags).
+
+### If You Turn It Off
+
+Turning Subscriptions off stops *new* subscriptions but never strands the people who already have one:
+
+- The Subscribe option and the Subscribe page disappear, and the Subscriptions card disappears from the product form (your per-product settings are kept for when you turn it back on).
+- Existing subscriptions **keep billing** at Stripe, and every renewal **still creates an order**.
+- Your **Subscriptions** admin page stays reachable, but **Pause**, **Resume**, and **Sync now** are disabled. **Cancel** still works.
+- Customers can still **cancel** and **update their card** from their manage link, but **Skip**, **Pause**, and **Resume** are hidden.
+
+To stop billing a subscriber, cancel their subscription — turning the feature off is not enough.
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Offer any product as a subscription, with one or several of five repeat schedules
+- Give subscribers a Subscribe & save discount of up to 90%
+- Let customers subscribe as guests, with shipping or in-store pickup
+- See every subscription, filter by status, and search by customer or product
+- Pause, resume, or cancel any subscription from the admin
+- Fulfill renewals as ordinary orders and refund them like any other order
+- Let customers skip, pause, update their card, or cancel on their own
+
+**You cannot:**
+
+- Create a subscription on a customer's behalf — customers sign up themselves from the product page
+- Offer a custom schedule beyond the five listed (for example every 10 days or every 6 months)
+- Set different subscription prices or schedules for individual variants
+- Change a subscriber's product, quantity, price, or delivery address — they would need to cancel and subscribe again
+- Use discount codes on subscriptions
+- Skip a delivery on a customer's behalf (the customer does this themselves), or set a pause with an end date from the admin
+- Get an automatic refund when you cancel — cancelling never refunds money already collected, so refund the order separately if needed
+- Take subscriptions without a connected Stripe account

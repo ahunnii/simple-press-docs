@@ -47,6 +47,27 @@ Not every field type appears in every template — you'll only see what your act
 
 ---
 
+## Working with List Fields
+
+List fields (feature cards, badge rows, FAQ-style repeating content, and similar) use a collapsible row editor:
+
+- Each row starts collapsed, showing a drag handle, a small preview/icon, and a one-line summary of that row's content — tap the row to expand it and edit its sub-fields.
+- **Drag the handle** to reorder rows, or open the **⋯** menu on a row for **Move up** / **Move down**.
+- Deleting a row shows an **Undo** option for a few seconds, so a stray tap on the trash icon is never permanent.
+- Some list fields fall back to built-in, template-designed rows when you haven't added any of your own — while the list is empty, a hint tells you your site is currently showing those built-in rows, and that adding one replaces them.
+
+**[PHOTO: List field row expanded, showing drag handle, ⋯ menu, and the Undo toast after a row delete]**
+
+---
+
+## Defaults, Number Ranges, and Conditional Fields
+
+- **Defaults shown as real values.** A field you haven't touched isn't a blank input — it shows the template's actual default value (or image, or toggle state) right in the editor, so you can see exactly what your storefront is currently rendering before you change anything.
+- **Number fields with ranges.** Some number fields (like a photo fade strength) render as a slider with a min/max range and a live value readout instead of a bare number box, making it easy to stay in a sane range.
+- **Fields that depend on another field.** A handful of fields only make sense once a related toggle or setting is turned on — for example, a background-photo fade slider only appears once a background photo is set. Those fields simply stay hidden until the field they depend on is switched on, so you never see controls that wouldn't do anything yet.
+
+---
+
 ## Fields Are Organized by Page and Group
 
 Within each page tab, fields are grouped into logical sections (e.g. "Hero Section", "About Section", "Values", "Story"). Each group has a title and description to help you understand what part of the page it controls.
@@ -101,6 +122,21 @@ Changes are not auto-saved. Use the **Save** button at the top of the page to ap
 
 ---
 
+## Some Content Lives in Settings, Not Here
+
+A few pieces of content are shared across your whole storefront and are set once, in Settings, rather than as a template field — so you never have to update the same detail in two places:
+
+- Your **address and map pin** (Settings → General) — once set, your storefront's map sections pick it up automatically.
+- Your **phone, email, and hours** (Settings → General / Contact).
+- Your **social links** (Settings → General).
+- The site-wide **announcement bar**.
+- Your **footer tagline** (Content → Branding).
+- **FAQ** content (Content → FAQ) and **testimonials** (Admin → Testimonials) — template fields only let you pick which published items to feature, not write new ones.
+
+Where a template section uses one of these, its field group links you straight to the Settings page that owns it — look for the link next to the section's description in the field editor.
+
+---
+
 ## Something Missing?
 
 We've built templates to make as much of the storefront editable as possible — text, images, videos, colors, toggles, and more. That said, some design elements are fixed in the template and aren't currently exposed as editable fields.
@@ -115,6 +151,9 @@ If there's something on your storefront you'd like to change but can't find a fi
 - [ ] A page tab open (e.g. Homepage) showing multiple field groups
 - [ ] Rich text (TipTap) editor open in a richtext field
 - [ ] A list-type field showing multiple rows with add/remove controls
+- [ ] A list-field row expanded with its ⋯ menu open (Move up / Move down)
+- [ ] The Undo toast after deleting a list row
+- [ ] A number field rendered as a slider with min/max and a value readout
 - [ ] Image upload field with a preview visible
 - [ ] Gallery selector field (dropdown showing saved galleries)
 - [ ] The Save / Reset toolbar
