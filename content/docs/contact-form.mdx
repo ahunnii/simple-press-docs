@@ -9,33 +9,48 @@ The contact form gives customers a simple way to reach you directly from your st
 
 > **Feature flag:** Contact Form is on by default and **not owner-toggleable**. It is always available on your storefront unless disabled by the platform team.
 
+> **Looking for a form with your own questions?** The contact form is fixed. If you need an application, intake, or sign-up form whose answers are saved in your admin, that's the separate **Forms** feature. See [Can I add custom fields to the form?](#frequently-asked-questions) below.
+
 ---
 
 ## Where the Form Appears
 
-The contact form lives at `/contact` on your storefront — for example, `yourstore.simplepress.co/contact`. Every template has its own styled version of this page, but they all send submissions the same way.
+The contact form lives at `/contact` on your storefront — for example, `yourstore.simplepress.co/contact`. Every template has its own styled version of this page, but they all send submissions the same way. A few templates show your contact details on the Contact page without a form at all.
 
-You can link to it from your storefront navigation by adding a link to `/contact` in **Content → Navigation**.
+You can link to it from your storefront navigation by adding a link to `/contact` in **Site Setup → Navigation**.
 
 ---
 
 ## What Customers Fill Out
 
-![Contact Form](/example-contact-form.png)
+![The contact form on the Default template, with Name, Email, optional Phone Number and Message fields, the reCAPTCHA notice and the Send Message button](/images/contact-form/contact-form.png)
 
-All contact forms include some variation of the following fields:
+The form has these fields:
 
-| Field                    | Required | Notes                                                            |
-| ------------------------ | -------- | ---------------------------------------------------------------- |
-| Name                     | Yes      | Customer's name                                                  |
-| Email                    | Yes      | Where you'll reply                                               |
-| Message                  | Yes      | Min 10 characters; max varies by template (180 chars by default) |
-| Phone                    | No       | Optional phone number                                            |
-| Preferred Contact Method | No       | Email / Phone / No Preference                                    |
+| Field                    | Required | Notes                                                                                                   |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------- |
+| Name                     | Yes      | Customer's full name (a few templates ask for first and last name separately)                           |
+| Email                    | Yes      | Where you'll reply                                                                                      |
+| Message                  | Yes      | Min 10 characters; max varies by template (180 chars by default, 500 on the Elegant template)           |
+| Phone                    | No       | Optional phone number                                                                                   |
+| Preferred Contact Method | No       | Email / Phone / No Preference — shown on some templates only                                            |
 
-A **captcha** is shown at the bottom to prevent spam. Customers must complete it before submitting.
+How long the message can be depends on your template:
 
-After submitting, customers see a success message — something along the lines of "Thank you for reaching out. We will get back to you within 1–2 business days." They can then choose to send another message if needed.
+- **180 characters** — Default, Modern, Bamboo, Animated Bamboo, Happy Bamboo, Pollen, and Dark Trend
+- **400 characters** — VII, Sledge, and Noise
+- **500 characters** — Elegant, Builders, Wealth, Dream Your Theme, The LuvGluv, and Olive Mode
+- **600 characters** — PinkArt and Handy Relocations
+
+Unique Monique allows longer messages (up to about 1,000 characters, shared with the details its custom-request option adds to the message). Customers see a message if they type fewer than 10 characters or go over the limit.
+
+**Preferred Contact Method** only appears on the Bamboo, Animated Bamboo, Happy Bamboo, Pollen, Dream Your Theme, and Unique Monique contact pages. On every other template, the field isn't shown and the email you receive says "no-preference".
+
+**Spam protection** is built in, and customers don't have to do anything. The form uses Google's **reCAPTCHA v3**, which is invisible: there's no checkbox or puzzle. It quietly scores each visit in the background when the page loads and again when the customer clicks send. A short note near the send button says "This site is protected by reCAPTCHA…" with links to Google's Privacy Policy and Terms. The send button stays off for a moment after the page loads, until that check is ready. Submissions that fail the check are rejected with the message "Captcha verification failed".
+
+Each visitor (by IP address) can send up to **5 messages every 10 minutes**. After that they see "Too many submissions. Please try again later."
+
+After submitting, customers see a success message and can choose to send another message. The wording depends on your template. On the Default template it reads "Message sent successfully!" with the line "We've received your message and will get back to you soon." and a **Send Another Message** button.
 
 Logged-in customers do **not** get any fields pre-filled — everyone fills out the form the same way.
 
@@ -43,17 +58,21 @@ Logged-in customers do **not** get any fields pre-filled — everyone fills out 
 
 ## What You Receive
 
-When a customer submits the form, you receive an **email** at whichever address is set as your support email (go to **Settings → General** to set or change it). If no support email is set, submissions go to your account's owner email.
+When a customer submits the form, you receive an **email** at your **Support Email** (go to **Settings → General** to set or change it). Support Email is required in General Settings, so there's always one on file; if it were ever empty, submissions would go to your account's owner email.
 
-The email includes:
+The email is titled "New Contact Form Submission" and includes:
 
 - Customer's name and email
 - Their phone number (if provided)
-- Their preferred contact method (if provided)
+- Their preferred contact method (shown as "email", "phone", or "no-preference")
 - The full message text
 - A footer note: "Reply directly to this email to respond to [customer name]."
 
+The subject line reads "New Contact Form Submission from [customer name]".
+
 The **Reply-To** header is automatically set to the customer's email address — so when you hit reply in your inbox, it goes straight to them. No extra steps needed.
+
+You can see a sample of this email any time under **Notification Emails** by choosing **Contact Form** in the preview.
 
 > Submissions are not stored in your admin dashboard. Your email inbox is the only record of past contact form messages. If you need to archive them, do so in your email client.
 
@@ -61,21 +80,22 @@ The **Reply-To** header is automatically set to the customer's email address —
 
 ## Customizing the Contact Page
 
-The layout and text of your contact page can be customized through **Content → Template Fields**, under the Contact section for your template.
+You can change the words on your contact page in the **Site Editor**: open the **Contact** page and click a section to edit it. See [Site Editor](/docs/site-editor) for how that works.
 
-What's customizable varies by template, but most templates let you edit:
+What's editable varies by template, but most templates let you edit:
 
-- The page heading and description
-- Contact information shown alongside the form (email, phone, address)
+- The page heading and intro text
+- The small labels and short lines around your email, phone, and address cards
+- The success message and the send button's wording
 
-**Photo:** Screenshot of the Template Fields editor showing the Contact section.
+**Photo:** Screenshot of the Site Editor showing the Contact page.
 
-If your template displays contact details like a business address, phone number, or email alongside the form, those values are pulled from two places:
+Your actual contact details are not typed into the contact page. Templates pull them from your settings:
 
-1. **Template Fields** — if you've set a custom value there, it takes priority
-2. **General Settings** — the support email, phone number, and address from your business profile are used as fallbacks if no custom template field value is set
+1. **Settings → General** — your Support Email, Phone Number, and address
+2. **Settings → Business Hours** — your opening hours, on templates that show them
 
-This means you can show different contact info on your contact page than what's in your general business profile, if needed.
+So to change the email, phone number, or address shown beside the form, update it in your settings. This also changes it everywhere else on your site that uses those details.
 
 ---
 
@@ -91,16 +111,19 @@ No. Submissions are not stored in your admin. Once the email is sent, the only c
 No. Reply directly to the email you receive — the Reply-To is automatically set to the customer's address.
 
 **Can I turn the contact form off?**
-The contact form cannot be disabled by you as a store owner. If you need it removed, contact support.
+The contact form cannot be disabled by you as a store owner. If you need it removed, [contact us](/docs/expectations#getting-help-and-requesting-changes).
 
 **Can I add custom fields to the form?**
-No. The form fields are fixed: name, email, message, phone (optional), and preferred contact method (optional). Custom fields are not supported.
+No. The contact form's fields are fixed: name, email, message, phone (optional), and preferred contact method (optional, on some templates). If you need your own questions, use the separate **Forms** feature instead. It's off by default: turn it on in **Settings > Features** (see [Feature Flags](/docs/feature-flags)), then build a form under **Forms** in your admin and embed it in a page. Unlike the contact form, Forms keeps each response as an entry in your admin.
 
 **Can I send customers an automatic reply when they submit?**
-No. There is no auto-reply or confirmation email sent to the customer. Consider mentioning your expected response time in the page description or the success message (customizable via Template Fields on some templates).
+No. There is no auto-reply or confirmation email sent to the customer. Consider mentioning your expected response time in the page's intro text or the success message (both editable in the Site Editor on most templates).
 
 **What if I don't receive a submission?**
-Check your spam folder. Submissions come from a noreply system address with your business name as the sender name. If you're still not receiving them, verify that your support email is correct in **Settings → General**.
+Check your spam folder. Submissions come from a noreply system address with your business name as the sender name. If you're still not receiving them, verify that your Support Email is correct in **Settings → General**.
+
+**A customer says the form wouldn't send. What should I check?**
+Ask them to refresh the page and try again. If the invisible spam check couldn't load, the form shows "Verification could not load. Please refresh the page and try again." with a **Retry verification** link. If they've sent several messages in a short time, they'll need to wait up to 10 minutes. Browser extensions that block Google scripts can also stop the check from loading.
 
 ---
 
@@ -110,7 +133,7 @@ Check your spam folder. Submissions come from a noreply system address with your
 - Reply to customers from within SimplePress
 - Add or remove form fields
 - Set up an automatic reply to customers
-- Disable the contact form yourself (contact support if needed)
+- Disable the contact form yourself ([contact us](/docs/expectations#getting-help-and-requesting-changes) if needed)
 - Redirect customers to a custom URL after they submit
 
 ---

@@ -139,7 +139,7 @@ Click **View** on any row to open the order.
 - Buttons for **Packing Slip**, **Invoice** and **More Options**.
 
 <Callout type="info">
-The order page's title shows a short reference code (for example "Order #cmv1srzr") rather than the order number. You'll find the order number (like #1030) in the Orders list, on the packing slip and invoice, and in the emails your customer receives.
+The order page's title shows the order number (for example "Order #1030"), the same number used in the Orders list, on the packing slip and invoice, and in your customer's emails.
 </Callout>
 
 **On the left:**
@@ -175,7 +175,7 @@ SimplePress doesn't buy shipping labels for you. You ship the order the way you 
 
 *The fulfillment card, ready to send. The blue note tells you exactly who will be emailed.*
 
-You'll see "Fulfillment recorded and email sent to customer". The order's fulfillment changes to **Fulfilled**, and if it's paid, its status changes to **Completed**.
+You'll see a confirmation message that tells you which email went out, for example "Order fulfilled and email sent to customer". The order's fulfillment changes to **Fulfilled**, and if it's paid, its status changes to **Completed**. If the email fails to send, a warning says so, and you can resend it from **More Options**.
 
 ### Carriers and tracking links
 
@@ -207,12 +207,12 @@ If some items ship now and the rest later:
 
 1. On the fulfillment card, untick **Ship all remaining items**.
 2. Under **Items in this package**, set how many of each item are in this box. Each line shows how many are left to ship, for example "of 2".
-3. Click **Fulfill Selected Items & Send Email**.
+3. Click **Fulfill Selected Items & Send Email** (or **Fulfill Selected Items** if you unticked tracking).
 
 The order becomes **Partially Fulfilled**, and each item shows whether it has shipped. The card is renamed **Fulfill Remaining Items** so you can ship the rest when it's ready. If you're shipping several boxes at once, each package you add gets its own items list ("Package 2", "Package 3"…).
 
 <Callout type="info">
-A partial shipment **with** tracking emails the customer that tracking straight away. A partial shipment **without** tracking sends no email; the customer hears from you once the whole order is fulfilled.
+A partial shipment **with** tracking emails the customer that tracking straight away. A partial shipment **without** tracking sends no email; the customer hears from you once the whole order is fulfilled. The button reads **Fulfill Selected Items** (without "& Send Email"), and the confirmation says "Partial shipment recorded. No email sent".
 </Callout>
 
 ---
@@ -254,7 +254,7 @@ The refund button lives at the bottom of the **Payment** card on the right. It a
 **What happens next:**
 
 - **Full refund:** the order's status and payment both become **Refunded**.
-- **Partial refund:** the order stays **Open** (or **Completed** if it was fully fulfilled), and payment stays **Paid**. There's no separate "partially refunded" status. The refunded amount shows on the invoice and in the export's Refund Amount column.
+- **Partial refund:** the order stays **Open** (or **Completed** if it was fully fulfilled), and payment stays **Paid**. On a cancelled order, a partial refund leaves it **Cancelled**. There's no separate "partially refunded" status. The refunded amount shows on the invoice and in the export's Refund Amount column.
 - You can refund in several steps. Each time, the maximum is whatever hasn't been refunded yet.
 
 ### Orders paid another way
@@ -264,6 +264,8 @@ For cash, check or other manual payments, the button reads **Mark as Refunded**.
 <Callout type="warn">
 **Mark as Refunded** only records the refund in SimplePress. No money moves, so pay the customer back yourself first. It always records a full refund.
 </Callout>
+
+On a cancelled order, neither refund dialog offers **Return items to inventory**, because cancelling already offered to restock.
 
 ### Rewards points
 
@@ -275,7 +277,7 @@ If you run a rewards program, refunding an order (fully or partly) takes back th
 
 1. Open the order and click **More Options → Cancel Order**.
 2. In the **Cancel Order #N** dialog, choose:
-   - **Return items to inventory** (ticked by default) puts the items back in stock. It doesn't appear if the order has already had a refund; use the refund's restock option instead.
+   - **Return items to inventory** (ticked by default) puts the items back in stock. It doesn't appear if the order has already had a refund; use the refund's restock option instead. It also doesn't appear for an order that was never paid (Pending), because nothing was taken out of stock.
    - **Notify customer by email** (ticked by default) sends the cancellation email.
 3. Click **Cancel Order**, or **Go back** to leave it alone.
 
@@ -301,11 +303,11 @@ Sometimes you need to correct a status, for example when a customer paid in cash
 
 | Override | Choices | Notes |
 | -------- | ------- | ----- |
-| **Payment Status** | Pending, Paid | **Paid** is blocked once an order has had any refund. To mark something refunded, use the refund button in the Payment card. |
+| **Payment Status** | Pending, Paid | **Paid** is one-way. Once an order is Paid, **Pending** is greyed out, and to back out of a paid sale you cancel the order instead. **Paid** is also blocked once an order has had any refund. To mark something refunded, use the refund button in the Payment card. |
 | **Fulfillment Status** | Unfulfilled, Partially Fulfilled, Fulfilled | **Unfulfilled** resets every item to "not shipped" and brings back the fulfillment form. A Completed order goes back to **Open**. |
 
 - You can't set the order status (Open, Completed and so on) directly. It follows from payment and fulfillment.
-- Overrides only change the status. They don't email the customer, change stock or adjust rewards points. To send emails, use the fulfillment form, **Mark Ready for Pickup**, or the refund and cancel options instead.
+- Overrides don't email the customer. The one exception to "status only" is switching a manual order from **Pending** to **Paid**: that takes the items out of stock, adds the order to the customer's order count and total spent, and awards rewards points, just as if you'd saved it as Paid. To send emails, use the fulfillment form, **Mark Ready for Pickup**, or the refund and cancel options instead.
 - Overrides aren't available on cancelled orders.
 - There's no "Mark as Unfulfilled" button. To undo a fulfillment, use **Override Status → Fulfillment Status → Unfulfilled**. The packages you recorded stay listed on the order.
 
@@ -389,7 +391,7 @@ After saving, you land on the new order.
 
 **Good to know:**
 
-- **Stock, the customer's order history totals and rewards points only change if Payment is Paid** when you save. If you save it as Pending and get paid later, flipping it to Paid with **Override Status** won't take the items out of stock, so record stock changes yourself in [Inventory management](/docs/inventory-management).
+- **Stock, the customer's order history totals and rewards points change when the order is Paid.** That happens either when you save it as Paid, or later, when you switch it from Pending to Paid with **More Options → Override Status → Payment Status → Paid**.
 - Saving creates a customer from the name and email, or updates the existing customer with that email. See [Customers](/docs/customers).
 - Manual orders show up in the Orders list with everything else. The Payment card's **Method** tells you how it was paid.
 
@@ -433,7 +435,7 @@ To see what each one looks like, open **Notification Emails** in the admin sideb
 | Edit the shipping address | Yes | Yes | No |
 | See the Stripe Payment ID | Yes | Yes | No |
 
-Staff don't see the **Export CSV**, **Create Manual Order** or refund buttons. See [Team & roles](/docs/team-and-roles).
+Staff only see the controls they can use: no **Export CSV**, **Create Manual Order**, refund buttons, shipping-address pencil, or payment, resend and cancel options in **More Options** (they keep **Override Status → Fulfillment Status**). See [Team & roles](/docs/team-and-roles).
 
 ---
 

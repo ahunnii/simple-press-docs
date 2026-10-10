@@ -1,108 +1,193 @@
 ---
 title: Integrations
-description: "Connect third-party services to your store from **Settings → Integrations**. This page is split into two sections: Stripe (payments) and Umami (analytics)."
+description: "Connect your store to Stripe so you can take card payments, and turn on Umami analytics to see how visitors use your storefront. This is also where you find out about the other ways you can get paid."
 ---
 
 ## Overview
 
-Connect third-party services to your store from **Settings → Integrations**. This page is split into two sections: Stripe (payments) and Umami (analytics).
+Connect outside services to your store from **Settings → Integrations**. This page covers two of them:
+
+- **Stripe Connect** takes card payments at your checkout. Most of this page is about setting it up.
+- **Umami Analytics** tracks visits to your storefront.
+
+<Callout type="info" title="Super Important">
+
+Stripe is the only card processor SimplePress supports right now. You can still get paid other ways, such as cash, check, Venmo, Cash App and Zelle. These are covered in [Other ways to get paid](#other-ways-to-get-paid) below.
+
+Also, we are NOT tax advisors or accountants, and we can't give tax advice. Please consult a qualified tax professional for guidance specific to your business, especially when it comes to registering for sales tax in your state. Stripe collects the tax, but you register with each state yourself and file your own returns.
+
+</Callout>
 
 ---
 
 ## Stripe Connect
 
-Stripe is the payment processor powering your storefront. Until you connect a Stripe account, your store cannot accept customer payments, process refunds, or display your balance and payout history.
+Stripe is the payment processor behind your storefront. Until you connect a Stripe account, customers can browse and fill their cart, but they can't check out. They see a "checkout unavailable" message instead. You also can't refund card payments, because the refund goes back through Stripe.
 
-**📷 Photo:** Integrations page showing the Stripe Connect card with a "Not Connected" badge and the "Connect with Stripe" button.
+Your money goes straight to your own Stripe account. SimplePress never holds your funds, and never sees or stores customers' card numbers.
+
+**Photo:** Integrations page showing the Stripe Connect card with a "Not Connected" badge and the "Connect with Stripe" button.
+
+Only Owners and Managers can connect or disconnect Stripe. Staff can't. See [Team & roles](/docs/team-and-roles).
 
 ### Connecting your Stripe account
 
 1. Go to **Settings → Integrations**.
 2. In the **Stripe Connect** card, click **Connect with Stripe**.
-3. You'll be redirected to Stripe to authorize the connection. Sign in to your existing Stripe account or create a new one.
-4. After authorizing, you'll be returned to the Integrations page. The card will update to show a **Connected** badge and your Stripe Account ID.
+3. You'll be sent to Stripe to authorize the connection. Sign in to your existing Stripe account or create a new one.
+4. After you authorize, Stripe sends you back to the Integrations page. The card now shows a **Connected** badge and your Stripe **Account ID**.
 
-> Stripe handles the entire authorization handoff securely. Your Stripe credentials are never stored by SimplePress.
+If something goes wrong, you'll see "Failed to initiate Stripe connection. Please try again." Wait a moment and click **Connect with Stripe** again.
 
-**📷 Photo:** Stripe Connect card in the connected state — showing the Account ID field, "Open Dashboard" and "Disconnect" buttons, and the Connected badge.
+> Stripe handles the sign-in and permission step. SimplePress only keeps your Stripe Account ID, not your Stripe password.
+
+Before you connect, it helps to have your bank account, business details and identity verification done in Stripe. See [Stripe Setup](/docs/stripe) for a walkthrough.
+
+![The Stripe Connect card showing Connected, the Account ID, Open Dashboard and Disconnect buttons, and the Automatic Tax Collection switch](/images/integrations/stripe-connected.png)
+
+### The badge on the card
+
+The badge in the top right of the **Stripe Connect** card tells you where things stand:
+
+| Badge | What it means |
+| ----- | ------------- |
+| **Not Connected** | No Stripe account is linked. Checkout is switched off and customers can't place orders. |
+| **Connected** | Your Stripe account is linked and checkout is live. |
+| **Charges paused** | Stripe has paused charges on your account, usually because it needs identity or business verification, more documents, or a reply on a dispute. Checkout fails for every shopper until you fix it in your Stripe Dashboard. |
+
+If charges are paused, a red note on the card reads "Stripe has paused charges on this account", and a strip across the top of your admin says "Payments are paused." The strip has a **Fix in Stripe** link and a **Details** link. Once Stripe turns charges back on, the warning clears on its own within a few minutes. You don't need to reconnect.
 
 ### Once connected
 
-- Your Stripe Account ID is displayed for reference.
-- Payments from customer orders are deposited directly into your Stripe account according to your Stripe payout schedule.
-- You can open your Stripe Dashboard at any time using the **Open Dashboard** button.
+- Your Stripe Account ID is shown on the card for reference.
+- Card payments from customer orders are paid out to your Stripe account, then to your bank on Stripe's payout schedule.
+- Click **Open Dashboard** to open your Stripe Dashboard in a new tab.
+
+To see your balance and recent payouts, go to the Finances section of your admin. See [Payments & Payouts](/docs/payments-and-payouts).
 
 ### Automatic Tax Collection
 
-When your Stripe account is connected, you'll see an **Automatic Tax Collection** toggle. When enabled, Stripe Tax automatically calculates and adds sales tax to every checkout session.
+Once Stripe is connected, you'll see an **Automatic Tax Collection** switch in the same card. When it's on, Stripe Tax works out the sales tax for each customer's address and adds it at checkout. Stripe only charges tax in states where you have an active tax registration.
 
-**Before enabling this**, you must have active tax registrations set up on your Stripe account for the states where you collect tax. Enabling the toggle without registrations will return an error — no changes will be saved.
+**Before you turn it on**, set up Stripe Tax in your Stripe account: add your business address and at least one active tax registration. If you haven't, the switch flips back off, nothing is saved, and a red message tells you what's missing, with an **Open Stripe Tax Dashboard →** link.
 
-- To manage your tax registrations, visit your Stripe Tax Dashboard (linked from the error message if one appears).
-- For a full guide on sales tax, nexus, and how to set up Stripe Tax, see **Settings → Tax**.
+When the switch is on, the card also shows a **Manage registrations →** link to your Stripe registrations.
 
-**📷 Photo:** Auto Tax toggle section within the Stripe card — showing the label, description, and toggle in the on/off state. Include an example of the error alert if toggled without registrations.
+A few things to know:
+
+- The switch saves as soon as you click it. There's no Save button.
+- Donations are never taxed, even with the switch on. A gift isn't a sale.
+- Tax isn't calculated for you on orders you create by hand. See [Orders](/docs/orders).
+- Stripe Tax collects the tax but doesn't file or pay it for you. You still file your own sales tax returns.
+
+For a full guide to nexus and setting up Stripe Tax, see [Tax](/docs/tax), or click **Set up taxes →** next to the switch to open the Tax Guide in your admin.
 
 ### Disconnecting Stripe
 
-Click **Disconnect** to remove your Stripe account from the store. You'll be asked to confirm before anything is removed.
+Click **Disconnect** in the Stripe Connect card. A box titled "Disconnect Stripe account?" asks you to confirm: "You won't be able to accept payments until you reconnect a Stripe account." Click **Disconnect** again to go ahead, or **Cancel** to back out.
 
-> **Important:** Disconnecting Stripe immediately disables payment acceptance on your storefront. Existing orders and their history are not affected, but you will not be able to process new refunds until you reconnect.
+When you disconnect:
+
+- Checkout turns off right away. Customers can't place new orders.
+- SimplePress also removes its access to your account in Stripe. Your Stripe account itself isn't closed or changed.
+- Existing orders and their history stay as they are.
+- You can't refund card payments from SimplePress until you reconnect.
+- You can click **Connect with Stripe** at any time to link an account again.
+
+---
+
+## Other ways to get paid
+
+Stripe is only for card payments at checkout. You can take money other ways, and these don't need Stripe.
+
+- **Manual orders.** For a phone order or an in-person sale, create the order yourself under **Orders** and set the **Payment Method** to Card, Cash or Check. No card is charged. See [Orders](/docs/orders).
+- **Invoices.** Bill a customer directly and list how they can pay you: bank transfer, PayPal, Venmo, Cash App, Zelle, cash or check, or something else. You record the payment when it arrives. Add your methods in **Settings → Invoices**. See [Invoices](/docs/invoices).
+- **Donations.** Your donate page can take card gifts through Stripe, and also show your Venmo username and Cash App cashtag. Venmo and Cash App work even if Stripe isn't connected. See [Donations](/docs/donations).
+
+Customers can't pay with these methods at your normal checkout. Checkout is card only, through Stripe.
+
+---
+
+## Fees
+
+SimplePress doesn't take a cut of your sales. Stripe charges its own small fee on each card payment, and takes it before the money reaches you. Your Stripe Dashboard shows the exact rates for your account.
+
+---
+
+## Before you start selling
+
+To sell, you need three things: Stripe connected, at least one product, and your own custom domain. Until all three are done, opening your admin takes you to the Setup Guide instead of the Dashboard. See [Launch checklist](/docs/launch-checklist) and [Custom Domain](/docs/domain).
 
 ---
 
 **What you can do:**
 
-- Connect a Stripe account via OAuth
-- View your connected Stripe Account ID
+- Connect a Stripe account from **Settings → Integrations**
+- See your connected Stripe Account ID
 - Open your Stripe Dashboard directly from the admin
-- Enable or disable Automatic Tax Collection
+- Turn Automatic Tax Collection on or off
 - Disconnect your Stripe account
+- Take cash, check, Venmo, Cash App, Zelle and similar payments through manual orders, invoices and your donate page
 
 **What you cannot do:**
 
-- Accept customer payments before Stripe is connected
-- Enable Automatic Tax Collection without active Stripe Tax registrations on your connected account
-- Change your payout schedule or timing — that is controlled by Stripe on your account directly
-- Process refunds without an active Stripe connection
+- Take card payments at checkout before Stripe is connected
+- Use another card processor in place of Stripe
+- Turn on Automatic Tax Collection without an active Stripe Tax registration on your account
+- Change your payout schedule from SimplePress. You change it in your Stripe account.
+- Refund card payments from SimplePress while Stripe is disconnected
 
 ---
 
 ## Umami Analytics
 
-Umami is a privacy-focused, open-source analytics tool that tracks visitor behavior on your storefront without storing personal data or using cookies.
+Umami is a privacy-focused analytics tool. In the **Umami Analytics** card, it tracks visits, page views, referrers and on-site events (product views, add-to-cart and embed engagement) on your storefront. It does this without third-party cookies or ad-network tracking.
 
-> **Note:** The Umami section only appears if the platform has analytics enabled. If you don't see it, it has not been activated for your account.
+The tracking script and event data are sent through your own storefront domain, so no third-party script loads in your visitors' browsers.
 
-**📷 Photo:** Umami Analytics card showing the Website ID input, the Enable Analytics toggle, and the badge indicating whether it's enabled or disabled.
+**Photo:** Umami Analytics card showing the Website ID field, the Enable Analytics switch, and the Enabled or Disabled badge.
 
 ### Setting up Umami
 
-1. If you don't have an Umami account, click **Sign up for Umami** in the card to create one.
-2. In your Umami dashboard, add your storefront URL as a website and copy the **Website ID** (a string like `abc123-def456-ghi789`).
-3. Paste the Website ID into the **Website ID** field in the Umami card.
-4. Toggle **Enable Analytics** on.
-5. Click **Save Changes**.
+SimplePress runs its own Umami service, so you can't create the account yourself. Ask your SimplePress administrator to add your storefront domain. They'll give you a Website ID to paste into the card. It's not your Umami account ID or an API key.
 
-When both the Website ID is filled in and the toggle is on, the card shows an **Enabled** badge. If either is missing, analytics will not be collected even if the toggle is on.
+1. Go to **Settings → Integrations**.
+2. In the **Umami Analytics** card, paste your **Website ID** into the field.
+3. Turn on **Enable Analytics**.
+4. Click **Save Changes**. You'll see "Umami settings updated."
 
-### What Umami tracks
+If you turn on **Enable Analytics** without a Website ID, you'll see "Website ID is required to enable analytics." If the ID isn't valid, you'll see "Enter a valid Umami website ID."
 
-Umami collects page views, referrer sources, browser/device data, and session durations — all without cookies or personally identifiable information. Data is visible in your Umami dashboard, not within the SimplePress admin.
+The badge in the top right of the card shows **Enabled** only when a Website ID is saved and **Enable Analytics** is on. Otherwise it shows **Disabled**, and nothing is collected. Once enabled, the tracking script runs on every page of your storefront and starts collecting visits right away.
+
+### Seeing your results
+
+Your results appear on the Analytics dashboard in your admin. That dashboard is a separate feature, so it only shows up once you turn on **Analytics** under **Settings → Features**. See [Feature flags](/docs/feature-flags).
+
+The two settings work independently:
+
+- **Enable Analytics** in the card controls whether data is collected.
+- The **Analytics** feature controls whether you can see the dashboard.
+
+If you turn on collection but not the feature, data is collected but you can't view it in the admin yet. If you turn on the feature but not collection, the dashboard is empty.
+
+To see the raw data yourself, click **Open your Umami dashboard** in the card.
 
 ---
 
 **What you can do:**
 
 - Enter your Umami Website ID
-- Enable or disable analytics tracking on your storefront
-- Access the Umami sign-up page from within the admin
+- Turn analytics collection on or off for your storefront
+- Open your Umami dashboard from the card
 
 **What you cannot do:**
 
-- View analytics data inside the SimplePress admin — all reporting is in your Umami dashboard
-- Use a different analytics provider through this integration (Umami is the only supported option)
-
-{/* <!-- Note that the Umami section is conditionally rendered based on NEXT_PUBLIC_ENABLE_UMAMI — owners might wonder why they don't see it at all. --> */}
+- Create your own Umami account or Website ID. Your SimplePress administrator provides it.
+- Use a different analytics provider through this card
 
 ---
+
+## QuickBooks Online
+
+If QuickBooks Invoicing is turned on for your store, a **QuickBooks Online** card also appears on this page. It's where you connect your QuickBooks company. See [Invoices](/docs/invoices#quickbooks-invoicing) for the full steps.

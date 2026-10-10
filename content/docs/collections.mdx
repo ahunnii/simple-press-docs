@@ -5,7 +5,7 @@ description: Group related products together under a shared page.
 
 ## Overview
 
-Collections let you group related products together under a shared page — perfect for seasonal drops, product categories, curated edits, or any grouping that makes sense for your store. Customers can browse all your collections at `/collections` and click into any one to see its products.
+Collections let you group related products together under a shared page — perfect for seasonal drops, product categories, curated edits, or any grouping that makes sense for your store. Customers can browse all your published collections at `/collections` and click into any one to see its products.
 
 ---
 
@@ -21,59 +21,109 @@ Collections have their own pages on your storefront, their own images, and their
 
 ## The Collections List
 
-Go to **Collections** in your admin sidebar to see all of your collections displayed as cards. Each card shows:
+Go to **Collections** in your admin sidebar (under **Catalog**) to see all of your collections in a table. Each row shows:
 
-- The collection's featured image (if one has been uploaded)
-- Collection name and description
-- How many products are in it
-- A **Draft** badge if the collection isn't published yet
+- The collection's featured image (or a folder icon if you haven't uploaded one), its name, and its description
+- **Products** — how many products are in it. If some of those products are drafts, a second line shows how many are "live" (published)
+- **Status** — a **Published** or **Draft** badge
 
-From here you can create a new collection, edit an existing one, or delete one directly from the list.
+If a collection is published but has no published products in it, the row shows a warning: "Published, but shoppers see an empty page." Add a product or publish one of its products to fix it.
 
-![Collections List](/collections-list.jpeg)
+![The Collections list: a table of collections with image, name, description, product count and Published status, plus search and Filters](/images/collections/collections-list.png)
+
+### Finding and sorting
+
+- **Search collections…** matches the collection's name, its URL, and its description.
+- **Status** filters between **All collections**, **Published**, and **Drafts**.
+- **Sort** offers **Newest** (the default), **Name A–Z**, **Name Z–A**, **Oldest**, **Most products**, and **Fewest products**.
+
+The list shows 25 collections per page.
+
+### Row actions
+
+Click a collection's name to open it, or use the three-dot menu at the end of the row:
+
+- **Edit**
+- **View on storefront** (only for published collections; opens in a new tab)
+- **Duplicate** — makes a copy named "Copy of [name]" with the same image, products, product order, and SEO settings. The copy is saved as a **draft**, so nothing goes live until you publish it.
+- **Delete**
+
+### Doing several at once
+
+Tick the checkboxes on the left to select collections. A bar appears with:
+
+- **Publish** and **Unpublish** — up to 100 collections at a time. A message appears afterwards with an **Undo** button.
+- **Delete** — up to 25 collections at a time. Only the store **Owner** sees this button.
+
+---
 
 ## Creating or Editing a Collection
 
-Click **Create Collection** or click the edit icon on an existing collection to open the collection editor.
+Click **Create Collection** or click a collection's name to open the collection editor. The editor has two tabs, **Basics** and **SEO**, and a toolbar across the top with:
 
-![Collection Editor](/edit-collection-form.jpeg)
+- A status label: **Draft** (new and unsaved), **Unsaved Changes**, or **Saved**
+- The **Published** switch
+- A **More Options** menu: **View on storefront** (published collections only), **Duplicate**, **Reset** (throws away your unsaved changes), and **Delete**
+- **Save & create another** (new collections only) and **Save changes**
+
+![The collection editor on the Basics tab, with the name, storefront URL, description and image fields, and the Published switch, More Options and Save changes in the toolbar](/images/collections/collection-editor.png)
 
 ### Basic Information
 
-- **Name** _(required)_ — the collection's display name, shown on the storefront and in the browser tab
-- **Description** — a short sentence or two describing the collection; shown on the collection page
-- **Image** — upload a featured image that represents this collection; this is the first visual customers see associated with it
+On the **Basics** tab:
 
-### Slug (URL)
+- **What is the name of this collection?** _(required)_ — the collection's display name, shown on the storefront and in the browser tab. Up to 120 characters.
+- **Describe this collection in a sentence or two** — shown on the collection page. Up to 1,000 characters.
+- **Upload an image that represents this collection** — the featured image customers see for this collection.
 
-The URL slug for the collection is **auto-generated from the name** when you create it. For example, a collection named "Summer Drop" becomes `/collections/summer-drop`. If you later rename the collection, the slug updates to match.
-
-> **Note:** Renaming a collection will change its URL. Any links pointing to the old URL will break. If the collection has been live and shared publicly, be cautious about renaming it.
+Under the name, the editor shows the collection's **Storefront URL**, with an **Edit in SEO** link.
 
 ### Published Toggle
 
-The **Published** toggle in the top toolbar controls whether the collection is visible on your storefront. Unpublished collections return a 404 to customers — even if they have the direct URL. You can save changes while a collection is unpublished without them going live.
+The **Published** switch in the top toolbar controls whether the collection is visible on your storefront. **New collections start with Published switched on**, so switch it off before you save if you want to keep working on it privately.
+
+Unpublished collections return a "not found" page to customers — even if they have the direct URL. You can keep saving changes to a collection while it's unpublished without it going live.
 
 ### Products
 
-The Products section shows a scrollable list of all your products with checkboxes. Check the ones you want in this collection; uncheck to remove them. Your selection is saved when you hit **Save changes**.
+The **Products** card is where you choose what goes in the collection:
 
-Products appear in the collection in the order they were added. The count of selected products is shown below the list.
+1. Type in **Search products to add…** and click a result to add it. (Press Enter to add the first result.) Products that are still drafts are labeled **Draft**.
+2. Your picks appear under **In this collection**. Drag them into the order you want shoppers to see — that order is the default order on the storefront.
+3. Click the **×** on a product to take it out of the collection.
 
-![Collection Products](/collection-products.png)
+The card shows how many products are in the collection. A collection can hold up to 500. Your changes are saved when you click **Save changes**.
+
+If every product in a published collection is a draft (or there are no products at all), the editor warns you that the storefront page will render empty. Draft products stay out of the collection page until you publish them.
+
+![The Products card in the collection editor: a "Search products to add…" box and the products in the collection, each with a drag handle and a remove button](/images/collections/collection-products.png)
+
+You can also add a product to collections from the product side. Open the product and go to its **Collections** tab (it appears when Collections is turned on), then tick the collections it belongs to.
+
+### Slug (URL)
+
+On the **SEO** tab, **URL Slug** controls the collection's address. For example, the slug `summer-drop` gives you `/collections/summer-drop`. Slugs can use letters, numbers, dots, dashes, tildes, and underscores, and each one must be unique in your store.
+
+While you're creating a collection (or editing one that's still a draft), the slug follows the name automatically as you type. You can also type your own slug at any time. For a collection that's already published, the slug stays put when you rename it, and the editor shows a note with an **Update URL** button if you'd like to change the URL to match the new name.
+
+> **Note:** Changing a collection's URL breaks any links pointing to the old one, including bookmarks and search results. SimplePress does not create a redirect. The editor warns you before you save a changed slug. If the collection has been live and shared publicly, be cautious.
 
 ### SEO
 
-- **Meta Title** — the page title shown in search results and browser tabs; aim for 50–60 characters (the editor shows a live character count)
-- **Meta Description** — the description shown in search results; aim for 150–160 characters
+The **SEO** tab also has:
 
-If you leave these blank, your storefront will automatically generate a title and description from the collection name, description, and your business name.
+- **Meta Title** — the page title shown in search results and browser tabs. The counter includes your business name suffix (for example, " | Your Store"); aim for 50–60 characters, and the field allows up to 70. Leave blank to use the collection name.
+- **Meta Description** — the description shown in search results. Aim for 150–160 characters; the field allows up to 200. Leave blank to use the collection description.
+- **Open Graph Image** — the picture used when the page is shared on social media. If you don't upload one, the collection's featured image is used.
+- **Search Result Preview** and **Social Media Preview** — live previews of how the page might look in Google and when shared.
+
+If you leave the meta fields blank and the collection has no description either, the storefront uses "Shop [collection name] at [your business name]" as the description. Published collections are also included in your site's sitemap for search engines.
 
 ---
 
 ## Deleting a Collection
 
-You can delete a collection from the collection editor (the delete button in the toolbar) or from the collections list (the trash icon on the card). A confirmation dialog appears before anything is removed.
+You can delete a collection from the collection editor (**More Options → Delete**) or from the collections list (the three-dot menu on its row → **Delete**). A confirmation dialog appears before anything is removed, and it can't be undone.
 
 **Deleting a collection removes the collection and its page from your storefront, but does not delete the products in it.** Products remain in your catalog untouched.
 
@@ -81,10 +131,20 @@ You can delete a collection from the collection editor (the delete button in the
 
 ## How Collections Look on Your Storefront
 
-- **Collections index** — `/collections` lists all published collections. The display style depends on your template.
-- **Collection page** — `/collections/[slug]` shows the collection's image, name, description, and all products in it. Many templates also show your other collections at the bottom of the page, so customers can keep browsing.
+- **Collections index** — `/collections` lists all published collections, in the order they were created. Each one links to its page, and most templates show its image and how many products it has. The display style depends on your template.
+- **Collection page** — `/collections/[slug]` shows the collection's image, name, description, and its published products in the order you set in the editor. Many templates also show your other collections at the bottom of the page, so customers can keep browsing.
+
+Only published products show up on the storefront, and product counts only include published products.
 
 Unpublished collections are completely invisible — they return a not-found page rather than a hidden/preview view.
+
+Some templates also let you feature one of your collections on another page, such as the homepage. In the [Site Editor](/docs/site-editor), pick it from a **Collection** field; if you leave it on "None (use featured products)", the template shows your featured products instead.
+
+---
+
+## Who Can Manage Collections
+
+Owners and Managers can create, edit, duplicate, publish, and delete collections. Only Owners can delete several at once. Staff can't open Collections. See [Team and Roles](/docs/team-and-roles) for the full list.
 
 ---
 
@@ -95,21 +155,24 @@ Unpublished collections are completely invisible — they return a not-found pag
 - Create as many collections as you need
 - Add a product to more than one collection
 - Save a collection as a draft (unpublished) while you work on it
+- Duplicate a collection to use as a starting point
+- Drag the products in a collection into the order you want
 - Delete a collection without affecting any products
 - Set per-collection SEO titles and descriptions
-- Upload a featured image for each collection
+- Upload a featured image and a separate share image for each collection
+- Edit a collection's URL slug (with the caveats above)
 
 **You cannot:**
 
-- Manually set or edit a collection's URL slug — it is auto-generated from the name
 - Use collections if the Products feature is disabled
 - Apply pricing, discounts, or inventory changes through a collection (collections are display only)
-- Reorder products within a collection after they've been added (products appear in the order they were originally added)
+- Reorder the collections themselves — they appear in the order they were created
+- Set an automatic redirect from an old collection URL to a new one
 
 ---
 
 ## Feature Flag
 
-**Collections** is off by default and owner-toggleable. Go to **Settings > Features** to enable it. It requires the **Products** feature to be on — disabling Products will also disable Collections.
+**Collections** is off by default and owner-toggleable. Go to **Settings > Features** to enable it (it's in the **E-Commerce** group). It requires the **Products** feature to be on — disabling Products will also disable Collections. While Collections is off, the admin section is hidden and `/collections` shows a not-found page.
 
 ---
