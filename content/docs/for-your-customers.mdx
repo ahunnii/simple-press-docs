@@ -8,7 +8,7 @@ description: Your shopper's experience from start to finish, so you can answer t
 Your customers will email you questions like "How do I track my order?", "How do I cancel my subscription?" or "Where did my wishlist go?" This page walks through your storefront as a shopper sees it: browsing, checkout, their account, and every email they can get from you. Use it to answer those questions and to learn what your store does for customers.
 
 <Callout type="info" title="Your template sets the look, not the steps">
-Each template styles these pages its own way, so buttons and layouts on your store may look a little different from what's described here. The steps and features are the same on every template.
+Each [template](/docs/templates) styles these pages its own way, so buttons and layouts on your store may look a little different from what's described here. The steps and features are the same on every template.
 </Callout>
 
 Some parts only show up when a feature is turned on under **Settings → Features**:
@@ -32,7 +32,7 @@ See [Feature Flags](/docs/feature-flags) for how to turn these on and off.
 
 ## Browsing and the Cart
 
-Shoppers browse your shop, collections, and product pages, choose a variant (size, color, and so on) when there is one, and click **Add to Cart**. Many templates open a slide-out cart right away. All templates also have a full cart page at `/cart`.
+Shoppers browse your shop, collections, and product pages, choose a variant (size, color, and so on) when there is one, and click **Add to Cart**. Some templates open a slide-out cart right away. All templates also have a full cart page at `/cart`.
 
 In the cart, shoppers can:
 
@@ -44,13 +44,23 @@ Some things to know about the cart:
 
 - **It's saved in the shopper's browser, not their account.** If they leave and come back on the same phone or computer, the cart is still there. If they switch devices or clear their browser data, the cart starts out empty. This applies to signed-in shoppers too.
 - **It keeps itself up to date.** If you change a price, the cart shows the new price. If an item sells out or you unpublish it, it's removed from the cart and the shopper sees a short message.
-- **No cart when it's turned off.** If **Shopping Cart & Checkout** is off, your products still show, but there's no Add to Cart button. Your site works like a catalog.
+- **No buying when it's turned off.** If **Shopping Cart & Checkout** is off, your products still show, but the cart page and checkout are turned off, so nobody can buy. On most templates the Add to Cart button still shows, but the cart page won't open. A few templates hide the button too, so your site works like a catalog.
 
-**Photo:** Screenshot of a cart drawer with two items, quantity buttons, and the estimated total.
+![The slide-out cart with two items, quantity buttons, and the subtotal](/images/for-your-customers/cart-drawer.png)
+
+*A slide-out cart, on a template that has one.*
+
+![The full cart page with the order summary and a Continue to checkout button](/images/for-your-customers/cart-page.png)
+
+*The full cart page, which every template has.*
 
 ---
 
 ## Checkout
+
+<video src="/videos/for-your-customers/checkout.webm" poster="/images/for-your-customers/checkout.png" controls muted playsInline className="rounded-lg border" />
+
+A shopper going from product page to checkout.
 
 Shoppers don't need an account to check out. Guest checkout is always available.
 
@@ -63,9 +73,9 @@ The checkout page asks for:
 - **Shipping address:** if they're shipping. Signed-in shoppers with saved addresses can pick one instead of typing it out.
 - **Discount code:** only when **Coupons & Discounts** is on. They type a code and click **Apply**. If the code works, they see how much they saved. If it doesn't, they see a message explaining why (for example, it expired or the order is below the minimum). Only one code can be used per order. Rewards codes go in this same box. See [Discounts and Coupons](/docs/discounts-and-coupons).
 
-The order summary shows the subtotal, any discount, shipping, and an **Estimated total**. Tax and the final total are worked out on the next step. If you've published a Terms of Service or Refund Policy page, a short notice under the button links to it.
+The order summary shows the subtotal, any discount, shipping, and an **Estimated total**. Tax and the final total are worked out on the next step. A short notice under the button links to SimplePress's Terms of Service, and to your Terms of Service or Refund Policy page if you've published one.
 
-**Photo:** Screenshot of the checkout page showing contact details, delivery choice, discount code box, and order summary.
+![The checkout page with contact details, shipping address, discount code box, and order summary](/images/for-your-customers/checkout.png)
 
 ### Step 2: Secure payment with Stripe
 
@@ -84,7 +94,7 @@ Once payment goes through, shoppers land on an **Order Confirmed!** page. It tha
 - You can edit the heading and the "What happens next?" list in the site editor.
 - On many templates the page also has a **View my orders** button (for signed-in shoppers) or a **Create an account** button (for guests).
 
-**Photo:** Screenshot of the Order Confirmed page with the next-steps list.
+![The Order Confirmed page with the next-steps list](/images/for-your-customers/order-confirmed.png)
 
 A few moments later they get the **Order Confirmation** email with their items, totals, and shipping address. The email has a **View Order Status** button they can use at any time, no account needed. From there:
 
@@ -100,11 +110,11 @@ See [Orders](/docs/orders) for how to do each of these on your side.
 
 ### Signing Up
 
-Shoppers create an account from the sign-in or account link in your site header, from `/sign-up`, or from the **Create an account** button after checkout. They enter:
+Shoppers create an account from the sign-in or account link in your site header, from `/sign-up`, or from the **Create an account** button after checkout (on templates that have one). They enter:
 
 - their name,
 - email address,
-- a password (entered twice), and
+- a password (at least 8 characters), and
 - a checkbox agreeing to SimplePress's Terms of Service and Privacy Policy.
 
 They then get a **Verify your email** message. They can't sign in until they click the link in it. The link works for one hour. They can resend it from the waiting screen, or by trying to sign in, which takes them back to that screen. Once they click the link, they're signed in.
@@ -127,16 +137,16 @@ Once signed in, shoppers have an account area with these tabs. Tabs tied to a fe
 
 | Tab              | Shown when                       | What the shopper can do                                                                                                          |
 | ---------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Orders**       | Always                           | See every order with its number, date, status, and total. Open one to see items, totals, tracking links, and the shipping address |
+| **Orders**       | Orders is on                     | See every order with its number, date, status, and total. Open one to see items, totals, tracking links, and the shipping address |
 | **Subscriptions**| Product Subscriptions is on      | See their subscriptions and the next delivery date, and open the manage page for each one                                       |
 | **Invoices**     | Invoices is on                   | See invoices you've sent them, with status and balance due, and open each one                                                    |
 | **Settings**     | Always                           | Update their name and profile picture                                                                                           |
 | **Security**     | Always                           | Change their password and see where they're signed in                                                                           |
-| **Address Book** | Always                           | Add, edit, and delete shipping addresses, and choose a default to use at checkout                                               |
+| **Address Book** | Always (some templates hide it while Checkout is off) | Add, edit, and delete shipping addresses, and choose a default to use at checkout                                               |
 | **Preferences**  | Always                           | Turn your marketing emails on or off, download their data, or ask for their account to be deleted                               |
 | **Rewards**      | Rewards Program is on            | See their points balance, ways to earn, rewards they can redeem, and their codes                                                |
 
-**Photo:** Screenshot of the account area showing the tab list and the Orders tab with a few past orders.
+![The account area with the tab list and the Orders tab showing a few past orders](/images/for-your-customers/account-orders.png)
 
 A few details shoppers sometimes ask about:
 
@@ -157,7 +167,7 @@ Guests can check on an order without signing in:
 
 The order status page shows the order, payment, and fulfillment status, the items, the shipping address, and any tracking links. Each link works for 90 days. If an old link has expired, the page offers to send a new one.
 
-**Photo:** Screenshot of the Check your order status form.
+![The Check your order status form](/images/for-your-customers/order-status.png)
 
 > **Tip:** Most templates don't link to `/order-status` in the menu. If guests often ask how to find their order, add an "Order status" link to your footer or navigation.
 
@@ -170,13 +180,13 @@ When **Wishlist** is on, a heart icon appears on your products. Tapping it saves
 - **The wishlist is saved in the shopper's browser on that device only.** It isn't tied to their account, so it won't appear on their phone if they saved items on their laptop, and clearing their browser data wipes it.
 - You can't see your shoppers' wishlists.
 
-**Photo:** Screenshot of the Wishlist page with a few saved products.
+![The Wishlist page with a few saved products](/images/for-your-customers/wishlist.png)
 
 ---
 
 ## Back-in-Stock Alerts
 
-When **Back-in-Stock Notifications** is on, a sold-out product shows "Out of stock — get notified when it's back" with an email box and a **Notify me** button. If the product has variants, the alert is for the variant they picked. No account is needed.
+When **Back-in-Stock Notifications** is on, a sold-out product shows a short "get notified when it's back" message with an email box and a **Notify me** button. If the product has variants, the alert is for the variant they picked. No account is needed.
 
 When the item can be bought again, the shopper gets one **Back in stock** email with a link to the product. It's sent once, so if the item sells out again before they buy, they'll need to sign up again. These emails go out automatically on a regular schedule after you restock, not the moment you save. If you turn the feature off, waiting requests are kept and the emails resume if you turn it back on.
 
@@ -189,7 +199,7 @@ When **Product Subscriptions** is on and you've set up a product for it, a **Sub
 After that:
 
 - They get a **Subscription confirmed** email, then an **Order Confirmation** email for every charge, including each renewal.
-- **Every subscription email has a "Manage your subscription" link.** It lets them skip the next delivery, pause, resume, update their card, or cancel. Cancelling takes effect right away.
+- **Every subscription email links to their subscription page**, usually with a **Manage your subscription** button (the payment-failed email says **Update payment method**). That page lets them skip the next delivery, pause, resume, update their card, or cancel. Cancelling takes effect right away.
 - **If they've lost the email,** they can go to `/subscriptions/manage`, enter their email, and get fresh manage links. Manage links work for about six months.
 - **Signed-in shoppers** also see their subscriptions on the **Subscriptions** tab in their account.
 
@@ -212,7 +222,7 @@ Some things to know:
 - Shoppers need an account and must join before they can redeem.
 - Redeeming only works while **Coupons & Discounts** is on. Otherwise they see "Redemption is temporarily unavailable."
 - If an order is refunded, the points it earned are taken back.
-- If you pause the program, balances are kept and shoppers can still see them.
+- If you turn the program off, balances are kept. The Rewards tab disappears from the account menu until you turn it back on.
 
 ---
 
@@ -236,7 +246,7 @@ Your **Contact** page has a form that emails you directly. When you hit Reply, y
 
 ## Emails Your Customers Receive
 
-Every customer email shows your logo and business name. It comes from "*Your Business* via SimplePress", and replies go to your business email. The two sign-in emails, **Verify your email** and **Reset your password**, are the exception: they come from a no-reply address.
+Every customer email shows your logo (or your business name, if you haven't added a logo). It comes from "*Your Business* via SimplePress", and replies go to the **Owner Email** in your General settings (invoice, form, and quote emails use your **Support Email** instead). The two sign-in emails, **Verify your email** and **Reset your password**, are the exception: they have no reply address, so replies don't reach you.
 
 You can preview most of these emails, and change the subject line and opening paragraph of many of them, under **Notification Emails** in your admin. See [Email Preview](/docs/email-preview).
 
@@ -258,14 +268,14 @@ You can preview most of these emails, and change the subject line and opening pa
 | **Subscription paused, resumed, or skipped** | A subscription is paused, resumed, or a delivery is skipped                                 | No                                                                                      |
 | **Subscription cancelled**              | A subscription ends for any reason                                                               | No                                                                                      |
 | **Manage your subscriptions**           | A shopper asks for their links on `/subscriptions/manage`                                        | No                                                                                      |
-| **Invoice**                             | You send an invoice by email                                                                     | Yes, choose **Mark as Sent** instead of emailing                                        |
-| **Invoice reminder**                    | You click **Send Reminder** (never automatic)                                                    | Only sent when you click it                                                             |
-| **Invoice payment receipt**             | You record a payment and tick **Email Receipt**                                                  | Yes, leave Email Receipt unticked                                                       |
-| **Invoice cancelled**                   | You cancel an invoice and choose to notify the customer                                          | Yes, leave the notify box unticked                                                      |
+| **Invoice**                             | You send an invoice by email                                                                     | Yes, choose **Mark as sent without emailing** instead                                   |
+| **Invoice reminder**                    | You click **Send reminder** (never automatic)                                                    | Only sent when you click it                                                             |
+| **Invoice payment receipt**             | You record a payment and tick **Email receipt to customer**                                      | Yes, leave that box unticked                                                            |
+| **Invoice cancelled**                   | You cancel an invoice and choose to notify the customer                                          | Yes, untick **Email the customer that this invoice was cancelled**                      |
 | **Your reward code**                    | A shopper redeems points for a reward                                                            | Only by turning off the **Rewards Program**                                             |
 | **Happy birthday**                      | A rewards member's birthday points are added                                                     | Turn off birthday points in your rewards settings                                       |
 | **Form confirmation**                   | Someone submits one of your forms that's set up to send a confirmation                           | Yes, in that form's settings                                                            |
-| **Quote request received**              | Someone submits a quote calculator                                                               | No                                                                                      |
+| **Quote request received**              | Someone submits a quote calculator                                                               | Yes, turn off **Email the visitor a confirmation** in that calculator's settings        |
 | **Final quote**                         | You send a final quote                                                                           | Only sent when you send it                                                              |
 | **Testimonial invite**                  | You send a testimonial invite                                                                    | Only sent when you send it                                                              |
 | **Marketing emails**                    | You send a broadcast with **Email Marketing** (only to customers who opted in)                   | Only sent when you send it. Every one has an unsubscribe link                           |
@@ -289,7 +299,7 @@ Check your spam folder for an email titled "Verify your email." The link works f
 On the sign-in page, click **Forgot password** and enter your email. The reset email says "Reset your SimplePress password." That's expected, because your account works at every store that runs on SimplePress.
 
 **"How do I cancel (or pause, or skip) my subscription?"**
-Open any email we've sent about your subscription and click **Manage your subscription**. You can skip, pause, update your card, or cancel there. Lost the email? Go to our website's `/subscriptions/manage` page and enter your email for a new link.
+Open any email we've sent about your subscription and click the link to your subscription (usually **Manage your subscription**). You can skip, pause, update your card, or cancel there. Lost the email? Go to our website's `/subscriptions/manage` page and enter your email for a new link.
 
 **"Where did my cart (or wishlist) go?"**
 Your cart and wishlist are saved in the web browser you used. If you switched phones or computers, or cleared your browser data, they start out empty, so you'll need to add your items again.

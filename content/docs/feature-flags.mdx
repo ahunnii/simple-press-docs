@@ -13,160 +13,225 @@ Go to **Settings → Features** to manage your enabled features.
 
 ## How It Works
 
-**Photo:** Screenshot of the Settings → Features page showing all toggleable feature categories and switches.
+![The Settings → Features page, with each feature listed under its category and an on/off switch beside it](/images/feature-flags/features.png)
 
-Features are grouped into four categories: E-Commerce, Content, Customers, and Marketing. Each feature has a toggle switch. Changes take effect immediately — there's no save button. A brief notification confirms each change.
+Features are grouped into categories (E-Commerce, Content, and Marketing). Each feature has a name, a short description, and a switch. Changes take effect immediately. There's no save button, and a brief notification confirms each change.
 
-Some features **depend on other features**. If a feature's dependency is disabled, the toggle for the dependent feature is grayed out and shows a badge like **"Requires Products"**. Re-enabling the dependency makes the dependent feature toggleable again.
+Some features **depend on other features**. If a feature it depends on is off, its switch is grayed out and shows a badge like **"Requires Products"**. Turn the other feature back on and the switch works again. The tables below show what each feature needs.
 
-> **Important:** Disabling a feature removes its admin nav item and blocks access to those storefront pages. On most templates, links to disabled features are automatically hidden from your storefront navigation (both header and footer). On some templates you may need to remove them manually in **Content → Navigation**.
+<Callout type="info" title="Who can change features">
+  Owners and managers can turn features on and off. Staff members can't open this page. One feature, **Products CSV import/export**, can only be switched by the store owner. See [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+Disabling a feature removes it from your admin sidebar and hides its pages from your storefront. Links your template adds on its own for that feature are hidden too. Links you've added yourself in **Content → Navigation** are hidden automatically on many templates. On others, remove them there yourself.
 
 ---
 
 ## Which Features You Can Toggle
 
-Only a subset of features are owner-toggleable. The rest are always on or can only be changed by the platform team.
+These are the features that have a switch on your Features page. The **On by default** column shows how every new store starts.
 
 ### E-Commerce
 
-| Feature                  | Default | Notes                                                                                                                                                                              |
-| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Products**             | On      | Enables your product catalog and all product-related admin pages. Disabling this also disables Orders, Cart, Coupons, Collections, and Reviews — they all depend on Products.      |
-| **Orders**               | On      | Enables order receiving, management, fulfillment, and all order-related features. Requires Products.                                                                               |
-| **Invoices**             | Off     | Enables manual invoice creation, payment tracking, and customer billing. No dependencies.                                                                                          |
-| **Inventory Management** | On      | Enables standalone inventory items, stock tracking, and rental management. Independent of Products — useful for tracking supplies and rentables not sold directly. Can be toggled. |
-| **Rental Check-outs**    | Off     | Enables check-outs for rental items with due dates, partial returns, and damaged/lost tracking. Requires Inventory Management.                                                     |
-| **Collections**          | Off     | Groups products into curated collections visible on your storefront. Requires Products.                                                                                            |
-
-The following E-Commerce features are always on (platform-managed) and do not appear as toggles:
-
-- **Shopping Cart & Checkout** — The add-to-cart and checkout flow. Requires Products.
-- **Coupons & Discounts** — Discount codes. Off by default; contact support to enable.
+| Feature | On by default? | Needs | What it does |
+| --- | --- | --- | --- |
+| **Products** | Yes | Nothing | Your product catalog and all product-related admin pages. Several other features depend on this one. |
+| **Orders** | Yes | Products | Receive and manage customer orders, including fulfillment. See [Orders](/docs/orders). |
+| **Shopping Cart & Checkout** | Yes | Products | Lets customers add items to a cart. |
+| **Checkout** | Yes | Products, Shopping Cart & Checkout | Lets customers finish and complete their purchase. |
+| **Payments** | Yes | Orders, Shopping Cart & Checkout | Lets customers pay for their purchase. See [Payments & Payouts](/docs/payments-and-payouts). |
+| **Inventory Management** | Yes | Nothing | Track stock levels, manage standalone inventory items, and get low-stock alerts. Works without Products, so it's handy for supplies and rentals you don't sell directly. See [Inventory Management](/docs/inventory-management). |
+| **Rental Check-outs** | No | Inventory Management | Check rentable items out to events or clients and back in, with due dates, partial returns, and damaged or lost tracking. |
+| **Coupons & Discounts** | No | Shopping Cart & Checkout | Create discount codes and promotional offers. See [Discounts and Coupons](/docs/discounts-and-coupons). |
+| **Collections** | No | Products | Group products into collections and show them on your site. See [Collections](/docs/collections). |
+| **Wishlist** | Yes | Products | Lets shoppers save products to a wishlist, with heart icons on product cards and a wishlist page. |
+| **Back-in-Stock Notifications** | Yes | Products | Adds a "notify me" form to out-of-stock products and emails shoppers when the item is restocked. |
+| **Invoices** | No | Nothing | Build and send invoices and get paid by bank transfer, PayPal, Venmo, Cash App, Zelle, or cash. See [Invoices](/docs/invoices). |
+| **QuickBooks Invoicing** | No | Nothing | Send deposit and final invoices through a connected QuickBooks Online company. |
+| **Product Subscriptions** | No | Products, Payments | Let customers subscribe to a product on a recurring schedule, billed through your connected Stripe account. See [Subscriptions](/docs/subscriptions). |
+| **Donations** | No | Nothing | Accept one-time donations or tips through Stripe, Venmo, or Cash App. |
 
 ### Content
 
-| Feature       | Default | Notes                                     |
-| ------------- | ------- | ----------------------------------------- |
-| **Galleries** | On      | Image galleries shown on your storefront. |
-| **Blog**      | Off     | Blog with posts and articles.             |
-
-**Custom Pages** (your `/about`, `/contact`, policies, etc.) is always on and cannot be disabled.
+| Feature | On by default? | Needs | What it does |
+| --- | --- | --- | --- |
+| **Galleries** | Yes | Nothing | Create and manage image galleries for your storefront. See [Galleries](/docs/galleries). |
+| **Media Library** | Yes | Nothing | Browse, download, and manage the photos and videos you've uploaded. See [Media Library](/docs/media-library). |
+| **Blog** | No | Nothing | Publish blog posts and articles. See [Blog](/docs/blog). |
+| **Services** | No | Nothing | Offer bookable services that link to an outside booking widget. |
+| **Events** | No | Nothing | Publish upcoming events with fliers, dates, and locations. |
+| **Videos** | No | Nothing | Show YouTube videos on your site, synced automatically from your channels and playlists. |
+| **Embeds** | No | Nothing | Embed outside content, such as booking widgets, videos, and social posts, into pages and rich text. |
+| **Products CSV import/export** | No | Nothing | Import and export your products as a CSV file from the Products page. Only the store owner can switch this one. Downloading your whole site is always available to owners. See [Data and Export](/docs/data-and-export). |
 
 ### Marketing
 
-| Feature          | Default | Notes                                         |
-| ---------------- | ------- | --------------------------------------------- |
-| **Testimonials** | On      | Customer testimonials collection and display. |
+| Feature | On by default? | Needs | What it does |
+| --- | --- | --- | --- |
+| **Testimonials** | Yes | Nothing | Collect and display customer testimonials. See [Testimonials](/docs/testimonials). |
+| **Product Reviews** | No | Products (and Customer Accounts, which is always on) | Lets customers review products. You moderate the reviews. See [Reviews](/docs/reviews). |
+| **Announcement Banner** | No | Nothing | A site-wide announcement bar at the top of your storefront. See [Banner and Popup](/docs/banner-and-popup). |
+| **Homepage Popup** | No | Nothing | A dismissible popup on your homepage. See [Banner and Popup](/docs/banner-and-popup). |
+| **Email Marketing** | No | Nothing | Send one-off announcement and newsletter emails to customers who opted in to marketing. |
+| **Rewards Program** | No | Orders (and Customer Accounts, which is always on) | Customers earn points on orders, birthdays, and social follows, and redeem them for single-use discount codes at checkout. Redeeming needs Coupons & Discounts turned on. Turning it off pauses earning and redeeming, and balances are kept. |
+| **Forms** | No | Nothing | Build custom forms, such as applications, intake, or sign-ups, and embed them in pages. |
+| **Quote Calculator** | No | Nothing | Build multi-step calculators that visitors fill out to request an estimate. |
+| **Analytics** | No | Nothing | See visitor, page, and event analytics for your storefront. |
+| **Search readiness on dashboard** | Yes | Nothing | Shows the search-readiness score strip on your [Dashboard](/docs/dashboard). The full report stays under **Site Setup → SEO & Meta**. |
 
-The following Marketing features are always on or require platform activation:
+### Customers
 
-- **Contact Form** — Always on by default; not owner-toggleable. See [Contact Form](./contact-form.md).
-- **Customer Accounts** — Always on; cannot be disabled.
-- **Product Reviews** — Off by default; requires platform activation. See [Product Reviews](./reviews.md).
+This category holds **Customer Accounts**, which is managed by the SimplePress team (see below), so you won't see a Customers section with switches on your Features page.
+
+### Managed by the SimplePress team
+
+Three features are on by default for every store and don't have a switch. If you need one changed, [contact us](/docs/expectations#getting-help-and-requesting-changes).
+
+| Feature | On by default? | What it does |
+| --- | --- | --- |
+| **Custom Pages** | Yes | Your own pages, such as About, Contact, and policies. See [Pages and Policies](/docs/pages-and-policies). |
+| **Customer Accounts** | Yes | Lets customers create accounts and sign in. See [For Your Customers](/docs/for-your-customers). |
+| **Contact Form** | Yes | Shows a contact form on your site. See [Contact Form](/docs/contact-form). |
 
 ---
 
 ## What Happens When You Disable a Feature
 
+In every case below, your data is kept. Turning the feature back on restores it.
+
 ### Disabling Products
 
-This is the most impactful toggle. Disabling Products cascades to everything that depends on it:
+This is the most impactful switch. Turning it off also turns off every feature that needs it, including Orders, Shopping Cart & Checkout, Checkout, Collections, Wishlist, Back-in-Stock Notifications, Product Reviews, and Product Subscriptions.
 
-- Your `/shop` storefront page returns a 404
-- All product, order, collection, and review pages disappear from your admin
-- Coupons and Collections become unavailable
-- The Shopping Cart & Checkout feature is also deactivated
-- Inventory Management remains available (independent of Products) so you can still track standalone items and supplies
+- Your `/shop` storefront page returns a 404.
+- Product, order, collection, and review pages disappear from your admin.
+- Inventory Management stays available (it doesn't depend on Products), so you can still track standalone items and supplies.
 
-Re-enabling Products restores everything — your products, orders, and inventory data are all preserved.
+Re-enabling Products restores everything. Your products and orders are all preserved.
 
-### Disabling Inventory Management
+### Disabling Shopping Cart & Checkout, or Checkout
 
-- The Inventory section disappears from your admin sidebar
-- Rental Check-outs tab is hidden (the feature depends on Inventory)
-- Existing item and check-out data is preserved and accessible again when you re-enable it
-- Products linked to an item keep drawing from that item's stock when they sell — orders don't check this flag
-
-### Disabling Rental Check-Outs
-
-- The Check-outs tab in Inventory is hidden; if units are still checked out, the Items page shows a banner linking to them
-- New check-outs cannot be created
-- Existing check-outs remain viewable and can still be checked in
-- Existing inventory data and items are preserved
+- **Shopping Cart & Checkout** off: the cart page and checkout are turned off (they show "page not found"), so customers can't buy. Many templates also hide the cart icon, but on most the **Add to Cart** button still shows. A "Cart is disabled" notice appears at the top of your [Dashboard](/docs/dashboard).
+- **Checkout** off: customers can still fill a cart, but there's no way to check out. Use this if you want shoppers to browse and build a cart but not buy yet.
+- Payments off also stops checkout from starting.
 
 ### Disabling Orders
 
-- The Orders section disappears from your admin sidebar
-- New orders cannot be placed through checkout
-- Existing order data is preserved and accessible again when you re-enable it
+- The Orders section disappears from your admin sidebar.
+- Customers no longer see an order history in their account.
+- Existing order data is preserved and accessible again when you re-enable it.
+
+Turning Orders off also switches off Payments (which needs Orders), so customers can't check out either. If you only want to pause buying, turn off Checkout instead.
+
+### Disabling Inventory Management
+
+- The Inventory section disappears from your admin sidebar.
+- The Rental Check-outs tab is hidden (that feature depends on Inventory).
+- Existing item and check-out data is preserved and accessible again when you re-enable it.
+- Products linked to an item keep drawing from that item's stock when they sell. Orders don't check this switch.
+
+### Disabling Rental Check-Outs
+
+- The Check-outs tab in Inventory is hidden. If units are still checked out, the Items page shows a banner linking to them.
+- New check-outs can't be created.
+- Existing check-outs remain viewable and can still be checked in.
 
 ### Disabling Collections
 
-- The `/collections` storefront pages return a 404
-- The Collections admin section is hidden
-- Collection data is preserved
+- The `/collections` storefront pages return a 404.
+- The Collections admin section is hidden.
 
 ### Disabling Galleries
 
-- Your gallery admin section is hidden
-- Gallery-related sections on your storefront are hidden
-- Gallery content is preserved
+- Your Galleries admin section is hidden.
+- Galleries you've placed in your pages show a "Gallery content is not available" placeholder instead of the images.
 
 ### Disabling Blog
 
-- The `/blog` storefront pages return a 404
-- The Blog admin section is hidden
-- All blog post content is preserved
+- The `/blog` storefront pages return a 404.
+- The Blog admin section is hidden.
 
 ### Disabling Testimonials
 
-- The `/testimonials` storefront page is hidden
-- Testimonials admin section is hidden
-- All testimonial content is preserved
+- The `/testimonials` storefront page is hidden.
+- The Testimonials admin section is hidden.
+
+### Disabling Customer-Facing Extras (Wishlist, Back-in-Stock, Product Reviews, Rewards)
+
+- **Wishlist:** heart icons and the wishlist page disappear.
+- **Back-in-Stock Notifications:** the "notify me" form no longer appears on out-of-stock products.
+- **Product Reviews:** the review form and review display are hidden.
+- **Rewards Program:** earning and redeeming pause, and customers keep their balances.
 
 ---
 
 ## Common Use Cases
 
 **Service business with no products**
-Disable Products. This removes the shop, cart, and orders from both your admin and storefront. Your site becomes a content- and contact-focused presence. Inventory stays available for tracking supplies and rental equipment — turn it off too if you don't need it.
+Turn off Products. This removes the shop, cart, and orders from both your admin and storefront, so your site becomes a content- and contact-focused presence. Turn on **Services** or **Events** if they fit. Inventory stays available for tracking supplies and rental equipment. Turn it off too if you don't need it.
 
 **Content or portfolio site**
-Disable Products, enable Blog and Galleries. Your storefront focuses on articles, images, and a contact form — no shopping at all.
+Turn off Products, and turn on Blog and Galleries. Your storefront focuses on articles, images, and a contact form, with no shopping at all.
 
 **Soft launch**
-Keep Products enabled but disable Orders temporarily. Your products are visible but customers cannot check out.
+Keep Products on but turn off **Checkout**. Your products are visible and customers can build a cart, but they can't buy yet. Turn Checkout back on when you're ready.
+
+**Taking donations or invoicing clients**
+Turn on **Donations** or **Invoices**. Neither needs Products, so you can use them on a site that doesn't sell anything.
 
 ---
 
-## Features That Require Platform Activation
+## Features Managed by the SimplePress Team
 
-Some features are not toggleable by you and require the platform team to enable them:
+A small number of features aren't owner-toggleable: **Custom Pages**, **Customer Accounts**, and **Contact Form**. They're on by default for every store (see [the table above](#managed-by-the-simplepress-team)). Everything else, including Product Reviews and Coupons & Discounts, you can switch yourself.
 
-| Feature                 | Why                                                                |
-| ----------------------- | ------------------------------------------------------------------ |
-| **Product Reviews**     | Off by default; enables customer review submissions and moderation |
-| **Coupons & Discounts** | Off by default; enables discount codes at checkout                 |
-
-To request either of these, contact support. Once enabled by the platform team, the feature will appear active in your admin even though you won't see a toggle for it.
+If you need one of the team-managed features changed, [contact us](/docs/expectations#getting-help-and-requesting-changes).
 
 ---
 
 ## Frequently Asked Questions
 
 **Will disabling a feature delete my data?**
-No. All data (products, orders, blog posts, gallery images, testimonials, etc.) is preserved when you disable a feature. Re-enabling it restores full access.
+No. Your products, orders, blog posts, gallery images, testimonials, and so on are all kept when you disable a feature. Re-enabling it restores full access.
 
-**Why is a feature's toggle grayed out?**
-It has a dependency that's currently disabled. The badge next to the toggle tells you which feature needs to be enabled first.
+**Why is a feature's switch grayed out?**
+It depends on a feature that's currently off. The badge next to the switch tells you which one to turn on first.
 
-**I disabled Blog but the "Blog" link is still in my storefront header. Why?**
-On most templates, disabling a feature automatically hides links from your storefront navigation. If the link persists, go to **Content → Navigation** to remove it manually.
+**I turned off Blog, but the "Blog" link is still in my storefront header. Why?**
+On many templates, disabling a feature automatically hides its links from your storefront navigation, including links you added yourself. If the link stays, go to **Content → Navigation** to remove it.
 
 **Can I disable Customer Accounts?**
-No. Customer Accounts is a platform feature that is always on.
+Not yourself. Customer Accounts is managed by the SimplePress team and is on by default for every store. [Contact us](/docs/expectations#getting-help-and-requesting-changes) if you need it changed.
+
+**I'm a manager and can't switch Products CSV import/export. Why?**
+It unlocks bulk data export, so only the store owner can turn it on or off.
 
 **A feature I need isn't on this page. What do I do?**
-Some features are managed by the platform team and don't have owner-facing toggles. Contact support and we can make the change for you.
+Some features are managed by the SimplePress team and don't have switches. [Contact us](/docs/expectations#getting-help-and-requesting-changes) and we can make the change for you.
 
 ---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Team and Roles"
+		description="Who can change settings like this one."
+		href="/docs/team-and-roles"
+	/>
+	<Card
+		title="Storefront & branding"
+		description="Template, logo, colors, and navigation."
+		href="/docs/storefront-and-branding"
+	/>
+	<Card
+		title="Data and Export"
+		description="Download your site, and import or export products."
+		href="/docs/data-and-export"
+	/>
+	<Card
+		title="Glossary"
+		description="Plain-language definitions of SimplePress terms."
+		href="/docs/glossary"
+	/>
+</Cards>

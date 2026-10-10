@@ -1,0 +1,195 @@
+---
+title: Launch checklist
+description: Finish the Setup Guide and work through the go-live checklist so your store is ready to take real orders.
+---
+
+## Overview
+
+Getting your store ready to sell comes down to a handful of steps. SimplePress tracks most of them for you on the **Setup Guide** page, and this page walks through the rest, so you know exactly what to check before you tell customers you're open.
+
+Here's the short version. Come back to it any time:
+
+- [ ] **Connect your own domain** (like `myshop.com`). Required before you start selling. See [Custom domain](#1-connect-your-custom-domain).
+- [ ] **Connect Stripe** so customers can pay by card. See [Stripe](#2-connect-stripe).
+- [ ] **Add at least one product** and **make the storefront yours** with a logo and your own words and photos. See [The Setup Guide](#the-setup-guide).
+- [ ] **Publish your policies**, at least Terms of Service and Returns & Refunds. See [Policies](#3-publish-your-policies).
+- [ ] **Make sure Maintenance Mode is off.** See [Maintenance Mode](#4-turn-maintenance-mode-off).
+- [ ] **Place a test order** and walk through it as a customer would. See [Test order](#5-place-a-test-order).
+
+<video src="/videos/launch-checklist/welcome-tour.webm" poster="/images/launch-checklist/welcome.png" controls muted playsInline className="rounded-lg border" />
+
+*A quick tour of the Setup Guide.*
+
+---
+
+## The Setup Guide
+
+The Setup Guide is your store's to-do list for getting started. It opens on its own when you sign in to a new store, and stays one click away after that.
+
+![The Setup Guide page, showing Setup Progress with each step marked done or still to do](/images/launch-checklist/welcome.png)
+
+*The Setup Guide. Steps that still need doing have a button to do them right there.*
+
+At the top, **Setup Progress** shows how many of the five steps are done (for example, "3 of 5 steps completed") with a progress bar. The steps are:
+
+| Step | What it's for | When it's checked off |
+| ---- | ------------- | --------------------- |
+| **Store Created** | Your store exists. | Always done. |
+| **Connect Payment Processing** | Lets customers pay by card. Click **Connect with Stripe** to sign in to Stripe and link your account. | As soon as your Stripe account is connected. |
+| **Connect a Custom Domain (Required)** | Puts your store on your own web address. You can add your domain right on this step. | As soon as you add a domain. It still has to pass the DNS check before customers can use it (see [below](#1-connect-your-custom-domain)). |
+| **Add Your First Product** | Gives customers something to buy. Click **Add Product**. | When your store has at least one product. |
+| **Customize Your Storefront** | Makes the site look like your business. Use **Brand Identity** to upload your logo, or **Site Editor** to change your homepage's words and photos. | When you've uploaded a logo **or** saved any change in the Site Editor. |
+
+On the right side of the page you'll also find:
+
+- **Preview Your Store**, with a **View Storefront** button that opens your site the way customers see it.
+- **Quick Actions**: shortcuts to **Add Product**, **Store Settings**, and **Edit Content**.
+- **Need Help?**, with links to this **Documentation** and to **Contact Support**.
+
+When every step is done, a **Setup Complete** badge appears at the top of the page.
+
+### When the Setup Guide opens
+
+Until your store has Stripe connected, at least one product, **and** a custom domain, opening your admin takes you to the Setup Guide instead of the Dashboard. Once all three are in place, you land on the Dashboard as usual.
+
+You're never stuck there. Click **Continue to dashboard** near the top of the page to go straight to the rest of your admin at any time. The Setup Guide can't be dismissed or hidden, but it doesn't block anything.
+
+### Getting back to it
+
+- Click **Setup Guide** near the bottom of the admin sidebar.
+- Open the command palette (the search box at the top of any admin page, or `Cmd + K` / `Ctrl + K`) and choose **View setup guide**.
+- On the Dashboard, click **Continue setup** on the **Finish setting up your store** card. The card shows how many steps are done and what's next, and disappears once every step is complete.
+- Until Stripe is connected and you have a product, an **Almost there!** box at the bottom of the sidebar has a **Finish setup** button too.
+
+![The "Finish setting up your store" card on the Dashboard, with a progress bar, the next step, and a Continue setup button](/images/launch-checklist/dashboard-setup-card.png)
+
+*The Dashboard reminds you what's left until setup is finished.*
+
+---
+
+## Going Live
+
+The Setup Guide covers the basics. Before you announce your store, go through these five checks as well.
+
+### 1. Connect your custom domain
+
+Your store starts out on a free SimplePress address (something like `yourstore.simplepress.co`). That's perfect while you're building and testing, but **you need your own domain connected before you start selling.** It's what customers will remember, and it's what your receipts, links, and search listings should point to.
+
+1. Go to **Settings → Domain** (or use the domain step on the Setup Guide).
+2. Type your domain without `https://` or `www`, for example `myshop.com`, and click **Add Custom Domain** (on the Setup Guide, the button is called **Add Domain**).
+3. Sign in to the company you bought your domain from (Namecheap, GoDaddy, Squarespace Domains, and so on) and add the **two A records** shown in your admin: one with the name `@` and one with the name `www`, both pointing to the address shown. On the Setup Guide, each value has a copy button.
+4. Come back and click **Verify DNS**.
+
+DNS changes can take up to 24 hours to take effect. That timing is controlled by your domain company, not SimplePress. If it still won't verify after a day, double-check both records and then [contact support](mailto:help@generativejustice.org).
+
+![Settings → Domain, with the Custom Domain card where you type your domain and click Add Custom Domain](/images/launch-checklist/domain.png)
+
+*Your free subdomain is listed at the top. Type your domain and click Add Custom Domain. The DNS records to add appear next, with a Verify DNS button.*
+
+<Callout type="info" title="The step can show as done before the domain works">
+  The Setup Guide checks off the domain step as soon as you add your domain. Customers can only reach your store at that address once **Verify DNS** succeeds, so check **Settings → Domain** for an **Active** status before you share it.
+</Callout>
+
+Your free SimplePress address keeps working even after your domain is live: anyone who visits your store at the old address is sent on to your own domain automatically. See [Custom Domain](/docs/domain) for the full details.
+
+### 2. Connect Stripe
+
+Stripe is how card payments reach your bank account. Without it, customers can browse and add to their cart, but when they go to check out they see a "checkout unavailable" message instead of a way to pay.
+
+1. Go to **Settings → Integrations**.
+2. In the **Stripe Connect** card, click **Connect with Stripe** and follow Stripe's steps.
+3. When you come back, the card shows **Connected**.
+
+If the card ever shows **Charges paused**, Stripe needs more information from you. Sign in to your Stripe Dashboard to see what it's asking for.
+
+![Settings → Integrations, showing the Stripe Connect card](/images/launch-checklist/stripe.png)
+
+*The Stripe Connect card shows Connected once your account is linked.*
+
+New to Stripe? [Stripe Setup](/docs/stripe) walks you through getting your account ready, including adding your bank account.
+
+### 3. Publish your policies
+
+Customers expect to find your terms, returns, privacy, and shipping rules, and the checkout page links to your terms and returns policies.
+
+1. Go to **Site Setup → Policies**.
+2. There's a tab for each policy: **Privacy**, **Terms**, **Refunds**, and **Shipping**.
+3. On each tab, click **Use Template** to load a starter version (**Privacy Policy**, **Terms of Service**, **Returns & Refunds**, or **Shipping Policy**). It fills in what SimplePress already knows from your settings, like your store name and contact details.
+4. Read it through and fill in anything that still needs your input. The starters are a helpful beginning, not legal advice.
+5. Click **Save content**. Saved policies go live right away.
+
+Until both your **Terms of Service** and **Returns & Refunds** policies have content, a reminder at the top of the Policies page says so. Just below the button customers click to pay, checkout tells customers that ordering means agreeing to your policies, and it links to whichever of those two you've published. Publish both so that link is never missing.
+
+![Site Setup → Policies, with the Privacy, Terms, Refunds, and Shipping tabs and the Use Template button](/images/launch-checklist/policies.png)
+
+*Load a starter for each policy, then make it your own.*
+
+See [Pages and Policies](/docs/pages-and-policies) for more.
+
+### 4. Turn Maintenance Mode off
+
+Maintenance Mode hides your whole storefront behind a single page while you work. It's **off** for most stores, but if you used it while building, remember to switch it off.
+
+When it's on, every storefront page (home, shop, products, cart, and checkout) is replaced by either an **Under maintenance** or a **Coming soon** page, and nobody can place an order. Search engines are also told to skip your site while it's on. You (and any Managers on your team) can still preview the real site while signed in, so it's easy to forget it's on.
+
+1. Go to **Settings → Maintenance Mode**.
+2. Make sure **Enable maintenance mode for my storefront** is switched off.
+3. Click **Save changes**.
+
+If it's on, you'll see a red **Storefront is currently offline** notice on that page.
+
+![Settings → Maintenance Mode, with the switch turned off](/images/launch-checklist/maintenance.png)
+
+*When the switch is off, everyone can see and shop your store.*
+
+### 5. Place a test order
+
+The best final check is to shop your own store the way a customer would:
+
+1. Open your storefront at your own domain in a private or incognito window, so you see it as a signed-out visitor.
+2. Browse to a product, add it to your cart, and go to checkout.
+3. Check that shipping or pickup options, tax, and the policy links look right.
+4. Pay and finish the order.
+5. Check that the order confirmation email arrives, and that the order shows up under **Orders** in your admin.
+6. Mark it fulfilled (or ready for pickup) so you can see the emails your customers will get.
+
+If your store is connected to a real Stripe account, this is a real charge. Use your own card and a low-priced product, then refund it from the order's page in your admin. If you're not sure whether your store is set up for test payments, [ask us](mailto:help@generativejustice.org) before you start.
+
+[For Your Customers](/docs/for-your-customers) shows each step a shopper goes through, and [Orders](/docs/orders) covers fulfilling and refunding.
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Getting started"
+		description="What to have ready, and how setting up your store works."
+		href="/docs/getting-started"
+	/>
+	<Card
+		title="Custom Domain"
+		description="Connect your own domain to your storefront."
+		href="/docs/domain"
+	/>
+	<Card
+		title="Stripe Setup"
+		description="Get your Stripe account ready to accept payments."
+		href="/docs/stripe"
+	/>
+	<Card
+		title="Pages and Policies"
+		description="Create custom pages and manage your policies."
+		href="/docs/pages-and-policies"
+	/>
+	<Card
+		title="For Your Customers"
+		description="What shopping and checkout look like for your customers."
+		href="/docs/for-your-customers"
+	/>
+	<Card
+		title="Orders"
+		description="Fulfill, ship, refund, and cancel orders."
+		href="/docs/orders"
+	/>
+</Cards>
