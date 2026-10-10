@@ -1,0 +1,361 @@
+---
+title: Services
+description: Show what you offer on its own pages, with prices, add-ons, and a Book button that opens your booking tool.
+---
+
+## Overview
+
+Services let you list what you do (facials, classes, consultations, custom work) on pages of your own site. You create a **service** for each group of offerings, such as "Facial Treatments", and add the **specific services** inside it, such as "Signature Facial" or "Express Facial". Customers browse everything at `/services` and click into any group to see the details, prices, and a **Book** button.
+
+<Callout type="warn" title="SimplePress doesn't schedule appointments or take payment for services">
+  Services are display pages. There is no availability calendar, no appointment records, and no cart or checkout for services. Customers book through your own booking tool (Vagaro, Mindbody, Calendly, Acuity, Square, or similar) by clicking a Book button that opens it. To get paid, you can bill through [Invoices](/docs/invoices) using **Add from catalog**. See [Getting Paid](#getting-paid) below.
+</Callout>
+
+---
+
+## Turn On Services (and Embeds)
+
+Services is **off by default**. Go to **Settings → Features**, find the **Content** card, and switch on **Services**. Owners and Managers can both do this. See [Feature Flags](/docs/feature-flags) for the full list of switches.
+
+If you want booking widgets to open right on your site, also switch on **Embeds** in the same card. Embeds is also off by default, and it's what lets a booking page appear inside your site instead of sending customers away. Services works fine without it. You can still add a **Book Now** button that links to your booking page; you only need Embeds for booking widgets.
+
+![The Settings → Features page with the Content card showing the Services and Embeds switches turned on](/images/services/features-services-embeds.png)
+
+Once Services is on, **Services** appears in your admin sidebar under **Catalog**. While it's off, opening the page shows "Services is not enabled for this business" with an **Enable Services** button.
+
+---
+
+## Services vs. Specific Services
+
+There are two levels:
+
+- A **service** is a page on your site, like "Facial Treatments". It has a name, a description, a cover image, its own URL, and its own SEO settings. Customers see these on the `/services` page.
+- **Specific services** are the individual offerings listed on that page, like "Signature Facial, 60 min, $85". Each one has its own price, duration, image, add-ons, and optionally its own booking widget. You manage them on the service's **Specific services** tab.
+
+Think of a service as a menu section and the specific services as the items on it.
+
+---
+
+## The Services List
+
+Go to **Services** in your admin sidebar (under **Catalog**). Each row of the table shows:
+
+- The service's cover image, name, and a one-line description
+- **Items**: how many specific services it has. If some are drafts, a second line shows how many are "live" (published)
+- **Template**: the page layout it uses
+- **Status**: a **Published** or **Draft** badge
+
+If a service is published but has no published items, the row shows a warning: "Published, but shoppers see an empty page." Add an item or publish one of its items to fix it.
+
+![The Services list showing five services with image, name, item counts, template and Published status, plus the search box and Filters button. Two published services with no items show the "Published, but shoppers see an empty page" warning](/images/services/services-list.png)
+
+### Finding and sorting
+
+- **Search services…** matches the service's name, its URL, and its description.
+- **Status** filters between **All services**, **Published**, and **Drafts**.
+- **Sort** offers **Newest** (the default), **Name A–Z**, **Name Z–A**, **Oldest**, **Most items**, and **Fewest items**.
+
+The list shows 25 services per page.
+
+### Row actions
+
+Click a service's name to open it, or use the three-dot menu at the end of the row:
+
+- **Edit**
+- **View on storefront** (only for published services; opens in a new tab)
+- **Duplicate**
+- **Delete**
+
+### Doing several at once
+
+Tick the checkboxes on the left to select services. A bar appears with:
+
+- **Publish** and **Unpublish**: up to 100 services at a time. A message appears afterwards with an **Undo** button.
+- **Delete**: up to 25 services at a time. Only the store **Owner** sees this button.
+
+---
+
+## Creating a Service
+
+Click **Create Service** (or **Create Your First Service** if you have none yet). The editor has a toolbar across the top with:
+
+- A status label: **Draft** (while creating), **Unsaved Changes**, or **Saved**
+- The **Published** switch
+- A **More Options** menu: **View on storefront** (published services only), **Duplicate**, **Reset** (throws away your unsaved changes), and **Delete**
+- **Save changes**
+
+Below it are four tabs: **Details**, **Specific services**, **SEO**, and **Page content**.
+
+<Callout type="info" title="Some tabs appear after your first save">
+  When you're creating a service you'll only see **Details** and **SEO**. Click **Save changes** once, and SimplePress takes you to the full editor with **Specific services** and **Page content** added.
+</Callout>
+
+### Basic Information
+
+On the **Details** tab, the **Basic Information** card has:
+
+- **Service name** _(required)_: for example "Facial Treatments". Up to 120 characters.
+- **Description**: "Describe what this service group includes…". Shown at the top of the service page. Up to 2,000 characters.
+- **Cover image**: used as the service's thumbnail on the `/services` page. Choose **Upload from device**, or **Choose from library** if the [Media Library](/docs/media-library) is turned on. You can also **Replace image** or **Remove image**. Images can be up to 5MB, and they're uploaded when you click **Save changes**.
+
+Under the name, the editor shows the service's **Storefront URL** with an **Edit in SEO** link.
+
+![The Details tab of the service editor with the Basic Information card (name, description, cover image) and the Page Template card](/images/services/service-details.png)
+
+### Page Template
+
+The **Page Template** card, "Choose how this service's detail page is laid out", lists the layouts your current [template](/docs/templates) offers for service pages. Pick one by clicking its card.
+
+On the Default template there's just one, called **Default**: a clean page with a hero, an intro, the list of specific services, and a closing call-to-action. Other templates may offer several layouts.
+
+### Published
+
+The **Published** switch in the top toolbar controls whether the service is visible on your storefront. **New services start with Published switched on**, so switch it off before you save if you want to keep working privately.
+
+Unpublished services return a "not found" page to customers, even if they have the direct link.
+
+---
+
+## Adding Specific Services
+
+Open the **Specific services** tab. Click **Add first item** (or **Add item** once you have some) to open the **Add service item** dialog. The description reads: "Fill in the details for this specific service offering."
+
+![The Specific services tab listing two items, each with a drag handle, thumbnail, name, price and duration, and edit and delete buttons](/images/services/specific-services.png)
+
+<Callout type="info" title="Items save as you go">
+  Unlike the rest of the editor, specific services save the moment you add, edit, delete, or reorder them. You don't need to click **Save changes** for them. The toolbar reminds you: "Items save as you add or edit them".
+</Callout>
+
+### The item dialog
+
+- **Name** _(required)_: for example "Signature Facial". Up to 120 characters.
+- **Description**: "Describe this specific service…". Up to 2,000 characters.
+- **Image**: upload one, or choose it from the library. It's uploaded when you add or update the item.
+- **Price**: free text such as `$85`. Up to 60 characters.
+- **Was / compare-at price**: free text such as `$120`. Customers see it crossed out next to the price.
+- **Duration**: free text such as `60 min`.
+- **Published**: on by default. Switch it off to keep an item as a draft that customers don't see.
+- **Signature offering**: "Spotlight this as the flagship treatment." Templates that support it show a badge such as "Signature" on that item. The Default template doesn't show a badge, so on Default this switch has no visible effect.
+- **Price options**: see below.
+- **Add-ons**: see below.
+- **Booking embed**: see [Letting Customers Book](#letting-customers-book).
+
+If your template groups items into sections, a **Section** field also appears. Define the sections first in the **Page content** tab, then assign items to them here.
+
+<Callout type="info" title="Prices are just text">
+  Price, compare-at price, and duration are labels that customers read. SimplePress doesn't calculate with them, so there's no tax, discount, or checkout handling. Type them the way you want them to look.
+</Callout>
+
+![The Add service item dialog filled in, with Price options and Add-ons expanded, each showing one row](/images/services/service-item-dialog.png)
+
+### Price options
+
+Open **Price options** ("Alternate prices for different groups (membership, annual, etc.)") to show more than one price for the same service. Click **Add tier**, then fill in:
+
+- **Label**: for example "Members"
+- **Price**: for example `$70`
+- **Was (optional)**: a crossed-out price
+
+You can add up to **8** price options. Labels and prices can be up to 60 characters each.
+
+### Add-ons
+
+Open **Add-ons** ("Optional extras shown under this service.") to list extras customers can ask for. Click **Add add-on**, then fill in:
+
+- **Name**: for example "Hot stones" (up to 80 characters)
+- **Price**: for example `+$20` (up to 60 characters)
+- **Description**: optional (up to 200 characters)
+
+You can add up to **12** add-ons per item. Add-ons are shown for information. Customers can't add them to a cart, so mention them when they book.
+
+### Reordering, editing, and deleting items
+
+- **Reorder**: drag an item by its handle ("Drag to reorder"). The handle also works from the keyboard. The new order is saved immediately and is the order customers see.
+- **Edit** and **delete** buttons sit at the end of each row. Deleting an item shows "Delete item?" and can't be undone.
+- Items marked **Draft** stay hidden from customers until you publish them.
+
+---
+
+## Letting Customers Book
+
+SimplePress doesn't take bookings itself. Instead, you give it the address of your booking page, and the **Book** buttons on your service pages send customers there. You can do this on each item, on the whole service page, or both.
+
+### Option 1: A booking embed on each item
+
+This lets each specific service open its own booking page, for example a different Vagaro link per treatment. It requires **Embeds** to be switched on (see [Turn On Services](#turn-on-services-and-embeds)). Without it, the dialog shows "Embeds are disabled for this business. Enable the Embeds feature in **Settings → Features**."
+
+In the item dialog, open **Booking embed** and fill in:
+
+- **Booking embed (optional)**: paste your booking page address (for example `https://vagaro.com/...`) or a full `<iframe>` embed code. It must be `https://`.
+- **Embed height (px)**: how tall the booking window should be, from 100 to 2,000. Leave it blank for 600. If you paste an `<iframe>` snippet that includes its own height, that height is used instead.
+
+If the address isn't valid you'll see "Booking embed URL must be a valid HTTPS URL."
+
+![The Booking embed section of the item dialog filled in with a booking page URL and an embed height](/images/services/booking-embed.png)
+
+### Option 2: A booking button and widget for the whole page
+
+The service's **Page content** tab has a **Booking** group, described as an "Optional booking button and booking widget at the bottom of the page." Use it for a single booking page that covers the whole service.
+
+- **Button text**: the label on the button. It starts as "Book Now".
+- **Button link**: where the button goes. Leave it blank to hide the button. This works even if Embeds is off.
+- **Booking widget**: a booking page shown right on the page. This needs **Embeds** to be switched on.
+- **Show booking widget behind a button**: when on, the widget stays hidden until the visitor clicks a button, then opens.
+
+Click the widget field to open its editor:
+
+- **URL or embed code**: your booking page address or `<iframe>` snippet. If it isn't valid you'll see "Enter a valid https:// URL or embed code".
+- **Aspect ratio**: **Video (16:9)**, **Classic (4:3)**, **Square (1:1)**, **Vertical (9:16)**, or **Fit content (set height)**.
+- **Width**: **Full width**, **Large**, **Medium**, or **Small**.
+- **Height (px)**: only appears when the aspect ratio is **Fit content**.
+- **Display**: **Inline** (always visible on the page) or **Open in dialog** (behind a button, with a **Button label** you choose).
+- **Title** _(required)_: "Describes the embed for screen readers."
+
+<Callout type="warn" title="Fill in Title or nothing is saved">
+  The booking widget isn't saved at all until its **Title** has text in it. If you paste a link and your widget seems to vanish after you save, check that Title isn't empty.
+</Callout>
+
+![The Booking group on the Page content tab with Button text, Button link, and the Booking widget editor filled in, including the Title](/images/services/page-content-booking.png)
+
+### What customers see
+
+| Your setup | What the customer sees |
+|---|---|
+| An item has a booking embed and Embeds is on | A **Book** button on that item opens a window titled "Book — [item name]" with your booking page inside |
+| An item has a booking embed, but Embeds is later turned off | The **Book** button becomes a link that opens your booking page in a new tab |
+| An item has no booking embed (Default template) | A greyed-out **Book** button on the item |
+| The page-level widget is set to open behind a button | A button (**Book Now** unless you changed it) opens the widget. If Embeds is later turned off, it becomes an **Open booking page** link |
+| The page-level widget is inline | The booking page appears in the page itself |
+
+On the Default template, every item card shows a **Book** button, and it stays greyed out until the item has a booking embed. If you only use the page-level booking button, add a booking embed to each item too so the buttons work.
+
+### Tips for booking pages
+
+- **Paste the booking page's web address**, not a script. SimplePress can use a plain `https://` address or an `<iframe>` snippet. Embed codes that rely on a `<script>` (some providers' default code) don't work. If your provider only gives you script code, look for their direct booking page link instead.
+- **The address must be `https://`.** It can't point at your own SimplePress site.
+- **Test it.** Some providers refuse to appear inside other websites. If your booking page shows up blank or with an error in the dialog, use the **Button link** instead so it opens on the provider's own site.
+- A booking window works best when it's tall enough to avoid a scrollbar inside a scrollbar. If you see one, raise the height.
+
+---
+
+## Page Content
+
+The **Page content** tab holds extra fields for how the service's page looks. Each layout has its own fields. The tab opens with "Editing page content for the [layout] layout". These fields aren't in the [Site Editor](/docs/site-editor); you edit them here, one service at a time.
+
+On the Default layout the groups are:
+
+- **Top image**: a wide **Image** across the top of the page. If you also add a **Video** (MP4), the video plays there instead.
+- **Intro**: a **Heading** (starts as "About This Service"), rich **Text**, and an optional **Image** or **Video** shown beside the text. The whole intro hides itself if it has no text or media.
+- **Booking**: the booking button and widget described above.
+
+Things to know:
+
+- **Images and videos upload as soon as you pick them** (images up to 5MB, videos up to 50MB), and you'll see "Image uploaded successfully". They only become part of your page when you click **Save changes**. (This differs from the cover image and item images, which upload when you save.)
+- **Switching your storefront template can hide this content.** If your new template doesn't have the same layout a service uses, the service falls back to the new template's default layout. Your old page content is still stored, but it won't show on the new layout. See [Templates](/docs/templates).
+
+---
+
+## The /services Page
+
+The page at `/services` lists all your published services, in the order they were created, each with its cover image, name, and an **Explore →** link. Its heading, intro text, photo, and closing banner are edited in the [Site Editor](/docs/site-editor). Open the page picker and choose **Services**.
+
+On the Default template the page has:
+
+- A hero with a small label (starting as "What we offer"), a heading (starting as "Services"), intro text, and an optional photo
+- An optional intro section
+- A grid of your services
+- A closing banner ("Tell us what you need." with a **Get in touch** button that goes to your contact page)
+
+If you don't have any published services yet, the page shows "No services yet."
+
+![The Default /services page with the hero and the first row of service cards. The closing banner sits below the cards](/images/services/storefront-services.png)
+
+Each service's own page shows the service name and description over its top image, the intro, an **Our Services** list of cards, and the booking section. Each card shows the price, any crossed-out earlier price, the duration, any price options, add-ons, and the **Book** button.
+
+![A Default service page with the Our Services cards showing price, a crossed-out earlier price, duration, and Book buttons](/images/services/storefront-service.png)
+
+### Adding Services to your menu
+
+- The Default template's header and footer show a **Services** link automatically while Services is switched on.
+- To add a dropdown listing each service, go to **Navigation** and use **Quick Add**. In the **Services** group, click **Add Services menu**. It lists published services only. See [Storefront and Branding](/docs/storefront-and-branding) for how to build your menu.
+- If you turn Services off, any menu links to `/services` are hidden automatically.
+
+The `/services` page isn't featured on the homepage automatically. Add a link or button there yourself if you want one.
+
+---
+
+## URL and SEO
+
+On the **SEO** tab:
+
+- **URL Slug** _(required)_: the end of the service's address. The slug `facial-treatments` gives you `/services/facial-treatments`. Use letters, numbers, dots, dashes, tildes, and underscores. Each slug must be unique, otherwise you'll see "A service with this slug already exists."
+- **Meta Title**: the title in search results. The counter includes your business name; aim for 50–60 characters (the field allows up to 70). Leave blank to use the service name.
+- **Meta Description**: the description in search results. Aim for 150–160 characters (up to 200). Leave blank to use the service description.
+- **Open Graph Image**: the picture used when the page is shared. By default the service's cover image is used; upload a 1200×630 image here only if you want a separate share card.
+- **Search Result Preview** and **Social Media Preview** show roughly how the page will look.
+
+While a service is new or still unpublished, the slug follows the name as you type. Once it's published, renaming the service leaves the URL alone, and the Details tab shows "Name changed — the URL hasn't." with an **Update URL** button if you'd like them to match.
+
+<Callout type="warn" title="Changing a URL breaks old links">
+  If you change a published service's slug, links to the old address (bookmarks, search results, things you've shared) will stop working. SimplePress doesn't create a redirect. The editor warns you before you save.
+</Callout>
+
+Published services are added to your sitemap automatically, and the `/services` page has its own search settings in your site-wide SEO settings.
+
+---
+
+## Duplicating and Deleting
+
+**Duplicate** (from the list's three-dot menu or **More Options**) makes a copy named "Copy of [name]" with all its specific services. The copy is always saved as a **draft**, so nothing goes live until you publish it. Each item keeps its own published or draft state, and pictures are shared with the original rather than copied. A message confirms "Service duplicated — draft saved".
+
+**Delete** removes the service and **all of its specific services**, and its page at `/services/{slug}` stops working. A confirmation appears first, and it can't be undone. Your uploaded image files stay in your library.
+
+---
+
+## Getting Paid
+
+Because services aren't sold through a cart, you get paid by sending an invoice:
+
+1. Go to **Invoices** and create one.
+2. Use **Add from catalog** and search "Search products or services…". Your service items are listed under **Services**.
+3. Pick the item. SimplePress reads the price from its **Price** text. If it can't (for example `From $85`), the line shows **Set price** so you can type the amount yourself.
+
+See [Invoices](/docs/invoices) for the full guide.
+
+---
+
+## Who Can Manage Services
+
+Owners and Managers can create, edit, duplicate, publish, and delete services and their items. Only Owners can delete several services at once. Staff can't open Services. See [Team and Roles](/docs/team-and-roles).
+
+---
+
+## Can and Can't
+
+**You can:**
+
+- Create as many services as you need, each with its own page, image, and SEO
+- Add specific services with prices, compare-at prices, durations, up to 8 price options, and up to 12 add-ons each
+- Keep services and items as drafts while you work on them
+- Open your booking tool from a Book button, in a window on your site or in a new tab
+- Duplicate a service as a starting point
+- Reorder the items inside a service
+- Bill for a service from Invoices
+
+**You cannot:**
+
+- Take bookings, show availability, or keep appointment records in SimplePress
+- Take payment for a service through the storefront or add a service to the cart
+- Calculate tax, discounts, or totals from service prices (they're text)
+- Reorder the services themselves. They appear in the order they were created, and a duplicate goes last
+- Create an automatic redirect when you change a service's URL
+- Use booking codes that need a `<script>`, non-`https` addresses, or an address on your own site
+- Show a booking widget on your site without the Embeds feature
+
+---
+
+## Feature Flag
+
+**Services** is off by default and owner-toggleable. Go to **Settings → Features** and switch it on in the **Content** card. It doesn't depend on any other feature. **Embeds**, in the same card, is also off by default and is only needed for booking widgets that open on your own pages. While Services is off, the admin section is replaced by an **Enable Services** prompt and `/services` shows a not-found page on most templates.
+
+Turning Services on also adds a mention of third-party embeds to your generated privacy policy.

@@ -1,223 +1,403 @@
 ---
 title: Products
-description: Create and manage your product catalog.
+description: Create and manage your product catalog, with photos, variants, pricing, stock, and search settings.
 ---
 
 ## Overview
 
-Products are the core of your store. This page covers how to create and manage your catalog, work with variants, upload images, track inventory, and import or export your product data.
+Products are the core of your store. Each product has a name, a price, photos, and a page on your storefront. You can add variants for sizes and colors, track stock, schedule a launch, and choose which collections it belongs to.
 
-> **Feature flag:** Products is on by default and owner-toggleable. Disabling it hides Products and all dependent sections (Orders, Cart, Inventory, Collections) from your admin nav.
-
----
-
-## Product List
-
-Go to **Products** in the admin sidebar to see your full catalog.
-
-![Screenshot of the Products list showing product names, status badges, and the Import/Export buttons in the top right.](/product-list-view.jpeg)
-
-From here you can:
-
-- Search products by name
-- Click any product to edit it
-- Click **New Product** to create one
-- Use **Import** to bulk-load from a CSV
-- Use **Export** to download your catalog
+<Callout type="info">
+Products is on by default and can be switched off in **Settings → Features**. Turning it off also turns off everything that depends on it: **Orders**, **Cart**, **Collections**, **Checkout**, **Wishlist**, **Back-in-stock** alerts, **Product Reviews**, and **Product Subscriptions**. **Inventory** does not depend on Products and keeps working. See [Feature flags](/docs/feature-flags).
+</Callout>
 
 ---
 
-## Creating a Product
+## The Products list
 
-Click **New Product** in the top right. The product form has two tabs: **Basics** and **Additional Info**.
+Go to **Products** in your admin sidebar (under **Catalog**) to see your whole catalog.
 
-![Screenshot of the New Product form with the Basics and Additional Info tabs.](/new-product-form.jpeg)
+![The Products page with the search box, Filters button, Export products (CSV) and Add Product buttons, and a table of products with photos, prices, variant counts, and Published or Draft badges](/images/products/products-list.png)
 
-### Basics Tab
+Each row shows:
 
-#### Basic Information
+- **Product** — the photo, the name, and the URL slug
+- **Price**
+- **Variants** — "No variants" or "N variants"
+- **Status** — a **Published** or **Draft** badge
 
-| Field        | Notes                                                                                                                                       |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Product Name | Required. What customers see on the storefront.                                                                                             |
-| URL Slug     | Auto-generated from the name when you first type it. Editable, but must be unique per store. Used as the product URL: `/products/your-slug` |
-| Description  | Plain text description of the product.                                                                                                      |
+### Finding and sorting
 
-#### Pricing
+- **Search products…** matches a product's name, its URL slug, its SKU, and the SKU of any of its variants.
+- **Status** and **Sort** are in the **Filters** menu beside the search box.
+- **Status** filters between **All products**, **Published**, and **Drafts**.
+- **Sort** offers **Newest**, **Oldest**, **Name A–Z**, **Name Z–A**, **Price low–high**, and **Price high–low**.
 
-| Field            | Notes                                                                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Price (USD)      | The selling price. Required.                                                                                                    |
-| Compare At Price | Optional. The "original" price shown crossed out beside the current price — signals a sale or discount. Leave blank to hide it. |
+Long catalogs are split into pages. If your filters match nothing, you'll see "No products match your filters" with a **Clear filters** button. A brand-new store shows "No products yet" with an **Add Your First Product** button.
 
-> If your product has variants, pricing is managed per variant and the product-level pricing fields are hidden. See [Variants](#variants) below.
+### Row actions
 
-#### Images
+Click a product's name to open it, or use the three-dot menu at the end of the row:
 
-Upload one or more photos for your product. Drag the images to reorder them — the first image is used as the main product card thumbnail.
+- **Edit**
+- **View on storefront** (only for published products)
+- **Duplicate**
+- **Delete**
 
-- **Max:** 10 images per product
-- **Max file size:** 5 MB per image
-- Each image has an optional **Alt Text** field for accessibility
+### Doing several at once
 
-![Screenshot of the image uploader with multiple images loaded and drag handles visible.](/product-image-upload.png)
+Tick the checkboxes on the left to select products. Your selection stays when you move to another page. If your filters match more products than fit on the page, you'll get an option to select all of the matching products at once.
 
-#### Inventory
+A bar appears with:
 
-| Field              | Notes                                                                                                       |
-| ------------------ | ----------------------------------------------------------------------------------------------------------- |
-| Track Inventory    | Toggle on to enable stock tracking for this product. Off by default — the product shows as always in stock. |
-| Allow Backorders   | Only visible when Track Inventory is on. When enabled, customers can purchase even when qty = 0.            |
-| Inventory Quantity | Only visible when Track Inventory is on and the product has no variants. Enter your current stock level.    |
-
-When the product has variants, inventory quantity is set per variant instead.
+- **Publish** and **Unpublish** — a message appears afterwards with an **Undo** button.
+- **Delete** — only the store **Owner** sees this button.
 
 ---
 
-### Variants
+## Creating or editing a product
 
-Use variants for products that come in different sizes, colors, or other options. Click **Add Variant** to open the variant manager.
+Click **Add Product** to create a product, or click a product's name to edit it. The toolbar across the top has:
 
-![Screenshot of the variant manager with option types defined and a table of generated variants.](/variant-creation.png)
+- **Back**, and the title ("New Product" or the product's name)
+- A status badge: **Draft** (new and untouched), **Unsaved Changes**, or **Saved**
+- The **Published** switch
+- A **More Options** menu: **View on storefront** (published products only), **Reset**, **Duplicate** (existing products only), and **Delete** (existing products only)
+- **Save changes** — and, on a new product, **Save & create another**, which saves and gives you a blank form for the next one
 
-#### Defining Options
+You can also press **Cmd+Enter** (Mac) or **Ctrl+Enter** (Windows) to save.
 
-Variants are built from option types. Common examples: `Size` with values `Small`, `Medium`, `Large`, or `Color` with values `Black`, `White`, `Red`. Once you define your option types and their values, the variant manager generates every combination automatically.
-
-#### Variant Fields
-
-Each variant has its own:
-
-| Field            | Notes                                                                |
-| ---------------- | -------------------------------------------------------------------- |
-| Name             | Auto-generated from option values (e.g., "Small / Black"). Editable. |
-| Price            | Overrides the product-level price for this variant.                  |
-| Compare At Price | Variant-specific sale price display.                                 |
-| SKU              | Optional stock-keeping unit for this variant.                        |
-| Inventory Qty    | Per-variant stock level (only relevant when Track Inventory is on).  |
-
-#### Bulk Editing
-
-Select multiple variants using the checkboxes and use **Bulk Edit** to update price and inventory quantity across all selected variants at once.
+The form has up to four tabs: **Basics**, **Collections** (only when [Collections](/docs/collections) is on), **SEO**, and **Product page**. If a field on a tab has a problem when you save, that tab shows a red dot.
 
 ---
 
-### Additional Info Tab
+## The Basics tab
 
-These fields are optional and their visibility on the storefront depends on which template your store uses.
+![The top of the Basics tab, showing the Basic Information card and the Pricing card with a cost per item entered, the margin, the profit bar, and suggested prices](/images/products/product-basics.png)
 
-![Screenshot of the additional information section with a rich text editor.](/new-product-additional-info.jpeg)
+### Basic Information
 
-#### Additional Information
+- **Name** — required. This is what customers see on the storefront.
+- **Description** — a plain-text description of the product.
+- **Storefront URL** — shown under the name, like `/shop/your-product`. It has an **Edit in SEO** link, because the slug itself lives on the **SEO** tab (see [The SEO tab](#the-seo-tab)).
 
-A rich text editor (supports bold, italic, links, lists, and headings). On templates that support it, this content is rendered in an **"Additional Information"** tab on the product detail page — useful for care instructions, sizing guides, materials, etc.
+The URL slug follows the name as you type. It stops following once the product has been published, or once you edit the slug yourself. After that, if you rename the product, the form shows "Name changed — the URL hasn't." with an **Update URL** button. Click it if you want the address to match the new name. Otherwise the address stays put.
 
-#### Feature Highlights
+### Schedule publish
 
-Add a list of short selling points, each with an icon and a label (e.g., a leaf icon + "100% Natural"). These appear as trust badges on the product page in supported templates.
+While a product is unpublished, a **Schedule publish** field appears. Pick a date and time, and the product goes live automatically then. Leave it empty to publish by hand with the **Published** switch.
 
-![Screenshot of the feature highlights section with a list of short selling points.](/product-features-list.png)
+### Pricing
 
-#### Presentation
+- **Price** — the selling price.
+- **Compare at price** — optional. The "original" price, shown crossed out next to the real one to signal a sale. It must be **greater than** the price. If it isn't, you'll see "Compare-at price must be greater than price".
+- **Cost per item** — optional, and private. What the product costs you to make or buy.
 
-| Field           | Notes                                                                                                                                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Product Tagline | A short subtitle shown below the product name on cards and the product page in some templates. Also appended to the product name in the cart (e.g., "Tote Bag - The everyday essential").                     |
-| Coming Soon     | Toggle. Adds a "Coming Soon" badge and disables the add-to-cart button on the product page. The product is also blocked at checkout server-side — this cannot be bypassed even by accessing the URL directly. |
+When you fill in a cost, a profit helper appears. It shows your margin, and a bar that splits the price into cost, estimated card fee, and profit. The card fee is an estimate based on Stripe's standard 2.9% + 30¢. Under it, **Suggested prices by margin** shows buttons. Click one to set the price to hit that margin.
 
----
+If the product has variants, the card says pricing is managed per variant, and the price fields move down to the **Product Variants** section. **Cost per item** stays here.
 
-## Publishing
+### Subscriptions
 
-The **Published** toggle is in the top toolbar of the product form. Unpublished products:
+This card only appears when **Product Subscriptions** is switched on in **Settings → Features** (it's off by default). Turn on **Offer as a subscription**, choose the **Cadence** options customers can pick, and set a **Subscribe & save** discount from 0 to 90 percent. See [Subscriptions](/docs/subscriptions).
 
-- Do not appear anywhere on the storefront
-- Cannot be added to the cart
-- Are blocked at checkout even if a customer somehow has the URL
+### Shipping weight
 
-New products default to unpublished. Flip the toggle and save when you're ready to make a product live.
+Enter the **Package weight** in pounds or kilograms. Your shipping setup uses it to work out rates. If your store's shipping mode doesn't use weight, the card says so and offers a **Set a weight anyway** link. See [Shipping](/docs/shipping).
 
----
+### Inventory
 
-## Editing a Product
+For a product without variants:
 
-Click any product in the list to open it. All the same fields are available. Make your changes and click **Save Changes** (or press Enter). A "Saved" / "Unsaved Changes" badge in the toolbar reflects the current state.
+- **SKU** and **Barcode (UPC/EAN/GTIN)** — optional codes. With variants, each variant gets its own.
+- **Track Inventory** — turn this on to count stock. It's off by default, and an untracked product always shows as in stock.
+- **Allow Backorders** — only shows when Track Inventory is on. Customers can still buy when the count is zero.
+- **Inventory Quantity** — only shows when Track Inventory is on and the product has no variants. With variants, you set stock on each variant.
+- **Low Inventory Threshold** — only shows when Track Inventory is on. You get an email when stock drops to this number. Leave it blank for no alert.
+- **Inventory item** — pick a stock item from your [Inventory](/docs/inventory-management) to draw stock from, or leave it on "None — use individual inventory". Rental items can't be linked. When you link one, set **Units consumed per purchase**. The product's own stock controls are hidden while it's linked. This box only shows when Inventory Management is on (or the product is already linked).
 
-To delete a product, click the **Delete** button in the toolbar and confirm. Deletion is permanent and removes all associated variants, images, and inventory history.
-
----
-
-## Import & Export
-
-### Importing Products (CSV)
-
-Go to **Products → Import** to bulk-load products from a CSV file. SimplePress uses the WooCommerce CSV format.
-
-**Photo:** Screenshot of the import page showing the file upload area and options panel.
-
-**Supported import fields:**
-
-| CSV Column                | Notes                                                                |
-| ------------------------- | -------------------------------------------------------------------- |
-| Name                      | Product name                                                         |
-| SKU                       | Variant SKU                                                          |
-| Regular price             | Selling price (in dollars)                                           |
-| Sale price                | Compare At price (in dollars)                                        |
-| Description               | Product description                                                  |
-| Published                 | 1 = published, 0 = unpublished                                       |
-| Is featured?              | 1 = featured (for front-page display)                                |
-| In stock?                 | 1 = in stock, 0 = out of stock                                       |
-| Stock                     | Inventory quantity                                                   |
-| Weight (g)                | Converted automatically to kg on import                              |
-| Images                    | Comma-separated image URLs                                           |
-| Type                      | `simple` or `variable` (use `variation` for individual variant rows) |
-| Attribute 1–4 name/values | Defines variant options (up to 4 attributes per product)             |
-
-**Import options:**
-
-| Option                             | Choices                                                |
-| ---------------------------------- | ------------------------------------------------------ |
-| On duplicate SKU                   | Skip, Update existing, or Create new                   |
-| Import images                      | Toggle on/off                                          |
-| Create collections from categories | Toggle — imports WooCommerce categories as collections |
-
-#### How to Import
-
-1. Go to **Products → Import**
-2. Upload your CSV file. A preview of parsed rows is shown before anything is written to the database.
-3. Review any warnings or errors surfaced by the parser.
-4. Set your import options.
-5. Click **Run Import**.
-6. View the results summary. Past imports are saved in the import history.
-
-### Exporting Products (CSV)
-
-Go to **Products → Export** to download your catalog.
-
-Select the products you want to export (or select all), then click **Export**. The file downloads as a WooCommerce-compatible CSV and includes variants as separate rows.
+Stock counts, adjustments, and the Inventory pages themselves are covered in [Inventory management](/docs/inventory-management).
 
 ---
 
-## Storefront Behavior
+## Product images
 
-- Products live at `/shop/[slug]`
-- To see all products, the shop listing is at `/shop`
-- The storefront renders the product page using your active template
-- Product cards show the name, tagline (if set), price, compare-at price, and first image
-- If a compare-at price is set, a sale badge is displayed alongside the crossed-out original price
-- If `Track Inventory` is on and stock reaches zero (with backorders off), the product shows as sold out and cannot be added to the cart
-- The `Coming Soon` flag shows a badge and blocks checkout regardless of inventory
+The **Product Images** card is on the **Basics** tab. It shows how many photos you've used, like "3 of 10 images". A product can have up to 10.
+
+![The Product Images card with the Add images menu open, showing Upload from device and Choose from library](/images/products/images-add-menu.png)
+
+### Adding photos
+
+Click **Select images** (or **Add images** once you already have some). What happens next depends on whether the **Media Library** is on:
+
+- **Media Library on** — a menu opens with **Upload from device** and **Choose from library**.
+- **Media Library off** — your computer's file picker opens straight away.
+
+You can also drag photos from your computer and drop them anywhere on the card. You can add several at a time.
+
+Media Library is on by default. It can be switched on or off in **Settings → Features**. See [Media Library](/docs/media-library).
+
+### Choosing from the library
+
+**Choose from library** opens the **Choose images** window. It lists everything in your Media Library.
+
+![The Choose images window with a search box, a grid of library pictures with two selected, and the "2 selected · 6 left" footer with Cancel and Add 2 images](/images/products/choose-images-dialog.png)
+
+- Use **Search by filename…** to find a picture.
+- Click pictures to select them. Pictures already on this product are tagged **Added**.
+- The footer shows "N selected · M left", where M is how many more photos the product has room for.
+- Click **Add N images** to add them, or **Cancel** to back out.
+
+If you try to pick more than will fit, you'll see "You can add N more images", or "You can't add any more images" when the product is full. Pictures from the library are already hosted, so they're added right away. There's nothing to upload.
+
+### Photos from your device
+
+Photos from your computer or phone are prepared first (you'll see "Preparing photos…"):
+
+- **HEIC** photos, like the ones iPhones take, are converted automatically.
+- Large photos are shrunk to a maximum of 2,560 pixels and compressed.
+- After that, each photo must be **under 5 MB**. Most phone photos fit.
+
+These photos are shown as previews only. The upload happens when you click **Save changes**, and the card reminds you: "Pending images upload when you save."
+
+### Limits and skipped files
+
+- At 10 photos, you'll see "This product already has 10 images — remove one to add more".
+- If you add more than will fit, the extra ones are skipped: "Added X of Y images — products can have at most 10 (Z skipped)".
+- A file that isn't a picture is skipped: `Skipped "<file>": not an image`.
+- A photo still over the size limit after processing is skipped: `Skipped "<file>": must be less than 5MB`.
+- A library picture that's already on the product is skipped: "Skipped images that are already in the gallery".
+- If you drop files while photos are still being prepared, you'll see "Still preparing photos — try again in a moment".
+
+### Order, alt text, and removing
+
+- **Reorder** by dragging a photo by its handle. You can also reorder with the keyboard.
+- The **first photo is the primary image**. It's the one on your product card and the shop grid. The card marks it "Primary image".
+- **Alt Text** — describe each photo ("Describe this image..."). It helps people using screen readers, and helps search engines.
+- Click the red **X** on a photo to remove it from the product. The change is saved when you click **Save changes**.
 
 ---
 
-## Cannot
+## Variants
 
-- Change a product's slug to one already used by another product in your store
-- Set a negative inventory quantity
-- Edit an order's items or pricing after checkout — the product data is captured at purchase time
-- Have a "Coming Soon" product checked out even if it has inventory (blocked server-side)
+Use variants for a product that comes in different sizes, colors, or other options. On the **Basics** tab, the **Product Variants** card starts with an **Add Variants** button. Once a product has variants, the button reads **Edit Options**.
+
+<video src="/videos/products/create-product-with-variants.webm" poster="/videos/products/create-product-with-variants-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*A short clip: adding a new product named Docs Demo Tee with a price of $28, adding a Size option with S, M, and L values, generating the variants, and saving.*
+
+### Variant Options
+
+1. Click **Add Variants**. The **Variant Options** panel opens.
+2. The panel opens with one option already started, named `Size`. Keep that name, change it (like `Color`), or click **Add Option** for another one.
+3. Type its values in the **Values** box, separated by commas, like `Small, Medium, Large`.
+4. Repeat for any other option.
+5. Click **Generate Variants**. SimplePress makes one variant for every combination.
+
+A product can have up to 100 variant combinations. If regenerating would remove variants you've already filled in, you'll be asked "Remove existing variants?" and need to confirm with **Yes, regenerate**.
+
+### Variant fields
+
+Each variant row has:
+
+- **Name** — built from the option values, like "Small / Black". You can't edit it. Change the option values instead.
+- **Price** — leave it blank to use the product's price. A variant price of $0 isn't allowed. You'll see "A variant price can't be $0…".
+- **Compare At** — the crossed-out original price for this variant.
+- **Stock** — this variant's quantity. It matters when **Track Inventory** is on.
+- **SKU** and **Barcode** (UPC/EAN/GTIN) — optional codes.
+- **Image** — pick one of the product's own gallery photos for the variant (**Pick a gallery image**, or **None**). Upload the photos in **Product Images** first.
+
+### Bulk edit
+
+Tick the checkboxes on several variants. A **Bulk edit:** bar appears with:
+
+- **Set Price** — one price for every selected variant
+- **Set Qty** — one stock count for every selected variant (only when **Track Inventory** is on)
+- **Delete selected**
+
+![The Product Variants table with several rows ticked and the Bulk edit bar showing Set Price, Set Qty, and Delete selected](/images/products/variants-bulk-edit.png)
+
+---
+
+## The Collections tab
+
+This tab appears when [Collections](/docs/collections) is on. Search for a collection, tick the ones this product belongs to, and click the chip on a selected collection to remove it. A counter shows "N collections selected". Collections only group products for display. They don't change the price or stock.
+
+![The Collections tab with a search box, a list of collections with checkboxes, and chips for the ones selected](/images/products/product-collections-tab.png)
+
+---
+
+## The SEO tab
+
+The SEO tab controls how the product shows up in Google and when someone shares its link.
+
+![The SEO tab with Meta Tags, Open Graph Image, and the Search Result Preview and Social Media Preview](/images/products/product-seo-tab.png)
+
+### Meta Tags
+
+- **URL Slug** — the end of the product's address. The slug `blue-mug` gives you `/shop/blue-mug`. Each slug must be unique in your store.
+- **Meta Title** — the title in search results and browser tabs. The counter counts your business name too, so aim for 60 characters or fewer in total. Leave it blank to use the product name.
+- **Meta Description** — the summary in search results. The counter goes up to 160 characters. Leave it blank to use the product description.
+
+### Open Graph Image
+
+The picture used when the product is shared on social media. If you don't add one, the first product photo is used.
+
+### Previews
+
+**Search Result Preview** and **Social Media Preview** show roughly how the product will look in Google and when it's shared.
+
+<Callout type="warn">
+Changing the URL of a product that's already published breaks links to the old address, including bookmarks and search results. SimplePress does not set up a redirect, so visitors to the old link see a "not found" page. The form warns you before you save. If the product has been live and shared, think twice.
+</Callout>
+
+---
+
+## The Product page tab
+
+This tab holds the extra content that goes on the product's page. What shows on the storefront depends on your template.
+
+![The Product page tab with the Additional information editor, Feature highlights list, and the Presentation switches](/images/products/product-page-tab.png)
+
+### Additional information
+
+A rich text editor for longer details, like care instructions, sizing, or materials. It supports bold, italic, links, lists, and headings. You can also add images and photo galleries. The Default template shows this under a **Details** section on the product page.
+
+### Feature highlights
+
+A list of short selling points, each with an icon and a label, like a leaf and "100% Natural". Click **Add feature** to add one. Many templates show these as small badges on the product page.
+
+### Presentation
+
+- **Product tagline** — a short line that goes with the product name. Some templates show it on the product page. It's also added to the product name in the cart, like "Tote Bag - The everyday essential".
+- **Coming soon** — on the product page, the add-to-cart area is replaced with a "Coming Soon" notice. The product also moves to the end of your shop list, and checkout refuses it even if someone has the direct link.
+- **Featured** — marks the product as featured. Templates that have a featured-products area use it.
+
+---
+
+## Publishing, scheduling, duplicating, and deleting
+
+### Publishing
+
+The **Published** switch in the toolbar decides whether the product is on your storefront. **New products start with Published switched on**, so switch it off before saving if you're not ready.
+
+An unpublished product:
+
+- doesn't appear on the storefront
+- shows a "not found" page, even to someone with the direct link
+- is refused at checkout
+
+You can also publish and unpublish several products at once from the list. To go live at a set time, use [Schedule publish](#schedule-publish).
+
+### Duplicating
+
+**Duplicate** (in the row menu, or **More Options** on the product) makes a copy named "Name (Copy)". The copy is saved as a **draft** and its SKUs are cleared, so nothing goes live until you publish it.
+
+### Resetting
+
+**More Options → Reset** throws away your unsaved changes and puts the form back to how it was when you opened it. On a new product, it clears the form.
+
+### Deleting
+
+Delete from the row menu or from **More Options → Delete**. A confirmation appears first, and it can't be undone.
+
+**Deleting a product removes:** its variants, photos, collection memberships, reviews, and back-in-stock requests.
+
+**Deleting a product keeps:** your past orders, and your inventory history. Orders still show what the customer bought.
+
+---
+
+## Exporting products (CSV)
+
+<Callout type="info">
+Export is only available to the store **Owner**. It's also off by default. To turn it on, go to **Settings → Features** and switch on **Products CSV export**.
+</Callout>
+
+With the switch on, an **Export products (CSV)** button appears at the top of the Products list.
+
+![The Export products page with a search box, a Published only checkbox, a list of products with checkboxes, and the Export button](/images/products/export-products.png)
+
+1. Click **Export products (CSV)**.
+2. Use the search box to find products. Tick **Published only** to hide drafts.
+3. Tick the products you want. The export button appears once you've ticked at least one.
+4. Click **Export N Product(s)**.
+
+The file is a WooCommerce-format CSV, so other stores can read it. A product with variants is written as one row for the product plus one row for each variant.
+
+- **Prices** — a product or variant on sale is written with its compare-at price as the WooCommerce "Regular price" and its price as the "Sale price". Products that aren't on sale only have a regular price.
+- **Weight** — written in grams, converted from the pounds or kilograms you entered.
+
+If the SimplePress team imports the file back into a store (see below), the sale prices and weights come back too. Weights come back in kilograms, so a product saved as 2 lb returns as about 0.91 kg.
+
+---
+
+## Importing from another store
+
+Moving from WooCommerce? The SimplePress team runs the import for you. Email **help@generativejustice.org** and attach your WooCommerce product export (CSV). We'll bring your catalog over, so there is no import tool for you to learn.
+
+Here's what carries over:
+
+- **Prices** — if a product has a sale price, the sale price becomes the selling price and the regular price becomes the compare-at price. Otherwise the regular price is the selling price.
+- **Variants** — variable products come over with their options and variants.
+- **Weight** — the WooCommerce weight in grams is saved in kilograms.
+- **Stock** — quantities come over for products that track stock.
+- **Photos** — each photo is copied into your SimplePress storage. A photo that can't be downloaded is skipped.
+- **Categories** — each category becomes a [collection](/docs/collections).
+
+**Tags and the short description are not kept.** Check your products after the import, then add photos or fix details as needed.
+
+After an import, an **Import history** button appears at the top of your Products list. It shows each import that was run for your store and how it went. You can view it, but you can't run imports yourself.
+
+---
+
+## How products look on your storefront
+
+Products live at `/shop` (the whole catalog) and `/shop/your-product` (one product). The exact look depends on your template. Here's how the **Default** template behaves. Other templates may style these things differently.
+
+![The Default template's shop grid showing product cards with photos, names, prices, Sold Out badges, and a crossed-out compare-at price](/images/products/storefront-shop.png)
+
+**On the shop grid**, a product card shows the main photo, the name, and the price. If variants have different prices, the price is followed by a "+". A compare-at price appears crossed out, with a **Save N%** badge. A product that's out of stock gets a **Sold Out** badge. There's a heart on each card so shoppers can save products to a wishlist (when Wishlist is on).
+
+![The Default template's product page with photo gallery, price, add-to-cart button, and the Details section](/images/products/storefront-product.png)
+
+**On the product page**, you'll see the photos, price, any variant choices, and an add-to-cart button. Below that, the **Details** section holds your Additional information, and your Feature highlights show as badges.
+
+- **Coming soon** products show an amber "Coming Soon" notice instead of add-to-cart, and sort to the end of the shop.
+- **Out of stock** products (Track Inventory on, zero left, backorders off) show a disabled **Out of Stock** button and a form to be emailed when it's back, if Back-in-stock is on.
+- With **Allow Backorders** on, a product with no stock left shows "Backordered — ships when available" and can still be bought.
+- **Unpublished** products show a "not found" page.
+
+Unpublished and coming soon products are also refused at checkout, even if a customer has the link or a stale cart.
+
+---
+
+## Who can manage products
+
+Owners and Managers can create, edit, duplicate, publish, and delete products. Only Owners can delete several at once, and only Owners can export. Staff can't open Products. See [Team and Roles](/docs/team-and-roles) for the full list.
+
+---
+
+## Can and can't
+
+**You can:**
+
+- Add products with up to 10 photos each
+- Pick photos from your Media Library, or upload from your device
+- Offer sizes, colors, and other options as variants, up to 100 combinations
+- Keep a product as a draft, or schedule it to go live later
+- Duplicate a product as a starting point
+- Group products into collections, and set SEO titles and descriptions for each
+- Track stock, allow backorders, and get low-stock emails
+- Export your catalog as a WooCommerce-format CSV (Owner only, once the switch is on)
+- Have the SimplePress team import a WooCommerce catalog
+
+**You cannot:**
+
+- Use a slug that another product in your store already uses
+- Set a negative stock quantity
+- Change an order's items or prices after checkout. The product details are saved at the time of purchase
+- Check out a "Coming soon" or unpublished product, even with stock on hand
+- Set an automatic redirect from an old product URL to a new one
+- Add custom fields beyond what the product form offers
 - Access or edit another store's products
-- Add custom fields outside what the product form provides
-- Customize email templates that reference product data
-
----
+- Customize email templates that mention product data

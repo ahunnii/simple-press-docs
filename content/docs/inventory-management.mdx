@@ -1,11 +1,16 @@
 ---
 title: Inventory Management
-description: Track stock for products, standalone items, shared supplies, and rentals, with low-stock alerts and check-outs.
+description: Track stock for products, standalone and shared items, and rentals, with low-stock alerts and check-outs.
 ---
 
 ## Overview
 
-SimplePress gives you two ways to track stock: **per-product inventory** for products that each have their own independent stock count, and **inventory items** for products that share a single base supply. You can use either approach, or both at once across different products in your catalog.
+SimplePress gives you two ways to track stock:
+
+- **Per-product inventory.** Each product (or each variant) has its own stock count. Use this when a product's stock doesn't affect anything else.
+- **Inventory items.** An item is a stock count that lives on its own on the **Inventory** page. You can leave it standalone (supplies, rentable equipment) or link products to it so several products draw from one shared count.
+
+You can use either approach, or both, across different products in your catalog. A third piece, **Rental Check-outs**, sits on top of items and lets you lend rental items out for an event and check them back in.
 
 ---
 
@@ -13,430 +18,285 @@ SimplePress gives you two ways to track stock: **per-product inventory** for pro
 
 ### Where to find it
 
-Inventory settings live directly on each product. Go to **Products** in the admin sidebar, open any product, and find the **Inventory** card (it sits next to the product images).
+Go to **Products** in the admin sidebar and open a product. On the **Basics** tab, the **Inventory** card is in the right-hand column, below the images. It starts with the **SKU** and **Barcode (UPC/EAN/GTIN)** fields. If the product has variants, those two fields move to each variant row instead, and the card says so.
 
-**Photo:** Product page showing the Inventory section with the Track Inventory toggle
+![The Inventory card on a product's Basics tab with SKU, Barcode, the Inventory item box, Track Inventory switched on, and the Allow Backorders, Inventory Quantity and Low Inventory Threshold fields below](/images/inventory-management/product-inventory-card.png)
 
-### Enabling tracking
+### The Inventory card fields
 
-Every product has a **Track Inventory** toggle. It is off by default.
+After **SKU** and **Barcode** (and, if Inventory Management is on and you have stock items, the **Inventory item** box; see [Linking a product to an item](#linking-a-product-to-an-item)), the card has, in this order:
 
-- **Off:** The product is always treated as in stock. Customers can always add it to their cart and check out regardless of any quantity you have entered.
-- **On:** The platform enforces your stock quantity. Customers cannot check out an item that has no available stock (unless you also enable backorders — see below).
+1. **Track Inventory** ("Enable inventory tracking for this product"). Off by default.
+   - **Off:** The product is always treated as in stock. Customers can always add it to their cart and check out, whatever quantity you have entered.
+   - **On:** SimplePress enforces your stock. Customers can't check out something with no stock left (unless you also allow backorders).
+2. **Allow Backorders** ("Allow customers to order when out of stock"). Only shown while tracking is on. See [Allow Backorders](#allow-backorders) below.
+3. **Inventory Quantity.** The number of units you have on hand. This field is for products without variants; you can't enter a negative number.
+4. **Low Inventory Threshold.** The stock level that triggers a low-stock email. It must be 1 or more; leave it blank for no low-stock email. See [Low-Stock Alerts](#low-stock-alerts).
 
-Enabling tracking on a product applies to all of its variants. There is no per-variant toggle; it is a product-level setting.
+Tracking is a product-level setting. There is no per-variant toggle, no per-variant backorder rule and no per-variant threshold. If your product line mixes tracked and untracked options, make them separate products.
 
-> **Tip:** If your product line has a mix of tracked and untracked items, create separate products rather than trying to work around this at the variant level.
+If you link the product to an inventory item, these individual controls are replaced by the item's stock. See [Linking a product to an item](#linking-a-product-to-an-item).
 
-### Setting quantities
+### Variants
 
-**Products without variants:** When tracking is enabled, an **Inventory Quantity** field appears below the toggle. Enter the number of units you have on hand.
+A product with variants has no single quantity. Each variant has its own **Stock** field in the **Product Variants** card, and these only show while **Track Inventory** is on.
 
-**Products with variants:** Each variant has its own **Stock** field inside the variant manager. There is no single shared quantity — each size, color, or option you sell is tracked independently. The **Stock** fields only show up while **Track Inventory** is on.
+To set several at once, tick the checkboxes next to the variants. A **Bulk edit:** bar appears with a **Qty** box and a **Set Qty** button (next to a price box and **Set Price**, and a **Delete selected** button). This is handy when you restock a whole product line.
 
-**Bulk quantity set:** In the variant manager, tick the checkboxes next to several variants, type a number in the **Qty** box that appears in the **Bulk edit** bar, and click **Set Qty**. This is useful when restocking a full product line.
-
-**Photo:** Variant manager showing individual inventory quantity fields and bulk-select checkboxes
-
-> You cannot set a negative inventory quantity manually. The system will reject values below zero.
+![The Product Variants card with two variants ticked and the Bulk edit bar showing the Qty box and the Set Qty button](/images/inventory-management/variant-stock-bulk-edit.png)
 
 ### Allow Backorders
 
-When **Track Inventory** is on, a second toggle appears: **Allow Backorders**.
+- **Off (default):** Once stock reaches zero, customers can't add the product to their cart and it shows as out of stock on the storefront.
+- **On:** Customers can keep ordering when stock is zero or lower. This suits made-to-order products, pre-orders, or anything you're happy to fulfil after restocking. Stock counts down past zero, so a variant showing `−3` means three more units were ordered than you had.
 
-- **Off (default):** Once stock reaches zero, customers cannot add the item to their cart. It will appear as out of stock on the storefront.
-- **On:** Customers can still check out even when quantity is zero or lower. Useful if you make to order, accept pre-orders, or are comfortable fulfilling after restocking. A simple product at zero shows a **Pre-order** badge instead of **Out of Stock**.
+### Stock badges on the storefront
 
-When backorders are enabled, inventory will decrement past zero. A variant showing `−3` means three more units were ordered than you had available. The platform tracks this so you know exactly how many units you need to fulfil outstanding orders.
-
-**Photo:** Inventory section showing Track Inventory and Allow Backorders toggles, with a variant at negative quantity
-
-This setting is per-product and applies to all variants.
-
-> For a product with variants, the **Out of Stock** badge only appears when *every* variant is at zero. A single sold-out variant is just unavailable in the variant picker.
+- A simple product with backorders on shows a **Pre-order** badge only when its stock is exactly 0. Below zero there is no badge.
+- **Coming Soon** and **Sale** badges take priority over **Out of Stock** and **Pre-order**.
+- For a product with variants, **Out of Stock** appears only when *every* variant is at zero. A single sold-out variant is just unavailable in the variant picker.
 
 ---
 
 ## Inventory Items
 
-### What is an inventory item?
+### What an item is
 
-An inventory item is a distinct product or supply you want to track. Items can either stand alone or be linked to products that consume from them.
+An inventory item is a supply or piece of equipment you track on the **Inventory** page. Each item is one of two types:
 
-**Standalone items** are useful for managing inventory without product listings — for example, event rentables (a throne, chairs, tables) or supplies not sold directly but tracked for cost and stock purposes.
+- **Stock** (the default): consumable supplies. You can **Use** units (take them out) and **Restock** units (add them back).
+- **Rental**: returnable things you lend out and get back, like a throne, chairs or tables. Rental items can be adjusted and restocked, but have no **Use** action. They can also be checked out; see [Rental Check-outs](#rental-check-outs).
 
-**Shared stock:** An item can also represent a shared stock count that multiple products draw from. Instead of tracking each product independently, you define a single base supply and each linked product specifies how many base units it consumes per sale.
+### When to use an item
 
-**Example:** You stock bolts of fabric in 4-yard rolls. You sell that fabric as a 12-yard cut (3 rolls), a 24-yard cut (6 rolls), and a 48-yard cut (12 rolls). Rather than tracking three separate inventories, you create one item called "Fabric Rolls" and link all three products to it, each with the appropriate units-consumed value. When a 12-yard cut sells, 3 rolls are automatically deducted from the shared item.
+Use a **standalone item** when:
 
-### Item types
+- You want to track supplies or equipment that aren't sold directly as products (rentables, supplies for internal use).
+- You want a change history and a unit cost on record for budgeting or auditing.
 
-Each inventory item is one of two types:
+Use **shared stock** (products linked to an item) when:
 
-**Stock** (the default) — for consumable items. Stock items have **Use** and **Restock** actions:
+- You sell the same underlying stock in different sizes or configurations.
+- Running out of that stock should mark several products out of stock at once.
+- You want one place to manage and restock a shared resource.
 
-- **Use** removes units from available stock (but never takes units held by in-progress storefront checkouts)
-- **Restock** adds units back
+Use **per-product inventory** when each product has its own stock that doesn't affect any other product.
 
-**Rental** — for returnable items that can be checked out and checked back in. When the Rental Check-outs feature is enabled, you can create check-outs with due dates, track partial returns, and mark units damaged or lost. Rental items can be restocked and adjusted, but they don't have a **Use** action. If the feature is turned off, existing check-outs remain viewable and can still be checked in, but new check-outs cannot be created, and the **Rental** type is greyed out when you create an item.
+**Example:** You stock fabric in 4-yard rolls and sell it as a 12-yard cut (3 rolls), a 24-yard cut (6 rolls) and a 48-yard cut (12 rolls). Create one item called "Fabric Rolls" with your roll count, then link all three products to it with units-consumed values of 3, 6 and 12. When a 12-yard cut sells, 3 rolls come off the item.
 
-### When to use standalone items vs. shared stock
+### The Items page
 
-Use a standalone item when:
+Go to **Inventory** in the admin sidebar. The page has up to three tabs: **Items**, **Check-outs** (only when Rental Check-outs is on) and **Activity**. It opens with the description "Track standalone stock and rentals, and link products to share an item's stock." Owners and Managers also see **Import**, **Export** and **New item** buttons. Until you've made one, the page shows "No inventory items yet" with a **Create item** button.
 
-- You want to track supplies or resources not directly linked to products (rentables, consumables for internal use)
-- You need a change history and cost tracking for compliance or budgeting
+![The Inventory page on the Items tab with a mix of Stock and Rental items, showing the search box, Filters button, a low-stock count in orange, the Out / Total, Unit cost and Units sold columns, the ⋮ menu pinned at the end of each row, and the New item, Import and Export buttons](/images/inventory-management/items-list.png)
 
-Use shared stock (items linked to products) when:
+**Searching and filtering.** The **Search items…** box matches an item's name, description, SKU, category and location. The **Filters** popover has:
 
-- You sell the same underlying inventory in different sizes or configurations
-- Running out of the base supply should simultaneously mark multiple products as out of stock
-- You want a single place to manage and restock one shared resource
+- **Stock:** All items, Low or out of stock, Out of stock.
+- **Availability:** All items, **Unsellable (reserved out)** (items where every unit is held by storefront checkouts in progress).
+- **Type:** All types, Stock, Rental.
+- **Category:** All categories, or one of yours.
+- **Sort:** Name A–Z (the default), Name Z–A, Newest, Oldest, Lowest stock, Highest stock, Most units sold, Fewest units sold, Most products, Fewest products, SKU A–Z, Category A–Z.
 
-Use per-product inventory when each product has its own independent stock that does not affect any other product.
+The list shows 25 items per page. The **Low or out of stock** filter uses only each item's own **Low-stock threshold**. An item with no threshold set counts as "low" only once it is out of stock. (The dashboard widget works a little differently; see [Low-Stock Alerts](#low-stock-alerts).)
 
-### Managing items
+**Columns.** Narrow screens show fewer columns; the rest appear as the window gets wider.
 
-Items are managed from the **Inventory** page in the admin sidebar (the **Items** tab). From there you can:
+| Column | Notes |
+| --- | --- |
+| Name | With the SKU and description underneath |
+| Type | Stock or Rental |
+| Category | |
+| Location | |
+| On hand | The count, an **Adjust** button, and "N reserved" when storefront checkouts are holding some |
+| Out / Total | Rental items, only when Rental Check-outs is on: units currently checked out, and on hand plus out |
+| Unit cost | Owner and Manager only |
+| Units sold | Net units sold through orders (see [Units sold](#units-sold)) |
+| Products | How many products draw from the item. Owner and Manager only |
 
-- **Create an item** — click **New item**, then give it a name and pick a type (**Stock** or **Rental**). You can also add an optional SKU, category, storage location, **Unit cost / replacement value**, description, a **Starting quantity**, and an optional **Low-stock threshold** for email alerts. The starting quantity shows up in the history as "Initial count"
-- **Adjust quantity** — click **Adjust** next to an item's quantity to set an absolute count, pick a reason, and add an optional note. If the count changed since you opened the dialog (due to a sale or another adjustment), the save is refused and shows the current count so you can decide whether to proceed
-- **Use / Restock** — open the **⋮** menu on an item. **Use** (stock items only) removes units from available stock; **Restock** adds units back
-- **Check out** (rental items, requires Rental Check-outs feature) — also in the **⋮** menu. It opens a new check-out with that item already added
-- **Edit** — update the type, name, SKU, category, location, unit cost, description, or low-stock threshold. You cannot change a rental item to stock while units are currently checked out
-- **Delete** — removes the item permanently; linked products are detached and immediately set to **out of stock** under individual tracking. You cannot delete an item while units are checked out. Deleting an item also deletes its movement history
-- **View details** — see a summary of the item with its movement history, linked products, and (for rentals) units currently out on check-outs
+At the end of each row, the **⋮** menu stays pinned to the right edge. On wide screens, where every column shows, scroll the table sideways to see the columns under it. The menu has **View details**, **Use** (stock items), **Restock**, **Check out** (rental items, when Rental Check-outs is on), **Edit**, and **Delete** (Owner and Manager).
 
-On a wide screen the table shows each item's name, type, category, location, on-hand quantity, units sold, and (for owners and managers) unit cost and how many products draw from it. Rental items also show an **Out / Total** column when Rental Check-outs is on. Use the filters above the table to narrow by stock level (**Low or out of stock**, **Out of stock**), type, or category, and to sort (for example **Lowest stock**).
+> **Backorders:** Items don't support backorders in the admin. If an item reaches zero, products linked to it show as out of stock until you restock it.
 
-**Photo:** Inventory admin page showing the items table with columns for name, type, category, location, quantity, and action buttons
+### Creating and editing an item
 
-> Backorders are not supported on items. If an item reaches zero, linked products will show as out of stock until you restock the item.
+Click **New item** (or **Edit** in the ⋮ menu). The dialog is titled **New item** or **Edit item**.
+
+- **Type:** **Stock** ("Consumable supplies you use up") or **Rental** ("Items you lend out and get back"). If Rental Check-outs is off, Rental is greyed out with a note to turn it on under **Settings → Features**.
+- **Name** (required), **SKU** (optional), **Category** (optional), **Storage location** (optional).
+- **Unit cost / replacement value.** Shown only to Owners and Managers.
+- **Description** (optional).
+- **Starting quantity.** New items only. It appears in the history as "Initial count".
+- **Low-stock threshold** (optional). Triggers the low-stock email; see [Low-Stock Alerts](#low-stock-alerts).
+
+Click **Create** or **Save changes**. Two type changes are blocked:
+
+- **Rental to stock** while units are still checked out. Check them in first.
+- **Stock to rental** while products are linked to the item. Rental is greyed out with a note such as "1 product sells from this item. Unlink it to make it a rental." Unlink the products first (see [Linking a product to an item](#linking-a-product-to-an-item)).
+
+### Use, Restock and Adjust
+
+**Use** and **Restock** (⋮ menu) are titled "Use: [name]" and "Restock: [name]". Both ask for a **Quantity** and an optional **Note**, and show "On hand: N · Available: N". Available means on hand minus anything held by storefront checkouts in progress. **Use** can't take more than what's available ("Only N available"), so it never takes units a shopper is paying for.
+
+**Adjust** (the button next to the count) is titled "Adjust: [name]". It shows "Current quantity: N" and sets an absolute count rather than adding or subtracting, which is what you want after a physical count. For a rental item, the number you set is the count on hand; units out on check-outs aren't included.
+
+- **New quantity**
+- **Reason:** Restock, Adjustment (the default), Correction, Damage / Loss, or Return. In the history, "Damage / Loss" shows as **Damaged**.
+- **Note** (optional)
+
+Click **Update** to save the new count.
+
+**Stale-count protection.** When you open the dialog, SimplePress remembers the current count. If a sale, check-out or someone else's adjustment changes it before you save, the save is refused and a message tells you the count changed to N and to review and re-enter. The **New quantity** box is also overwritten with the fresh count, so you need to type your number again.
+
+![The Adjust dialog with the current quantity, a new quantity entered, the Reason set to Restock, an optional note, and the Cancel and Update buttons](/images/inventory-management/adjust-dialog.png)
+
+### Deleting an item
+
+**Delete** asks you to confirm. Deleting an item removes it permanently, along with its movement history. Products linked to it are detached and immediately set to out of stock under individual tracking. You can't delete an item while units are checked out.
+
+### The item detail page
+
+Click an item's name (or **View details**) to open its page. The header has **Adjust**, **Use**, **Restock**, **Check out** and **Edit** buttons, as they apply to that item's type and your role. There is no Delete button here; use the ⋮ menu on the list.
+
+![A rental item's detail page showing the header buttons, the Total, Out and Available cards, the Details card and the Currently out table](/images/inventory-management/item-detail.png)
+
+**Cards across the top.**
+
+- **Stock items:** On hand, Reserved (only shown if above 0), Units sold (net), and Returned.
+- **Rental items:** Total, Out, Available and Reserved. There is no "On hand" card. **Total** is on hand plus out, **Out** is units on open check-outs, and **Available** is on hand minus reserved.
+
+If every unit is reserved, a "Nothing available to sell" alert appears.
+
+**Details card.** Type, SKU, Category, Storage location, Unit cost / replacement value (Owner and Manager only), and **Low stock alert at**.
+
+**Currently out.** For rental items, a table of the check-outs the units are on.
+
+**Linked products.** A table of the products drawing from the item: **Product**, **Units per purchase** and **Status**. Staff see these as text only.
+
+**Movement history.** Every change to the item's quantity, 25 per page:
+
+- Columns: Date, Reason, Change, Resulting qty, Reference (the order or check-out, if any), By, Note.
+- Reasons you'll see: Sale, Oversell (not deducted), Return, Adjustment, Correction, Damaged, Restock, Used, Import, Checked out, Checked in, Lost, and Initial count.
+- Damaged and Lost rows from a check-in show a change of 0 on this page, because the units already left the on-hand count at check-out. The Activity log and a check-out's own History show "—" for those rows.
+
+### Units sold
+
+**Units sold** is net: Sale rows minus order-linked Return rows (from refunds and cancellations that returned items to inventory). Manual movements never change it, so Use, Restock and Adjust don't distort your sales numbers. Oversell rows aren't counted as units; they only trigger a warning on the Units sold column ("N sale(s) could not be deducted — units sold may be understated").
 
 ### Linking a product to an item
 
-A simple product (no variants) can be linked to an item from the **Inventory** card on its product page. You will only see the item selector if you have created at least one item.
+A simple product (no variants) can draw its stock from a **stock** item. You'll only see the selector if Inventory Management is on and you have at least one stock item.
 
-1. Open the product in the admin
-2. Find the **Inventory** card
-3. Choose an item from the **Item** dropdown (the default is "None — use individual inventory")
-4. Enter how many base units this product consumes per sale in the **Units consumed per purchase** field
-5. Save the product
+1. Open the product and find the **Inventory** card on the **Basics** tab.
+2. In the **Inventory item** box, pick an item from **Item**. The default is "None — use individual inventory". Each option reads "[name] ([qty] units)".
+3. Enter how many units the product uses each time it sells in **Units consumed per purchase**.
+4. Save the product.
 
-**Photo:** Product Inventory section showing the item selector dropdown and units-consumed field
+![The Inventory card with an item selected, the Units consumed per purchase field, and the note that individual inventory tracking is disabled](/images/inventory-management/product-item-link.png)
 
-Once an item is linked, per-product inventory tracking is disabled for that product — the item manages its stock. The individual inventory controls are hidden and the product shows a note directing you to the Inventory page to manage item stock.
+Once linked, the note "Individual inventory tracking is disabled while an inventory item is selected. Manage its stock from the Inventory page." replaces the product's own quantity controls.
 
-**Products with variants cannot be linked to an item.** The item selector is hidden while a product has variants, so remove all variants first if you want to switch a product to item-based inventory.
+- **Products with variants can't be linked.** The selector is hidden while a product has variants.
+- **Rental items can't be linked.** They're lent out and come back, so a sale shouldn't subtract from them. Rental items don't appear in the picker, and the product won't save if you try to link one ("Rental items can't be linked to a product. Choose a stock item.").
+- A product that was linked to a rental item before this rule still shows that link, so you can unlink it. Saving other changes on it works as usual.
+- If Inventory Management is switched off, the selector only appears on a product that's already linked, so you can unlink it.
 
-### How item stock is displayed on the storefront
+### How item stock shows on the storefront
 
-The storefront automatically calculates how many units of an item-linked product a customer can buy based on the current item quantity and the product's units-consumed value:
+The storefront works out how many of a linked product a customer can buy from the item's count and the product's units-consumed value:
 
 ```
-Available to purchase = floor(item quantity ÷ units consumed per sale)
+Available to purchase = floor(item quantity ÷ units consumed per purchase)
 ```
 
-If an item has 10 rolls and the product consumes 6 rolls per sale, the storefront shows a maximum of 1 available. If that works out to zero, the product shows as out of stock.
+With 10 rolls and a product that uses 6 rolls, the storefront shows 1 available. If that comes to zero, the product shows as out of stock.
 
-> **Cart note:** If a customer has multiple item-linked products in their cart that together exceed the available item quantity, the cart itself will not warn them — each product is checked on its own there. The checkout step adds up everything drawing on the same item, then removes the products that cannot be fulfilled and tells the customer. To avoid this, keep item quantities accurate and restock before they run low.
-
----
-
-## How Inventory Is Decremented
-
-The same two-step process applies to both per-product inventory and inventory items:
-
-1. **At checkout creation** — the system checks availability before creating the Stripe session. Availability means what is on hand minus what other shoppers are holding in checkouts that are still in progress. If a product is out of stock (or an item cannot cover the full order demand), the affected products are removed from the cart and the customer sees a message before reaching Stripe. For tracked products without backorders, the stock is then held for **30 minutes** while they pay. If they abandon checkout, the hold is released.
-
-2. **When payment is confirmed** — on the Stripe webhook, inventory is decremented inside a database transaction using a conditional update. For items, the total base units needed across all item-linked products in the order are deducted in aggregate. If two customers attempt to buy the last available stock simultaneously, only one deduction will succeed; the other is logged as an oversell.
-
-Stock is also deducted for:
-
-- **Manual orders** created with the payment status **Paid**. A manual order saved as **Pending** takes no stock.
-- **Pending manual orders switched to Paid.** On the order, open **More Options → Override Status → Payment Status** and choose **Paid**. That is the moment the sale happens, so stock is deducted (and the customer's order count and loyalty points are updated). No confirmation email is sent. Paid is one-way — you can't switch an order back to Pending; cancel it instead.
-- **Subscription renewal orders**, when each renewal is created.
-
-> Inventory decrements happen atomically — the platform never double-counts a sale, even under simultaneous purchases.
+> **Cart note:** If a customer has several linked products in their cart that together need more than the item has, the cart doesn't warn them, because each product is checked on its own there. At checkout, SimplePress adds up everything drawing on the same item, removes the products that can't be fulfilled, and tells the customer. Keeping item counts accurate avoids this.
 
 ---
 
-## Oversells
+## Rental Check-outs
 
-In rare high-traffic situations a customer may complete payment for stock that sold out between their cart check and payment confirmation. When this happens:
+Rental Check-outs lets you record rental items going out to a customer or event and coming back. It needs Inventory Management on, and it is off by default.
 
-- The order is still created and confirmed (Stripe has already charged them)
-- Inventory is **not** adjusted — it stays at whatever level it was when the payment was processed
-- The discrepancy is recorded in the history with the reason "Oversell (not deducted)"
+### Turning it on
 
-You'll see it flagged in a few places: an **Oversold items need attention** banner on the **Dashboard** (last 30 days), an **Oversold items in this order** alert on the order itself, and a **Some sales could not be deducted** alert on the item's page.
+Go to **Settings > Features** and switch on **Rental Check-outs**. This adds the **Check-outs** tab to the Inventory page, makes **Rental** selectable when creating an item, and adds **Check out** to rental items. See [Feature Switches](#feature-switches).
 
-You will need to fulfil these orders manually — either by restocking and shipping, or by contacting the customer to arrange a refund or substitution.
+### Creating a check-out
 
-Oversells don't happen on products with **Allow Backorders** on — those just keep counting down below zero.
+Go to **Inventory > Check-outs** and click **New check-out**. You can also use **Check out** in a rental item's ⋮ menu to start with that item already added.
 
----
+![The New check-out form with an event name, customer, due-back date and notes filled in, and two rental items added with quantities](/images/inventory-management/new-checkout.png)
 
-## Low-Stock Alerts
+1. **Event or client** (required). This is the check-out's label.
+2. **Customer name** (optional).
+3. **Check-out date.** It can't be in the future.
+4. **Due back** (optional). It can't be before the check-out date.
+5. **Notes** (optional).
+6. Under **Items**, use **Add a rental item…** (search by name or SKU) and enter how many units of each to send out. Picking the same item again adds one more unit.
+7. Click **Create check-out**.
 
-### Dashboard widget
+Each item shows how many units are available. If you enter more than that, a warning reads "Only N available — the check-out will be rejected unless this is lowered." If any item can't be covered, the whole check-out is rejected.
 
-The **Dashboard** has a **Low Stock Alerts** card showing the most urgent products and items at a glance:
+Once created, the check-out takes those units off the item's **On hand** count, with a "Checked out" row in the history. The item's **Total** stays the same.
 
-- A published product (or variant) shows up when its stock is at or below its own **Low Inventory Threshold**. If you never set one, **10** is used
-- **Inventory items** work the same way: their own **Low-stock threshold**, or 10 if none is set. Clicking an item takes you straight to that item's page
-- Within each group, the lowest stock comes first. The card lists up to 5 products and up to 5 items
-- The **Manage Stock** button opens your products list
+<video src="/videos/inventory-management/check-out-and-in.webm" poster="/videos/inventory-management/check-out-and-in-poster.png" controls muted playsInline className="rounded-lg border" />
 
-Only published products with **Track Inventory** on appear in the alert. Drafts, unpublished products, and products already below zero from backorders are left out. Inventory items appear regardless of linked product published state, since a depleted item affects all linked products. Only stock-type items are listed — rental items never appear in the low-stock card, because "2 on hand" can just mean the rest are out with customers.
+*Checking rental items out for an event, then checking them all back in.*
 
-**Photo:** Dashboard low-stock widget showing product and item alerts sorted by urgency
+### The check-out list
 
-### Email notifications
+**Inventory > Check-outs** has tabs with counts: **Open**, **Overdue**, **Closed** and **All**, plus a **Search by event or client…** box. It shows 25 check-outs per page, with these columns: Label, Customer, Checked out, Due back, Items / Units out, Outstanding, Status, and By.
 
-Alerts go to your store's owner email.
+![The Check-outs list on the All tab, with one Closed and one Open check-out and their outstanding counts](/images/inventory-management/checkouts-list.png)
 
-**Per-product:** Set a **Low Inventory Threshold** on any tracked product (it must be 1 or more). When a sale brings stock down across that number, you receive an email with a direct link to the product. For a product with variants, the threshold applies to each variant, and alerts are tracked for the product as a whole.
+A check-out's status is one of:
 
-**Items:** Set a **Low-stock threshold** when creating or editing an item. The same alert logic applies — an email fires when item quantity drops to or below the threshold after a sale. Threshold alerts do not fire for manual adjustments, Use actions, or check-outs, only for sales-driven decrements.
+- **Open:** units are still out.
+- **Overdue:** open and past its due date (in your business's time zone).
+- **Closed:** nothing is outstanding any more. A check-out closes automatically once every unit has been returned, damaged or lost.
 
-**Alert behaviour (both per-product and items):**
+### The check-out page
 
-| Situation                                          | Email subject                              |
-| -------------------------------------------------- | ------------------------------------------ |
-| Stock drops to or below threshold (but above zero) | "Low inventory alert: …"                   |
-| Stock reaches zero (per-product, backorders off)   | "Out of stock: …"                          |
-| Stock reaches zero (per-product, backorders on)    | "Out of stock (backorders on): …"          |
-| Item drops to or below its threshold               | "Low base unit stock: …"                   |
-| Item reaches zero                                  | "Base unit out of stock: …"                |
+Open a check-out to see:
 
-Each alert fires **once per down-cycle**. When you restock above the threshold (by editing the quantity, adjusting an item, or returning items on a refund or cancellation), the alert resets so you will receive it again if stock drops back down.
+- A **Details** card: Customer, Checked out, Due back, Closed, Created by, and Notes.
+- A line table: Item, Out, Returned, Damaged, Lost, Outstanding.
+- **History**, listing every movement tied to this check-out. That includes the original "Checked out" rows, followed by check-ins and write-offs. Damaged and Lost rows show "—" in the Change column.
 
-If stock goes directly from above the threshold to zero in a single order, only the out-of-stock alert fires (not both).
+The buttons are **Check in** (open check-outs only) and **Edit details**. **Edit details** ("Edit check-out details") lets you change the event or client, customer name, due date and notes at any time, even after the check-out is closed.
 
-Leaving the threshold field blank disables the low-stock email for that product or item. (The out-of-stock email still goes out when stock hits zero.)
+### Checking items in
 
----
+Click **Check in**. The **Check in items** dialog shows each line with **Returned**, **Damaged** and **Lost** boxes, and an optional note.
 
-## Restocking After a Refund or Cancellation
+![The Check in items dialog with the Returned box pre-filled with every outstanding unit and empty Damaged and Lost boxes](/images/inventory-management/check-in-dialog.png)
 
-When you cancel an order, or refund one, the dialog can include a **Return items to inventory** checkbox:
+**Returned starts out filled in with every outstanding unit**, so a full return is one click on **Check in**. **Return all** simply puts the boxes back to that state. For a partial return, lower the numbers.
 
-- **Checked:** Inventory quantities are restored for every line on the order, in full — even for a partial refund. For item-linked products, the corresponding base units are returned to the item. For simple products and items, the alerts reset once stock is back above zero, so you will get a fresh email if it runs out again later.
-- **Unchecked:** Inventory is not restored — use this if the customer is keeping the item, the product was damaged, or you do not want to re-list the stock.
+- Returned plus Damaged plus Lost can't exceed what's outstanding. Anything you leave outstanding stays out.
+- **Returned** units go back onto the item's on-hand count with a "Checked in" row.
+- **Damaged** and **Lost** units permanently drop out of the item's total and never return to available stock. If the item itself has since been deleted, only Damaged and Lost can be recorded for that line.
 
-The box starts **checked** when you cancel an order and **unchecked** when you refund one.
+### When Rental Check-outs is off
 
-The box only appears when it makes sense, so you can't restock the same order twice:
-
-- **Cancelling a Pending (never-paid) manual order** has no restock option. That order never took any stock, so there is nothing to put back.
-- **Cancelling an order that already has a refund** has no restock option. Check the refund's own box instead.
-- **Refunding a cancelled order** never restocks. Cancelling already offered it.
-
-See the **Orders** documentation for full details on refunds and cancellations.
+- Existing check-outs stay viewable and can still be checked in.
+- You can't create new check-outs. The **New check-out** page shows the "Rental Check-outs" feature-disabled page.
+- The **Check-outs** tab is hidden. If units are still out, a notice titled "N units are still checked out" appears at the top of the Items tab, linking to "Check them in from the check-outs list".
+- **Rental** is greyed out in the New item dialog, and items can still show as "out" on their detail page.
 
 ---
 
-## Checking Stock
+## Activity Log
 
-**Per-product:** Go to **Products**, open the product, and find the **Inventory** card. For variants, each variant row in the variant manager shows its **Stock** when tracking is enabled.
+**Inventory > Activity** shows every movement across all items, newest first.
 
-**Items:** Go to **Inventory** in the sidebar. The table shows each item's current quantity, type, category, location, and units sold. Owners and managers also see unit cost and how many products draw from the item. Items with stock reserved by in-progress checkouts show "reserved" under the quantity, and an item whose every unit is reserved shows a warning that there is nothing available to sell. For rental items, the **Out / Total** column shows units currently checked out and the total (on hand plus out). Use the **Adjust** button to set an absolute count, the **⋮** menu for **Use**, **Restock**, and **Check out**, or click an item's name to see its details, linked products, and movement history. An item's low-stock threshold is shown on its details page as **Low stock alert at**.
+![The Activity log with the Item, Reason, From and To filters and rows for check-outs, check-ins and a manual Use](/images/inventory-management/activity-log.png)
 
----
-
-## Feature Flags
-
-### Inventory Management
-
-Inventory management is on by default and can be toggled in **Settings > Features**. It is independent of Products — you can manage inventory items even if you have Products disabled, which is useful for tracking supplies and rentables that are not sold directly through your storefront. If you turn it off, the **Inventory** page is replaced by a "feature disabled" message.
-
-### Rental Check-outs
-
-Rental Check-outs is an optional feature for managing check-outs, returns, and tracking damaged/lost units. It is off by default and can be toggled in **Settings > Features**. It requires Inventory Management to be enabled. When Rental Check-outs is off, you can still view and check in existing check-outs, but cannot create new ones.
-
----
-
-## What You Can and Cannot Do
-
-**You can (Owner/Manager):**
-
-- Enable or disable inventory tracking per product
-- Set and update inventory quantities for products and individual variants
-- Set a single quantity across multiple selected variants at once
-- Allow backorders on a product so customers can order past zero
-- Set a per-product low inventory threshold for email alerts
-- Create standalone inventory items (stock or rental) to track supplies and resources
-- Set a low-stock threshold on an item for email alerts
-- Set SKU, category, storage location, and unit cost on items
-- Manually adjust item quantity with a recorded reason, protected against stale counts
-- Link a simple product (no variants) to an item and specify units consumed per sale
-- Use/Restock stock items to record manual movements
-- Check out rental items (with Rental Check-outs feature enabled) with due dates and partial returns
-- Check in rented units, marking some as damaged or lost
-- View per-item movement history, paginated
-- View a global Activity log across all items with filters for item, reason, and date range
-- Export activity history to CSV (capped at 20,000 rows) for compliance and auditing
-- Import items from CSV to bulk-create or update items, with preview and error reporting
-- Export all items to CSV for backup and external tools
-- View low-stock alerts for both products and items on the dashboard
-- Receive email notifications when stock is low or out of stock
-- Choose whether to return items to inventory when a refund or cancellation is processed
-- Team members can have different roles: Owner (full access), Manager (everything except team management), or Staff (inventory counts/check-outs only)
-
-**You can (Staff):**
-
-- View inventory items with quantities, categories, and locations
-- Adjust item quantity with a recorded reason
-- Use/Restock stock items
-- Check out rental items (with Rental Check-outs feature enabled) and track due dates
-- Check in rented units with partial returns and damage/loss tracking
-- Edit a check-out's label, customer, due date, and notes
-- View per-item movement history and the global Activity log
-- View linked products (as text only; cannot edit)
-
-**You cannot:**
-
-- Enter a negative inventory quantity manually
-- Set different backorder rules per variant — it is a product-level toggle
-- Set different low-inventory thresholds per variant — the threshold applies to the whole product
-- Enable backorders on an inventory item — items do not support backorders
-- Link a product that has variants to an item — remove variants first
-- Use both per-product tracking and an item on the same product simultaneously
-- View a full inventory history log in the admin for per-product changes (tracked internally but not displayed)
-- Delete an item while units are currently checked out
-- Change a rental item to stock while units are checked out
-- Create new check-outs if Rental Check-outs feature is disabled (existing check-outs remain viewable)
-- Send automated emails or reminders for overdue check-outs
-- Link check-outs to invoices or orders
-- Import CSV to clear a field — blank cells leave values unchanged
-- Staff members cannot: create/edit/delete items, import/export data, or view unit cost or the product count (they only see linked products as text on an item's page)
-
----
-
-## Role Permissions Table
-
-| Action                       | Owner/Manager | Staff           |
-| ---------------------------- | ------------- | --------------- |
-| View items                   | Yes           | Yes             |
-| Create/edit/delete items     | Yes           | No              |
-| Adjust/Use/Restock items     | Yes           | Yes             |
-| Check out/Check in rentals   | Yes           | Yes             |
-| Import/Export items CSV      | Yes           | No              |
-| View movement history        | Yes           | Yes             |
-| View activity log            | Yes           | Yes             |
-| Export activity log to CSV   | Yes           | No              |
-| See unit cost                | Yes           | No              |
-| Open linked products to edit | Yes           | No (text only)  |
-
----
-
-## Adjusting Item Counts
-
-When you adjust an item's quantity using the **Adjust** button, you set an absolute count rather than adding or subtracting. This is useful for correcting discrepancies after a physical count. For rental items, the number you set is the count on hand — units out on check-outs aren't included.
-
-To prevent race conditions under high activity, the adjust dialog protects against stale information:
-
-1. When you open the adjust dialog, the current quantity is recorded
-2. You set a new count and submit
-3. If the quantity changed while the dialog was open (due to a sale, check-out, or another adjustment), the save is refused
-4. The dialog shows the new current count so you can decide whether to proceed with your adjustment
-
-This ensures your adjustments always reflect your intent and never overwrite recent changes. Pick a **Reason** for each adjustment — **Restock**, **Adjustment** (the default), **Correction**, **Damage / Loss**, or **Return** — and add an optional note for audit purposes.
-
----
-
-## Rental Check-Outs (When Enabled)
-
-Rental Check-outs is an optional feature for managing items that go out to customers or events and return. It requires the Rental Check-outs feature to be enabled.
-
-### Creating a Check-Out
-
-A check-out tracks units of rental items that are out on loan:
-
-1. Go to **Inventory > Check-outs** and click **New check-out**
-2. Enter an **Event or client** (this is the check-out's label)
-3. Optionally add a **Customer name** and **Notes**
-4. Set the **Check-out date** (it can't be in the future) and an optional **Due back** date (it can't be before the check-out date)
-5. Under **Items**, click **Add a rental item…** and add each rental item with the number of units to check out
-6. Click **Create check-out**
-
-Each item shows how many units are available (on hand minus anything reserved for storefront checkouts). If any item doesn't have enough available units, the entire check-out is rejected and you see how many are available.
-
-Once created, the check-out takes those units off the item's **On hand** count (you'll see a "Checked out" row in the history). The item's **Total** (on hand plus out) stays the same.
-
-### Check-In and Returns
-
-When units are returned:
-
-1. Go to **Inventory > Check-outs** and open the check-out
-2. Click **Check in**
-3. For each line, enter how many units are **Returned**, **Damaged**, or **Lost** (or click **Return all**)
-4. Optionally add a note, then submit
-
-The system validates that returned + damaged + lost units do not exceed what's outstanding. Partial returns are allowed — you can check in just some units and track the rest as still out.
-
-**Returned units** go back onto the item's on-hand count with a "Checked in" history row.
-
-**Damaged and lost units:** These are recorded with a reason of "Damaged" or "Lost", and they permanently drop out of the item's total. They do not return to available inventory. The history row shows a quantity change of 0 for these lines, because the units already left the on-hand count at check-out.
-
-**Auto-close:** When all units in a check-out have been returned, damaged, or marked lost (nothing is outstanding), the check-out closes automatically.
-
-### Check-Out Status
-
-The **Check-outs** tab has **Open**, **Overdue**, **Closed**, and **All** views, and you can search by label or customer name. The list shows each check-out's customer, check-out date, due date, items and units out, how many units are still outstanding, status, and who created it.
-
-Overdue check-outs (past their due date, in the business's time zone) are marked and get their own view.
-
-Open a check-out to see its details and a line for each item showing **Out**, **Returned**, **Damaged**, **Lost**, and **Outstanding**. Click **Edit details** to change the event or client, customer name, due date, or notes, even after the check-out is closed.
-
-On a rental item's own page you'll see:
-
-- **Total** — units on hand plus units out
-- **Out** — units currently checked out across all open check-outs
-- **Available** — units on hand minus units reserved for storefront checkouts
-
-### Viewing Check-Out History
-
-Each check-out has a **History** section listing its check-in and write-off movements. The global Activity log shows all check-out and check-in movements with the reason "Checked out" or "Checked in", filterable by item and date.
-
-### When Rental Check-Outs Is Off
-
-If you disable Rental Check-Outs but have existing check-outs:
-
-- Existing check-outs remain viewable and can still be checked in
-- You cannot create new check-outs
-- The **Check-outs** tab is hidden from the inventory page. If units are still out, a notice at the top of the Items tab links you back to the check-outs list so you can check them in
-- Items can still show as "out" on their detail page
-
----
-
-## Activity and Movement History
-
-### Per-Item History
-
-Each item has a detailed movement history showing every change to its quantity:
-
-1. Click an item to open its detail page
-2. Scroll to **Movement history**
-3. Each row shows: date, reason, change, resulting quantity, a reference (the order or check-out, if any), who made the change, and notes
-4. The history is paginated (25 entries per page)
-
-Reasons you'll see: Sale, Oversell (not deducted), Return, Adjustment, Correction, Damaged, Restock, Used, Import, Checked out, Checked in, Lost, and Initial count.
-
-**Sales totals** only count order-driven rows (Sale and Oversell with an order attached) — manual movements never change "units sold" numbers, so your sales reports remain accurate.
-
-### Global Activity Log
-
-Go to **Inventory > Activity** to see all movements across all items:
-
-1. Filter by **Item**, **Reason**, or a **From** / **To** date range
-2. The log is sorted by date (newest first)
-3. Each row shows: date and time, item name, reason, change, resulting quantity, reference, who made it, and notes
-4. Staff can view the log but cannot export
-5. Owners/Managers can click **Export CSV** to download the log, using whatever filters are currently set (capped at 20,000 rows per export)
-
-The exported CSV includes: Date, Item, SKU, Reason, Change, Resulting qty, Order #, Check-out, By (user name), and Note. This is useful for compliance, auditing, and keeping external records in sync.
+- **Filters:** Item, Reason (grouped into **Manual** and **Order**), From, To, and **Clear filters**.
+- **Columns:** Date/time, Item, Reason, Change, Resulting qty, Reference, By, Note. Movements for an item that has since been deleted show "Deleted item".
+- **Export CSV** (Owner and Manager) downloads the log using whatever filters are set, capped at 20,000 rows. The file has Date, Item, SKU, Reason, Change, Resulting qty, Order #, Check-out, By, and Note columns.
 
 ---
 
@@ -444,50 +304,54 @@ The exported CSV includes: Date, Item, SKU, Reason, Change, Resulting qty, Order
 
 ### Export
 
-Go to **Inventory > Items** and click **Export** to download a CSV file with all your items. The export includes:
+Go to **Inventory > Items** and click **Export** to download `inventory-YYYY-MM-DD.csv` with all your items.
 
 **Importable columns:**
 
-- SKU — unique identifier (optional)
-- Name — item name
-- Type — "stock" or "rental"
-- Category — item category (optional)
-- Location — storage location (optional)
-- Quantity on hand — current count
-- Low stock alert at — threshold for email alerts (optional)
-- Unit cost — in dollars and cents (for example, 12.50)
-- Description — item description (optional)
+- SKU: unique identifier (optional)
+- Name: item name
+- Type: "stock" or "rental"
+- Category: item category (optional)
+- Location: storage location (optional)
+- Quantity on hand: current count
+- Low stock alert at: threshold for email alerts (optional)
+- Unit cost: in dollars and cents (for example, 12.50)
+- Description: item description (optional)
 
-**Info-only columns (not imported on re-upload):**
+**Info-only columns (ignored on re-upload):**
 
-- Checked out — units currently on check-outs (rental items only)
-- Reserved — units reserved for in-progress storefront checkouts
-- Linked products — number of products drawing from this item
+- Checked out: units currently on check-outs (rental items only)
+- Reserved: units held by storefront checkouts in progress
+- Linked products: number of products drawing from this item
 
 ### Import
 
-Go to **Inventory > Items** and click **Import** to bulk-create or update items:
+Click **Import** on the Items tab. Only `.csv` files are accepted.
 
-1. **Upload** — choose a CSV file (max 2 MB, max 2,000 rows)
-2. **Review** — the system reads the file and shows you a preview:
-   - Counts of new items and updated items
-   - A table of quantity changes and a table of other changes
-   - Rows that will be **skipped** because of errors (invalid values, ambiguous SKU/name matches, and so on), with the reason for each
-   - Warnings (for example, setting a quantity below what's reserved, or updating a rental item with units checked out)
-3. **Confirm** — click **Import N items**
+1. **Choose a CSV file** (max 2 MB, max 2,000 data rows).
+2. **Review the preview.** It shows badges for N new, N updated, N quantity changes, N unchanged and N errors (skipped), then:
+   - A **Quantity changes** table (Item, Current, New) and a **Changes** table (Row, Item, Changes).
+   - Rows that will be skipped because of errors, with the reason for each.
+   - Warnings, for example setting a quantity below what's reserved, or updating a rental item that has units checked out.
+   - **Ignored columns:** any column the import doesn't recognize.
+3. **Confirm** by clicking **Import N items**. When it finishes you'll see "Import complete".
 
-Problems with the file as a whole (wrong format, no Name or SKU column, too many rows) stop the import until you fix the file. Problems with individual rows don't: those rows are skipped, and the rest still import.
+![The import preview showing the new, updated and quantity-change counts, the Quantity changes and Changes tables, and the ignored column](/images/inventory-management/import-preview.png)
 
-Once you confirm, the system commits row by row:
+The preview lists only the first 20 quantity changes, the first 50 other changes and the first 100 errors, even if there are more. Everything still imports when you confirm.
 
-- **Each new or changed quantity** adds a movement history entry with reason "Import" and the filename in the note
-- **Each failed row** is skipped with an error message (other rows still import)
-- **Re-running the same file is safe** — quantities and details are compared and only updated if different
-- If an item's quantity changed (for example, a sale came in) between the preview and your confirmation, that row's quantity is skipped rather than overwritten, and you're told which items
+Problems with the file as a whole stop the import until you fix the file: the wrong format, no Name or SKU column, too many rows, an empty file, or a file with unbalanced quotes. Problems with individual rows don't. Those rows are skipped and the rest still import.
 
-### Column Aliases
+When you confirm, SimplePress commits row by row:
 
-The import accepts these column header aliases (case-insensitive):
+- Each new or changed quantity adds a history entry with the reason "Import" and the note "CSV import: [filename]".
+- **Re-running the same file is safe.** Values are compared and only updated if different.
+- If an item's quantity changed between the preview and your confirmation (for example, a sale came in), that row's quantity is skipped rather than overwritten, and you're told which items.
+- A row that changes a stock item's type to rental is refused if products are linked to that item. The rest of the file still imports.
+
+### Column aliases
+
+Column headers are case-insensitive. These aliases are accepted:
 
 - **SKU:** "SKU", "Item code", "Code"
 - **Name:** "Name", "Item", "Item name"
@@ -499,43 +363,189 @@ The import accepts these column header aliases (case-insensitive):
 - **Unit cost:** "Unit cost", "Cost", "Replacement value"
 - **Description:** "Description", "Notes"
 
-The file needs at least a Name or a SKU column. Any column the import doesn't recognize (including the info-only ones) is ignored, and the preview lists them.
+The file needs at least a Name or a SKU column.
 
-### Matching Rules
+### Matching rules
 
-The import matches incoming rows to existing items using:
+Rows are matched to existing items in this order:
 
-1. **SKU first** — if the row has a SKU and an existing item has the same SKU (case-insensitive, unique per business), the row updates that item
-2. **Then name** — if no SKU match, look for an exact name match (case-insensitive). If that item has no SKU yet, the row's SKU is filled in. If it already has a different SKU, the row is an error
-3. **New item** — if neither matches, create a new item (a Name is required)
-4. **Ambiguity is an error** — if multiple items match on name, or the same SKU or item shows up on more than one row of the file, the affected rows are errors
+1. **SKU first.** If the row has a SKU and an existing item has the same SKU (case-insensitive, unique per business), the row updates that item.
+2. **Then name.** If no SKU matches, an exact name match (case-insensitive) is used. If that item has no SKU yet, the row's SKU is filled in. If it already has a different SKU, the row is an error.
+3. **New item.** If neither matches, a new item is created (a Name is required). Two new rows with the same name are an error.
+4. **Ambiguity is an error.** If several items match on name, or the same SKU or item appears on more than one row of the file, the affected rows are errors.
 
-### Blank Cell Behavior
+### Blank cells
 
-A blank cell means "leave that value unchanged". CSV import never clears a field; it only updates values that are present in the file. This makes it safe to export, edit, and re-import.
+A blank cell means "leave that value unchanged". An import never clears a field, so it's safe to export, edit and re-import. Every importable column can be updated this way, not only Quantity. To clear a value (for example, to remove a category), edit the item in the admin instead. A rental item can't be switched to **stock** while units are checked out.
 
-Every importable column can be updated this way — including Name, Type, Category, Location, Low stock alert at, Unit cost, and Description — not only Quantity. A rental item can't be switched to **stock** while units are checked out. To clear a value (for example, to remove a category), edit the item in the admin instead.
+### Import limits
 
-### Import Limits
-
-- **Max file size:** 2 MB
-- **Max rows:** 2,000 data rows per import
-- **Quantity:** whole numbers, 0 or more
+- **File:** `.csv`, up to 2 MB and 2,000 data rows
+- **Name:** up to 191 characters
+- **SKU:** up to 64 characters
+- **Category** and **Location:** up to 100 characters each
+- **Description:** up to 5,000 characters
+- **Quantity:** whole numbers, 0 or more. Thousands separators are fine ("1,000")
 - **Low stock alert at:** whole numbers, 1 or more
 - **Unit cost:** up to $1,000,000
 
-### Type Synonyms
+### Type synonyms
 
-The import recognizes these type synonyms (case-insensitive):
+Case-insensitive:
 
 - **Stock:** "stock", "consumable", "consumables", "supply", "supplies"
 - **Rental:** "rental", "rentals", "rentable", "returnable"
 
-### Cost Format
-
-Unit costs can be entered as:
+### Cost format
 
 - Whole dollars: `50` = $50.00
 - Dollars and cents: `50.99` = $50.99
-- With dollar sign: `$50.99`
-- With thousands separator: `1,000` or `1,000.50` = $1,000.50
+- With a dollar sign: `$50.99`
+- With a thousands separator: `1,000` or `1,000.50` = $1,000.50
+
+---
+
+## How Stock Is Deducted
+
+The same two steps apply to per-product inventory and to items.
+
+1. **At checkout.** Before sending the customer to Stripe, SimplePress checks availability: what's on hand, minus what other shoppers are holding in checkouts still in progress. If a product is out of stock, or an item can't cover the whole order, the affected products are removed from the cart and the customer sees a message. For tracked products without backorders, and for item-linked products (which hold their units on the item), the stock is then held for **30 minutes** while they pay. If they abandon checkout, the hold is released.
+2. **When payment is confirmed.** Stock is deducted inside a database transaction. For items, the total units needed across all linked products in the order are deducted together. If two customers try to buy the last unit at the same moment, only one deduction succeeds and the other becomes an [oversell](#oversells). A sale is never counted twice.
+
+Stock is also deducted for:
+
+- **Manual orders** created with the payment status **Paid**. A manual order saved as **Pending** takes no stock.
+- **Pending manual orders switched to Paid.** On the order, open **More Options → Override Status → Payment Status** and choose **Paid**. That's the moment the sale happens, so stock is deducted (and the customer's order count and loyalty points are updated). No confirmation email is sent. Paid is one-way: you can't switch an order back to Pending, so cancel it instead.
+- **Subscription renewal orders**, when each renewal is created.
+
+---
+
+## Oversells
+
+In rare high-traffic moments, a customer can pay for stock that sold out between the cart check and payment confirmation. When that happens:
+
+- The order is still created and confirmed (Stripe has already charged them).
+- Stock is **not** adjusted. It stays where it was.
+- The history records it with the reason "Oversell (not deducted)".
+
+It's flagged in a few places: an **Oversold items need attention** banner on the **Dashboard** (last 30 days), an **Oversold items in this order** alert on the order, and a **Some sales could not be deducted** alert on the item's page.
+
+You'll need to fulfil these orders by hand: restock and ship, or contact the customer to arrange a refund or substitution. Products with **Allow Backorders** on never oversell; they keep counting down below zero.
+
+---
+
+## Low-Stock Alerts
+
+### Dashboard widget
+
+The **Dashboard** has a **Low Stock Alerts** card showing what needs attention first.
+
+![The Dashboard's Low Stock Alerts card listing products and inventory items that are running low, with a Manage Stock button](/images/dashboard/low-stock.png)
+
+- A published product (or variant) with **Track Inventory** on appears when its stock is at or below its own **Low Inventory Threshold**, or **10** if you never set one. Drafts and products already below zero from backorders are left out.
+- A **stock-type item** appears the same way: its own **Low-stock threshold**, or 10 if none is set. It's shown as "Inventory item" with "N left", and clicking it opens the item. Items appear whether or not their linked products are published. Rental items never appear, because "2 on hand" may just mean the rest are out with customers.
+- Within each group, the lowest stock comes first. The card shows up to 5 products and up to 5 items.
+- **Manage Stock** opens your products list.
+
+The dashboard falls back to 10 when no threshold is set, but the Items page's **Low or out of stock** filter doesn't. See [The Items page](#the-items-page).
+
+### Email notifications
+
+Alerts go to your store's owner email.
+
+**Products.** Set a **Low Inventory Threshold** (1 or more) on a tracked product. When a sale brings stock down to or below it, you get an email with a link to the product. For a product with variants the threshold applies to each variant, and alerts are tracked for the product as a whole.
+
+**Items.** Set a **Low-stock threshold** on the item. The same logic applies. Item emails link to the **Inventory** page list rather than the item itself. Threshold emails fire only for sales, not for manual adjustments, Use, or check-outs.
+
+| Situation | Email subject |
+| --- | --- |
+| Product drops to or below its threshold (above zero) | "Low inventory alert: …" |
+| Product reaches zero, backorders off | "Out of stock: …" |
+| Product reaches zero, backorders on | "Out of stock (backorders on): …" |
+| Item drops to or below its threshold | "Low base unit stock: …" |
+| Item reaches zero | "Base unit out of stock: …" |
+
+The two item subjects still use the older "base unit" wording; they're the same item you see on the Inventory page.
+
+Each alert fires **once per down-cycle**:
+
+- If stock goes straight from above the threshold to zero in one order, only the out-of-stock email is sent.
+- After a restock, the alert resets so you'll hear about it again if stock falls back down. For manual changes (editing the quantity, or Adjust, Use and Restock on an item), the low-stock alert resets once stock is back above the threshold. For a refund or cancellation restock, alerts reset only if the item or product had hit zero and is now back above zero.
+- A blank threshold means no low-stock email. The out-of-stock email still goes out when stock hits zero.
+
+---
+
+## Restocking After a Refund or Cancellation
+
+When you cancel or refund an order, the dialog can include a **Return items to inventory** checkbox.
+
+- **Checked:** Stock is restored for every line on the order, in full, even for a partial refund. For item-linked products, the matching units go back onto the item. These show as "Return" rows in the history and reduce the item's net units sold.
+- **Unchecked:** Stock isn't restored. Use this if the customer is keeping the item, the product was damaged, or you don't want to re-list it.
+
+The box starts **checked** when you cancel and **unchecked** when you refund.
+
+It only appears when it makes sense, so you can't restock the same order twice:
+
+- **Cancelling a Pending (never-paid) manual order** has no restock option. It never took any stock.
+- **Cancelling an order that already has a refund** has no restock option. Use the refund's own box instead.
+- **Refunding a cancelled order** never restocks. Cancelling already offered it.
+
+See [Orders](/docs/orders) for full details on refunds and cancellations.
+
+---
+
+## Feature Switches
+
+Both are in **Settings > Features**.
+
+- **Inventory Management** is on by default. It's independent of Products, so you can manage items even with Products off, for supplies and rentables that aren't sold on your storefront. If you turn it off, the **Inventory** page is replaced by a "feature disabled" message.
+- **Rental Check-outs** is off by default and requires Inventory Management. See [Rental Check-outs](#rental-check-outs) for what it adds and what happens when it's off.
+
+---
+
+## Who Can Do What
+
+Owners, Managers and Staff can all work with inventory. Staff can also open **Orders** and **Customers**.
+
+| Action | Owner / Manager | Staff |
+| --- | --- | --- |
+| View items, movement history and the Activity log | Yes | Yes |
+| Adjust, Use and Restock items | Yes | Yes |
+| Create check-outs, check items in, edit check-out details | Yes | Yes |
+| Create, edit and delete items | Yes | No |
+| Import and export items CSV | Yes | No |
+| Export the Activity log to CSV | Yes | No |
+| See unit cost | Yes | No |
+| See the Products column and open linked products to edit | Yes | Text only |
+
+Per-product inventory settings are part of editing a product. See [Team and Roles](/docs/team-and-roles) for the full role list.
+
+---
+
+## Can and Can't
+
+**You can:**
+
+- Track stock per product, or per variant, with an optional low-stock threshold for each
+- Allow backorders on a product so customers can order past zero
+- Set one quantity across several variants at once
+- Create standalone stock or rental items with SKU, category, location and unit cost
+- Link a simple product to an item so several products share one count
+- Adjust, Use and Restock items, with a recorded reason, protected against stale counts
+- Check rental items out with due dates, and check them back in with partial returns and damage or loss
+- Review every movement in the Activity log and export it
+- Import and export items as CSV
+- Choose whether to return stock when you refund or cancel an order
+
+**You can't:**
+
+- Enter a negative quantity by hand
+- Set backorder rules or thresholds per variant (both are product-level)
+- Link a product that has variants to an item (remove the variants first)
+- Use per-product tracking and an item on the same product at the same time
+- See a history log for per-product stock changes in the admin (it's tracked internally but not shown)
+- Delete an item, or change a rental item to stock, while units are checked out
+- Create new check-outs while Rental Check-outs is off
+- Get automatic emails or reminders for overdue check-outs
+- Link a check-out to an invoice or an order
+- Clear a field with a CSV import (blank cells leave values unchanged)
