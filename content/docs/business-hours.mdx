@@ -1,0 +1,129 @@
+---
+title: Business Hours
+description: Publish your opening hours on your storefront's contact page, and share them with search engines.
+---
+
+## Overview
+
+**Business Hours** is where you tell customers when you're open. You build a short list of rows, such as "Mon–Fri, 9 to 5" and "Sat, 10 to 2", and SimplePress shows them on your contact page. They can also be shared with search engines.
+
+To open it, go to **Settings → Business Hours**. Owners and Managers can open it. Staff can't. See [Team & roles](/docs/team-and-roles).
+
+Business Hours is for the public. If you offer in-store pickup, your pickup times are set separately. See [Pickup hours are separate](#pickup-hours-are-separate).
+
+---
+
+## Set your hours
+
+Each row covers one or more days that share the same hours.
+
+![The Business Hours editor with one row for Mon to Sat, 9:00 AM to 5:00 PM, and the Preview card below it](/images/business-hours/hours-editor.png)
+
+*One row covering Monday through Saturday, with the Preview card underneath.*
+
+Every row has these controls:
+
+| Control | What it does |
+| ------- | ------------ |
+| **Days** | Buttons for Mon through Sun. Click a day to include it in the row. |
+| **Closed** | A switch. Turn it on for days you're shut. It clears the times for that row. |
+| **Opens** / **Closes** | The opening and closing time. They're needed unless the row is **Closed**. |
+| **Move row up** / **Move row down** | The arrows at the top right of the row. Your rows are shown in the order they're listed. |
+| **Remove row** | The red trash button at the top right of the row. |
+
+To add hours:
+
+1. Go to **Settings → Business Hours**.
+2. Click **Add hours row**. The new row starts with no days picked.
+3. Click the days the row applies to, then set **Opens** and **Closes**.
+4. Add more rows for days with different hours. To show a closed day, add a row for it and turn on **Closed**.
+5. Check the **Preview** card to see how it will read.
+6. Click **Save changes**.
+
+![Two rows: Monday to Saturday 9:00 AM to 5:00 PM, and Sunday set to Closed, with the Preview showing both](/images/business-hours/hours-two-rows.png)
+
+*Sunday is on its own row with **Closed** turned on. The Preview shows "Sun Closed".*
+
+If you've never saved any hours, the page may start with a Monday to Friday, 9 to 5 row already filled in and the badge reading **Saved**. Nothing is published until you click **Save changes**, so save once to make it real.
+
+When you click save you'll see "Saving business hours..." and then **Business hours saved**.
+
+---
+
+## Common mistakes
+
+SimplePress checks your hours when you save and tells you what's wrong.
+
+| Message | What to do |
+| ------- | ---------- |
+| Each row must include at least one day | Click at least one day on every row, or remove the empty row. |
+| Open time is required when the day is not closed | Fill in **Opens**, or turn on **Closed**. |
+| Close time is required when the day is not closed | Fill in **Closes**, or turn on **Closed**. |
+| Open time must be before close time | Pick a closing time later than the opening time. See [no overnight hours](#what-business-hours-cant-do). |
+| Mon appears in more than one row (rows 1 and 2) | A day can only belong to one row. Remove it from one of the rows. |
+
+The duplicate-day message names the day and the two rows it's on, such as "Tue appears in more than one row (rows 2 and 3)".
+
+![The duplicate day error, reading Mon appears in more than one row (rows 1 and 2)](/images/business-hours/hours-duplicate-error.png)
+
+*Monday is on two rows, so SimplePress won't save. The message shows once, under the days.*
+
+---
+
+## Where your hours show
+
+### On your contact page
+
+On the Default template, your hours appear in an **Hours** card on your **Contact** page, next to cards like Email, Phone and Visit. It only appears once you've saved hours. A row you marked **Closed** reads "Closed".
+
+![The Contact page info cards on the Default template: Email, Phone, Visit and Hours](/images/business-hours/contact-hours-card.png)
+
+You can rename the card. In the **Site Editor**, open the Contact page and change the hours label (it starts as "Hours"). The Contact page's **Info cards** section in the Site Editor also has a link to Business Hours.
+
+Most other templates show your hours on their contact page too, and a couple also show them in the footer. A few templates don't show hours at all, or use their own hours field in the Site Editor. Templates vary, so the quickest check is to save your hours and open your own contact page. If they're not there and you think they should be, ask the SimplePress team at help@generativejustice.org.
+
+### In search results
+
+Your hours can also be shared with search engines, so they can show them in results. This is controlled by **Local presence** on the **Search engines** tab of **Content → SEO & Meta**:
+
+| Local presence | Hours shared? |
+| -------------- | ------------- |
+| **None** | No. |
+| **Service area** | Yes, along with your city, state and phone (never your street address). |
+| **Storefront** | Yes, along with your full address and phone. |
+
+Days you mark **Closed** are left out of what search engines read, rather than being listed as closed. Hours also count toward your search readiness score. See [SEO](/docs/seo).
+
+---
+
+## What Business Hours can't do
+
+- **No holiday or special hours.** There's no way to add a one-off date. To warn customers about a holiday closure, use your [banner](/docs/banner-and-popup), or edit your rows and change them back afterwards.
+- **No overnight hours.** The closing time must be later than the opening time on the same day. A bar open until 2 AM can't be entered as one row.
+- **No "open now" indicator.** Your storefront doesn't show whether you're open this minute.
+- **No time zone conversion.** Hours are shown exactly as typed. Your **Time Zone** setting doesn't change them. See [General Settings](/docs/general-settings#time-zone).
+
+---
+
+## Pickup hours are separate
+
+If you offer in-store pickup, the times customers can collect their order are set in **Shipping → Pickup hours & instructions**, not here. See [Shipping](/docs/shipping#in-store-pickup). Your Business Hours aren't shown to customers at checkout.
+
+---
+
+## What you can and can't do
+
+| You can | You can't |
+| ------- | --------- |
+| Add as many rows as you need. | Use the same day on two rows. |
+| Group days that share hours into one row. | Add a holiday or one-off date. |
+| Mark days as **Closed**. | Enter hours that run past midnight. |
+| Reorder rows with the arrows. | Show an "open now" badge. |
+| Share your hours with search engines. | Have hours convert to the viewer's time zone. |
+
+<Cards>
+  <Card title="General Settings" href="/docs/general-settings" description="Your time zone, contact details and address." />
+  <Card title="Shipping" href="/docs/shipping" description="Set pickup times and instructions." />
+  <Card title="SEO" href="/docs/seo" description="Local presence and search readiness." />
+  <Card title="Banner and Popup" href="/docs/banner-and-popup" description="Announce a holiday closure." />
+</Cards>

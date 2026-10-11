@@ -12,7 +12,7 @@ Every person on your team gets one of three roles:
 | Role        | Best for                                   | In one sentence                                                                                  |
 | ----------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | **Owner**   | You, and any co-owner you fully trust      | Full access, including managing the team, payments, and store settings.                          |
-| **Manager** | A trusted person who runs the day-to-day   | Everything an Owner can do except managing the team and a few "can't be undone" bulk actions.    |
+| **Manager** | A trusted person who runs the day-to-day   | Everything an Owner can do except managing the team, downloading your site, products export, and a few "can't be undone" bulk actions. |
 | **Staff**   | Someone who packs orders or counts stock   | Fulfillment only: orders, customers, and inventory counts and check-outs.                        |
 
 Roles take effect immediately. If you change someone's role or remove them, their access changes the next time they click anything in the admin.
@@ -45,21 +45,23 @@ Find your own role in this table to see what you'll have access to, or use it to
 | **Email Marketing**                                                                   | Yes   | Yes     | No                              |
 | **Finances and Analytics**                                                            | Yes   | Yes     | No                              |
 | **Connecting or disconnecting Stripe**                                                | Yes   | Yes     | No                              |
-| **Settings**: General, Shipping, Business Hours, Domain, Features, Integrations, Maintenance Mode | Yes | Yes | No                          |
+| **Settings**: General, Shipping, Business Hours, Domain, Features, Integrations, Maintenance Mode, and the Donations, Invoices and Rewards tabs (when those features are on) | Yes | Yes | No |
 | **Data & Export**: Download your site                                                 | Yes   | No      | No                              |
+| **Products CSV export**: switch it on in Features, and export products               | Yes   | No      | No                              |
 | **Team**: see who's on the team                                                       | Yes   | Yes (view only) | No                      |
 | **Team**: invite, change roles, remove people, revoke invitations                     | Yes   | No      | No                              |
-| **Your own account** (name, email, password, sign-in methods)                         | Yes   | Yes     | Yes                             |
+| **Your own account** (name, photo, password, signed-in devices)                       | Yes   | Yes     | Yes                             |
 
 A few notes on this table:
 
 - **Features you've switched off stay hidden for everyone.** For example, if Inventory Management is off under **Settings → Features**, nobody sees the Inventory section, no matter their role. See [Feature toggles](/docs/feature-flags).
-- **Staff only see the sections they can use.** Their sidebar shows Orders, Customers, and Inventory. If a Staff member opens any other admin page, they're sent back to Orders.
+- **Staff only see the sections they can use.** Their sidebar shows Orders, Customers, and Inventory, plus **Get Help**. If a Staff member opens any other admin page, they're sent back to Orders.
 - **Staff can see order totals** (subtotal, tax, shipping, discounts, and total) because they need them for packing slips. They can't see the internal note on an order, and they can't see Stripe payment details.
 - **Staff can't see private notes on customers or what items cost you.**
 - **Deleting one thing is different from deleting many.** A Manager can delete a single product, page, discount, and so on. Bulk delete, and deleting form entries or quote requests, are Owner-only because they can't be undone.
+- **Exporting products is Owner-only.** The **Products CSV export** switch under **Settings → Features** and the export itself both need an Owner. A Manager who tries the switch sees "Only the store owner can turn Products CSV export on or off."
 
-**Photo:** Screenshot of the admin sidebar as a Staff member sees it, showing only Orders, Customers, and Inventory.
+![The admin sidebar as a Staff member sees it, with only Orders, Customers, Inventory and Get Help](/images/team-and-roles/staff-sidebar.png)
 
 For the day-to-day details of each area, see [Orders](/docs/orders), [Customers](/docs/customers), and [Inventory](/docs/inventory-management).
 
@@ -80,13 +82,15 @@ You can change a role at any time, so it's fine to start with the smaller role a
 1. Go to **Settings** in the admin sidebar.
 2. Click **Team**.
 
-**Photo:** Screenshot of the Team page with the Members table and the Invite Member button.
+![The Team page with the Members card and the Invite Member button](/images/team-and-roles/team-page.png)
 
 The page shows:
 
-- **Members:** everyone who has access, with their name, email, and role. Your own row is marked **(you)**.
+- **Members:** everyone who has access, with their name, email, and role. Your own row is marked **(you)**. A short summary of the three roles sits above the table.
 - **Pending Invitations:** invitations you've sent that haven't been accepted yet, with the date each one expires.
-- **Expired Invitations:** invitations that went unanswered for too long. These only appear if you have any.
+- **Expired Invitations:** invitations that went unanswered for too long. This card only appears if you have any.
+
+Managers see the same page, but with a note that team management is Owner-only and without the buttons.
 
 ---
 
@@ -98,17 +102,25 @@ The page shows:
 4. Choose a **Role**: Manager, Staff, or Owner. A short description of the selected role appears under the dropdown.
 5. Click **Send Invite**.
 
-**Photo:** Screenshot of the Invite Team Member dialog with the Role dropdown open.
+![The Invite Team Member dialog with an email typed and the Role list open](/images/team-and-roles/invite-dialog.png)
+
+<video src="/videos/team-and-roles/invite-member.webm" poster="/videos/team-and-roles/invite-member-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*A short clip: opening Invite Member, typing an email, choosing Staff, sending, and the new invitation appearing under Pending Invitations.*
 
 SimplePress emails the person an invitation from your store's name. It says which role they've been offered and has an **Accept Invitation** button. If you reply to that email, the reply goes to your store's owner email address.
 
-You'll see a confirmation when the invite is sent. If the email couldn't be sent, you'll see a warning instead; see [Troubleshooting](#troubleshooting) below.
+You'll see "Invitation sent!" when the invite goes out. It then waits in **Pending Invitations** until it is accepted, revoked, or expires.
+
+![The Pending Invitations card with one Staff invitation, its expiry date, and a Revoke button](/images/team-and-roles/pending-invites.png)
+
+If the email couldn't be sent, you'll see a warning instead, with a **Copy link** button. See [Troubleshooting](#troubleshooting) below.
 
 ### Things to know about invitations
 
 - **Invitations last 14 days** and can only be used once.
 - **You can't invite someone who's already on the team**, and you can't send a second invitation to an email that already has one waiting. You'll see a message explaining which it is.
-- **Anyone can be invited**, whether or not they already have a SimplePress account.
+- **Anyone can be invited**, whether or not they already have a SimplePress account. They'll need to verify their email before they can sign in.
 - **There's no limit on team size.**
 
 ---
@@ -118,18 +130,28 @@ You'll see a confirmation when the invite is sent. If the email couldn't be sent
 Here's what your teammate will see, in case they ask you for help:
 
 1. They open the email and click **Accept Invitation**. The link opens on your store's own web address.
-2. They see a page saying they've been invited to join your store in the role you chose.
+2. They see a Team Invitation page saying "You've been invited" to join your store in the role you chose, worded "as an Owner", "as a Manager" or "as a Staff member". The email says the same.
 3. If they aren't signed in, they click **Sign In** (if they already have an account) or **Create Account** (if they're new). **They must use the same email address the invitation was sent to.**
-4. After signing in, they land back on the invitation page and click **Accept Invitation**.
+4. After signing in, they land back on the invitation page, which now shows **Accept Invitation** and **Decline** buttons. They click **Accept Invitation**.
 5. They're taken straight to your store's admin. Owners and Managers arrive at the Dashboard, and Staff are sent to Orders.
 
-If they're signed in with a different email than the one you invited, they'll see a **Wrong Account** message and a button to sign in with the right one. The invitation can't be accepted from the wrong account.
+**Decline** only sends them back to the home page. The invitation stays pending, so they can still accept it later (or you can revoke it).
 
-> **Tip:** If your teammate is new to SimplePress, they'll also need to verify their email address before they can use the admin. See [Your Account & Security](/docs/your-account-and-security).
+![The Team Invitation page a teammate sees when they aren't signed in, reading "as a Staff member", with Sign In and Create Account buttons](/images/team-and-roles/accept-invite-signed-out.png)
 
-**Photo:** Screenshot of the invitation page a teammate sees, with the Accept Invitation button.
+If they're signed in with a different email than the one you invited, they'll see a **Wrong Account** card. It says the invitation was sent to one address but they're signed in as another, and it has a **Sign in with different account** button. The invitation can't be accepted from the wrong account.
 
-> **New Owners:** If you invite someone as an Owner, they may be asked to review and accept the SimplePress seller agreement the first time they open the admin. That's expected. Managers and Staff are never asked.
+![The Wrong Account card, with a Sign in with different account button](/images/team-and-roles/accept-invite-wrong-account.png)
+
+> **Tip:** A new SimplePress user has to verify their email address before they can sign in at all. The verification link expires after an hour. See [Your Account & Security](/docs/your-account-and-security#verifying-your-email).
+
+### New Owners see a terms screen
+
+Anyone who is made an **Owner**, whether invited as one or promoted later, has to agree to the SimplePress Seller & Merchant Agreement and Acceptable Use Policy. They'll see this screen **every time they open the admin until they accept**. It's expected, and nothing is wrong with your store.
+
+![The terms screen titled One thing before you continue, with an agreement checkbox, Sign out and Agree and continue buttons](/images/team-and-roles/terms-gate.png)
+
+They tick the box ("As the owner of this store, I agree to...") and click **Agree and continue**. If they click without ticking, they're told "Please tick the box to continue." They can also click **Sign out** instead. Managers and Staff are never asked.
 
 ---
 
@@ -143,7 +165,7 @@ Only Owners can do this.
 
 The change saves right away and you'll see a "Role updated" message. You can't change your own role. To step down from Owner, see [Handing Over Ownership](#handing-over-ownership).
 
-**Photo:** Screenshot of the Role dropdown open in the Members table.
+![The Role dropdown open on a team member, with Owner, Manager and Staff](/images/team-and-roles/role-dropdown.png)
 
 ---
 
@@ -156,11 +178,11 @@ Only Owners can do this.
 3. Click **Remove**.
 4. Confirm in the dialog.
 
-They lose access to your admin immediately. Removing someone doesn't delete their SimplePress account, and it doesn't delete anything they did while on your team, such as orders they fulfilled. You can always invite them again later.
+The dialog warns that they will immediately lose access to your admin dashboard and that this can't be undone. Removing someone doesn't delete their SimplePress account, and it doesn't delete anything they did while on your team, such as orders they fulfilled. You can always invite them again later.
 
 You can't remove yourself from the Members table.
 
-**Photo:** Screenshot of the Remove confirmation dialog.
+![The Remove confirmation dialog, which says the person will immediately lose access](/images/team-and-roles/remove-dialog.png)
 
 ---
 
@@ -174,13 +196,15 @@ If you invited the wrong email, or changed your mind:
 2. In **Pending Invitations**, click **Revoke** next to the invitation.
 3. Confirm in the dialog.
 
+![The Revoke confirmation dialog, with Keep invite and Revoke invite buttons](/images/team-and-roles/revoke-dialog.png)
+
 The invite link stops working right away. You can send a new invitation to the same email afterward.
 
 ### Resend an invitation
 
-If an invitation expired before it was accepted, it moves to **Expired Invitations**. Click **Resend** next to it to send a fresh invitation to the same email with the same role.
+If an invitation expired before it was accepted, it moves to **Expired Invitations**. Click **Resend** next to it to send a fresh invitation to the same email with the same role. You'll see "Invitation resent". The old row stays in **Expired Invitations** for now. That's normal, and the new invitation shows up under **Pending Invitations**.
 
-Pending invitations don't have a Resend button. If a pending invitation never arrived, **Revoke** it and send a new one.
+Pending invitations don't have a Resend button. If a pending invitation never arrived, and the email didn't show a **Copy link** button, **Revoke** it and send a new one.
 
 ---
 
@@ -203,16 +227,22 @@ A store must always have at least one Owner. If you try to demote or remove the 
 Ask them to check their spam or junk folder, and confirm you typed their email correctly. If the email is wrong, **Revoke** the invitation and send a new one to the right address.
 
 **I saw a warning that the email could not be sent.**
-The invitation was created, but the email didn't go out. **Revoke** it and invite them again. If it keeps happening, contact support.
+The invitation was created, but the email didn't go out. The warning has a **Copy link** button that stays on screen for about 30 seconds. Click it and send the link to your teammate yourself, by text or another email. If you missed it, **Revoke** the invitation and invite them again. If it keeps happening, contact help@generativejustice.org.
 
-**They see "This invitation was sent to a different email address" or "Wrong Account."**
-They're signed in with another account. Have them sign out, then sign in or create an account using the exact email address you invited.
+**They see "This invite was sent to a different email address" or "Wrong Account."**
+They're signed in with another account. They can click **Sign in with different account**, then sign in or create an account using the exact email address you invited.
 
 **They see "This invite has expired."**
 Invitations last 14 days. Click **Resend** under **Expired Invitations**.
 
 **They see "This invite has already been used."**
 The invitation was accepted already or you revoked it. Check the **Members** table to see whether they're on the team, and invite them again if not.
+
+**Someone I invited can't sign in.**
+A new account has to be verified first. Ask them to click the link in their verification email (it lasts 1 hour) or use **Resend** on the Verify Email page. See [Your Account & Security](/docs/your-account-and-security#verifying-your-email).
+
+**A new Owner keeps seeing a terms screen.**
+That's the Seller & Merchant Agreement. It shows until they tick the box and click **Agree and continue**.
 
 **A Staff member says a page they need is missing.**
 Staff can only reach Orders, Customers, and Inventory, and only when those features are switched on under **Settings → Features**. If they need more access, change their role to Manager.
@@ -237,6 +267,7 @@ You're a Manager. Only Owners can invite people or change roles. Ask an Owner to
 | Remove or demote the last Owner                                 | No. Promote someone else to Owner first                      |
 | Create custom roles or fine-tune individual permissions         | No. The three roles are fixed                                |
 | Give Staff access to products, settings, or the dashboard       | No. Use Manager instead                                      |
-| Limit a Manager so they can't change settings or payments       | No. Managers have full access except team management, bulk delete, and Data & Export |
+| Limit a Manager so they can't change settings or payments       | No. Managers have full access except team management, bulk delete, Data & Export, and Products CSV export |
 | Change the email address on an invitation                       | No. Revoke it and invite the correct address                 |
+| Change a teammate's sign-in email                               | No. They can ask the SimplePress team at help@generativejustice.org |
 | Set a team size limit or pay per seat                           | Not applicable. There's no limit and no extra cost           |

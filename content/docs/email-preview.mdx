@@ -45,8 +45,8 @@ A preview is a sample. Nothing is sent when you click a button.
 
 - **Your logo and store name** are real. If you haven't uploaded a logo, the email shows your store name as text instead. Add one under **Site Setup → Brand & Appearance**.
 - **Customer names, addresses, products, amounts and codes** are made-up samples (for example "John Doe" or "Jane Smith"). Buttons and links in a preview are samples too.
-- **Order numbers and items:** if your store has any orders, the previews for **Order Confirmation**, **Order Confirmation (pickup)** and the two **New Order** emails use the order number and items from one of your real orders. The first order the page finds is used, not necessarily the newest. The amounts on the other order previews (such as **Order Refunded**) are always sample amounts. If you have no orders yet, the page uses order number 1001 and a "Sample Product".
-- **Customized wording shows up as you type.** If you change a subject or intro, the preview updates a moment later, before you save. A line above the preview, **Subject:**, shows the subject line customers will see.
+- **Order numbers and items:** if your store has any orders, several previews use details from one of your real orders: **Order Confirmation**, **Order Confirmation (pickup)**, **Ready for Pickup**, **Order Fulfilled (no tracking)**, **Order Refunded**, **Order Cancelled** and the two **New Order** emails use the real order number. The **New Order** emails also use the real totals, and **Abandoned Checkout** shows real items. The first order the page finds is used, not necessarily the newest. **Order Shipped** always shows order number 1001, and other amounts (such as the refund amount on **Order Refunded**) are samples. If you have no orders yet, the page uses order number 1001 and a "Sample Product".
+- **Customized wording shows up as you type.** If you change a subject or intro, the preview updates a moment later, before you save. A line above the preview, **Subject:**, shows the subject line customers will see. If you haven't written your own subject, that line shows the standard subject the real email uses. For example, the pickup confirmation reads "Order #1015 confirmed — pickup details inside" (the number comes from the order the preview uses, or is 1001 if you have no orders), **Subscription Updated** reads "Your subscription is paused" or "Your subscription is back on", and the subscription emails name the sample product, such as "Your Premium Coffee Pack subscription is confirmed". Invoice previews show the sample invoice number.
 
 ---
 
@@ -54,7 +54,7 @@ A preview is a sample. Nothing is sent when you click a button.
 
 The page always lists all of these, whether or not the matching feature is turned on. For example, the invoice emails are listed even if you don't use [Invoices](/docs/invoices). An email only goes out when something actually happens, so unused features never email anyone.
 
-The tables show the buttons in the same groups used below. On the page itself they sit in one long list, in the order shown here.
+The tables below group the emails by topic. On the page itself, the buttons sit in one long **Templates** list in a different order, so use the names to find each one.
 
 "Customize" tells you what you can change on the page. See [Customizing an Email](#customizing-an-email).
 
@@ -80,16 +80,18 @@ For the shopper's side of these emails, and how to turn each off, see [Emails Yo
 
 ### Alerts for You
 
-These go to your **Owner Email** (set in your General settings). Customers never see them. None of them can be customized.
+These are sent to you, not to customers. Customers never see them, and none of them can be customized. Most go to your **Owner Email** (set in your General settings). The **Contact Form** email goes to your **Support Email** instead. For who gets what, and which ones you can switch off, see [Emails You Receive](#emails-you-receive) below.
 
 | Button | When it's sent |
 | --- | --- |
 | **New Order (owner)** | A new order is paid. |
 | **New Order (subscription)** | A subscription order comes in, such as a renewal. It also shows the subscription schedule. |
-| **Contact Form** | A visitor sends your contact form. Replying to it writes back to the visitor. |
+| **Contact Form** | A visitor sends your contact form. It goes to your **Support Email**. Replying to it writes back to the visitor. |
 | **Low Inventory Alert (owner)** | A product's stock drops to its low-inventory number (set on the product). |
 | **Out of Stock Alert (owner)** | A product's stock reaches zero. |
 | **Out of Stock — Backorders On (owner)** | A product reaches zero, but it still takes orders because backorders are on. |
+
+The quote, invoice and subscription alerts for you are listed in their own sections below.
 
 ### Quotes
 
@@ -148,8 +150,65 @@ See [Rewards Program](/docs/rewards).
 | **Reset Password** | Whoever asked | They use **Forgot password**. | No |
 
 <Callout type="info" title="Not every email is on this page">
-  A few other automatic emails, such as team invitations, form notices, donation notices and order status links, don't have a button here. You can't preview or reword them from this page.
+  A few other automatic emails don't have a button here: payment dispute alerts, payments paused, new review alerts, the two inventory item alerts, new form entries, donation notices, the confirmation a form visitor can get, team invitations, order status links, and the test send in Email Marketing. You can't preview or reword them from this page. They are all listed in [Emails You Receive](#emails-you-receive) or in the customer emails guide.
 </Callout>
+
+---
+
+## Emails You Receive
+
+Here is every automatic email that comes to **you** (or your team), in one place. Some have a button on this page so you can preview them. Others don't.
+
+**Who gets what:**
+
+- Most alerts go to your **Owner Email**, which you set in **Settings → General**. See [General Settings](/docs/general-settings#owner-email).
+- **Payment disputes** and **payments paused** also go to every Owner and Manager on your team, each in their own copy.
+- **Staff** don't get any of these emails. See [Team and Roles](/docs/team-and-roles).
+- Other alerts, such as new orders and low stock, go to the Owner Email address only, not to Managers.
+
+| Email | When it's sent | Who gets it | Can you turn it off? |
+| --- | --- | --- | --- |
+| **New order** | A customer's checkout is paid, or a subscription renewal is paid. Orders you create by hand don't send it. | Owner Email | No |
+| **Low stock** (product) | A sale brings a product to or below its **Low Inventory Threshold**. Sent once, until you restock. See [Inventory](/docs/inventory-management#low-stock-alerts). | Owner Email | Leave the threshold blank on the product |
+| **Out of stock** (product) | A product's stock reaches 0. There is a separate version for products that still take backorders. | Owner Email | Only by not tracking inventory for that product |
+| **Inventory item low** | An inventory item reaches its **Low-stock threshold (optional)**. | Owner Email | Leave the threshold blank on the item |
+| **Inventory item out** | An inventory item reaches 0. | Owner Email | No |
+| **Payment dispute** | A customer disputes a payment. No email is sent when the dispute closes. See [Disputes](/docs/payments-and-payouts#disputes). | Owner Email and every Owner and Manager | No |
+| **Payments paused** | Stripe pauses charges on your account. Sent once. | Owner Email and every Owner and Manager | No |
+| **New review** | A customer submits a review. Reviews you add yourself don't send it. See [Reviews](/docs/reviews). | Owner Email | Only by turning Reviews off |
+| **Contact form message** | A visitor sends your contact form. | Support Email (Owner Email if no Support Email is set). Replies go to the visitor. | No |
+| **Form entry** | A visitor submits one of your custom forms. See [Forms](/docs/forms). | The form's **Notify email**, then your Support Email, then your Owner Email. | You can send it somewhere else, but not turn it off. Entries are always saved in your admin. |
+| **Quote request** | A visitor submits a quote calculator. See [Quote Calculators](/docs/quote-calculators). | Owner Email. Replies go to the visitor. | No |
+| **Donation** | A card donation goes through. See [Donations](/docs/donations). | Owner Email. Replies go to the donor. | No |
+| **Subscription started, payment failed, cancelled** | A customer subscribes, a renewal payment fails (again on each retry), or a subscription ends. Pausing or resuming doesn't email you. See [Subscriptions](/docs/subscriptions). | Owner Email. Replies go to the customer. | No |
+| **Invoices past due** | A daily check finds invoices that went overdue in the last 7 days. You get one email per store. See [Invoices](/docs/invoices). | Owner Email | Yes: **Email me when an invoice becomes past due** in your invoice settings (on by default) |
+| **Weekly invoice digest** | Monday morning in your store's time zone. Skipped if there is nothing to report. | Owner Email | Yes: **Weekly summary every Monday morning** in your invoice settings (on by default) |
+| **Team invitation** | You invite someone to your team. The invitation is good for 14 days. | The person you invited. Replies go to your Owner Email. | No |
+| **Broadcast test** | You click **Send test to myself** in Email Marketing. | You (the signed-in user) | It only happens when you ask |
+| **Verify email and reset password** | You create an account or use **Forgot password**. | You | No |
+
+<Callout type="info" title="Switching these off">
+  Most of these have no off switch. The ones you can control are the two invoice emails, the stock alerts (by leaving the threshold blank), and the abandoned checkout email, which is for customers. See [Abandoned Checkout Emails](#abandoned-checkout-emails).
+</Callout>
+
+### Things that don't send an email
+
+SimplePress does **not** email you when:
+
+- a customer leaves a **testimonial**
+- someone **accepts** your team invitation
+- a **dispute closes** (check the order or Stripe)
+- a subscription is **paused or resumed**
+- you create an order by hand (a **manual order**)
+- you add a review yourself
+
+### Make sure these reach you
+
+- **Keep your Owner Email current** in [General Settings](/docs/general-settings#owner-email). It's where most alerts land.
+- **Set a Support Email** you check often in [General Settings](/docs/general-settings#support-email). Contact form messages go there.
+- **Use a form's Notify email** if a different person should see that form's entries, such as the person who handles catering.
+- **Check spam** the first time you get one of these, and mark it as "not spam" so later ones arrive.
+- Owners and Managers on your team get dispute and payments-paused emails at their own sign-in addresses, so make sure those are right too.
 
 ---
 
@@ -171,7 +230,7 @@ Both fields are **plain text**. Anything that looks like web code, such as `<b>`
 1. Open **Content → Notification Emails**.
 2. In the **Templates** list, click the email you want, for example **Order Confirmation**.
 3. Find the **Customize "Order Confirmation"** card above the preview. Under the title is a short note on when this email is sent.
-4. Type your own **Subject**. The standard subject is shown greyed out in the box as a guide. Use these placeholders where they make sense:
+4. Type your own **Subject**. The standard subject is shown greyed out in the box as a guide, and it matches what customers get. Use these placeholders where they make sense:
    - `{orderNumber}` becomes the order number. Use it in order emails only.
    - `{businessName}` becomes your store name.
    - `{invoiceNumber}` becomes the invoice number. Use it in invoice emails only.
@@ -193,9 +252,8 @@ Once you save, your wording is used in the real emails from then on. Emails alre
 
 A few things to know about subjects:
 
-- **Placeholders only fill in where they apply.** `{orderNumber}` in an abandoned checkout or subscription subject comes out blank, because there is no order number. `{businessName}` works in every customizable email.
-- **The preview can't fill in everything.** In the invoice previews, the invoice number in the **Subject:** line comes out blank. Real emails show the real number.
-- **Subscription emails normally name the product.** The standard subject includes the product's name, for example "Your Premium Coffee Pack subscription is confirmed". The subject you write can use `{businessName}` but can't include the product name.
+- **Placeholders only fill in where they apply.** `{orderNumber}` comes out blank in the abandoned checkout, subscription, quote (**Quote Request Received** and **Final Quote**) and invoice subjects, because there is no order number. `{businessName}` works in every customizable email.
+- **Some subscription emails normally name the product.** **Subscription Started**, **Subscription Payment Failed** and **Subscription Cancelled** include the product's name in the standard subject, for example "Your Premium Coffee Pack subscription is confirmed". The preview shows a sample product here, and real emails use the customer's product. The subject you write can use `{businessName}` but can't include the product name. The standard subjects for **Subscription Updated** don't name the product at all.
 - **Final Quote** has two standard subjects, depending on whether a price is included. If you write your own subject, it is used for both.
 
 ### Undoing a Change
@@ -299,6 +357,11 @@ You can preview **Verify Email** and **Reset Password**. The real **Reset Passwo
 		title="Wishlist & Back-in-Stock Alerts"
 		description="Let shoppers ask to be told when a sold-out item returns."
 		href="/docs/wishlist-and-back-in-stock"
+	/>
+	<Card
+		title="General Settings"
+		description="Set your Owner Email and Support Email, where your alerts are sent."
+		href="/docs/general-settings"
 	/>
 	<Card
 		title="Emails Your Customers Receive"

@@ -54,14 +54,17 @@
 		"tax",
 		"---Settings---",
 		"general-settings",
+		"business-hours",
 		"shipping",
 		"domain",
+		"maintenance-mode",
 		"feature-flags",
 		"integrations",
 		"team-and-roles",
 		"email-preview",
 		"data-and-export",
 		"your-account-and-security",
+		"accessibility",
 		"!test"
 	]
 }

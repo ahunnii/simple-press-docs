@@ -1,138 +1,167 @@
 ---
 title: Custom Domain
-description: Connect your own domain to your storefront.
+description: Connect your own domain, like myshop.com, to your storefront, check that it's working, and remove it if you need to.
 ---
 
 ## Overview
 
-Your store comes with a permanent subdomain right out of the box — something like `yourstore.simplepress.co`. That URL works immediately and never goes away. But if you have your own domain name (like `myshop.com`), you can connect it so customers visit your brand instead.
+Every store starts on a free SimplePress address, something like `yourstore.simplepress.co`. This is your **default subdomain**. It's set when your store is created and **can't be changed**.
 
-The moment your store is created, you're assigned a subdomain based on your business name. This is your permanent store address and **cannot be changed** — it is locked at signup.
+The subdomain is perfect while you're building and testing. But **you need your own custom domain** (like `myshop.com`) before you start selling. It's the address customers remember, and the one your receipts, emails and search listings should use.
 
-> **Example:** `yourstore.simplepress.co`
+To get there, open **Settings → Domain**. Owners and Managers can open it. Staff can't. See [Team & roles](/docs/team-and-roles).
 
-Your subdomain will always work, even after a custom domain is active. Think of it as a reliable fallback.
+<Callout type="info" title="Where does the old address go?">
+  Once your custom domain is **Active**, anyone who visits your store at the old SimplePress address is sent on to your custom domain automatically. Your admin still works at the old address too. See [Launch Checklist](/docs/launch-checklist#1-connect-your-custom-domain).
+</Callout>
 
----
-
-## Adding a Custom Domain
-
-> **Photo needed:** Domain Settings page showing the "Add Custom Domain" form (before a domain has been entered).
-
-To connect your own domain:
-
-1. Go to **Settings → Domain** in your admin dashboard
-2. Enter your domain name in the field — just the domain itself, no `https://` or `www`
-   - **Example:** `myshop.com`
-3. Click **Add Custom Domain**
-
-Once submitted, your domain is saved with a **Pending DNS** status. At this point, two things happen automatically:
-
-- The platform team receives a notification and manually adds your domain to the server infrastructure (Coolify). **You don't need to do anything to trigger this — it happens behind the scenes.**
-- You'll see the DNS instructions you need to configure on your end (see below)
-
-> **Note:** There is a short window between when you add your domain and when it's live on the server. The platform team handles this manually after receiving the notification. If you've configured your DNS correctly and verification is still failing after 24–48 hours, reach out to support.
+The page has two cards: **Default Subdomain** and **Custom Domain**. There's no Save button. Each action happens when you click its own button.
 
 ---
 
-## Configuring Your DNS
+## Add your domain
 
-After adding your domain, you'll see DNS configuration instructions in the admin. You need to add two **A records** at your domain registrar (wherever you bought your domain — Namecheap, GoDaddy, Cloudflare, Squarespace Domains, etc.):
+Buy your domain from any registrar you like (Namecheap, GoDaddy, Cloudflare, Squarespace Domains and so on). SimplePress doesn't sell them.
 
-| Type | Name | Value              |
-| ---- | ---- | ------------------ |
-| A    | @    | _(shown in admin)_ |
-| A    | www  | _(shown in admin)_ |
+![The Default Subdomain card with an Active badge, and the empty Custom Domain form](/images/domain/domain-empty.png)
 
-Both records should point to the same IP address shown in your admin panel. Each record has a copy button next to the value so you can paste it directly into your registrar.
+1. Go to **Settings → Domain**.
+2. In **Domain Name**, type your domain without `http://` or `www`. For example, `myshop.com`.
+3. Click **Add Custom Domain**.
 
-> **Photo needed:** Domain Settings page in the "Pending DNS" state, showing the DNS instructions card with the A record values, copy buttons, and the "Verify DNS" button.
+SimplePress changes everything you type to lowercase. It tells you if something's wrong:
 
-**DNS changes can take anywhere from a few minutes to 48 hours to propagate.** This is controlled by your domain registrar, not by SimplePress.
+![The error Enter a valid domain like shop.example.com under the Domain Name box](/images/domain/domain-field-error.png)
 
----
+| Message | What it means |
+| ------- | ------------- |
+| Please enter a domain | The box is empty. |
+| Enter a valid domain like shop.example.com | What you typed isn't a domain. Check for spaces or typos. |
+| That domain is reserved by the platform and cannot be used as a custom domain | Addresses that belong to SimplePress itself (such as `simplepress.co` ones) can't be used. |
+| This domain is already in use | Another store already has it. [Contact support](mailto:help@generativejustice.org) if you think it should be yours. |
 
-## Verifying Your Domain
+When it works, the message says "Domain added! Configure DNS and verify below." Your domain is saved with a **Pending DNS** badge. The SimplePress team is notified and finishes the server setup on our side. You don't need to do anything for that.
 
-Once you've added the DNS records, come back to **Settings → Domain** and click **Verify DNS**.
-
-The platform will automatically check whether your domain is pointing to the correct server. If everything looks good, your domain status will update to **Active**.
-
-If verification fails, double-check:
-
-- Both A records (`@` and `www`) are saved at your registrar
-- You're pointing to the exact IP address shown in your admin
-- Enough time has passed for DNS to propagate (try again after a few hours)
+<Callout type="warn" title="Using an address like shop.example.com?">
+  If you want your store on a subdomain of a domain you own (for example `shop.example.com`), it will be accepted, but the DNS records shown on this page are written for a main domain like `example.com` and won't be right for it. Please email help@generativejustice.org and we'll give you the correct records.
+</Callout>
 
 ---
 
-## Domain Statuses
+## Add the DNS records
 
-| Status             | What it means                                                |
-| ------------------ | ------------------------------------------------------------ |
-| **Not Configured** | No custom domain has been added yet                          |
-| **Pending DNS**    | Domain saved — waiting for DNS to be configured and verified |
-| **Active**         | Domain is verified and live                                  |
+After you add your domain, the card shows **DNS Configuration Required** with two **A records**: one with the name `@` and one with the name `www`.
 
-> **Photo needed:** Domain Settings page showing an Active domain with the green "Active" badge.
+![The Pending DNS state with the DNS records to add and the Verify DNS and Remove Domain buttons, shown with an example domain](/images/domain/domain-pending.png)
 
----
+*The Pending DNS state, shown with an example domain. Yours will show your own domain and address.*
 
-## Removing a Custom Domain
+| Type | Name | Value |
+| ---- | ---- | ----- |
+| A | `@` | The address shown in your admin |
+| A | `www` | The same address |
 
-You can remove your custom domain at any time from **Settings → Domain**. The Remove Domain button appears whenever a domain is configured — both while it's pending DNS setup and after it's active.
+Sign in to the company where you bought the domain and add both records. Copy each value carefully. The records on **Settings → Domain** are plain text, so select and copy them yourself. (The Setup Guide's domain step has copy buttons if you'd rather click.)
 
-> **Photo needed:** Domain Settings page showing the "Remove Domain" button next to the Verify DNS button (Pending DNS state) and below the active confirmation (Active state).
+![The Setup Guide's domain step, which has a copy button beside each DNS value](/images/domain/setup-guide-domain.png)
 
-Clicking **Remove Domain** shows a confirmation dialog. After confirming:
+*On the Setup Guide, each DNS value has a copy button. This shows an example domain.*
 
-- Your custom domain is immediately cleared from your store
-- Your store falls back to its permanent subdomain (`yourstore.simplepress.co`) right away — there is no downtime on the subdomain
-- The platform team receives a notification to remove the domain from the server so it can be reclaimed
-
-You can add a new custom domain at any time after removing one.
-
-> **If you're removing a domain to switch to a different one**, remove the current domain first, then add the new one. This notifies the platform team for both operations.
+**DNS changes can take anywhere from a few minutes to about 48 hours to spread.** That depends on your domain company, not on SimplePress.
 
 ---
 
-## What You Can and Cannot Do
+## Verify your domain
 
-**You can:**
+When you've added the records, come back to **Settings → Domain** and click **Verify DNS**.
 
-- Add one custom domain to your store
-- Verify it yourself once DNS is configured
-- Remove your custom domain and fall back to your subdomain at any time
-- Add a new custom domain after removing one
-- Continue using your subdomain at any time, even after a custom domain is active
+If it works, you'll see "Domain verified successfully!" and the badge changes to **Active**.
 
-**You cannot:**
+![The Active state: Your custom domain is active and working, with a Remove Domain button, shown with an example domain](/images/domain/domain-active.png)
 
-- Change your subdomain (it's permanent)
-- Use a domain that's already registered to another store on the platform
-- Add more than one custom domain
-- Skip the DNS configuration step — the domain must point to the correct server to be verified
+*An Active domain, shown with an example domain.*
+
+If it doesn't work, you'll see one of these:
+
+| Message | What to check |
+| ------- | ------------- |
+| DNS records not found. Please check your configuration. | The records aren't visible yet. Check they're saved at your registrar, then wait a while and try again. |
+| Domain points to [addresses] but should point to [our address] | Your `@` record points somewhere else. Change it to the address shown in your admin. |
+
+Some things to know about **Verify DNS**:
+
+- **It only checks the main (`@`) record.** It doesn't check your `www` record. Add both anyway.
+- **Active can show up a little before your site loads.** Verification only looks at DNS. After that the secure certificate (the padlock) still has to be set up, which takes a short while. If your domain shows an error when you visit it just after going Active, wait a bit and try again. If it's still not working after a few hours, email help@generativejustice.org.
+- **Always visit your own domain** in a private or incognito window before you share it.
+
+Adding your domain is also what ticks the domain step on your Setup Guide. That tick doesn't mean the domain works yet. Look for **Active** here.
+
+---
+
+## The badges
+
+| Badge | Where | What it means |
+| ----- | ----- | ------------- |
+| **Active** (on Default Subdomain) | Default Subdomain card | Your free address is working. It's always there. |
+| **Pending DNS** | Custom Domain card | Your domain is saved. It's waiting for DNS records and **Verify DNS**. |
+| **Active** | Custom Domain card | Your domain is verified. |
+| **Not Configured** | Custom Domain card | The domain exists but isn't set up. You normally won't see this. |
+
+If you haven't added a custom domain, the Custom Domain card has no badge at all. It's just the empty form.
+
+When your domain is **Active**, your store's emails, links and **View store** buttons use it.
 
 ---
 
-## Frequently Asked Questions
+## Remove a custom domain
 
-**Do I need to buy a domain through SimplePress?**
-No. Purchase your domain from any registrar you prefer. SimplePress only needs you to point it at our server via DNS records.
+You can remove your domain at any time, whether it's still pending or already active.
 
-**Will my old subdomain stop working?**
-No — your `yourstore.simplepress.co` subdomain always remains active. It's a permanent fallback.
+![The Remove Custom Domain dialog, shown with an example domain](/images/domain/domain-remove-dialog.png)
 
-**How long does setup take?**
-After adding your domain, the platform team is notified and adds it to the server. Then you configure DNS. Total time varies, but most stores are live within a few hours to a day once DNS propagates.
+1. On the Custom Domain card, click **Remove Domain**.
+2. Read the dialog. It says your domain "will stop working right away, and your store will be served from its default subdomain again."
+3. Click **Remove Domain** to confirm, or **Cancel** to stay as you are.
 
-**What if my domain is already in use?**
-If another SimplePress store has already claimed your domain, you'll see an error when you try to add it. In that case, reach out to support.
+You'll see "Custom domain removed. Your store is back on its subdomain." You can add a new domain at any time. To switch to a different one, remove the old one first, then add the new one.
 
-**What happens to my store when I remove a custom domain?**
-Your store switches back to its subdomain immediately. There is no gap in availability — customers can still reach your store at `yourstore.simplepress.co` right away. The platform team is notified to remove the old domain from the server in the background.
-
-**Can I reuse a domain I previously removed?**
-Yes. After removing a domain and adding it back, it goes through the same Pending DNS → Active flow again.
+<Callout type="warn" title="Don't remove it while you're selling">
+  Removing your domain makes links, emails and bookmarks that use it stop working. Do this only when you mean to change addresses.
+</Callout>
 
 ---
+
+## What you can and can't do
+
+| You can | You can't |
+| ------- | --------- |
+| Add one custom domain and verify it yourself. | Change your default subdomain. |
+| Remove your domain and add a different one later. | Add more than one custom domain. |
+| Use your subdomain while you build. | Use a domain that belongs to SimplePress, or one another store already uses. |
+| Keep admin access at the old subdomain. | Skip the DNS step: the domain has to point to the right address. |
+
+---
+
+## Frequently asked questions
+
+**Do I need to buy my domain through SimplePress?**
+No. Buy it from any registrar. SimplePress only needs you to add the DNS records.
+
+**Do I really need a custom domain?**
+You can build and test on your free subdomain. To start selling, you need your own domain connected. See [Launch Checklist](/docs/launch-checklist).
+
+**Will my old SimplePress address stop working?**
+Once your domain is Active, visitors to your old address are sent to your new one. Your admin dashboard keeps working at the old address.
+
+**How long does it take?**
+The SimplePress team finishes the server side. The DNS spread time depends on your registrar. Most stores are live within a few hours to a day.
+
+**Can I reuse a domain I removed?**
+Yes. It goes through Pending DNS and Active again.
+
+<Cards>
+  <Card title="Launch Checklist" href="/docs/launch-checklist" description="Everything to do before you start selling." />
+  <Card title="Maintenance Mode & Coming Soon" href="/docs/maintenance-mode" description="Keep your store closed while you finish up." />
+  <Card title="General Settings" href="/docs/general-settings" description="Business name, contact details and address." />
+  <Card title="Integrations" href="/docs/integrations" description="Connect Stripe so you can take payments." />
+</Cards>

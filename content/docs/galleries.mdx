@@ -88,17 +88,19 @@ Click a gallery in the list to open its editor. The page title is the gallery's 
 
 - **Add photos.** Click **Add images** and choose **Upload from device** or **Choose from library**. You can also drag photos from your computer onto the Images card.
 - **Reorder.** Drag a photo by its handle to move it. The order you set is the order customers see, and it saves as soon as you let go.
-- **Edit a photo.** Click the edit button (the pencil) on a photo to open the **Edit Image** dialog (below). A small blue **ALT** tag in a photo's corner means it already has alt text.
+- **Edit a photo.** Click the edit button (the pencil) on a photo to open the **Edit Image** dialog (below). A small blue **ALT** tag in a photo's corner means it already has alt text. The tag ignores leftover file names (such as `download-9.png`) from older uploads, because a file name isn't a description.
 - **Remove a photo.** Click the remove button (the red trash can) on a photo. See [Removing a photo](#removing-a-photo).
 
 #### Edit Image
 
 The **Edit Image** dialog shows the photo with two fields:
 
-- **Alt Text**: a short description of the photo for people using screen readers, and for search engines. It's a good idea to fill this in for every photo.
+- **Alt Text**: a short description of the photo for people using screen readers, and for search engines. It's a good idea to fill this in for every photo. See [Accessibility and Your Site](/docs/accessibility) for tips.
 - **Caption**: optional text that appears with the photo if **Show captions** is on.
 
-Click **Save Changes** in the dialog to save them.
+Click **Save Changes** in the dialog to save them. To remove alt text or a caption, empty the box and save. A blank box clears it.
+
+Photos uploaded before June 2026, or carried over from another store, may have their file name saved as alt text. The dialog shows an empty **Alt Text** box for those, with a hint underneath reading `Was "download-9.png" — describe what's in the photo instead.` Type a real description, or save it blank. Either way the file name is cleared.
 
 ![The Edit Image dialog with the photo preview and the Alt Text and Caption fields](/images/galleries/edit-image-dialog.png)
 

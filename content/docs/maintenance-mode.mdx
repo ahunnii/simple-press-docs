@@ -1,0 +1,166 @@
+---
+title: Maintenance Mode & Coming Soon
+description: Close your storefront behind a single "under maintenance" or "coming soon" page while you build, update or get ready to launch, and preview the real site while it's closed.
+---
+
+## Overview
+
+**Maintenance Mode** swaps your whole public storefront for one page. Visitors can't browse or buy. You pick which page they see:
+
+- **Under maintenance**: "the site is temporarily unavailable for updates." Good for a short fix or a big update.
+- **Coming soon**: "the store is launching soon." Good while you build, or to build excitement before launch.
+
+To open it, go to **Settings → Maintenance Mode**. Owners and Managers can open it. Staff can't. See [Team & roles](/docs/team-and-roles).
+
+Your admin dashboard is never affected, and while you're signed in you can still look at the real site.
+
+![The Maintenance Mode Status card with the switch turned off](/images/maintenance-mode/maintenance-off.png)
+
+*The page when Maintenance Mode is off. Everyone can see and shop your store.*
+
+---
+
+## Turn it on
+
+1. Go to **Settings → Maintenance Mode**.
+2. Switch on **Enable maintenance mode for my storefront**.
+3. Fill in any of the optional fields below.
+4. Click **Save changes** at the bottom of the card.
+
+As soon as you flip the switch, the form opens up with all the options. Nothing changes for visitors yet. It only takes effect after you click **Save changes**.
+
+When you save from off to on, SimplePress asks first.
+
+![The Take your storefront offline? confirmation dialog](/images/maintenance-mode/maintenance-confirm.png)
+
+The dialog says every public page, from home to checkout, will immediately be replaced, and that no new orders can be placed until you turn it back off. Click **Take storefront offline** to go ahead, or **Cancel**. After that, you'll see "Storefront availability settings saved."
+
+Once it's saved on, a red alert reads **Storefront is currently offline**, with a **View public page** button.
+
+![The red Storefront is currently offline alert with View public page and Save changes](/images/maintenance-mode/maintenance-offline-alert.png)
+
+<Callout type="info" title="What the notices mean">
+  The red alert only appears after maintenance is **saved** on, so it always matches what visitors see. Before you save, an amber notice reads **Your storefront will go offline when you save** and adds "Until you save, your store is still live." If you switch it off while it's saved on, the amber notice reads **Your storefront will come back online when you save**, and visitors keep seeing the page until you do.
+</Callout>
+
+---
+
+## What you can put on the page
+
+Everything below is optional. Leave a box empty and it's simply left off the page. Only a blank headline is replaced with SimplePress's own wording.
+
+![The top of the form: Display type, Overline, Headline, Launch date and time, Location and Flyer image](/images/maintenance-mode/maintenance-form-top.png)
+
+| Field | What it does |
+| ----- | ------------ |
+| **Display type** | **Under maintenance** or **Coming soon**. |
+| **Overline (optional)** | A small label above the headline, up to 80 characters. For example "Grand opening" or "Temporarily closed". |
+| **Headline (optional)** | The big heading, up to 160 characters. For example "Something beautiful is on its way." or "We'll be back shortly." If blank, visitors see "Coming soon" or "We'll be back soon". |
+| **Launch date & time (optional)** | **Starts** and **Ends (optional)**. When set, the page shows the date and a live countdown. |
+| **Location (optional)** | Shown next to the date, up to 200 characters. Leave it blank to hide it. |
+| **Flyer image (optional)** | A picture shown above your message. **Upload image**, **Replace image** or **Remove**. JPG, PNG or WebP, up to 5 MB. |
+
+![The bottom of the form: Custom message and Call-to-action button, with the amber notice "Your storefront will go offline when you save" and Save changes](/images/maintenance-mode/maintenance-form-bottom.png)
+
+| Field | What it does |
+| ----- | ------------ |
+| **Custom message (optional)** | A short message with basic formatting, such as "We'll be back soon. Thank you for your patience!" If blank, no message is shown. |
+| **Call-to-action button (optional)** | **None**, **External link**, **Call** or **Email**. Give the button a **Button label**, such as "Call to book", and then a **Link**, **Phone number** or **Email address**. If you leave the phone or email blank, it uses the ones from [General Settings](/docs/general-settings#contact-details). |
+
+### The countdown
+
+The date and time you pick are in **your store's time zone**, the one you chose in [General Settings](/docs/general-settings#time-zone). The form reminds you with a line under the date boxes, such as "Times are in Eastern Time — Detroit (your store's time zone in General settings)." The zone name changes to match your setting.
+
+<Callout type="warn" title="The countdown does not open your store">
+  When the countdown reaches zero, the page changes to "Now open" or "We're back". But **your store stays closed** until you come back here, switch off Maintenance Mode and save. Plan to do this at launch time.
+</Callout>
+
+If you add an end time, it must be after the start time. If you set an end without a start, SimplePress asks for a start date first.
+
+### If something won't save
+
+| Message | What to do |
+| ------- | ---------- |
+| Choose an image file — JPG, PNG or WebP | Pick a different file type for the flyer. |
+| Images must be 5MB or smaller | Use a smaller image. |
+| Add a label for your call-to-action button | Type a **Button label**. |
+| Add a link for your call-to-action button | Type a **Link**. |
+| Add a start date before an end time | Fill in **Starts**. |
+| Launch end must be after the start | Move the end time later. |
+| Add a phone number in Settings or enter one here | Add a number to the CTA or to General Settings. |
+
+---
+
+## What visitors see
+
+Every storefront page, including the home page, shop, products, cart, checkout and account pages, shows one page instead. Search engines are told not to list it, so it won't hurt your search results.
+
+On the Default template, it looks like this:
+
+![The Coming soon page: overline, headline, date and location line, countdown, message and email button](/images/maintenance-mode/maintenance-coming-soon.png)
+
+*A Coming soon page with an overline, headline, date, countdown, message and a button.*
+
+![The Coming soon page on a phone](/images/maintenance-mode/maintenance-coming-soon-mobile.png)
+
+*The same page on a phone.*
+
+The **Under maintenance** version has the same layout, with the wording "Back in" on the countdown and the line "This shop is temporarily undergoing maintenance. Please check back in a little while." The Coming soon page says "Opening in" and "This shop is getting ready. Check back soon."
+
+![The Under maintenance page, with a Back in countdown](/images/maintenance-mode/maintenance-under-maintenance.png)
+
+Checkout is blocked on the server too. Even if a customer already had checkout open, they see "This store is temporarily unavailable. Please try again later."
+
+<Callout type="info" title="Custom templates may look different">
+  The page above is the Default design. If SimplePress built you a custom template, it may have its own Coming soon or Under maintenance design. The options you choose here still apply, but the layout and fonts can be different.
+</Callout>
+
+---
+
+## Previewing while it's on
+
+While Maintenance Mode is on, **you and your Managers** can still open the storefront when you're signed in. Customers and Staff can't. They only see the maintenance page.
+
+At the top of the page, a dark bar tells you you're looking at the visitor view.
+
+![The dark owner bar reading Visitors see this coming soon page, with a View your store button](/images/maintenance-mode/maintenance-owner-bar.png)
+
+Click **View your store** to look at the real site: pages, products and services. The bar changes to "You're previewing the live site. Visitors still see coming soon. Checkout is off." with a **View visitor page** button to go back.
+
+![The preview bar reading You're previewing the live site, with View visitor page](/images/maintenance-mode/maintenance-preview-bar.png)
+
+**Checkout stays off even for you.** If you try to check out while previewing, you'll see **Checkout is off** with **Open Maintenance Mode** and **Back to cart** buttons. If you want to place a test order, turn Maintenance Mode off first.
+
+![The Checkout is off page with Open Maintenance Mode and Back to cart](/images/maintenance-mode/maintenance-checkout-off.png)
+
+The sign-in pages and your admin stay reachable the whole time.
+
+---
+
+## Turn it off
+
+1. Go to **Settings → Maintenance Mode**.
+2. Switch **Enable maintenance mode for my storefront** off.
+3. Click **Save changes**.
+
+Before you save, the amber notice **Your storefront will come back online when you save** shows. After you save, it happens at once. It doesn't ask you to confirm. Your headline, message and other settings are kept, so they'll be there next time you turn it on.
+
+Open your storefront in a private or incognito window to check that it's back. See [Launch Checklist](/docs/launch-checklist#4-turn-maintenance-mode-off).
+
+---
+
+## What you can and can't do
+
+| You can | You can't |
+| ------- | --------- |
+| Switch between **Under maintenance** and **Coming soon** at any time. | Let customers, Staff or anyone else past the page. |
+| Add a headline, date, countdown, flyer, message and button. | Make the countdown open your store on its own. |
+| Preview the real site while signed in as an Owner or Manager. | Place orders while it's on, even as an Owner. |
+| Keep using your admin as normal. | Close only some pages: it covers the whole storefront. |
+
+<Cards>
+  <Card title="Launch Checklist" href="/docs/launch-checklist" description="Everything to check before you start selling." />
+  <Card title="General Settings" href="/docs/general-settings" description="Set the time zone the launch date uses." />
+  <Card title="Banner and Popup" href="/docs/banner-and-popup" description="Announce changes without closing your store." />
+  <Card title="Custom Domain" href="/docs/domain" description="Connect the address your launch page will use." />
+</Cards>

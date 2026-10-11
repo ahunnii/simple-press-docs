@@ -23,7 +23,7 @@ From top to bottom, the page shows:
 A few things to know:
 
 - **Only Owners and Managers can see Finances.** Staff don't have it in their sidebar, and they're sent to Orders if they open the link. See [Team & roles](/docs/team-and-roles).
-- **It needs the Payments feature.** If Payments is off in **Settings → Features**, Finances is hidden from the sidebar. See [Feature flags](/docs/feature-flags).
+- **It needs Payments or Donations.** Finances shows in the sidebar when either feature is on in **Settings → Features**. If both are off, it is hidden, and opening the link shows "Payments is not enabled for this business". Payments also switches off by itself when Products, Orders or Shopping Cart & Checkout is off, so a store with only Donations on keeps Finances. See [Feature flags](/docs/feature-flags).
 - **Old links still work.** The admin used to have a separate **Payments** page. Any bookmark or link to it now opens Finances.
 - **Most of the page needs Stripe.** Money in works from your own orders, so it always shows. The Stripe cards ask you to connect Stripe first. See [Integrations](/docs/integrations).
 
@@ -57,7 +57,7 @@ The range selector sits at the top right of the page. It has five options:
 
 ![The range selector open, listing Last 7 days, Last 30 days (ticked), Last 90 days, Year to date and Calendar year 2026](/images/finances/range-selector.png)
 
-Next to the range selector, a **Tax Guide** button opens the [Tax Guide](#the-tax-guide).
+Next to the range selector, a **Tax Guide** button opens the [Tax Guide](#the-tax-guide). It only shows when Payments is on.
 
 The range you pick is saved in the page's web address, so you can bookmark a view or share the link with another Owner or Manager.
 
@@ -251,7 +251,7 @@ Both tiles take refunds off the same way, so a refunded order's tax isn't counte
 
 ### "Automatic tax is off"
 
-If Automatic Tax Collection is off, an alert titled **Automatic tax is off** appears in this card. It reads: "Turn it on in Settings → Integrations once Stripe Tax is set up — see the Tax Guide for the steps." The **Settings → Integrations** link opens the page with the switch, in the Stripe Connect card. The **Tax Guide** link opens [the Tax Guide](#the-tax-guide).
+If Automatic Tax Collection is off, an alert titled **Automatic tax is off** appears in this card. It warns that checkout may not be collecting the right amount of sales tax everywhere you sell, then says: "Turn it on in Settings → Integrations once Stripe Tax is set up — see the Tax Guide for the steps." The **Settings → Integrations** link opens the page with the switch, in the Stripe Connect card. The **Tax Guide** link opens [the Tax Guide](#the-tax-guide).
 
 You need to set up Stripe Tax in your Stripe account before that switch will turn on. See [Tax](/docs/tax) for the steps, in order.
 
@@ -259,7 +259,7 @@ You need to set up Stripe Tax in your Stripe account before that switch will tur
 
 ## The Tax Guide
 
-The **Tax Guide** is a reading page in your admin about sales tax and how it connects to Stripe. It isn't in the sidebar. To open it:
+The **Tax Guide** is a reading page in your admin about sales tax and how it connects to Stripe. It isn't in the sidebar, and it needs the Payments feature. If Payments is off (for example because Products is off), the Tax Guide isn't available and its links on Finances are hidden. To open it:
 
 - click the **Tax Guide** button at the top of Finances, next to the range selector;
 - press **Cmd+K** (or **Ctrl+K**) and type "Tax Guide" (it's under **Actions**);

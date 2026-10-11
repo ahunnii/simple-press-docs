@@ -19,6 +19,16 @@ Features are grouped into categories (E-Commerce, Content, and Marketing). Each 
 
 Some features **depend on other features**. If a feature it depends on is off, its switch is grayed out and shows a badge like **"Requires Products"**. Turn the other feature back on and the switch works again. The tables below show what each feature needs.
 
+![With Products switched off, Orders, Shopping Cart & Checkout, Payments, Coupons & Discounts and Rewards Program are grayed out, each with a Requires badge](/images/feature-flags/requires-badge.png)
+
+*Products is switched off here. The features that need Products are grayed out and say "Requires Products". Features further down the chain, such as Payments, Coupons & Discounts and Rewards Program, are grayed out too. Hover over any badge to see which feature to turn on first.*
+
+The check **follows the whole chain**. A switch is grayed out when a feature it needs is switched off, or is itself grayed out because of something it needs. For example, switching Products off grays out Orders and Shopping Cart & Checkout. Payments needs both of those, so Payments is grayed out as well, even though you never switched Orders or the cart off yourself.
+
+The badge names the features the switch **directly** needs, not the one at the bottom of the chain. With Products off, Payments reads **"Requires Orders, Shopping Cart & Checkout"**, and Coupons & Discounts reads **"Requires Shopping Cart & Checkout"**. Hover over it and the tip reads Enable "Orders" and "Shopping Cart & Checkout" first to use this feature. Turn those back on, and Payments works again.
+
+Your own switch settings are remembered. If you had Payments on before you turned Products off, it goes back to on when Products comes back. You don't need to set it up again. The sections below spell out what each switch does.
+
 <Callout type="info" title="Who can change features">
   Owners and managers can turn features on and off. Staff members can't open this page. One feature, **Products CSV export**, can only be switched by the store owner. See [Team and Roles](/docs/team-and-roles).
 </Callout>
@@ -61,8 +71,8 @@ These are the features that have a switch on your Features page. The **On by def
 | **Services** | No | Nothing | Offer bookable services that link to an outside booking widget. See [Services](/docs/services). |
 | **Events** | No | Nothing | Publish upcoming events with fliers, dates, and locations. See [Events](/docs/events). |
 | **Videos** | No | Nothing | Show YouTube videos on your site, synced automatically from your channels and playlists. See [Videos](/docs/videos). |
-| **Embeds** | No | Nothing | Embed outside content, such as booking calendars, maps, and videos, into pages, blog posts, and service pages. Social media posts can't be embedded. See [Embeds](/docs/embeds). |
-| **Products CSV export** | No | Nothing | Export your products as a CSV file from the Products page. Only the store owner can switch this one. Downloading your whole site is always available to owners. See [Data and Export](/docs/data-and-export). |
+| **Embeds** | No | Nothing | Embed videos (YouTube, Vimeo), maps, and booking widgets or forms from other sites into pages and rich text. Paste a link or iframe code. Social media posts can't be embedded. See [Embeds](/docs/embeds). |
+| **Products CSV export** | No | Nothing | Export your products as a CSV file from the Products page. Both the switch and the export are Owner-only. Downloading your whole site is always available to owners. See [Exporting products](/docs/products#exporting-products-csv) and [Data and Export](/docs/data-and-export). |
 
 ### Marketing
 
@@ -101,8 +111,15 @@ In every case below, your data is kept. Turning the feature back on restores it.
 
 ### Disabling Products
 
-This is the most impactful switch. Turning it off also turns off every feature that needs it, including Orders, Shopping Cart & Checkout, Checkout, Collections, Wishlist, Back-in-Stock Notifications, Product Reviews, and Product Subscriptions.
+This is the most impactful switch. Turning it off grays out every feature that needs Products, and then everything that needs *those*:
 
+- **Directly:** Orders, Shopping Cart & Checkout, Checkout, Collections, Wishlist, Back-in-Stock Notifications, Product Reviews, and Product Subscriptions.
+- **Through Orders and the cart:** Payments, Coupons & Discounts, and Rewards Program. Product Subscriptions also needs Payments.
+
+None of these have anything to work on without products, so they go off together. Your own switch settings for them are kept and come back when you turn Products back on.
+
+- Finances leaves your sidebar, because Payments is off. It stays only if **Donations** is on, since a donations-only store still needs it. The Tax Guide needs Payments, so it is unavailable either way.
+- Discounts leaves your sidebar, because Coupons & Discounts is off.
 - Your `/shop` storefront page returns a 404.
 - Product, order, collection, and review pages disappear from your admin.
 - Inventory Management stays available (it doesn't depend on Products), so you can still track standalone items and supplies.
@@ -115,13 +132,15 @@ Re-enabling Products restores everything. Your products and orders are all prese
 - **Checkout** off: customers can still fill a cart, but there's no way to check out. Use this if you want shoppers to browse and build a cart but not buy yet.
 - Payments off also stops checkout from starting.
 
+Turning **Shopping Cart & Checkout** off also grays out the features that need it: Checkout, Coupons & Discounts and Payments, and through Payments, Product Subscriptions. Discounts leaves your sidebar, and Finances does too unless Donations is on.
+
 ### Disabling Orders
 
 - The Orders section disappears from your admin sidebar.
 - Customers no longer see an order history in their account.
 - Existing order data is preserved and accessible again when you re-enable it.
 
-Turning Orders off also switches off Payments (which needs Orders), so customers can't check out either. If you only want to pause buying, turn off Checkout instead.
+Turning Orders off also grays out Payments and Rewards Program (both need Orders), and Product Subscriptions too, since it needs Payments. Customers can't check out either. **Finances** is hidden because Payments is off, unless Donations is on. If you only want to pause buying, turn off Checkout instead.
 
 ### Disabling Inventory Management
 
@@ -168,7 +187,7 @@ Turning Orders off also switches off Payments (which needs Orders), so customers
 ## Common Use Cases
 
 **Service business with no products**
-Turn off Products. This removes the shop, cart, and orders from both your admin and storefront, so your site becomes a content- and contact-focused presence. Turn on **[Services](/docs/services)** or **[Events](/docs/events)** if they fit. Inventory stays available for tracking supplies and rental equipment. Turn it off too if you don't need it.
+Turn off Products. This removes the shop, cart, orders, and payments from both your admin and storefront, so your site becomes a content- and contact-focused presence. Turn on **[Services](/docs/services)** or **[Events](/docs/events)** if they fit. Inventory stays available for tracking supplies and rental equipment. Turn it off too if you don't need it.
 
 **Content or portfolio site**
 Turn off Products, and turn on Blog and Galleries. Your storefront focuses on articles, images, and a contact form, with no shopping at all.
@@ -180,7 +199,7 @@ Keep Products on but turn off **Shopping Cart & Checkout**. Customers can browse
 Keep Products on but turn off **Checkout**. Your products are visible and customers can build a cart, but they can't buy yet. Turn Checkout back on when you're ready.
 
 **Taking donations or invoicing clients**
-Turn on **Donations** or **Invoices**. Neither needs Products, so you can use them on a site that doesn't sell anything.
+Turn on **Donations** or **Invoices**. Neither needs Products, so you can use them on a site that doesn't sell anything. With Donations on, Finances stays in your sidebar even when Products and Payments are off.
 
 ---
 
@@ -198,7 +217,7 @@ If you need one of the team-managed features changed, [contact us](/docs/expecta
 No. Your products, orders, blog posts, gallery images, testimonials, and so on are all kept when you disable a feature. Re-enabling it restores full access.
 
 **Why is a feature's switch grayed out?**
-It depends on a feature that's currently off. The badge next to the switch tells you which one to turn on first.
+It depends on a feature that's currently off, or on one that is grayed out itself. The badge next to the switch names the features it needs, and the hover tip says which to turn on first.
 
 **I turned off Blog, but the "Blog" link is still in my storefront header. Why?**
 On many templates, disabling a feature automatically hides its links from your storefront navigation, including links you added yourself. If the link stays, go to **Site Setup → Navigation** to remove it.
@@ -207,7 +226,7 @@ On many templates, disabling a feature automatically hides its links from your s
 Not yourself. Customer Accounts is managed by the SimplePress team and is on by default for every store. [Contact us](/docs/expectations#getting-help-and-requesting-changes) if you need it changed.
 
 **I'm a manager and can't switch Products CSV export. Why?**
-It unlocks bulk data export, so only the store owner can turn it on or off.
+It unlocks bulk data export, so only the store owner can turn it on or off. A Manager who tries sees "Only the store owner can turn Products CSV export on or off," and the switch stays off. Using the export is Owner-only too.
 
 **A feature I need isn't on this page. What do I do?**
 Some features are managed by the SimplePress team and don't have switches. [Contact us](/docs/expectations#getting-help-and-requesting-changes) and we can make the change for you.
@@ -234,7 +253,7 @@ Some features are managed by the SimplePress team and don't have switches. [Cont
 	/>
 	<Card
 		title="Data and Export"
-		description="Download your site, and import or export products."
+		description="Download a complete copy of your site as a ZIP file."
 		href="/docs/data-and-export"
 	/>
 	<Card

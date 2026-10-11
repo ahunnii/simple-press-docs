@@ -1,0 +1,172 @@
+---
+title: Accessibility and Your Site
+description: What your template already does for visitors who use screen readers or a keyboard, where to add alt text to your photos, and simple writing habits that make your site easier for everyone to use.
+---
+
+## Overview
+
+An accessible website is one that works for as many people as possible. That includes visitors who are blind or have low vision, people who can't use a mouse, people who are sensitive to motion, and people who are simply reading on a small screen in bright sun. It also helps search engines, which read your site much like a screen reader does.
+
+SimplePress takes care of a lot of this for you. Your job is mostly about the words and pictures you add. This page covers:
+
+- what your template already does for you
+- where to add **alt text** to your photos, and how to write it
+- what you can't add alt text to yet, and what to do instead
+- a few writing habits that help
+
+<Callout type="info" title="Who can use it">
+  Anyone who can edit a product, gallery or your branding can add alt text there. Site-wide settings such as your logo are for Owners and Managers. See [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+---
+
+## What Your Template Already Does
+
+You don't need to turn any of this on. Every SimplePress template is built to do these things:
+
+| What | What it does for visitors |
+| --- | --- |
+| **Skip link** | The first time someone presses the **Tab** key on your site, a **Skip to main content** link appears. It lets keyboard and screen reader users jump past the menu straight to the page. |
+| **Keyboard focus outlines** | When a visitor moves around with the keyboard, the button or link they're on is clearly outlined. |
+| **Reduced motion** | Visitors who have asked their device to cut down on animation get a calmer site. Fades, slides and similar effects are skipped or toned down for them. |
+
+![A storefront after one press of the Tab key, with a Skip to main content link showing at the top of the page](/images/accessibility/skip-link.png)
+
+*The skip link, shown after one press of Tab. It stays hidden until then.*
+
+There is no setting to turn animations off for everyone. Visitors control that through their own device settings.
+
+### How we check
+
+Several of the templates SimplePress has built were checked with automated accessibility testing, and the problems it found were fixed. New custom templates get the same checks as they're built.
+
+Automated testing finds many problems, but not all of them. It can't tell whether your alt text is helpful, or whether your wording makes sense when read aloud. That part is up to you, and the rest of this page helps with it.
+
+Because SimplePress usually builds each store its own custom template, details can differ a little from one store to another. If something on your site is hard to use with a keyboard or screen reader, email [help@generativejustice.org](mailto:help@generativejustice.org) and we'll look at it.
+
+---
+
+## Add Alt Text to Your Photos
+
+**Alt text** (short for "alternative text") is a short description of a picture. A screen reader reads it aloud to someone who can't see the photo. It also shows when a picture fails to load, and search engines use it to understand your photos.
+
+### Where to add it
+
+| Photo | Where to find the field | Notes |
+| --- | --- | --- |
+| **Product photos** | Open a product and look at the **Product Images** card. Each photo has an **Alt Text** box ("Describe this image..."). | Save the product afterward. Older photos that only have a file name saved show the same `Was "…"` hint under an empty box, and saving clears the file name. See [Products](/docs/products). |
+| **Gallery photos** | In **Galleries**, click the edit button (the pencil) on a photo to open **Edit Image**. The field is **Alt Text** ("Describe the image for accessibility"). | The box starts empty. Older photos may show a hint such as `Was "download-9.png" — describe what's in the photo instead.` Type a real description. If you leave it empty, your storefront uses the caption, then the gallery name. See [Galleries](/docs/galleries). |
+| **Your logo** | **Site Setup → Brand & Appearance**, in the **Business Branding** card. The field is **Logo alt text** ("Your business name"). | If you leave it blank, your business name is used. See [Storefront and Branding](/docs/storefront-and-branding). |
+| **Homepage popup image** | **Site Setup → Banner & Popup**, in the **Homepage Popup** card, when the popup is in Image mode. The field is **Image alt text**. | See [Banner and Popup](/docs/banner-and-popup). |
+| **Template photos** | In the [Site Editor](/docs/site-editor), some templates have a field next to a photo, such as **Photo alt text**, **Photo description** or **Portrait description**. | The name varies by template. Not every template has them (see below). |
+
+![The Product Images card with an Alt Text box under each photo](/images/accessibility/product-alt-text.png)
+
+*Product photos: each one has its own Alt Text box.*
+
+![The Edit Image dialog for a gallery photo, with an empty Alt Text box and the hint Was "…" — describe what's in the photo instead](/images/accessibility/gallery-alt-text.png)
+
+*Gallery photos: the Alt Text box starts empty. If the photo has a leftover file name from an older upload, a hint shows it. Describe the photo instead.*
+
+Your storefront never reads a leftover file name aloud. When a photo has no real alt text, it uses the caption (for gallery photos) or the product name (for product photos).
+
+![The Business Branding card with the Logo alt text field](/images/accessibility/logo-alt-text.png)
+
+*Your logo: add your business name, or leave it blank and SimplePress will use it.*
+
+**About template photos.** Many custom templates include alt text or "description" fields for the photos on the homepage, About page and other places, and you'll find them in the Site Editor next to the photo. **Default** doesn't have these fields. Its template photos are treated as decorative, which means a screen reader skips them. That's fine for pictures that are only there for looks. If a photo carries information, put that information in the page text too.
+
+### How to write good alt text
+
+- **Describe what the picture is for.** Think about what you'd say if you were reading the page to a friend over the phone. "Three-tier lemon cake with fresh berries" is better than "cake".
+- **Keep it short.** A sentence or less is plenty. Gallery alt text can be up to 200 characters.
+- **Skip "image of" and "photo of".** Screen readers already say it's an image.
+- **Include the details that matter.** For a product, say the color, material or style. For a photo of a person, say what they're doing.
+- **Don't stuff in keywords.** Write for a person first. Search engines can tell the difference.
+- **Leave decorative pictures alone.** If a picture is only a pretty background and says nothing new, you don't need to describe it.
+- **If the picture has words in it, repeat them.** A sale banner that says "Free shipping this week" should have that in the alt text.
+
+---
+
+## Where You Can't Add Alt Text Yet
+
+Some places in SimplePress don't have an alt text box today:
+
+- **The Media Library.** Photos you upload there don't have a description.
+- **A blog post's main image.** The upload box has no alt text field.
+- **Pictures placed inside page or blog text.** When you drop or paste a picture into the text editor, it uses the **file name** as its description, and there is no way to change it.
+- **Collection, event and service images.**
+
+**What to do instead:**
+
+- **Name your files before you upload them.** Rename `IMG_4821.jpg` to `lemon-cake-with-berries.jpg` first. Where the file name is used as the description, a good name makes a good description.
+- **Put important information in the text.** If a picture matters, say what it shows in a sentence nearby.
+- **Use a product or gallery** for photos that need real descriptions. They have alt text fields.
+
+---
+
+## Check Your Score
+
+SimplePress counts your alt text for you. In **SEO**, the **Score** tab has an **Image alt text** group that shows how many of your product photos and gallery photos have alt text.
+
+![The SEO Score Image alt text group, showing Product images with alt text 42 of 45 and Gallery images with alt text 0 of 11](/images/accessibility/seo-alt-checks.png)
+
+*The score counts product and gallery photos that have alt text. It doesn't check whether the text is any good. Alt text that is only a file name doesn't count, which is why the gallery here shows 0 of 11.*
+
+Open the group and use its **Fix** links to jump to your **Products** or **Galleries** list, then open each item to fill in what's missing. See [SEO](/docs/seo).
+
+---
+
+## Writing Tips
+
+How you write your pages matters as much as your photos.
+
+- **Use one main heading per page.** The page title is usually the main heading already. Use smaller headings for sections.
+- **Don't skip heading levels.** Go from a main heading to a sub-heading, not straight to a tiny one. Screen reader users jump from heading to heading to find their way around.
+- **Make link text say where it goes.** "Shop the spring sale" is better than "click here". Visitors who hear a list of links need each one to make sense on its own.
+- **Keep colors readable.** Light gray text on a white background is hard for many people to read. SimplePress doesn't have a built-in contrast checker, so try a free one such as the WebAIM contrast checker before you settle on custom colors. Look for a result that passes for normal-sized text.
+- **Add captions to your videos.** If you share a YouTube video on your site (see [Embeds](/docs/embeds) and [Videos](/docs/videos)), turn on captions in YouTube. Captions help visitors who are deaf or hard of hearing, and anyone watching with the sound off.
+
+---
+
+## What You Can and Can't Do
+
+| You can | You can't (yet) |
+| --- | --- |
+| Add alt text to product photos, gallery photos, your logo and your homepage popup image | Add alt text in the Media Library, on a blog post's main image, or on pictures placed inside page or blog text |
+| Add photo descriptions in the Site Editor on templates that offer them | Add them on templates that don't have the fields. Default's template photos are treated as decorative. |
+| See how many product and gallery photos have alt text in your SEO score | See a warning for low color contrast. SimplePress doesn't check it. |
+| Count on the skip link, keyboard focus outlines and reduced motion being built into your template | Turn animations off for all visitors |
+| Name your files well so the file name works as a description | Change the description of a picture inside page or blog text after you place it |
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Products"
+		description="Add alt text to each product photo."
+		href="/docs/products"
+	/>
+	<Card
+		title="Galleries"
+		description="Edit a gallery photo's alt text and caption."
+		href="/docs/galleries"
+	/>
+	<Card
+		title="SEO"
+		description="See your alt text counts in the SEO score."
+		href="/docs/seo"
+	/>
+	<Card
+		title="Site Editor"
+		description="Edit your template's text and photos."
+		href="/docs/site-editor"
+	/>
+	<Card
+		title="Banner and Popup"
+		description="Add alt text to your homepage popup image."
+		href="/docs/banner-and-popup"
+	/>
+</Cards>

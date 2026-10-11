@@ -114,8 +114,8 @@ Each order carries three separate statuses. The **status** is the big picture. *
 | **Awaiting Payment** (shown as Pending on the order page) | No payment has come in yet. |
 | **Paid** | Payment received. |
 | **Failed** | The payment didn't go through. Stripe sets this. |
-| **Refunded** | The full amount has been refunded. |
-| **Disputed** | The customer has disputed the card payment. Stripe sets this, and sets it back to Paid or Refunded when the dispute closes. See [Disputes](/docs/payments-and-payouts#disputes). |
+| **Refunded** | The full amount has been refunded, or the customer won a dispute (even one for part of the order). |
+| **Disputed** | The customer has disputed the card payment. Stripe sets this, and sets it back to Paid or Refunded when the dispute closes. While it's disputed, the refund and fulfillment buttons are hidden. See [Disputes](/docs/payments-and-payouts#disputes). |
 
 ### Fulfillment status
 
@@ -221,7 +221,7 @@ A partial shipment **with** tracking emails the customer that tracking straight 
 
 ## Local pickup orders
 
-If a customer chose in-store pickup, the order shows a **Pickup** badge, and you'll see a **Pickup Location** card where the shipping address would be. It shows your pickup address and any pickup instructions. If it says "No pickup location configured.", add one in your shipping settings. See [Shipping](/docs/shipping).
+If a customer chose in-store pickup, the order shows a **Pickup** badge, and you'll see a **Pickup Location** card where the shipping address would be. It shows your pickup location (or, if you left that blank, your business address from General Settings) and any pickup instructions. If it says "No pickup location configured.", add one in your shipping settings. See [Shipping](/docs/shipping).
 
 ![A pickup order with a Pickup badge, a Ready for Pickup card with a Mark Ready for Pickup button, and a Pickup Location card](/images/orders/pickup-order.png)
 

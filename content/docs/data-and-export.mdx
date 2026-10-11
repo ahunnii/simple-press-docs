@@ -7,7 +7,7 @@ description: Download a complete copy of your store as one ZIP file, with pages,
 
 Download Your Site gives you a complete copy of your store in one ZIP file. It includes your pages, blog posts, products, photos, customer and order spreadsheets, and ready-to-import files for other platforms. Use it when you want to move to a new website, keep a backup, or hand your content to a designer or developer.
 
-> **Who can use it:** Store owners only. It is always available and has no feature flag. Managers and staff can't download it because the file includes customer records.
+> **Who can use it:** Store owners only. It is always available and has no feature flag. Managers see a note, "Downloading your site is Owner-only," and staff can't open the page. The file includes customer records, which is why it is limited to owners.
 
 ---
 
@@ -17,7 +17,11 @@ Downloading your site doesn't change or close your store. Your site stays live, 
 
 The download is a single ZIP file named after your store, for example **Maple Street Bakery - Site Export - 2026-10-09.zip**. Nothing is removed from your store when you download it.
 
-**Photo:** The finished ZIP file in a Downloads folder, with its name visible.
+The file name looks like this:
+
+```text
+Maple Street Bakery - Site Export - 2026-10-09.zip
+```
 
 ---
 
@@ -25,10 +29,12 @@ The download is a single ZIP file named after your store, for example **Maple St
 
 1. Go to **Settings → Data & Export** in the admin sidebar.
 2. Click **Download your site**.
-3. Wait while the file is prepared. Stores with many photos can take a minute or two. Keep the page open until the download starts.
-4. Save the ZIP file to your computer, then unzip it. Your browser may unzip it for you.
+3. Wait while the file is prepared. The page says "Preparing your download", and stores with many photos can take a minute or two. There's no progress bar. **Keep the page open** until the file saves.
+4. When you see "Your download is ready.", find the ZIP in your Downloads folder. Unzip it. Your browser may unzip it for you.
 
-**Photo:** Settings → Data & Export page with the **Download your site** button.
+![The Data & Export page with the Download your site button and the list of what's included](/images/data-and-export/data-export-page.png)
+
+If the download fails, you'll see "Download failed" with a number. Wait a minute and click the button again.
 
 Start with **START HERE.html** once the ZIP is unzipped. It opens in any web browser and explains what is inside.
 
@@ -41,18 +47,75 @@ Start with **START HERE.html** once the ZIP is unzipped. It opens in any web bro
 | **START HERE.html** | An overview of your export, a list of what's inside, and a "which option is right for me?" table. Open this first. |
 | **Guides/** | Step-by-step guides for moving to WordPress, Shopify, Wix, Squarespace, or Square Online. Also guides for hiring a designer or developer, keeping your domain name, and payments, customers and subscriptions. |
 | **Site details.html** | Your business information, hours, social links, menus, logo, colors, SEO settings, and domain. |
-| **Pages/, Blog/, Products/, [Services](/docs/services)/, Events/, Galleries/** | Readable copies of every page, post, product, and more. Open them in any browser, or copy and paste them into a new site. |
-| **Photos/** | Every photo and video you uploaded, in folders by where it's used: Products (one folder per product), Galleries, Blog, Pages, Branding, Testimonials, Videos, and Site sections. |
+| **Pages/, Blog/, Products/, [Services](/docs/services)/, Events/, Galleries/** | Readable copies of every page, post, product, and more. Open them in any browser, or copy and paste them into a new site. **Pages/** also holds your FAQs and testimonials. |
+| **Photos/** | Every photo and video you uploaded, in folders by where it's used: Branding, Products (one folder per product), Collections, Galleries, Blog, Pages, Services, Events, Testimonials, Product reviews, Videos, and Site sections. Photos that couldn't be downloaded don't stop the export. They're listed in **START HERE.html**. People's profile photos are not included. |
 | **Photos/Media Library/** | Files you uploaded but aren't used anywhere on your site. |
 | **Photos/Template & stock images/** | Images shown on your site that you didn't upload. Check the rights before you reuse them. |
-| **Spreadsheets/** | CSV files for products, collections, customers, addresses, orders, order items, discounts, reviews, testimonials, FAQs, invoices, quotes, form entries, rewards members and points history, subscriptions, donations, inventory, email subscribers, [services](/docs/services), events, and shipping rates. Open them in Excel, Numbers, or Google Sheets. |
-| **Import files/** | Ready-to-import product files for Shopify, Wix, Squarespace, Square, and WordPress/WooCommerce. Also includes a WordPress file with your pages and blog posts. |
+| **Spreadsheets/** | CSV files for products, collections, customers, addresses, orders, order items, discounts, reviews, testimonials, FAQs, invoices (with line items and payments), quotes, form entries, rewards members and points history, subscriptions, donations, inventory, email subscribers, [services](/docs/services) (with their offerings), events, and shipping rates. Open them in Excel, Numbers, or Google Sheets. A spreadsheet only appears if you have something in it. The exceptions are **products**, **customers** and **orders**, which are always there, even if they only have a header row. |
+| **Import files/** | Ready-to-import product files for Shopify, Wix, Squarespace, Square, and WordPress/WooCommerce. Also includes a WordPress file with your pages and blog posts. If you have no products, the product files are left out. |
 | **For developers/** | Raw data files for a developer or designer who wants the full data. |
 | **Licenses/** | Who owns what. Your content belongs to you. SimplePress templates are open source under the AGPL-3.0 license. |
 
-**Photo:** Unzipped export folder in Finder or File Explorer showing the top-level folders.
+Here is what the unzipped folder looks like. Your own pages, products and photos will fill in the folders.
+
+```text
+Maple Street Bakery - Site Export - 2026-10-09/
+├── START HERE.html
+├── Site details.html
+├── Guides/
+│   ├── Moving to WordPress.html
+│   ├── Moving to Shopify.html
+│   ├── Moving to Wix.html
+│   ├── Moving to Squarespace.html
+│   ├── Moving to Square Online.html
+│   ├── Hiring a designer or developer.html
+│   ├── Keeping your domain name.html
+│   └── Payments, customers and subscriptions.html
+├── Pages/
+├── Blog/
+├── Products/
+├── Services/
+├── Events/
+├── Galleries/
+├── Photos/
+│   ├── Branding/
+│   ├── Products/
+│   ├── Galleries/
+│   ├── Media Library/
+│   └── Template & stock images/
+├── Spreadsheets/
+│   ├── products.csv
+│   ├── customers.csv
+│   ├── orders.csv
+│   └── ...
+├── Import files/
+│   ├── WordPress/   (content.wxr.xml, woocommerce-products.csv)
+│   ├── Shopify/     (products.csv)
+│   ├── Wix/         (products.csv)
+│   ├── Squarespace/ (products.csv)
+│   └── Square/      (items.csv)
+├── For developers/
+│   ├── README.txt
+│   ├── data.json
+│   └── simplepress-store-content.json
+└── Licenses/
+    ├── LICENSE-AGPL-3.0.txt
+    └── NOTICE.txt
+```
 
 > **Note:** Product import files link to photos on your current site. Import them while your old site is still online, or upload the photos yourself from the **Photos** folder.
+
+---
+
+## Exporting just your products
+
+You don't have to download the whole site to get your product list. Owners can export products from the **Products** page too. It makes a WooCommerce-format CSV of the products you pick.
+
+- It's **off by default**. Turn on **Products CSV export** under **Settings → Features**.
+- Only the **Owner** can switch it on and use it. Managers can't.
+- Steps are in [Exporting products (CSV)](/docs/products#exporting-products-csv).
+
+Product **import** isn't a button you use yourself. The SimplePress team runs product imports for you. Email **help@generativejustice.org** and see [Importing from another store](/docs/products#importing-from-another-store).
 
 ---
 
@@ -94,3 +157,40 @@ The download doesn't change or transfer your domain name. Read the **Keeping you
 
 **Why does the download take a minute?**
 Stores with many photos take longer because every photo and video is included. Keep the page open until the download starts.
+
+---
+
+## What you can and can't do
+
+| Action | Available? |
+| ------ | ---------- |
+| Download a full copy of your site | Yes (Owners only) |
+| Download as often as you like, for free | Yes |
+| Keep selling while you download | Yes |
+| Let a Manager or Staff member download it | No. It includes customer records |
+| Pick which parts to include | No. You get everything |
+| Export only your products | Yes, from the Products page (Owners only, with **Products CSV export** on) |
+| Import products yourself | No. The SimplePress team does product imports |
+| Have the export move your domain or customers' cards | No |
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Products"
+		description="Export your products as a CSV, or ask us to import them."
+		href="/docs/products"
+	/>
+	<Card
+		title="Team & Roles"
+		description="Who can download your site."
+		href="/docs/team-and-roles"
+	/>
+	<Card
+		title="Feature Flags"
+		description="Turn on Products CSV export."
+		href="/docs/feature-flags"
+	/>
+</Cards>

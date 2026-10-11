@@ -5,10 +5,13 @@ description: "Connect your store to Stripe so you can take card payments, and tu
 
 ## Overview
 
-Connect outside services to your store from **Settings → Integrations**. This page covers two of them:
+Connect outside services to your store from **Settings → Integrations**. This page covers three of them:
 
 - **Stripe Connect** takes card payments at your checkout. Most of this page is about setting it up.
 - **Umami Analytics** tracks visits to your storefront.
+- **QuickBooks Online** sends deposit and final invoices for quotes. It only appears when QuickBooks Invoicing is turned on.
+
+Owners and Managers can open this page. Staff can't.
 
 <Callout type="info" title="Super Important">
 
@@ -26,7 +29,7 @@ Stripe is the payment processor behind your storefront. Until you connect a Stri
 
 Your money goes straight to your own Stripe account. SimplePress never holds your funds, and never sees or stores customers' card numbers.
 
-**Photo:** Integrations page showing the Stripe Connect card with a "Not Connected" badge and the "Connect with Stripe" button.
+![The Stripe Connect card before an account is linked, with a Not Connected badge and the Connect with Stripe button](/images/integrations/stripe-not-connected.png)
 
 Only Owners and Managers can connect or disconnect Stripe. Staff can't. See [Team & roles](/docs/team-and-roles).
 
@@ -106,13 +109,13 @@ When you disconnect:
 
 ## Other ways to get paid
 
-Stripe is only for card payments at checkout. You can take money other ways, and these don't need Stripe.
+Stripe handles payments at your online checkout. You can take money other ways, and these don't need Stripe.
 
 - **Manual orders.** For a phone order or an in-person sale, create the order yourself under **Orders** and set the **Payment Method** to Card, Cash or Check. No card is charged. See [Orders](/docs/orders).
 - **Invoices.** Bill a customer directly and list how they can pay you: bank transfer, PayPal, Venmo, Cash App, Zelle, cash or check, or something else. You record the payment when it arrives. Add your methods in **Settings → Invoices**. See [Invoices](/docs/invoices).
 - **Donations.** Your donate page can take card gifts through Stripe, and also show your Venmo username and Cash App cashtag. Venmo and Cash App work even if Stripe isn't connected. See [Donations](/docs/donations).
 
-Customers can't pay with these methods at your normal checkout. Checkout is card only, through Stripe.
+Customers can't pay with these methods at your normal checkout. Checkout goes through Stripe only. It shows cards plus any other payment methods you've turned on in your Stripe account.
 
 ---
 
@@ -153,20 +156,34 @@ Umami is a privacy-focused analytics tool. In the **Umami Analytics** card, it t
 
 The tracking script and event data are sent through your own storefront domain, so no third-party script loads in your visitors' browsers.
 
-**Photo:** Umami Analytics card showing the Website ID field, the Enable Analytics switch, and the Enabled or Disabled badge.
+![The Umami Analytics card with the Website ID field, the Enable Analytics switch, the Enabled badge and the Save Changes button](/images/integrations/umami-card.png)
 
 ### Setting up Umami
 
-SimplePress runs its own Umami service, so you can't create the account yourself. Ask your SimplePress administrator to add your storefront domain. They'll give you a Website ID to paste into the card. It's not your Umami account ID or an API key.
+SimplePress runs its own Umami instance, so you can't create this yourself. The card says so under **Website ID**: "SimplePress runs its own Umami analytics — you can't create a Website ID yourself. Email help@generativejustice.org with your storefront domain and we'll send you the Website ID to paste here." The Website ID isn't an Umami account ID or an API key.
 
 1. Go to **Settings → Integrations**.
 2. In the **Umami Analytics** card, paste your **Website ID** into the field.
 3. Turn on **Enable Analytics**.
 4. Click **Save Changes**. You'll see "Umami settings updated."
 
-If you turn on **Enable Analytics** without a Website ID, you'll see "Website ID is required to enable analytics." If the ID isn't valid, you'll see "Enter a valid Umami website ID."
+If you turn on **Enable Analytics** without a Website ID, you'll see "Website ID is required to enable analytics". If the ID isn't valid, you'll see "Enter a valid Umami website ID."
 
-The badge in the top right of the card shows **Enabled** only when a Website ID is saved and **Enable Analytics** is on. Otherwise it shows **Disabled**, and nothing is collected. Once enabled, the tracking script runs on every page of your storefront and starts collecting visits right away.
+The badge in the top right of the card shows what is **saved**. It reads **Enabled** when a Website ID is saved and **Enable Analytics** was saved on. Otherwise it reads **Disabled**. If you change the field or the switch, the badge doesn't change yet. An **Unsaved changes** hint appears next to **Save Changes** until you save. Nothing is collected until you click **Save Changes** and see "Umami settings updated."
+
+Once saved and enabled, the tracking script runs on your storefront pages and starts collecting visits right away.
+
+### What isn't counted
+
+Visits to these places are left out on purpose, so your own work doesn't skew your numbers:
+
+- your admin, even if you click into it from your storefront
+- sign-in, sign-up and password pages
+- the Site Editor, and the previews it shows
+- invoice pages your customers open from a link
+- the "not permitted" page, and SimplePress's own back-office pages
+
+So you can click around your admin as much as you like without adding to your visit counts. Real visits to your storefront pages are counted.
 
 ### Seeing your results
 
@@ -179,23 +196,107 @@ The two settings work independently:
 
 If you turn on collection but not the feature, data is collected but you can't view it in the admin yet. If you turn on the feature but not collection, the dashboard shows an **Analytics not connected** message with a link to **Settings → Integrations**.
 
-To see the raw data yourself, click **Open your Umami dashboard** in the card.
-
 ---
 
 **What you can do:**
 
 - Enter your Umami Website ID
 - Turn analytics collection on or off for your storefront
-- Open your Umami dashboard from the card
 
 **What you cannot do:**
 
-- Create your own Umami account or Website ID. Your SimplePress administrator provides it.
+- Create your own Umami account or Website ID. The SimplePress team provides the Website ID.
+- Count your own admin visits. They're always left out
 - Use a different analytics provider through this card
 
 ---
 
 ## QuickBooks Online
 
-If QuickBooks Invoicing is turned on for your store, a **QuickBooks Online** card also appears on this page. It's where you connect your QuickBooks company. See [Invoices](/docs/invoices#quickbooks-invoicing) for the full steps.
+QuickBooks Online lets you send invoices for quote leads through your own QuickBooks company: a deposit when the customer accepts, and the final invoice after the job. SimplePress creates the customer and invoice in QuickBooks, and QuickBooks emails it. Customers pay through QuickBooks' own invoice email, so money never passes through SimplePress.
+
+**Where it is:** a **QuickBooks Online** card on **Settings → Integrations**. Owners and Managers can connect it. The card only appears when **QuickBooks Invoicing** is switched on under **Settings → Features**. See [Feature flags](/docs/feature-flags).
+
+![The QuickBooks Online card showing a Sandbox badge, Connected, the company name and ID, Open QuickBooks and Disconnect buttons, and Deposit defaults](/images/integrations/quickbooks-card.png)
+
+*A connected QuickBooks card. This screenshot is from a QuickBooks sandbox test company, which is why the card says Sandbox. A real company doesn't show that badge.*
+
+### The badge on the card
+
+| Badge | What it means | What you see |
+| ----- | ------------- | ------------ |
+| **Not configured** | QuickBooks isn't set up for your store yet. | A note to contact help@generativejustice.org, and a grayed-out **Connect QuickBooks** button. |
+| **Not connected** | Ready to link. | A **Connect QuickBooks** button. |
+| **Connected** | Linked and working. | **Company**, **Company ID**, "Connected since" (and "Last synced" once something has synced), **Open QuickBooks** and **Disconnect**. |
+| **Needs reconnect** | QuickBooks no longer accepts the saved connection. | A **Reconnect QuickBooks** alert and a **Reconnect** button. You can't send invoices until you reconnect. |
+
+QuickBooks connections expire after about 100 days, or sooner if access is removed inside QuickBooks. When that happens, click **Reconnect** and sign in again.
+
+### Connecting
+
+1. Click **Connect QuickBooks**.
+2. Sign in with your Intuit account and choose the company you invoice from.
+3. You come back to the page with a "QuickBooks connected" message.
+
+If you back out you'll see "QuickBooks connection was cancelled". If something else goes wrong you'll see "QuickBooks connection failed". Try again.
+
+If a red **Environment mismatch** note shows, the connection was made in a different mode (test or live) than your store now runs in. Reconnect to fix it. Email help@generativejustice.org if it doesn't clear.
+
+### Deposit defaults
+
+Under the connection is a **Deposit defaults** form. It prefills the deposit invoice on each quote, and you can change any invoice by hand.
+
+| Setting | What it does |
+| ------- | ------------ |
+| **Deposit amount** | Choose **Percent of quote** or **Fixed amount**. |
+| **Deposit percent** or **Deposit amount** | The percentage, or the dollar amount, depending on what you chose. |
+| **Invoice due in (days)** | How many days customers have to pay, from 0 to 90. |
+
+Click **Save**. You'll see "Deposit defaults saved."
+
+### Disconnecting
+
+Click **Disconnect**, then confirm in **Disconnect QuickBooks?** Your existing invoices stay in QuickBooks and in SimplePress. You just can't send new ones until you reconnect. Your deposit settings are kept.
+
+For how deposit and final invoices work step by step, see [Invoices](/docs/invoices#quickbooks-invoicing).
+
+---
+
+**What you can do:**
+
+- Connect, reconnect or disconnect your QuickBooks company
+- Set the deposit type, amount and payment window that new quotes start with
+- Open QuickBooks from the card
+
+**What you cannot do:**
+
+- See the card unless QuickBooks Invoicing is on, or connect it if the card says **Not configured**. Email help@generativejustice.org
+- Send invoices while the card says **Needs reconnect**
+- Take payments inside SimplePress. Customers pay through QuickBooks
+
+---
+
+## Related pages
+
+<Cards>
+	<Card
+		title="Invoices"
+		description="Step-by-step QuickBooks deposit and final invoices."
+		href="/docs/invoices"
+	/>
+	<Card
+		title="Feature Flags"
+		description="Turn QuickBooks Invoicing and Analytics on or off."
+		href="/docs/feature-flags"
+	/>
+	<Card
+		title="Analytics"
+		description="See the visits Umami collects."
+		href="/docs/analytics"
+	/>
+	<Card
+		title="Stripe Setup"
+		description="Get your Stripe account ready before you connect."
+		href="/docs/stripe"
+	/>
+</Cards>

@@ -1,112 +1,143 @@
 ---
 title: General Settings
-description: Manage the core information about your business — your store's name, contact details, and the public information your customers see on your storefront and in emails.
+description: Set your business name, time zone, contact emails, phone number and address. These details show up on your storefront, in your emails and in search results.
 ---
 
 ## Overview
 
-**Settings > General**
+**General Settings** is where you keep the basic facts about your business: its name, your time zone, the email addresses customers and SimplePress use to reach you, your phone number and your address.
 
-General Settings is where you manage the core information about your business — your store's name, contact details, and the public information your customers see on your storefront and in emails.
+To open it, go to **Settings → General** in the admin. Owners and Managers can open it. Staff can't. See [Team & roles](/docs/team-and-roles).
 
----
+The page has three cards:
 
-## Getting There
-
-From the admin sidebar, go to **Settings**, then select **General**.
-
-**[PHOTO: General Settings page — all three cards visible (Business Information, Contact Information, Public Information)]**
+| Card | What's in it |
+| ---- | ------------ |
+| **Business Information** | Business Name, Store Slug and Time Zone. |
+| **Contact Details** | Owner Email, Support Email and Phone Number. |
+| **Business address** | Street, city, state and ZIP, plus an optional map pin. |
 
 ---
 
 ## Business Information
 
+![The Business Information card with Business Name, Store Slug and Time Zone](/images/general-settings/general-business-info.png)
+
 ### Business Name
 
-This is the display name for your store. It appears:
-
-- In your storefront header and footer
-- In all transactional emails sent to customers (order confirmations, shipping notifications, refunds, etc.)
-- On the storefront welcome email when customers create an account
-
-Update this any time your brand name changes — the new name will take effect immediately on save.
+The name of your business. It's required. It appears in your storefront header and footer, and in the emails your customers get from you, such as order confirmations, shipping notices and refunds. A change takes effect as soon as you save.
 
 ### Store Slug
 
-Your store slug is the unique identifier assigned to your store at signup (e.g., if your subdomain is `mybrand.simplepress.co`, your slug is `mybrand`). This field is displayed here for reference only and **cannot be changed**.
+Your slug is your store's internal ID. SimplePress sets it when your store is created, based on your business name, and it's **greyed out** here because it can't be changed.
 
-> If you need to know your store's URL, it's always `[your-slug].simplepress.co` — or your custom domain if you've configured one.
+<Callout type="info" title="The slug is not your web address">
+  Your slug and your web address are separate things. Your address (your free subdomain, or your own domain once you connect one) is managed under **Settings → Domain**. The two can look alike, but changing one never changes the other. See [Custom Domain](/docs/domain).
+</Callout>
+
+### Time Zone
+
+Pick the time zone your business actually operates in. The list has 16 common zones, and it starts on **Eastern Time — Detroit** until you change it.
+
+![The Time Zone menu open, showing the list of zones](/images/general-settings/time-zone-menu.png)
+
+SimplePress uses your time zone to show times the way you and your shoppers expect them:
+
+- Event dates and times on your storefront and in your admin.
+- The day that counts as "today" on your Dashboard.
+- Invoice due dates.
+- The launch date and time in [Maintenance Mode & Coming Soon](/docs/maintenance-mode).
+
+Your [Business Hours](/docs/business-hours) are the exception. They are shown exactly as you type them and are never converted to another time zone.
 
 ---
 
-## Contact Information
+## Contact Details
+
+![The Contact Details card with Owner Email, Support Email and Phone Number](/images/general-settings/contact-details.png)
 
 ### Owner Email
 
-Your owner email is the primary address for your business account. This is used for:
+Your **Owner Email** is the business's main contact address. The help text calls it "not a public facing email", and it isn't printed in your storefront footer. But it isn't entirely private either, so use an address you're comfortable with customers occasionally seeing.
 
-- Internal platform notifications (e.g., new order alerts sent to you)
-- Account and billing communications
+- **Alerts come here.** Most store alerts go to your Owner Email, such as new orders, low stock and new quote requests. Disputes and "payments paused" alerts go to the Owner Email **and** to every Owner and Manager on your team. See [Emails You Receive](/docs/email-preview#emails-you-receive).
+- **Customers can reply to it.** The emails your customers get (order confirmations, shipping notices, refunds, "ready for pickup" and others) use your Owner Email as their **Reply-To** address. When a customer hits Reply, it lands here.
+- **It can show in some emails.** For example, a quote confirmation says "or contact" followed by this address, and the footers of testimonial and team invitation emails include it.
 
-This address is **not shown to customers**. It is the address the platform uses to reach you as the store owner.
-
----
-
-## Public Information
-
-These fields are customer-facing. Anything you fill in here may appear on your storefront footer and contact page.
+<Callout type="info" title="This is not your sign-in email">
+  Your Owner Email is a contact address for the business. It isn't the email you sign in with, and changing it doesn't change your login.
+</Callout>
 
 ### Support Email
 
-Your public-facing customer support address. This is displayed:
+Your **Support Email** is the public address customers use to reach you. It's required, so you can't save the page without one. It's shown on your storefront (the help text says so), and contact form messages are sent to it. See [Contact Form](/docs/contact-form).
 
-- In the footer of your storefront (in the Contact section)
-- On your storefront's Contact page (used as the default contact email if no template-specific override is set)
-
-This is what customers use to reach you for help, returns, or questions. Use a dedicated support address here rather than your personal email.
-
-> **Required.** Your store cannot save without a support email.
-
-### Business Address
-
-Your physical business address. This is displayed:
-
-- In the footer of your storefront
-- On your Contact page (used as the default address if no template override is set)
-
-This field is optional. If you leave it blank, no address will appear in your footer.
-
-### Map Pin
-
-Optional. Your store's exact map coordinates (latitude and longitude), entered right below your address. Only some site designs show a map (for example on the homepage or Contact page); if yours doesn't, you can leave this blank. When set, it also helps search engines place a storefront business.
-
-The easiest way to get these numbers: open [Google Maps](https://maps.google.com), find your location, right-click the exact spot, and click the coordinates shown at the top of the menu — that copies them to your clipboard. Paste into either the Latitude or Longitude box here and both fields fill in automatically.
-
-You can also type the numbers in by hand. Latitude and Longitude must both be filled in, or both left blank — you can't save just one. Once both are set and valid, a **Check the pin on Google Maps** link appears so you can confirm it's in the right spot before saving.
-
-This field is optional. If left blank, templates fall back to any coordinates saved directly on the template (if set) — but the Settings pin is preferred wherever both exist.
+On the Default template, it appears in the footer as an envelope icon next to your social icons, and on your Contact page. Use a dedicated support address you check often.
 
 ### Phone Number
 
-Your business phone number. If provided, it appears:
+Your public business phone number. It's optional. Where it shows depends on the template, but on the Default template it appears under the **Help** column in the footer and on your Contact page. Leave it blank if you don't want a number on your site.
 
-- In the footer of your storefront (as a clickable `tel:` link)
-- On your Contact page where templates support it
+![The Default storefront footer, with the support email as an envelope icon beside the social icons, and the phone number and address under Help](/images/general-settings/storefront-footer-contact.png)
 
-This field is optional. Leave it blank if you don't want a phone number displayed publicly.
-
----
-
-## Saving Changes
-
-Click **Save Changes** in the top toolbar. The toolbar also shows an **Unsaved Changes** badge when you've made edits that haven't been saved yet. Use **Reset** to discard any unsaved changes and revert to the last saved state.
+*The Default footer. Your Support Email is the envelope icon. Your phone and address sit under the Help column. A custom template may place them differently.*
 
 ---
 
-## What You Cannot Do
+## Business address
 
-- **Change your store slug** — set at signup, locked permanently. If you need a different URL, you can configure a custom domain in **Settings > Domain**.
-- **Remove the support email entirely** — it is required.
-- **Edit your store slug from here or anywhere else in the admin** — it is read-only across the entire platform.
+The **Business address** card holds your address in four boxes: **Street Address**, **City**, **State** and **ZIP**. They're split out so search engines can understand where you are. Your storefront shows the address as one line.
+
+Underneath, a line reads **Shown on your site as:** followed by how your address will look to visitors. Check it before you save.
+
+![The Business address card with the four address boxes, the Shown on your site as line, and the Map pin section](/images/general-settings/business-address.png)
+
+If your store was set up before the address was split into four boxes, your old one-line address is in the **Street Address** box. Move the city, state and ZIP into their own boxes when you get a chance.
+
+Leave the address blank if you don't want one shown.
+
+### Map pin (optional)
+
+The **Map pin (optional)** section takes a **Latitude** and a **Longitude**. Fill in both or leave both blank. If you fill in only one, SimplePress asks for the other before it will save.
+
+The easiest way to get the numbers: open [Google Maps](https://maps.google.com), right-click your exact spot, and click the coordinates at the top of the menu to copy them. Paste into either box and both fill in. Once both are valid, a **Check the pin on Google Maps ↗** link appears so you can confirm the spot.
+
+What the pin does depends on your site design:
+
+- **Some templates show a map**, usually on the homepage or the Contact page, and use your pin for it. The **Default template shows no map**, so the pin won't add one there.
+- **Search engines can use it.** The pin helps them place your business when **Local presence** is set to **Storefront** on the **Search engines** tab of **Content → SEO & Meta**. See [SEO](/docs/seo).
+
+If you're not sure whether your template shows a map, leave the pin blank. It's safe to skip.
 
 ---
+
+## Saving your changes
+
+Click **Save changes** in the top toolbar, or press **Cmd+Enter** (**Ctrl+Enter** on Windows). On a phone the button just says **Save**.
+
+![The toolbar with the Unsaved Changes badge, Reset and Save changes buttons](/images/general-settings/unsaved-toolbar.png)
+
+- The badge beside the page title reads **Saved** or **Unsaved Changes**.
+- **Reset** throws away everything you haven't saved and goes back to the last saved version. It's hidden on narrow screens.
+- If you try to leave with unsaved edits, your browser asks you to confirm.
+
+If a box isn't valid, SimplePress highlights it and tells you what to fix. For example, a ZIP over 16 characters, or a latitude outside -90 to 90.
+
+---
+
+## What you can and can't do
+
+| You can | You can't |
+| ------- | --------- |
+| Rename your business any time. | Change your store slug. |
+| Pick the time zone your business runs in. | Save without a Support Email. |
+| Set separate Owner and Support emails. | Change your sign-in email here (the Owner Email is only a contact address). |
+| Add a phone number and a structured address. | Make your Owner Email completely hidden: it's the Reply-To on customer emails. |
+| Add a map pin. | Make your hours follow your time zone: hours show as typed. |
+
+<Cards>
+  <Card title="Business Hours" href="/docs/business-hours" description="Publish your opening hours on your contact page." />
+  <Card title="Custom Domain" href="/docs/domain" description="Connect your own web address." />
+  <Card title="Emails You Receive" href="/docs/email-preview#emails-you-receive" description="Which alerts go to your Owner Email, and which go to your team." />
+  <Card title="SEO" href="/docs/seo" description="Local presence, and how your address and phone feed search results." />
+</Cards>

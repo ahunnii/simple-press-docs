@@ -95,7 +95,7 @@ For the full steps, see [Orders](/docs/orders#refunds).
 
 ## Other ways to get paid
 
-Checkout is card only, through Stripe. You can still take cash, check, Venmo, Cash App, Zelle and more through manual orders, invoices and your donate page. These never go through Stripe, so there's no Stripe fee, and they don't appear in What Stripe took or in your payouts. See [Other ways to get paid](/docs/integrations#other-ways-to-get-paid).
+Checkout goes through Stripe only. You can still take cash, check, Venmo, Cash App, Zelle and more through manual orders, invoices and your donate page. These never go through Stripe, so there's no Stripe fee, and they don't appear in What Stripe took or in your payouts. See [Other ways to get paid](/docs/integrations#other-ways-to-get-paid).
 
 ---
 
@@ -106,14 +106,14 @@ Sometimes Stripe pauses charges on an account. This usually happens when it need
 SimplePress tells you in three ways:
 
 - **A red strip across the top of every admin page** that reads "**Payments are paused.** Stripe has disabled charges on your account, so checkout is failing for every shopper." Click **Fix in Stripe** to see what Stripe needs, or **Details** to open **Settings → Integrations**. Staff don't see the strip, and it can't be dismissed.
-- **A Charges paused badge** on the Stripe Connect card in **Settings → Integrations**, with a red note that reads "Stripe has paused charges on this account".
+- **A Charges paused badge** on the Stripe Connect card in **Settings → Integrations**, with a red alert titled "Stripe has paused charges on this account".
 - **An email** with the subject "Action required: [your store] can't accept payments".
 
 ![The payments paused email: Your store can't accept payments, with the status Charges disabled — checkout is failing and a Resolve in Stripe button](/images/payments-and-payouts/payments-disabled-email.png)
 
 *The email has a **Resolve in Stripe** button and a link to Settings → Integrations.*
 
-The email goes to the **Owner Email** in **Settings → General** and to every team member with the **Owner** or **Manager** role. Staff don't get it. Each person gets their own copy. See [General Settings](/docs/general-settings#owner-email) and [Team & roles](/docs/team-and-roles). The email is sent once, when charges are first paused. It isn't repeated, and no email is sent when charges come back.
+The email goes to the **Owner Email** in **Settings → General** and to every team member with the **Owner** or **Manager** role. Staff don't get it. Each person gets their own copy. See [General Settings](/docs/general-settings#owner-email) and [Team & roles](/docs/team-and-roles). For every email that comes to you, see [Emails You Receive](/docs/email-preview#emails-you-receive). The email is sent once, when charges are first paused. It isn't repeated, and no email is sent when charges come back.
 
 **To fix it,** sign in to Stripe and complete whatever it asks for. Once Stripe turns charges back on, everything clears itself within a few minutes. You don't need to reconnect Stripe or change your store. See [Integrations](/docs/integrations).
 
@@ -141,7 +141,7 @@ The email shows:
 - **Respond by**, the deadline, when Stripe gives one; and
 - a **Respond in Stripe** button that opens your disputes in Stripe.
 
-Like the payments paused email, it goes to the **Owner Email** in **Settings → General** and to every Owner and Manager on your team, each in their own copy. Stripe also emails the owner of your Stripe account.
+Like the payments paused email, it goes to the **Owner Email** in **Settings → General** and to every Owner and Manager on your team, each in their own copy. Stripe also emails the owner of your Stripe account. See [Emails You Receive](/docs/email-preview#emails-you-receive) for all of your alert emails in one place.
 
 ### What happens to the order
 
@@ -149,7 +149,6 @@ Like the payments paused email, it goes to the **Owner Email** in **Settings →
 - A note is added to the order's internal notes with the amount, the reason and the respond-by date. Staff can't see internal notes.
 - While the payment is disputed, the refund button and the fulfillment and **Mark Ready for Pickup** controls are hidden.
 - The order stays in **Money in** on Finances at its full value until the dispute closes.
-
 - In the Orders list, the order shows a red **Disputed** badge. To see every disputed order, open **Filters** and set **Payment** to **Disputed**. See [Orders](/docs/orders).
 - You can't change the payment status while the dispute is open. In **More Options → Override Status → Payment Status**, the choices are greyed out with the note "dispute open". SimplePress updates the status for you when Stripe closes the dispute.
 
@@ -177,7 +176,7 @@ When Stripe closes the dispute, SimplePress updates the order and adds a note. N
 
 | Outcome | What happens to the order | How it shows on Finances |
 | ------- | ------------------------- | ------------------------ |
-| **Won** | Payment goes back to **Paid**. Note: "Stripe dispute won — $X returned." | The order stays in Money in as normal. In What Stripe took, the money Stripe took and then returned shows under **Dispute adjustments**. |
+| **Won** | Payment goes back to **Paid**. Note: "Stripe dispute won — $X returned." | The order stays in Money in as normal. In What Stripe took, the money Stripe took and then returned shows under **Dispute adjustments**. If both fall in the range you picked, they cancel out and the tile is hidden. |
 | **Lost** | Payment becomes **Refunded**. If the dispute covered the whole order, the order becomes **Refunded** too. Note: "Stripe dispute lost — $X withdrawn." | The amount counts in **Refunds issued** under Money in. The money Stripe kept shows under **Dispute adjustments**. |
 
 Stripe's dispute fees also come out of your Stripe balance, so they show on the What Stripe took card too. If Stripe closes a dispute some other way (for example, an early warning that never became a full dispute), the payment goes back to **Paid**, with a note saying how it closed.

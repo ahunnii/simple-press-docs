@@ -1,133 +1,165 @@
 ---
 title: Your Account & Security
-description: Manage your account settings and security.
+description: Change your name, photo and password, check where you're signed in, and reset a forgotten password.
 ---
 
 ## Overview
 
-Your SimplePress account is your personal login identity — separate from your store's settings. This is where you manage your name, email address, password, and connected sign-in methods. Think of it as the "you" behind the store, not the store itself.
+Your SimplePress account is your personal login. It is separate from your store's settings. It holds your name, your photo, your password, and the list of devices you're signed in on.
 
-> **Accessing your account settings:** In the admin dashboard, click your avatar or name in the bottom-left corner of the sidebar, then choose **Account Settings**. On the storefront, account settings are available at `/account/settings` and `/account/security` after signing in.
+You use **one SimplePress login for every store** you belong to. If you run two stores, or help on a friend's team, you sign in with the same email and password. A new name, photo or password applies everywhere at once.
 
----
+> **Where to find it:** In the admin, click your name at the bottom of the left sidebar. A menu opens with your name and email, then **Settings** and **Sign Out**. Choose **Settings**. Every signed-in person can do this, whether they are an Owner, Manager or Staff.
 
-## Your Profile
+![The menu at the bottom of the admin sidebar, showing a name and email, Settings and Sign Out](/images/your-account-and-security/account-menu.png)
 
-### Display Name
+**Settings** doesn't open an admin page. It takes you to your account pages on your storefront, at `/account/settings` and `/account/security`. They are drawn in your store's template, so they match your storefront's look. A custom template may style them a little differently from the screenshots here.
 
-Your display name is visible in the admin dashboard and in any storefront account pages your customers see. You can update it at any time from Account Settings.
-
-### Email Address
-
-Your email address is your primary login identifier and is used for:
-
-- Signing in
-- Receiving transactional and security notifications
-- Password reset requests
-- Email verification
-
-**Changing your email:** Enter a new email address in the Settings form and save. A verification email is sent to the new address. Your current email remains active until you click the link in the verification email. The change is only applied once you verify the new address.
-
-> If you don't receive the verification email, use the **Resend Verification Email** option that appears in your account settings after a change is pending.
-
-**Note:** Email addresses are unique across the entire SimplePress platform. If the address is already in use by another account, you will not be able to use it.
-
-**Photo:** Screenshot of the email update card in Account Settings, with the "pending verification" state shown.
-
-### Profile Photo
-
-You can upload a profile photo that appears in the admin sidebar. Supported formats include JPEG and PNG. You can remove your photo at any time to revert to your initials avatar.
+On the left of those pages is the account menu. It lists Orders, Address Book, Subscriptions, Invoices, Rewards, **Settings**, **Security** and Preferences. Some items only appear when the matching feature is on. Orders and Address Book are for shopping as a customer. This page covers **Settings** and **Security**.
 
 ---
 
-## Password
+## Your profile
 
-### Changing Your Password
+Go to your name menu → **Settings**. You'll see a **User profile** card.
 
-Go to **Account > Security** and use the **Change Password** form. You will need:
+![The User profile card with an avatar, a Name field and a Save changes button](/images/your-account-and-security/profile-settings.png)
 
-1. Your current password
-2. Your new password (entered twice to confirm)
+| Field | What it does |
+| ----- | ------------ |
+| **Avatar** | Click **Change avatar**, then **Upload avatar** or **Delete avatar**. Any image type works. SimplePress shrinks it to a small square (256 pixels), so a plain, centered photo looks best. Without a photo you see your initials. |
+| **Name** | The name shown next to your account. Change it, then click **Save changes**. |
 
-When you save, all other active sessions on other devices are automatically signed out. Your current session stays active.
+You'll see "Profile updated successfully", "Avatar changed successfully" or "Avatar deleted successfully" after each change.
 
-**Photo:** Screenshot of the Change Password card on the Security page.
+Your name and photo show in the admin sidebar and in the **Members** table on your [Team](/docs/team-and-roles) page. Your customers don't see your owner name. They see your store's name and branding.
 
-### Forgot Your Password?
+### Your email address
 
-If you're locked out, go to the sign-in page and click **Forgot password?**. Enter your email address and a reset link will be sent. The link expires after **1 hour**. After resetting, you'll be redirected to sign in with the new password.
+Your email is how you sign in, and it's where password and verification emails go. **You can't change it yourself.** There's no email field on the Settings page.
 
-**Photo:** Screenshot of the Forgot Password page.
-
----
-
-## Connected Sign-In Methods
-
-### Discord
-
-You can add Discord as an alternative sign-in method so you don't have to type your password every time. Once connected, you can sign in with either your email/password or your Discord account — both work interchangeably.
-
-**To connect Discord:** Go to **Account > Security**, find the **Connected Accounts** section, and click **Connect** next to Discord. You'll be redirected to Discord to authorize the connection, then returned to your settings.
-
-**To disconnect Discord:** Click **Disconnect** in the same section. You can only disconnect Discord if you still have a password set on your account — you cannot remove all sign-in methods.
-
-**Photo:** Screenshot of the Connected Accounts (Providers) card on the Security page, with Discord shown as connected.
+If you need a different sign-in email, ask the SimplePress team at **help@generativejustice.org**.
 
 ---
 
-## Active Sessions
+## Changing your password
 
-Under **Account > Security**, the **Active Sessions** section lists every device currently signed in to your account, including:
+Go to your name menu → **Settings**, then click **Security** in the account menu.
 
-- Device type and browser
-- Approximate location or IP
-- When the session was created
+![The Change password card with Current password and New password fields](/images/your-account-and-security/change-password.png)
 
-Your current session is marked. You can sign out any other session individually — useful if you left yourself signed in on a shared or lost device.
+1. Type your **Current password**.
+2. Type your **New password**.
+3. Click **Update password**.
 
-**Signing out everywhere:** Changing your password automatically signs out all other sessions.
+You'll see "Password changed successfully". Changing your password **signs you out of your other devices**. The device you're using stays signed in.
 
-**Photo:** Screenshot of the Active Sessions card showing multiple sessions with a "Sign Out" button on each.
+If your account doesn't have a password yet, the card is called **Set password** instead. It says "You don't have a password yet. Request a reset link to set one up." Click **Send reset link** and follow the email.
 
----
+### Forgot your password?
 
-## What You Can and Cannot Change Here
+You don't need to be signed in for this.
 
-| Action                          | Available                                                 |
-| ------------------------------- | --------------------------------------------------------- |
-| Update display name             | Yes                                                       |
-| Change email address            | Yes (requires re-verification)                            |
-| Upload / remove profile photo   | Yes                                                       |
-| Change password                 | Yes                                                       |
-| Connect / disconnect Discord    | Yes                                                       |
-| View and revoke active sessions | Yes                                                       |
-| Change your store subdomain     | No — subdomains cannot be changed after business creation |
-| Change your business name       | No — use **Settings > General** in the admin dashboard    |
-| Delete your account             | Contact platform support                                  |
+1. On the sign-in page, click **Forgot password?**.
+2. Type your **Email** and click **Send reset link**.
+3. The page says "Check your email". Open the email and click the link.
+4. On the **Reset Password** page, type your new password in **Password** and click **Reset Password**. There's no second box to confirm it, so type carefully (the eye icon shows what you typed).
+5. You'll see "Password reset successfully" and go back to the sign-in page.
 
----
+![The Forgot Password card with an Email field and a Send reset link button](/images/your-account-and-security/forgot-password.png)
 
-## Email Verification
+The link in the email **expires after 1 hour**. If it has expired, start again from **Forgot password?**.
 
-SimplePress requires a verified email address before you can access the admin dashboard. When you first sign up, a verification email is sent automatically. The link in that email expires after **1 hour**.
-
-If your email is unverified, you will be blocked from the admin and prompted to verify. You can request a new verification email from the prompt shown at sign-in.
-
-> **Email changes reset verification.** If you update your email address, your account is marked unverified again until you click the link sent to the new address. Admin access is not affected until you navigate away and sign back in — at that point you'll be prompted to verify the new address.
+Resetting a forgotten password does **not** sign out your other devices. If you think someone else may have your password, sign in with the new one, then check **Active sessions** below and remove any device you don't know.
 
 ---
 
-## Account Security Tips
+## Active sessions
 
-- Use a strong, unique password that you don't use on other sites.
-- Connect Discord as a backup sign-in method in case you lose access to your email temporarily.
-- Periodically check your **Active Sessions** and revoke any sessions you don't recognize.
-- If you suspect your account has been compromised, change your password immediately — this signs out all other devices.
+Still on the **Security** page, the **Active sessions** card lists every device where you're signed in. Sessions from every store you've signed in to appear in the same list.
+
+![The Active sessions card with the current session and one other device](/images/your-account-and-security/active-sessions.png)
+
+Each row shows:
+
+- an icon for the device type
+- the browser and system, like "Chrome, macOS"
+- a **Current session** badge on the device you're using now
+- on every other row, how long ago it was last used, like "10 Hours Ago"
+
+SimplePress doesn't show IP addresses or locations.
+
+| Button | Where | What it does |
+| ------ | ----- | ------------ |
+| **Sign Out** | On your current session | Signs you out of this device. |
+| **Revoke** | On any other session | Signs that device out. You'll see "Session revoked successfully". |
+
+A revoked device can stay signed in for **a few minutes** (up to about 5) before it is fully signed out. If you lost a device, also change your password right away.
 
 ---
 
-## Storefront Customer Accounts vs. Your Owner Account
+## Verifying your email
 
-Your admin account is different from the customer accounts that shoppers create on your storefront. Customers manage their own profiles, order history, and preferences at `/account/` on your store. You cannot edit or delete customer accounts from the admin — those are read-only. See the **Customers** section of this documentation for what you can view about customer accounts.
+You have to verify your email before you can sign in. When you create an account, SimplePress emails you a link. Until you click it, signing in sends you to a **Verify Email** page that says "Check your email for a verification link."
+
+![The Verify Email card, with a Check your email message and a Not seeing it help list](/images/your-account-and-security/verify-email.png)
+
+- The link **expires after 1 hour**. Clicking it verifies you and signs you in.
+- Didn't get it? Click **Resend**. You can ask again after a short wait (the button counts down, like "Resend in 45s"). If you opened the page without being signed in, you may not see the button. Try signing in again to get it back.
+- Check your spam or junk folder, and make sure you typed the right address.
+
+This applies to everyone, including people you invite to your team. See [Team & Roles](/docs/team-and-roles).
 
 ---
+
+## Customer accounts vs. your owner account
+
+Your owner login is the same kind of account your shoppers create. A customer signs up on your storefront and uses the same `/account` pages to see their orders, addresses and preferences. What you can do with a role comes from your place on the [Team](/docs/team-and-roles) page.
+
+As an Owner or Manager, you can open any customer in **Customers** to add private notes or to **anonymize** them (**Anonymize this customer?**) when they ask to be forgotten. Customers can't see your notes. See [Customers](/docs/customers).
+
+---
+
+## Staying safe
+
+- Use a strong password you don't use anywhere else.
+- Check **Active sessions** once in a while and click **Revoke** on any device you don't recognize.
+- Don't share your login. Invite people to your team instead, so each person has their own account and role. See [Team & Roles](/docs/team-and-roles).
+
+---
+
+## What you can and can't do
+
+| Action | Available? |
+| ------ | ---------- |
+| Change your name and photo | Yes |
+| Change your password | Yes |
+| Reset a forgotten password by email | Yes |
+| See your signed-in devices and sign one out | Yes |
+| Change your sign-in email | No. Ask the SimplePress team at help@generativejustice.org |
+| Sign in with Discord, Google or another service | No. Email and password only |
+| Turn on two-factor sign-in | No |
+| Delete your account yourself | No. Ask the SimplePress team |
+| Use different logins for different stores | No. One login covers all your stores |
+
+---
+
+## Related pages
+
+<Cards>
+	<Card
+		title="Team & Roles"
+		description="Invite people and choose what they can do."
+		href="/docs/team-and-roles"
+	/>
+	<Card
+		title="Customers"
+		description="Customer notes, privacy requests and anonymizing."
+		href="/docs/customers"
+	/>
+	<Card
+		title="For Your Customers"
+		description="What your shoppers see when they make an account."
+		href="/docs/for-your-customers"
+	/>
+</Cards>

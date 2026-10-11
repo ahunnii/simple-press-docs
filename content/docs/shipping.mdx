@@ -1,78 +1,198 @@
 ---
 title: Shipping
-description: Manage your shipping settings and options.
+description: Choose how you charge for delivery, set up pickup, pick the countries you sell to, and tell customers about delivery times and returns.
 ---
 
 ## Overview
 
-Shipping settings live at **Settings > Shipping** in your admin dashboard. This is where you decide what — if anything — you charge customers for delivery, and whether you offer an in-store pickup option.
+**Settings → Shipping** is where you decide what you charge customers for delivery, whether they can pick up in person, which countries you sell to, and what you tell shoppers about delivery times and returns.
 
-> For information on how to fulfill orders, add tracking numbers, and communicate shipment details to customers, see [Orders](./orders.md).
+Owners and Managers can open it. Staff can't. See [Team & roles](/docs/team-and-roles).
 
-**Photo:** Screenshot of the Shipping Settings page showing the shipping type selector and in-store pickup toggle.
+The page has these cards, top to bottom:
 
----
+1. **Shipping**: your shipping charges and the in-store pickup switch.
+2. **Countries you sell to**.
+3. **Delivery times**.
+4. **Returns**.
 
-## Shipping Methods
+If you pick **Zone + weight rates**, three extra cards appear for setting up your zones.
 
-You can choose from three shipping models:
-
-### Free Shipping
-
-All orders ship at no charge to the customer. Shipping will show as **Free** in the order summary at checkout.
-
-Use this if shipping is already built into your product prices, or if you simply want to offer free shipping to everyone.
-
-### Flat Rate
-
-Every order is charged a fixed shipping fee, regardless of order size or weight. You set the rate (e.g., `5.99`).
-
-Use this if your orders are fairly consistent in size and your actual shipping costs don't vary much.
-
-### Flat Rate with Free Shipping Threshold
-
-Same as flat rate — but if a customer's order subtotal reaches a threshold you define (e.g., `$50.00`), shipping becomes free automatically.
-
-This is a great way to encourage larger orders. The threshold is applied to the **order subtotal** (before tax and discounts).
-
-**Example:** Flat rate `$6.00`, free shipping threshold `$50.00`. A $45 order pays $6 shipping. A $52 order ships free.
-
-> Shipping rates are entered in dollars (e.g., `5.99`). Always enter your rate as a standard dollar amount.
+For how to pack, ship and track orders once they come in, see [Orders](/docs/orders).
 
 ---
 
-## In-Store Pickup
+## Choose how you charge for shipping
 
-If you have a physical location, you can enable **In-Store Pickup** to let customers choose between shipping and picking up their order in person. When this toggle is on, a "Ship to address" / "In-store pickup" selector appears during checkout.
+Under **Shipping charges**, pick one of four options.
 
-Pickup orders carry **no shipping charge**.
+![The Shipping card with the four shipping options and the In-store pickup switch](/images/shipping/shipping-modes.png)
 
-> SimplePress does not send pickup-specific instructions to customers. Communicate pickup logistics via your order confirmation, storefront content, or directly with the customer.
+| Option | What customers pay |
+| ------ | ------------------ |
+| **Free shipping (all orders)** | Nothing. Shipping shows as Free. |
+| **Flat rate shipping** | The same fee on every order. |
+| **Flat rate — free when order subtotal reaches a threshold** | A flat fee, but free once the order is big enough. |
+| **Zone + weight rates** | A price based on where the order is going and how much it weighs. |
 
-**Photo:** Screenshot of the in-store pickup toggle in Shipping Settings.
+Shipping rates are always typed in dollars, like `5.99`.
+
+### Free shipping
+
+Every order ships free. Use it when shipping is built into your prices.
+
+### Flat rate
+
+Type your fee in **Flat shipping rate (USD)**, for example `5.99`. Every order pays it, whatever its size or weight.
+
+### Flat rate with a free shipping threshold
+
+Type both amounts: **Flat shipping rate (USD)** and **Free shipping when subtotal reaches (USD)**.
+
+![Flat rate with a threshold, showing both money fields](/images/shipping/flat-rate-threshold.png)
+
+**Example:** flat rate `6.00` and threshold `50.00`. A $45 order pays $6 shipping. A $52 order ships free.
+
+The threshold is checked against the **subtotal before any discounts**. A customer who has a $52 cart and uses a $10 coupon still qualifies for free shipping, even though they now owe $42 in products.
+
+If a flat rate or threshold box is empty or isn't a valid amount, the box turns red with a message under it: "Enter a valid flat rate amount" or "Enter a valid free shipping threshold". A toast reading "Fix the highlighted shipping fields" appears, and nothing is saved until you fix the box.
+
+### Zone + weight rates
+
+This mode prices each order by two things: how far it's going, and how heavy it is. It's best when your orders vary a lot in size. It covers **US states** only.
+
+When you select it, three cards appear:
+
+**Origin & Starter Rates**
+
+![Origin state, the Auto-generate starter rates button, and the Weight tiers](/images/shipping/zone-weight-editor.png)
+
+1. Pick your **Origin state**: the state you ship from.
+2. Click **Auto-generate starter rates** to fill in a starting set of zones and prices based on that state. You can edit everything afterwards, so treat it as a first draft.
+3. Under **Weight tiers**, edit the weight bands. Each tier has a **Label**, a **Min (lb)** and a **Max (lb)**. The last tier has no maximum. Click **Add tier** for more.
+
+**Zone rate matrix**
+
+Each row is a **zone**: a group of states that share prices. Give it a **Zone name**, set a rate for each weight tier, and tick the **States in this zone**. A state can only be in one zone. Click **Add zone** to add another. If the same state is in two zones, SimplePress tells you which one.
+
+**Fallback & defaults**
+
+![The Fallback and defaults card with the fallback rate, optional free shipping threshold and default item weight](/images/shipping/fallback-defaults.png)
+
+| Field | What it does |
+| ----- | ------------ |
+| **Fallback shipping rate (USD)** | Charged when the destination isn't in any of your zones, such as a US territory or anywhere outside the US. |
+| **Free shipping threshold (USD) — optional** | If the subtotal reaches this amount, shipping is free. Leave it blank to turn it off. |
+| **Default item weight (lb)** | The weight used for any product that doesn't have a weight of its own. Pick a cautious number so heavy orders aren't undercharged. |
+
+Set each product's real weight in the product's **Package weight** box. See [Products](/docs/products#shipping-weight).
+
+To save, you need at least one weight tier, at least one zone, a valid origin state and a valid fallback rate.
+
+### Free shipping coupons
+
+A discount code of the **Free shipping** type waives the shipping charge in every mode. See [Discounts and Coupons](/docs/discounts-and-coupons).
 
 ---
 
-## What Customers See at Checkout
+## In-store pickup
 
-Customers see an order summary that breaks down:
+Turn on **In-store pickup** ("Let customers choose pickup at checkout (no shipping charge).") if customers can collect their orders from you. Pickup orders pay no shipping.
 
-- Subtotal
-- Discount (if a coupon was applied)
-- Shipping (Free / $X.XX / "In-store pickup (free)")
-- Estimated Total
+When it's on, two boxes appear:
 
-> Tax and the confirmed total are finalized on the Stripe Checkout page — the storefront shows estimates up until that point.
+![The pickup fields: location, and pickup hours and instructions](/images/shipping/pickup-fields.png)
 
-**Photo:** Screenshot of the storefront checkout order summary showing the shipping line.
+| Field | What to enter |
+| ----- | ------------- |
+| **Pickup location** | Where customers collect. Leave it blank to use your business address from [General Settings](/docs/general-settings#business-address). |
+| **Pickup hours & instructions** | When and how, for example "Mon–Fri 10am–6pm. Ring the bell at the side entrance." **Required.** |
+
+If you leave the instructions blank, SimplePress asks for them with a message under the box: "Add pickup hours/instructions so customers know when to collect their order". The box is selected for you, a toast reading "Fix the highlighted shipping fields" appears, and nothing is saved until you add them. This works the same in every shipping mode, including **Zone + weight rates**.
+
+![The inline error under the pickup instructions box](/images/shipping/pickup-required-error.png)
+
+### What customers see
+
+- **At checkout.** A **Delivery** card appears with two buttons: **Ship to address** and **In-store pickup**. It only shows when pickup is turned on.
+
+  ![The Delivery card at checkout with Ship to address and In-store pickup](/images/shipping/checkout-delivery-card.png)
+
+- **When they choose pickup.** Checkout shows your **Pickup location** and your instructions, and the order summary reads "In-store pickup (free)".
+
+  ![Checkout with In-store pickup chosen, showing the pickup location, instructions, and the summary](/images/shipping/checkout-pickup.png)
+
+- **In their confirmation email**, in a **Pickup Details** section.
+- **In the Ready for Pickup email.** When their order is ready, open it in your admin and click **Mark Ready for Pickup**. The customer is emailed straight away, with your pickup location and instructions. See [Orders](/docs/orders#local-pickup-orders).
+
+Pickup times are separate from [Business Hours](/docs/business-hours).
 
 ---
 
-## Cannot
+## Countries you sell to
 
-- Set per-product or per-variant shipping rates
-- Configure rates by region, zone, or destination country
-- Use carrier-calculated rates (e.g., live USPS or UPS quotes)
-- Set a weight-based rate
+Choose which countries show up as shipping destinations at checkout.
+
+![The Countries you sell to card with United States on, and Canada and Mexico unavailable](/images/shipping/countries.png)
+
+**United States** is always on. Canada and Mexico are greyed out, because international shipping isn't supported yet. If your store already had an international country turned on, a warning says so.
 
 ---
+
+## Delivery times and returns
+
+These two cards are always on the page. They don't change what you charge. They give shoppers (and Google's product listings) a clearer picture of what to expect.
+
+![The Delivery times card and the Returns card with Accept returns chosen](/images/shipping/delivery-returns.png)
+
+**Delivery times** has two parts, each with a minimum and maximum number of days:
+
+- **Handling time**: how long you take to get an order out the door.
+- **Transit time**: how long it's in the mail.
+
+**Returns** starts with **Return policy**: **Not set**, **No returns** or **Accept returns**. If you accept returns, you also fill in:
+
+- **Return window (days)**
+- **Who pays return shipping**: **Free returns**, **Customer pays** or **Flat return fee** (with a **Return fee (USD)**)
+- **How customers return items**: **By mail**, **In store** or **Either**
+
+These details help your products show shipping and returns information in Google results. They also link to your Returns & Refunds policy. See [Pages and Policies](/docs/pages-and-policies) and [SEO](/docs/seo#google-shipping-and-returns-details).
+
+The **Save changes** button at the top saves everything on the page in one go. If a delivery or returns field has a problem, a message says "Fix the highlighted delivery and returns fields".
+
+---
+
+## Saving
+
+Use **Save changes** in the toolbar. The badge shows **Saved** or **Unsaved Changes**. There's no Reset button on this page.
+
+When it works, you'll see "Shipping settings updated successfully", and "Delivery and returns settings updated successfully" if you changed those cards.
+
+---
+
+## What customers see in the cart and at checkout
+
+The **cart** can't know the price yet, because it doesn't know where the order is going. It shows shipping as **Calculated at checkout**, and the total as **Estimated total**.
+
+![The cart summary with Shipping showing Calculated at checkout, and Estimated total](/images/shipping/storefront-cart-shipping.png)
+
+At checkout, shipping shows as Free, a dollar amount, or **In-store pickup (free)**. In Zone + weight mode, it reads **Calculated at checkout** until the customer enters their state, then briefly **Calculating…** while the price loads. A note on the page says "Tax and final total are confirmed on Stripe Checkout." Tax is worked out on Stripe's page, so the total can still change a little there.
+
+---
+
+## What you can and can't do
+
+| You can | You can't |
+| ------- | --------- |
+| Offer free, flat-rate, threshold or zone + weight shipping. | Set a different shipping rate per product or variant. |
+| Price by US state and by weight with zones. | Use live carrier rates (such as a real-time USPS or UPS quote). |
+| Waive shipping with a Free shipping coupon. | Price shipping by country: only US destinations are supported. |
+| Offer in-store pickup with its own location and instructions. | Turn pickup on without instructions. |
+| Show delivery times and a returns policy. | Ship outside the United States. |
+
+<Cards>
+  <Card title="Orders" href="/docs/orders" description="Fulfill orders, add tracking and mark pickups ready." />
+  <Card title="Business Hours" href="/docs/business-hours" description="Publish your opening hours." />
+  <Card title="General Settings" href="/docs/general-settings" description="Your business address, used for pickup if you leave the location blank." />
+  <Card title="Discounts and Coupons" href="/docs/discounts-and-coupons" description="Create free shipping codes." />
+</Cards>
