@@ -1,0 +1,347 @@
+---
+title: Finances
+description: See where every dollar your store collected went, what Stripe took, when money reached your bank, the sales tax you're holding, and how close you are to the INFORM Act thresholds.
+---
+
+## Overview
+
+The **Finances** page answers one question: where did the money go? It puts your own order records next to what Stripe saw, so you can follow a sale from the customer's card all the way to your bank.
+
+To open it, go to **Insights → Finances** in the sidebar (it sits just under **Analytics**). You can also press **Cmd+K** (or **Ctrl+K** on Windows) and type "Finances", or click **Full breakdown →** on the Dashboard's revenue card.
+
+![The top of the Finances page: the Finances heading, "Last 30 days — where every dollar collected actually went", the Tax Guide button and range selector, and the Money in card](/images/finances/finances-top.png)
+
+From top to bottom, the page shows:
+
+1. **Money in**: what customers paid, from your orders.
+2. **Donations** (or **Tips**, or **Contributions**), if you take them.
+3. **What Stripe took**: fees, refunds and payouts on the Stripe side.
+4. **Recent Payouts**: the last five payouts to your bank.
+5. **INFORM Act Compliance**: your progress toward the federal seller thresholds.
+6. **Set aside**: the sales tax you've collected.
+
+A few things to know:
+
+- **Only Owners and Managers can see Finances.** Staff don't have it in their sidebar, and they're sent to Orders if they open the link. See [Team & roles](/docs/team-and-roles).
+- **It needs the Payments feature.** If Payments is off in **Settings → Features**, Finances is hidden from the sidebar. See [Feature flags](/docs/feature-flags).
+- **Old links still work.** The admin used to have a separate **Payments** page. Any bookmark or link to it now opens Finances.
+- **Most of the page needs Stripe.** Money in works from your own orders, so it always shows. The Stripe cards ask you to connect Stripe first. See [Integrations](/docs/integrations).
+
+<Callout type="info" title="We are not tax advisors or accountants">
+
+This page explains what the numbers on Finances mean. It isn't tax, legal or accounting advice. Please talk to a qualified professional about your own taxes, and about whether laws like the INFORM Act apply to you.
+
+</Callout>
+
+---
+
+## The tour
+
+<video src="/videos/finances/finances-tour.webm" poster="/videos/finances/finances-tour-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*A short clip: switching the range from the last 30 days to the last 90, then scrolling down through every card to the note at the bottom.*
+
+---
+
+## Picking a time period
+
+The range selector sits at the top right of the page. It has five options:
+
+| Option | What it covers |
+| ------ | -------------- |
+| **Last 7 days** | Today and the six days before it. |
+| **Last 30 days** | Today and the 29 days before it. This is what you see when you first open the page. |
+| **Last 90 days** | Today and the 89 days before it. |
+| **Year to date** | January 1 of this year through today. |
+| **Calendar year 2026** (shows the current year) | January 1 to December 31 of this year. |
+
+![The range selector open, listing Last 7 days, Last 30 days (ticked), Last 90 days, Year to date and Calendar year 2026](/images/finances/range-selector.png)
+
+Next to the range selector, a **Tax Guide** button opens the [Tax Guide](#the-tax-guide).
+
+The range you pick is saved in the page's web address, so you can bookmark a view or share the link with another Owner or Manager.
+
+**Some figures ignore the range.** These always show the same thing, whatever you pick:
+
+- **Recent Payouts** always shows your last five payouts.
+- **Available now** and **Pending** in What Stripe took show your Stripe balance right now.
+- The **INFORM Act Compliance** card always covers the last 12 months, up to and including today.
+- The **calendar year to date** tile in Set aside always counts from January 1.
+
+---
+
+## Money in
+
+Money in shows what customers paid, worked out from your own orders. It doesn't need Stripe, so it shows even if Stripe is having trouble.
+
+![The Money in card: Product sales, Shipping collected, Sales tax collected, Total charged to customers, Refunds issued and Net collected, with 9 orders and a via Stripe and manual split](/images/finances/money-in.png)
+
+| Row | What it means |
+| --- | ------------- |
+| **Product sales** ("what you actually earned") | Your order totals with tax and shipping taken out, after discounts and after refunds. This is before Stripe's fees. |
+| **Shipping collected** | What customers paid for shipping, after refunds. |
+| **Sales tax collected** | The sales tax on your orders, after refunds. This isn't your money; see [Set aside](#set-aside-sales-tax). |
+| **Total charged to customers** | The full amount customers paid, before any refunds. |
+| **Refunds issued** | Everything you've given back on these orders. A dispute you lost counts here too. See [Disputes](/docs/payments-and-payouts#disputes). |
+| **Net collected** | Total charged, minus refunds. |
+
+Refunds are spread across the first three rows in proportion to each order. So **Product sales + Shipping collected + Sales tax collected** adds up to **Net collected**, not to Total charged. A fully refunded order adds nothing to those three rows.
+
+Under the rows you'll see how many orders were counted. If any of them were paid by cash, check or another manual method, a second line splits the total, like "$346.42 via Stripe · $44.00 manual/cash/check". Both figures are before refunds.
+
+### Which orders count
+
+An order is counted when:
+
+- it was **placed** inside the range you picked;
+- its payment is **Paid**, **Refunded** or **Disputed**; and
+- it **isn't cancelled**.
+
+These are left out:
+
+- **Cancelled** orders.
+- Orders still waiting for payment (**Pending**) and **Failed** payments.
+- **$0 orders** that needed no payment.
+
+"Via Stripe" means the order was paid by card at checkout, or a manual order you marked as Card. Everything else (Cash, Check or Manual) is counted as manual.
+
+### What's not in Money in
+
+- **Invoice payments.** Payments you record against an invoice aren't orders, so they don't show here. See [Invoices](/docs/invoices).
+- **QuickBooks invoices.** These live in QuickBooks.
+- **Donations.** They have their own card, below.
+- **Venmo and Cash App.** Money sent straight to those apps never reaches SimplePress. If you want a Venmo or Cash App sale counted, create a manual order for it. See [Orders](/docs/orders).
+
+There's no cost-of-goods or profit figure. Finances shows what came in and what Stripe took, not what your products cost you.
+
+---
+
+## Donations
+
+If you take donations, a card for them appears under Money in. Its title follows the label you picked in **Settings → Donations**: **Donations**, **Tips** or **Contributions**. It shows up when the Donations feature is on, or if your store has ever received one.
+
+![The Donations card on the Finances page, with Total raised, Donations, and Average tiles](/images/donations/finances-donations.png)
+
+The card shows **Total raised**, the number of gifts and the **Average** gift for the range. Only card gifts made through Stripe are counted. Gifts sent to your Venmo or Cash App aren't tracked anywhere in SimplePress.
+
+Donations are kept separate from Money in, so your sales figures stay about sales. Amounts are before Stripe's fees, and refunded gifts aren't taken off yet. See [Donations](/docs/donations).
+
+---
+
+## What Stripe took
+
+This card shows the same period from Stripe's side: what came into your Stripe account, what Stripe kept, and what it sent to your bank.
+
+![The What Stripe took card with Gross charges, Processing fees, Refunds, Net from sales, Paid out to bank, Available now and Pending tiles](/images/finances/what-stripe-took.png)
+
+| Tile | What it means |
+| ---- | ------------- |
+| **Gross charges** | Every card payment Stripe received in the range: orders, subscriptions and donations, before fees. |
+| **Processing fees** | Stripe's fees. SimplePress takes no fee, so this is all Stripe. |
+| **Refunds** | Money Stripe sent back to customers' cards. |
+| **Dispute adjustments** | Money Stripe took back or returned because of a dispute. This tile only shows when it isn't $0. It's red when money was taken out. |
+| **Net from sales** | What your sales left in Stripe after refunds, fees and disputes, before any payouts. See below. |
+| **Paid out to bank** | Payouts that are paid or on their way, with an arrival date inside the range. |
+| **Available now** | Money in your Stripe balance that's ready to pay out. This is today's figure, not the range's. |
+| **Pending** | Money Stripe is still settling. It becomes available in a few days. This is today's figure too. |
+
+### How "Net from sales" is worked out
+
+The tile's caption reads "Sales minus refunds, Stripe fees and dispute adjustments, before payouts". It's what your card payments earned you in the range, after Stripe's side of things:
+
+| Tile | Amount |
+| --- | --- |
+| Gross charges | $382.41 |
+| Processing fees | − $13.78 |
+| Refunds | − $0.00 |
+| **Net from sales** | **$368.63** |
+
+Payouts don't change it. Money Stripe sends to your bank is shown on its own, in **Paid out to bank**, so a busy payout week won't make your sales look smaller.
+
+The figures won't always add up to the cent. A fee Stripe charges on a payout itself, such as an instant payout fee, counts in **Processing fees** but not in Net from sales, because it isn't about a sale.
+
+### When the Stripe figures can't load
+
+| You see | What it means |
+| ------- | ------------- |
+| "Connect your Stripe account in Settings → Integrations to see what Stripe took." | Stripe isn't connected. The link takes you to [Integrations](/docs/integrations). |
+| A red **Stripe figures temporarily unavailable** alert | SimplePress couldn't reach Stripe. Money in isn't affected, because it comes from your own orders. Refresh in a few minutes. |
+| A red **Some Stripe figures could not be loaded** alert | Part of the request to Stripe failed. Any tile showing $0 may be missing data, not truly zero. Refresh to try again. |
+| "This range has more Stripe transactions than we can fetch in one pass, so these totals are partial." | The range has more than 5,000 Stripe transactions. Pick a shorter range for exact figures. |
+
+---
+
+## Recent Payouts
+
+This card lists the last five payouts Stripe sent to your bank account, newest first. It doesn't change with the range.
+
+![The Recent Payouts card listing five payouts with Amount, a green Paid status badge, and Estimated Arrival dates](/images/finances/recent-payouts.png)
+
+Each row shows the **Amount**, the **Status** and the **Estimated Arrival** date.
+
+| Status | What it means |
+| ------ | ------------- |
+| **Paid** (green) | The money has reached your bank. |
+| **In Transit** (blue) | Stripe has sent it and it's on the way. |
+| **Pending** (grey) | Stripe has queued it but hasn't sent it yet. |
+| **Failed** (red) | The payout didn't go through. Check your bank details in Stripe. |
+| **Canceled** (red) | The payout was stopped before it left Stripe. |
+
+If you haven't had a payout yet, or Stripe can't be reached, the card says "No payouts yet." If Stripe isn't connected, it asks you to connect it in **Settings → Integrations**.
+
+For your full payout history, open your Stripe Dashboard. There's no link from this card; use **Open Dashboard** in **Settings → Integrations**. See [Payments & Payouts](/docs/payments-and-payouts) for how payouts work.
+
+---
+
+## INFORM Act compliance
+
+The **INFORM Act Compliance** card is an early-warning gauge. It shows how much you've sold in the last 12 months against two numbers from a federal law, the INFORM Consumers Act, and nudges you to finish Stripe's verification before you might need it. You can jump straight to it in your admin at `/admin/finances#inform`.
+
+![The INFORM Act Compliance card with a grey Below Threshold badge and two green bars: Sales, last 12 months and Revenue, last 12 months](/images/finances/inform-card.png)
+
+### The bars
+
+- **Sales, last 12 months** counts your orders from the last 12 months, up to and including today, out of **200**.
+- **Revenue, last 12 months** adds up those orders' full totals, tax and shipping included, out of **$5,000**.
+
+Orders count if their payment is Paid, Refunded or Disputed, so a sale still counts if you later refunded it. **Cancelled orders don't count.** Manual orders do, because they're sales too. The card ignores the range selector.
+
+Each bar is **green** below 75%, turns **amber** from 75%, and turns **red** at 100%. Each bar only measures its own number. A red bar doesn't mean you've reached the threshold; that takes both numbers, and the badge tells you when it happens.
+
+### The badge
+
+| Badge | What it means |
+| ----- | ------------- |
+| **Below Threshold** (grey) | You haven't reached both numbers yet. |
+| **Verified** (green) | You've reached both numbers, and Stripe has your onboarding details. |
+| **Action Required** (red) | You've reached both numbers, and Stripe says your onboarding details aren't complete. |
+| **Threshold Reached** (grey) | You've reached both numbers, but SimplePress couldn't check with Stripe (for example, Stripe isn't connected). |
+
+### The alerts at the top of the page
+
+- **Approaching INFORM Act Threshold** (amber) appears once either bar reaches **75%** but you haven't reached both numbers, if Stripe hasn't confirmed your details yet. It's the same point where the bar turns amber. Its **Start Verification** button opens Stripe.
+- **Seller Verification Required** (red) appears once you reach both numbers and Stripe says your details aren't complete. Its **Complete Verification** button opens Stripe.
+
+Both buttons open your Stripe account's settings in a new tab. Finish whatever Stripe asks for there.
+
+### What the law actually says
+
+The FTC describes a "high-volume third-party seller" as one with **200 or more sales of new or unused consumer products AND $5,000 or more in gross revenue**, in **any continuous 12-month period** during the previous 24 months. Both numbers have to be met.
+
+The card follows that rule with one shortcut: it only looks at the most recent 12 months. A busy stretch more than 12 months ago, but within the last 24, can still count under the law even after the card has gone back to green.
+
+The law puts the duty on online marketplaces, which must collect and verify information from sellers like these. Whether it applies to your store is a legal question. Read the [FTC's guide to the INFORM Consumers Act](https://www.ftc.gov/business-guidance/resources/informing-businesses-about-inform-consumers-act), and ask a professional if you're unsure.
+
+### What "Verified" means
+
+**Verified** means Stripe has your onboarding details: you've submitted the business, bank and identity information Stripe asks for when you set up your account. It's the step the card asks you to take. It isn't a separate identity check, and Stripe doesn't say it makes you compliant with the INFORM Act. See [Stripe Setup](/docs/stripe/account-setup).
+
+---
+
+## Set aside (sales tax)
+
+Sales tax isn't your money. You collect it for the state and pay it over when you file. This card helps you keep it separate.
+
+![The Set aside card with Tax collected tiles for the last 30 days and the calendar year to date, and an Automatic tax is off alert linking to Settings → Integrations and the Tax Guide](/images/finances/set-aside.png)
+
+- **Tax collected** for your range: the sales tax on your orders in the range, after refunds. It matches the **Sales tax collected** row in Money in.
+- **Tax collected — calendar year to date**: the sales tax on your orders since January 1, after refunds, whatever range you pick.
+
+Both tiles take refunds off the same way, so a refunded order's tax isn't counted as money you're holding. For filing, use the tax reports in your Stripe Dashboard, or your own records.
+
+### "Automatic tax is off"
+
+If Automatic Tax Collection is off, an alert titled **Automatic tax is off** appears in this card. It reads: "Turn it on in Settings → Integrations once Stripe Tax is set up — see the Tax Guide for the steps." The **Settings → Integrations** link opens the page with the switch, in the Stripe Connect card. The **Tax Guide** link opens [the Tax Guide](#the-tax-guide).
+
+You need to set up Stripe Tax in your Stripe account before that switch will turn on. See [Tax](/docs/tax) for the steps, in order.
+
+---
+
+## The Tax Guide
+
+The **Tax Guide** is a reading page in your admin about sales tax and how it connects to Stripe. It isn't in the sidebar. To open it:
+
+- click the **Tax Guide** button at the top of Finances, next to the range selector;
+- press **Cmd+K** (or **Ctrl+K**) and type "Tax Guide" (it's under **Actions**);
+- click a **Tax Guide** or **tax guide** link on the Set aside card; or
+- click **Set up taxes →** next to the Automatic Tax Collection switch in **Settings → Integrations**.
+
+An old link to **Settings → Tax** also opens it.
+
+![The command palette with "tax" typed, showing Tax Guide under Actions, Finances under Go to, and Data & Export under Settings](/images/finances/palette-tax-guide.png)
+
+![The Tax Guide page: the disclaimer, then the What is Sales Tax Nexus?, Economic Nexus Thresholds and Selling to Customers in New States cards](/images/finances/tax-guide.png)
+
+The guide covers:
+
+- **What is Sales Tax Nexus?**
+- **Economic Nexus Thresholds**
+- **Selling to Customers in New States**
+- **How to Enable Automatic Tax Collection**
+- **The INFORM Consumers Act**
+- **External Resources**: links to Stripe, TaxJar, Avalara, the IRS and the FTC.
+
+The guide is general information, not tax advice. Its setup steps match [Tax](/docs/tax): finish your Stripe Tax settings, add registrations, then turn on the switch. Thresholds change often, so always check a state's current rule.
+
+---
+
+## What you can and can't do
+
+**What you can do:**
+
+- See what customers paid, after refunds, for five different time periods
+- See your donations separately from your sales
+- See Stripe's fees, refunds, dispute adjustments and payouts for the same period
+- See your Stripe balance (available and pending) right now
+- See your last five payouts and their status
+- Track your last 12 months against the INFORM Act numbers and open Stripe to finish verification
+- See the sales tax you've collected, for the range and for the year so far
+- Read the Tax Guide
+
+**What you can't do:**
+
+- Pick a custom date range
+- See more than the last five payouts. Use your Stripe Dashboard.
+- Open a payment or payout in Stripe straight from this page
+- See profit or cost of goods
+- See invoice payments, QuickBooks invoices, or Venmo and Cash App money that wasn't logged as a manual order
+- Download Finances as a spreadsheet. Your Stripe Dashboard has reports and exports.
+- Give Staff access to Finances
+- Change tax or payout settings here. Tax is in **Settings → Integrations**, and payouts are in Stripe.
+
+---
+
+## Related pages
+
+<Cards>
+	<Card
+		title="Payments & Payouts"
+		description="How a payment becomes money in your bank, plus fees and disputes."
+		href="/docs/payments-and-payouts"
+	/>
+	<Card
+		title="Tax"
+		description="Set up Stripe Tax in the right order and turn on automatic tax."
+		href="/docs/tax"
+	/>
+	<Card
+		title="Integrations"
+		description="Connect Stripe and open your Stripe Dashboard."
+		href="/docs/integrations"
+	/>
+	<Card
+		title="Orders"
+		description="Refunds, manual orders, and the orders behind Money in."
+		href="/docs/orders"
+	/>
+	<Card
+		title="Donations & tips"
+		description="Take donations and see what's come in."
+		href="/docs/donations"
+	/>
+	<Card
+		title="Stripe Setup"
+		description="Set up your Stripe account, bank and verification."
+		href="/docs/stripe"
+	/>
+</Cards>

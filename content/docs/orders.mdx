@@ -58,7 +58,7 @@ Click **Filters** to narrow the list:
 | ------ | ------- |
 | **Status** | All Statuses, Open, Completed, Cancelled, Refunded |
 | **Fulfillment** | All Fulfillment, Unfulfilled, Partially Fulfilled, Fulfilled |
-| **Payment** | All Payments, Awaiting Payment, Paid, Failed, Refunded |
+| **Payment** | All Payments, Awaiting Payment, Paid, Failed, Refunded, Disputed |
 | **Sort** | Newest (the default), Oldest, Highest total, Lowest total |
 
 The list shows 25 orders per page. If nothing matches, you'll see "No orders match your filters" with a **Clear filters** button. A brand-new store shows "No orders yet" instead.
@@ -76,6 +76,7 @@ Next to the status you may see extra badges:
 | **Pickup** | The customer chose in-store pickup. |
 | **Subscription** | The order came from a product subscription. |
 | **Oversold** | At least one item sold more units than you had in stock. |
+| **Disputed** (red) | The customer has disputed the card payment with their bank. See [Disputes](/docs/payments-and-payouts#disputes). |
 
 There are no bulk actions on the list. You fulfill, refund or cancel one order at a time.
 
@@ -114,6 +115,7 @@ Each order carries three separate statuses. The **status** is the big picture. *
 | **Paid** | Payment received. |
 | **Failed** | The payment didn't go through. Stripe sets this. |
 | **Refunded** | The full amount has been refunded. |
+| **Disputed** | The customer has disputed the card payment. Stripe sets this, and sets it back to Paid or Refunded when the dispute closes. See [Disputes](/docs/payments-and-payouts#disputes). |
 
 ### Fulfillment status
 
@@ -303,7 +305,7 @@ Sometimes you need to correct a status, for example when a customer paid in cash
 
 | Override | Choices | Notes |
 | -------- | ------- | ----- |
-| **Payment Status** | Pending, Paid | **Paid** is one-way. Once an order is Paid, **Pending** is greyed out, and to back out of a paid sale you cancel the order instead. **Paid** is also blocked once an order has had any refund. To mark something refunded, use the refund button in the Payment card. |
+| **Payment Status** | Pending, Paid | **Paid** is one-way. Once an order is Paid, **Pending** is greyed out, and to back out of a paid sale you cancel the order instead. **Paid** is also blocked once an order has had any refund. To mark something refunded, use the refund button in the Payment card. On a **Disputed** order both choices are greyed out with the note "dispute open"; Stripe settles the status when the dispute closes. |
 | **Fulfillment Status** | Unfulfilled, Partially Fulfilled, Fulfilled | **Unfulfilled** resets every item to "not shipped" and brings back the fulfillment form. A Completed order goes back to **Open**. |
 
 - You can't set the order status (Open, Completed and so on) directly. It follows from payment and fulfillment.

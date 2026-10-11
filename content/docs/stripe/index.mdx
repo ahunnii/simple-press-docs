@@ -9,72 +9,115 @@ SimplePress uses Stripe as its payment processor. Before your store can accept c
 
 This section covers two paths:
 
-1. **Invite a developer** — you add your bank account privately first, then invite your developer to handle the rest (business info, tax zones, and sandbox setup).
-2. **Set up yourself** — a step-by-step guide for configuring everything on your own.
+1. **Invite a developer.** You add your bank account yourself first, then invite your developer to handle the rest (business info, tax setup, and sandbox setup).
+2. **Set up yourself.** A step-by-step guide for configuring everything on your own.
 
-> **Don't have a Stripe account yet?** Create one at [stripe.com](https://stripe.com) before continuing. It's free to sign up — Stripe only charges a small fee per transaction when you make a sale.
+> **Don't have a Stripe account yet?** Create one at [stripe.com](https://stripe.com) before continuing. It's free to sign up. Stripe only charges a small fee per transaction when you make a sale. Stripe's own guide is [Set up your Stripe account](https://docs.stripe.com/get-started/account/set-up).
+
+SimplePress usually sets this up with you, so you don't have to work it out alone. If you'd like a hand, email help@generativejustice.org.
 
 ---
 
 ## Option 1: Invite a Developer (Recommended)
 
-If your developer is handling your SimplePress setup, you'll share access using Stripe's **Developer** role. This gives them what they need to configure your business profile, set up tax zones, and handle sandbox setup — without access to your banking or financial settings.
+If your developer is handling your SimplePress setup, you'll share access using Stripe's **Developer** role. This gives them what they need to configure your business profile, set up tax, and handle sandbox setup, without letting them change your banking.
 
-**Your bank account is private.** Before inviting anyone, complete the bank account step yourself so your payout information stays between you and Stripe. See [Step 1 below](#step-1--add-your-bank-account-first).
+**Add your bank account first.** Before inviting anyone, complete the bank account step yourself. Only an Admin or Owner on a Stripe account can add or change bank accounts, so a Developer can't swap in a different one later. See [Step 1 below](#step-1--add-your-bank-account-first).
 
 ### Step 1 — Add your bank account first
 
-Before sharing access, add your payout bank account directly in Stripe. See the [Account Setup](account-setup#step-2--add-your-bank-account) guide for the full walkthrough.
+Before sharing access, add your payout bank account directly in Stripe. See the [Account Setup](/docs/stripe/account-setup#step-1--add-your-bank-account) guide for the full walkthrough. Stripe's own steps are in [Add a bank account for payouts](https://support.stripe.com/questions/add-a-bank-account-for-payouts).
 
 The short version:
 
 1. Sign in at [dashboard.stripe.com](https://dashboard.stripe.com).
-2. Go to **Settings → Bank accounts and scheduling**.
-3. Click **Add bank account** and enter your routing and account numbers.
+2. Click the **gear icon** (Settings), then go to **Business → Bank accounts and currencies**.
+3. Under **Settlement currencies and bank accounts**, find your payout currency (USD) and click **Add a bank account**.
+4. Follow Stripe's prompts to confirm it's you, then enter your routing and account numbers.
 
 Once your bank account is saved, you're ready to invite your developer.
 
 ### Step 2 — Invite your developer
 
-1. In the Stripe Dashboard, click the **gear icon** (Settings) in the top-right.
-2. Under **Your team**, select **Team and security**.
-3. Click **Invite user**.
+Stripe's guide for this is [Manage your team](https://docs.stripe.com/get-started/account/teams).
+
+1. In the Stripe Dashboard, click the **gear icon** (Settings).
+2. Open the **Team** tab. Stripe may list it under **Team and security**.
+3. Click **Add member**.
 4. Enter **ahunn@umich.edu** in the email field.
-5. Under **Role**, select **Developer**.
+5. Choose the role **Developer**.
 
-   > **Why Developer?** The Developer role gives access to API keys, webhooks, and account configuration — everything needed to set up your business profile, tax registrations, and connect your store to SimplePress. It does not include access to your bank account, payouts, or financial settings.
+   > **Why Developer?** The Developer role is meant for people setting up a Stripe integration. It can work with API keys, webhooks and most product settings, and it can edit your account's address and contact details. See [what each Stripe role can do](https://docs.stripe.com/get-started/account/teams/roles). A Developer **can** see your balance and payouts, and can send a manual payout to the bank account you already added. A Developer **can't** add or change bank accounts, change your payout schedule, or invite or remove team members. That's why you add the bank account yourself first.
 
-6. Click **Send invite**.
+6. Click **Send invites**.
 
-Your developer will receive an email from Stripe with a link to accept the invitation. Once accepted, they can get started on the rest of the configuration.
+Your developer will get an email from Stripe with the steps to accept. The invitation expires after 10 days, so if it lapses, send a new one.
 
-**Photo:** Screenshot of the Stripe Team settings page showing the "Invite user" dialog with the Developer role selected.
+**Photo:** Screenshot of the Stripe Team settings page showing the "Add member" dialog with the Developer role selected.
 
 ### What your developer will do
 
-Once they have access, your developer will:
+Once they have access, your developer will usually:
 
-- Complete your business profile (legal name, address, business type)
-- Set up Stripe Tax zones for the states where you collect sales tax
-- Configure the sandbox environment for testing
-- Connect your Stripe account to your SimplePress store
+- Check your business details are complete (address and contact info). See [updating your business details](https://support.stripe.com/questions/update-your-business-address).
+- Set up Stripe Tax if the role allows it, or ask you to confirm the head office address yourself. See [Set up Stripe Tax](https://docs.stripe.com/tax/set-up) and the [Tax](/docs/tax) page.
+- Work in a Stripe **sandbox**, a safe practice copy of your account, to test payments before you go live. See [Stripe sandboxes](https://docs.stripe.com/sandboxes). Note that your account's built-in test mode shares some settings with live mode, so a change made there can show up in live mode too.
+- Help you connect your Stripe account to your SimplePress store. The connection itself is made from your SimplePress admin by an Owner or Manager. See [Integrations](/docs/integrations).
 
-You'll be notified by Stripe any time a significant change is made to your account, so you always have visibility into what's happening.
+Your developer can't do the parts that are only for Stripe Admins and Owners, such as adding your bank account or setting your payout schedule.
+
+To see what your team has done, open **Security history** in your Stripe settings. It keeps a log of team activity for 180 days. Stripe also emails the account owner about important events, such as disputes. See [Manage your team](https://docs.stripe.com/get-started/account/teams) for details.
 
 ### Revoking access later
 
-You can remove your developer's access at any time from **Settings → Team and security**. Click the three-dot menu next to their name and select **Remove member**. This does not affect your Stripe account, your store, or any of the configuration they completed.
+You can remove your developer's access at any time. Go to Stripe **Settings → Team** (or **Team and security**), click the three-dot menu on their row and select **Remove member**. It takes effect right away. This does not affect your Stripe account, your store, or any of the configuration they completed. Only an Administrator on the Stripe account can invite or remove people. See [Manage your team](https://docs.stripe.com/get-started/account/teams).
 
 ---
 
 ## Option 2: Set Up Yourself
 
-If you'd prefer to configure your Stripe account on your own, see the [Account Setup](account-setup) guide. It walks through:
+If you'd prefer to configure your Stripe account on your own, see the [Account Setup](/docs/stripe/account-setup) guide. It walks through:
 
-- Adding your bank account and configuring payouts
+- Adding your bank account and choosing your payout schedule
 - Completing your business profile
 - Completing identity and business verification
-- Setting up Stripe Tax registrations for sales tax collection
+- Setting up Stripe Tax for sales tax collection
 - Connecting Stripe to your SimplePress store
 
 ---
+
+## What you can and can't do
+
+**You can:**
+
+- Give your developer the Developer role and remove it again at any time
+- Keep control of your bank account and payout schedule, because only Admins and Owners can change them
+- Ask SimplePress for help at help@generativejustice.org
+
+**You can't:**
+
+- Have SimplePress add your bank account for you. That's done inside your own Stripe account.
+- Give someone the Developer role and expect them to be blind to your balance and payouts. They can view both.
+
+<Cards>
+	<Card
+		title="Account Setup"
+		description="The step-by-step guide for setting up your Stripe account yourself."
+		href="/docs/stripe/account-setup"
+	/>
+	<Card
+		title="Integrations"
+		description="Connect Stripe to your store and find the tax switch."
+		href="/docs/integrations"
+	/>
+	<Card
+		title="Tax"
+		description="Set up Stripe Tax and automatic sales tax."
+		href="/docs/tax"
+	/>
+	<Card
+		title="Team & roles"
+		description="Who can do what inside SimplePress."
+		href="/docs/team-and-roles"
+	/>
+</Cards>

@@ -1,160 +1,247 @@
 ---
 title: Payments & Payouts
-description: Manage your payments and payouts from your Stripe account.
+description: How a card payment moves from your customer to your Stripe account and on to your bank, what it costs, and what to do when Stripe pauses payments or a customer disputes a charge.
 ---
 
 ## Overview
 
-The Payments page in your admin gives you a real-time snapshot of your store's financial health: your Stripe balance, recent payout history, and your standing under the INFORM Consumers Act. Everything here flows through your connected Stripe account — if Stripe isn't connected yet, most of this page will prompt you to do that first.
+When a customer pays by card, the money goes straight to **your own Stripe account**. SimplePress never holds your funds, and it takes no fee. Stripe then sends the money on to your bank on a schedule you control in Stripe.
 
-> **Before you start:** Stripe must be connected in **Settings → Integrations** before any payment, balance, or payout data appears. See the [Integrations](integrations.md) guide for setup steps.
+This page explains how that works:
 
----
+- how a payment becomes a payout, and how long it takes;
+- what you pay in fees;
+- where to see your money;
+- refunds, and other ways to get paid;
+- what happens when Stripe pauses payments; and
+- what to do when a customer disputes a charge.
 
-## What's on the Payments Page
-
-The page is organized into three cards:
-
-1. **INFORM Act Compliance** — tracks your annual transaction count and revenue against federal reporting thresholds
-2. **Stripe Balance** — your available and pending funds in your connected Stripe account
-3. **Recent Payouts** — the last 5 payouts sent to your bank account
-
-**📷 Photo:** Full Payments page showing all three cards — INFORM Act compliance progress bars, the balance card with available/pending amounts, and the recent payouts table.
+You need a connected Stripe account to take card payments. See [Stripe Setup](/docs/stripe) and [Integrations](/docs/integrations).
 
 ---
 
-## Stripe Balance
+## How a payment becomes a payout
 
-Once your Stripe account is connected, the balance card shows two figures:
+Every card payment goes through three stages in Stripe:
 
-| Field                    | What it means                                                      |
-| ------------------------ | ------------------------------------------------------------------ |
-| **Available to Pay Out** | Funds that are cleared and ready to be sent to your bank           |
-| **Pending**              | Funds from recent transactions still in Stripe's processing window |
+1. **Pending.** The customer has paid, and Stripe is settling the money. For US accounts, this usually takes about **2 business days**.
+2. **Available.** The money is cleared and ready to send to your bank.
+3. **Paid out.** Stripe sends your available balance to your bank. Your bank may take a little longer to show it, and payouts that land on a weekend or holiday arrive the next business day.
 
-Funds move from Pending → Available as Stripe processes them (typically within 2–7 business days, depending on your payout schedule).
+New US Stripe accounts start on **daily automatic payouts**. Each day, Stripe sends whatever has become available.
 
-> You can always click **View in Stripe →** at the bottom of the balance card to open your Stripe Dashboard for a more detailed breakdown.
+<Callout type="info" title="Your first payout takes longer">
+Stripe holds your very first payout for **7 to 14 days** after your first successful live payment (usually 7). Stripe says this wait can't be waived. After that, payouts follow your normal schedule. See Stripe's guide, [Waiting on your first payout](https://support.stripe.com/questions/waiting-on-your-first-stripe-payout-what-you-need-to-know).
+</Callout>
 
-**📷 Photo:** Stripe Balance card showing Available and Pending amounts.
+### Changing your payout schedule
 
-### Balance not showing?
+You change the schedule in Stripe, not in SimplePress. In your Stripe Dashboard, go to **Settings → Payouts** and choose:
 
-If you see a "Balance data temporarily unavailable" message, this is a temporary issue communicating with Stripe — your funds are not affected. Refresh the page to try again.
+- **Daily**
+- **Weekly**, on the day you pick
+- **Monthly**, on the day you pick
+- **Manual**, where nothing is sent until you start a payout yourself in Stripe
 
----
-
-## Recent Payouts
-
-The Recent Payouts card lists the last 5 payouts Stripe has sent to your bank account. Each row shows:
-
-- **Amount** — the payout total
-- **Status** — one of the following:
-
-| Status     | Meaning                                        |
-| ---------- | ---------------------------------------------- |
-| Paid       | Successfully deposited to your bank            |
-| In Transit | Sent to your bank, not yet settled             |
-| Pending    | Queued but not yet initiated                   |
-| Failed     | The payout did not complete                    |
-| Canceled   | The payout was cancelled before it left Stripe |
-
-- **Estimated Arrival** — the date Stripe expects the funds to land in your bank
-
-**📷 Photo:** Recent Payouts table with at least one row showing Amount, Status badge, and Estimated Arrival date.
-
-### Payout schedule
-
-Your payout timing is controlled by Stripe — typically daily, weekly, or monthly depending on your account type. You cannot change your payout schedule from within SimplePress. To adjust it, go to your [Stripe Dashboard → Settings → Payouts](https://dashboard.stripe.com/settings/payouts).
+You need Administrator access in Stripe to change it. The schedule only controls when available money is sent. It doesn't make money available any sooner. See Stripe's [payout schedules FAQ](https://support.stripe.com/questions/payout-schedules-faq) and [Payouts guide](https://docs.stripe.com/payouts).
 
 ---
 
-## INFORM Act Compliance
+## Fees
 
-The INFORM Consumers Act is a federal law that requires online marketplaces to collect and verify identifying information from high-volume third-party sellers. SimplePress monitors your store automatically and surfaces warnings here before any action is required on your part.
+SimplePress doesn't charge a platform fee or take a cut of your sales.
 
-### The thresholds
+- **Stripe's processing fee.** Stripe charges a fee on each card payment and takes it before the money reaches your balance. Stripe's standard rate for US domestic cards is 2.9% + 30¢, but your account's rates may differ. See [Stripe's pricing](https://stripe.com/pricing), or check your Stripe Dashboard.
+- **Stripe Tax.** If you turn on automatic sales tax, Stripe charges its own fee for Stripe Tax on transactions where you're registered to collect. See [Stripe Tax pricing](https://stripe.com/tax/pricing) and [Tax](/docs/tax).
+- **Disputes.** Stripe charges a fee when a customer disputes a payment. See [Disputes](#disputes) below.
 
-You are subject to verification requirements if, in the **current calendar year**, your store reaches either:
-
-- **200+ transactions** (paid orders, excluding refunded/cancelled), or
-- **$5,000+ in annual revenue** (paid orders, excluding refunded/cancelled)
-
-Both figures reset on January 1 each year.
-
-### What the compliance card shows
-
-The card displays two progress bars — one for transactions, one for revenue — showing how close you are to each threshold. The card's status badge will be one of:
-
-| Badge                | Meaning                                                       |
-| -------------------- | ------------------------------------------------------------- |
-| **Below Thresholds** | You haven't reached either limit yet                          |
-| **Verified**         | You've crossed a threshold and completed Stripe verification  |
-| **Action Required**  | You've crossed a threshold but haven't completed verification |
-
-**📷 Photo:** INFORM Act Compliance card in three states: below threshold (green progress bars), approaching threshold (amber warning alert at top of page), and action required (red badge + destructive alert).
-
-### Early warning
-
-Once you hit **75% of either threshold**, a yellow warning banner appears at the top of the Payments page — even before any action is legally required. This gives you time to complete Stripe's identity verification before you're required to.
-
-**📷 Photo:** Amber "Approaching INFORM Act Threshold" alert banner with the "Start Verification" button visible.
-
-### How to satisfy the requirement
-
-Completing Stripe's built-in KYC (Know Your Customer) verification satisfies the INFORM Act requirement automatically. When Stripe marks your account as `details_submitted`, the Payments page reflects this immediately and shows a **Verified** badge.
-
-To complete verification:
-
-1. Click **Start Verification** (in the warning banner) or **Complete Verification** (in the action-required alert).
-2. You'll be taken to your Stripe Dashboard's identity verification page.
-3. Follow Stripe's prompts to submit your information.
-4. Once Stripe confirms, return to your SimplePress Payments page — the badge will update to Verified.
-
-> **Note:** Most sellers who set up Stripe Connect for the first time will already complete this step as part of Stripe's onboarding. If you did, you're covered — the badge will show Verified once either threshold is reached.
+To see what you've paid, open the **What Stripe took** card on [Finances](/docs/finances#what-stripe-took). **Processing fees** there is all Stripe's.
 
 ---
 
-## Automatic Tax Collection
+## Where to see your money
 
-Automatic Tax is configured in **Settings → Integrations**, but it directly affects what customers pay at checkout, so it's worth covering here.
+**Finances** in your admin gives you the summary. Go to **Insights → Finances** in the sidebar. It shows:
 
-When **Automatic Tax Collection** is enabled on your Stripe account, Stripe Tax calculates and adds sales tax to every checkout session based on the customer's shipping address and your registered tax nexus states.
+- what customers paid, from your orders (**Money in**);
+- Stripe's fees, refunds and payouts for the same period (**What Stripe took**);
+- your Stripe balance right now (**Available now** and **Pending**); and
+- your last five payouts and their status (**Recent Payouts**).
 
-**Requirements before enabling:**
+Only Owners and Managers can see Finances. See [Finances](/docs/finances).
 
-- Stripe must be connected
-- You must have at least one active tax registration set up in your [Stripe Tax Dashboard](https://dashboard.stripe.com/tax/registrations) (your business address + registered states)
+**Your Stripe Dashboard** has the full detail: every payment, every payout, reports and exports. To open it, go to **Settings → Integrations** and click **Open Dashboard** in the Stripe Connect card. It opens in a new tab.
 
-If you try to enable automatic tax without these registrations in place, you'll get an error — nothing will be saved. See the [Integrations](integrations.md) guide for the toggle location, and **Settings → Tax** for a full guide on sales tax nexus, economic nexus thresholds by state, and how to set up your Stripe Tax registrations.
+![The Stripe Connect card showing Connected, the Account ID, Open Dashboard and Disconnect buttons, and the Automatic Tax Collection switch](/images/integrations/stripe-connected.png)
 
----
-
-## Connecting and Disconnecting Stripe
-
-Stripe connection is managed in **Settings → Integrations**. See the [Integrations](integrations.md) guide for full details, including:
-
-- How to connect via Stripe OAuth
-- What the connected state shows (Account ID, open dashboard link)
-- How to disconnect (and what that means for your store)
+*Open Dashboard takes you to your Stripe account.*
 
 ---
 
-## What You Can Do
+## Refunds
 
-- View your available and pending Stripe balance
-- See the last 5 payouts (amount, status, estimated arrival)
-- Monitor your INFORM Act compliance thresholds in real time
-- Start or complete Stripe identity verification from the compliance alerts
-- Open your full Stripe Dashboard directly from the balance card
+You refund card orders from the order page in SimplePress. Click **Issue Refund** in the order's **Payment** card. The money goes back to the customer's card through Stripe, and it comes out of your Stripe balance.
 
-## What You Cannot Do
+A few things to know:
 
-- View balance or payouts before connecting Stripe
-- Process refunds without an active Stripe connection (see [Orders](orders.md))
-- Change your payout timing — that is set in your Stripe account settings, not in SimplePress
-- Manually initiate a payout — Stripe handles this automatically on your account's schedule
-- See more than the last 5 payouts in the admin — open your Stripe Dashboard for full payout history
-- See balance broken down by product, order, or time period — Stripe Dashboard is the place for detailed reporting
+- For cash, check and other manual orders, **Mark as Refunded** only records the refund. No money moves, so pay the customer back yourself.
+- You can't refund an order while its payment is **Disputed**. See [Disputes](#disputes).
+- Donation refunds are done in your Stripe Dashboard, not in SimplePress.
+- Refunds show in **Refunds issued** under Money in on Finances, and in the **Refunds** tile under What Stripe took.
+
+For the full steps, see [Orders](/docs/orders#refunds).
 
 ---
+
+## Other ways to get paid
+
+Checkout is card only, through Stripe. You can still take cash, check, Venmo, Cash App, Zelle and more through manual orders, invoices and your donate page. These never go through Stripe, so there's no Stripe fee, and they don't appear in What Stripe took or in your payouts. See [Other ways to get paid](/docs/integrations#other-ways-to-get-paid).
+
+---
+
+## When Stripe pauses payments
+
+Sometimes Stripe pauses charges on an account. This usually happens when it needs identity or business verification, more documents, or a response to a dispute review. While charges are paused, **checkout fails for every shopper**.
+
+SimplePress tells you in three ways:
+
+- **A red strip across the top of every admin page** that reads "**Payments are paused.** Stripe has disabled charges on your account, so checkout is failing for every shopper." Click **Fix in Stripe** to see what Stripe needs, or **Details** to open **Settings → Integrations**. Staff don't see the strip, and it can't be dismissed.
+- **A Charges paused badge** on the Stripe Connect card in **Settings → Integrations**, with a red note that reads "Stripe has paused charges on this account".
+- **An email** with the subject "Action required: [your store] can't accept payments".
+
+![The payments paused email: Your store can't accept payments, with the status Charges disabled — checkout is failing and a Resolve in Stripe button](/images/payments-and-payouts/payments-disabled-email.png)
+
+*The email has a **Resolve in Stripe** button and a link to Settings → Integrations.*
+
+The email goes to the **Owner Email** in **Settings → General** and to every team member with the **Owner** or **Manager** role. Staff don't get it. Each person gets their own copy. See [General Settings](/docs/general-settings#owner-email) and [Team & roles](/docs/team-and-roles). The email is sent once, when charges are first paused. It isn't repeated, and no email is sent when charges come back.
+
+**To fix it,** sign in to Stripe and complete whatever it asks for. Once Stripe turns charges back on, everything clears itself within a few minutes. You don't need to reconnect Stripe or change your store. See [Integrations](/docs/integrations).
+
+---
+
+## Disputes
+
+### What a dispute is
+
+A dispute, also called a chargeback, is when a customer asks their bank to reverse a card payment. They might not recognise the charge, say the order never arrived, or say it wasn't what they paid for. Stripe takes the disputed amount out of your balance while the bank decides.
+
+### The email you get
+
+When a customer disputes an order, SimplePress emails you with the subject "Payment dispute opened on order #[number]".
+
+![The dispute email: Payment dispute opened, with the order number, disputed amount, reason and respond-by date, and a Respond in Stripe button](/images/payments-and-payouts/dispute-email.png)
+
+*The email shows the order, the amount, the reason and the date you must respond by.*
+
+The email shows:
+
+- the **Order** number;
+- the **Disputed amount**;
+- the **Reason**, in Stripe's own words (for example `fraudulent` or `product_not_received`);
+- **Respond by**, the deadline, when Stripe gives one; and
+- a **Respond in Stripe** button that opens your disputes in Stripe.
+
+Like the payments paused email, it goes to the **Owner Email** in **Settings → General** and to every Owner and Manager on your team, each in their own copy. Stripe also emails the owner of your Stripe account.
+
+### What happens to the order
+
+- The order's payment changes to **Disputed**. The order page shows "Payment: Disputed". The order status itself doesn't change.
+- A note is added to the order's internal notes with the amount, the reason and the respond-by date. Staff can't see internal notes.
+- While the payment is disputed, the refund button and the fulfillment and **Mark Ready for Pickup** controls are hidden.
+- The order stays in **Money in** on Finances at its full value until the dispute closes.
+
+- In the Orders list, the order shows a red **Disputed** badge. To see every disputed order, open **Filters** and set **Payment** to **Disputed**. See [Orders](/docs/orders).
+- You can't change the payment status while the dispute is open. In **More Options → Override Status → Payment Status**, the choices are greyed out with the note "dispute open". SimplePress updates the status for you when Stripe closes the dispute.
+
+### How to respond
+
+You respond in Stripe, not in SimplePress.
+
+1. Click **Respond in Stripe** in the email, or open your Stripe Dashboard and go to **Payments → Disputes**.
+2. Open the dispute. Choose **Accept dispute** if you agree the customer should get their money back, or **Counter dispute** to send evidence.
+3. If you counter, gather everything that backs you up: the order details, tracking and delivery confirmation, messages with the customer, and your refund policy. You can find most of this on the order page in SimplePress.
+4. Submit before the deadline. You only get one submission, so include everything at once.
+
+Things to know, from Stripe:
+
+- **The deadline is usually 7 to 21 days**, depending on the card network. If you don't respond in time, **you lose automatically** and can't get the money back.
+- **Every dispute costs a $15 fee** (US). You pay it whether you win or lose, and it isn't returned.
+- **Countering costs another $15** (US). This one is returned if you win.
+- The bank's decision can take **up to three months** after you submit evidence.
+
+See Stripe's guide, [Respond to disputes](https://docs.stripe.com/disputes/responding).
+
+### Won or lost
+
+When Stripe closes the dispute, SimplePress updates the order and adds a note. No email is sent at this point, so check the order or Stripe.
+
+| Outcome | What happens to the order | How it shows on Finances |
+| ------- | ------------------------- | ------------------------ |
+| **Won** | Payment goes back to **Paid**. Note: "Stripe dispute won — $X returned." | The order stays in Money in as normal. In What Stripe took, the money Stripe took and then returned shows under **Dispute adjustments**. |
+| **Lost** | Payment becomes **Refunded**. If the dispute covered the whole order, the order becomes **Refunded** too. Note: "Stripe dispute lost — $X withdrawn." | The amount counts in **Refunds issued** under Money in. The money Stripe kept shows under **Dispute adjustments**. |
+
+Stripe's dispute fees also come out of your Stripe balance, so they show on the What Stripe took card too. If Stripe closes a dispute some other way (for example, an early warning that never became a full dispute), the payment goes back to **Paid**, with a note saying how it closed.
+
+### Tips to prevent disputes
+
+Many disputes happen because a customer doesn't recognise a charge or can't find their order. A few habits help:
+
+- **Use a clear statement descriptor.** This is the name customers see on their bank statement. Make it match your store name. You set it in your Stripe account's business settings. See Stripe's guide, [What is a statement descriptor?](https://support.stripe.com/questions/what-is-a-statement-descriptor-and-how-do-i-update-it)
+- **Add tracking numbers** when you ship. Customers get the tracking link by email, and you have proof of delivery if you need it. See [Orders](/docs/orders#fulfilling-and-tracking).
+- **Publish clear policies.** Clear refund, return and shipping policies set expectations, and they're useful evidence. See [Pages & Policies](/docs/pages-and-policies#policies).
+- **Answer customers quickly.** A customer who gets a quick reply or a refund is less likely to go to their bank.
+
+---
+
+## What you can and can't do
+
+**What you can do:**
+
+- Take card payments that go straight to your own Stripe account, with no SimplePress fee
+- See your balance, fees, refunds and last five payouts on [Finances](/docs/finances)
+- Open your Stripe Dashboard from **Settings → Integrations**
+- Refund card orders from the order page
+- Get an email when Stripe pauses payments or a customer disputes a charge
+- Find disputed orders with the **Disputed** payment filter in Orders
+
+**What you can't do:**
+
+- Change your payout schedule or start a payout from SimplePress. Do it in Stripe.
+- See more than your last five payouts in SimplePress. Use your Stripe Dashboard.
+- Respond to a dispute from SimplePress. You respond in Stripe.
+- Refund an order while its payment is disputed
+- Override the payment status of a disputed order
+- Choose who gets the dispute and payments paused emails. They go to the Owner Email and every Owner and Manager.
+- Use a card processor other than Stripe
+
+---
+
+## Related pages
+
+<Cards>
+	<Card
+		title="Finances"
+		description="See what came in, what Stripe took, and your recent payouts."
+		href="/docs/finances"
+	/>
+	<Card
+		title="Integrations"
+		description="Connect Stripe, open your Stripe Dashboard, and see other ways to get paid."
+		href="/docs/integrations"
+	/>
+	<Card
+		title="Orders"
+		description="Refund orders and add tracking numbers."
+		href="/docs/orders"
+	/>
+	<Card
+		title="Stripe Setup"
+		description="Set up your Stripe account, bank and verification."
+		href="/docs/stripe"
+	/>
+	<Card
+		title="Tax"
+		description="Set up Stripe Tax and turn on automatic sales tax."
+		href="/docs/tax"
+	/>
+</Cards>

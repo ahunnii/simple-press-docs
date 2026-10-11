@@ -35,9 +35,17 @@ Only Owners and Managers can connect or disconnect Stripe. Staff can't. See [Tea
 1. Go to **Settings → Integrations**.
 2. In the **Stripe Connect** card, click **Connect with Stripe**.
 3. You'll be sent to Stripe to authorize the connection. Sign in to your existing Stripe account or create a new one.
-4. After you authorize, Stripe sends you back to the Integrations page. The card now shows a **Connected** badge and your Stripe **Account ID**.
+4. After you authorize, Stripe sends you back to the page you started from, and a "Stripe connected" message pops up. The card now shows a **Connected** badge and your Stripe **Account ID**.
 
-If something goes wrong, you'll see "Failed to initiate Stripe connection. Please try again." Wait a moment and click **Connect with Stripe** again.
+If something goes wrong, a message tells you what happened:
+
+| Message | What it means |
+| ------- | ------------- |
+| Failed to initiate Stripe connection. Please try again. | SimplePress couldn't start the connection. Wait a moment and click **Connect with Stripe** again. |
+| Stripe connection cancelled | You backed out on Stripe's page. Nothing was connected. Click **Connect with Stripe** when you're ready. |
+| We couldn't finish connecting your Stripe account. Please try again. | Stripe approved the connection, but SimplePress couldn't finish it. Try again. |
+| Stripe didn't send back an authorization, so your account wasn't connected. Please try again. | Stripe sent you back without approving. Try again. |
+| Stripe connection failed. Please try again. | Something else went wrong on Stripe's side. Stripe's own explanation shows under the message. |
 
 > Stripe handles the sign-in and permission step. SimplePress only keeps your Stripe Account ID, not your Stripe password.
 
@@ -63,13 +71,13 @@ If charges are paused, a red note on the card reads "Stripe has paused charges o
 - Card payments from customer orders are paid out to your Stripe account, then to your bank on Stripe's payout schedule.
 - Click **Open Dashboard** to open your Stripe Dashboard in a new tab.
 
-To see your balance and recent payouts, go to the Finances section of your admin. See [Payments & Payouts](/docs/payments-and-payouts).
+To see your balance, fees and recent payouts, open **Finances** in your admin sidebar. See [Finances](/docs/finances) and [Payments & Payouts](/docs/payments-and-payouts).
 
 ### Automatic Tax Collection
 
-Once Stripe is connected, you'll see an **Automatic Tax Collection** switch in the same card. When it's on, Stripe Tax works out the sales tax for each customer's address and adds it at checkout. Stripe only charges tax in states where you have an active tax registration.
+Once Stripe is connected, you'll see an **Automatic Tax Collection** switch in the same card. When it's on, Stripe Tax works out the sales tax for each customer's address and adds it at checkout. Stripe only charges tax in states where you've added a registration in Stripe.
 
-**Before you turn it on**, set up Stripe Tax in your Stripe account: add your business address and at least one active tax registration. If you haven't, the switch flips back off, nothing is saved, and a red message tells you what's missing, with an **Open Stripe Tax Dashboard →** link.
+**Before you turn it on**, set up Stripe Tax in your Stripe account: finish your Tax settings, mainly your head office address. If you haven't, the switch flips back off, nothing is saved, and a red message tells you what's missing, with an **Open Stripe Tax Dashboard →** link. Registrations aren't needed for the switch to turn on, but without one Stripe charges no tax.
 
 When the switch is on, the card also shows a **Manage registrations →** link to your Stripe registrations.
 
@@ -78,7 +86,7 @@ A few things to know:
 - The switch saves as soon as you click it. There's no Save button.
 - Donations are never taxed, even with the switch on. A gift isn't a sale.
 - Tax isn't calculated for you on orders you create by hand. See [Orders](/docs/orders).
-- Stripe Tax collects the tax but doesn't file or pay it for you. You still file your own sales tax returns.
+- Stripe Tax collects the tax. Filing and paying it is up to you, unless you add Stripe's paid filing service. See [Tax](/docs/tax#filing-your-returns).
 
 For a full guide to nexus and setting up Stripe Tax, see [Tax](/docs/tax), or click **Set up taxes →** next to the switch to open the Tax Guide in your admin.
 
@@ -133,7 +141,7 @@ To sell, you need three things: Stripe connected, at least one product, and your
 
 - Take card payments at checkout before Stripe is connected
 - Use another card processor in place of Stripe
-- Turn on Automatic Tax Collection without an active Stripe Tax registration on your account
+- Turn on Automatic Tax Collection before your Stripe Tax settings (head office address) are complete
 - Change your payout schedule from SimplePress. You change it in your Stripe account.
 - Refund card payments from SimplePress while Stripe is disconnected
 

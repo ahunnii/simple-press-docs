@@ -5,170 +5,188 @@ description: Configure your business profile, bank account, identity verificatio
 
 ## Overview
 
-This guide walks through setting up your Stripe account from scratch. If you've already completed Stripe's onboarding wizard, you may have covered most of these steps — use the sections below to verify everything is in place and fill in anything that's missing.
+This guide walks through setting up your Stripe account from scratch. If you've already completed Stripe's onboarding wizard, you may have covered most of these steps. Use the sections below to verify everything is in place and fill in anything that's missing. Stripe's overall guide is [Set up your Stripe account](https://docs.stripe.com/get-started/account/set-up).
 
-> **Working with a developer?** Add your bank account (Step 1) before sharing access. Everything else — business profile, tax registrations, sandbox setup, and connecting to SimplePress — can be handled by your developer using the Developer role.
+> **Working with a developer?** Add your bank account (Step 1) before sharing access. Only a Stripe Admin or Owner can add or change bank accounts or the payout schedule, so a Developer can't. A Developer can handle the rest, such as your business details, tax setup and sandbox testing. See [Stripe Setup](/docs/stripe) for the invite steps.
+
+SimplePress usually sets this up with you. If you'd like help, email help@generativejustice.org.
 
 ---
 
 ## Step 1 — Add Your Bank Account
 
-Your bank account is where Stripe deposits your payouts. **Do this before sharing your Stripe account with anyone.** Your banking details are yours alone — the Developer role your developer receives does not have access to this section.
+Your bank account is where Stripe deposits your payouts. **Do this before sharing your Stripe account with anyone.** Only Admins and Owners can add or change it, so a Developer you invite can't. A Developer can still view your balance and payouts, and can send a manual payout to the account you added.
+
+Stripe's own steps are in [Add a bank account for payouts](https://support.stripe.com/questions/add-a-bank-account-for-payouts).
 
 ### Where to find it
 
 1. Go to [dashboard.stripe.com](https://dashboard.stripe.com) and sign in.
-2. Click the **gear icon** (Settings) in the top-right.
-3. Select **Bank accounts and scheduling** from the sidebar.
+2. Click the **gear icon** (Settings).
+3. Go to **Business → Bank accounts and currencies**.
 
 ### Adding your bank account
 
-1. Click **Add bank account**.
-2. Select **United States** (or your country).
-3. Enter your **routing number** and **account number**.
-4. Stripe will make two small test deposits to verify the account (typically within 1–2 business days). Return to this page once they arrive and enter the amounts to confirm.
+1. Under **Settlement currencies and bank accounts**, find your payout currency (USD) and click **Add a bank account**.
+2. Stripe first asks you to confirm it's you, with a verification email or your password.
+3. Enter your **routing number** and **account number**, and the **account holder name**.
+4. Click **Add bank account**.
 
-> You can also link your bank account instantly through Plaid if your bank supports it — Stripe offers this as an alternative to manual entry.
+Use a checking account. The account holder name and numbers must match what your bank has on file, and the currency must match your payout currency. If Stripe asks you to confirm the account in any other way, follow the prompt in your Dashboard.
 
-**Photo:** Screenshot of the Bank Accounts and Scheduling settings page with the "Add bank account" button.
+**Photo:** Screenshot of the Stripe bank accounts page with the "Add a bank account" button.
 
 ### Payout schedule
 
-Stripe automatically deposits your available balance to your bank on a schedule you control. The default for new accounts is typically a 7-day rolling payout.
+Stripe moves your available balance to your bank on a schedule you control. New US accounts start on **automatic daily payouts**. Money from a card payment becomes available about **2 business days** after the sale, then goes out on the next payout day. See [How payouts work](https://docs.stripe.com/payouts).
+
+**Your first payout takes longer.** Stripe holds the first payout for **7 to 14 days** after your first successful live payment, and it can't be waived. Changes to your payout schedule during that window take effect after it ends. After that, payouts follow your schedule. Stripe explains this in [Waiting on your first payout](https://support.stripe.com/questions/waiting-on-your-first-stripe-payout-what-you-need-to-know).
 
 To change your payout schedule:
 
-1. On the **Bank accounts and scheduling** page, scroll to **Payout schedule**.
-2. Choose **Daily**, **Weekly**, or **Monthly**.
+1. In Stripe, go to **Settings → Payouts**.
+2. Choose how often to be paid: **Daily**, **Weekly** or **Monthly**. For weekly and monthly you pick the day. Or choose **Manual**, where you send each payout yourself from the Dashboard.
 3. Save.
 
-> Stripe may require a brief account history before allowing faster payout schedules (e.g. daily). This unlocks automatically once your account has been active for a short period.
+You need an Admin or Owner login to change this. See the [Payout schedules FAQ](https://support.stripe.com/questions/payout-schedules-faq) for more.
+
+> SimplePress doesn't change your payout schedule. Your **Finances** page shows your most recent payouts. For the full list, click **Open Dashboard** on **Settings → Integrations** to open your Stripe Dashboard. See [Finances](/docs/finances).
 
 ---
 
 ## Step 2 — Complete Your Business Profile
 
-Your business profile tells Stripe who you are and how you operate. Stripe uses this information for verification, fraud prevention, and to determine your payout eligibility.
+Your business profile tells Stripe who you are and how you operate. Stripe uses this information for verification and fraud prevention, and to decide when it can pay you out. Stripe's guide is [Update your business address and details](https://support.stripe.com/questions/update-your-business-address).
 
 ### Where to find it
 
 1. Go to [dashboard.stripe.com](https://dashboard.stripe.com) and sign in.
-2. Click the **gear icon** (Settings) in the top-right.
-3. Select **Account details** from the sidebar.
+2. Click the **gear icon** (Settings).
+3. Go to **Business → Business details**. The direct link is [dashboard.stripe.com/settings/business-details](https://dashboard.stripe.com/settings/business-details).
+
+Some parts, such as the statement descriptor, sit in a **Public details** section on the same page.
 
 ### What to fill in
 
-| Field                    | What to enter                                                               |
-| ------------------------ | --------------------------------------------------------------------------- |
-| **Legal business name**  | Your legal business or personal name — must match your tax documents        |
-| **Business type**        | Individual/Sole proprietor, LLC, Corporation, or Non-profit                 |
-| **Business address**     | Your physical business or home address (used for tax nexus)                 |
-| **Business website**     | Your storefront URL (e.g. `yourstore.com`)                                  |
-| **Business phone**       | A contact number for your business                                          |
-| **Product description**  | A brief description of what you sell (e.g. "Handmade ceramics and pottery") |
-| **Statement descriptor** | What appears on your customer's bank statement — keep it recognizable       |
+| Field | What to enter |
+| --- | --- |
+| **Legal business name** | Your legal business or personal name. It must match your tax documents. |
+| **Business type** | Individual or sole proprietor, or a company such as an LLC or corporation, or a non-profit. |
+| **Business address** | A real physical address. Stripe also uses it as the default head office for Stripe Tax, so it can't be a PO box. |
+| **Business website** | Your storefront URL, such as `yourstore.com`. |
+| **Business phone** | A contact number for your business. |
+| **Product description** | A short description of what you sell, such as "Handmade ceramics and pottery". |
+| **Statement descriptor** | What shows on your customer's card statement. Keep it recognizable. |
 
-> **Business type matters.** Selecting "Individual" means Stripe will ask for your personal SSN for verification. Selecting a business entity (LLC, Corp) means Stripe will ask for your EIN. Choose whichever matches how your business is legally structured.
+**Statement descriptor rules.** Stripe's rules are strict. Use Latin characters only, between 5 and 22 characters, with at least one letter. Don't use any of these characters: `<` `>` `\` `'` `"` `*`. It should match your business or "doing business as" name, so customers recognize the charge and don't dispute it. There is also a **shortened descriptor**, a short prefix of 2 to 10 characters, used when Stripe adds a suffix to the end. See [What is a statement descriptor?](https://support.stripe.com/questions/what-is-a-statement-descriptor-and-how-do-i-update-it). The **Account name** setting only changes what you see in your own Dashboard, not what customers see.
 
-**Photo:** Screenshot of the Stripe Account Details page showing the business profile form fields.
+> **Business type matters.** Choosing "Individual" means Stripe asks for your personal SSN to verify you. Choosing a company means Stripe asks for your EIN. Choose whichever matches how your business is legally set up. Stripe checks the legal name and tax ID against IRS records, so a mismatch shows an error in your Dashboard.
+
+**Photo:** Screenshot of the Stripe Business details page showing the business profile form fields.
 
 ---
 
 ## Step 3 — Complete Identity Verification
 
-Stripe is required by financial regulations to verify the identity of account holders before they can receive payouts. This is a standard Know Your Customer (KYC) / Know Your Business (KYB) process.
+Stripe is required by financial regulations to verify the identity of account holders before they can receive payouts. This is a standard Know Your Customer (KYC) and Know Your Business (KYB) check. Stripe's guide is [What do I need to do to verify my account?](https://support.stripe.com/questions/what-do-i-need-to-do-to-verify-my-stripe-account).
 
-You'll typically be prompted to complete this during the Stripe onboarding flow. If you skipped it or it's still pending, here's how to check:
+You'll usually do this during Stripe's onboarding. If you skipped it or it's still pending, here's how to check.
 
 ### Checking your verification status
 
-1. In the Stripe Dashboard, click your business name in the top-left corner.
-2. Look for any **action required** banners or alerts at the top of the page.
-3. Alternatively, go to **Settings → Account details** and look for a verification status indicator.
+1. Sign in to your Stripe Dashboard.
+2. Look for a banner at the top of the page. When Stripe needs something from you, it shows a banner with a button such as **View Account Status** or **Review details**.
+3. You can also open **Settings → Business → Account status** to see what's still outstanding.
 
-If verification is incomplete, Stripe will display a prompt with a link to their verification flow.
+If no banner shows and nothing is listed as due, Stripe has everything it needs for now. Stripe may ask for more later, and that's normal. If it does, you'll see the banner again. Your SimplePress admin also shows a "Payments are paused" strip if Stripe turns off charges until you respond.
 
 ### What you'll need
 
-**For individuals / sole proprietors:**
+**For individuals and sole proprietors:**
 
 - Your full legal name
 - Date of birth
-- Last 4 digits of your SSN (or full SSN in some cases)
+- Last 4 digits of your SSN (or the full SSN in some cases)
 - A government-issued ID (driver's license or passport) may be requested
 
 **For LLCs and corporations:**
 
 - Your EIN (Employer Identification Number)
 - Business formation documents may be requested
-- Personal verification for the beneficial owner(s) — typically anyone who owns 25%+ of the business
+- Personal verification for the beneficial owners, typically anyone who owns 25% or more of the business
+
+Upload documents only inside your Stripe Dashboard. Never email them. Stripe says reviews can take up to 24 hours. See [documents for business verification](https://support.stripe.com/questions/documents-for-business-verification).
 
 ### Why this matters for SimplePress
 
-Completing Stripe's verification (`details_submitted = true` on your account) is also what satisfies the federal **INFORM Consumers Act** requirement once your store reaches 200 transactions or $5,000 in annual revenue. If you go through full onboarding, you're covered. For more on the INFORM Act, see [Payments & Payouts](/docs/payments-and-payouts).
+The **Finances** page in your admin has an INFORM Consumers Act card. The INFORM Act is a federal law about online marketplaces collecting and verifying seller information. The card warns you early as your sales grow, and the step it asks for is finishing Stripe's verification. How the law applies to your store is a question for a legal or tax professional. See [Finances](/docs/finances) for what the card shows, and the FTC's [INFORM Act guide](https://www.ftc.gov/business-guidance/resources/informing-businesses-about-inform-consumers-act) for the law itself.
 
-**Photo:** Screenshot of a Stripe account showing a verification required banner with a "Complete verification" CTA.
+**Photo:** Screenshot of a Stripe account showing a verification required banner with a button to complete verification.
 
 ---
 
 ## Step 4 — Set Up Stripe Tax (If Collecting Sales Tax)
 
-If you need to collect sales tax from customers, Stripe Tax handles the calculation and tracking automatically at checkout. You must configure it in your Stripe account before you can enable it in SimplePress.
+If you need to collect sales tax from customers, Stripe Tax handles the calculation at checkout. You must set it up in your Stripe account before you can turn it on in SimplePress. Stripe's guide is [Set up Stripe Tax](https://docs.stripe.com/tax/set-up).
 
 ### Do you need to collect sales tax?
 
-Generally, yes — if your business has **nexus** (a legal obligation to collect tax) in a state where your customers are located. The most common triggers are:
+Generally, yes, if your business has **nexus** (a legal obligation to collect tax) in a state where your customers are located. The most common triggers are:
 
-- **Physical nexus** — your business operates from or has a presence in that state
-- **Economic nexus** — you exceed a state's sales threshold (most commonly $100,000 in annual sales or 200 transactions)
+- **Physical nexus.** Your business operates from or has a presence in that state.
+- **Economic nexus.** You pass a state's sales threshold. Many states use $100,000 in sales, some also count transactions, and a few set higher dollar amounts.
 
-> SimplePress is not a tax advisor. See the [Tax](/docs/tax) guide for a full explanation of nexus, thresholds by state, and resources. Consult a tax professional if you're unsure of your obligations.
+> We are not tax advisors. See the [Tax](/docs/tax) guide for an explanation of nexus and where to check current thresholds. Stripe also has a [threshold monitoring guide](https://docs.stripe.com/tax/monitoring). Consult a tax professional if you're unsure of your obligations.
 
 ### Setting up Stripe Tax
 
-#### 1. Add your business address to Stripe Tax
+#### 1. Confirm your head office address
 
-1. Go to [dashboard.stripe.com/tax/registrations](https://dashboard.stripe.com/tax/registrations).
-2. If prompted, add your **business address**. Stripe Tax uses this to determine your home-state nexus automatically.
+1. Go to your Stripe Tax settings at [dashboard.stripe.com/settings/tax](https://dashboard.stripe.com/settings/tax).
+2. Review your **head office address**. Stripe fills it in from your business address. Confirm it.
+3. Choose a **preset product tax code** that matches what you sell. Stripe uses it for products without their own code.
+
+See [Set your head office address](https://docs.stripe.com/tax/set-up#set-your-head-office-address). This is the setting SimplePress checks before it lets you turn automatic tax on.
 
 #### 2. Add your state registrations
 
-For each state where you have nexus and a valid sales tax permit:
+For each state where you have nexus and a sales tax permit:
 
-1. Click **Add a registration**.
-2. Select the state.
-3. Enter your **sales tax permit number** for that state.
-4. Set the **start date** (the date you're required to begin collecting).
-5. Save. The registration should show as **Active**.
+1. In the Stripe Dashboard, go to **Tax → Locations**.
+2. Click **+Add registration** and pick the state.
+3. Choose **I've already registered** and enter the details Stripe asks for, such as your permit number.
+4. Choose **Start collecting immediately**, or **Schedule tax collection** and enter the date you want it to start.
+5. Confirm. The state should now show **Collecting tax**.
 
-> You only need to add states where you have nexus. Stripe Tax will not charge customers in states where you don't have an active registration.
+See [Register for sales tax with Stripe](https://docs.stripe.com/tax/registering).
 
-**Photo:** Screenshot of the Stripe Tax Registrations page showing Active registrations.
+> You only need to add states where you have nexus. Stripe Tax only charges tax in states where you have a registration. With none, it simply charges no tax.
 
-#### 3. Enable automatic tax in SimplePress
+**Photo:** Screenshot of the Stripe Tax Locations page showing a state with the status "Collecting tax".
 
-Once your Stripe Tax registrations are active:
+Stripe Tax is a paid Stripe service, and filing your returns is separate. See [Stripe Tax pricing](https://stripe.com/tax/pricing) and [Stripe Tax filing](https://docs.stripe.com/tax/filing), and the [Tax](/docs/tax) page for the plain-language version.
+
+#### 3. Turn on automatic tax in SimplePress
+
+Once Stripe Tax is set up:
 
 1. Go to **Settings → Integrations** in your SimplePress admin.
-2. Under your connected Stripe account, toggle on **Automatic Tax Collection**.
-3. Save.
+2. In the **Stripe Connect** card, flip on **Automatic Tax Collection**. It saves right away.
 
-SimplePress verifies your Stripe Tax configuration before saving. If anything is incomplete, you'll see an error with details on what to fix.
-
-For a full walkthrough of the SimplePress side of tax setup, see [Tax](/docs/tax).
+SimplePress checks that your Stripe Tax settings are complete. If they aren't, the switch flips back off and a red message tells you what's missing. For the full walkthrough and the exact messages, see [Tax](/docs/tax).
 
 ---
 
 ## Step 5 — Connect Stripe to SimplePress
 
-Once your Stripe account is set up, the last step is connecting it to your store.
+Once your Stripe account is set up, the last step is connecting it to your store. Only an Owner or Manager can do this.
 
 1. In your SimplePress admin, go to **Settings → Integrations**.
 2. In the **Stripe Connect** card, click **Connect with Stripe**.
 3. Sign in to your Stripe account and authorize the connection.
-4. You'll be redirected back to SimplePress with a **Connected** badge and your Stripe Account ID.
+4. You'll land back on the Integrations page. The card now shows a **Connected** badge and your Stripe **Account ID**. SimplePress doesn't show a message when you return, so check for the badge.
 
-For full details on the integration, see [Integrations](/docs/integrations).
+For full details, see [Integrations](/docs/integrations).
 
 ---
 
@@ -176,12 +194,49 @@ For full details on the integration, see [Integrations](/docs/integrations).
 
 Use this to verify everything is in place before going live:
 
-- [ ] Bank account added and verified (do this before sharing account access)
-- [ ] Business profile completed in Stripe (name, address, type, description)
-- [ ] Identity / business verification completed (`details_submitted = true`)
-- [ ] Payout schedule set to your preference
-- [ ] Stripe Tax configured with active registrations (if collecting sales tax)
-- [ ] Stripe connected to SimplePress via Settings → Integrations
-- [ ] Automatic Tax Collection toggled on in SimplePress (if using Stripe Tax)
+- [ ] Bank account added (do this before sharing account access)
+- [ ] Payout schedule set the way you want it, and you know the first payout takes 7 to 14 days
+- [ ] Business profile completed in Stripe (name, address, type, description, statement descriptor)
+- [ ] Identity and business verification finished, with no banner or items due in your Stripe Dashboard
+- [ ] Stripe Tax head office address confirmed, and registrations added for the states where you collect (if collecting sales tax)
+- [ ] Stripe connected to SimplePress, with the **Connected** badge showing on **Settings → Integrations**
+- [ ] Automatic Tax Collection switched on in SimplePress (if using Stripe Tax)
 
 ---
+
+## What you can and can't do
+
+**You can:**
+
+- Set up everything above yourself, or ask SimplePress to walk through it with you at help@generativejustice.org
+- Change your payout schedule any time in Stripe, if you're an Admin or Owner
+- Share the rest of the setup with a developer using Stripe's Developer role
+
+**You can't:**
+
+- Change your bank account or payout schedule from inside SimplePress
+- Skip Stripe's identity and business verification
+- Have a Developer change your bank account or payout schedule
+
+<Cards>
+	<Card
+		title="Stripe Setup"
+		description="Invite a developer to help, or set up on your own."
+		href="/docs/stripe"
+	/>
+	<Card
+		title="Integrations"
+		description="Connect Stripe and turn on automatic tax."
+		href="/docs/integrations"
+	/>
+	<Card
+		title="Tax"
+		description="Nexus, registrations and what Stripe Tax does."
+		href="/docs/tax"
+	/>
+	<Card
+		title="Finances"
+		description="See your payouts, fees, tax and INFORM card."
+		href="/docs/finances"
+	/>
+</Cards>
