@@ -1,0 +1,409 @@
+---
+title: Rewards Program
+description: Let customers earn points on orders, sign-ups, birthdays, and social follows, then trade them for single-use discount codes.
+---
+
+## Overview
+
+The Rewards Program is a points-based loyalty program for your store. Customers collect points when they buy from you and for a few bonus actions, then trade those points for a discount code they can use at checkout.
+
+Typical uses:
+
+- **Thank regulars**: 1 point per dollar, and 500 points gets $5 off.
+- **Welcome new customers**: a sign-up bonus or a first-order bonus so their first reward comes sooner.
+- **Birthday treats**: a few points each year on the customer's birthday.
+- **Grow your social following**: a few points for each social account a customer follows.
+
+Here's the short version:
+
+1. Turn on **Rewards Program** (and **Coupons & Discounts**, so points can be redeemed) in **Settings → Features**.
+2. Open **Settings → Rewards**, set how customers earn points, and add at least one reward tier.
+3. Click **Save changes** and check that the badge says **Saved**. **The program doesn't start until you've saved once.** See [Start the Program: Save Once](#start-the-program-save-once).
+4. Customers see their points and rewards under **Rewards** in their account, at `/account/rewards`.
+
+<Callout type="info" title="The Rewards Program is off by default">
+  Turn it on under **Settings → Features**, in the **Marketing** section. It needs **Customer Accounts** and **Orders** turned on, and redeeming points also needs **Coupons & Discounts**. See [Feature Flag](#feature-flag).
+</Callout>
+
+<Callout type="info" title="Who can use it">
+  Owners and Managers can turn the program on, change its settings, and adjust a customer's points. Staff can't open the Rewards settings. On a customer's page, Staff can see the Rewards card but can't change it. See [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+---
+
+## Where to Find It
+
+Once the program is on, go to **Settings** in your admin and open the **Rewards** card ("Points, bonuses, and reward tiers"). It takes you to `/admin/settings/loyalty`, a page titled **Rewards Program**. Rewards doesn't have its own item in the sidebar.
+
+You can also type "Rewards settings" into the command palette search box at the top of the admin.
+
+Each customer's points live on their own page under **Customers**. See [Managing a Customer's Points](#managing-a-customers-points).
+
+---
+
+## Turning It On
+
+1. Go to **Settings → Features**.
+2. In the **Marketing** section, switch on **Rewards Program**.
+3. In the same page, make sure **Coupons & Discounts** is on too. Customers can earn points without it, but they can't redeem them, because every reward is a discount code.
+
+![The Marketing section of Settings → Features with the Rewards Program switch turned on](/images/rewards/rewards-feature-switch.png)
+
+If **Customer Accounts** or **Orders** is off, the Rewards Program switch shows a **Requires** badge. Turn that feature on first.
+
+If you open **Settings → Rewards** while **Coupons & Discounts** is off, a yellow notice says **Redeeming rewards needs Discount Codes turned on**, with "Customers can earn points but can't redeem them until you enable it." Its **Settings → Features** button takes you to the switch.
+
+---
+
+## Start the Program: Save Once
+
+<Callout type="warn" title="Your program isn't live until you save the Rewards settings at least once">
+  Turning on the switch isn't enough. Until you save **Settings → Rewards** for the first time, no one earns points, and customers who open their Rewards page see "This store hasn't set up a rewards program yet."
+</Callout>
+
+The first time you open **Settings → Rewards**, the page shows starting values: **Earn points on orders** is on, **Points per dollar** is 1, and **Code expiry (days)** is 90. Those values are only a suggestion until you save them. The **Save changes** button stays grayed out until you change something, so you have to make at least one change before you can save:
+
+1. Open **Settings → Rewards**.
+2. Change something. For example, set **Points per dollar** to the number you want, or click **Add tier** under **Reward tiers** to add your first reward. The badge next to the title changes to **Unsaved Changes**.
+3. Click **Save changes** at the top of the page.
+4. Check that the badge next to **Rewards Program** says **Saved**, and that a "Rewards settings saved" message appears.
+
+![Settings → Rewards showing the Unsaved Changes badge and the Save changes button](/images/rewards/rewards-unsaved-changes.png)
+
+If you want to keep the starting values, change one (such as Points per dollar from 1 to 2), save, then change it back and save again. Once you've saved once, the program is running, and later saves only update it.
+
+---
+
+## The Rewards Settings
+
+The page starts with a short note: changes apply to future orders only, and points customers already have are never recalculated.
+
+At the top, **Save changes** saves everything on the page at once. **Reset** throws away changes you haven't saved. If you try to leave with unsaved changes, you'll be warned.
+
+![Settings → Rewards with the Saved badge, showing the Earning on orders and Bonuses cards](/images/rewards/rewards-settings-page.png)
+
+### Earning on Orders
+
+- **Earn points on orders**: turn this off if you only want bonus points.
+- **Points per dollar**: how many points a customer gets for each $1 they spend. Points are worked out on the order subtotal after any discount. Shipping and tax don't count. Partial points are dropped, so a $24.99 order at 1 point per dollar earns 24 points. You can set 0 to 1,000.
+
+### Bonuses
+
+Each bonus has its own switch and a **Points** box. The box is grayed out while the switch is off.
+
+| Bonus | When the customer gets it |
+| ----- | ------------------------- |
+| **Signup bonus** | Once, when they click **Join rewards** on their Rewards page. |
+| **First order bonus** | Once, on their first paid order. |
+| **Birthday bonus** | Once a year, on the birthday they saved on their Rewards page. |
+
+Each bonus can be 0 to 1,000,000 points. A bonus set to 0 isn't given or shown to customers, even if its switch is on.
+
+### Social Follows
+
+- **Award points for social follows**: switch this on to reward customers for following you.
+- **Points per network**: the points for each account they follow.
+
+This works on the honor system. Customers click your account's link on their Rewards page, then click **Claim** to collect the points. You have no way to check that they actually followed you. Each customer can claim each network once.
+
+Customers are only offered the networks you've linked in [Brand & Appearance](/docs/storefront-and-branding), under **Footer & social links**. The card lists those networks as small badges. If you haven't added any, it says "Add your social links in Branding to offer this reward."
+
+### Reward Tiers
+
+Tiers are what customers can trade their points for. Each tier becomes a discount code when a customer redeems it.
+
+Click **Add tier** to add one. A new tier starts at 500 points for $5.00 off. Each tier has:
+
+| Field | What it does |
+| ----- | ------------ |
+| **Label** | The name customers see, such as "$5 off your order". Up to 60 characters. |
+| **Points cost** | How many points the reward costs. At least 1. |
+| **Type** | **Fixed amount** (dollars off) or **Percentage** (percent off). |
+| **Amount off** / **Percent off** | The size of the discount. A percentage can be 1% to 100%. |
+| **Min purchase (optional)** | The smallest order the code works on. Leave it blank for no minimum. |
+
+Under each tier, a preview line shows what you've set, such as "Preview: 500 pts → $5.00 off". The trash button removes a tier. You can have up to 20 tiers.
+
+Until you add a tier, the card says "No tiers yet — customers can earn points but have nothing to redeem them for."
+
+Changing or removing a tier doesn't affect codes customers have already redeemed. Those codes keep working as they were.
+
+![The Reward tiers card with three tiers and the Reward codes card below](/images/rewards/rewards-tiers.png)
+
+### Reward Codes
+
+- **Code expiry (days)**: how long a redeemed code stays valid, from 1 to 365 days. It starts at 90.
+
+---
+
+## How Customers Earn Points
+
+| Way to earn | When it's added | Do they need to join? |
+| ----------- | --------------- | --------------------- |
+| **Orders** | When the order is paid | No |
+| **First order bonus** | With their first paid order | No |
+| **Signup bonus** | When they click **Join rewards** | Yes |
+| **Birthday bonus** | On their birthday, once a year | Yes, to save a birthday |
+| **Social follows** | When they click **Claim** | Yes |
+
+**Customers don't need to join to earn order points.** Every customer record collects them, including people who check out as a guest. A guest's points are kept under their email address. When they later create an account with that same email, their points are there waiting for them.
+
+An order earns points when it's paid. That covers card orders paid at checkout, [manual orders](/docs/orders) you create as paid, and orders you mark as paid later. Unpaid orders don't earn anything until they're paid.
+
+Joining matters for four things: the sign-up bonus, redeeming points, claiming social follow points, and saving a birthday.
+
+### Birthdays
+
+Customers add their birthday (month and day, no year) on their Rewards page after they join. The bonus is added on that day in your store's time zone, once per calendar year. Customers born on February 29 get their bonus on February 28 in years without a February 29. Birthday bonuses aren't added on days the program is off.
+
+---
+
+## Redeeming Points
+
+When a customer has enough points, they click **Redeem** on a reward on their Rewards page and confirm. Right away:
+
+- The points come off their balance.
+- They get a code that looks like `RWD-7F3K9Q`, shown on the page and sent to them by email.
+- They paste the code into the discount box at checkout.
+
+Each reward code:
+
+- works for **one order**, once;
+- expires after the number of days in **Code expiry (days)**;
+- has the tier's minimum purchase, if you set one.
+
+Only one discount code can be used per order, so a reward code can't be combined with another code.
+
+### Reward Codes vs. Your Discount Codes
+
+Reward codes are made automatically when customers redeem, and they **don't appear** on your [Discounts & Coupons](/docs/discounts-and-coupons) page. That page only lists codes you created yourself. To see a customer's reward codes and whether they've been used, open the customer's **Rewards** card. See [Managing a Customer's Points](#managing-a-customers-points).
+
+Reward codes still need **Coupons & Discounts** turned on. While it's off, customers can't redeem points, and codes they already have can't be entered at checkout.
+
+---
+
+## What Customers See
+
+Signed-in customers find a **Rewards** link in their account menu while the program is on. It opens `/account/rewards`. Signed-out visitors who open that address are asked to sign in first. The pictures here show the Default template. Other templates lay the page out their own way, but it works the same.
+
+![The Rewards page in a customer's account, showing balance, ways to earn, and reward cards](/images/rewards/account-rewards-page.png)
+
+The page has these sections, from top to bottom:
+
+- **Your balance**: their points. Customers who haven't joined see a **Join rewards** button, and "Join now and get N points" when you offer a sign-up bonus.
+- **How to earn points**: a list built from your settings, such as "Earn 1 point per $1 spent", "Get 100 bonus points on your first order", and "Get 50 points on your birthday each year". If you offer social follows, it adds "Follow us and earn N points each", with a link to each of your accounts and a **Claim N points** button (it reads **Claimed** once used). If nothing is set up to earn points, it says "Check back soon for ways to earn points."
+- **Redeem your points**: one card for each reward tier, with its label, discount, point cost, and any minimum purchase. This section is hidden until you add a tier.
+- **Your reward codes**: every code they've redeemed, with its expiry date, a **Copy** button, and a status of **Active**, **Used**, **Expired**, or **Inactive**. Before they redeem anything, it says "No codes yet."
+- **Birthday bonus**: month and day boxes and a **Save** button. This only appears when your birthday bonus is on.
+- **Recent activity**: their last 20 points changes, with the date and new balance. Before any activity, it says "No activity yet."
+
+![The Your balance section for a customer who hasn't joined, with the Join rewards button](/images/rewards/account-rewards-join.png)
+
+### Redeeming on the Page
+
+Each reward card has a **Redeem** button. Clicking it asks "Confirm: spend N points?" with **Confirm** and **Cancel**, so customers don't spend points by accident. After they confirm, the code appears under the rewards with a **Copy** button and "We also emailed it to you. Paste it in the discount field at checkout."
+
+![A reward card asking Confirm: spend 500 points? with Confirm and Cancel buttons](/images/rewards/account-rewards-confirm.png)
+
+If a customer can't redeem a reward, the button is grayed out with the reason underneath:
+
+| Message | Why |
+| ------- | --- |
+| **Join rewards to redeem** | They haven't joined yet. |
+| **You need N more points** | Their balance is too low. |
+| **Redemption is temporarily unavailable** | **Coupons & Discounts** is off. |
+| **Rewards are paused right now** | The Rewards Program is off. |
+
+![The Rewards page on a phone, with the balance, ways to earn, and the first reward card in one column](/images/rewards/account-rewards-mobile.png)
+
+---
+
+## Refunds and Cancellations
+
+When you refund or cancel a paid order, the points that order earned are taken back automatically:
+
+- **Full refund or cancellation**: all of the order's points are removed.
+- **Partial refund**: the same share of the points is removed. Refunding half the order takes back half its points.
+- A first-order bonus isn't taken back.
+- A balance never goes below zero. If the customer already spent the points, only what's left is removed.
+
+This shows up as **Refund adjustment** in the customer's activity. It happens even if you've turned the Rewards Program off since the order was placed. See [Orders](/docs/orders) for refunding and cancelling.
+
+---
+
+## Managing a Customer's Points
+
+Open **Customers**, then click a customer. Their **Rewards** card shows:
+
+- their balance, such as "1,250 points";
+- **Joined** and the date, if they've joined, and **Birthday** if they've saved one;
+- a table of every points change, with **Date**, **Activity**, **Points**, **Balance after**, and **Details**. For a redeemed reward, **Details** shows the code and its status (**Active**, **Used**, **Expired**, or **Inactive**).
+
+Before any activity, the card says "No rewards activity yet."
+
+| Activity | What it means |
+| -------- | ------------- |
+| **Order** | Points from a paid order. |
+| **First order bonus** | The bonus for their first order. |
+| **Signup bonus** | The bonus for joining. |
+| **Birthday bonus** | The yearly birthday bonus. |
+| **Social follow** | Points claimed for following one of your accounts. |
+| **Refund adjustment** | Points taken back after a refund or cancellation. |
+| **Redeemed** | Points spent on a reward. |
+| **Manual adjustment** | A change you or a Manager made. |
+
+![A customer's Rewards card in the admin with the balance and points history](/images/rewards/customer-rewards-card.png)
+
+### Adjusting Points
+
+Use this to fix a mistake, make up for a problem, or thank someone with extra points.
+
+1. On the customer's **Rewards** card, click **Adjust points**.
+2. In **Points**, enter how many to add. Use a negative number, such as -200, to take points away.
+3. In **Reason**, write a short note (up to 200 characters).
+4. Click **Save**. You'll see "Points adjusted".
+
+You can add or remove up to 1,000,000 points at a time. If you take away more points than the customer has, their balance stops at zero. If they have no points, you'll see "Customer has no points to deduct."
+
+Customers see a **Manual adjustment** line in their activity, but **not** your reason. Your note stays private.
+
+![The Adjust points dialog with 200 points and a reason typed in](/images/rewards/adjust-points-dialog.png)
+
+The **Rewards** card stays on customer pages even while the Rewards Program is off, so you can still look up a balance.
+
+If you [anonymize a customer](/docs/customers), their points balance and birthday are cleared.
+
+---
+
+## Emails
+
+The program sends customers these emails. Replies go to your store's email address.
+
+| Email | When it's sent | Subject |
+| ----- | -------------- | ------- |
+| **Reward code** | A customer redeems points | "Your [store name] reward code" |
+| **Birthday** | Their birthday bonus is added | "Happy birthday from [store name]!" |
+
+The reward code email shows the code, the discount, the expiry date, any minimum purchase, and the new balance, with a **Shop now** button and a **View your rewards** link. The birthday email says how many points were added, shows the new balance, and has a **See your rewards** button.
+
+When a paid order earns points, the customer's order confirmation email also says "You earned N points on this order — your balance is N", with a **View your rewards** link. The number includes any first-order bonus.
+
+You can't change the wording or subject lines of these emails. To see what they look like, open the previews named **Loyalty Reward Redeemed** and **Loyalty Birthday Bonus** in your notification emails. See [Email Preview](/docs/email-preview).
+
+---
+
+## Pausing the Program
+
+Turning **Rewards Program** off in **Settings → Features** pauses it:
+
+- Customers stop earning points, including order points and birthday bonuses.
+- Customers can't join, redeem, claim social follow points, or save a birthday.
+- The **Rewards** link leaves the customer account menu. Customers who go to `/account/rewards` still see their balance, with "Rewards are paused right now. Your balance is safe and you'll be able to earn and redeem again when the program is back."
+- The **Rewards** card leaves **Settings**. You can't save changes to your rewards settings while it's off.
+- **Balances, codes, and settings are kept.** Reward codes customers already have keep working at checkout, as long as **Coupons & Discounts** is on.
+- Refunds and cancellations still take back points, so balances stay accurate.
+
+Turn the switch back on and everything picks up where it left off. Orders paid while the program was off don't earn points later.
+
+---
+
+## Tips
+
+- **Start simple.** One point per dollar and one or two tiers is easy for customers to understand. You can add more later.
+- **Check the math.** At 1 point per dollar, a 500-point $5 reward gives back about 1% of what customers spend. Pick numbers your margins can handle.
+- **Use the sign-up bonus to get people to join.** Customers need to join to redeem, and a bonus gives them a reason to click.
+- **Add a minimum purchase to bigger rewards** so a large discount isn't used on a tiny order.
+- **Tell customers about it.** Mention the program in an [announcement banner](/docs/banner-and-popup) or on your homepage, and point them to their account's **Rewards** page.
+- **Test it yourself.** Sign in to your store as a customer, join, and look at the Rewards page to see what your customers will see.
+
+---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| ------- | ------- | --------------- | -------- |
+| **Rewards Program** | Off | Settings → Features (Marketing) | Customer Accounts and Orders. Redeeming also needs Coupons & Discounts. |
+
+Owners and Managers can turn the Rewards Program on or off. Turning it off pauses earning and redeeming, and balances are kept. See [Pausing the Program](#pausing-the-program) and [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Give points for every dollar customers spend, from 0 to 1,000 points per dollar
+- Offer a sign-up bonus, a first-order bonus, a yearly birthday bonus, and points for following your social accounts
+- Set up to 20 reward tiers, each a fixed amount or percentage off, with an optional minimum purchase
+- Choose how long reward codes last, from 1 to 365 days
+- See every customer's balance, history, and reward codes on their customer page
+- Add or remove points for a customer by hand, with a private note
+- Pause the program without losing anyone's points
+
+**You cannot:**
+
+- Make points expire. Points stay until they're spent or taken back.
+- Offer rewards other than discount codes, such as free products or free shipping
+- Give extra points for certain products, collections, or special days
+- Create customer levels (such as silver and gold) with different earning rates
+- Change the wording or subject lines of the rewards emails
+- See reward codes on the Discounts & Coupons page
+- Let customers use points directly at checkout. They redeem first, then use the code.
+- Verify that a customer really followed your social account
+
+---
+
+## Frequently Asked Questions
+
+**I turned on the Rewards Program, but customers see "This store hasn't set up a rewards program yet."**
+You haven't saved the Rewards settings yet. Open **Settings → Rewards**, change something (such as **Points per dollar**, or add a tier), click **Save changes**, and check for the **Saved** badge. See [Start the Program: Save Once](#start-the-program-save-once).
+
+**Why is the Save changes button grayed out?**
+It only lights up after you change something on the page. It also stays grayed out while the Rewards Program is off in **Settings → Features**. In that case the toolbar says "Turn on the Rewards Program feature to save changes."
+
+**A customer placed an order before joining. Do they get points?**
+Yes. Order points go to every customer, joined or not, including guests. They need to join only to redeem points and get the sign-up, birthday, and social follow bonuses.
+
+**I changed Points per dollar. Do old orders get recalculated?**
+No. The new rate only applies to orders paid after you save.
+
+**Can a customer use a reward code and another discount code on the same order?**
+No. Only one code can be used per order.
+
+**A customer lost their reward code. Where can they find it?**
+On their Rewards page under **Your reward codes**, and in the reward code email. You can also see it on their **Rewards** card in your admin.
+
+**Does turning off Coupons & Discounts affect rewards?**
+Yes. Customers can still earn points, but they can't redeem them, and codes they already have can't be used at checkout until you turn it back on.
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Discounts & Coupons"
+		description="Create your own discount codes and turn on the discount box at checkout."
+		href="/docs/discounts-and-coupons"
+	/>
+	<Card
+		title="Customers"
+		description="See each customer's orders, notes, and rewards points."
+		href="/docs/customers"
+	/>
+	<Card
+		title="Orders"
+		description="Refund or cancel orders, which takes back the points they earned."
+		href="/docs/orders"
+	/>
+	<Card
+		title="For Your Customers"
+		description="What shoppers can do in their account, including the Rewards page."
+		href="/docs/for-your-customers"
+	/>
+	<Card
+		title="Feature Flags"
+		description="Turn the Rewards Program and other features on and off."
+		href="/docs/feature-flags"
+	/>
+</Cards>

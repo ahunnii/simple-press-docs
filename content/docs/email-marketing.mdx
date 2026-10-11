@@ -1,0 +1,292 @@
+---
+title: Email Marketing
+description: Send a one-off announcement or newsletter to customers who opted in, and win back shoppers who leave checkout.
+---
+
+## Overview
+
+Email Marketing lets you write one email and send it to every customer who has agreed to hear from you. It is built for simple, occasional messages, such as:
+
+- A **new product or menu** announcement
+- A **sale or holiday hours** reminder
+- A short **monthly newsletter**
+
+Customers choose to receive these emails themselves. You can't add people to the list, and checking out doesn't sign anyone up. See [Who Is in the Audience](#who-is-in-the-audience).
+
+This page also covers the **abandoned checkout email**, a separate automatic message for shoppers who start paying and then leave. It is not part of Email Marketing and has its own switch. See [Abandoned Checkout Emails](#abandoned-checkout-emails).
+
+<Callout type="info" title="Email Marketing is off by default">
+  Turn it on under **Settings → Features**, in the **Marketing** section. Until you do, the page only shows **Email Marketing is not enabled**, with a **Go to Settings → Features** button. See [Feature Flag](#feature-flag).
+</Callout>
+
+<Callout type="info" title="Who can use it">
+  Owners and Managers can open Email Marketing and send broadcasts. Staff can't open it. See [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+---
+
+## Where to Find It
+
+In your admin sidebar, open **Marketing → Email Marketing**. You can also type "Send email marketing" into the search box at the top of the admin to jump straight there. The sidebar link and search entry only appear once the feature is on.
+
+The page is titled **Email Marketing** ("Send a one-off announcement or newsletter to your opted-in customers") and has two cards: **Audience** and **Compose**.
+
+![The Email Marketing page with the Audience card above the empty Compose card](/images/email-marketing/email-marketing-page.png)
+
+---
+
+## Who Is in the Audience
+
+Your audience is every customer who:
+
+- Has turned on marketing emails for themselves,
+- Has an email address on file, and
+- Has not been anonymized.
+
+The **Audience** card shows how many people that is. If nobody has opted in yet, it says "No customers have opted in yet. Customers can enable marketing emails from their account preferences page."
+
+### How Customers Opt In
+
+There is **only one way** to join, and it is easy to miss, so tell your customers about it:
+
+1. The customer signs in to their account on your store.
+2. They open **Preferences** in the account menu.
+3. In the **Marketing Emails** card ("Receive news, promotions, and updates from" your business name), they switch the toggle on. It then reads **Subscribed**.
+
+That's all. They can turn it off again at any time, on the same page.
+
+![The Marketing Emails card on a customer's Preferences page with the switch on and Subscribed showing](/images/email-marketing/customer-preferences-card.png)
+
+Things to know:
+
+- **There is no checkbox at checkout**, no sign-up form, and no way for you to opt a customer in. The newsletter or sign-up boxes that some templates show in the footer are not connected to this list.
+- **Guests can't opt in.** A customer needs an account, and a customer record on your store, to see the switch. Someone with a brand-new account and no order yet sees "Place your first order to enable email preferences."
+- **Opting in is not automatic.** A customer who bought from you without ever visiting Preferences is not on the list.
+
+In practice, this means your list starts small. Mention it where customers will see it, for example in an order follow-up or on your site: "Want news and offers? Sign in, open **Preferences**, and switch on **Marketing Emails**."
+
+### Seeing Who Opted In
+
+Opt-in status shows up in [Customers](/docs/customers):
+
+- The customer list has a **Marketing** column. Customers who opted in show a **Subscribed** badge; everyone else shows a dash.
+- The **Filters** button has a **Marketing** filter with **All customers**, **Accepts marketing** and **Doesn't accept**.
+- Each customer's page shows a **Marketing** badge reading **Opted in** or **Opted out**.
+
+You can see this status but you can't change it for a customer.
+
+![The Customers list filtered to Accepts marketing, with Subscribed badges in the Marketing column](/images/email-marketing/customers-marketing-column.png)
+
+### Exporting the List
+
+Click **Export CSV** on the **Audience** card to download your opted-in customers as a spreadsheet. A message confirms how many were exported (for example "Exported 12 recipients").
+
+The file is named `marketing-list-` followed by your store name and today's date. It has one row per customer with these columns: **Email**, **First Name**, **Last Name**, **Order Count**, **Total Spent** and **Customer Since**.
+
+The button is greyed out when nobody has opted in. Export works even if the Email Marketing feature is off, because the list is your own customer data.
+
+---
+
+## Writing a Broadcast
+
+The **Compose** card has two fields.
+
+| Field | What to enter | Limit |
+| --- | --- | --- |
+| **Subject** | The subject line customers see in their inbox. It is sent exactly as you type it. | 200 characters. A counter shows how many you've used. |
+| **Message** | The body of the email. | 5,000 characters. A counter shows how many you've used. |
+
+The message is **plain text only**. There is no bold, no italics, no pictures and no buttons. Each line you type becomes its own paragraph in the email, so press Enter between paragraphs, and don't worry about leaving extra blank lines.
+
+The email arrives from your store's name, with your logo (or your business name, if you have no logo) at the top. If a customer replies, the reply goes to your store's owner email address.
+
+If a field is empty or too long, a message appears under it: "Subject is required", "Message is required", "Subject must be 200 characters or fewer" or "Message must be 5,000 characters or fewer". Both buttons stay greyed out until the form is valid.
+
+![The Compose card filled in with a subject and message, showing the character counters and both send buttons](/images/email-marketing/email-marketing-compose.png)
+
+### Sending a Test First
+
+Before you send to everyone, click **Send test to myself**. A message appears: "Test email sent to your inbox."
+
+Be aware of these details:
+
+- The test goes to your **store's owner email address**, which is the one on your business account. That may not be the address you sign in with, especially if a Manager is the one sending. Check the owner's inbox.
+- The subject starts with **[TEST]**.
+- The **Unsubscribe** link at the bottom is only a sample. Clicking it shows an "Invalid link" page. Real customers get a working link.
+- The "Test email sent" message only means SimplePress handed the email off. If it doesn't show up within a few minutes, check the spam folder.
+- A test doesn't clear what you've written, so you can keep editing.
+
+### Sending to Your Audience
+
+1. Write your **Subject** and **Message**.
+2. Send yourself a test and read it on your phone.
+3. Click **Send to N customers** (the button shows your real audience size, for example **Send to 12 customers**). It is greyed out if nobody has opted in.
+4. A box asks **Send this broadcast?** It repeats your subject and the number of customers, and warns that this can't be undone. Click **Send broadcast** to go ahead, or **Cancel** to go back.
+5. **Stay on the page until a message appears at the corner of the screen.** It reads "Broadcast sent — 12 delivered." If any emails couldn't be sent, it adds how many failed, for example "Broadcast sent — 11 delivered, 1 failed."
+6. The form clears itself after a successful send.
+
+![The Send this broadcast? confirmation box over the Compose card](/images/email-marketing/email-marketing-confirm-dialog.png)
+
+Emails go out a couple at a time, about two per second, while the page waits. A list of a few dozen takes under a minute; a list of several hundred takes a few minutes. **Keep the page open until you see the result message.** If you close it or lose your connection partway through, you won't see how it ended, and some customers may not have received the email.
+
+<Callout type="warn" title="There is no history, preview or scheduling">
+  SimplePress doesn't keep a record of what you sent, who got it, or when. There's also no drafts folder, no scheduled sending, and no way to take a broadcast back. **Keep your own copy** of each email, for example in a notes document, so you remember what you told your customers.
+</Callout>
+
+---
+
+## What Customers See
+
+Customers receive a simple, plain email with your logo and name at the top, your message in paragraphs, and a small grey line at the bottom:
+
+> You received this email because you opted in to marketing emails from [your store]. Unsubscribe
+
+Their mail app (Gmail, Apple Mail and others) may also show its own **Unsubscribe** button at the top, and that works in one click.
+
+### Unsubscribing
+
+When a customer clicks **Unsubscribe**, a page opens that says **You've been unsubscribed**: "You will no longer receive marketing emails. You can re-enable emails at any time from your account preferences."
+
+They are removed from your audience straight away, so they won't get your next broadcast. They can opt in again at any time from **Preferences**. The unsubscribe link doesn't need them to sign in.
+
+You don't need to do anything with unsubscribes. The audience count on the **Audience** card shrinks by itself.
+
+---
+
+## Tips
+
+- **Send a test every time.** Read it on your phone. Check spelling, check that any web address is complete, and check that it sounds like you.
+- **Put the point in the subject.** "Fresh batch Saturday" works better than "Newsletter".
+- **Keep it short.** Plain text works best with a few short paragraphs and one clear thing to do, such as a link to your shop.
+- **Paste full web addresses.** There are no buttons, so type out the whole link, for example `https://yourstore.com/shop`. Most mail apps make it clickable.
+- **Don't over-send.** Once or twice a month is plenty. People who feel flooded will unsubscribe.
+- **Grow the list on purpose.** Tell customers how to opt in: put a note in your order follow-ups, on your contact page, or at the counter.
+- **Don't buy or import a list.** There's no way to add people, and sending to people who never asked is a good way to be marked as spam.
+
+---
+
+## Abandoned Checkout Emails
+
+When a shopper starts paying but never finishes, SimplePress can send them one friendly reminder. This is **not** on the **Features** page, and it has nothing to do with the Email Marketing switch. It's a setting on the **Notification Emails** page.
+
+<Callout type="info" title="Off by default">
+  Abandoned checkout emails don't send until you switch **Send this email** on. Until then, shoppers who leave never hear from you.
+</Callout>
+
+### Turning It On
+
+1. In your admin sidebar, open **Content → Notification Emails**.
+2. In the **Templates** list, click **Abandoned Checkout**.
+3. In the **Customize "Abandoned Checkout"** card, switch **Send this email** on. In the picture below it is still off, which is how it starts.
+
+The switch takes effect right away. A message confirms it: "Abandoned checkout emails are now sending". Switching it off shows "Abandoned checkout emails are now off". You don't need to click **Save changes** for the switch (that button is for the subject and intro text below it).
+
+The text next to the switch explains it: it controls whether the email sends at all, not just how it looks. With it off, nothing is sent no matter what you write in the subject and intro.
+
+![The Abandoned Checkout settings with the Send this email switch off, the Subject and Intro text fields, and the email preview](/images/email-marketing/abandoned-checkout-settings.png)
+
+### When It Sends
+
+- The shopper starts checkout and reaches the payment page, then leaves without paying.
+- About **30 minutes** after they started, the payment page expires. If the switch is on, one email goes out right then.
+- It only sends if the shopper gave an **email address** before they left. If they never typed one in, there's nobody to write to.
+- It **never** sends for [subscription](/docs/subscriptions) sign-ups or [donations](/docs/donations).
+- Each abandoned checkout gets one email. There's no follow-up series.
+
+### What the Email Says
+
+| Part | Content |
+| --- | --- |
+| **Subject** | "You left items in your cart at" your store name (you can change this) |
+| **Heading** | "You left items in your cart" |
+| **Intro** | Your optional intro text, if you wrote one |
+| **Greeting** | "Hi" and the shopper's name, or "Hi there" if the name isn't known |
+| **Body** | A short note that they started checking out and didn't finish |
+| **Button** | **Return to the shop**, which opens your shop page |
+| **Footer note** | Invites them to reply if they hit a problem. Replies go to your store's owner email. |
+
+The email **doesn't list the items** the shopper left behind, and the button goes to your shop page, not their cart. Their cart is saved in their browser, so if they come back on the same device, it's usually still there.
+
+### Customizing It
+
+With **Abandoned Checkout** selected, you can change two things:
+
+- **Subject**: up to 150 characters. Type `{businessName}` where you want your store name to appear. Leave it blank to use the default.
+- **Intro text**: up to 1,000 characters, shown under the heading. For example: "Something come up? If you had trouble paying, just reply to this email and we'll help."
+
+Click **Save changes** to keep your edits, or **Reset to default** to go back to the standard wording. The **Preview** card on the page shows how the email will look. See [Email Previews](/docs/email-preview) for more on that page.
+
+### Good to Know
+
+- **It can reach someone who did finish.** If a shopper left, then came back later and paid in a new checkout, they may still get the reminder from their first attempt. The email doesn't check for this. Your intro text is a good place for a friendly line like "If you've already ordered, thank you, and please ignore this."
+- **It's a gentle nudge, not a discount.** There's no coupon in the email. See [Discounts and Coupons](/docs/discounts-and-coupons) if you'd like to offer one separately.
+- **It isn't a marketing email.** It isn't tied to the opt-in list, and it has no unsubscribe link, because it is a one-time reminder about the shopper's own checkout. Be sure that suits how you want to treat your customers before switching it on.
+
+---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Email Marketing** | Off | Settings → Features (Marketing) | Nothing |
+
+You can turn Email Marketing on or off yourself. While it's off:
+
+- **Email Marketing** disappears from your admin sidebar, and the page says it isn't enabled.
+- You can't send broadcasts.
+- Your opted-in customers and their choices are kept, and you can still export the list. Turn the feature back on and everything is ready.
+
+The abandoned checkout email is separate. It has no Features switch; it is controlled only by **Send this email** on the **Notification Emails** page.
+
+See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Send one plain-text email to everyone who opted in
+- Send yourself a test first
+- See who has opted in, on the Customers list and each customer's page
+- Download your opted-in list as a spreadsheet
+- Send an automatic reminder to shoppers who leave the payment page, and change its subject and intro text
+
+**You cannot:**
+
+- Add customers to the list, or opt anyone in for them
+- Let customers join at checkout or from a sign-up form on your site
+- Send to only some customers, or split your list into groups
+- Use bold, images, buttons or your own design in a broadcast
+- Preview the email on screen before sending, other than by sending a test
+- Schedule a broadcast, save a draft, or cancel one once it's sent
+- See a history of past broadcasts, or open and click numbers
+- Edit the unsubscribe footer, or send marketing to someone who unsubscribed
+- Show the shopper's items in the abandoned checkout email, or send more than one reminder
+
+---
+
+## Frequently Asked Questions
+
+**Why does my audience say 0, even though I have lots of customers?**
+Opting in is up to each customer. Until a customer signs in, opens **Preferences** and switches on **Marketing Emails**, they aren't on the list. Checking out doesn't do it.
+
+**Can I import my old mailing list?**
+No. There's no import. People can only join themselves, from their account.
+
+**My test email never came.**
+It goes to the store's owner email address, which may be different from the address you sign in with. Check that inbox, and your spam folder.
+
+**Can I stop a broadcast after I click Send?**
+No. Once you click **Send broadcast**, it can't be undone. This is why the box asks you to confirm.
+
+**Someone says they never got my email.**
+Check that they are still opted in on the Customers list. They may have unsubscribed, or the email may be in their spam folder. If your result message said some emails failed, a few addresses may not have received it.
+
+**Does the abandoned checkout email count as a marketing email?**
+No. It doesn't use the opt-in list, and turning Email Marketing on or off doesn't change it.
+
+**Why didn't my shopper get an abandoned checkout email?**
+Check that **Send this email** is on, that the shopper entered an email address, that at least 30 minutes passed, and that it wasn't a subscription or donation. Also ask them to check spam.
+
+**Need more help?** Email [help@generativejustice.org](mailto:help@generativejustice.org).

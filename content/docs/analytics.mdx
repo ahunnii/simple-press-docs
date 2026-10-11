@@ -1,0 +1,263 @@
+---
+title: Analytics
+description: See how many people visit your storefront, which pages and links bring them in, and how many view, add to cart and buy.
+---
+
+## Overview
+
+Analytics shows you how people use your public storefront. You can see how many visitors came, which pages they looked at, where they came from, and how far they got on the way to buying. The numbers come from Umami, a privacy-friendly visitor counter that SimplePress runs for you. It does not use third-party cookies or ad-network tracking, and it does not load any outside script in your visitors' browsers.
+
+It's useful when you want to answer questions like:
+
+- Did my newsletter or social post actually send people to the store?
+- Which products and pages get the most attention?
+- Are people adding items to the cart but not checking out?
+
+<Callout type="info" title="Off by default, and two things must be on">
+
+Analytics is **off by default**. You need to turn on **two** things:
+
+1. The **Analytics** switch under **Settings → Features**. This adds the **Analytics** page to your admin.
+2. **Enable Analytics** in the **Umami Analytics** card under **Settings → Integrations**. This is what actually starts counting visitors.
+
+Only Owners and Managers can open this page and change these settings. Staff can't. See [Team and Roles](/docs/team-and-roles) and [Feature Flags](/docs/feature-flags).
+
+</Callout>
+
+---
+
+## Turning It On
+
+### Step 1: Turn on the Analytics switch
+
+1. Go to **Settings → Features**.
+2. Find **Analytics** in the Marketing section and switch it on.
+
+Once it's on, **Analytics** appears in your admin menu under **Insights**. If you open the page before turning the switch on, you'll see **Analytics is not enabled for this business** with an **Enable Analytics** button that takes you to **Settings → Features**.
+
+![The Analytics is not enabled for this business page with an Enable Analytics button](/images/analytics/analytics-feature-off.png)
+
+### Step 2: Make sure Umami is on
+
+1. Go to **Settings → Integrations**.
+2. Find the **Umami Analytics** card. The badge in its top right should say **Enabled**.
+3. If it says **Disabled**, paste your **Website ID**, switch on **Enable Analytics**, and click **Save Changes**.
+
+SimplePress runs the Umami service, so you can't create the Website ID yourself. If you don't have one yet, email [help@generativejustice.org](mailto:help@generativejustice.org) and ask for your store's Website ID. The full steps are in [Integrations](/docs/integrations#umami-analytics).
+
+![The Umami Analytics card on the Integrations page with a Website ID, Enable Analytics switched on and the Enabled badge](/images/analytics/analytics-integrations-umami-card.png)
+
+<Callout type="info" title="Counting starts when you turn it on">
+
+Visits are only counted from the moment **Enable Analytics** is on and saved. You won't see numbers for days before that. Give it a few days of normal traffic before drawing conclusions.
+
+</Callout>
+
+---
+
+## Where to Find It
+
+Go to **Insights → Analytics** in your admin. The page is titled **Analytics**, with the line "Visitor and traffic data for your storefront." The date picker sits in the top right.
+
+![The Analytics page set to Last 30 days, with the Visitors, Pageviews, Bounce Rate and Avg. Time on Site cards and the Pageviews chart](/images/analytics/analytics-page-top.png)
+
+---
+
+## Choosing a Date Range
+
+Use the picker in the top right to change the period. Everything on the page changes with it.
+
+| Choice | Shows |
+| --- | --- |
+| **Last 24 hours** | The past day, with the chart broken out hour by hour |
+| **Last 7 days** | The past week, with the chart broken out day by day |
+| **Last 30 days** | The past month. This is what you see when you first open the page. |
+| **Last 90 days** | The past three months, day by day |
+
+The ranges always count back from right now. They are not calendar months, and you can't type in your own dates.
+
+![The date picker open with Last 24 hours, Last 7 days, Last 30 days and Last 90 days](/images/analytics/analytics-range-picker.png)
+
+---
+
+## The Four Stat Cards
+
+The row of cards at the top gives you the big picture.
+
+| Card | What it means |
+| --- | --- |
+| **Visitors** | How many different people visited your store in this period. Someone who comes back three times still counts once. Underneath, "active now" shows how many people are on your site at this moment. |
+| **Pageviews** | How many pages were opened in total. One visitor looking at five pages makes five pageviews. |
+| **Bounce Rate** | The share of visits where the person left after looking at only one page. Underneath it says "Bounces / visits." |
+| **Avg. Time on Site** | How long a typical visit lasts, for example "2m 14s." Underneath it says "Per visit." |
+
+A few things to know:
+
+- A **bounce** isn't always bad. Someone who lands on your contact page, finds your phone number and leaves has "bounced," but they got what they came for.
+- A **visit** is one trip to your site. The same person can make several visits.
+- When there are no visits yet, **Bounce Rate** and **Avg. Time on Site** show a dash instead of a number.
+
+---
+
+## The Pageviews Chart
+
+Under the cards, the **Pageviews** chart shows traffic over time as a shaded line. Hover over a point to see the exact number of pageviews for that hour or day.
+
+- On **Last 24 hours**, each point is one hour, shown in your own time.
+- On the other ranges, each point is one day. Days are cut off at midnight UTC rather than your local midnight, so a day's total can differ slightly from what you expect for your time zone.
+
+If nothing was recorded in the period, you'll see "No pageview data for this period."
+
+Spikes are worth a look. Think about what you did that day, like a post, an email or a sale, to see what worked.
+
+---
+
+## Top Pages and Top Referrers
+
+Two tables sit side by side below the chart. Each shows your **top 10** and a **Views** count.
+
+### Top Pages
+
+The pages on your store that were opened most, shown as the page address, such as `/` for your home page or `/shop` for your shop. Product pages appear by their address too. This tells you what visitors care about most.
+
+### Top Referrers
+
+Where your visitors came from just before they arrived. This is usually a website or social network, such as `google.com` or `instagram.com`. If the row says **(direct)**, the person had no source we could see. That usually means they typed your address, used a bookmark, or tapped a link in an email or text message app that doesn't pass along where it came from.
+
+If a table has nothing in it yet, it says "No data for this period."
+
+![The Top Pages and Top Referrers tables side by side](/images/analytics/analytics-top-pages-referrers.png)
+
+<Callout type="info" title="Tip: keep a log of your posts">
+
+To work out which email or post brought people in, note the day you sent it and compare it to spikes in the chart. Email apps in particular often show up as **(direct)**.
+
+</Callout>
+
+---
+
+## Commerce Events
+
+**Commerce Events** shows four counts that follow the path to a sale:
+
+| Card | What it counts |
+| --- | --- |
+| **Product Views** | Times someone opened a product page |
+| **Add to Cart** | Times someone added something to their cart |
+| **Checkout Started** | Times someone began checking out |
+| **Purchases** | Times a purchase was completed |
+
+Read them from left to right. If many people view products but few add to cart, look at your product photos, prices and descriptions. If many add to cart but few start checkout, look at your shipping costs and cart page. If many start checkout but few purchase, look at your payment and shipping options.
+
+These are counts of **actions**, not people. One visitor who adds three products to the cart makes three **Add to Cart** events.
+
+If your store has any other custom events recorded, an **Other Custom Events** table lists them below the four cards with a **Count** for each. You'll only see this table when there is something to show.
+
+![The Commerce Events cards (Product Views, Add to Cart, Checkout Started, Purchases) and the Other Custom Events table](/images/analytics/analytics-commerce-events.png)
+
+---
+
+## Embed Engagement
+
+If you use [Embeds](/docs/embeds), such as a booking form from another service, an **Embed Engagement** section appears at the bottom. It only shows when the **Embeds** feature is on.
+
+| Card | What it counts |
+| --- | --- |
+| **Embed Click-Ins** | Times a visitor clicked into an embedded widget |
+| **Dwell Sessions** | Times a visitor clicked back out again. This is approximate and can be a little high, because switching browser tabs can look like clicking out. |
+
+Browsers don't let your store see what happens inside someone else's widget, so these numbers only tell you that people interacted with it, not what they did there.
+
+---
+
+## The Dashboard Conversion Rate Card
+
+Your [Dashboard](/docs/dashboard#conversion-rate) can also show a **Conversion Rate** card. It uses the same visitor counts. It divides the paid orders from the last 30 days by the visitors from the last 30 days, with a note like "12 paid orders / 640 visitors · 30 days."
+
+The card appears only when the **Analytics** switch is on, Umami is enabled under **Settings → Integrations**, and your store has recorded some visitors.
+
+---
+
+## Messages You May See
+
+| What you see | What it means | What to do |
+| --- | --- | --- |
+| **Analytics not connected** | Umami isn't set up or isn't switched on for your store. The page shows a link, **Go to Settings → Integrations**. | Open **Settings → Integrations**, check that the **Umami Analytics** card shows **Enabled**, and save. If you don't have a Website ID, email [help@generativejustice.org](mailto:help@generativejustice.org). |
+| **Analytics can't connect** | SimplePress couldn't sign in to the analytics service, so it can't show your stats right now. Your store keeps recording visits, so nothing is lost. | This is on our side, not yours. If it lasts more than a few hours, email [help@generativejustice.org](mailto:help@generativejustice.org). |
+| **Analytics is temporarily unavailable** | The analytics service isn't responding. | Wait a few minutes and refresh the page. |
+| **Analytics data unavailable** | Part of the data couldn't load. This is usually temporary. Some sections may show "Analytics not connected" while it lasts. | Refresh in a few minutes. If it keeps happening, email [help@generativejustice.org](mailto:help@generativejustice.org). |
+
+![The Analytics can't connect message shown in place of the stats](/images/analytics/analytics-cant-connect.png)
+
+
+---
+
+## Tips
+
+- **Be patient.** Give it a few days of normal traffic before you read much into the numbers. Small stores can have very small numbers, and that's normal.
+- **Your own visits may be counted.** If you browse your own storefront, especially while signed in, those visits can show up as visitors and pageviews. The Visitors count can look higher than it really is when you're testing a lot, so don't be alarmed by your own activity in a new store.
+- **Compare ranges.** Switch between **Last 7 days** and **Last 30 days** to tell a one-time spike from a real trend.
+- **Match spikes to what you did.** A post, an email or a sale is often behind a jump in the chart.
+- **Look at the commerce path.** The four **Commerce Events** cards show where shoppers drop off.
+- **Check Top Pages for dead ends.** If a page you care about is missing, link to it from your menu or home page.
+- **You can see more detail in Umami itself.** On **Settings → Integrations**, the Umami Analytics card has an **Open your Umami dashboard** button.
+
+---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Analytics** | Off | Settings → Features (Marketing) | Nothing |
+
+You also need **Enable Analytics** switched on in the **Umami Analytics** card under **Settings → Integrations**. The two settings do different jobs:
+
+- **Enable Analytics** in the Integrations card decides whether visitors are **counted**.
+- The **Analytics** feature switch decides whether you can **see** the page.
+
+If you turn counting on but leave the feature switch off, visitors are still counted but you can't open the page yet. If you turn the feature on but not counting, the page shows **Analytics not connected**. Turning the feature off hides the page and the dashboard card, but doesn't erase anything already counted. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## Frequently Asked Questions
+
+**Do my customers see anything about this?**
+No. Counting happens in the background, and there is nothing for visitors to click or accept in the Analytics feature itself. It doesn't use third-party cookies or ad-network tracking, and the counting script is served from your own store address. If you want to be sure about what your privacy policy or local rules need to say, check with a qualified professional. SimplePress can't give legal advice.
+
+**The numbers look too low.**
+Counting starts when you turn on **Enable Analytics** and save. It can't count earlier visits. Some visitors also use browsers or blockers that stop all counters, so the real number is often a little higher than what you see.
+
+**The numbers look too high.**
+Your own visits (and your team's) can be counted, particularly if you browse your store a lot while setting it up.
+
+**I turned everything on but still see "Analytics not connected."**
+Open **Settings → Integrations** and check that the **Umami Analytics** card has a **Website ID** saved and shows **Enabled**. The Enabled badge only appears when both are in place. If you don't have a Website ID, email [help@generativejustice.org](mailto:help@generativejustice.org).
+
+**Why might Purchases differ from my order count?**
+Analytics counts actions recorded on your storefront, and a few can be missed (for example, if a visitor uses a blocker). Your [Orders](/docs/orders) list is the official record, so use it for your real sales numbers.
+
+**Can I export this data or set a custom date range?**
+Not on this page. For more detail, use the **Open your Umami dashboard** button in the Integrations card.
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- See visitors, pageviews, bounce rate and average time on site for the last 24 hours, 7 days, 30 days or 90 days
+- See a chart of pageviews over time
+- See your top 10 pages and top 10 places visitors came from
+- See product views, add-to-carts, checkouts started and purchases
+- See embed click-ins if you use Embeds
+- See a Conversion Rate card on your Dashboard
+- Open the full Umami dashboard from the Integrations page
+
+**You cannot:**
+
+- Create your own Umami account or Website ID. Ask [help@generativejustice.org](mailto:help@generativejustice.org).
+- See visits from before Umami was turned on
+- Pick your own start and end dates
+- Export the numbers from this page
+- Filter the page by device, country or one product
+- Let Staff see this page. It is for Owners and Managers only.

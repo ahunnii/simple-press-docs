@@ -1,167 +1,340 @@
 ---
 title: Testimonials
-description: Collect and display customer quotes on your storefront.
+description: Collect customer quotes by invite or by hand, approve them, and show them on your storefront.
 ---
 
 ## Overview
 
-Testimonials let you collect and display customer quotes on your storefront. There are two ways to get them: you can add them yourself from any source, or invite customers to submit their own. Both types appear on your `/testimonials` page and in a random selection on your homepage.
+Testimonials are short customer quotes about your business as a whole, such as "Best bakery in town" or "They fixed our sink in an hour." You collect them in two ways: you add one yourself (from an email, a text, or something said in person), or you invite a customer to write one on your site.
 
-> **Feature flag:** Testimonials is on by default and owner-toggleable. Disabling it removes the Testimonials section from your admin nav and hides the `/testimonials` page from your storefront.
+Testimonials are different from [Product Reviews](/docs/reviews). A testimonial is about your business. A product review is about one product on its product page. They have separate pages in your admin and separate switches under **Settings → Features**.
+
+Customer-submitted testimonials wait for your approval by default, so nothing shows up on your site until you say so. You can turn on **Auto-approve** if you would rather they go live right away.
+
+<Callout type="info" title="Testimonials is on by default">
+  You can turn it off under **Settings → Features** (see [Feature Flags](/docs/feature-flags)). When it is off, **Testimonials** disappears from your admin sidebar and the `/testimonials` page on your site shows "not found". The testimonials you already collected are kept for when you turn it back on.
+</Callout>
+
+<Callout type="info" title="Who can use it">
+  Owners and Managers can add, approve, hide, and delete testimonials and send invites. Staff can't open Testimonials (see [Team and Roles](/docs/team-and-roles)). Only the store **Owner** can delete several testimonials at once.
+</Callout>
 
 ---
 
-## Admin Overview
+## Where to Find It
 
-Go to **Content > Testimonials** in the admin sidebar to manage everything.
+In your admin sidebar, go to **Marketing → Testimonials**. The page has three parts:
 
-The page has two main tabs:
+1. A card at the top with the **Auto-approve testimonials** switch.
+2. Two buttons at the top right: **Add Testimonial** and **Send Invite**.
+3. Two tabs: **Testimonials** and **Invites**. Each tab shows how many items it holds. If any testimonials are waiting for approval, a red number appears next to **Testimonials**.
 
-- **Testimonials** — all testimonials, filterable by source (All / Customer Submitted / Owner Added)
-- **Invites** — all invite emails you've sent, filterable by status (All / Completed / Pending / Expired)
+![The Testimonials page in the admin with the Auto-approve card, the Add Testimonial and Send Invite buttons, both tabs, and the first testimonials](/images/testimonials/testimonials-admin-page.png)
 
-**Photo:** Screenshot of the Testimonials admin page showing both tabs and the source filter sub-tabs.
+---
 
-Each testimonial card shows:
+## Approving Testimonials
 
-- Source badge — **Owner Added** or **Customer Submitted**
-- Visibility badge — **Published** (green) or **Hidden** (gray)
-- The testimonial text
-- Customer name and email (if available)
-- Date — for owner-added entries, the recorded date; for customer-submitted entries, the relative time since submission
+### Auto-Approve
+
+The **Auto-approve testimonials** card has one switch. Its description reads: "When on, customer-submitted testimonials are published immediately. When off (default), they land in a pending state below until approved."
+
+- **Off (the default).** Every testimonial a customer submits is marked **Pending**. It stays hidden from your site until you approve it.
+- **On.** Customer testimonials appear on your site the moment they are submitted.
+
+The switch saves as soon as you click it, and a message confirms: "Testimonials will now be published immediately" or "Testimonials will now require approval before publishing."
+
+A few things to know:
+
+- The switch only affects **new** submissions. Testimonials that are already pending stay pending until you approve them.
+- It does not apply to testimonials you add yourself. Those have their own **Approve Immediately** switch (see [Adding a Testimonial Yourself](#adding-a-testimonial-yourself)).
+- You are not emailed when a customer submits a testimonial. Check the red number next to the **Testimonials** tab, or filter by **Pending**, to see what is waiting. See [Tips](#tips).
+
+### Reviewing What Is Waiting
+
+1. Open **Marketing → Testimonials**.
+2. Set the **Status** filter to **Pending** (see below).
+3. Read the quote. If you like it, open the **⋮** menu on its row and choose **Approve**. It becomes **Published** and appears on your site.
+4. If you would rather not show it, choose **Hide** or **Delete** from the same menu.
+
+![The Testimonials list filtered to Pending, with a row menu open on Approve, Hide, and Delete](/images/testimonials/testimonials-pending-filter.png)
+
+---
+
+## The Testimonials Tab
+
+### Filters
+
+Above the table you can search and filter. Search looks at the customer's name, email, quote, headline, job title, and company.
+
+| Filter | Choices |
+| --- | --- |
+| **Status** | **All testimonials**, **Pending**, **Published**, **Hidden** |
+| **Source** | **All sources**, **Customer submitted**, **Owner added** |
+| **Sort** | **Newest first**, **Oldest first**, **Name A–Z**, **Name Z–A** |
+
+The table shows 25 testimonials per page. If a filter matches nothing, the page says "No testimonials match your filters" with a **Clear filters** button. If you have no testimonials at all, you see "No testimonials yet" with an **Add Testimonial** button.
+
+### What the Table Shows
+
+| Column | What it shows |
+| --- | --- |
+| **Name** | The customer's name, their email (if you have it), and a line like "Owner at Acme" if you entered a job title or company |
+| **Quote** | The headline (if any) in bold, then the first lines of the quote |
+| **Source** | **Customer** (they wrote it) or **Owner added** (you entered it) |
+| **Status** | **Pending** (gray), **Published** (green), or **Hidden** (red) |
+| **Date** | The date of the testimonial |
+
+On a phone, the source, status, and date appear in a line under the name instead of in their own columns.
+
+### The Three Statuses
+
+| Status | Meaning | On your site? |
+| --- | --- | --- |
+| **Pending** | A customer submitted it and you have not approved it yet | No |
+| **Published** | Approved and visible | Yes |
+| **Hidden** | You pulled it from your site (it stays in your admin) | No |
+
+**Hidden** wins over the others. A testimonial that is hidden never shows on your site, no matter whether it was approved.
+
+### The ⋮ Menu on Each Row
+
+| Action | When it appears | What it does |
+| --- | --- | --- |
+| **Edit** | Owner-added testimonials only | Opens the form so you can change the text, name, date, photos, and details |
+| **Manage images** | Testimonials that have photos | Lets you remove individual photos (see [Managing Images](#managing-images)) |
+| **Approve** | Pending testimonials | Publishes it |
+| **Unapprove** | Published testimonials | Takes it off your site and puts it back to Pending |
+| **Hide** / **Unhide** | Always | Hides it from your site, or shows it again |
+| **Delete** | Always | Permanently deletes it after you confirm. This cannot be undone |
+
+A hidden testimonial does not offer **Approve** or **Unapprove**. Choose **Unhide** first, and it goes back to whatever it was before (Pending or Published).
+
+Customer-submitted testimonials can't be edited. Their words are the customer's own, so the **Edit** option only appears on testimonials you added.
+
+### Bulk Actions
+
+Tick the boxes at the left of several rows (or the box in the header to select the whole page) and a bar appears with these actions:
+
+- **Approve**
+- **Unapprove**
+- **Hide**
+- **Unhide**
+- **Delete** (Owner only; Managers do not see this button)
+
+After **Approve**, **Unapprove**, **Hide**, or **Unhide**, you get an **Undo** link for a few seconds. You can change up to 100 testimonials at once. Bulk delete is limited to 25 at a time and asks you to confirm first. Photos stay in your Media Library when a testimonial is deleted (see [Photos and the Media Library](#photos-and-the-media-library)).
 
 ---
 
 ## Adding a Testimonial Yourself
 
-If you have a quote from a customer (email, DM, in-person) that you want to add manually, use **Add Testimonial** in the top right.
+Use this when a customer told you something kind by email, text, or in person, or when you are moving quotes over from another site.
 
-**Photo:** Screenshot of the Add Testimonial dialog.
+1. Click **Add Testimonial** at the top right.
+2. Fill in **Customer Name** and **Testimonial Text**. These two are required.
+3. Optionally change **Testimonial Date** ("Backdate if importing"). It starts as today.
+4. Optionally upload up to 5 photos under **Photos (Optional, max 5)**.
+5. Optionally open **Additional details** and fill in any of: **Email (Optional)**, **Customer Title (Optional)**, **Customer Company (Optional)**, and **Headline / Title (Optional)**.
+6. Leave **Approve Immediately** on to publish it right away, or switch it off to save it as **Pending** for later.
+7. Click **Add Testimonial**. You see "Testimonial added."
 
-**Fields:**
+![The Add Testimonial dialog with a name, text, and the Additional details section filled in](/images/testimonials/testimonials-add-dialog.png)
 
-| Field               | Required | Notes                                           |
-| ------------------- | -------- | ----------------------------------------------- |
-| Customer Name       | Yes      | Displayed publicly on the storefront            |
-| Email               | No       | For your reference only; not shown to customers |
-| Testimonial         | Yes      | The quote text                                  |
-| Photos              | No       | Upload up to 5 images (optional)                |
-| Publish Immediately | —        | Toggle on or off; defaults to published         |
+| Field | Required | Notes |
+| --- | --- | --- |
+| **Customer Name** | Yes | Shown publicly. Up to 200 characters |
+| **Testimonial Date** | No | Sets the date shown and the order on your site |
+| **Testimonial Text** | Yes | The quote. Up to 5,000 characters |
+| **Photos** | No | Up to 5 images |
+| **Email** | No | For your records. Never shown on your storefront |
+| **Customer Title** | No | A short line shown under the name, such as "Owner, Maple Street Bakery" |
+| **Company** | No | For your records. Search finds it, and the admin table shows it |
+| **Headline / Title** | No | A short bold line over the quote in your admin |
+| **Approve Immediately** | — | On by default |
 
-Owner-added testimonials go live immediately when published. You can edit or hide them at any time.
-
-> You can only edit testimonials that you created. Customer-submitted testimonials cannot be edited.
-
----
-
-## Inviting Customers to Submit
-
-Sending an invite delivers a one-time personalized link to a customer's inbox. They click it, write their testimonial, and it goes live automatically — no account required.
-
-Click **Send Invite** in the top right.
-
-**Photo:** Screenshot of the Send Invite dialog.
-
-**Fields:**
-
-| Field           | Notes                                                                                                       |
-| --------------- | ----------------------------------------------------------------------------------------------------------- |
-| Select Customer | Optional. Pick from your existing customers to pre-fill the email field.                                    |
-| Email           | Required. The invite is sent here. If this email isn't in your customer list, one is created automatically. |
-| Max Photos      | Set how many photos this customer can add (0–5). Defaults to 3.                                             |
-
-Invite links expire after **30 days** and can only be used **once**. Once submitted, the code is marked as used and cannot be reused.
+You can edit a testimonial you added at any time from its **⋮** menu. Customer-submitted testimonials can't be edited.
 
 ---
 
-## The Customer Submission Experience
+## Managing Images
 
-Customers can submit a testimonial in two ways:
+When a testimonial has photos, its **⋮** menu has **Manage images**. This opens a window called **Manage testimonial images** with a small preview of each photo, labelled **Image 1**, **Image 2**, and so on.
 
-### Via Invite Link
+1. Click the trash button next to any photo you no longer want.
+2. Click **Save**. You see "Images updated", and the change shows on your site.
 
-When a customer receives an invite, they click "Share Your Experience" in the email. The link opens a form on your storefront where they enter:
-
-- Their name
-- Their testimonial (10–1,000 characters)
-- Up to the number of photos you allowed when sending the invite
-- A captcha verification
-
-No account is needed. The testimonial goes live on your site immediately after they submit.
-
-### Without an Invite (Direct Submission)
-
-If you want customers to be able to submit without a personal invite, they can visit `/testimonials/submit` directly. This path requires them to be signed in to a customer account.
-
-- The testimonial uses the name on their account
-- They can include up to 5 photos
-- Captcha verification is required
-- Submission goes live immediately
-
-**One submission per customer:** A customer (identified by email) can only submit one testimonial per store. If they try to submit again, they'll see a message that they've already submitted.
+If you remove every photo, the window tells you there are none left. You can remove photos here, but you can't add new ones. To add a photo to a testimonial you wrote yourself, use **Edit** instead.
 
 ---
 
-## Managing Testimonials
+## Inviting a Customer to Write One
 
-Each testimonial has a dropdown menu (three-dot icon) with the following actions:
+An invite sends a customer a personal link by email. They click it, write their testimonial, and it lands in your list. They do not need an account.
 
-| Action         | Owner Added          | Customer Submitted   |
-| -------------- | -------------------- | -------------------- |
-| Edit           | Yes                  | No                   |
-| Manage Images  | Only if photos exist | Only if photos exist |
-| Publish / Hide | Yes                  | Yes                  |
-| Delete         | Yes                  | Yes                  |
+### Sending an Invite
 
-### Hiding vs. Deleting
+1. Click **Send Invite** at the top right of the Testimonials page.
+2. Optionally pick a customer from **Select Customer (Optional)**. This fills in their email. The list shows only your first page of customers, so for anyone else, type the email in yourself.
+3. Check or type the **Email Address**. It is required.
+4. Choose **Max photos (0–5)**: how many photos this customer can add. It starts at 3. Pick 0 if you do not want photos.
+5. Click **Send Invite**. You see "Testimonial invite sent!"
 
-- **Hide** — removes the testimonial from your storefront but keeps it in your admin. You can un-hide it later.
-- **Delete** — permanently removes the testimonial. This cannot be undone.
+![The Send Testimonial Invite dialog with a customer selected and Max photos set to 3](/images/testimonials/testimonials-send-invite-dialog.png)
 
-### Managing Images
+If the email is not in your customer list, the customer is added to your [Customers](/docs/customers) list when they submit their testimonial.
 
-If a testimonial has photos, you'll see a **Manage Images** option in the dropdown. This opens a dialog where you can remove individual photos from the testimonial. Changes apply to the live storefront when you save.
+You can have only one active invite per email address at a time. If you try again before the first one is used or expired, you see "An active invitation already exists for this email." Use **Resend** instead (see below).
 
-**Photo:** Screenshot of the Manage Images dialog showing photo thumbnails with remove buttons.
+### What the Customer Gets
+
+The customer receives an email from your business name (replies go to your owner email) with the subject **Share your experience with [your store name]**. It says "We'd love your feedback!", has a **Share Your Experience** button, and notes that "This link is valid for 30 days and can only be used once."
+
+The button opens a form on your site where they enter:
+
+- **Your Name**
+- Their testimonial (10 to 1,000 characters)
+- Photos, up to the number you allowed. The form says "This invite allows up to N photo(s)" if they add too many.
+- A quick automatic check that they are a real person (no puzzle to solve)
+
+After they send it, they see **Thank You!**. If **Auto-approve** is on, the message says it is "now live on the site". If it is off, it says it "will appear once it's approved."
+
+If the link has already been used or has expired, the customer sees **Invalid Invite** and "This testimonial invite link is invalid or has expired." Send them a new invite or use **Resend**.
+
+<Callout type="warn" title="If the email can't be sent">
+  Sometimes the invite is created but the email doesn't go out. You see "Invite created, but the email could not be sent." Open the **Invites** tab and click **Resend** to try again. There is no button to copy the link yourself.
+</Callout>
+
+### The Invites Tab
+
+The **Invites** tab lists every invite you have sent, newest first. You can search by name or email and filter by **Status**: **All invites**, **Completed**, **Pending**, or **Expired**.
+
+| Column | What it shows |
+| --- | --- |
+| **Recipient** | The customer's name (if known), their email, and "Up to N photos" |
+| **Status** | **Completed** (they submitted; the date it was used is shown), **Pending** (sent, not used, not expired), or **Expired** |
+| **Sent** | When you sent it |
+| **Expires** | When the link stops working |
+
+Each pending or expired invite has buttons at the right:
+
+- **Resend** sends the email again and **restarts the 30 days**. It works on pending and expired invites. You see "Invite resent."
+- **Cancel** is shown on pending invites. It asks "Cancel Invite?" and explains "This will expire the invite immediately. The recipient will no longer be able to use their link." Confirm with **Cancel invite**, or choose **Keep invite** to leave it alone.
+
+A cancelled invite shows as **Expired**, so you can **Resend** it later if you change your mind. A completed invite has no buttons. Each invite link works once, so to ask the same customer again after they have submitted, send a new invite.
+
+If you have not sent any yet, the tab says "No invites sent yet" with a **Send Invite** button.
+
+![The Invites tab showing a Pending, a Completed, and an Expired invite](/images/testimonials/testimonials-invites-tab.png)
+
+---
+
+## Customers Who Write One Without an Invite
+
+Customers do not need an invite. The Default template links to a form at `/testimonials/submit`, from the **Write a review** button on your testimonials page.
+
+- The customer must be **signed in** to a customer account. If they are not, they are sent to sign in first.
+- The testimonial uses the **name on their account** and they can add up to 5 photos.
+- They write 10 to 1,000 characters.
+- Each customer can submit **one** testimonial per store. If they try again they see "Already Submitted."
+
+The form's button reads **Submit Testimonial**, and the small note under it always says: "Your testimonial will be reviewed before it appears on the site." This note shows even when you have **Auto-approve** turned on, so it can look odd to customers. After they submit, the thank-you message is accurate: it says "now live on the site" with Auto-approve on, or "will appear once it's approved" when it is off.
+
+![The Share Your Experience form on a phone, signed in](/images/testimonials/testimonials-submit-form.png)
 
 ---
 
-## Invite Tracking
+## What Customers See
 
-The **Invites** tab shows all invites you've sent, each with a status:
+What follows is the **Default** template. Other templates lay testimonials out in their own way, for example a small rotating selection of up to three, but they all show the same published testimonials.
 
-| Status    | Meaning                                               |
-| --------- | ----------------------------------------------------- |
-| Pending   | Sent and not yet used; still within the 30-day window |
-| Completed | The customer submitted a testimonial using this link  |
-| Expired   | 30 days passed without the customer submitting        |
+### On the Homepage
 
-Each invite card shows the email address, send date, expiry date, max photos allowed, and (if completed) the date it was used.
+The Default homepage shows **one** testimonial: the **latest published** one, by testimonial date. It appears as a large centered quote with the customer's name underneath, followed by a link to the full page.
 
-Expired invites are not automatically removed. If you want to give a customer another chance, you can send them a fresh invite.
+If no testimonial is published, the section does not appear on the homepage at all. Photos are not shown here.
 
-**Photo:** Screenshot of the Invites tab showing pending, completed, and expired invite cards.
+![The homepage Testimonial section with a large quote, the customer name, and the Read all reviews link](/images/testimonials/testimonials-homepage-section.png)
+
+You can adjust this section in the [Site Editor](/docs/site-editor) under **Homepage → Testimonial**:
+
+- Show or hide the whole section.
+- **Link text** (starts as "Read all reviews"). Leave it blank to hide the link.
+- **Link** (starts as `/testimonials`).
+
+Because the newest date wins, the quote on your homepage changes whenever you publish a testimonial with a newer date. If you want a specific testimonial there, give it the latest **Testimonial Date**, or hide the ones above it.
+
+### On the Testimonials Page
+
+The `/testimonials` page lists every published testimonial, newest first, in a grid. It has:
+
+- A heading area with a small label ("From customers"), the heading "What people say.", and an intro line ("Real reviews from real orders.").
+- A summary bar showing how many reviews there are.
+- A card for each testimonial: five stars, the quote, small photo thumbnails, the customer's name and title, and the month and year.
+- A banner at the bottom with the label "Recent purchase?", the heading "Tell us how it went.", a line of text, and a **Write a review** button that opens the form at `/testimonials/submit`.
+
+If there are none, visitors see "No reviews yet — check back soon!"
+
+![The testimonials page with the heading area, summary bar, grid of testimonial cards, and the Write a review banner](/images/testimonials/testimonials-page-desktop.png)
+
+All of the words in the heading area, the empty message, and the banner can be changed in the Site Editor. Open the **Testimonials** page and edit **Testimonials** and **Share your experience**. Leave the banner's **Body text** or **Write a review button** blank to hide that piece. If you hide the button, customers can no longer reach the form from this page, except through an invite.
+
+<Callout type="info" title="A few things you can't change on this page">
+  Every card shows five stars and the summary reads "reviews from verified buyers". These are part of the design, and they are shown on owner-added testimonials too. Photos are small thumbnails and can't be opened larger. The customer's email, company, and headline are never shown to visitors.
+</Callout>
+
+### The Name "Reviews"
+
+The Default template labels its menu link to this page **Reviews**, in the header and the footer. The page it leads to is your testimonials page, not your [Product Reviews](/docs/reviews). Keep that in mind if you also turn on product reviews so visitors do not confuse the two. You can rename or move the link in your menu (see [Navigation](/docs/navigation)).
 
 ---
 
-## Storefront Display
+## Photos and the Media Library
 
-Published testimonials appear in two places:
-
-- **`/testimonials`** — the full testimonials page, styled by your template
-- **Homepage** — a random selection of published testimonials is shown in your homepage's testimonials section (exact layout depends on your template)
-
-Testimonials are sorted by date on the `/testimonials` page, newest first.
+Photos that customers or you upload with a testimonial are saved in your [Media Library](/docs/media-library). They show up there when you pick the **Testimonials** filter. Deleting a testimonial does not delete its photos from the Media Library, so you can remove them there if you want to free space.
 
 ---
 
-## Cannot
+## Tips
 
-- Edit customer-submitted testimonials (text, name, or date are locked after submission)
-- Let a customer update or delete their own testimonial after submitting
-- Reuse an invite code after it's been submitted — send a new invite instead
-- Approve or moderate testimonials before they go live — both owner-added and customer-submitted testimonials publish immediately (you can hide them after the fact)
-- Bulk-hide or bulk-delete testimonials (visibility and deletion are per-testimonial)
-- Set a photo allowance higher than 5 on any invite
+- **Check for pending ones.** You are not emailed when a customer submits a testimonial, so look for the red number on the **Testimonials** tab from time to time. If you would rather not check, turn **Auto-approve** on, and use **Hide** to remove any you do not want.
+- **Ask right after a good moment.** An invite sent a day or two after a delivery, a class, or a job well done gets the best responses.
+- **Allow a photo or two.** A photo of the finished product or the happy customer makes a quote feel more real. Set **Max photos** to 0 if you just want words.
+- **Backdate carefully.** The testimonial date decides which quote is "latest" on your homepage and where it sits on your testimonials page.
+- **Hide instead of deleting.** **Hide** keeps the quote in your admin so you can bring it back. **Delete** is permanent.
 
 ---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Testimonials** | On | Settings → Features (Marketing section) | Nothing |
+| **Auto-approve testimonials** | Off | The card at the top of **Marketing → Testimonials** | Testimonials turned on |
+
+Turning **Testimonials** off hides the admin page, the `/testimonials` page, the homepage testimonial, and the **Reviews** menu link on the Default template. Your saved testimonials and invites are kept. Invite links that were already sent stop working while the feature is off. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Add testimonials yourself, with a date, photos, and optional details
+- Invite customers by email with a personal link that works once and lasts 30 days
+- Choose how many photos (0 to 5) each invited customer can add
+- Resend or cancel invites
+- Approve testimonials before they go live, or turn on Auto-approve
+- Approve, unapprove, hide, unhide, and delete in bulk (bulk delete is Owner only)
+- Remove individual photos from any testimonial
+- Show, hide, and reword the testimonial sections on the Default homepage and testimonials page
+
+**You cannot:**
+
+- Edit the words of a testimonial a customer wrote
+- Add photos to a customer's testimonial
+- Choose which testimonials appear on your homepage (the latest published one is used)
+- Be emailed when a new testimonial arrives
+- Copy an invite link to send yourself
+- Let a customer edit or delete their own testimonial
+- Let one customer submit more than one testimonial
+- Change the five stars or the "verified buyers" line on the Default testimonials page

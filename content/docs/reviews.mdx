@@ -1,165 +1,342 @@
 ---
 title: Product Reviews
-description: Let customers leave star ratings and written feedback on your products.
+description: Let customers rate and review your products, and add reviews of your own, with every customer review held for your approval first.
 ---
 
 ## Overview
 
-Product Reviews let customers leave star ratings and written feedback on your products. You moderate every customer submission before it goes live, and you can also add reviews yourself — useful for seeding a new store or adding quotes from customers who reached out directly.
+Product Reviews lets customers leave a star rating and a written review on any product page. Reviews from customers always wait for you: nothing a shopper writes goes live until you approve it. You can also add reviews yourself, which is handy for bringing over reviews from another website or for adding kind words a customer sent you by email.
 
-> **Feature flag:** Product Reviews is off by default and **not owner-toggleable**. It must be enabled by the platform team. Once enabled, it requires both **Products** and **Customer Accounts** to be active. To request activation, contact support.
+Typical uses:
 
----
+- Build trust on product pages with real feedback and an average star rating
+- Move your existing reviews over when you switch to SimplePress
+- Keep control of what appears on your store by approving, hiding, or deleting reviews
 
-## Admin Overview
+<Callout type="info" title="Product Reviews is off by default">
+Turn it on yourself under **Settings → Features** (it is in the **Marketing** group). It needs **Products** and **Customer Accounts** to be on first. If either is off, the switch shows a **Requires** badge until you turn that one on. See [Feature Flags](/docs/feature-flags).
+</Callout>
 
-Go to **Reviews** in the admin sidebar once the feature is enabled.
-
-**Photo:** Screenshot of the Reviews admin page showing the four tabs (Pending, Published, Hidden, All) and the source filter.
-
-The page is organized into four tabs:
-
-| Tab           | What it shows                                                            |
-| ------------- | ------------------------------------------------------------------------ |
-| **Pending**   | Customer-submitted reviews waiting for your approval (badge shows count) |
-| **Published** | Approved reviews visible on your storefront                              |
-| **Hidden**    | Reviews you've hidden — kept in the system but not displayed publicly    |
-| **All**       | Every review regardless of status                                        |
-
-Each tab can be filtered further by **source**: All / Customer / Owner Added.
-
-### What Each Review Card Shows
-
-- Star rating (1–5)
-- Source badge — **Customer** or **Owner Added**
-- **Verified Purchase** badge — shown when the reviewer's order is confirmed
-- Status badge — Pending / Published / Hidden
-- Product name
-- Review headline (if provided)
-- Review text (clamped to 3 lines)
-- Thumbnail images (if any)
-- Reviewer name, email, and title
-- Date — formatted date for owner-added reviews; relative time for customer reviews
+<Callout type="info" title="Who can use it">
+Owners and Managers can open **Reviews** and moderate reviews. Staff can't open it. See [Team and Roles](/docs/team-and-roles). Deleting several reviews at once is for Owners only (see [Deleting Reviews](#deleting-reviews)).
+</Callout>
 
 ---
 
-## Approving Customer Reviews
+## Where to Find It
 
-Customer-submitted reviews are **not published automatically**. They land in the **Pending** tab and stay there until you take action.
+Once the feature is on, go to **Marketing → Reviews** in the admin sidebar. If a customer has sent a review that is waiting for you, a number appears next to **Reviews** in the sidebar.
 
-To approve a review, open its dropdown menu (three-dot icon) and click **Approve**. The review immediately appears on your storefront and its rating is counted toward the product's average.
+The pending number counts every review that has not been approved, including a hidden review that was never approved. If the number looks higher than the **Pending** list you see, that is why.
 
-You can reverse this at any time — the same menu will show **Unapprove** once a review is published.
+If the feature is off, the page shows a note that Reviews is not enabled, with a button to **Settings → Features**.
 
-> All decisions are per-review. There is no bulk approve option.
+![The admin Reviews page with the Add Review button, search box, Filters button, and a table of reviews](/images/reviews/reviews-list.png)
+
+---
+
+## The Reviews List
+
+The list shows every review for every product in one table, newest first. There are no tabs. Use the filters above the table instead.
+
+| Control | What it does |
+| --- | --- |
+| **Search** | Finds reviews by reviewer name, email, headline, review text, reviewer title, or product name |
+| **Status** | **All reviews**, **Pending**, **Published**, or **Hidden** |
+| **Source** | **All sources**, **Customer submitted**, or **Owner added** |
+| **Sort** | **Newest first**, **Oldest first**, **Rating: high to low**, **Rating: low to high**, or **Most helpful** |
+
+The table has these columns:
+
+| Column | What it shows |
+| --- | --- |
+| **Review** | The star rating, a **Verified** badge when it applies, the headline, the first lines of the text, up to three photo thumbnails, and how many people found it helpful |
+| **Reviewer** | Name, email, and reviewer title |
+| **Product** | The product reviewed (click it to open the product) |
+| **Source** | **Customer** or **Owner added** |
+| **Status** | **Pending**, **Published**, or **Hidden** |
+| **Date** | The review date |
+
+The list shows 25 reviews per page. On a phone, the Reviewer, Product, Source, Status, and Date details appear in a single line under each review.
+
+Click **Filters** to open the **Status**, **Source**, and **Sort** menus. A number on the button shows how many filters are on, and each active filter appears as a chip you can click to remove.
+
+To work through new customer reviews, set **Status** to **Pending**.
+
+![The Reviews list filtered to Pending, showing three customer reviews waiting for approval](/images/reviews/reviews-pending-filter.png)
+
+### Review Statuses
+
+| Status | Meaning |
+| --- | --- |
+| **Pending** | Waiting for you. Shoppers can't see it, and it does not count toward the product's average. This is where every customer review starts |
+| **Published** | Approved and showing on the product page. It counts toward the average rating and review count |
+| **Hidden** | Taken off your store but kept in your admin. It does not count toward the average |
+
+A review that is hidden always shows as **Hidden**, even if you approved it before.
+
+---
+
+## Approving, Hiding, and Managing Reviews
+
+### Approving a Customer Review
+
+1. Open **Reviews** and set **Status** to **Pending**.
+2. Read the review. Customer reviews can't be edited, so what you see is what the shopper wrote.
+3. Click the **⋮** menu at the end of the row and choose **Approve**.
+
+The review shows on the product page right away, and the product's average rating and review count update.
+
+To take an approved review back to waiting, open its **⋮** menu and choose **Unapprove**.
+
+![The row menu open on a pending review, showing Approve, Hide, and Delete](/images/reviews/reviews-row-menu.png)
+
+### The ⋮ Menu
+
+What you see depends on the review:
+
+| Action | When it shows |
+| --- | --- |
+| **Edit** | Owner-added reviews only |
+| **Approve** | Pending reviews |
+| **Unapprove** | Published reviews |
+| **Hide** or **Unhide** | Every review |
+| **Delete** | Every review |
+
+A hidden review shows neither **Approve** nor **Unapprove**. If you want to bring it back, choose **Unhide** first. It returns to **Published** if you had approved it, or to **Pending** if you had not.
+
+### Hiding Reviews
+
+**Hide** takes a review off your store but keeps it in your admin so you can bring it back with **Unhide**. A hidden review does not count toward the average rating or review count. Use this when you are not sure about a review and don't want to lose it.
+
+### Deleting Reviews
+
+1. Click **⋮** on the review and choose **Delete**.
+2. In the **Delete review?** box, confirm. The box tells you this removes the review for good, updates the product's rating, and can't be undone.
+
+Owners and Managers can delete one review at a time. Deleting is permanent, so if you only want it off your store, choose **Hide**.
+
+### Working on Several Reviews at Once
+
+Tick the box beside two or more reviews (or the box at the top of the table to select everything on the page). A bar appears with these actions:
+
+- **Approve**
+- **Unapprove**
+- **Hide**
+- **Unhide**
+- **Delete** (Owners only; Managers don't see this button)
+
+If your filters match more reviews than fit on one page, the bar offers to select all matching reviews. Approve, Unapprove, Hide, and Unhide work on up to 100 reviews at a time. **Delete** works on up to 25 at a time, and asks you to confirm first.
+
+After Approve, Unapprove, Hide, or Unhide, a message appears with an **Undo** button. Delete has no undo.
+
+![Three reviews ticked with the bulk action bar showing Approve, Unapprove, Hide, Unhide, and Delete](/images/reviews/reviews-bulk-bar.png)
 
 ---
 
 ## Adding a Review Yourself
 
-Use the **Add Review** button in the top right to add a review under any customer's name. This is useful for adding quotes from customers who emailed you directly, or for seeding initial reviews on a new product.
+Use **Add Review** (top right of the page) to add a review under any reviewer's name. It is meant for:
 
-**Photo:** Screenshot of the Add Review dialog.
+- Bringing over reviews from another site when you move to SimplePress
+- Adding feedback a customer sent by email or in person
+- Putting the first few reviews on a new product
 
-**Fields:**
+1. Click **Add Review**.
+2. Fill in **Reviewer Name**.
+3. Optionally set **Review Date**. Leave it as today, or backdate it when importing.
+4. Choose the **Product** the review is for.
+5. Click a star to set the **Rating**. It starts at 5.
+6. Type the **Review Text**.
+7. Optionally open **Additional details** to add the reviewer's **Email (Optional)**, **Reviewer Title (Optional)**, and **Review Headline (Optional)**.
+8. Switch **Verified Purchase** on if this person bought the product. Leave it off otherwise.
+9. Leave **Publish Immediately** on to show the review on your store right away, or switch it off to save it as **Pending**.
+10. Click **Add Review**.
 
-| Field               | Required | Notes                                                                  |
-| ------------------- | -------- | ---------------------------------------------------------------------- |
-| Product             | Yes      | Which product this review is for                                       |
-| Reviewer Name       | Yes      | Shown publicly on the storefront                                       |
-| Email               | No       | For your reference only; not shown to customers                        |
-| Reviewer Title      | No       | Displayed under the name, e.g. "Verified Buyer" or "Professional Chef" |
-| Review Date         | No       | Defaults to today; can be backdated                                    |
-| Rating              | Yes      | 1–5 stars                                                              |
-| Review Headline     | No       | Short title for the review                                             |
-| Review Text         | Yes      | The full review body                                                   |
-| Verified Purchase   | No       | Toggle on to show the Verified Purchase badge                          |
-| Publish Immediately | —        | Defaults to on; turn off to save as pending                            |
+| Field | Required | Notes |
+| --- | --- | --- |
+| **Reviewer Name** | Yes | Shown on the product page |
+| **Review Date** | Yes (filled in for you) | Today by default. Backdate it for imports |
+| **Product** | Yes | Chosen when you add the review. It can't be changed afterwards |
+| **Rating** | Yes | 1 to 5 stars |
+| **Review Text** | Yes | The review itself |
+| **Email (Optional)** | No | For your records only. Shoppers never see it |
+| **Reviewer Title (Optional)** | No | For example "Verified Buyer" or "Professional Chef". You see it in the list |
+| **Review Headline (Optional)** | No | A short title shown above the text |
+| **Verified Purchase** | No | Shows the **Verified Purchase** badge on your store |
+| **Publish Immediately** | No | On by default |
 
-Owner-added reviews default to published. You can edit or delete them at any time.
+You can't attach photos or video when you add a review.
 
----
+![The Add Review dialog with Additional details open](/images/reviews/reviews-add-dialog.png)
 
-## Managing Reviews
+<Callout type="info" title="Backdated reviews">
+Setting an older **Review Date** changes where the review sorts (under **Most Recent**, it takes its place by that date). The small line of text next to the reviewer's name on the product page, such as "about 1 hour ago", counts from when you added the review to SimplePress, not from the date you chose.
+</Callout>
 
-Each review has a dropdown menu with the following actions, depending on its source and status:
+### Editing an Owner-Added Review
 
-| Action              | Customer Review | Owner-Added Review |
-| ------------------- | --------------- | ------------------ |
-| Approve / Unapprove | Yes             | Yes                |
-| Hide / Unhide       | Yes             | Yes                |
-| Edit                | No              | Yes                |
-| Delete              | Yes             | Yes                |
+Open the **⋮** menu on a review you added and choose **Edit**. You can change everything except the product. When you save, the product's rating updates.
 
-### Hiding vs. Deleting
-
-- **Hide** — removes the review from public display but keeps it in your admin. The rating is excluded from your product's average while hidden. You can un-hide it later.
-- **Delete** — permanently removes the review and recalculates the product's rating. Cannot be undone.
-
-A confirmation dialog is shown before deletion.
-
-### Editing Owner-Added Reviews
-
-If you need to correct a review you added yourself, open its dropdown and click **Edit**. All fields can be changed except the product the review is linked to.
-
-Customer-submitted reviews cannot be edited — only approved, hidden, or deleted.
+Reviews written by customers can't be edited. You can only approve, hide, or delete them. This keeps customers' words their own.
 
 ---
 
-## The Customer Submission Experience
+## What Customers See
 
-Customers can submit a review from any product page by clicking **Write a Review**. They must be **signed in** to a customer account.
+These are the details for the Default template. Other templates lay reviews out their own way, but they follow the same rules: only approved reviews show, and shoppers write reviews through the same steps.
 
-**Photo:** Screenshot of the Write a Review dialog on a product page.
+### The Reviews Section
 
-**Fields customers fill out:**
+The reviews section sits near the bottom of each product page, under a small label and a heading.
 
-| Field        | Required | Limits                                  |
-| ------------ | -------- | --------------------------------------- |
-| Rating       | Yes      | 1–5 stars                               |
-| Review Title | Yes      | Max 200 characters                      |
-| Review Text  | Yes      | Min 10 characters, max 2,000 characters |
-| Photos       | No       | Up to 5 images                          |
-| Video URL    | No       | Optional link                           |
+**With no reviews yet**, shoppers see **No reviews yet** and "Be the first to share your thoughts on this product", with a **Write a Review** button.
 
-If the customer has a confirmed order for the product, a **Verified Purchase** badge is automatically added to their review.
+**With reviews**, the section shows:
 
-After submitting, the customer sees a success message. The review goes into your **Pending** tab — it is not published until you approve it.
+- **Average rating.** A large number such as 4.6, the stars, and "Based on 12 reviews"
+- **Breakdown bars.** One bar each for 5, 4, 3, 2, and 1 stars, with a count. Shoppers can click a row to show only reviews with that rating, then click **Clear Filter** to see them all again
+- **Sort menu.** **Most Recent**, **Most Helpful**, **Highest Rating**, or **Lowest Rating**
+- **Write a Review** button
+- **The reviews.** Ten at first, then a **Load more reviews** button that shows how many are left and adds ten more each time
 
-**One review per product:** A customer (identified by email) can only submit one review per product. Trying to submit a second time shows an error.
+Each review shows the stars, a **Verified Purchase** badge when it applies, the headline, the review text, the reviewer's name, how long ago it was added, and **Helpful?** thumbs-up and thumbs-down buttons with counts.
 
----
+![The reviews section of a product page with the average rating, breakdown bars, sort menu, Write a Review button, and the first reviews](/images/reviews/reviews-product-page.png)
 
-## Helpful Voting
+### Helpful Votes
 
-Each published review shows **thumbs-up / thumbs-down** voting buttons. Customers can vote once per review. Votes adjust the helpful and not-helpful counts shown on each review.
+Shoppers can mark a review as helpful or not helpful. They don't need to be signed in. Each person gets one vote per review, and they can change their vote. The counts feed the **Most Helpful** sort on the product page and in your admin list. Votes never hide or remove a review.
 
-Logged-in customers vote by user account. Visitors vote by IP address (one vote per IP per review).
+### Where Ratings Show
 
-Votes don't affect whether a review is shown or hidden — they're purely informational, helping other customers find the most useful feedback.
+Star ratings and the review count show in the reviews section of the product page. They do not show on product cards in the shop grid or in related products. Your ratings are also passed to search engines, which may show stars next to your products in search results. Search engines decide whether they do.
 
----
+### On a Phone
 
-## How Ratings Appear on Your Storefront
+On a phone, the average rating and the breakdown bars stack above the sort menu and the reviews.
 
-When reviews are approved, two product-level stats are automatically updated:
-
-- **Average Rating** — the mean of all approved, visible ratings (shown to one decimal place)
-- **Review Count** — the total number of approved, visible reviews
-
-These stats are displayed on product cards and product pages across all templates — star badges, rating numbers, and review counts all draw from these values.
-
-> The storefront display of the full review list (individual review cards, sort controls, rating breakdown bars) varies by template. If your template doesn't show the full review list on product pages, reach out to support and we can enable it for your template.
+![The reviews section of a product page on a phone](/images/reviews/reviews-phone.png)
 
 ---
 
-## Cannot
+## How Customers Write a Review
 
-- Edit customer-submitted reviews (text, name, title, or date are locked after submission)
-- Respond to reviews — there is no reply system
-- Publish customer reviews without approving them first
-- Approve or moderate reviews in bulk
-- Allow customers to update or delete their own reviews after submitting
-- Toggle the feature on or off yourself (contact support to enable or disable)
+1. On a product page, a shopper clicks **Write a Review**.
+2. If they are not signed in, a **Sign in to write a review** box appears with **Cancel** and **Sign in** buttons. After signing in they come back to the product. They need a customer account, which is why Customer Accounts must be on (see [Customers](/docs/customers)).
+3. A signed-in shopper sees the **Write a Review** form and fills it in.
+4. They click **Submit Review**. A message says: "Thanks! Your review was submitted and will appear once approved."
+
+![The Sign in to write a review box](/images/reviews/reviews-sign-in-prompt.png)
+
+| Field | Required | Limits |
+| --- | --- | --- |
+| **Overall Rating** | Yes | 1 to 5 stars. Starts at 5 |
+| **Review Title** | Yes | Up to 200 characters |
+| **Your Review** | Yes | At least 10 and up to 2,000 characters |
+
+The form also tells shoppers "Reviews are checked by the store before they appear publicly." The shopper's name comes from their account. They can't type a different one.
+
+Shoppers can't attach photos or video to a review, and neither can you when you add one. Reviews show text and a rating only.
+
+![The Write a Review form with a title and review filled in](/images/reviews/reviews-write-dialog.png)
+
+### Verified Purchase
+
+When a shopper's review goes in, SimplePress checks whether any order with that product was placed with the same email address as their account. If so, the review gets the **Verified Purchase** badge, and the form shows a green "Verified Purchase" line. Any order counts, whatever its status, so a cancelled or unpaid order still earns the badge.
+
+### One Review Per Product
+
+Each customer (by email address) can review a product once. If they try again, the box says "You have already reviewed this product." Shoppers can't edit or delete their review after sending it. If one asks you to remove theirs, you can delete it from your admin.
 
 ---
+
+## Emails
+
+You get one email for each review a customer submits.
+
+| Email | Sent to | When | Subject |
+| --- | --- | --- | --- |
+| New review | The store owner's email address | A customer submits a review | New review for [product name] |
+
+It says who reviewed which product, shows the star rating, the headline, and the start of the review, and tells you the review is pending approval and won't show until you approve it. A **Review submission** button opens your Reviews page.
+
+The email goes to the store owner's address only, not to Managers. Reviews you add yourself don't send an email. Customers do not get an email when you approve their review.
+
+---
+
+## Changing the Reviews Wording
+
+On the Default template, two pieces of text around the reviews section are editable in the [Site Editor](/docs/site-editor). Open the **Product** page and find the **Product page** group:
+
+| Field | Default | What it controls |
+| --- | --- | --- |
+| **Reviews label** | Reviews | Small text above the heading. Leave it blank to hide it |
+| **Reviews heading** | What customers are saying | The heading above the reviews. Leave it blank to hide it |
+
+These apply to every product page. The wording inside the section itself (such as **Write a Review** and **Load more reviews**) can't be changed.
+
+---
+
+## Templates Without a Review Section
+
+Most templates show reviews on their product pages, each in its own style. A few templates have no reviews section on the product page: **Animated Bamboo**, **Dark Trend**, and **Sledge**. On those, the Reviews page in your admin still works, but customers can't see or write reviews until you switch to a template that has the section. Templates that have no shop pages don't show reviews either.
+
+If you are not sure about yours, open a product page on your live store after you turn Reviews on. If you want reviews and your template doesn't have them, contact [help@generativejustice.org](mailto:help@generativejustice.org).
+
+---
+
+## Reviews vs. Testimonials
+
+They are two different features:
+
+- **Reviews** are about one product. They appear on that product's page, carry a star rating, and feed the product's average. They only exist when [Products](/docs/products) is on.
+- **Testimonials** are about your business as a whole. They appear on your homepage and a Testimonials page, with no star rating and no product. See [Testimonials](/docs/testimonials).
+
+You can use either one or both.
+
+---
+
+## Tips
+
+- **Check Pending now and then.** Customer reviews don't show until you approve them, and the sidebar number is your reminder.
+- **Seed new products.** If you have real quotes from happy customers, add them with **Add Review** so a new product doesn't open with "No reviews yet".
+- **Use Hide when unsure.** It is easy to undo. Delete is permanent.
+- **Be honest with Verified Purchase.** Only switch it on for people who really bought the product.
+- **Importing many reviews?** Add them with a backdated **Review Date** so they sort in a sensible order under **Most Recent**.
+
+---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Product Reviews** | Off | **Settings → Features** (Marketing) | **Products** and **Customer Accounts** |
+
+Owners and Managers can switch it on or off. Turning it off hides the reviews section from your product pages and closes the Reviews page, but your reviews are kept for when you turn it back on. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Turn Product Reviews on or off yourself
+- Approve, unapprove, hide, unhide, and delete reviews, one at a time or in bulk
+- Find reviews by search, status, source, and sort order
+- Add reviews yourself, with a backdated date, a reviewer title, and the Verified Purchase badge
+- Edit the reviews you added
+- Choose whether an owner-added review is published or pending
+- Change the Reviews label and heading on the Default product page
+
+**You cannot:**
+
+- Edit a review a customer wrote
+- Reply to reviews
+- Add photos or video to a review, or let shoppers attach them
+- Let customers edit or delete their own review
+- Let a customer review the same product twice
+- Show star ratings on product cards in the shop
+- Delete more than 25 reviews at once, or delete in bulk as a Manager
+- Get emailed when you add a review yourself, or have customers emailed when you approve theirs
+- Show reviews on templates that have no reviews section

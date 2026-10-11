@@ -1,0 +1,403 @@
+---
+title: SEO & Search Readiness
+description: Control how your store looks in Google, Bing, and shared links, see a score of what's left to do, and learn what SimplePress handles for you automatically.
+---
+
+## Overview
+
+SEO (search engine optimization) is about helping people find your store when they search, and making your links look good when they're shared. SimplePress does most of the technical work for you. What it can't do is write your wording, so this page shows you where to add it and how to check your progress.
+
+You'll mainly use three places:
+
+- **SEO & Meta** under **Site Setup**: your store's search title and description, the picture shown when your link is shared, wording for individual pages, proof that you own the store for Google and Bing, and your local presence. It also has a **Score** tab that lists what's done and what's left.
+- **The SEO tab** on each product, collection, page, blog post, and service: a title, description, web address, and share picture for that one item.
+- **Settings → Shipping**: delivery times and your return terms, which Google can show next to your products.
+
+Typical uses: writing a clear store description before launch, filling in product descriptions for search results, getting Google Search Console reports for your store, and telling search engines the area you serve.
+
+<Callout type="info" title="Always on, for Owners and Managers">
+  SEO & Meta has no switch. It's always available. Owners and Managers can use it; Staff can't open Site Setup or the product and page editors. See [Team and Roles](/docs/team-and-roles). The only switch is **Search readiness on dashboard**, which shows or hides the score strip on your Dashboard. See [Feature Flag](#feature-flag).
+</Callout>
+
+---
+
+## Where to Find It
+
+In your admin sidebar, open **Content → Site Setup**, then click the **SEO & Meta** card ("Meta tags, social media preview images"). The breadcrumb at the top reads **Site Setup › SEO & Meta**.
+
+The page has four tabs:
+
+| Tab | What it's for |
+|---|---|
+| **Score** | Your search readiness percentage and a checklist of what's done and what's left. The tab shows your percentage beside its name, for example **Score 72%**. |
+| **Your store** | Your store's default search title and description, and your share image. |
+| **Individual pages** | A title and description for one page at a time, such as About or Shop. |
+| **Search engines** | Proving you own the store for Google and Bing, your local presence, and the AI crawler switch. |
+
+The page always opens on **Score**. On a phone, the last three tabs are shortened to **Store**, **Pages**, and **Search**.
+
+### Saving
+
+One **Save changes** button at the top saves all three editing tabs at once. A badge beside the title shows **Unsaved Changes** or **Saved**, **Reset** throws away your unsaved edits, and **Back** returns you to Site Setup. When the save works, you'll see "SEO settings updated", and the score refreshes straight away. If you try to leave with unsaved changes, you'll be warned.
+
+If something on a tab you can't see has a problem, that tab shows a red dot and the page switches to it so you can fix it.
+
+---
+
+## The Score Tab
+
+The **Score** tab shows your **Search readiness** as a percentage with a progress bar. It's "the share of the SEO work that applies to your store that you have actually done."
+
+![The Score tab with the Search readiness percentage, progress bar, Next up line and collapsed groups](/images/seo/seo-score-tab.png)
+
+Under the bar:
+
+- **Next up:** names the unfinished check that counts the most. Click it to go straight to the fix.
+- When everything is finished, you'll see "Everything that applies to your store is done." instead.
+
+Below that are groups of checks. Each group starts collapsed and shows its own progress: a small bar and percentage, **Done** when the group is complete, or **Not applicable** when nothing in it applies to your store. Click a group to open it.
+
+Inside a group, each check shows a short note, such as "18 of 24 products" or "52 characters — aim for 70–160". A check that isn't finished has a **Fix →** button. If the fix is on this page, the button switches to the right tab. Otherwise it takes you to the admin page where the fix lives.
+
+![The Search listing group opened, with ticked checks and Fix buttons on unfinished ones](/images/seo/seo-score-group-open.png)
+
+### How the Score Works
+
+- Some checks count more than others. A missing store description costs more than a missing favicon.
+- Checks that count items, like "products with a meta description", earn partial credit. Describing 18 of 24 products counts for most of the points.
+- Title and description checks earn half credit when you've written something but it's too short or too long.
+- Checks that don't apply are left out instead of counted against you. If Blog is switched off, or you have no published services, those checks disappear.
+
+The score is worked out fresh every time you open the page, so it always matches your store today.
+
+### What Each Group Asks Of You
+
+**Foundation**
+
+| Check | What it asks | Where to fix it |
+|---|---|---|
+| **Custom domain is live** | Your own web address is connected and working, not just your temporary SimplePress address. | **Settings → Domain**. See [Domain Settings](/docs/domain). |
+| **AI answer engines can read your store** | The AI crawler switch is on. | **Search engines** tab |
+
+**Search listing**
+
+| Check | What it asks | Where to fix it |
+|---|---|---|
+| **Site meta title** | A store title of 30 to 60 characters. The count includes the " \| Name" added to the end. | **Your store** tab |
+| **Site meta description** | A store description of 70 to 160 characters. | **Your store** tab |
+| **Social share image** | A share image for your store. | **Your store** tab |
+| **Favicon** | A favicon, the small icon in browser tabs and search results. | **Site Setup → Brand & Appearance**. See [Brand & Appearance](/docs/storefront-and-branding#favicon). |
+| **Search Console ownership verified** | A Google verification code. Bing is optional and isn't scored. | **Search engines** tab |
+
+**Page titles & descriptions**
+
+| Check | What it asks | Where to fix it |
+|---|---|---|
+| **Pages with a custom title** | A title for each page on the **Individual pages** tab. | **Individual pages** tab |
+| **Pages with a custom description** | A description for each of those pages. | **Individual pages** tab |
+
+Only pages whose feature is on are counted. The Donate page can be edited on the Individual pages tab but isn't counted in the score.
+
+**Local presence**
+
+This group only applies when **Local presence** is set to **Service area** or **Storefront** on the Search engines tab. When it's set to **None**, the group shows **Not applicable** with a note that mentions "Search & AI settings"; that's the **Search engines** tab.
+
+| Check | What it asks | Where to fix it |
+|---|---|---|
+| **Street address** (Storefront) | Your street address with city, state, and ZIP. An address without city, state, and ZIP earns half credit. | **Settings → General**. See [General Settings](/docs/general-settings). |
+| **City & state** (Service area) | Your city and state. No street address is needed. | **Settings → General** |
+| **Phone number** | A business phone number. | **Settings → General** |
+| **Opening hours** | Your business hours. | **Settings → Business Hours** |
+| **Areas served** | At least one city or region in **Areas served**. | **Search engines** tab |
+
+**Answerability**
+
+These checks help AI assistants and search engines answer questions about your business.
+
+| Check | What it asks | Where to fix it |
+|---|---|---|
+| **Published FAQ answers** | At least 3 published questions in your FAQ. | **Site Setup → FAQ**. See [FAQ](/docs/faq). |
+| **Recently published writing** | A blog post published in the last 90 days. Older posts earn half credit. Only shown when Blog is on. | **Content → Blog**. See [Blog](/docs/blog). |
+
+**Catalog coverage**
+
+For each of **Products**, **Collections**, **Services**, and **Pages** that is switched on and has at least one published item, three checks count how many published items have:
+
+- **a meta title**
+- **a meta description** (this one counts double, because without it Google writes its own snippet)
+- **a shareable image**: the item's own share image, or its main photo or picture, which is used automatically
+
+Fix these on each item's **SEO** tab. See [The SEO Tab on Each Item](#the-seo-tab-on-each-item).
+
+**Image alt text**
+
+| Check | What it asks | Where to fix it |
+|---|---|---|
+| **Product images with alt text** | A short description on each product photo. | Each product. See [Products](/docs/products). |
+| **Gallery images with alt text** | A short description on each gallery photo. Only when Galleries is on. | **Galleries**. See [Galleries](/docs/galleries). |
+
+---
+
+## The Your Store Tab
+
+This is the one to fill in first. Your store's wording is used on every page that doesn't set its own.
+
+![The Your store tab with the default title and description fields, character counters and the Preview panel](/images/seo/seo-your-store-tab.png)
+
+### Your store's default wording
+
+- **Store title**: the title search engines show for your store. The counter goes out of 60 and suggests 50 to 60 characters. It counts the " | Name" that's added to the end, so you see the real length. Leave it blank to use your business name.
+- **Short name for page titles**: added to the end of every page title as "| Name". Shorten it if your business name is long. The counter suggests 15 to 30 characters, and an example below it shows what a page title will look like, such as "Shop | Bloom".
+- **Store description**: "the grey text under your link in search results." The counter goes out of 160 and suggests 150 to 160 characters.
+
+A page that has its own wording uses it instead of these. The two are never combined. To set wording for one page, click **Set it under Individual pages**.
+
+### Share image
+
+The **Image** is the picture that appears when someone pastes a link to your store into Facebook, LinkedIn, Slack, iMessage, or X. Without one, those apps show a plain grey box.
+
+- Use a picture 1200 × 630 pixels, the size everything crops to.
+- It's "Uploaded when you save, not when you choose it."
+- If the Media Library is on, you can also pick a picture you've already uploaded. See [Media Library](/docs/media-library).
+
+---
+
+## The Individual Pages Tab
+
+This tab is headed **Wording for one page at a time**. Anything you write here replaces your store defaults on that page only.
+
+It lists the built-in pages of your store that are switched on: **About**, **Contact**, and **FAQ** always, plus **Shop**, **Blog**, **Collections**, **Services**, **Testimonials**, **Events**, **Videos**, and **Donate** when their features are on. If none apply, you'll see "None of these pages are switched on for your store yet."
+
+![The Individual pages tab with the About row open and the other rows closed](/images/seo/seo-individual-pages-tab.png)
+
+Each row shows the page name, its address (such as `/shop`), and a badge:
+
+- **Inheriting store defaults**: nothing written yet
+- **Title only** or **Description only**: one of the two written
+- **Title + description**: both written
+
+Click a row to open it and fill in:
+
+- **Page title**: counts the " | Name" on the end, suggests 50 to 60 characters. Blank keeps the page's name.
+- **Page description**: suggests 150 to 160 characters. Blank uses your store description.
+
+The grey text in an empty box shows what the page uses today.
+
+Your own pages, products, collections, blog posts, and services aren't listed here. Each has its own SEO tab. See [The SEO Tab on Each Item](#the-seo-tab-on-each-item).
+
+---
+
+## The Preview Panel
+
+On the three editing tabs, a **Preview** panel sits beside the fields (below them on a phone) and updates as you type:
+
+- **In a Google result**: your address, title, and description as they might appear in search.
+- **Shared on social**: the card shown when your link is shared, with your share image.
+
+It says "Showing your store defaults." or, when you have a row open on the Individual pages tab, which page it's showing. If there's no description yet, it shows "No description yet — search engines will pick their own wording."
+
+The preview is an approximation. Search engines sometimes rewrite titles and descriptions when they think something else fits a search better.
+
+![The Preview panel with the Google result and Shared on social card](/images/seo/seo-preview-panel.png)
+
+---
+
+## The Search Engines Tab
+
+### Prove You Own This Store
+
+Google and Bing each give you a short code. Pasting it here proves the store is yours, which unlocks their free reporting tools: you can see which searches bring people to you and which pages they land on.
+
+It does not affect where you rank, and it isn't required for your store to appear in search. You do it once for each search engine.
+
+![The Search engines tab with the Prove you own this store card and the Google verification code field](/images/seo/seo-search-engines-verify.png)
+
+A notice at the top shows the exact address to verify, which is where your store is live today. A code only works for the address you verified. If you later switch to your own domain, you'll need to verify again. If your custom domain is still being set up, the notice says **Finish setting up your domain first.** You can verify your current address now, or wait until your domain is live so you only do it once.
+
+#### Google Search Console
+
+1. Open Google Search Console (the tab has a link) and sign in with a Google account.
+2. Click **Add property**, then choose the **URL prefix** option (not "Domain").
+3. Enter your store's address exactly as the notice shows it, starting with `https://`.
+4. On the verification screen, open **HTML tag**. Don't use "HTML file"; you can't upload files here.
+5. Copy what it shows you. You can copy the whole tag; SimplePress picks out the code.
+6. Paste it into **Google verification code** and click **Save changes** at the top of the page.
+7. Go back to Google and click **Verify**. Reports start filling in over the next few days.
+
+#### Bing Webmaster Tools (Optional)
+
+Bing powers Bing, Yahoo, and DuckDuckGo results. Most stores get much less traffic from it, so skip it if you only have time for one.
+
+1. Open Bing Webmaster Tools (the tab has a link) and add your store's address as a site.
+2. Choose **Add a meta tag to your homepage** and copy the code. The whole tag works too.
+3. Paste it into **Bing verification code**, save, then click **Verify** back on Bing.
+
+### What Crawlers May Do Here
+
+These settings change what search engines and AI assistants are told about your store.
+
+![The What crawlers may do here card with Storefront chosen, Areas served filled in and the AI crawler switch on](/images/seo/seo-search-engines-crawlers.png)
+
+**Local presence** has three choices:
+
+| Choice | Best for | What's shared |
+|---|---|---|
+| **None** | Online-only stores | No location. |
+| **Service area** | Based in a city but no public storefront | Your city and state, but not your street address. |
+| **Storefront** | Customers can visit you | Your full address, phone, and hours. |
+
+Your address and phone number come from **Settings → General**, and your hours from **Settings → Business Hours**.
+
+When you choose Service area or Storefront, an **Areas served** box appears. List the cities or regions you serve, separated by commas, such as "Detroit, Ferndale, Royal Oak". Map results come mainly from your Google Business Profile; this backs it up.
+
+**Allow AI answer engines to crawl this store** is on by default. It controls whether AI assistants such as ChatGPT, Claude, Perplexity, Gemini, Meta AI, and Apple may read your store when answering questions. Turning it off asks them to stay away. Google's AI Overviews use the regular Google crawler, so they aren't affected either way. Most stores do best leaving it on, because it's how you get mentioned in AI answers.
+
+---
+
+## The SEO Tab on Each Item
+
+Products, collections, custom pages, blog posts, and services each have an **SEO** tab in their editor. It works the same way on all of them.
+
+![A product SEO tab with Meta Tags, Open Graph Image and the two preview cards](/images/seo/product-seo-tab.png)
+
+- **Meta Tags**:
+  - **URL Slug**: the end of the item's web address, such as `/shop/classic-white-t-shirt`.
+  - **Meta Title**: counts up to 60 characters, including " | Name". Leave it blank to use the item's name.
+  - **Meta Description**: counts up to 160 characters. Leave it blank to use the item's description.
+- **Open Graph Image**: the picture used when this item is shared. Products, collections, services, and pages use their main photo or picture if you leave this empty, so you only need it for a different crop, such as a 1200×630 share card.
+- **Search Result Preview** and **Social Media Preview**: how the item might look in Google and when shared.
+
+For each kind of item, see [Products](/docs/products#the-seo-tab), [Collections](/docs/collections#seo), [Pages](/docs/pages-and-policies#seo-tab), [Blog](/docs/blog), and [Services](/docs/services#url-and-seo).
+
+### Changing a Web Address
+
+If you change the **URL Slug** of something already saved, a warning appears: **Heads up — this will change the [item]'s URL.** It shows the old and new address.
+
+Take it seriously. Anyone with the old link, including bookmarks, search results, and saved wishlists, will get a "page not found" error. SimplePress doesn't send the old address to the new one. For pages and blog posts, menu links that point to the old address also keep pointing there, so update them under **Site Setup → Navigation**.
+
+![The URL Slug edited, with the amber Heads up warning showing the old and new addresses](/images/seo/product-slug-warning.png)
+
+If you rename an item that's already live, a similar note on the main tab says the name changed but the URL hasn't, with an **Update URL** button. You can leave the address as it is; that's usually the safer choice.
+
+---
+
+## Search Readiness on Your Dashboard
+
+Your [Dashboard](/docs/dashboard#search-readiness) can show a compact **Search readiness** strip with your percentage and a **Next:** hint.
+
+![The Dashboard Search readiness strip with Hide and Improve search results buttons](/images/seo/dashboard-search-readiness.png)
+
+- **Improve search results** opens SEO & Meta.
+- **Hide** turns off the **Search readiness on dashboard** switch for your whole store, so it disappears for everyone on your team. You'll see "Search readiness hidden. Turn it back on under Settings → Features."
+- The strip disappears by itself once you reach 100%.
+
+Hiding the strip doesn't change your score. The full report is always on the Score tab.
+
+---
+
+## Google Shipping and Returns Details
+
+Google can show delivery times and your return terms next to your products in search results. You set these under **Settings → Shipping**, in two cards below your shipping methods. They save with the page's **Save** button, whatever shipping method you use.
+
+![The Delivery times and Returns cards on the Shipping settings page with Accept returns chosen](/images/seo/shipping-delivery-returns.png)
+
+**Delivery times**, in business days. Leave a row blank to skip it.
+
+- **Handling time**: how long you take to pack an order (**Min (days)** and **Max (days)**).
+- **Transit time**: how long the carrier takes once it ships (**Min (days)** and **Max (days)**).
+
+**Returns**. Keep these in line with your Returns & Refunds policy (see [Pages and Policies](/docs/pages-and-policies#policies)).
+
+- **Return policy**:
+  - **Not set**: your return policy isn't shown in Google results.
+  - **No returns**: all sales are final.
+  - **Accept returns**: shows the fields below.
+- **Return window (days)**: how many days after delivery customers can send an item back.
+- **Who pays return shipping**: **Free returns**, **Customer pays**, or **Flat return fee**. A flat fee asks for **Return fee (USD)**, charged for each return.
+- **How customers return items**: **By mail**, **In store**, or **Either**.
+
+These details are added to your product pages for Google to read. Google decides whether and when to show them.
+
+---
+
+## What SimplePress Does Automatically
+
+You don't need to set any of this up:
+
+- **A sitemap.** Search engines get a list of your store's pages. It only includes sections that are switched on, and sections like FAQ, services, events, and videos only once they have something in them.
+- **Keeps private pages out of search.** Your admin, cart, checkout, customer account, order, and wishlist pages are marked as not for search engines.
+- **Tells search engines about changes.** When you publish or update something, Bing and other search engines that support it are told automatically, so they can come back sooner. Google finds changes through your sitemap.
+- **Describes your store in a way search engines understand.** Products include their price, stock, and star ratings, along with your shipping and return details. Your business details, page paths, FAQs, services, events, videos, and blog posts are described too. This is what lets Google show extras like prices and star ratings.
+- **Uses your own domain as your main address.** Once your custom domain is live, search engines are told it's the main address for every page, so your temporary SimplePress address doesn't compete with it.
+- **Labels later pages of lists.** Page 2 and beyond of your shop and blog get their own titles, such as "Shop – Page 2", so they don't look like copies.
+- **Follows the AI crawler switch** on the Search engines tab.
+
+---
+
+## Tips
+
+- **Start with the Your store tab.** A clear store title and description help every page that doesn't have its own.
+- **Write descriptions for real people.** A plain sentence about what you sell and who it's for works better than a list of keywords.
+- **Connect your own domain before verifying.** A code only works for the address you verified, so verifying after your domain is live means you only do it once.
+- **Add alt text when you upload photos.** It's quicker than coming back to dozens of products later.
+- **Publish a few FAQs.** Three good questions and answers help AI assistants describe your store correctly.
+- **Leave web addresses alone once they're live.** Changing a slug breaks old links.
+- **Be patient.** Search engines can take days or weeks to notice changes. The score shows what you've done, not where you rank.
+
+---
+
+## Feature Flag
+
+SEO & Meta itself has no switch. The dashboard strip has one:
+
+| Feature | Default | Where to toggle | Requires |
+|---|---|---|---|
+| **Search readiness on dashboard** | On | Settings → Features | Nothing |
+
+It's in the **Marketing** section of **Settings → Features**, and Owners and Managers can turn it on or off. Turning it off only hides the Dashboard strip. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Set your store's search title, short name for page titles, description, and share image
+- Give each built-in page, such as About or Shop, its own title and description
+- Give each product, collection, page, blog post, and service its own web address, title, description, and share image
+- Preview how your store looks in Google and when shared, before you save
+- Verify your store with Google Search Console and Bing Webmaster Tools
+- Tell search engines whether you're online only, serve an area, or have a storefront, and which areas you serve
+- Allow or block AI assistants from reading your store
+- Share delivery times and return terms with Google
+- Track your progress with the search readiness score, on the Score tab or your Dashboard
+
+**You cannot:**
+
+- Add keywords. There's no keywords field, because search engines no longer use one.
+- Connect to Google Merchant Center or send a product feed. Your product details are only on your pages, for Google to read.
+- Set up redirects. When you change a web address, the old one stops working.
+- Choose your ranking or pay for placement through SimplePress
+- Edit your sitemap or your list of pages hidden from search
+- Verify ownership by uploading a file. Use the HTML tag or meta tag option.
+
+---
+
+## Frequently Asked Questions
+
+**Why is my score low when my store looks finished?**
+The score counts wording search engines read but visitors don't always see, like meta descriptions and photo alt text. Open each group on the Score tab and use the **Fix →** buttons.
+
+**Does verifying with Google improve my ranking?**
+No. It only lets you see Google's reports about your store.
+
+**I set a store title. Why does Google show something different?**
+Google sometimes rewrites titles and descriptions to match a search better. It can also take a while for Google to notice changes.
+
+**Should I turn off AI crawlers?**
+Most stores shouldn't. Leaving the switch on is how AI assistants learn about you and mention you in answers. Turn it off only if you don't want them reading your store.
+
+**I changed my domain. Do I need to do anything?**
+Verify the new address with Google (and Bing, if you use it), because a code only works for the address you verified. Everything else updates automatically.
+
+Need help? Email [help@generativejustice.org](mailto:help@generativejustice.org).

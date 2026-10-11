@@ -1,125 +1,289 @@
 ---
 title: Discounts & Coupons
-description: Offer promotions at checkout with discount codes and storefront banners.
+description: Create discount codes that take a percentage or dollar amount off an order, or waive shipping, and see how shoppers use them at checkout.
 ---
 
 ## Overview
 
-Discount codes let you offer promotions at checkout — a percentage off, a fixed dollar amount, or a seasonal deal tied to an optional storefront banner. Customers enter the code in their cart before paying and the discount is applied to the order total.
+Discount codes let you run promotions without changing your prices. You make a short code such as `WELCOME10`, share it with your customers, and they type it in at checkout to get money off or free shipping.
 
-> **Feature note:** The Coupons feature is **off by default** and must be enabled by a platform administrator before it appears in your admin. Once enabled, the Discounts section becomes available under your admin navigation. It also depends on the Cart feature being active.
+There are three kinds of code:
+
+- **Percentage** — a percent off the items in the cart, such as 20% off.
+- **Fixed Amount** — a flat dollar amount off the items, such as $10 off.
+- **Free shipping** — the shipping charge is waived.
+
+You can add limits to any code: how many times it can be used in total, how many times one customer can use it, when it starts and ends, a minimum purchase, and a cap on how much it can take off.
+
+Typical uses are a welcome offer for new customers, a seasonal sale, a code for an influencer or partner, a "free shipping this weekend" promotion, or a thank-you code for a loyal customer.
+
+<Callout type="info" title="Turn it on, and who can use it">
+Coupons & Discounts is **off by default**. You turn it on yourself under **Settings → Features**, in the E-Commerce group. It needs **Shopping Cart & Checkout** to be on first, and the switch shows a "Requires" badge until it is. See [Feature Flags](/docs/feature-flags).
+
+**Owners and Managers** can create and manage codes. Staff can't open the Discounts page. See [Team and Roles](/docs/team-and-roles). Deleting several codes at once (bulk delete) is limited to Owners.
+</Callout>
+
+---
+
+## Where to Find It
+
+In your admin sidebar, open **Marketing → Discounts**. If the feature is off, you'll see a "not enabled" page with a button that takes you to **Settings → Features**.
+
+---
+
+## Turning On Coupons & Discounts
+
+1. Go to **Settings → Features**.
+2. Find **Coupons & Discounts** and switch it on. If you see a "Requires" badge, turn on **Shopping Cart & Checkout** first.
+3. **Discounts** now appears under **Marketing** in your sidebar, and a **Discount code** box appears on your checkout page.
+
+If you switch it off later, your codes are kept but shoppers can no longer use them. The code box disappears from checkout, and any code a shopper already had typed in is ignored.
 
 ---
 
 ## The Discounts List
 
-Navigate to **Discounts** in your admin sidebar to see all discount codes for your store. The table shows each code, the discount amount, how many times it's been used, its expiration date, and whether it's currently active.
+The list shows every code you've created, with these columns:
 
-![Screenshot of the discounts list table showing code, discount amount, usage count, expiry, and active/inactive badges.](/discounts-list-view.jpeg)
+| Column | What it shows |
+| --- | --- |
+| **Code** | The code. Click it to edit. |
+| **Discount** | "20% off", "$10.00 off", or "Free shipping". |
+| **Usage** | How many times it has been used. If you set a limit, it reads like "3 / 10". |
+| **Expires** | The expiration date, or "No expiry". |
+| **Status** | One of the four statuses below. |
+
+On a phone, the Discount, Usage, Expires, and Status details sit in a line under each code.
+
+![The Discounts list with Active, Scheduled, and Expired codes](/images/discounts-and-coupons/discounts-list.png)
+
+### Statuses
+
+| Status | What it means |
+| --- | --- |
+| **Active** | The code is switched on and is inside its dates. Shoppers can use it. |
+| **Scheduled · [date]** | The code is switched on but its **Start Date** is in the future. It starts working on that date. |
+| **Expired** | Its **Expiration Date** has passed. |
+| **Inactive** | The code is switched off, or it has been used up to its **Usage Limit**. |
+
+### Search, Filter, and Sort
+
+- **Search** by code. Type part of a code to narrow the list, then click **Search**.
+- Click **Filters** to open the **Status** and **Sort** menus.
+- **Status** filter: **All discounts**, **Active**, **Scheduled**, **Expired**, or **Inactive**.
+- **Sort**: **Newest**, **Code A–Z**, **Code Z–A**, **Oldest**, **Most used**, or **Expiring soonest** (codes with no expiry go last).
+- The list shows 25 codes per page.
+
+### Bulk Actions
+
+Tick the box next to one or more codes (or the box in the header to select the whole page) and a bar appears with:
+
+- **Activate** — switch the selected codes on.
+- **Deactivate** — switch them off.
+- **Delete** — remove them. This button only shows for Owners, and asks you to confirm first.
+
+After **Activate** or **Deactivate**, a message appears with an **Undo** button for a few moments.
+
+**Activate skips expired codes.** If some of the codes you picked have already passed their expiration date, they stay off and you'll see a message such as "2 of 3 discounts activated — 1 expired discount was skipped. Edit the expiry date to bring it back." To bring an expired code back, open it, change the **Expiration Date**, and turn it on.
+
+![Two codes ticked with the bulk action bar showing Activate, Deactivate, and Delete](/images/discounts-and-coupons/discounts-list-bulk-bar.png)
+
+<Callout type="info" title="Rewards codes aren't in this list">
+Codes that your [Rewards](/docs/rewards) program creates for customers don't appear here. You only see the codes you made yourself. Rewards still depends on **Coupons & Discounts** being on.
+</Callout>
 
 ---
 
 ## Creating a Discount Code
 
-Click **New Discount** to open the discount form. You'll fill in four main areas:
+1. Click **Create Discount**. If you have no codes yet, the button reads **Create Your First Discount**.
+2. Fill in the three cards: **Discount Code**, **Discount Amount**, and **Restrictions**.
+3. Use the **Active** switch at the top (it starts on). Turn it off if you want to save the code now and launch it later.
+4. Click **Save changes**.
+
+After saving, you stay on the code's page so you can keep editing.
 
 ### Discount Code
 
-The code string customers type at checkout. It is automatically uppercased when saved (e.g., typing `summer20` becomes `SUMMER20`). Each code must be unique within your store — you cannot have two codes with the same text.
+Type the code shoppers will enter. It turns to capital letters as you type, so `summer20` becomes `SUMMER20`. Shoppers can type it in any case.
 
-**Tip:** Keep codes short and memorable. Use letters and numbers only — e.g., `SAVE20`, `WELCOME10`, `WINTER2024`.
+- Codes are limited to 50 characters.
+- Each code must be different from your other codes. If you reuse one you'll see "A discount code with this code already exists".
+- Short, easy codes work best, using letters and numbers, such as `SAVE20` or `WINTER2026`.
 
 ### Discount Amount
 
-Choose the **type** and **value**:
+Choose a **Type**:
 
-| Type             | How it works                                                                                   |
-| ---------------- | ---------------------------------------------------------------------------------------------- |
-| **Percentage**   | Deducts a percentage of the cart subtotal. Enter a number from 1–100 (e.g., `20` for 20% off). |
-| **Fixed Amount** | Deducts a flat dollar amount. Enter the dollar value (e.g., `10` for $10 off).                 |
+| Type | What to enter | How it works |
+| --- | --- | --- |
+| **Percentage (%)** | A whole number from 1 to 100, such as `20` | Takes that percent off the cart subtotal. Decimals such as 12.5 aren't allowed. |
+| **Fixed Amount ($)** | A dollar amount, such as `10.00` | Takes that many dollars off the cart subtotal. |
+| **Free shipping** | Nothing to enter | Waives the shipping charge at checkout. |
 
-The discount can never exceed the cart total — if the discount amount is larger than what's in the cart, the total is simply reduced to $0.
+![The New Discount page with a percentage code filled in](/images/discounts-and-coupons/discount-new-percentage.png)
+
+For percentage and fixed codes:
+
+- The "cart subtotal" is the price of the items before shipping and tax. The discount never goes below the items' total, so a $50 code on a $30 cart takes off $30, not $50.
+- Shipping is still charged in full unless you use a **Free shipping** code.
+
+For **Free shipping** codes:
+
+- The page says "The shipping cost is waived at checkout — no amount to set."
+- The **Maximum discount** box is hidden, because there's nothing to cap.
+- It only has an effect on orders that have a shipping charge. It does nothing on an in-store pickup order or one that already ships free.
+- Your shipping settings still decide the shipping charge. See [Shipping](/docs/shipping).
+
+![The New Discount page with Free shipping selected](/images/discounts-and-coupons/discount-new-free-shipping.png)
+
+If you switch between types while filling in the form, each type remembers the number you typed for it. A blank amount won't save. You'll see "Amount is required".
 
 ### Restrictions
 
-These are optional limits that control how and when a code can be used:
+All of these are optional. Leave a box blank for "no limit".
 
-- **Usage Limit** — the maximum number of times the code can be redeemed across all customers. Leave blank for unlimited uses. Once the limit is hit, the code automatically stops working.
-- **Expiration Date** — the date after which the code is no longer valid. Leave blank for no expiration.
-- **Minimum Purchase** — the cart subtotal must be at or above this amount before the code applies. If the cart doesn't meet the minimum, the customer sees an error at checkout.
-- **Maximum Discount** — caps how much the discount can take off, regardless of the cart total. Most useful with percentage codes (e.g., a 30% off code capped at $50 so a $500 order doesn't get $150 off).
+| Setting | What it does |
+| --- | --- |
+| **Usage Limit** | The most times the code can be used by all customers combined. Blank means unlimited. |
+| **Limit uses per customer** | The most times one customer can use it. Blank means unlimited. Customers are told apart by their email address, and orders that were cancelled don't count against them. |
+| **Start Date** | The first day the code works. Leave it blank to start right away. A future date makes the code **Scheduled**. |
+| **Expiration Date** | The last day the code works. Blank means it never expires. See [How Expiry Works](#how-expiry-works) below. |
+| **Minimum purchase (USD)** | The item subtotal must reach this amount before the code applies. |
+| **Maximum discount (USD)** | The most the code can take off. Handy for percentage codes, for example 30% off but never more than $50. Not shown for free shipping. |
 
-### Status
+The Start Date has to be before the Expiration Date, otherwise you'll see "Start date must be before the expiration date".
 
-The **Active** toggle controls whether the code works at checkout. Inactive codes are rejected immediately when a customer tries to apply them. You can disable a code at any time without deleting it — useful for pausing a promotion and reactivating it later.
-
-![Screenshot of the discount create/edit form showing the code field, discount type selector, value input, restrictions section, and active toggle.](/discount-form.jpeg)
-
----
-
-## Storefront Banner
-
-Any discount code can optionally display a promotional announcement bar at the top of your storefront to advertise the promotion to visitors.
-
-Toggle **Advertise on storefront** on to reveal the banner fields:
-
-- **Banner message** — the text that appears in the bar (e.g., `Summer sale — use code SUMMER20 at checkout for 20% off`). The code itself is also automatically appended.
-- **Link (optional)** — a path or URL the "Shop now" link points to. Accepts relative paths like `/shop` or `/collections/summer` or a full external URL. Defaults to `/shop` if left blank.
-
-The banner only shows when the code is **active**, within its validity window, and has not yet hit its usage limit. Once any of those conditions fail, the banner disappears automatically. If you have multiple banners set up, the most recently created valid one is shown.
-
-> **Template support:** The announcement bar is currently rendered on the **Happy Bamboo** and **Noise** templates. On other templates, the storefront banner setting is saved but the bar will not be visible to customers.
-
-![Screenshot of the storefront announcement bar as seen by a customer, showing the banner text and "Shop now" link.](/discount-banner.png)
+![The Restrictions card filled in](/images/discounts-and-coupons/discount-restrictions.png)
 
 ---
 
-## Editing and Deleting Discounts
+## Editing, Deactivating, and Deleting
 
-Click the edit icon (pencil) next to any code in the list to open its form. All fields are editable at any time, including the code string itself (as long as the new value doesn't conflict with another existing code).
+### Editing a Code
 
-To permanently delete a discount, open its edit page and click **Delete** in the toolbar. A confirmation dialog will appear before anything is removed. Deletion is permanent and cannot be undone.
+Click a code in the list, or open the **⋮** menu at the end of its row and choose **Edit**. You can change anything, including the code itself, as long as it doesn't match another of your codes. Click **Save changes** when you're done. A badge in the top bar shows **Unsaved Changes** or **Saved**.
 
-> If you want to stop a code from working temporarily, use the **Active** toggle instead of deleting it.
+Changes affect new checkouts straight away. Orders that already used the code are not changed.
 
----
+### Turning a Code Off
 
-## How Discounts Work at Checkout
+To pause a promotion, switch **Active** off on the code's page and save, or use **Deactivate** in the list. The code stays in your list as **Inactive** and you can turn it back on whenever you like. Shoppers who try it see "This discount code is no longer active".
 
-When a customer enters a code at checkout, the platform validates it server-side in this order:
+### Deleting a Code
 
-1. **Code exists** — the code must match exactly (case-insensitive).
-2. **Active** — the code must have its Active toggle on.
-3. **Validity window** — if a start or expiration date is set, the current time must fall within the window.
-4. **Usage limit** — if a limit is set, the current usage count must be below it.
-5. **Minimum purchase** — the cart subtotal must meet the minimum (if one is set).
-6. **Amount calculation** — the discount is computed and capped by the maximum discount (if set) and the cart total.
+Open the code's page, click **More Options**, and choose **Delete**. You can also use the **⋮** menu in the list, or tick several codes and use the bulk **Delete** (Owners only).
 
-If any check fails, an error message is shown and the code is not applied. The usage count only increments when an order is successfully completed through Stripe — not when the code is validated at the cart stage.
+You're asked to confirm. Shoppers can't use a deleted code, and you can't get it back. Orders that already used the code keep their records. If you only want to pause a code, turn it off instead.
 
 ---
 
-## Deactivating Expired Codes
+## How Expiry Works
 
-The platform can automatically deactivate codes that are past their expiration date or have exhausted their usage limit. This cleanup runs when you visit the discounts section. You can also trigger it manually. Codes deactivated this way are not deleted — they remain in your list with an "Inactive" status so you have a record of them.
+You pick an **Expiration Date** with no time of day. At checkout, the code keeps working **through the end of that day**. A code that expires on June 30 can still be used at 11:00 pm on June 30.
+
+<Callout type="warn" title="If the last day matters, set the date one day later">
+When you open the **Discounts** list, SimplePress tidies up by switching off codes that have expired. It treats a code as expired as soon as its expiration date begins. So if you open the Discounts list on a code's last day, that code is switched off early and shoppers will see "This discount code is no longer active" for the rest of the day.
+
+To be safe, **set the Expiration Date to the day after the last day you want the code to work.** For example, for a sale that ends Sunday night, choose Monday. If a code is switched off early by mistake, open it, move the **Expiration Date** to a later day, switch **Active** on, and save.
+</Callout>
+
+The same tidy-up switches off any code that has reached its **Usage Limit**. Those show as **Inactive**, and codes past their date show as **Expired**. Nothing is deleted. The code and its usage count stay in your list.
 
 ---
 
-## Cannot Do
+## What Shoppers See at Checkout
 
-- Apply a discount retroactively to a past order — discounts are applied at checkout only
-- Use the same code string for two different discounts in your store
-- Enable the Coupons feature yourself — a platform administrator must turn it on
-- Use Coupons without the Cart feature also being active
-- Set a "starts at" date for future activation via the admin form (activation is controlled by the Active toggle and expiry date only)
+(This describes the Default template. Other templates arrange the checkout page their own way, but the rules are the same.)
+
+The **Discount code** box is on the **checkout page**, in the order summary beside the items, not in the cart. The shopper types the code and clicks **Apply** (or presses Enter).
+
+![Checkout with a discount code applied](/images/discounts-and-coupons/checkout-code-applied.png)
+
+- A code that works shows a green message, "Discount Applied: SUMMER20 — you saved $12.00", and a **Discount** line in the summary with the amount taken off.
+- Only **one code** can be used per order.
+- The discount is worked out from the item subtotal. If the shopper changes their cart, the code is removed, they're told "Discount removed because your cart changed", and they need to apply it again if it still qualifies.
+- A **Free shipping** code doesn't show a message or a line on the checkout page. The free shipping appears on the **payment page** that opens next, where the shipping line reads "Free shipping".
+- The discount also shows on the order confirmation.
+
+### Messages Shoppers May See
+
+| Message | When it happens |
+| --- | --- |
+| Discount code not found | The code doesn't exist or was typed wrong. |
+| This discount code is no longer active | The code is switched off, or was switched off by the tidy-up above. |
+| This code isn't active yet | The **Start Date** is still in the future. |
+| This discount code has expired | The **Expiration Date** has passed. |
+| This discount code has reached its usage limit | The code has been used as many times as the **Usage Limit** allows. |
+| Minimum purchase of $X.XX required | The cart is below the **Minimum purchase**. |
+| You've already used this code the maximum number of times | The customer has hit **Limit uses per customer**. This is checked against their email address, so it usually appears when they go on to pay. |
+| Enter a discount code | They clicked **Apply** with the box empty. |
+| Your cart is empty | They clicked **Apply** with nothing in the cart. |
+| Too many requests. Please try again later. | Too many codes were tried in a short time. |
+
+When a code is rejected, the message appears in red under the box and the order carries on without a discount. The shopper can try a different code or just pay.
+
+![Checkout with a rejected discount code](/images/discounts-and-coupons/checkout-code-error.png)
+
+### When a Use Is Counted
+
+A code's **Usage** number goes up only when an order is **paid and completed**. Trying a code at checkout, or starting a payment and walking away, doesn't use it up. Limit uses per customer counts that customer's earlier orders with the code, and ignores cancelled ones.
 
 ---
 
 ## Tips
 
-- **Seasonal promotions:** Create the code ahead of time, leave it inactive, then flip it on when you're ready. Set an expiration date so it automatically becomes stale after the sale ends.
-- **Influencer codes:** Create unique codes per collaborator (e.g., `JANE15`) with a usage cap to track redemptions per partnership.
-- **Cap your percentage codes:** A 20% code without a maximum discount cap can be very costly on large orders. Use the Maximum Discount field to protect your margins.
-- **Banner + code pairing:** If you're running an active promotion, enable the storefront banner so visitors see the code without having to look for it.
+- **Schedule a launch.** Set a **Start Date** and turn **Active** on. The code shows as **Scheduled** and begins by itself.
+- **Pause, don't delete.** Turn a code off with the **Active** switch so you can use it again next season.
+- **Protect your margin.** Add a **Maximum discount** to percentage codes so a big order can't take off more than you intended.
+- **Make one code per partner.** Give each influencer or partner their own code, like `JANE15`, and check the **Usage** column to see how each one does.
+- **Welcome offers.** Use **Limit uses per customer** set to 1 so people can't use the same code over and over.
+- **Tell people about it.** Codes don't advertise themselves. Put the code in your announcement bar or popup. See [Banner & Popup](/docs/banner-and-popup).
+- **Check the dates.** Remember the [expiry tip](#how-expiry-works): set the date one day after the day you want the sale to end.
+- **Test your code.** Add something to your cart on your own store, go to checkout, and try the code before you share it.
 
 ---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Coupons & Discounts** | Off | Settings → Features (E-Commerce) | Shopping Cart & Checkout |
+
+Owners and Managers can turn it on or off themselves. Turning it off hides the Discounts page and the checkout code box, and keeps your codes for later. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Create percentage, fixed-amount, and free-shipping codes
+- Set a total usage limit, a per-customer limit, a start date, an expiration date, a minimum purchase, and a maximum discount
+- Schedule a code to start on a future date
+- Search, filter, and sort your codes, and turn several on or off at once
+- Pause a code and turn it back on later
+- Reuse the same code in a banner or popup to promote it (see [Banner & Popup](/docs/banner-and-popup))
+
+**You cannot:**
+
+- Apply a discount automatically without a code (for example "10% off over $100" for everyone)
+- Limit a code to certain products or collections. A code applies to the whole cart
+- Create buy-one-get-one or "buy X, get Y" offers
+- Use more than one code on the same order (codes don't stack)
+- Add a discount to an order after it's been paid
+- Show a promotional bar for one specific code. Use the [Banner & Popup](/docs/banner-and-popup) page instead
+- See Rewards program codes in this list (they're handled by [Rewards](/docs/rewards))
+
+---
+
+## Frequently Asked Questions
+
+**A shopper says my code doesn't work. What do I check?**
+Open the code in the Discounts list. Look at its **Status**, then the **Start Date**, **Expiration Date**, **Usage** against the **Usage Limit**, and the **Minimum purchase**. The message the shopper sees in the table above usually points straight to the cause. Also check [the expiry tip](#how-expiry-works).
+
+**Does a percentage code take money off shipping?**
+No. Percentage and fixed codes take money off the items only. Use a **Free shipping** code to waive shipping.
+
+**Can I see which orders used a code?**
+The code's **Usage** number in the list shows how many times it's been used. The discount is also recorded on each order. See [Orders](/docs/orders).

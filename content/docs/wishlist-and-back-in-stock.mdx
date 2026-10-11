@@ -1,0 +1,214 @@
+---
+title: Wishlist & Back-in-Stock Alerts
+description: Let shoppers save products with a heart and sign up for a one-time email when a sold-out item returns.
+---
+
+## Overview
+
+Two small shopper tools come built in to your store:
+
+- **Wishlist** puts a heart on your products. Shoppers tap it to save a product for later, and see everything they saved on a **Wishlist** page.
+- **Back-in-Stock Notifications** adds a "get notified" box to sold-out products. A shopper types their email, and SimplePress sends them one email when the item can be bought again.
+
+Neither one needs any setup. There is nothing to fill in and no list to manage. They are there for your shoppers, and they work quietly in the background. Back-in-stock alerts are especially handy for popular items, one-of-a-kind batches, and anything you restock in waves.
+
+<Callout type="info" title="Both are on by default">
+  Wishlist and Back-in-Stock Notifications are switched on for every new store. You can turn either one off under **Settings → Features** (in the **E-Commerce** section). Both need **Products** to be on. See [Turning Them Off](#turning-them-off) and [Feature Flags](/docs/feature-flags). Owners and Managers can change these switches. Staff can't (see [Team and Roles](/docs/team-and-roles)).
+</Callout>
+
+This page is about what you control and what your shoppers see. For the shopper's side of the story, see [For Your Customers](/docs/for-your-customers).
+
+---
+
+## Wishlist
+
+### What Shoppers See
+
+On the Default template, a wishlist shows up in three places:
+
+- **A heart on every product card.** It sits in the top-right corner of the product photo on your shop page, collections, homepage product rows, and related products. Tapping it fills the heart and saves the product. Tapping it again removes it. A small message confirms each change: "[Product name] saved to wishlist" or "Removed from wishlist".
+- **A heart on the product page,** next to the product name.
+- **A heart in the header,** next to the cart. It opens the Wishlist page, and shows a small number badge with how many products are saved.
+
+![The shop page with product cards, one with a filled heart and the others empty](/images/wishlist-and-back-in-stock/wishlist-product-card-heart.png)
+
+![The header with a heart icon and a number badge next to the cart icon](/images/wishlist-and-back-in-stock/wishlist-header-heart.png)
+
+The **Wishlist** page is at `/wishlist` on your store. It shows the heading **Your Wishlist**, a line such as "3 items saved on this device. Prices and availability may have changed since you saved them.", and a grid of the saved products. Each one shows its photo, name, the price it had when it was saved, and the date it was saved. Shoppers click a product to open it, or click the **X** in the corner of a product to remove it.
+
+![The Wishlist page with three saved products, each with a photo, name, price, saved date, and remove button](/images/wishlist-and-back-in-stock/wishlist-page-desktop.png)
+
+When nothing is saved yet, the page shows **Your wishlist is empty**, the line "Tap the heart on any product to save it here for later.", and a **Browse the shop** link.
+
+![The Wishlist page on a phone with nothing saved, showing Your wishlist is empty and the Browse the shop link](/images/wishlist-and-back-in-stock/wishlist-page-empty-phone.png)
+
+> **Other templates:** The heart's exact look and position differ a little from template to template. The Wishlist page itself is the same simple page on every template, so it won't match your template's styling exactly.
+
+### How It Works
+
+A few things are worth knowing, because they explain what shoppers will tell you:
+
+- **Saved on that device only.** The wishlist is kept in the shopper's own browser. It isn't tied to an account, and nobody has to sign in. A shopper who saves items on their laptop won't see them on their phone. If they clear their browser data, their wishlist is gone. Several browser tabs on the same device stay in sync.
+- **Prices are from the day they saved it.** The wishlist remembers the name, photo, and price at the moment of saving. If you change the price later, the wishlist keeps showing the old one until the shopper removes the product and saves it again. That is why the page warns that prices and availability may have changed.
+- **Removed products stay on the list.** If you delete or unpublish a product, it still appears on shoppers' wishlists, and clicking it leads to a "not found" page. Shoppers can remove it with the **X**. If you rename a product or change its photo, the wishlist keeps showing the old name and photo.
+- **You can't see anyone's wishlist.** There is no report, list, or count in your admin of what shoppers have saved.
+- **Search engines skip it.** The Wishlist page is private to each shopper and isn't listed in search results.
+
+### What Wishlist Does Not Do
+
+Saving a product doesn't send the shopper any email, doesn't alert them when the price drops, and doesn't tell you anything. It's a bookmark. If you want shoppers to hear when a sold-out product returns, that's what [Back-in-Stock Alerts](#back-in-stock-alerts) are for.
+
+---
+
+## Back-in-Stock Alerts
+
+### When the Form Appears
+
+When a product can't be bought because it's out of stock, the Default template replaces the buy button with a disabled **Out of Stock** button and shows a short form underneath:
+
+- On a product with no options, the form says "Get notified when it's back in stock."
+- On a product with options (variants such as size or color), the form appears when the **option the shopper picked** is sold out. It says "Get notified when this option is back in stock." The alert is for that specific option, so someone waiting for the Large doesn't get an email when only the Small returns.
+
+The shopper types their **email address** into the box (it shows `you@example.com`) and clicks **Notify me**. No account and no sign-in are needed. The form then changes to "✓ We'll email you when it's back."
+
+![A sold-out product with the Out of Stock button, the notify message, the email box, and the Notify me button](/images/wishlist-and-back-in-stock/back-in-stock-notify-form.png)
+
+![The same product after signing up, with the confirmation message in place of the form](/images/wishlist-and-back-in-stock/back-in-stock-success.png)
+
+On your shop page, sold-out products wear a **Sold Out** badge. The sign-up form itself only appears on the product's own page.
+
+A product marked as **coming soon** shows its coming-soon notice instead of the form.
+
+### What Shoppers Can and Can't Do
+
+- A shopper who signs up twice for the same product (and option) with the same email is only counted once while the first sign-up is waiting.
+- To keep spam out, each visitor can sign up for up to 10 alerts in 15 minutes. If they go over, they see "Too many requests — please try again in a few minutes."
+- If something goes wrong, the form says "Something went wrong. Please try again."
+- Shoppers can't cancel or edit a sign-up. The only way it ends is the email being sent.
+
+### The Email
+
+When the item can be bought again, SimplePress sends the shopper **one** email, and only one.
+
+| | |
+| --- | --- |
+| **From** | Your store's name |
+| **Reply goes to** | The store owner's email address, so a shopper who replies reaches you |
+| **Subject** | "[Product name] is back in stock". For an option: "[Product name] ([Option]) is back in stock" |
+| **Contents** | Your logo, the heading "[Product name] is back in stock", "Good news!", a line saying the item is available again at your store and that popular items sell out quickly, and a **View product** button linking to the product page |
+| **Footer note** | "You're receiving this one-time email because you asked us to let you know when this item was back in stock." |
+
+You can't change the wording, and the email doesn't appear in your [Email Preview](/docs/email-preview) page.
+
+Once the email is sent, that sign-up is finished. If the item sells out again before the shopper buys it, they need to sign up again to get another alert. A shopper who signed up for several products gets a separate email for each one.
+
+### Timing
+
+The alert doesn't go out the second you restock. SimplePress checks for restocked items automatically about **every 15 minutes**, so most shoppers are emailed within a quarter of an hour of the product becoming available. A shopper who signs up while the item is still sold out is simply waiting for the next check after you restock.
+
+If an email can't be delivered at that moment, SimplePress tries again on the next check.
+
+### What Counts as Back in Stock
+
+A shopper is emailed when the product (or the option they chose) can be bought again. That means:
+
+- The product is **published**.
+- It isn't marked as coming soon.
+- It has **stock above zero**, **or** you've allowed backorders, **or** you don't track stock for it.
+
+If you've set up a product with options, only the option the shopper signed up for is checked. If the product was deleted, or the option was removed, the sign-up is closed quietly and no email is sent.
+
+See [Inventory Management](/docs/inventory-management) and [Products](/docs/products) for how stock and backorders are set.
+
+### Who Is Waiting
+
+SimplePress keeps each sign-up behind the scenes, but there is **no list** of waiting shoppers in your admin, and no count on the product. You won't see who signed up or how many people are waiting for an item. Treat a popular sold-out product as having waiting shoppers, and plan your restock with that in mind.
+
+---
+
+## Tips
+
+- **Restock when you're ready to announce.** The next check emails everyone waiting as soon as the product (or option) shows stock above zero. If you add stock a few units at a time, the whole waiting list may be emailed before there is enough for everyone. Add the full amount in one go when you can.
+- **Keep the product published.** If a product is hidden or unpublished while you restock, nobody is emailed. Publish it when you're ready, and the next check sends the emails.
+- **Check the product before you restock.** Make sure the photo, price, and options are right. The email sends shoppers straight to the page.
+- **Turning on backorders also triggers the emails.** If you start allowing backorders on a sold-out product, it counts as available again, so everyone waiting is emailed even with no units on the shelf.
+- **Don't expect wishlist data.** Because you can't see wishlists, ask shoppers directly (a newsletter question or social post) which products they'd like to see more of.
+- **Tell shoppers wishlists are per device.** A short line in your FAQ about "Why did my wishlist disappear?" saves support emails.
+
+---
+
+## Turning Them Off
+
+Both features are on by default. To turn either off:
+
+1. Go to **Settings → Features**.
+2. Under **E-Commerce**, switch **Wishlist** or **Back-in-Stock Notifications** off.
+
+What happens when you do:
+
+- **Wishlist off:** the hearts and the header icon disappear, and `/wishlist` shows "page not found". Shoppers' saved lists stay in their browsers, so they reappear if you turn it back on.
+- **Back-in-Stock Notifications off:** the sign-up form stops appearing on sold-out products. Shoppers who already signed up are **not** deleted and not emailed while the switch is off. If you turn it back on, waiting shoppers are emailed once their products are available.
+
+Both features are still available if you've turned off **Shopping Cart & Checkout** to run your store as a catalog.
+
+---
+
+## Feature Flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Wishlist** | On | Settings → Features (E-Commerce) | Products |
+| **Back-in-Stock Notifications** | On | Settings → Features (E-Commerce) | Products |
+
+If **Products** is turned off, both of these turn off with it. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Leave both features on and let shoppers use them with no setup
+- Turn either feature off at any time from **Settings → Features**
+- Keep shoppers' saved wishlists and waiting back-in-stock sign-ups safe while a feature is off
+- Let shoppers sign up for an alert on a specific product option
+- Rely on shoppers getting one email when a sold-out item is available again
+
+**You cannot:**
+
+- See, export, or manage shoppers' wishlists
+- See who is waiting for a back-in-stock email, or how many people are
+- Change the wording of the back-in-stock email, or preview it
+- Send the back-in-stock email by hand, or send it right away (alerts go out on the next check, about every 15 minutes)
+- Let shoppers cancel a back-in-stock sign-up
+- Sync a wishlist across a shopper's devices or tie it to their account
+- Have wishlist prices update on their own, or have removed products clear from shoppers' lists
+- Email a shopper when a wishlist item goes on sale
+
+---
+
+## Frequently Asked Questions
+
+**Why can't I see my customers' wishlists?**
+Wishlists live in each shopper's own browser. They are never sent to SimplePress, so there is nothing for you to look at.
+
+**A shopper says their wishlist is gone.**
+Wishlists only exist on the device and browser where they were saved. A different device, a private or incognito window, or cleared browser data starts with an empty list. Suggest they save the items again.
+
+**A wishlist product shows the wrong price.**
+The wishlist remembers the price from the day the shopper saved it. Removing the product with the **X** and saving it again picks up the current price.
+
+**I restocked a product but nobody got an email.**
+Check that the product is **published**, isn't marked coming soon, and has stock above zero for the option people signed up for. Then give it about 15 minutes, since emails go out on a regular check, not the moment you save. Also confirm **Back-in-Stock Notifications** is on under **Settings → Features**.
+
+**Can a shopper unsubscribe from a back-in-stock alert?**
+They can't cancel it, but it is a single email. Nothing else is sent to them as a result of signing up. A back-in-stock email is not a marketing email and doesn't sign them up for your newsletter. See [Customers](/docs/customers) for how marketing emails work.
+
+**Does a back-in-stock email reach people who aren't customers?**
+Yes. Anyone can sign up with just an email address, with no account. They are not added to your customer list.
+
+**Will the alert keep going if the item sells out again?**
+No. Each sign-up produces one email. If the item sells out again, shoppers have to sign up again.
+
+**The form isn't showing on my sold-out product.**
+Check that **Back-in-Stock Notifications** is on, and that the product is actually out of stock (stock is zero and backorders aren't allowed). Products marked coming soon show a notice instead. Other templates may place or word the form a little differently.

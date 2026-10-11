@@ -1,0 +1,531 @@
+---
+title: Quote Calculators
+description: Build step-by-step price calculators for your website, collect quote requests in your admin, and email each customer a final quote.
+---
+
+## Overview
+
+A quote calculator is a short, step-by-step questionnaire that you put on a page of your website. Visitors answer a few questions, such as how many bedrooms they're moving or how many guests are coming, and leave their name and email. SimplePress works out a price from their answers using your own pricing rules, and the request lands in your **Quotes** inbox so you can follow up.
+
+Typical uses:
+
+- **Moving**: bedrooms, packing help, and the distance between two ZIP codes
+- **Cleaning**: square footage, bathrooms, extras, and how often
+- **Catering**: guest count, service style, and a minimum order
+- **Landscaping, painting, junk removal, pet care**, or any job you price from a few details
+
+You decide whether visitors see the price. By default they **don't**: they see a thank-you message, and you reply with a final quote once you've looked things over. You can also show them an estimate right away, as one figure or as a range.
+
+You build a calculator once, then insert it into one of your pages, much like a [form](/docs/forms). A calculator doesn't get a page or link of its own. See [Putting a Calculator on Your Site](#putting-a-calculator-on-your-site).
+
+<Callout type="info" title="Quote Calculator is off by default">
+  Turn it on under **Settings → Features**, in the **Marketing** section. See [Feature Flag](#feature-flag).
+</Callout>
+
+<Callout type="info" title="Who can use it">
+  Owners and Managers can build calculators and work with quote requests. Staff can't open Quotes. Deleting quote requests is Owner only; see [Who Can Do What](#who-can-do-what) and [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+> **Quote calculator or form?** A [form](/docs/forms) collects answers. A quote calculator also turns the answers into a price. If you don't need a price worked out, use Forms.
+
+---
+
+## Where to Find It
+
+In your admin sidebar, go to **Marketing → Quotes** (or open `/admin/quotes`). This is your inbox of quote requests. Click **Manage calculators** at the top to build and edit the calculators themselves (`/admin/quotes/calculators`).
+
+You can also type "New quote calculator" into the command palette search box at the top of the admin to jump straight to a blank calculator.
+
+---
+
+## The Calculators List
+
+The page is titled **Calculators**: "Build the multi-step forms visitors fill out to request an estimate. Add one to a page from the page editor." Click **New calculator** to start one.
+
+Each row shows:
+
+| Column         | What it shows                                                               |
+| -------------- | --------------------------------------------------------------------------- |
+| **Calculator** | The calculator's name. Click it to open the builder.                        |
+| **Status**     | **Published** (visitors can use it) or **Draft** (they can't)               |
+| **Leads**      | How many quote requests it has collected                                     |
+| **Updated**    | When it was last changed, such as "3 days ago"                              |
+
+On a phone, the status, lead count, and update time appear under the name. If you have no calculators yet, the page says **No calculators yet** with a **New calculator** button.
+
+![The Calculators list with the Moving Quote row and the New calculator button](/images/quote-calculators/calculators-list.png)
+
+---
+
+## Building a Calculator
+
+Click **New calculator**. The builder has a toolbar across the top. On the left are the cards for what visitors answer and how it's priced: **Calculator**, **Screens**, **Tabs**, **Distance variables** (once you have two location questions), and **Pricing formula**. On the right are **Test it** and **After submit**. On narrower screens, everything stacks in one column.
+
+<video src="/videos/quote-calculators/building-a-calculator.webm" poster="/videos/quote-calculators/building-a-calculator-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*A short clip: creating a small facial-package calculator with a Choice cards question, a Number question, a pricing formula, and a test in Test it, then saving.*
+
+![The Moving Quote builder with the toolbar, Calculator card, Screens card, Test it and After submit](/images/quote-calculators/builder-overview.png)
+
+### The Toolbar
+
+- **Back** returns to the Calculators list.
+- A status badge shows **Draft** for a new calculator you haven't saved, **Published** or **Unpublished** for a saved one, and **Unsaved Changes** whenever you've edited something you haven't saved.
+- The **Published** switch decides whether visitors can use the calculator. **New calculators start unpublished.** Switch it on when you're ready, then save.
+- The **More Options** menu (⋮) has **Reset**, which throws away your unsaved changes, and **Delete** (saved calculators only).
+- **Save** saves the calculator. You'll see "Calculator created" or "Calculator saved". A new calculator then opens on its own builder page.
+
+If something needs fixing, the save stops with "Please fix the highlighted fields and try again." Questions with a problem show a red **Needs attention** badge.
+
+### The Calculator Card
+
+Give the calculator a **Name** (required, up to 120 characters), such as "Moving quote". The card says only you see this name, and it does label the calculator in your admin and on every quote request. It also appears in the emails your customers get ("Thanks for requesting a quote for Moving quote…"), so pick a name you're happy for customers to read.
+
+### Screens and Questions
+
+Visitors go through the calculator one **screen** at a time. Each screen is one step. To add a question, click **Add question** at the top of the **Screens** card and pick a type. Each new question starts on its own screen. To put several questions on one step, use **Add question to this screen** inside a screen instead.
+
+#### Question Types
+
+| Type             | What visitors see                                  | How it counts toward the price                       |
+| ---------------- | -------------------------------------------------- | ---------------------------------------------------- |
+| **Choice cards** | One answer, picked from tappable cards             | The chosen option's value                            |
+| **Multi-select** | Any number of answers                              | The values of every checked option, added together   |
+| **Dropdown**     | One answer, picked from a menu                     | The chosen option's value                            |
+| **Number**       | A box where they type a quantity                   | The number they type                                 |
+| **ZIP code**     | A 5-digit US ZIP code                              | Not directly. Pair two to measure distance.          |
+| **Address**      | Street, city, state, and ZIP                       | Not directly. Its ZIP can pair with another for distance. |
+| **Short text**   | One line of text                                   | Never. It's for context only.                        |
+| **Long text**    | A larger box for a paragraph                       | Never. It's for context only.                        |
+| **Date**         | A calendar date                                    | Never. It's for context only.                        |
+
+When a visitor types a ZIP code, the city and state appear under the box (for example "Saginaw, MI") so they can check it. If the ZIP isn't recognized, they see "We don't recognize that ZIP code", but they can still continue.
+
+#### Settings on Every Question
+
+Click a question to open it. Every question has:
+
+- **Question** (required, up to 200 characters): what you're asking, such as "How many bedrooms are you moving?"
+- **Helper text** (optional, up to 500 characters): a short note shown under the question.
+- **Type**: change the question to another type. A box asks you to confirm, for example **Change to Dropdown?**, and lists anything that will be lost, such as its options.
+- **Required**: on for new questions. Visitors can't continue without answering.
+
+The question's ⋯ menu has **Move to screen…**, which moves it to another screen or to a **New screen**. The trash can deletes it. Drag the handle on the left to reorder questions and screens.
+
+#### Variable Names
+
+**Choice cards**, **Multi-select**, **Dropdown**, and **Number** questions each need a **Variable name**. This is the short word you type in your pricing formula to stand for the answer, such as `bedrooms` or `packing`.
+
+- Use lowercase letters, numbers, and underscores (`_`), starting with a letter or underscore. For example `move_type`, not `Move Type`.
+- Up to 30 characters, and each variable name can only be used once per calculator.
+- You can't use the formula words `min`, `max`, `round`, `ceil`, or `floor`.
+
+Next to it, **Value when skipped** (0 to start) is the number used when the question isn't answered: when it's optional and left blank, or when it's hidden because of an earlier answer (see [Showing a Question Only Sometimes](#showing-a-question-only-sometimes)). A Multi-select with nothing checked always counts as 0.
+
+#### Options and Their Values
+
+**Choice cards**, **Multi-select**, and **Dropdown** questions have an **Options** box. Each option has:
+
+- **Label**: what visitors see, such as "3–4 bedrooms" (up to 80 characters).
+- **Value**: the number this option adds to your formula. It can be a price, a multiplier, or a negative number for a discount. **Visitors never see these values.**
+- **Icon** (Choice cards and Multi-select only): an optional picture shown on the card.
+
+Each question needs 2 to 12 options. Click **Add option** for more.
+
+![A Choice cards question opened in the builder with its variable name and two options with values](/images/quote-calculators/choice-question-open.png)
+
+#### Number Questions
+
+A **Number** question can also have a **Minimum**, a **Maximum**, and a **Unit** (up to 20 characters, such as "boxes" or "sq ft") shown next to the box. The maximum must be at least the minimum.
+
+#### Date Questions
+
+A **Date** question has **Earliest allowed date** (**Any date** or **Today or later**, using today in your business's time zone) and **At most this many days ahead** (1 to 730 days, or blank for no limit).
+
+#### Showing a Question Only Sometimes
+
+From the second question on, each question has an **Only show when…** setting. Pick an earlier Choice cards, Multi-select, or Dropdown question, then the answer that reveals this one. For example, show "How many flights of stairs?" only when someone picks "Apartment". Questions set up this way show a **Conditional** badge. When a question is hidden, its **Value when skipped** is used in the formula.
+
+#### Screen Settings
+
+Each screen can have:
+
+- **Screen heading** (up to 120 characters): recommended when a screen holds more than one question. A screen without a heading shows "A few more details" when it has several questions.
+- **Intro text** (up to 300 characters): shown under the heading.
+
+A screen holds up to 8 questions. Deleting a screen asks you to confirm, because it deletes every question on it.
+
+### The Pricing Formula
+
+The **Pricing formula** card is where you tell SimplePress how to turn answers into a price. You write one calculation using your variable names. The result is in **dollars**, rounded to the cent.
+
+You can use:
+
+- Numbers, such as `150` or `0.85`
+- Your variable names, such as `bedrooms`
+- `+` add, `-` subtract, `*` multiply, `/` divide, and parentheses `( )` to group
+- `min(a, b, …)`: the smallest of the values
+- `max(a, b, …)`: the largest of the values
+- `round(x)`, `ceil(x)` (round up), `floor(x)` (round down): whole numbers
+
+Your variable names appear as buttons under the formula box. Click one to add it to the formula. As you type, the card checks your formula: **Formula parses.** means it's good. If you use a name that no question defines, it says **Not defined by any question or distance:** and lists it. The formula can be up to 500 characters.
+
+![The Pricing formula card with the formula, the Formula parses line and the variable buttons](/images/quote-calculators/pricing-formula-card.png)
+
+#### Worked Examples
+
+**A moving company.** Questions: **Number** "How many bedrooms?" (`bedrooms`) and **Choice cards** "Do you need packing help?" (`packing`) with options No (0), Some rooms (200), and Everything (450).
+
+Formula: `300 + bedrooms * 150 + packing`
+
+A visitor with 3 bedrooms who picks "Some rooms" gets 300 + (3 × 150) + 200 = **$950**.
+
+**A cleaning service with a discount for regulars.** Questions: **Number** "Square footage" (`sqft`), **Number** "Bathrooms" (`baths`), **Multi-select** "Extras" (`extras`) with Inside the oven (30), Inside the fridge (25), and Windows (40), and **Dropdown** "How often?" (`frequency`) with One time (1), Every two weeks (0.9), and Weekly (0.85).
+
+Formula: `(sqft * 0.12 + baths * 25 + extras) * frequency`
+
+A 1,500 sq ft home with 2 bathrooms, oven and windows checked, cleaned weekly: (180 + 50 + 70) × 0.85 = **$255**. The frequency values work as multipliers: 0.85 means 15% off.
+
+**A caterer with a minimum order.** Questions: **Number** "Guests" (`guests`) and **Choice cards** "Service style" (`service`) with Drop-off (0) and Buffet with staff (250).
+
+Formula: `max(guests * 18 + service, 400)`
+
+For 15 guests with drop-off, 15 × 18 = 270, which is under the minimum, so the price is **$400**. For 40 guests with a buffet, 720 + 250 = **$970**.
+
+#### When There's No Price
+
+Some answers can't produce a price, for example when discounts take the total below zero, a number gets divided by zero, or the price would be over $1,000,000. The request still comes in with all the answers, but without an estimate (it shows "—" in your inbox), and the visitor sees your thank-you message without a figure. You can price it by hand from the quote's page.
+
+### Tabs
+
+The **Tabs** card lets visitors choose a category first, such as **Residential** or **Commercial**, before any other question. Click **Turn on tabs** to start.
+
+- **Prompt shown above the tabs** (up to 120 characters), such as "What kind of move?". If you leave it blank, visitors see "What are you looking for?".
+- Each tab has a **Label** (up to 40 characters, and each must be different) and an optional **Description** (up to 160 characters).
+- **Use a different formula for this tab** opens a formula box just for that tab. Leave it blank to use the shared formula.
+- Use **Add tab** for more. You need at least 2 tabs and can have up to 6. If you're down to one, the builder says "Add a second tab, or turn tabs off".
+- **Turn tabs off** removes the tab step and any tab-only formulas, after you confirm.
+
+Once tabs are on, each screen has a **Show this screen on** choice and each question a **Shown on** choice, so you can ask some questions on one tab only. Leaving every tab unselected means **All tabs**. Removing a tab asks you to confirm, and any questions shown only on that tab then show on every tab.
+
+### Distance Between Two ZIP Codes
+
+Once your calculator has two **ZIP code** or **Address** questions (such as "Moving from" and "Moving to"), a **Distance variables** card appears. It turns the two locations into miles that your formula can use. Click **Add distance**, then fill in:
+
+- **Variable name**: the name you'll use in the formula, such as `distance`.
+- **From** and **To**: the two ZIP code or address questions. Both must be **Required**, or the calculator can't be saved.
+- **Value when unavailable** (0 to start): used when a ZIP code isn't recognized or the visitor never reached one of the questions.
+- **Road factor** (1.25 to start, between 1 and 2): SimplePress measures the straight-line distance between the two ZIP codes and multiplies it by this number, because roads are rarely straight. The card suggests 1.2–1.3 for regional moves and closer to 1.1 for highway trips.
+
+For example, if two ZIP codes are 80 miles apart in a straight line, a road factor of 1.25 gives 100 miles. With the formula `250 + distance * 3`, the price is 250 + 300 = **$550**. Visitors never see the mileage. US ZIP codes only. A calculator can have up to 5 distance variables.
+
+### Test It
+
+The **Test it** card lets you try your calculator before anyone else does. Each question that affects the price gets a sample box. Pick or type answers and watch. Choice options show their value in brackets, such as "Deluxe (120)", so you can check your numbers:
+
+- **Estimate stored on the lead**: the price that would be saved with the request, plus the raw **Formula result**.
+- **What the visitor sees**: the estimate, the range, or just your thank-you message, depending on your **After submit** settings.
+
+If your calculator has tabs, pick a **Tab** first. Distance variables get a **Sample value** box where you type miles. Nothing in Test it is saved; click **Reset** to clear it.
+
+![The Test it card with sample answers and the estimate stored on the lead](/images/quote-calculators/test-it-panel.png)
+
+### The After Submit Card
+
+This card controls what visitors are told and what you ask them for.
+
+| Setting | Starts as | What it does |
+| ------- | --------- | ------------ |
+| **Review step** | On | Before sending, visitors see a summary of their answers with **Edit** links. |
+| **Show the estimate to the visitor** | Off | When off, visitors see only your thank-you message and you reply with a price later. |
+| **Show it on the thank-you screen** | On | Appears when the estimate is shown. Turn it off to send the figure only in the confirmation email. |
+| **Show a range instead of one figure** | Off | Shows something like "$1,800 – $2,200" instead of one price. |
+| **Range padding (%)** | 10 | How far above and below the estimate the range goes, from 1 to 50. A $2,000 estimate with 10% shows $1,800 – $2,200. |
+| **Show a running estimate while they answer** | Off | Shows the price updating as they answer. Only available when the estimate is shown on screen. |
+| **Running-estimate disclaimer** | "This running estimate is for guidance only — we'll confirm your final quote after reviewing your details." | Shown under the running price (up to 300 characters). |
+| **Require a phone number** | Off | Name and email are always required. Phone is always offered. |
+| **Email the visitor a confirmation** | On | Sends a receipt of their answers, and the estimate if you share it. |
+| **Response time (business days)** | 1 | Shown as "We'll get back to you within N business days", from 1 to 14. |
+| **Thank-you message** | "Thanks! We received your request." | Shown after they send the calculator (up to 500 characters). |
+
+A running estimate lets visitors change answers and see how each one moves the price. That's fine for menu-style pricing, but leave it off if you'd rather keep your price list private.
+
+If you show the estimate only by email, keep **Email the visitor a confirmation** on. Otherwise the builder says "Email-only estimates need the confirmation email — turn it back on, or show the estimate on screen."
+
+![The After submit card with its switches, response time and thank-you message](/images/quote-calculators/after-submit-card.png)
+
+### Deleting a Calculator
+
+Choose **Delete** from the ⋮ menu in the builder. A box asks you to confirm, for example **Delete "Moving Quote"?** Quote requests it already collected **stay in your inbox**, each with its own copy of the questions, answers, and estimate. Any page showing the calculator shows "Quote calculator is not available" instead. This can't be undone.
+
+To stop taking new requests but keep the calculator, switch **Published** off instead.
+
+---
+
+## Putting a Calculator on Your Site
+
+A calculator doesn't have its own page or link. To show it, insert it into a page. You can put the same calculator in more than one place, and every copy sends its requests to the same inbox.
+
+1. Make sure the calculator is **Published** and saved.
+2. Go to **Content → Pages** and open the page, or create one, such as "Get a Quote". See [Pages & Policies](/docs/pages-and-policies).
+3. Click in the content where you want the calculator.
+4. Click the calculator button in the toolbar (its tooltip reads **Insert quote calculator**), or open **Insert elements** (the **+** button) and choose **Quote calculator**.
+5. A box titled **Insert Quote Calculator** appears: "Select a quote calculator to display in your page". Open **Select a quote calculator...** and pick yours. Calculators that aren't published are marked **(draft)**.
+6. Choose the display options below, then save the page.
+
+If you haven't made any calculators yet, the box shows a **Create a Quote Calculator** button.
+
+![The Insert Quote Calculator box in the page editor with the calculator list open](/images/quote-calculators/insert-quote-calculator.png)
+
+In the editor, the calculator shows as a card with its name and number of questions, for example "3 questions". Hover over it for **Change** (pick a different calculator) and an **X** to take it off the page.
+
+You can also insert a calculator into a blog post (see [Blog](/docs/blog)) or a rich-text field in the [Site Editor](/docs/site-editor). **Quote calculator** only appears in these menus while the Quote Calculator feature is on.
+
+### Display Options
+
+Under the card in the editor are four settings. Changes show in the editor right away; save the page to put them live.
+
+| Setting     | Choices | What it does |
+| ----------- | ------- | ------------ |
+| **Width**   | **Full width (default)**, **Large**, **Medium**, **Small** | How wide the calculator is. Narrower sizes are centered on the page. |
+| **Height**  | **Auto (default)**, **Short**, **Medium**, **Tall** | **Auto** grows and shrinks with each step. The others keep a minimum height so the page doesn't jump around between steps. |
+| **Density** | **Compact**, **Comfortable (default)**, **Spacious** | How much spacing and how large the text is inside the calculator. |
+| **Layout**  | **Inline (default)**, **Centered on page** | **Inline** sits in the flow of the page. **Centered on page** centers it up and down in the window, which suits a page that holds only the calculator. |
+
+![A calculator card in the page editor with the Width, Height, Density and Layout settings](/images/quote-calculators/calculator-display-options.png)
+
+---
+
+## What Visitors See
+
+On the Default template, the calculator appears as a card in your page. Other templates show the same calculator styled to match their own look.
+
+![The calculator on a storefront page showing its first step with In State and Out of State cards](/images/quote-calculators/storefront-calculator.png)
+
+![The calculator on a phone at the Where should we send it step](/images/quote-calculators/storefront-calculator-phone.png)
+
+Step by step:
+
+1. **Tabs** (only if you turned them on): visitors pick one, under your prompt or "What are you looking for?".
+2. **Your screens**, one at a time. A progress bar shows "Step 2 of 5" and so on. **Back** goes to the previous step. **Next** moves on, or **Skip** when the step is optional and unanswered. **Start over** asks "Clear all answers?" first. If you turned on the running estimate, the price updates as they answer.
+3. **Where should we send it?**: "Tell us how to reach you and we'll take it from here." Visitors enter their **Name** and **Email**, and **Phone** (required only if you chose **Require a phone number**).
+4. **Review & send** (if **Review step** is on): "Check everything over — you can still change any answer." Each answer has an **Edit** link.
+5. They click **Get my quote**.
+
+After sending, visitors see one of these:
+
+- **Estimate shown on screen**: "Your estimated quote" with the price or range, your thank-you message, "This is an estimate — we'll confirm the final price with you.", and your response time.
+- **Estimate by email only**: your thank-you message, "Your estimate is on its way to" their email address, and your response time.
+- **Estimate not shown** (the default, or when no price could be worked out): your thank-you message and your response time.
+
+Answers are kept if the visitor reloads the page or goes back and forth, until they close the browser tab.
+
+#### "Quote Calculator Is Not Available"
+
+Where the calculator should be, visitors see a grey box saying **Quote calculator is not available** when the calculator isn't published, was deleted, or the Quote Calculator feature is off. The rest of the page shows as normal. Publish the calculator (or turn the feature back on) and it reappears.
+
+#### Spam Protection
+
+Every calculator is protected by Google reCAPTCHA, which runs quietly in the background, and a short notice about it appears under the contact fields. Each visitor can send at most 5 quote requests every 15 minutes. After that they see "Too many requests — please wait a moment and try again."
+
+---
+
+## The Quotes Inbox
+
+Go to **Marketing → Quotes**. The page is titled **Quotes**: "Leads from your quote calculators, ready to follow up on". The newest requests are at the top, 25 per page.
+
+If you have no requests yet, it says **No quotes yet**: "Quotes land here as soon as a visitor submits one of your calculators. Publish a calculator to start collecting leads."
+
+![The Quotes inbox listing requests with contact, calculator, estimate, status and received date](/images/quote-calculators/quotes-inbox.png)
+
+| Column         | What it shows |
+| -------------- | ------------- |
+| **Contact**    | The visitor's name and email |
+| **Calculator** | Which calculator they used |
+| **Estimate**   | The final quote you set, if you've set one, otherwise the calculated estimate. "—" means there's no price yet. A small icon means you've sent the quote. |
+| **Status**     | **New**, **Contacted**, **Won**, or **Lost** |
+| **Received**   | When the request came in |
+
+Click a row, or its **View** button, to open it.
+
+### Finding Requests
+
+- **Search quotes…** looks through contact names, emails, and calculator names.
+- **Status**: **Any status**, **New**, **Contacted**, **Won**, or **Lost**.
+- **Sort**: **Newest first**, **Oldest first**, **Highest estimate**, **Lowest estimate**, or **Name A–Z**.
+
+If nothing matches, you'll see **No quotes match your filters** with a **Clear filters** link. The inbox shows your 1,000 most recent requests. If you have more, a line at the top says so.
+
+### Statuses
+
+Use the status to track where each lead stands:
+
+- **New**: just came in.
+- **Contacted**: you've been in touch. Sending a final quote moves a **New** request to **Contacted** for you.
+- **Won**: they booked.
+- **Lost**: they didn't.
+
+### Doing Several at Once
+
+Tick the checkboxes on the left (or the box in the header for the whole page). A bar appears with:
+
+- **Mark contacted**, **Mark won**, and **Mark lost**. A message confirms the change, with an **Undo** button.
+- **Delete**: only the store **Owner** sees this. A box asks, for example, **Delete 3 quotes?** Their contact details, answers, and estimates are gone for good.
+
+---
+
+## A Quote's Page
+
+Click a request to open it. The top shows the visitor's name, **Back**, and a **Status** picker. The Owner also sees **Delete quote** in the ⋮ menu.
+
+![A quote request page with Answers, Formula snapshot, Contact, Computed estimate and Final quote cards](/images/quote-calculators/quote-detail.png)
+
+The page has these cards:
+
+- **Answers**: every question and the visitor's answer. Answers to questions that were hidden for them appear faded.
+- **Formula snapshot**: "Values captured at submission time". The formula and every value that went into the price, including the tab they chose. Editing your calculator later never changes this.
+- **Contact**: **Name**, **Email** and **Phone** (click to write or call), **Received**, and **Calculator** (a link to it, or "(calculator deleted)").
+- **Computed estimate**: the calculated price, and **Customer saw:** either "the estimate" or "estimate hidden (thank-you message only)".
+- **Final quote**: where you set and send your price (below).
+- **QuickBooks invoices**: only if you use QuickBooks invoicing. See [Invoices](/docs/invoices#deposit-and-final-invoices-from-a-quote).
+
+### Sending a Final Quote
+
+The **Final quote** card says: "Review the numbers, adjust if needed, and email the customer your quote. Replies go straight to your inbox."
+
+1. Check or enter the **Amount**. If the visitor was shown an estimate, the box starts with that estimate. If they weren't, it starts blank so you choose a price on purpose, and a **Use computed estimate** button fills in the calculated price if you want it. The amount can't be negative and can be up to $1,000,000.
+2. Write a **Message to the customer** (up to 2,000 characters, plain text). A message is required to send.
+3. Click **Send quote**. A box asks **Send this quote to** their email, describes what they'll receive, and warns you if this will be the first price they see. Click **Send quote** again to confirm.
+
+The card then shows "Sent" with the date and amount. You can change the amount and click **Resend quote** to send an updated one. If you leave **Amount** blank, the button reads **Send update** and sends your message without a price.
+
+To record a price without emailing it, click **Save amount**. The inbox then shows your amount instead of the calculated estimate. Clear the amount and save to go back to the calculated estimate.
+
+![The Final quote card with an amount and a message typed in, and the Send quote and Save amount buttons](/images/quote-calculators/final-quote-card.png)
+
+---
+
+## Emails
+
+| Email | Who gets it | Subject | When |
+| ----- | ----------- | ------- | ---- |
+| **Quote Request Received** | The visitor | "We received your quote request — [your business name]" | Right after they send the calculator, if **Email the visitor a confirmation** is on |
+| **New Quote Request (owner)** | You | "New quote request — [calculator name]" | Every new request |
+| **Final Quote** | The customer | "Your quote from [your business name]", or "An update on your quote request — [your business name]" when you send without an amount | When you click **Send quote**, **Resend quote**, or **Send update** |
+
+- **Quote Request Received** thanks the visitor, repeats their answers, says when you'll get back to them, and includes the estimate only if you chose to show it. If they reply, the reply goes to your **Support Email** (see [General Settings](/docs/general-settings#support-email)), or to the store owner's email if that's blank.
+- **New Quote Request (owner)** goes to the store owner's account email. It lists the contact details, estimate, and answers (but not your formula) and has a **View quote request** button. Reply to it to write straight to the visitor.
+- **Final Quote** carries your amount, your message, and a copy of their request. Replies go to your Support Email, or the owner's email if that's blank.
+
+You can preview these on the [Email Preview](/docs/email-preview) page under **Emails**. There you can also change the subject of **Quote Request Received** and **Final Quote**, and add your own intro text to **Quote Request Received**.
+
+---
+
+## Limits
+
+| What | Limit |
+| ---- | ----- |
+| Calculator name | 120 characters |
+| Questions per calculator | 30 |
+| Questions per screen | 8 |
+| Options per question | 2 to 12 (labels up to 80 characters) |
+| Question text / helper text | 200 / 500 characters |
+| Variable name | 30 characters, lowercase letters, numbers, and underscores |
+| Pricing formula | 500 characters |
+| Tabs | 0, or 2 to 6 |
+| Distance variables | 5 |
+| Range padding | 1% to 50% |
+| Response time | 1 to 14 business days |
+| Thank-you message | 500 characters |
+| Highest estimate or final quote | $1,000,000 |
+| Requests from one visitor | 5 every 15 minutes |
+| Requests shown in the inbox | The 1,000 most recent |
+
+---
+
+## Who Can Do What
+
+| Action | Owner | Manager | Staff |
+| ------ | ----- | ------- | ----- |
+| Build, edit, publish, and delete calculators | Yes | Yes | No |
+| View, search, and change the status of quote requests | Yes | Yes | No |
+| Set and send a final quote | Yes | Yes | No |
+| Delete quote requests (one or several) | Yes | No | No |
+
+Deleting a calculator doesn't delete its requests, so a Manager can't lose leads that way. See [Team and Roles](/docs/team-and-roles).
+
+---
+
+## Tips
+
+- **Test before you publish.** Use **Test it** with your most common jobs and an unusual one. Then fill out the live calculator yourself once to see the whole thing, including the emails.
+- **Start with the estimate hidden.** Many businesses would rather start a conversation than hand over a bare number. Turn on the estimate, or a range, once you trust your formula.
+- **Use a range for jobs that vary.** "$1,800 – $2,200" sets expectations without promising an exact figure.
+- **Use multipliers for discounts.** An option worth 0.9 that multiplies the total gives 10% off.
+- **Use `max` for a minimum charge** and `round` for tidy whole-dollar prices, for example `round(max(guests * 18, 400))`.
+- **Ask text questions for the details your formula can't price**, such as "Any heavy or unusual items?" They show up in the request for you to read.
+- **Give it its own page.** A page called "Get a Quote" with **Centered on page** layout makes a clean landing spot. Add the page to your menu in [Navigation](/docs/navigation).
+
+---
+
+## Feature Flag
+
+| Feature              | Default | Where to toggle                 | Requires |
+| -------------------- | ------- | ------------------------------- | -------- |
+| **Quote Calculator** | Off     | Settings → Features (Marketing) | Nothing  |
+
+You can turn it on or off yourself. While it's off:
+
+- **Quotes** disappears from your admin sidebar, and the Quotes pages say the feature isn't enabled.
+- **Quote calculator** disappears from the editor's **Insert elements** menu. Calculators already on your pages show "Quote calculator is not available" to visitors.
+- Your calculators and quote requests are kept. Turn the feature back on and everything returns as it was.
+
+See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What You Can and Cannot Do
+
+**You can:**
+
+- Build as many calculators as you like, each with up to 30 questions of nine types
+- Price answers with your own formula, including multipliers, discounts, minimums, and rounding
+- Measure the distance between two US ZIP codes and charge by the mile
+- Ask a first question that splits visitors into tabs, each with its own questions and formula
+- Show or hide questions based on earlier answers
+- Show visitors an exact estimate, a range, a running estimate, or no price at all
+- Place a calculator on any page or blog post, or in a rich-text field in the Site Editor
+- Track every request with statuses, and email each customer a final quote
+
+**You cannot:**
+
+- Give a calculator its own page or shareable link. It has to be placed on a page.
+- Put a calculator on another website
+- Take a payment or deposit through the calculator (with QuickBooks invoicing on, you can send a deposit invoice from the quote's page)
+- Measure distance outside the US, or between full street addresses (only the ZIP codes are used)
+- Let visitors upload photos or files
+- Duplicate a calculator
+- Tag quote requests, export them to a spreadsheet, or import them
+- Send the new-request email to a different address
+- Get the price from text, address, or date answers
+
+---
+
+## Frequently Asked Questions
+
+**Can visitors see my prices or formula?**
+No. Option values and your formula stay on SimplePress's side. Visitors only see the final estimate, and only if you choose to show it. If you turn on the running estimate, though, they can work out how each answer changes the price by trying different answers.
+
+**Why is there no estimate on a request?**
+Either the answers couldn't produce a price (for example discounts took it below zero, or the result was over $1,000,000), or the formula couldn't be worked out for those numbers. The request and answers are still saved. Set a price by hand in **Final quote**.
+
+**I changed my formula. What happens to old requests?**
+Nothing. Each request keeps the formula and values it was priced with, shown in **Formula snapshot**.
+
+**Why does my page say "Quote calculator is not available"?**
+The calculator isn't published, was deleted, or the feature is off. Open the calculator, switch **Published** on, and save.
+
+**I'm not getting the new-request emails.**
+They go to the store owner's account email. Check your spam folder. Your requests are always saved in **Quotes**, even if an email doesn't arrive.
+
+Questions? Email [help@generativejustice.org](mailto:help@generativejustice.org).
