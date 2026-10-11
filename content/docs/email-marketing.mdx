@@ -106,14 +106,14 @@ If a field is empty or too long, a message appears under it: "Subject is require
 
 ### Sending a Test First
 
-Before you send to everyone, click **Send test to myself**. A message appears: "Test email sent to your inbox."
+Before you send to everyone, click **Send test to myself**. A message appears: "Test email sent to [your address]." It names the address the test went to.
 
 Be aware of these details:
 
-- The test goes to your **store's owner email address**, which is the one on your business account. That may not be the address you sign in with, especially if a Manager is the one sending. Check the owner's inbox.
+- The test goes to the email address of the **account you're signed in with**, not the store's owner email. If a Manager sends it, it goes to the Manager's inbox.
 - The subject starts with **[TEST]**.
-- The **Unsubscribe** link at the bottom is only a sample. Clicking it shows an "Invalid link" page. Real customers get a working link.
-- The "Test email sent" message only means SimplePress handed the email off. If it doesn't show up within a few minutes, check the spam folder.
+- The **Unsubscribe** link at the bottom is only a sample. Clicking it opens a page titled "This is a test email" that says nothing was changed. Real customers get a working link.
+- The "Test email sent" message only means SimplePress handed the email off. If it doesn't show up within a few minutes, check the spam folder. If the test fails, you see an error message instead: "The test email couldn't be sent. Please try again."
 - A test doesn't clear what you've written, so you can keep editing.
 
 ### Sending to Your Audience
@@ -201,11 +201,15 @@ The text next to the switch explains it: it controls whether the email sends at 
 | **Heading** | "You left items in your cart" |
 | **Intro** | Your optional intro text, if you wrote one |
 | **Greeting** | "Hi" and the shopper's name, or "Hi there" if the name isn't known |
-| **Body** | A short note that they started checking out and didn't finish |
-| **Button** | **Return to the shop**, which opens your shop page |
+| **Body** | A short note that they started checking out and didn't finish, then the items they left (see below). Next, a note that their cart is saved on the device and browser they used and that prices and availability are confirmed at checkout. A last note says the cart may be empty on a different device. |
+| **Button** | **Return to your cart**, which opens your cart page |
 | **Footer note** | Invites them to reply if they hit a problem. Replies go to your store's owner email. |
 
-The email **doesn't list the items** the shopper left behind, and the button goes to your shop page, not their cart. Their cart is saved in their browser, so if they come back on the same device, it's usually still there.
+The email **lists the items** the shopper left at checkout. Each one shows its photo, name, option (like size or color), quantity and total price. Up to 10 items are shown; any more are summed up as "and 3 more items". An item with no photo of its own gets a plain gray square.
+
+If the item list can't be loaded when the email goes out, the email still sends without it.
+
+The list is only a reminder. The cart itself is saved in the shopper's browser, so if they come back on the same device, it's usually still there. On another device the cart may be empty, and the email warns them about that.
 
 ### Customizing It
 
@@ -262,7 +266,7 @@ See [Feature Flags](/docs/feature-flags).
 - Schedule a broadcast, save a draft, or cancel one once it's sent
 - See a history of past broadcasts, or open and click numbers
 - Edit the unsubscribe footer, or send marketing to someone who unsubscribed
-- Show the shopper's items in the abandoned checkout email, or send more than one reminder
+- Send more than one abandoned checkout reminder
 
 ---
 
@@ -275,7 +279,7 @@ Opting in is up to each customer. Until a customer signs in, opens **Preferences
 No. There's no import. People can only join themselves, from their account.
 
 **My test email never came.**
-It goes to the store's owner email address, which may be different from the address you sign in with. Check that inbox, and your spam folder.
+It goes to the email address of the account you're signed in with. The message that appears after you click **Send test to myself** shows the exact address. Check that inbox, and your spam folder. If you saw an error message instead, try again.
 
 **Can I stop a broadcast after I click Send?**
 No. Once you click **Send broadcast**, it can't be undone. This is why the box asks you to confirm.

@@ -98,7 +98,7 @@ When the item can be bought again, SimplePress sends the shopper **one** email, 
 | **Contents** | Your logo, the heading "[Product name] is back in stock", "Good news!", a line saying the item is available again at your store and that popular items sell out quickly, and a **View product** button linking to the product page |
 | **Footer note** | "You're receiving this one-time email because you asked us to let you know when this item was back in stock." |
 
-You can't change the wording, and the email doesn't appear in your [Email Preview](/docs/email-preview) page.
+You can preview this email on your [Email Previews](/docs/email-preview) page. It's listed as **Back in Stock**. You can't change the wording.
 
 Once the email is sent, that sign-up is finished. If the item sells out again before the shopper buys it, they need to sign up again to get another alert. A shopper who signed up for several products gets a separate email for each one.
 
@@ -106,15 +106,19 @@ Once the email is sent, that sign-up is finished. If the item sells out again be
 
 The alert doesn't go out the second you restock. SimplePress checks for restocked items automatically about **every 15 minutes**, so most shoppers are emailed within a quarter of an hour of the product becoming available. A shopper who signs up while the item is still sold out is simply waiting for the next check after you restock.
 
-If an email can't be delivered at that moment, SimplePress tries again on the next check.
+Each check sends up to **300** emails, oldest sign-ups first. It only counts items that are back, so a long wait list for something still sold out never holds up the shoppers waiting for something you've restocked. If more than 300 are waiting, the rest are emailed on the next check.
+
+If an email can't be delivered at that moment, SimplePress tries again on the next check. Sign-ups also wait quietly while an item is sold out, or while **Back-in-Stock Notifications** is off, and pick up again on their own.
 
 ### What Counts as Back in Stock
 
-A shopper is emailed when the product (or the option they chose) can be bought again. That means:
+A shopper is emailed when a customer could actually buy the product (or the option they chose) right now. That means:
 
 - The product is **published**.
 - It isn't marked as coming soon.
-- It has **stock above zero**, **or** you've allowed backorders, **or** you don't track stock for it.
+- It has **stock available to buy**, **or** you've allowed backorders, **or** you don't track stock for it.
+- Units that shoppers are holding in a checkout they haven't finished **don't count** as available. If the only units left are in someone's checkout, nobody is emailed yet.
+- If the product shares stock with an [inventory item](/docs/inventory-management#inventory-items), the **item** needs enough free units for one sale. A product that uses 3 units per sale needs 3 free units. The product's own stock and backorder settings don't apply to a linked product.
 
 If you've set up a product with options, only the option the shopper signed up for is checked. If the product was deleted, or the option was removed, the sign-up is closed quietly and no email is sent.
 
@@ -128,10 +132,10 @@ SimplePress keeps each sign-up behind the scenes, but there is **no list** of wa
 
 ## Tips
 
-- **Restock when you're ready to announce.** The next check emails everyone waiting as soon as the product (or option) shows stock above zero. If you add stock a few units at a time, the whole waiting list may be emailed before there is enough for everyone. Add the full amount in one go when you can.
+- **Restock when you're ready to announce.** The next check emails everyone waiting as soon as one unit can be bought. If you add stock a few units at a time, the whole waiting list may be emailed before there is enough for everyone. Add the full amount in one go when you can.
 - **Keep the product published.** If a product is hidden or unpublished while you restock, nobody is emailed. Publish it when you're ready, and the next check sends the emails.
 - **Check the product before you restock.** Make sure the photo, price, and options are right. The email sends shoppers straight to the page.
-- **Turning on backorders also triggers the emails.** If you start allowing backorders on a sold-out product, it counts as available again, so everyone waiting is emailed even with no units on the shelf.
+- **Turning on backorders also triggers the emails.** If you start allowing backorders on a sold-out product, it counts as available again, so everyone waiting is emailed even with no units on the shelf. This applies to a product that tracks its own stock. A product linked to an inventory item follows the item instead, and items don't support backorders.
 - **Don't expect wishlist data.** Because you can't see wishlists, ask shoppers directly (a newsletter question or social post) which products they'd like to see more of.
 - **Tell shoppers wishlists are per device.** A short line in your FAQ about "Why did my wishlist disappear?" saves support emails.
 
@@ -178,7 +182,7 @@ If **Products** is turned off, both of these turn off with it. See [Feature Flag
 
 - See, export, or manage shoppers' wishlists
 - See who is waiting for a back-in-stock email, or how many people are
-- Change the wording of the back-in-stock email, or preview it
+- Change the wording of the back-in-stock email
 - Send the back-in-stock email by hand, or send it right away (alerts go out on the next check, about every 15 minutes)
 - Let shoppers cancel a back-in-stock sign-up
 - Sync a wishlist across a shopper's devices or tie it to their account
@@ -199,7 +203,7 @@ Wishlists only exist on the device and browser where they were saved. A differen
 The wishlist remembers the price from the day the shopper saved it. Removing the product with the **X** and saving it again picks up the current price.
 
 **I restocked a product but nobody got an email.**
-Check that the product is **published**, isn't marked coming soon, and has stock above zero for the option people signed up for. Then give it about 15 minutes, since emails go out on a regular check, not the moment you save. Also confirm **Back-in-Stock Notifications** is on under **Settings → Features**.
+Check that the product is **published**, isn't marked coming soon, and has stock available to buy for the option people signed up for. Units that shoppers are holding in an unfinished checkout don't count. If the product is linked to an [inventory item](/docs/inventory-management#inventory-items), the item needs enough free units for one sale (a product that uses 3 units needs 3 free). Then give it about 15 minutes, since emails go out on a regular check, not the moment you save. Also confirm **Back-in-Stock Notifications** is on under **Settings → Features**.
 
 **Can a shopper unsubscribe from a back-in-stock alert?**
 They can't cancel it, but it is a single email. Nothing else is sent to them as a result of signing up. A back-in-stock email is not a marketing email and doesn't sign them up for your newsletter. See [Customers](/docs/customers) for how marketing emails work.

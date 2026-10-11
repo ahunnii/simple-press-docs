@@ -18,7 +18,7 @@ Here's the short version:
 
 1. Turn on **Rewards Program** (and **Coupons & Discounts**, so points can be redeemed) in **Settings → Features**.
 2. Open **Settings → Rewards**, set how customers earn points, and add at least one reward tier.
-3. Click **Save changes** and check that the badge says **Saved**. **The program doesn't start until you've saved once.** See [Start the Program: Save Once](#start-the-program-save-once).
+3. Click **Save & turn on** and check that the badge says **Saved**. **The program doesn't start until you've saved once.** See [Start the Program: Save and Turn On](#start-the-program-save-and-turn-on).
 4. Customers see their points and rewards under **Rewards** in their account, at `/account/rewards`.
 
 <Callout type="info" title="The Rewards Program is off by default">
@@ -51,26 +51,28 @@ Each customer's points live on their own page under **Customers**. See [Managing
 
 If **Customer Accounts** or **Orders** is off, the Rewards Program switch shows a **Requires** badge. Turn that feature on first.
 
-If you open **Settings → Rewards** while **Coupons & Discounts** is off, a yellow notice says **Redeeming rewards needs Discount Codes turned on**, with "Customers can earn points but can't redeem them until you enable it." Its **Settings → Features** button takes you to the switch.
+If you open **Settings → Rewards** while **Coupons & Discounts** is off, a yellow notice says **Redeeming rewards needs Coupons & Discounts turned on**, with "Customers can earn points but can't redeem them until you enable it." Its **Settings → Features** button takes you to the switch.
 
 ---
 
-## Start the Program: Save Once
+## Start the Program: Save and Turn On
 
-<Callout type="warn" title="Your program isn't live until you save the Rewards settings at least once">
-  Turning on the switch isn't enough. Until you save **Settings → Rewards** for the first time, no one earns points, and customers who open their Rewards page see "This store hasn't set up a rewards program yet."
+<Callout type="warn" title="Your program isn't live until you save the Rewards settings once">
+  Turning on the switch isn't enough. Until you save **Settings → Rewards** for the first time, no one earns points, and customers can't join.
 </Callout>
 
-The first time you open **Settings → Rewards**, the page shows starting values: **Earn points on orders** is on, **Points per dollar** is 1, and **Code expiry (days)** is 90. Those values are only a suggestion until you save them. The **Save changes** button stays grayed out until you change something, so you have to make at least one change before you can save:
+The first time you open **Settings → Rewards**, the badge next to the title says **Not set up yet**, and a notice says "Your rewards program isn't set up yet" and "Customers can't join until you save these settings once. Review the defaults below, then choose Save & turn on." The page shows starting values: **Earn points on orders** is on, **Points per dollar** is 1, and **Code expiry (days)** is 90. Those values are only a suggestion until you save them.
+
+You don't have to change anything first. The save button reads **Save & turn on** (just **Save** on a narrow screen), and it's ready to click right away:
 
 1. Open **Settings → Rewards**.
-2. Change something. For example, set **Points per dollar** to the number you want, or click **Add tier** under **Reward tiers** to add your first reward. The badge next to the title changes to **Unsaved Changes**.
-3. Click **Save changes** at the top of the page.
+2. Look over the starting values. Change anything you like, such as **Points per dollar**, and click **Add tier** under **Reward tiers** to add your first reward.
+3. Click **Save & turn on** at the top of the page.
 4. Check that the badge next to **Rewards Program** says **Saved**, and that a "Rewards settings saved" message appears.
 
-![Settings → Rewards showing the Unsaved Changes badge and the Save changes button](/images/rewards/rewards-unsaved-changes.png)
+![Settings → Rewards before the first save, showing the Not set up yet badge and the Save & turn on button](/images/rewards/rewards-not-set-up.png)
 
-If you want to keep the starting values, change one (such as Points per dollar from 1 to 2), save, then change it back and save again. Once you've saved once, the program is running, and later saves only update it.
+Once you've saved, the program is running. The button then reads **Save changes**, and later saves only update it.
 
 ---
 
@@ -106,7 +108,7 @@ Each bonus can be 0 to 1,000,000 points. A bonus set to 0 isn't given or shown t
 
 This works on the honor system. Customers click your account's link on their Rewards page, then click **Claim** to collect the points. You have no way to check that they actually followed you. Each customer can claim each network once.
 
-Customers are only offered the networks you've linked in [Brand & Appearance](/docs/storefront-and-branding), under **Footer & social links**. The card lists those networks as small badges. If you haven't added any, it says "Add your social links in Branding to offer this reward."
+Customers are only offered the networks you've linked in [Brand & Appearance](/docs/storefront-and-branding), under **Footer & social links**. The card lists those networks as small badges. If you haven't added any, it says "Add your social links in Brand & Appearance to offer this reward."
 
 ### Reward Tiers
 
@@ -269,7 +271,7 @@ Customers see a **Manual adjustment** line in their activity, but **not** your r
 
 ![The Adjust points dialog with 200 points and a reason typed in](/images/rewards/adjust-points-dialog.png)
 
-The **Rewards** card stays on customer pages even while the Rewards Program is off, so you can still look up a balance.
+While the Rewards Program is off, the **Rewards** card is hidden for customers who have no points and no history. Customers who do have points or history still show the card, and you can still adjust their points. It says "Rewards is turned off — balances are kept."
 
 If you [anonymize a customer](/docs/customers), their points balance and birthday are cleared.
 
@@ -356,10 +358,10 @@ Owners and Managers can turn the Rewards Program on or off. Turning it off pause
 ## Frequently Asked Questions
 
 **I turned on the Rewards Program, but customers see "This store hasn't set up a rewards program yet."**
-You haven't saved the Rewards settings yet. Open **Settings → Rewards**, change something (such as **Points per dollar**, or add a tier), click **Save changes**, and check for the **Saved** badge. See [Start the Program: Save Once](#start-the-program-save-once).
+You haven't saved the Rewards settings yet. Open **Settings → Rewards**, review the starting values, click **Save & turn on**, and check for the **Saved** badge. You don't need to change anything first. See [Start the Program: Save and Turn On](#start-the-program-save-and-turn-on).
 
 **Why is the Save changes button grayed out?**
-It only lights up after you change something on the page. It also stays grayed out while the Rewards Program is off in **Settings → Features**. In that case the toolbar says "Turn on the Rewards Program feature to save changes."
+It's grayed out when there's nothing new to save. It lights up after you change something on the page. The exception is before your first save, when **Save & turn on** is ready to click right away. It also stays grayed out while the Rewards Program is off in **Settings → Features**. In that case the toolbar says "Turn on the Rewards Program feature to save changes."
 
 **A customer placed an order before joining. Do they get points?**
 Yes. Order points go to every customer, joined or not, including guests. They need to join only to redeem points and get the sign-up, birthday, and social follow bonuses.

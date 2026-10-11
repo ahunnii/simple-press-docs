@@ -182,11 +182,7 @@ You're asked to confirm. Shoppers can't use a deleted code, and you can't get it
 
 You pick an **Expiration Date** with no time of day. At checkout, the code keeps working **through the end of that day**. A code that expires on June 30 can still be used at 11:00 pm on June 30.
 
-<Callout type="warn" title="If the last day matters, set the date one day later">
-When you open the **Discounts** list, SimplePress tidies up by switching off codes that have expired. It treats a code as expired as soon as its expiration date begins. So if you open the Discounts list on a code's last day, that code is switched off early and shoppers will see "This discount code is no longer active" for the rest of the day.
-
-To be safe, **set the Expiration Date to the day after the last day you want the code to work.** For example, for a sale that ends Sunday night, choose Monday. If a code is switched off early by mistake, open it, move the **Expiration Date** to a later day, switch **Active** on, and save.
-</Callout>
+When you open the **Discounts** list, SimplePress also tidies up by switching off codes that are done. A code with an **Expiration Date** is only switched off after its last day is over, so it stays active through the whole last day, including when you open the list that day. After that, it shows as **Expired**.
 
 The same tidy-up switches off any code that has reached its **Usage Limit**. Those show as **Inactive**, and codes past their date show as **Expired**. Nothing is deleted. The code and its usage count stay in your list.
 
@@ -203,7 +199,7 @@ The **Discount code** box is on the **checkout page**, in the order summary besi
 - A code that works shows a green message, "Discount Applied: SUMMER20 — you saved $12.00", and a **Discount** line in the summary with the amount taken off.
 - Only **one code** can be used per order.
 - The discount is worked out from the item subtotal. If the shopper changes their cart, the code is removed, they're told "Discount removed because your cart changed", and they need to apply it again if it still qualifies.
-- A **Free shipping** code doesn't show a message or a line on the checkout page. The free shipping appears on the **payment page** that opens next, where the shipping line reads "Free shipping".
+- A **Free shipping** code shows a green message, "Free shipping applied: SUMMER20", the **Shipping** line in the order summary reads "Free", and the total doesn't include shipping. The payment page that opens next also shows the shipping line as "Free shipping".
 - The discount also shows on the order confirmation.
 
 ### Messages Shoppers May See
@@ -211,7 +207,7 @@ The **Discount code** box is on the **checkout page**, in the order summary besi
 | Message | When it happens |
 | --- | --- |
 | Discount code not found | The code doesn't exist or was typed wrong. |
-| This discount code is no longer active | The code is switched off, or was switched off by the tidy-up above. |
+| This discount code is no longer active | The code is switched off, or was switched off by the tidy-up (which happens after a code's last day, or when it reaches its usage limit). |
 | This code isn't active yet | The **Start Date** is still in the future. |
 | This discount code has expired | The **Expiration Date** has passed. |
 | This discount code has reached its usage limit | The code has been used as many times as the **Usage Limit** allows. |
@@ -239,7 +235,7 @@ A code's **Usage** number goes up only when an order is **paid and completed**. 
 - **Make one code per partner.** Give each influencer or partner their own code, like `JANE15`, and check the **Usage** column to see how each one does.
 - **Welcome offers.** Use **Limit uses per customer** set to 1 so people can't use the same code over and over.
 - **Tell people about it.** Codes don't advertise themselves. Put the code in your announcement bar or popup. See [Banner & Popup](/docs/banner-and-popup).
-- **Check the dates.** Remember the [expiry tip](#how-expiry-works): set the date one day after the day you want the sale to end.
+- **Check the dates.** Set the **Expiration Date** to the last day you want the code to work. It stays active through the end of that day. See [How Expiry Works](#how-expiry-works).
 - **Test your code.** Add something to your cart on your own store, go to checkout, and try the code before you share it.
 
 ---
@@ -280,7 +276,7 @@ Owners and Managers can turn it on or off themselves. Turning it off hides the D
 ## Frequently Asked Questions
 
 **A shopper says my code doesn't work. What do I check?**
-Open the code in the Discounts list. Look at its **Status**, then the **Start Date**, **Expiration Date**, **Usage** against the **Usage Limit**, and the **Minimum purchase**. The message the shopper sees in the table above usually points straight to the cause. Also check [the expiry tip](#how-expiry-works).
+Open the code in the Discounts list. Look at its **Status**, then the **Start Date**, **Expiration Date**, **Usage** against the **Usage Limit**, and the **Minimum purchase**. The message the shopper sees in the table above usually points straight to the cause. Also check [how expiry works](#how-expiry-works).
 
 **Does a percentage code take money off shipping?**
 No. Percentage and fixed codes take money off the items only. Use a **Free shipping** code to waive shipping.

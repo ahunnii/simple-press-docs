@@ -1,53 +1,227 @@
 ---
 title: Email Previews
-description: See exactly how your transactional emails will look before they reach your customers.
+description: See how your store's automatic emails look, and change the subject line and opening paragraph of the ones your customers receive.
 ---
 
 ## Overview
 
-The Email Previews page lets you see exactly how your transactional emails will look before they reach your customers. You can find it in the admin sidebar under **Emails**.
+SimplePress sends a lot of emails for you: order confirmations, shipping notices, refund notices, invoices, alerts when stock runs low, and more. The **Notification Emails** page lets you see every one of them, and change the wording of many.
+
+On this page you can:
+
+- **Preview** every automatic email, with your logo and store name in place.
+- **Change the subject line** of many customer emails.
+- **Add an intro paragraph** to the order emails, the abandoned checkout email, and the quote request confirmation.
+- **Turn on abandoned checkout emails**, which are off until you switch them on.
+
+You can't send yourself a test email from here, and you can't rewrite the body of an email. The preview is on screen only. See [What You Can and Cannot Do](#what-you-can-and-cannot-do).
+
+<Callout type="info" title="Who can use it">
+  Owners and Managers can open Notification Emails and change the wording. Staff can't open it. See [Team and Roles](/docs/team-and-roles).
+</Callout>
 
 ---
 
-## What Are Transactional Emails?
+## Where to Find It
 
-Transactional emails are automated messages sent to customers (and to you) when something happens — an order is placed, a shipment is added, a refund is issued, and so on. These are not marketing emails. They are triggered by specific events and go out automatically without any action on your part.
+In your admin sidebar, open **Content → Notification Emails**. You can also type "notification" into the search box at the top of the admin to jump straight there.
 
-Abandoned checkout emails are a separate reminder that isn't in the list below. They're off by default. You switch them on with the **Send this email** switch on the Abandoned Checkout email under **Content → Notification Emails**; see [Email Marketing](/docs/email-marketing#abandoned-checkout-emails).
+The page is titled **Notification Emails**: "Preview your transactional emails and customize the subject line and intro text of customer-facing ones". "Transactional" just means automatic emails that go out when something happens, such as an order or a payment. They are not marketing emails. For newsletters, see [Email Marketing](/docs/email-marketing).
 
-Your business logo and name appear in every email. If you have a logo uploaded under **Site Setup → Brand & Appearance**, it will be used. If not, the email falls back to displaying your business name as text.
+The page has two columns:
 
----
+- **Templates** on the left: one button for each email.
+- **Preview** on the right: shows the email you picked. If the email can be customized, a **Customize** card appears above the preview.
 
-## Using the Preview Page
+Until you click a button, the preview area says "Select a template to preview".
 
-The page is split into two panels:
-
-- **Left — Templates:** a list of buttons, one per email type
-- **Right — Preview:** an iframe that renders the selected email
-
-Click any template button to load a live preview in the right panel. The preview renders using real data from your account where possible (your business name, logo, and a recent order if one exists). If no real order is found, sample placeholder data is used instead.
-
-**Photo:** Screenshot of the email preview page — left panel showing template list, right panel showing a rendered email.
+![The Notification Emails page with the Templates list on the left, the Customize "Order Confirmation" card and the Order Confirmation email in the Preview card on the right](/images/email-preview/email-preview-page.png)
 
 ---
 
-## Available Email Templates
+## How Previews Work
 
-| Template                          | Sent to           | Triggered when                                         |
-| --------------------------------- | ----------------- | ------------------------------------------------------ |
-| **Order Confirmation**            | Customer          | Order is created at checkout                           |
-| **Order Shipped**                 | Customer          | You add a shipment with tracking info                  |
-| **New Order (owner)**             | You (the owner)   | A new order comes in                                   |
-| **Order Fulfilled (no tracking)** | Customer          | You mark an order as fulfilled without adding tracking |
-| **Order Refunded**                | Customer          | You issue a refund                                     |
-| **Welcome Email**                 | Customer          | A customer creates an account                          |
-| **Contact Form**                  | You (the owner)   | A visitor submits the contact form                     |
-| **Testimonial Invite**            | Customer          | You send a testimonial invite link                     |
-| **Verify Email**                  | Customer or owner | An account needs email verification                    |
-| **Reset Password**                | Customer or owner | A password reset is requested                          |
+A preview is a sample. Nothing is sent when you click a button.
 
-> **Note:** There is also an order cancellation email sent to customers when you cancel an order, but it does not currently have a preview on this page.
+- **Your logo and store name** are real. If you haven't uploaded a logo, the email shows your store name as text instead. Add one under **Site Setup → Brand & Appearance**.
+- **Customer names, addresses, products, amounts and codes** are made-up samples (for example "John Doe" or "Jane Smith"). Buttons and links in a preview are samples too.
+- **Order numbers and items:** if your store has any orders, the previews for **Order Confirmation**, **Order Confirmation (pickup)** and the two **New Order** emails use the order number and items from one of your real orders. The first order the page finds is used, not necessarily the newest. The amounts on the other order previews (such as **Order Refunded**) are always sample amounts. If you have no orders yet, the page uses order number 1001 and a "Sample Product".
+- **Customized wording shows up as you type.** If you change a subject or intro, the preview updates a moment later, before you save. A line above the preview, **Subject:**, shows the subject line customers will see.
+
+---
+
+## Every Email on the Page
+
+The page always lists all of these, whether or not the matching feature is turned on. For example, the invoice emails are listed even if you don't use [Invoices](/docs/invoices). An email only goes out when something actually happens, so unused features never email anyone.
+
+The tables show the buttons in the same groups used below. On the page itself they sit in one long list, in the order shown here.
+
+"Customize" tells you what you can change on the page. See [Customizing an Email](#customizing-an-email).
+
+### Orders and Shoppers
+
+| Button | Who gets it | When it's sent | Customize |
+| --- | --- | --- | --- |
+| **Order Confirmation** | Customer | Payment goes through, including each subscription renewal. For orders you create by hand, only if you choose to send it. | Subject and intro |
+| **Order Confirmation (pickup)** | Customer | Same email, for pickup orders. It adds the pickup location and instructions. | Subject and intro (shared with **Order Confirmation**) |
+| **Ready for Pickup** | Customer | You click **Mark Ready for Pickup** on a pickup order. | Subject and intro |
+| **Order Shipped** | Customer | You add a shipment with a tracking number. | Subject and intro |
+| **Order Fulfilled (no tracking)** | Customer | An order becomes fully fulfilled without tracking numbers. | Subject and intro |
+| **Order Refunded** | Customer | You refund an order and leave **Notify customer by email** ticked. | Subject and intro |
+| **Order Cancelled** | Customer | You cancel an order and leave **Notify customer by email** ticked. | Subject and intro |
+| **Abandoned Checkout** | Customer | A shopper reached the payment page, left an email address, and didn't pay within about 30 minutes. **Off until you turn it on.** | Subject and intro, plus the **Send this email** switch |
+| **Back in Stock** | Customer | A sold-out item that a shopper asked about can be bought again. | No |
+
+The **Order Confirmation (pickup)** button is a second view of the same email, so changes you make to one apply to both.
+
+**Back in Stock** is the email a shopper gets after asking to be told when a sold-out item returns. You can preview it here, but you can't change its wording. See [Wishlist & Back-in-Stock Alerts](/docs/wishlist-and-back-in-stock).
+
+For the shopper's side of these emails, and how to turn each off, see [Emails Your Customers Receive](/docs/for-your-customers#emails-your-customers-receive).
+
+### Alerts for You
+
+These go to your **Owner Email** (set in your General settings). Customers never see them. None of them can be customized.
+
+| Button | When it's sent |
+| --- | --- |
+| **New Order (owner)** | A new order is paid. |
+| **New Order (subscription)** | A subscription order comes in, such as a renewal. It also shows the subscription schedule. |
+| **Contact Form** | A visitor sends your contact form. Replying to it writes back to the visitor. |
+| **Low Inventory Alert (owner)** | A product's stock drops to its low-inventory number (set on the product). |
+| **Out of Stock Alert (owner)** | A product's stock reaches zero. |
+| **Out of Stock — Backorders On (owner)** | A product reaches zero, but it still takes orders because backorders are on. |
+
+### Quotes
+
+| Button | Who gets it | When it's sent | Customize |
+| --- | --- | --- | --- |
+| **Quote Request Received** | Visitor | They submit a quote calculator, if **Email the visitor a confirmation** is on in that calculator. | Subject and intro |
+| **Final Quote** | Customer | You send a final quote from the request's detail page. | Subject only. You write the message each time you send. |
+| **New Quote Request (owner)** | You | Someone submits a quote calculator. | No |
+
+See [Quote Calculators](/docs/quote-calculators).
+
+### Invoices
+
+| Button | Who gets it | When it's sent | Customize |
+| --- | --- | --- | --- |
+| **Invoice Sent** | Customer | You send an invoice by email. | Subject only. You write the message each time you send. |
+| **Invoice Reminder** | Customer | You click **Send reminder** on an invoice. It is never automatic. | Subject only |
+| **Invoice Cancelled** | Customer | You cancel an invoice and choose to tell the customer. | No |
+| **Invoice Payment Receipt** | Customer | You record a payment and tick **Email receipt to customer**. | No |
+| **Invoices Past Due (owner)** | You | One or more invoices become past due. Switch it off with **Email me when an invoice becomes past due** in your invoice settings. | No |
+| **Weekly Invoice Digest (owner)** | You | Every Monday morning in your store's time zone, if you have open invoices or collected money in the last 7 days. Switch it off with **Weekly summary every Monday morning** in your invoice settings. | No |
+
+See [Invoices](/docs/invoices).
+
+### Subscriptions
+
+| Button | Who gets it | When it's sent | Customize |
+| --- | --- | --- | --- |
+| **Subscription Started** | Customer | They subscribe. | Subject only |
+| **Subscription Payment Failed** | Customer | A renewal payment fails. | Subject only |
+| **Subscription Cancelled** | Customer | The subscription ends. | Subject only |
+| **Subscription Updated (Paused)** | Customer | The subscription is paused. | Subject only (shared with the Resumed button) |
+| **Subscription Updated (Resumed)** | Customer | The subscription is resumed. | Subject only (shared with the Paused button) |
+| **Subscription Manage Links** | Customer | They ask for their management links from the subscription lookup page. | No |
+| **New Subscription (owner)** | You | A customer subscribes. | No |
+| **Subscription Cancelled (owner)** | You | A subscription is cancelled. | No |
+| **Subscription Payment Failed (owner)** | You | A renewal payment fails. | No |
+
+The paused and resumed buttons are two looks of one **Subscription Updated** email. The same email is also sent when a delivery is skipped. See [Subscriptions](/docs/subscriptions).
+
+### Rewards
+
+| Button | Who gets it | When it's sent | Customize |
+| --- | --- | --- | --- |
+| **Loyalty Reward Redeemed** | Customer | They trade points for a reward code. | No |
+| **Loyalty Birthday Bonus** | Customer | Their birthday points are added. | No |
+
+See [Rewards Program](/docs/rewards).
+
+### Account and Other
+
+| Button | Who gets it | When it's sent | Customize |
+| --- | --- | --- | --- |
+| **Testimonial Invite** | Customer | You send a testimonial invite link. | No |
+| **Verify Email** | Whoever is signing up | They create an account and need to confirm their email. | No |
+| **Reset Password** | Whoever asked | They use **Forgot password**. | No |
+
+<Callout type="info" title="Not every email is on this page">
+  A few other automatic emails, such as team invitations, form notices, donation notices and order status links, don't have a button here. You can't preview or reword them from this page.
+</Callout>
+
+---
+
+## Customizing an Email
+
+For the emails marked in the tables, you can change two things:
+
+| Field | What it does | Limit |
+| --- | --- | --- |
+| **Subject** | The subject line of the real email. Leave it blank to use the standard subject. | 150 characters |
+| **Intro text** | An optional paragraph shown at the top of the email, under the heading. | 1,000 characters |
+
+Some emails only let you change the subject. For those, the **Intro text** box doesn't appear. Their message is written elsewhere (for example when you send an invoice), or it is fixed.
+
+Both fields are **plain text**. Anything that looks like web code, such as `<b>`, won't save. There is no bold, no pictures and no buttons.
+
+### Step by Step
+
+1. Open **Content → Notification Emails**.
+2. In the **Templates** list, click the email you want, for example **Order Confirmation**.
+3. Find the **Customize "Order Confirmation"** card above the preview. Under the title is a short note on when this email is sent.
+4. Type your own **Subject**. The standard subject is shown greyed out in the box as a guide. Use these placeholders where they make sense:
+   - `{orderNumber}` becomes the order number. Use it in order emails only.
+   - `{businessName}` becomes your store name.
+   - `{invoiceNumber}` becomes the invoice number. Use it in invoice emails only.
+5. If the card has **Intro text**, type your paragraph. For example: "Thank you for supporting a small shop! We pack every order by hand."
+6. Check the **Subject:** line and the email in the **Preview** card.
+7. Click **Save changes**. A message confirms: "Email customizations saved".
+
+You can edit several emails before saving. **Save changes** keeps all of your edits at once. While you have edits that aren't saved yet, **Unsaved changes** appears next to the buttons, and **Save changes** is greyed out when there is nothing new to save.
+
+![The Customize "Order Confirmation" card with a custom Subject and Intro text typed in and not yet saved, and the Preview card showing the new subject line and the intro paragraph under the heading](/images/email-preview/email-preview-customize.png)
+
+### What Customers See
+
+Once you save, your wording is used in the real emails from then on. Emails already sent are not changed. If you resend an email from an order later, it uses your wording as it is at that moment.
+
+- A custom **Subject** replaces the standard subject, including for the pickup version of the order confirmation.
+- **Intro text** appears near the top of the email, under the heading. The rest of the email (items, totals, buttons, footer) stays the same.
+- If you leave a field blank, the standard wording is used for that field.
+
+A few things to know about subjects:
+
+- **Placeholders only fill in where they apply.** `{orderNumber}` in an abandoned checkout or subscription subject comes out blank, because there is no order number. `{businessName}` works in every customizable email.
+- **The preview can't fill in everything.** In the invoice previews, the invoice number in the **Subject:** line comes out blank. Real emails show the real number.
+- **Subscription emails normally name the product.** The standard subject includes the product's name, for example "Your Premium Coffee Pack subscription is confirmed". The subject you write can use `{businessName}` but can't include the product name.
+- **Final Quote** has two standard subjects, depending on whether a price is included. If you write your own subject, it is used for both.
+
+### Undoing a Change
+
+1. Select the email.
+2. Click **Reset to default**. This empties the **Subject** and **Intro text** boxes.
+3. Click **Save changes** to make it official.
+
+The **Reset to default** button is greyed out when both boxes are already empty. You can also just clear the boxes by hand and save.
+
+---
+
+## Abandoned Checkout Emails
+
+**Abandoned Checkout** is the one email that also has an on/off switch. It is **off** until you turn it on.
+
+1. Click **Abandoned Checkout** in the **Templates** list.
+2. At the top of the **Customize "Abandoned Checkout"** card, switch **Send this email** on.
+
+The switch takes effect right away. You'll see "Abandoned checkout emails are now sending" (or "Abandoned checkout emails are now off" when you switch it back). You don't need to click **Save changes** for the switch. That button is only for the subject and intro below it.
+
+The switch controls whether the email goes out at all, not just how it looks. While it's off, shoppers who leave checkout never get a reminder, no matter what you've written in the subject and intro.
+
+![The Customize "Abandoned Checkout" card with the Send this email switch, the Subject and Intro text fields and the Save changes and Reset to default buttons, above a preview of the email](/images/email-marketing/abandoned-checkout-settings.png)
+
+For when it sends, who it reaches, and what it says, see [Abandoned Checkout Emails](/docs/email-marketing#abandoned-checkout-emails) in Email Marketing.
 
 ---
 
@@ -55,28 +229,80 @@ Click any template button to load a live preview in the right panel. The preview
 
 **You can:**
 
-- Preview any of the 10 email templates listed above
-- See how your logo and business name appear in the rendered layout
-- Verify the formatting and content of emails before customers receive them
+- Preview every automatic email the page lists, with your own logo and store name
+- Change the subject line of the emails marked **Subject only** or **Subject and intro**
+- Add an intro paragraph to the order emails, the abandoned checkout email and the quote request confirmation
+- Reset an email to its standard wording
+- Turn abandoned checkout emails on or off
 
 **You cannot:**
 
-- Edit or customize the email templates — they are managed at the platform level and are the same for all businesses
-- Send a test email to yourself from this page — it is a visual preview only
-- Preview the order cancellation email (not currently available)
-
-> **Known issue:** Clicking **Reset Password** currently does not display a preview. The button triggers the render but the result is not shown. This is a known bug. All other templates preview correctly.
-
----
-
-## Tips
-
-- **Check your logo first.** If no logo is uploaded, emails will display your business name as plain text. Upload your logo under **Site Setup → Brand & Appearance** before reviewing these previews.
-- **Order-based previews use real data.** The order confirmation, new order notification, and refund previews pull from your most recent order. If your store is new and has no orders yet, sample values are used instead.
-- **Previews reflect the current state.** If you update your business name or logo, come back here and reload a preview to confirm the change appears correctly.
+- Send a test email from this page. The preview is on screen only.
+- Rewrite the body of any email, or change its layout, colors or buttons
+- Add bold, pictures or links to your intro text
+- Change the wording of the owner alerts, **Back in Stock**, the rewards emails, the sign-in emails, or the invoice cancelled, receipt and digest emails
+- Turn off an email from this page. The only on/off switch here is **Send this email** on **Abandoned Checkout**. Other emails have their own controls where they start. See [Emails Your Customers Receive](/docs/for-your-customers#emails-your-customers-receive).
+- Choose which address replies go to from this page
 
 ---
 
-**Photo:** Close-up of the rendered Order Confirmation email showing the logo, order number, line items, and totals.
+## Troubleshooting and FAQ
+
+**The preview area says "Select a template to preview".**
+Click one of the buttons in the **Templates** list. Nothing is shown until you pick one.
+
+**I changed the wording, but a customer still got the old email.**
+Check that you clicked **Save changes**. If **Unsaved changes** is showing, your edit is only on your screen. Also, only emails sent after you save use the new wording.
+
+**Why doesn't the email I want have a Subject box?**
+Only emails marked in the tables can be customized. Owner alerts, **Back in Stock**, the rewards emails, **Verify Email**, **Reset Password** and a few others are fixed.
+
+**Why is there no Intro text box on Invoice Sent, Final Quote or the subscription emails?**
+Those emails take their message from somewhere else (the invoice or quote you send), or have fixed text. Only the subject can be changed.
+
+**My changes won't save.**
+Subject and intro are plain text only. Remove anything that looks like web code, such as `<b>` or `<p>`. Also keep the subject to 150 characters and the intro to 1,000.
+
+**The preview shows the wrong customer, amounts or products.**
+Those are samples. Only your logo, store name, and the order number and items of the order-based previews come from your store. Real emails use the real customer's details.
+
+**My logo isn't in the preview.**
+Upload one under **Site Setup → Brand & Appearance**. Until then, the email shows your store name as text.
+
+**Where do I turn off abandoned checkout emails?**
+Open **Abandoned Checkout** in the **Templates** list and switch **Send this email** off.
+
+**Is there a Welcome email?**
+No. SimplePress doesn't send a welcome email when a customer creates an account. They get the **Verify Email** message to confirm their address.
+
+**Can I see the sign-in emails exactly as customers get them?**
+You can preview **Verify Email** and **Reset Password**. The real **Reset Password** email's subject reads "Reset your SimplePress password", because a customer's account works at every store that runs on SimplePress.
+
+**Need more help?** Email [help@generativejustice.org](mailto:help@generativejustice.org).
 
 ---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Email Marketing"
+		description="Send a newsletter to customers who opted in, and win back shoppers who leave checkout."
+		href="/docs/email-marketing"
+	/>
+	<Card
+		title="Orders"
+		description="Fulfill, refund and cancel orders, and see which emails each action sends."
+		href="/docs/orders"
+	/>
+	<Card
+		title="Wishlist & Back-in-Stock Alerts"
+		description="Let shoppers ask to be told when a sold-out item returns."
+		href="/docs/wishlist-and-back-in-stock"
+	/>
+	<Card
+		title="Emails Your Customers Receive"
+		description="The shopper's side of every automatic email, and how to turn each one off."
+		href="/docs/for-your-customers#emails-your-customers-receive"
+	/>
+</Cards>
