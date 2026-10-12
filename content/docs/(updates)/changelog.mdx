@@ -7,6 +7,11 @@ This page highlights **documentation** changes and **product** milestones we sur
 
 For release-level detail on the SimplePress codebase, you can also watch [GitHub releases](https://github.com/ahunnii/simple-press/releases).
 
+## 2026-10-12
+
+- **Product:** Invoices now have an **Activity** tab: one log of everything that happened to all your invoices (created, sent, viewed, reminded, paid, cancelled), with who did it, filters for invoice or customer, event and dates, and a CSV export. Each invoice's Activity card has a **View all activity →** link to it. See [Invoice activity](/docs/invoices#invoice-activity).
+- **Docs:** [Invoices](/docs/invoices#invoice-activity) has a new Invoice Activity section, and [Weekly, Monthly & Yearly Checklist](/docs/owner-routines) now includes tallying invoice payments each month.
+
 ## 2026-10-11
 
 - **Product:** Discount code uses are now counted when the shopper goes to the payment page, not when the order is placed. The use is held while the checkout is open (up to 30 minutes) or a bank payment is clearing (up to 14 days), and is given back automatically if the checkout times out or the payment fails. A **Usage Limit** can no longer be passed by several shoppers checking out at once, and **Limit uses per customer** counts that customer's open checkouts too. The **Usage** column shows held uses, like "1 / 1 (1 pending)", and a code that is only full because of pending checkouts stays active. Reward codes in use show **Pending** instead of **Used** on the customer's Rewards page and loyalty card until the order is final. If a shopper goes back from the payment page and continues again, their earlier checkout is closed and its held use moves to the new one, so they can still use a single-use or once-per-customer code. That closed checkout doesn't get an abandoned checkout email (a checkout that wasn't holding any stock or code isn't closed, and can still get one).

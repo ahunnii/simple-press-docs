@@ -35,7 +35,8 @@ Nothing is deleted. Your invoices stay listed, with an **Invoices are turned off
 
 - view every invoice;
 - record payments, and delete a payment you recorded by mistake;
-- cancel an invoice.
+- cancel an invoice;
+- see the [Activity](#invoice-activity) log. Its tab is hidden while Invoices is off, but going to `/admin/invoices/activity` still opens it.
 
 Creating, editing, sending, sending reminders and deleting drafts are paused until you turn Invoices back on.
 
@@ -264,7 +265,7 @@ Click any invoice to open it. The bar at the top shows only the actions that fit
 | **Print** | Any invoice except a draft |
 | **Copy link** | Any invoice except a draft |
 
-![An invoice's page, with the action bar, the invoice itself, and Payments, Details and Activity cards on the right](/images/invoices/invoice-detail.png)
+![An invoice's page, with the action bar, the invoice itself, and Payments, Details and Activity cards on the right; the Activity card has a View all activity link](/images/invoices/invoice-detail.png)
 
 *A partially paid invoice, with its payment, details and activity on the right.*
 
@@ -272,7 +273,7 @@ On the right:
 
 - **Payments** lists each payment's date, method, amount, reference, note and whether a receipt went out, with a delete icon.
 - **Details** shows how the invoice was sent (**Sent via**), when the customer **First viewed** and **Last viewed** it, and how many **Reminders sent**.
-- **Activity** is the invoice's history: Created, Edited, Emailed to customer, Marked as sent, Email failed to send, Viewed by customer, Reminder sent, Payment recorded, Payment deleted, Receipt sent, Cancelled, and Overdue alert sent to you.
+- **Activity** is the invoice's history: Created, Edited, Emailed to customer, Marked as sent, Email failed to send, Viewed by customer, Reminder sent, Payment recorded, Payment deleted, Receipt sent, Cancelled, and Overdue alert sent to you. **View all activity →** opens the [Activity](#invoice-activity) log searched to this invoice, where you can also see who did each thing.
 
 ### Send a reminder
 
@@ -297,9 +298,9 @@ Click **Print** to open a printer-friendly version, then use its **Print** butto
 
 ## The Invoices list
 
-**Invoices** in the sidebar (`/admin/invoices`) lists every invoice, newest first.
+**Invoices** in the sidebar (`/admin/invoices`) lists every invoice, newest first. Two tabs at the top switch between **Invoices** (this list) and **Activity** ([the history of all your invoices](#invoice-activity)). You only see the tabs while the Invoices feature is on.
 
-![The Invoices page, with Outstanding, Overdue and Paid last 30 days summary cards, status tabs, and a table of invoices](/images/invoices/invoices-list.png)
+![The Invoices page, with Invoices and Activity tabs at the top, Outstanding, Overdue and Paid last 30 days summary cards, status tabs, and a table of invoices](/images/invoices/invoices-list.png)
 
 *The Invoices list. SimplePress and QuickBooks invoices sit side by side.*
 
@@ -325,6 +326,34 @@ The columns are **Invoice**, **Customer**, **Status**, **Due**, **Total** and **
 | **Overdue** | Past its due date with a balance left. This is worked out from the due date in your business's time zone. |
 | **Paid** | Paid in full. |
 | **Cancelled** | Cancelled by you. No more payments can be recorded. |
+
+---
+
+## Invoice activity
+
+**Invoices > Activity** (`/admin/invoices/activity`) is one log of everything that has happened to all your invoices, newest first. Use it to answer questions like "which invoices did the customer open this week?", "what payments did we record in September?" or "who cancelled that invoice?" without opening invoices one at a time.
+
+![The Invoice Activity log with Search, Event, From and To filters, and rows for payments recorded, invoices marked as sent, created and cancelled](/images/invoices/invoice-activity.png)
+
+*The Activity log. Each row links to its invoice.*
+
+- **Columns:** **When**, **Invoice** (click the number to open it), **Customer**, **Event**, **By** and **Details**. **By** is the team member who did it. Customer views say **Customer**, and overdue alerts say **System**. **Details** adds what's useful for that event, such as "$75.00 · Bank transfer" for a payment, the email address for an emailed invoice or reminder, or "customer not notified" for a cancellation. On a phone or a narrow window, the other columns fold under the invoice number.
+- **Search** by invoice number, customer name or email, then click **Search** or press Enter. "INV-0002", "#2" and "2" all find invoice INV-0002.
+- **Event** narrows the log to one kind of event. The list is grouped:
+
+| Group | Events |
+| --- | --- |
+| **Sending** | Created, Edited, Marked as sent, Emailed to customer, Viewed by customer, Reminder sent |
+| **Payments** | Payment recorded, Payment deleted, Receipt sent |
+| **Problems** | Email failed to send, Cancelled, Overdue alert sent to you |
+
+- **From** and **To** limit the log to a date range. Both days are included, and days follow your business's time zone (set in [General Settings](/docs/general-settings)).
+- **Clear filters** resets everything. The log shows 25 events per page.
+- **Export CSV** downloads the log with whatever filters are set, capped at 20,000 rows. The file has **Date**, **Invoice #**, **Customer**, **Event**, **Details** and **By** columns. Dates are in UTC, like the orders export.
+
+<Callout type="info" title="What the log doesn't include">
+QuickBooks invoices aren't in the log; their history lives in QuickBooks. Deleted drafts take their history with them. An invoice turning overdue isn't an event either: it's worked out from the due date, so filter the [Invoices list](#the-invoices-list) by **Overdue** to see those.
+</Callout>
 
 ---
 
@@ -522,6 +551,9 @@ No. Only drafts can be deleted. Cancel a sent invoice instead; it stays in your 
 
 **Do customers get automatic reminders?**
 No. Customers only get the reminders you send with **Send reminder**. You can get automatic past-due alerts and a weekly summary for yourself in **Settings → Invoices**.
+
+**How do I see every payment I recorded last month?**
+Open **Invoices > Activity**, choose **Payment recorded** under **Event**, set **From** and **To** to the month, and click **Export CSV** if you want a spreadsheet. Check for **Payment deleted** rows in the same range too.
 
 **My customer says their link doesn't work.**
 Links last 365 days from when they were made. Open the invoice, click **Copy link** to make a fresh one, and send it to them.

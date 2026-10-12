@@ -92,7 +92,7 @@ The fields are the questions visitors answer, in the order shown. A form needs a
 
 To add one, click **Add field** and choose a type. The new field opens so you can fill it in.
 
-![The Add field menu open, listing all eleven field types with a one-line description of each](/images/forms/add-field-menu.png)
+![The Add field menu open, listing all twelve field types, including Picture choice, with a one-line description of each](/images/forms/add-field-menu.png)
 
 #### Field Types
 
@@ -106,6 +106,7 @@ To add one, click **Add field** and choose a type. The new field opens so you ca
 | **Dropdown**        | One answer picked from a menu                             | **Options**                                                                      |
 | **Multiple choice** | One answer, shown as round buttons                        | **Options**                                                                      |
 | **Checkboxes**      | Any number of answers from a list                         | **Options**                                                                      |
+| **Picture choice**  | Tiles with a color or photo; pick one, several, or how many of each | **Customers can pick**, **Tile size**, **Show labels under tiles**, **Image above the choices**, limits, **Choices** |
 | **Single checkbox** | One yes-or-no box. The label is the statement, such as "I agree to the cancellation policy." | None                                      |
 | **Date**            | A calendar date                                           | **Earliest allowed date**                                                        |
 | **Time**            | A time of day, shown in the visitor's usual clock format  | None                                                                             |
@@ -135,6 +136,51 @@ Each field needs its own label. Two fields can't share one, even if they differ 
 
 ![An open Dropdown field named "Event type" with Required on and four options: Wedding, Birthday, Corporate, and Other](/images/forms/dropdown-field.png)
 
+#### Picture Choice
+
+A **Picture choice** field shows a grid of tiles instead of a list. Each tile (a "choice") has a name, and can also have a color, a photo, or both. Use it for things like balloon colors, cake flavors with photos, or a numbered list of pictures.
+
+What a visitor sees on each tile:
+
+- If the choice has a photo, the photo shows.
+- If not, but it has a color, the color shows as a round swatch.
+- If it has neither, the name shows as a button. This works well for numbers such as 1 to 10.
+
+The field's own settings:
+
+- **Customers can pick**: how many tiles a visitor can choose. See the table below.
+- **Tile size**: **Small — swatches or numbers** or **Large — photos**.
+- **Show labels under tiles**: turn this off when the swatch or photo says it all. Screen readers still read the names aloud.
+- **Image above the choices** (optional): a picture shown above the tiles, such as a numbered collage that the choices refer to.
+- **Limits**: shown only when visitors can pick more than one. Both are optional, can be up to 999, and the minimum can't be greater than the maximum.
+
+| **Customers can pick**         | What visitors do                                                                                  | Limits                                        |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| **One**                        | Pick a single tile.                                                                               | None                                          |
+| **Several**                    | Tick any number of tiles.                                                                         | **Minimum picks** and **Maximum picks** (can't be more than the number of choices) |
+| **Several, with quantities**   | Each tile has **−** and **+** buttons and a number box, so they can ask for, say, 3 red and 2 gold. Tapping a tile's picture adds the first one. | **Minimum total** and **Maximum total** ("Total quantity across all choices.") |
+
+##### The Choices Box
+
+Instead of **Options**, this field has a **Choices** box. Each row has:
+
+- the choice's name
+- a color picker with a hex code box, and a **Clear** button to remove the color
+- **Add photo**, to upload a photo or use **Choose from library**
+- arrows to reorder it, and a trash can to remove it
+
+**Add option** adds a row. If the Media Library feature is on, **Add photos** lets you pick many photos from the [Media Library](/docs/media-library) at once. It adds one choice per photo, named 1, 2, 3 and so on in order, skipping numbers you've already used, and replaces the two blank starter choices.
+
+A field needs 2 to 60 choices. The same rules as options apply: each name is different, has no semicolons, and is up to 200 characters.
+
+**Example: balloon colors.** Add a **Picture choice** field labeled "Balloon colors". Set **Customers can pick** to **Several, with quantities**, **Tile size** to **Small — swatches or numbers**, and **Maximum total** to 12. Add a choice for each color you offer, and set its color. Visitors see round swatches, set how many of each they want, and can't go over 12 in all.
+
+**Example: pick your photo.** Upload a numbered collage to **Image above the choices**. Add a choice for each number in the collage (1, 2, 3 and so on) and leave the photos off. Set **Customers can pick** to **One**, so visitors just tap the number of the picture they want. If you'd rather show the photos themselves, put a photo on each choice and set **Tile size** to **Large — photos**.
+
+On your site, a quantity field shows a running line such as "5 of 12 chosen" (or "5 chosen" if there's no maximum), and "(choose at least 3)" while the total is under the minimum. The **+** buttons stop at the maximum. A **Several** field shows "2 of 3 selected". If a visitor types a number that goes over, the form won't send and says "Choose no more than 12 in total." On a **One** field that isn't required, a **Clear selection** link lets the visitor undo their pick. Templates style tiles to match their look; the Dream template shows colors as round balloons.
+
+Photos used in a form count as "in use" in the Media Library.
+
 #### Earliest Allowed Date
 
 **Date** fields have an **Earliest allowed date** setting:
@@ -149,6 +195,7 @@ This is handy for event and booking dates.
 When you pick a new **Type** for a field, a box asks you to confirm, for example **Change to Dropdown?** It tells you what carries over (the label, help text, required setting, and placeholder) and warns you if anything will be lost:
 
 - Changing a **Dropdown**, **Multiple choice**, or **Checkboxes** field to a type without options removes its options. Switching among those three keeps them.
+- Switching between **Picture choice** and **Dropdown**, **Multiple choice**, or **Checkboxes** keeps the choice names but removes the colors and photos. The box says "Colors and photos will be removed (the labels stay)."
 - If the field is the one that receives the confirmation email and you change it away from **Email**, that setting is cleared.
 
 Click **Change type** to go ahead, or **Cancel**.
@@ -252,7 +299,7 @@ If the form has no entries yet, the page says **No entries yet**.
 - **More filters** opens extra choices. Click **Apply filters** when you're done:
   - **Tags**: show entries with certain tags.
   - **Date range**: show entries sent between two dates.
-  - **Field filter**: show entries with a certain answer to a **Dropdown**, **Multiple choice**, **Checkboxes**, or **Single checkbox** field (for a single checkbox, the answer is **Yes** or **No**).
+  - **Field filter**: show entries with a certain answer to a **Dropdown**, **Multiple choice**, **Checkboxes**, **Picture choice**, or **Single checkbox** field (for a single checkbox, the answer is **Yes** or **No**; for a picture choice, you pick a choice and see the entries that chose it).
 
 Active filters show as small chips you can remove one at a time. The list shows 25 entries per page, newest first.
 
@@ -284,7 +331,7 @@ You can change the status of or tag up to 100 entries at a time, and delete up t
 
 Opening an entry shows:
 
-- **Answers**: every question and answer. Email addresses and phone numbers are links you can click to write or call. If you've since removed a question from the form, its answer is still here with the note "Field removed from form".
+- **Answers**: every question and answer. Email addresses and phone numbers are links you can click to write or call. If you've since removed a question from the form, its answer is still here with the note "Field removed from form". A **Picture choice** answer shows each choice as a small chip with its color or photo, plus "× 3" for quantities, and a "Total: 5" line under them. If you later rename or delete a choice, old entries still show its name, just without the color or photo.
 - **Details**: when it was submitted, and its **Source**: **Web submission** or **Imported**.
 - **Tags**: type a tag and press Enter or click **Add**. Tags you've used on other entries of this form appear underneath for one-click adding. Click the **x** on a tag to remove it. An entry can have up to 20 tags, each up to 40 characters.
 
@@ -307,7 +354,7 @@ The file has these columns, in order:
 3. **Tags**: several tags are separated by semicolons
 4. One column per question, named after its label. Questions you've removed from the form come after the current ones.
 
-Checkbox answers with more than one choice are separated by semicolons too.
+Checkbox answers with more than one choice are separated by semicolons too. Picture choice quantities read like "Red × 3; Gold × 2". The same format is used in the entries list and in the emails.
 
 ### Importing Entries
 
@@ -317,6 +364,8 @@ Use **Import CSV** to bring in entries you collected somewhere else, such as an 
 2. SimplePress matches the spreadsheet's column headings to your questions by label (capital letters and extra spaces don't matter). **Submitted at**, **Status**, and **Tags** columns are used if they're there.
 3. A preview shows the number of **Rows**, **Valid** rows, rows with **Errors**, and **Empty skipped** rows, which columns matched, which questions have no matching column, which columns will be ignored, the problems found in each row, and a sample of the first few entries.
 4. Click **Import N entries** to bring in the valid rows. Rows with errors are skipped.
+
+For a **Picture choice** question, write quantities as "Red x 3; Gold x 2" (an `x` or `×` both work), separate several picks with semicolons, and write a single pick as just the name.
 
 Imported entries show an **Imported** badge. Rows without a status come in as **Read**, and rows without a date get the time of the import. Importing never sends emails.
 
@@ -382,6 +431,7 @@ Note the last row: a Manager can't delete individual entries, but a Manager **ca
 - **Use Today or later** on date fields for bookings and events, so no one picks a date that's already passed.
 - **Name your button.** "Send inquiry" or "Apply now" tells people what happens better than "Submit".
 - **Duplicate to start a new version.** Make a copy, change it while it's a draft, then swap it into your page when it's ready.
+- **Use quantities for bundles.** For a bouquet or party-pack request, use a **Picture choice** with **Several, with quantities** and a **Maximum total**, so visitors can't ask for more than you can make.
 - **Tag as you go.** Tags like "Booked" or "Follow up" make it easy to filter and export just the entries you need.
 
 ---
@@ -406,8 +456,9 @@ See [Feature Flags](/docs/feature-flags).
 
 **You can:**
 
-- Build as many forms as you like, each with up to 50 questions of eleven types
+- Build as many forms as you like, each with up to 50 questions of twelve types
 - Make questions required, add help text, and limit dates to today or later
+- Let visitors pick colors or photos, and say how many of each (for example, 3 red balloons and 2 gold)
 - Place a form on any page or blog post, or in a rich-text field in the Site Editor, and use the same form in several places
 - Get an email for each new entry, sent to a different address per form if you like
 - Send visitors a confirmation email with a copy of their answers
