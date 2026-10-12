@@ -177,7 +177,20 @@ SimplePress checks that your Stripe Tax settings are complete. If they aren't, t
 
 ---
 
-## Step 5 — Connect Stripe to SimplePress
+## Step 5 — Check Your Payment Methods
+
+<Callout type="info" title="Bank debits are fine">
+Your SimplePress checkout shows whichever payment methods are switched on in your Stripe account. Cards, Apple Pay, Google Pay and Link are paid on the spot. Bank debits (such as ACH Direct Debit or "US bank account"), bank transfers and voucher methods are confirmed days later. SimplePress supports them: the shopper sees a processing page, and the order appears in your Orders list once the money clears.
+</Callout>
+
+1. In your Stripe Dashboard, click the **gear icon** (Settings) and open **Payment methods**.
+2. Check the list and switch on the methods you want to offer. If you'd rather only take instant payments, switch off any bank debit, bank transfer or voucher method.
+
+See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods) for what to expect.
+
+---
+
+## Step 6 — Connect Stripe to SimplePress
 
 Once your Stripe account is set up, the last step is connecting it to your store. Only an Owner or Manager can do this.
 
@@ -199,6 +212,7 @@ Use this to verify everything is in place before going live:
 - [ ] Business profile completed in Stripe (name, address, type, description, statement descriptor)
 - [ ] Identity and business verification finished, with no banner or items due in your Stripe Dashboard
 - [ ] Stripe Tax head office address confirmed, and registrations added for the states where you collect (if collecting sales tax)
+- [ ] Payment methods you want switched on in Stripe (bank debits are fine: orders appear once they clear)
 - [ ] Stripe connected to SimplePress, with the **Connected** badge showing on **Settings → Integrations**
 - [ ] Automatic Tax Collection switched on in SimplePress (if using Stripe Tax)
 

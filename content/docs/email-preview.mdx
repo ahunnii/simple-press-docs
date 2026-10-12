@@ -69,6 +69,8 @@ The tables below group the emails by topic. On the page itself, the buttons sit 
 | **Order Fulfilled (no tracking)** | Customer | An order becomes fully fulfilled without tracking numbers. | Subject and intro |
 | **Order Refunded** | Customer | You refund an order and leave **Notify customer by email** ticked. | Subject and intro |
 | **Order Cancelled** | Customer | You cancel an order and leave **Notify customer by email** ticked. | Subject and intro |
+| **Bank Payment Processing** | Customer | A shopper pays by bank (such as ACH Direct Debit) and the money hasn't cleared yet. The order appears once it clears. See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods). | Subject and intro |
+| **Bank Payment Failed** | Customer | A bank payment fails. No order is created, and the shopper is invited to order again. | Subject and intro |
 | **Abandoned Checkout** | Customer | A shopper reached the payment page, left an email address, and didn't pay within about 30 minutes. **Off until you turn it on.** | Subject and intro, plus the **Send this email** switch |
 | **Back in Stock** | Customer | A sold-out item that a shopper asked about can be bought again. | No |
 
@@ -162,7 +164,7 @@ Here is every automatic email that comes to **you** (or your team), in one place
 **Who gets what:**
 
 - Most alerts go to your **Owner Email**, which you set in **Settings → General**. See [General Settings](/docs/general-settings#owner-email).
-- **Payment disputes** and **payments paused** also go to every Owner and Manager on your team, each in their own copy.
+- **Payment disputes**, **payments paused** and **bank payment failed** also go to every Owner and Manager on your team, each in their own copy.
 - **Staff** don't get any of these emails. See [Team and Roles](/docs/team-and-roles).
 - Other alerts, such as new orders and low stock, go to the Owner Email address only, not to Managers.
 
@@ -173,6 +175,7 @@ Here is every automatic email that comes to **you** (or your team), in one place
 | **Out of stock** (product) | A product's stock reaches 0. There is a separate version for products that still take backorders. | Owner Email | Only by not tracking inventory for that product |
 | **Inventory item low** | An inventory item reaches its **Low-stock threshold (optional)**. | Owner Email | Leave the threshold blank on the item |
 | **Inventory item out** | An inventory item reaches 0. | Owner Email | No |
+| **Bank payment failed** | A shopper's bank payment fails. No order is created and the held items are released. You don't need to do anything. See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods). | Owner Email and every Owner and Manager | No |
 | **Payment dispute** | A customer disputes a payment. No email is sent when the dispute closes. See [Disputes](/docs/payments-and-payouts#disputes). | Owner Email and every Owner and Manager | No |
 | **Payments paused** | Stripe pauses charges on your account. Sent once. | Owner Email and every Owner and Manager | No |
 | **New review** | A customer submits a review. Reviews you add yourself don't send it. See [Reviews](/docs/reviews). | Owner Email | Only by turning Reviews off |

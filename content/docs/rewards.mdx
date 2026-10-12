@@ -195,7 +195,7 @@ The page has these sections, from top to bottom:
 - **Your balance**: their points. Customers who haven't joined see a **Join rewards** button, and "Join now and get N points" when you offer a sign-up bonus.
 - **How to earn points**: a list built from your settings, such as "Earn 1 point per $1 spent", "Get 100 bonus points on your first order", and "Get 50 points on your birthday each year". If you offer social follows, it adds "Follow us and earn N points each", with a link to each of your accounts and a **Claim N points** button (it reads **Claimed** once used). If nothing is set up to earn points, it says "Check back soon for ways to earn points."
 - **Redeem your points**: one card for each reward tier, with its label, discount, point cost, and any minimum purchase. This section is hidden until you add a tier.
-- **Your reward codes**: every code they've redeemed, with its expiry date, a **Copy** button, and a status of **Active**, **Used**, **Expired**, or **Inactive**. Before they redeem anything, it says "No codes yet."
+- **Your reward codes**: every code they've redeemed, with its expiry date, a **Copy** button, and a status of **Active**, **Pending**, **Used**, **Expired**, or **Inactive**. Before they redeem anything, it says "No codes yet."
 - **Birthday bonus**: month and day boxes and a **Save** button. This only appears when your birthday bonus is on.
 - **Recent activity**: their last 20 points changes, with the date and new balance. Before any activity, it says "No activity yet."
 
@@ -239,9 +239,11 @@ Open **Customers**, then click a customer. Their **Rewards** card shows:
 
 - their balance, such as "1,250 points";
 - **Joined** and the date, if they've joined, and **Birthday** if they've saved one;
-- a table of every points change, with **Date**, **Activity**, **Points**, **Balance after**, and **Details**. For a redeemed reward, **Details** shows the code and its status (**Active**, **Used**, **Expired**, or **Inactive**).
+- a table of every points change, with **Date**, **Activity**, **Points**, **Balance after**, and **Details**. For a redeemed reward, **Details** shows the code and its status (**Active**, **Pending**, **Used**, **Expired**, or **Inactive**).
 
 Before any activity, the card says "No rewards activity yet."
+
+A code shows **Pending** while the customer is using it in a checkout that's still open, or in a bank payment that hasn't cleared yet. It changes to **Used** when the order is final. If the checkout times out or the payment fails, the code goes back to **Active** and they can use it again.
 
 | Activity | What it means |
 | -------- | ------------- |

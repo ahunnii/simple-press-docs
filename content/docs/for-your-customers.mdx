@@ -34,6 +34,28 @@ See [Feature Flags](/docs/feature-flags) for how to turn these on and off.
 
 Shoppers browse your shop, collections, and product pages, choose a variant (size, color, and so on) when there is one, and click **Add to Cart**. Some templates open a slide-out cart right away. All templates also have a full cart page at `/cart`.
 
+### Searching, filtering and sorting the shop
+
+On the Default template, your `/shop` page has a filter panel on the left and a **Sort** menu above the products. On a phone, a **Filters** button above the products opens the panel. Above the products, a line like "Showing 24 products" updates as shoppers narrow things down.
+
+- **Search** ("Search products…") matches what the shopper types against each product's **name** and **description**. It finds part of a word and ignores capital letters. It does **not** look at SKUs, collection names, or variant options.
+- **Collection** lists your collections, with a count for each. Shoppers pick one at a time, or **All**. It only appears when at least one product belongs to a collection.
+- **Availability** has an **In stock** checkbox that hides sold-out products.
+- **Clear filters** appears once something is set, and resets everything.
+- **Sort** offers **Featured** (the default order), **A → Z**, **Z → A**, **Price, Low to High**, **Price, High to Low** and **Newest**.
+
+![The Default template shop with Skincare and In stock ticked in the filter panel, "Showing 3 products", the Sort menu set to Featured, and a row of three products](/images/for-your-customers/shop-filters.png)
+
+The shop shows 12 products per page, with **Previous**, **Next** and page numbers below. If nothing matches, shoppers see "No products match your filters." with a **Clear filters** link.
+
+This search only covers products, and only on the shop page. There's no search across your blog, events, services or pages. If shoppers ask for one, point them to your menu.
+
+<Callout type="info" title="Other templates lay this out differently">
+Other templates, including custom ones, may place search and sorting somewhere else, call them something different, or add controls (some add a price slider, or show filters on collection pages too). Search still only looks at product names and descriptions.
+</Callout>
+
+### The cart
+
 In the cart, shoppers can:
 
 - change quantities with the plus and minus buttons (they can't add more than you have in stock),
@@ -73,17 +95,54 @@ The checkout page asks for:
 - **Shipping address:** if they're shipping. Signed-in shoppers with saved addresses can pick one instead of typing it out.
 - **Discount code:** only when **Coupons & Discounts** is on. They type a code and click **Apply**. If the code works, they see how much they saved. If it doesn't, they see a message explaining why (for example, it expired or the order is below the minimum). Only one code can be used per order. Rewards codes go in this same box. See [Discounts and Coupons](/docs/discounts-and-coupons).
 
+There's no box for an order note, gift message, or delivery instructions. Shoppers can't add one at checkout, on Stripe's page, or later. If they need to tell you something ("please gift wrap this"), they can use your Contact page or reply to their order confirmation email. You can then add it to the order yourself as an internal note. See [Orders](/docs/orders#notes).
+
 The order summary shows the subtotal, any discount, shipping, and an **Estimated total**. Tax and the final total are worked out on the next step. A short notice under the button links to SimplePress's Terms of Service, and to your Terms of Service or Refund Policy page if you've published one.
 
 ![The checkout page with contact details, shipping address, discount code box, and order summary](/images/for-your-customers/checkout.png)
 
 ### Step 2: Secure payment with Stripe
 
-When they click **Continue to Payment**, they go to a secure Stripe payment page with your store's name on it. There they enter their card, or use any other payment method you've turned on in your Stripe account. Tax is added there if you use automatic tax (see [Tax](/docs/tax)).
+When they click **Continue to Payment**, they go to a secure Stripe payment page with your store's name on it. There they enter their card, or use a wallet such as Apple Pay, Google Pay or Link when Stripe offers one. Tax is added there if you use automatic tax (see [Tax](/docs/tax)).
+
+<Callout type="info" title="Paying by bank takes a few days">
+Stripe shows shoppers whichever payment methods are switched on in your Stripe account. Cards and wallets are paid on the spot. If a shopper pays by bank (such as ACH Direct Debit or "US bank account"), a bank transfer, or a voucher, the money clears days later. They see an **Order received** page saying their bank payment is processing, and get a **Your order is processing** email. Their order confirmation comes once the money clears, and the order then appears in your Orders list. If the payment fails, they get an email inviting them to order again. See [Payments & Payouts](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods) for the full picture.
+</Callout>
+
+Stripe's page also shows the shopper's address (if they're shipping) and a phone number box, usually already filled in from your checkout page. What they can change there depends on your shipping setting:
+
+- **Free shipping or a flat rate:** they can edit the address on Stripe's page.
+- **Zone + weight rates:** the address is locked on Stripe's page, because the shipping price was worked out from the address they gave you. To change it, they click back to your checkout page, fix it, and continue again.
+- **In-store pickup:** no address is asked for.
+
+See [Shipping](/docs/shipping#zone--weight-rates).
 
 - **Items are held for 30 minutes.** Once a shopper reaches the payment page, the items they're buying are reserved so nobody else can buy the last one first. If they don't pay within 30 minutes, the hold ends and the items go back on sale.
 - **If they click back,** they return to your checkout page with their cart unchanged.
-- **If you haven't connected Stripe,** shoppers see a message that checkout isn't available yet instead of the checkout form. See [Stripe](/docs/stripe).
+- **If you haven't connected Stripe,** shoppers see a "Checkout Unavailable" page instead of the checkout form. It says "This store hasn't set up payment processing yet. Please contact the store owner." You can change that wording in the site editor. See [Stripe](/docs/stripe).
+
+### Messages shoppers may see at checkout
+
+If something stops a shopper from reaching Stripe's payment page, a red message appears on your checkout page. Here's what each one means and what you can do.
+
+| Message | What it means | What you can do |
+| ------- | ------------- | --------------- |
+| "Please fill in all required contact fields" / "Please fill in all required shipping fields" | The shopper left email, name, phone, or part of the address empty. | Nothing. They fill it in and try again. |
+| "Your cart is empty" | The cart had nothing in it when they clicked **Continue to Payment**. | Nothing. |
+| "The following items were out of stock or no longer available and have been removed from your cart: [item names]." | An item sold out, was unpublished, is marked coming soon, or is being held by another shopper's unfinished checkout. SimplePress takes it out of the cart for them. | Check the product's stock and **Published** switch. Held items go back on sale within 30 minutes. |
+| "Complete shipping address is required" | The address is missing a part, or the country isn't one you ship to. | Check **Countries you sell to** in [Shipping](/docs/shipping#countries-you-sell-to). |
+| "Shipping to this country is not available" | Zone + weight shipping only: the country isn't one you ship to. | Same as above. |
+| "In-store pickup is not available for this store" | They chose pickup, but you've since turned pickup off. | Turn pickup back on in [Shipping](/docs/shipping#in-store-pickup), or ask them to choose delivery. |
+| "Invalid or expired discount code" | The code they applied no longer exists. | Check the code in [Discounts and Coupons](/docs/discounts-and-coupons). Other code messages are listed there too. |
+| "Checkout is not available for this store." | **Shopping Cart & Checkout** (or a feature it depends on) is switched off. | Check **Settings → Features**. See [Feature Flags](/docs/feature-flags). |
+| "This store is temporarily unavailable. Please try again later." | [Maintenance Mode](/docs/maintenance-mode) is on, or SimplePress is doing maintenance. | Turn Maintenance Mode off when you're ready to sell. |
+| "Store payment processing not configured" | Stripe isn't connected to your store. This is rare, because the checkout page normally shows "Checkout Unavailable" first. | Connect Stripe in **Settings → Integrations**. |
+| "Invalid request." | The cart held something checkout can't accept, such as more than 100 of one item. | Ask the shopper to reduce the cart, or email help@generativejustice.org if it keeps happening. |
+| "Too many requests. Please try again later." | One internet connection tried to check out more than 10 times in a minute. | Nothing. They wait a minute and try again. |
+| "We couldn't reach the payment service. Please try again in a moment." | The shopper's connection dropped, or our server sent back something unexpected. | Nothing. A retry usually works. |
+| "Failed to create checkout session. Please try again." | A catch-all. The most common cause is that Stripe refused to start the payment. | See below. |
+
+If a shopper keeps seeing "Failed to create checkout session. Please try again.", check for a red **Payments are paused** strip in your admin. When Stripe has paused charges on your account, checkout doesn't warn shoppers. The checkout page works as normal, and they only see this generic message when they try to pay. See [Payments & Payouts](/docs/payments-and-payouts#when-stripe-pauses-payments). If you're not paused, email help@generativejustice.org.
 
 ---
 
@@ -127,9 +186,26 @@ A shopper's account is a SimplePress account, not one just for your store. If th
 
 Shoppers sign in with their email and password. There's no Google sign-in and no "magic link" sign-in. If they've forgotten their password, they click **Forgot password**, enter their email, and get a reset link that works for one hour.
 
+Sign-up, sign-in and **Forgot password** are protected by Google reCAPTCHA, which runs quietly in the background. There's no box to tick. But ad blockers, privacy extensions, some strict privacy browsers, and some VPNs or work and school networks can block it. When that happens, the shopper sees one of these messages instead of getting in:
+
+| Message | What it means |
+| ------- | ------------- |
+| "We couldn't verify your browser. Wait a moment and try again — if it keeps happening, a browser extension or network filter may be blocking reCAPTCHA." | The check didn't run. It's usually still loading or being blocked. |
+| "We couldn't verify this request. Please try again, or contact support if the problem continues." | Google turned the attempt down. A retry often works. |
+| "That email and password don't match an account." | A typo, or they signed up with a different email. |
+| "An account with this email already exists. Try signing in instead." | They've already signed up. |
+| "Too many attempts. Wait a minute and try again." | Too many tries in a row. They wait a minute. |
+| "Something went wrong on our end. Please try again." | A temporary problem. Retry in a moment. |
+
+The fix for the first two is for the shopper to allow your site in their ad blocker or privacy extension (or turn it off for your site), then try again. They can also try another browser, switch off their VPN, or use their phone's mobile data. Nothing needs changing on your side.
+
 ### Past Orders Join Their Account Automatically
 
-When a shopper creates an account, any orders they placed as a guest **with the same email address** show up in their account straight away. Orders placed with a different email address won't show up.
+Orders are matched to an account by **email address**. Once a shopper has verified their email, any orders they placed as a guest with that same address show up in their account. Orders placed with a different email address won't show up.
+
+<Callout type="info" title="Customers can't change their account email">
+A shopper's email is how they sign in, and it's also how their orders find their account. The Settings tab only lets them change their name and profile picture. There's no way for a shopper to change their email themselves. If they sign up again with a new address, that new account starts empty. It doesn't pick up orders placed under the old address. They can still look up any single order with the email it was placed under (see below).
+</Callout>
 
 ### The Account Area
 
@@ -169,6 +245,21 @@ The order status page shows the order, payment, and fulfillment status, the item
 
 ![The Check your order status form](/images/for-your-customers/order-status.png)
 
+### "I never got the link"
+
+After they submit the form, every shopper sees "Check your email" and the same message: "If we found an order matching those details, we've sent an order status link to [their email]. It may take a few minutes to arrive." This message appears **whether or not an order matched**. That's on purpose, so strangers can't use the form to find out which emails have ordered from you. It also means a shopper who mistyped something gets no error. They just never get an email.
+
+![The Check your email message on the order status page: "If we found an order matching those details, we've sent an order status link to nobody@example.com. It may take a few minutes to arrive."](/images/for-your-customers/order-lookup-sent.png)
+
+So when a customer says the link never came:
+
+- **The email has to match the order's email.** Capital letters don't matter, but a typo or a different address does. The link is only sent to the email on the order. Many people have shopped with a work or old address.
+- **The order number has to be right.** It's the number in the confirmation email. A leading `#` is fine. Order numbers belong to your store, so a number from another shop won't match.
+- **Check spam, and give it a few minutes.**
+- **Each internet connection can ask 5 times every 15 minutes.** After that they see "Too many requests. Please try again later." and have to wait.
+
+To help them yourself, open the order in [Orders](/docs/orders), check the email on it, and use **Resend Order Confirmation** from **More Options** (the confirmation email has the **View Order Status** button). See [Resending emails](/docs/orders#resending-emails).
+
 > **Tip:** Most templates don't link to `/order-status` in the menu. If guests often ask how to find their order, add an "Order status" link to your footer or navigation.
 
 ---
@@ -200,7 +291,7 @@ After that:
 
 - They get a **Subscription confirmed** email, then an **Order Confirmation** email for every charge, including each renewal.
 - **Every subscription email links to their subscription page**, usually with a **Manage your subscription** button (the payment-failed email says **Update payment method**). That page lets them skip the next delivery, pause, resume, update their card, or cancel. Cancelling takes effect right away.
-- **If they've lost the email,** they can go to `/subscriptions/manage`, enter their email, and get fresh manage links. Manage links work for about six months.
+- **If they've lost the email,** they can go to `/subscriptions/manage`, enter their email, and get fresh manage links. Manage links work for about six months. The same rules as the order lookup apply: the page always says "If we found subscriptions for that email, we've sent the links.", nothing is sent if the email doesn't match a subscription on your store (it has to be the email used when subscribing, capitals aside), and each connection can ask 5 times every 15 minutes. A subscription that never finished checkout isn't included.
 - **Signed-in shoppers** also see their subscriptions on the **Subscriptions** tab in their account.
 
 Even if you later turn Product Subscriptions off, customers can always cancel and update their card.
@@ -290,7 +381,16 @@ Short answers you can copy, paste, and adjust.
 Open your order confirmation email and click **View Order Status**. Once it ships, you'll also get a shipping email with a tracking link. If you can't find the email, go to our website's `/order-status` page, enter your email and order number, and we'll send you a fresh link. If you have an account, it's also under **Orders** in your account.
 
 **"I made an account, but my old orders aren't there."**
-Orders show up in your account when they were placed with the same email address you signed up with. If you used a different email at checkout, let us know the order number and we'll help.
+Orders show up in your account when they were placed with the same email address you signed up with, and once you've verified that email. If you used a different email at checkout, let us know the order number and we'll help. You can't change the email on an account, but you can still look up any order at `/order-status` with the email it was placed under.
+
+**"I asked for an order status link and nothing came."**
+Check your spam folder first. Then make sure the email and order number match your confirmation email exactly. The page says it sent a link even when nothing matched. If you're still stuck, tell us the order number and we'll resend your confirmation.
+
+**"Sign-in (or sign-up) says it couldn't verify my browser."**
+That's Google reCAPTCHA, which runs quietly in the background. Ad blockers, privacy extensions, and some VPNs can block it. Allow our site in your blocker (or turn it off for our site), try another browser, or switch off your VPN. Then try again.
+
+**"Can I add a gift message or a note to my order?"**
+There's no note box at checkout. Send us a message through our Contact page, or reply to your order confirmation email, as soon as you've ordered, and we'll add it to your order.
 
 **"I never got my verification email."**
 Check your spam folder for an email titled "Verify your email." The link works for one hour. To get a new one, try signing in with your email and password. You'll be taken to a screen with a button to resend it.

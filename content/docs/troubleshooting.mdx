@@ -1,0 +1,244 @@
+---
+title: Troubleshooting
+description: Common problems with signing in, orders, payments, your site and emails, what usually causes them, and how to fix them. Plus what to check before making big changes.
+---
+
+## Overview
+
+Something isn't working the way you expect. This page lists the problems store owners run into most, grouped by area. Each one gives the likely cause, the fix, and a link to the page with the full details.
+
+Can't find your problem here? Many pages have their own troubleshooting section. See [More Troubleshooting on Other Pages](#more-troubleshooting-on-other-pages). If you're still stuck, see [Getting Help](#getting-help).
+
+Before you make a big change, such as switching templates or removing your domain, read [Before You Change These](#before-you-change-these).
+
+---
+
+## Signing In
+
+**Sign-in says "We couldn't verify your browser."**
+Sign-in, sign-up and password reset use an invisible Google reCAPTCHA check to stop bots. The full message adds "a browser extension or network filter may be blocking reCAPTCHA." Ad blockers, privacy extensions, privacy-focused browsers, VPNs and some work or school networks can block it.
+**Fix:** wait a moment and try again. If it keeps happening, pause your ad blocker or privacy extension for this site, try another browser, or switch off your VPN. See [If sign-in says it couldn't verify your browser](/docs/your-account-and-security#if-sign-in-says-it-couldnt-verify-your-browser).
+
+**Sign-in says "We couldn't verify this request."**
+The reCAPTCHA check didn't trust this attempt.
+**Fix:** try again. If it keeps happening, try another browser or network, or email [help@generativejustice.org](mailto:help@generativejustice.org).
+
+**Sign-in says "That email and password don't match an account."**
+**Fix:** check the email for typos, then reset your password. See [Forgot your password?](/docs/your-account-and-security#forgot-your-password)
+
+**Sign-in says "Too many attempts. Wait a minute and try again."**
+**Fix:** wait a minute, then try once more carefully. If you've forgotten your password, reset it instead of guessing.
+
+**Sign-in sends me to a Verify Email page.**
+New accounts have to verify their email first. The link lasts one hour.
+**Fix:** click the link in your verification email, or use **Resend**. See [Verifying your email](/docs/your-account-and-security#verifying-your-email).
+
+**A team invitation says it has expired, was already used, or was sent to a different email.**
+Invitations last 14 days, work once, and only for the invited email address.
+**Fix:** see [Team & Roles troubleshooting](/docs/team-and-roles#troubleshooting). Owners can resend expired invitations.
+
+**I see "One thing before you continue" when I open the admin.**
+Every Owner has to agree to the SimplePress Seller & Merchant Agreement once, including Owners who have run the store for a long time. The screen comes back each time you open the admin until you do.
+**Fix:** tick the box and click **Agree and continue**. See [Owners see a terms screen once](/docs/team-and-roles#owners-see-a-terms-screen-once) and [Your Agreement](/docs/your-agreement).
+
+**I see "Access Denied" when I open the admin.**
+The account you're signed in with isn't on this store's team. Maybe you used a different email, or you were removed. Staff also see this page if they open the Site Editor.
+**Fix:** sign out and sign in with the email you were invited with. If you were removed, ask an Owner to invite you again. If you're Staff and need the Site Editor, ask to be made a Manager. See [Added as Staff or a Manager](/docs/for-staff).
+
+![The Access Denied page with a red shield icon, Error 403, the message "You do not have permission to view this page." and a Back to Your Store button](/images/for-staff/access-denied.png)
+
+**A Staff member keeps landing on Orders.**
+That's expected. Staff can only open Orders, Customers and Inventory. Any other admin page sends them to Orders. See [Team & Roles](/docs/team-and-roles#what-each-role-can-do).
+
+---
+
+## Orders and Payments
+
+**A customer says they were charged, but there's no order.**
+SimplePress creates an order once the money has actually been paid. Card payments confirm straight away. Bank payments (such as ACH Direct Debit), bank transfers and vouchers take days to clear, so there's no order until then. The customer sees an **Order received** page and a **Your order is processing** email in the meantime.
+**Fix:** look up the payment in your Stripe Dashboard under **Payments**. If it's **Pending** or **Processing**, it's a bank payment still clearing, and the order will appear on its own when it clears. See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods). If it shows **Succeeded** and there's still no order after a day, email help@generativejustice.org. If Stripe shows no successful payment, the customer may be seeing a temporary hold that their bank will release. For an older payment that never made an order, you can create the order yourself and save it as **Paid**. See [Creating a manual order](/docs/orders#creating-a-manual-order).
+
+**Checkout fails for every customer.**
+Usually one of these:
+
+- **Stripe has paused your payments.** A red **Payments are paused** banner shows across the top of your admin. See [When Stripe pauses payments](/docs/payments-and-payouts#when-stripe-pauses-payments).
+- **Stripe isn't connected.** Check **Settings → Integrations**. See [Integrations](/docs/integrations).
+- **Maintenance Mode is on.** Checkout stays off for everyone, including you, until you turn it off. See [Maintenance Mode](/docs/maintenance-mode#turn-it-off).
+- **Checkout or Payments is switched off** under **Settings → Features**. See [Feature Flags](/docs/feature-flags#what-happens-when-you-disable-a-feature).
+
+**There's no Add to Cart button on my store.**
+**Shopping Cart & Checkout** is switched off, so your shop works as a catalog. A **Cart is disabled** notice also shows on your Dashboard.
+**Fix:** turn it on under **Settings → Features**. See [The "Cart is disabled" notice](/docs/dashboard#the-cart-is-disabled-notice).
+
+**A customer's discount code doesn't work.**
+The message they see tells you why: not found, not active yet, expired, used up (including uses held by open checkouts), or below the minimum purchase.
+**Fix:** match their message to the table in [Messages Shoppers May See](/docs/discounts-and-coupons#messages-shoppers-may-see), then adjust the code if you want it to work.
+
+**A customer never got the email from the "check your order status" page.**
+The email and order number they typed must match the order exactly: the email address used at checkout, and the order number from their confirmation. For privacy, the page looks the same whether or not they matched, so a typo gives no error.
+**Fix:** ask them to check spam, then try again with the exact email and number from their confirmation email. You can also resend their confirmation yourself. See [Looking Up an Order Without an Account](/docs/for-your-customers#looking-up-an-order-without-an-account) and [Resending emails](/docs/orders#resending-emails).
+
+**The Mark as Fulfilled form is missing from an order.**
+The order isn't paid yet, or it's disputed.
+**Fix:** if you've been paid another way, use **More Options → Override Status → Payment Status → Paid**. See [Common questions](/docs/orders#common-questions).
+
+**My Dashboard numbers don't match Stripe.**
+They're counted differently and on different schedules. See [Dashboard troubleshooting](/docs/dashboard#troubleshooting).
+
+---
+
+## Your Site
+
+**My changes in the Site Editor aren't showing on my store.**
+The Site Editor saves to a draft. Customers don't see it until you publish.
+**Fix:** click **Publish** in the Site Editor. See [Publishing](/docs/site-editor#publishing).
+
+**A product or blog post didn't go live at the time I scheduled.**
+Two things to know:
+
+- **The time you pick is in your computer's time zone**, not necessarily your store's. If your computer was set to another zone, the time shifts by the difference.
+- **Scheduled items go live on a check that runs about every 15 minutes**, so allow up to 15 minutes after the time you picked.
+
+Pages can't be scheduled, only products and blog posts. See [Schedule publish](/docs/products#schedule-publish) and [Scheduling a Post](/docs/blog#scheduling-a-post).
+
+**A link disappeared from my menu.**
+Links to a switched-off feature hide themselves. Switch off Blog, for example, and your Blog link hides.
+**Fix:** turn the feature back on, and the link returns. See [Links to Switched-Off Features Hide Themselves](/docs/navigation#links-to-switched-off-features-hide-themselves).
+
+**A page on my store says "page not found."**
+Common causes:
+
+- **Its feature is switched off.** For example, `/blog` disappears when Blog is off. See [Feature Flags](/docs/feature-flags#what-happens-when-you-disable-a-feature).
+- **Its web address changed.** Old links don't forward to the new one. See [Changing a Web Address](/docs/seo#changing-a-web-address).
+- **It isn't published.** Check its **Published** switch.
+
+**My whole store shows "page not found."**
+Check you're using the right address, and that your custom domain shows **Active** under **Settings → Domain**. If both are right, your store may have been paused by the SimplePress team.
+**Fix:** email [help@generativejustice.org](mailto:help@generativejustice.org) with your store's address.
+
+**An embed shows a blank box.**
+Many sites block being shown inside other sites.
+**Fix:** use the other site's own embed code, or link to it instead. See [When an Embed Shows Up Blank](/docs/embeds#when-an-embed-shows-up-blank).
+
+**Visitors see a maintenance or coming-soon page.**
+Maintenance Mode is on.
+**Fix:** go to **Settings → Maintenance Mode**, switch it off, and click **Save changes**. See [Turn it off](/docs/maintenance-mode#turn-it-off). If your admin shows a maintenance screen too, SimplePress itself is being updated. Wait a little and try again.
+
+**My custom domain is stuck on Pending DNS, or shows an error after going Active.**
+**Fix:** check your DNS records and click **Verify DNS** again. After **Active**, the padlock certificate takes a short while. See [Verify your domain](/docs/domain#verify-your-domain) and [The badges](/docs/domain#the-badges).
+
+**I switched templates and my words and photos are gone.**
+Site Editor content is saved separately for each template. It isn't deleted.
+**Fix:** switch back to get it back, or fill in the new template. See [What Changes and What Stays](/docs/templates#what-changes-and-what-stays).
+
+**A gallery on my page says "Gallery content is not available."**
+Galleries is switched off.
+**Fix:** turn it on under **Settings → Features**. See [Disabling Galleries](/docs/feature-flags#disabling-galleries).
+
+---
+
+## Emails
+
+**Alert emails aren't reaching me.**
+Most alerts go to your **Owner Email** in **Settings → General**. Contact form messages go to your **Support Email**.
+**Fix:** check both addresses, check your spam folder, and mark the first one "not spam." See [Make sure these reach you](/docs/email-preview#make-sure-these-reach-you).
+
+**I was expecting an email that never came.**
+Some events don't send one, such as a new testimonial, an accepted team invitation, or a manual order. See [Things that don't send an email](/docs/email-preview#things-that-dont-send-an-email).
+
+**A customer says they didn't get their order email.**
+**Fix:** ask them to check spam, and check the email on the order for typos. Then resend it from **More Options**. See [Resending emails](/docs/orders#resending-emails).
+
+**A teammate never got their invitation.**
+See [Team & Roles troubleshooting](/docs/team-and-roles#troubleshooting).
+
+---
+
+## The Admin
+
+**A page is missing from my sidebar.**
+Its feature is switched off, or your role can't use it.
+**Fix:** check **Settings → Features**, or ask an Owner about your role. See [Why a page might be missing](/docs/admin-basics#why-a-page-might-be-missing).
+
+**A feature's switch is grayed out.**
+It needs another feature that's off. The badge next to it, such as "Requires Products," names which one. See [Feature Flags](/docs/feature-flags#how-it-works).
+
+**I signed in and landed on the Setup Guide instead of the Dashboard.**
+Stripe, a product, or a custom domain is still missing. See [Dashboard troubleshooting](/docs/dashboard#troubleshooting).
+
+**Command + Enter didn't save my form.**
+It only works on some forms, and not while your cursor is in a rich-text box or a pop-up is open. See [Keyboard Shortcuts](/docs/admin-basics#keyboard-shortcuts).
+
+---
+
+## More Troubleshooting on Other Pages
+
+| Page | What it covers |
+| --- | --- |
+| [Dashboard](/docs/dashboard#troubleshooting) | Banners, missing cards, low stock, and numbers that don't match Stripe |
+| [Team & Roles](/docs/team-and-roles#troubleshooting) | Invitations, wrong accounts, and missing pages for Staff |
+| [Orders](/docs/orders#common-questions) | Undoing a fulfillment, editing orders, cancelling after shipping |
+| [Email Previews](/docs/email-preview#troubleshooting-and-faq) | Wording changes that didn't stick, missing logos |
+| [Embeds](/docs/embeds#when-an-embed-shows-up-blank) | Blank embeds and addresses you can't embed |
+| [Custom Domain](/docs/domain#frequently-asked-questions) | How long DNS takes, and your old address |
+| [Invoices](/docs/invoices#troubleshooting) | QuickBooks connection and sync problems |
+
+---
+
+## Before You Change These
+
+Some changes take effect the moment you save, for everyone, and some can't be undone. Read the linked section before you make one. If you're unsure, [download your site](/docs/data-and-export#downloading-your-site) first, so you have a copy.
+
+| Change | What happens | Read first |
+| --- | --- | --- |
+| **Switching templates** | The new design goes live as soon as you save. Your Site Editor words and photos don't carry over, though they come back if you switch back. | [Switching Templates](/docs/templates#switching-templates) and [in the Site Editor](/docs/site-editor#switching-templates) |
+| **Changing a web address (URL slug)** | Old links, bookmarks and search results get "page not found." Nothing forwards visitors to the new address. | [Changing a Web Address](/docs/seo#changing-a-web-address) |
+| **Removing your custom domain** | Your domain stops working right away. Links, emails and bookmarks that use it break, and your store goes back to its subdomain. | [Remove a custom domain](/docs/domain#remove-a-custom-domain) |
+| **Turning a feature off** | Its pages leave your storefront and admin, and features that depend on it gray out. Your data is kept. | [What Happens When You Disable a Feature](/docs/feature-flags#what-happens-when-you-disable-a-feature) |
+| **Turning on Maintenance Mode** | Visitors see your maintenance page, and nobody can check out, including you. | [Maintenance Mode](/docs/maintenance-mode) |
+| **Disconnecting Stripe** | Checkout turns off right away. You can't refund card payments from SimplePress until you reconnect. | [Disconnecting Stripe](/docs/integrations#disconnecting-stripe) |
+| **Removing a team member** | They lose access immediately. To undo it, invite them again. | [Removing a Team Member](/docs/team-and-roles#removing-a-team-member) |
+| **Making someone an Owner** | They can invite and remove anyone, including you. | [Handing Over Ownership](/docs/team-and-roles#handing-over-ownership) |
+| **Deleting a product** | Its variants, photos, reviews and back-in-stock requests are deleted for good. Past orders are kept. To hide it instead, switch **Published** off. | [Deleting](/docs/products#deleting) |
+| **Deleting a gallery** | Its photos are deleted too, unless they're in your Media Library or used elsewhere. You can't delete a gallery that's still on a page. | [Deleting a Gallery](/docs/galleries#deleting-a-gallery) |
+| **Deleting a collection** | The collection and its page are gone for good. The products in it stay. | [Deleting a Collection](/docs/collections#deleting-a-collection) |
+
+---
+
+## Getting Help
+
+If none of this fixes it, email [help@generativejustice.org](mailto:help@generativejustice.org). To help us help you quickly, include:
+
+- your store's web address;
+- what you were trying to do, and what happened instead;
+- the exact message you saw, or a screenshot;
+- roughly when it happened.
+
+For changes to how your site looks or reads, send a note from the Site Editor instead. It reaches us with the page already attached. See [Getting help and requesting changes](/docs/expectations#getting-help-and-requesting-changes).
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Finding Your Way Around the Admin"
+		description="The sidebar, search and shortcuts."
+		href="/docs/admin-basics"
+	/>
+	<Card
+		title="Weekly, Monthly & Yearly Checklist"
+		description="A routine that catches problems early."
+		href="/docs/owner-routines"
+	/>
+	<Card
+		title="Feature Flags"
+		description="What each switch turns on and off."
+		href="/docs/feature-flags"
+	/>
+	<Card
+		title="Expectations"
+		description="What to expect from us, and how to reach us."
+		href="/docs/expectations"
+	/>
+</Cards>

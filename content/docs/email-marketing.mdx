@@ -192,6 +192,7 @@ The text next to the switch explains it: it controls whether the email sends at 
 - It only sends if the shopper gave an **email address** before they left. If they never typed one in, there's nobody to write to.
 - It **never** sends for [subscription](/docs/subscriptions) sign-ups or [donations](/docs/donations).
 - Each abandoned checkout gets one email. There's no follow-up series.
+- It usually doesn't send when the shopper went back from the payment page and started checkout again. If their earlier checkout was holding stock or a discount code for them, that payment page is closed, and since they're still shopping there's nothing to remind them about. If it wasn't holding anything (only items you don't track stock for, and no code), the earlier page stays open until it times out and can still send the email.
 
 ### What the Email Says
 
@@ -291,6 +292,6 @@ Check that they are still opted in on the Customers list. They may have unsubscr
 No. It doesn't use the opt-in list, and turning Email Marketing on or off doesn't change it.
 
 **Why didn't my shopper get an abandoned checkout email?**
-Check that **Send this email** is on, that the shopper entered an email address, that at least 30 minutes passed, and that it wasn't a subscription or donation. Also ask them to check spam.
+Check that **Send this email** is on, that the shopper entered an email address, that at least 30 minutes passed, and that it wasn't a subscription or donation. If they went back from the payment page and started checkout again, the earlier checkout usually doesn't get an email. Also ask them to check spam.
 
 **Need more help?** Email [help@generativejustice.org](mailto:help@generativejustice.org).

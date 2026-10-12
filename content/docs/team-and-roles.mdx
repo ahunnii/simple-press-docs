@@ -55,7 +55,7 @@ Find your own role in this table to see what you'll have access to, or use it to
 A few notes on this table:
 
 - **Features you've switched off stay hidden for everyone.** For example, if Inventory Management is off under **Settings → Features**, nobody sees the Inventory section, no matter their role. See [Feature toggles](/docs/feature-flags).
-- **Staff only see the sections they can use.** Their sidebar shows Orders, Customers, and Inventory, plus **Get Help**. If a Staff member opens any other admin page, they're sent back to Orders.
+- **Staff only see the sections they can use.** Their sidebar shows Orders, Customers, and Inventory, plus **Get Help**. If a Staff member opens any other admin page, they're sent back to Orders. The Site Editor is the exception: a Staff member who opens it sees an **Access Denied** page ("You do not have permission to view this page.") instead.
 - **Staff can see order totals** (subtotal, tax, shipping, discounts, and total) because they need them for packing slips. They can't see the internal note on an order, and they can't see Stripe payment details.
 - **Staff can't see private notes on customers or what items cost you.**
 - **Deleting one thing is different from deleting many.** A Manager can delete a single product, page, discount, and so on. Bulk delete, and deleting form entries or quote requests, are Owner-only because they can't be undone.
@@ -145,13 +145,15 @@ If they're signed in with a different email than the one you invited, they'll se
 
 > **Tip:** A new SimplePress user has to verify their email address before they can sign in at all. The verification link expires after an hour. See [Your Account & Security](/docs/your-account-and-security#verifying-your-email).
 
-### New Owners see a terms screen
+### Owners see a terms screen once
 
-Anyone who is made an **Owner**, whether invited as one or promoted later, has to agree to the SimplePress Seller & Merchant Agreement and Acceptable Use Policy. They'll see this screen **every time they open the admin until they accept**. It's expected, and nothing is wrong with your store.
+Any Owner who hasn't accepted the SimplePress Seller & Merchant Agreement and Acceptable Use Policy for this store sees a screen titled **One thing before you continue** when they open the admin. This includes long-standing owners who have used the admin for a while before the screen existed. They'll see it one time, and once they accept it never comes back. That's expected, and nothing is wrong with your store. Someone promoted to Owner later sees it too.
+
+If the person has never accepted SimplePress's Terms of Service and Privacy Policy, the same checkbox covers those as well.
 
 ![The terms screen titled One thing before you continue, with an agreement checkbox, Sign out and Agree and continue buttons](/images/team-and-roles/terms-gate.png)
 
-They tick the box ("As the owner of this store, I agree to...") and click **Agree and continue**. If they click without ticking, they're told "Please tick the box to continue." They can also click **Sign out** instead. Managers and Staff are never asked.
+They tick the box and click **Agree and continue**. Each policy name in the box opens in a new tab, so they can read it first. The box reads "As the owner of this store, I agree to the SimplePress Seller & Merchant Agreement and Acceptable Use Policy." When it also covers the platform terms, it reads "I agree to the SimplePress Terms of Service and Privacy Policy, and, as the owner of this store, to the Seller & Merchant Agreement and Acceptable Use Policy." If they click without ticking, they're told "Please tick the box to continue." They can also click **Sign out** instead. Managers and Staff are never asked.
 
 ---
 
@@ -241,8 +243,8 @@ The invitation was accepted already or you revoked it. Check the **Members** tab
 **Someone I invited can't sign in.**
 A new account has to be verified first. Ask them to click the link in their verification email (it lasts 1 hour) or use **Resend** on the Verify Email page. See [Your Account & Security](/docs/your-account-and-security#verifying-your-email).
 
-**A new Owner keeps seeing a terms screen.**
-That's the Seller & Merchant Agreement. It shows until they tick the box and click **Agree and continue**.
+**An Owner sees a terms screen when they open the admin.**
+That's the Seller & Merchant Agreement. Every Owner sees it once, including Owners who have run the store for a long time. It goes away for good after they tick the box and click **Agree and continue**. See [Owners see a terms screen once](#owners-see-a-terms-screen-once).
 
 **A Staff member says a page they need is missing.**
 Staff can only reach Orders, Customers, and Inventory, and only when those features are switched on under **Settings → Features**. If they need more access, change their role to Manager.

@@ -85,7 +85,12 @@ The URL slug follows the name as you type. It stops following once the product h
 
 ### Schedule publish
 
-While a product is unpublished, a **Schedule publish** field appears. Pick a date and time, and the product goes live automatically then. Leave it empty to publish by hand with the **Published** switch.
+While a product is unpublished, a **Schedule publish** field appears. Pick a date and time, and SimplePress publishes the product for you after that time. Leave it empty to publish by hand with the **Published** switch.
+
+Two things to know about the timing:
+
+- **The time you pick is in the time zone of the computer or phone you're scheduling from.** It is not the **Time Zone** in your [General Settings](/docs/general-settings#time-zone). If you schedule a 9:00 AM launch from a laptop set to Pacific time, it goes live at 9:00 AM Pacific, even if your store is set to Eastern. The note under the field ("Scheduled for ...") shows the time in your device's time zone.
+- **It can go live up to about 15 minutes late.** SimplePress checks for scheduled products about every 15 minutes, so a product set for 9:00 AM appears on your storefront at the first check after 9:00.
 
 ### Pricing
 
@@ -287,7 +292,7 @@ An unpublished product:
 - shows a "not found" page, even to someone with the direct link
 - is refused at checkout
 
-You can also publish and unpublish several products at once from the list. To go live at a set time, use [Schedule publish](#schedule-publish).
+You can also publish and unpublish several products at once from the list. To go live at about a set time, use [Schedule publish](#schedule-publish).
 
 ### Duplicating
 
@@ -368,6 +373,8 @@ Products live at `/shop` (the whole catalog) and `/shop/your-product` (one produ
 - **Unpublished** products show a "not found" page.
 
 Unpublished and coming soon products are also refused at checkout, even if a customer has the link or a stale cart.
+
+**Searching and sorting.** On the Default template, the shop page has a **Search products…** box, a **Collection** list, an **In stock** checkbox, and a **Sort** menu (**Featured**, **A → Z**, **Z → A**, **Price, Low to High**, **Price, High to Low**, **Newest**), with 12 products per page. Search matches only a product's **name** and **description**, so a SKU, collection name or variant option won't find it. If you want products to be found by a word, put it in the name or description. There is no search across the rest of your site. Other templates may lay these controls out differently. See [What Your Customers See](/docs/for-your-customers#searching-filtering-and-sorting-the-shop).
 
 ---
 

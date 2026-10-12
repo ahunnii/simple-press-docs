@@ -1,0 +1,218 @@
+---
+title: Added as Staff or a Manager
+description: For the person who was invited to help run a store. How to accept, what you can see, a day of fulfilling orders, and when to ask the owner.
+---
+
+## Overview
+
+Someone who runs a store on SimplePress has invited you to help. This page is for you, the person who was invited. It covers how to get in, what you'll see once you're there, and how to handle a normal day of orders.
+
+You'll have one of three roles. The owner picked it when they invited you, and the invitation email names it.
+
+| Your role | What it means for you |
+| --- | --- |
+| **Staff** | You pack and ship orders, look up customers, and count stock. You don't see sales numbers, settings or the Site Editor. |
+| **Manager** | You can do almost everything the owner can: products, orders, refunds, pages and settings. You can't change who's on the team. |
+| **Owner** | Full control, the same as the person who invited you. |
+
+If you're not sure which role you have, ask the person who invited you, or look at what's in your sidebar (see [What You'll See](#what-youll-see)).
+
+---
+
+## Accepting Your Invitation
+
+1. Open the invitation email and click **Accept Invitation**. The link opens on the store's own web address.
+2. Click **Sign In** if you already have a SimplePress account, or **Create Account** if you're new. **Use the same email address the invitation was sent to.**
+3. If you made a new account, verify your email first. The link in the verification email lasts one hour. See [Verifying your email](/docs/your-account-and-security#verifying-your-email).
+4. Back on the invitation page, click **Accept Invitation**.
+
+You're taken straight into the store's admin. For screenshots of each step, and what to do if you see **Wrong Account** or an expired link, see [What the Invited Person Does](/docs/team-and-roles#what-the-invited-person-does) and [Team & Roles troubleshooting](/docs/team-and-roles#troubleshooting).
+
+Invitations last 14 days. If yours has expired, ask the owner to send it again.
+
+> **If you were invited as an Owner:** you'll see a screen titled **One thing before you continue** each time you open the admin, until you tick the box and click **Agree and continue**. See [Owners see a terms screen once](/docs/team-and-roles#owners-see-a-terms-screen-once). Staff and Managers never see it.
+
+### Coming back later
+
+The admin is at the store's web address with `/admin` on the end, such as `yourstore.com/admin`. Bookmark it. If you help at more than one store, each one has its own address, and you use the same SimplePress account for all of them. See [Where Your Admin Lives](/docs/admin-basics#where-your-admin-lives).
+
+---
+
+## What You'll See
+
+### As Staff
+
+When you sign in, you go straight to **Orders**. Your sidebar has four items:
+
+- **Orders**: everything customers have bought.
+- **Customers**: who they are, and what they've ordered.
+- **Inventory**: stock counts, and rental check-outs if the store uses them.
+- **Get Help**: opens this help guide.
+
+![The admin sidebar as a Staff member sees it, with only Orders, Customers, Inventory and Get Help](/images/team-and-roles/staff-sidebar.png)
+
+A section only shows when the store has that feature turned on. If the store doesn't use inventory, for example, you won't see **Inventory**.
+
+A few things are kept from Staff on purpose:
+
+- **Other admin pages send you back to Orders.** If you follow a link to the Dashboard, Products or Settings, you land on Orders instead.
+- **The Site Editor shows an Access Denied page.** It reads "You do not have permission to view this page." with a **Back to [store name]** button that takes you to the store's home page.
+- **Inside an order**, you see the items, totals, customer details and the customer's checkout note. You don't see the owner's internal note or the Stripe payment details.
+- **On a customer**, you don't see the owner's private notes.
+- **In Inventory**, you don't see what items cost.
+
+![The Access Denied page with a red shield icon, Error 403, the message "You do not have permission to view this page." and a Back to Your Store button](/images/for-staff/access-denied.png)
+
+The search box at the top of the page (**Command + K** on a Mac, **Ctrl + K** on Windows) finds orders and customers. See [Searching and Jumping Around](/docs/admin-basics#searching-and-jumping-around).
+
+### As a Manager
+
+You land on the **Dashboard** and see the whole sidebar. You can add and edit products, refund and cancel orders, edit pages in the Site Editor, change settings, and connect Stripe.
+
+A Manager can't:
+
+- invite people, change roles or remove anyone from the team (you can see who's on it under **Settings → Team**);
+- download the whole site under **Settings → Data & Export**;
+- turn on or use the products CSV export;
+- delete many things at once, or delete form entries and quote requests.
+
+For the full list, see [What Each Role Can Do](/docs/team-and-roles#what-each-role-can-do). For a tour of the admin, see [Finding Your Way Around the Admin](/docs/admin-basics).
+
+---
+
+## A Day of Fulfilling Orders
+
+Here's a typical round of packing and shipping. Every step works for Staff, Managers and Owners. Each one links to the full details in [Orders](/docs/orders).
+
+<Callout type="info" title="You won't get an email for new orders">
+  The "New Order" email goes to the store's owner email address, not to Staff. Check the **Orders** page to see what's come in.
+</Callout>
+
+### 1. Find what needs shipping
+
+Open **Orders** and click the **Needs fulfillment** card at the top. It shows paid orders that haven't shipped or been handed over yet. To work oldest first, click **Filters** and set **Sort** to **Oldest**. See [Queue cards](/docs/orders#queue-cards) and [Filters and sorting](/docs/orders#filters-and-sorting).
+
+Look at the badges next to each order's status before you start. See [Reading a row](/docs/orders#reading-a-row).
+
+- **Pickup**: the customer is collecting in person. Skip to [step 5](#5-local-pickup-orders).
+- **Partially fulfilled**: part of it has already shipped.
+- **Oversold**: the store sold more than it had in stock. Check with the owner before packing.
+- **Disputed** (red): the customer has disputed the payment with their bank. Don't ship it. Tell the owner.
+
+### 2. Print a packing slip
+
+Click **View** to open the order, then click **Packing Slip** at the top. Click **Print**. The packing slip lists the items, SKUs and quantities, with no prices, so it's safe to put in the box. See [Printing a packing slip or invoice](/docs/orders#printing-a-packing-slip-or-invoice).
+
+### 3. Pack it and get a label
+
+SimplePress doesn't buy shipping labels. Use whatever the store normally uses. If you need one, the order page has an **Open PirateShip** button for discounted postage. See [Need a label?](/docs/orders#need-a-label)
+
+To copy the shipping address for a label site, click **Copy** on the **Shipping Address** card.
+
+### 4. Mark it fulfilled
+
+1. On the order, find the **Mark as Fulfilled** card under the items.
+2. Paste the **Tracking Number**. The **Carrier** fills itself in for USPS, UPS, FedEx and DHL.
+3. Click **Mark as Fulfilled & Send Email**.
+
+The customer gets an email with their tracking link, and the order moves to **Completed**. Shipping in more than one box? Click **Add Additional Tracking Information** to add another package. See [Fulfilling and tracking](/docs/orders#fulfilling-and-tracking) and [More than one box](/docs/orders#more-than-one-box).
+
+**Shipping only some of the items?** Untick **Ship all remaining items** and set how many of each item are in this box. The order shows as **Partially Fulfilled** until you ship the rest. See [Partial shipments](/docs/orders#partial-shipments).
+
+**Typed the tracking number wrong?** Click the pencil next to the package on the **Order Status** card, fix it, and click **Save Changes**. No email goes out for a correction. See [After it's fulfilled](/docs/orders#after-its-fulfilled).
+
+**Marked the wrong order?** Use **More Options → Override Status → Fulfillment Status → Unfulfilled**. The customer has already had their email, so let the owner know. See [Changing a status by hand](/docs/orders#changing-a-status-by-hand).
+
+### 5. Local pickup orders
+
+Pickup orders show a **Ready for Pickup** card instead of the shipping form. When the order is packed and waiting:
+
+1. Open the order.
+2. Click **Mark Ready for Pickup**.
+
+The customer is emailed straight away with the pickup location and instructions. See [Local pickup orders](/docs/orders#local-pickup-orders).
+
+### 6. Rental check-outs (if the store uses them)
+
+If the store rents out items, **Inventory** has a **Check-outs** tab.
+
+- **Sending items out:** click **New check-out**, enter the event or client, add the rental items and how many, and click **Create check-out**. See [Creating a check-out](/docs/inventory-management#creating-a-check-out).
+- **Items coming back:** open the check-out and click **Check in**. Record what came back, and anything damaged or lost. See [Checking items in](/docs/inventory-management#checking-items-in).
+- **Counting stock:** use **Use**, **Restock** or **Adjust** on an item to keep the count right. See [Use, Restock and Adjust](/docs/inventory-management#use-restock-and-adjust).
+
+---
+
+## When to Ask the Owner
+
+If you're Staff, some things need an Owner or Manager. You won't see the buttons for them.
+
+| Situation | Why you need them |
+| --- | --- |
+| A customer wants a refund | Only Owners and Managers can refund. See [Refunds](/docs/orders#refunds). |
+| A customer wants to cancel | Only Owners and Managers can cancel an order. See [Cancelling an order](/docs/orders#cancelling-an-order). |
+| The shipping address is wrong | Staff can copy the address but can't edit it. See [Notes and addresses](/docs/orders#notes-and-addresses). |
+| There's no **Mark as Fulfilled** card | The order isn't paid yet. Only Owners and Managers can mark it paid. |
+| The order is **Disputed** | The customer has gone to their bank. The owner responds through Stripe. See [Disputes](/docs/payments-and-payouts#disputes). |
+| The order is **Oversold** | The owner decides whether to restock, substitute or contact the customer. |
+| A customer didn't get an email | Only Owners and Managers can resend order emails. |
+| A phone or in-person order needs entering | Only Owners and Managers can create manual orders. See [Creating a manual order](/docs/orders#creating-a-manual-order). |
+| A product, price or photo needs changing | Products are Owner and Manager only. |
+| Anything under Settings | Staff can't open Settings. |
+
+If you find yourself asking for these often, the owner can change your role to Manager. See [Choosing a Role](/docs/team-and-roles#choosing-a-role).
+
+---
+
+## Your Own Account
+
+Your name, photo, password and signed-in devices belong to you, not the store. Click your name at the bottom of the sidebar, then **Settings**. See [Your Account & Security](/docs/your-account-and-security).
+
+- **Forgot your password?** See [Forgot your password?](/docs/your-account-and-security#forgot-your-password)
+- **Signed in on a shared computer?** Sign out from your name menu, or sign that device out from another one under [Active sessions](/docs/your-account-and-security#active-sessions).
+- **Leaving the job?** Ask the owner to remove you from the team. Your SimplePress account stays yours. See [Removing a Team Member](/docs/team-and-roles#removing-a-team-member).
+
+---
+
+## Common Questions
+
+**I can't see a page the owner told me about.**
+It's either for Owners and Managers only, or the feature is switched off. Ask the owner. See [Why a page might be missing](/docs/admin-basics#why-a-page-might-be-missing).
+
+**I see "Access Denied".**
+You opened a page your role can't use, such as the Site Editor, or you're signed in with a different account from the one that was invited. Sign out and sign back in with the invited email. If you were removed from the team, the owner needs to invite you again.
+
+**Can I see how much the store sells?**
+Not as Staff. Sales numbers are on the Dashboard and Finances, which are for Owners and Managers. You can see the totals on each order.
+
+**Can I shop on the store with the same account?**
+Yes. Your SimplePress account works as a customer account too. See [Customer accounts vs. your owner account](/docs/your-account-and-security#customer-accounts-vs-your-owner-account).
+
+**Who do I contact if something's broken?**
+Start with the store owner. They can reach the SimplePress team at [help@generativejustice.org](mailto:help@generativejustice.org).
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Orders"
+		description="Every step of fulfilling, refunding and cancelling."
+		href="/docs/orders"
+	/>
+	<Card
+		title="Team & Roles"
+		description="What each role can do."
+		href="/docs/team-and-roles"
+	/>
+	<Card
+		title="Finding Your Way Around the Admin"
+		description="The sidebar, search and shortcuts."
+		href="/docs/admin-basics"
+	/>
+	<Card
+		title="Inventory Management"
+		description="Stock counts and rental check-outs."
+		href="/docs/inventory-management"
+	/>
+</Cards>

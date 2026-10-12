@@ -13,7 +13,7 @@ There are three kinds of code:
 - **Fixed Amount** — a flat dollar amount off the items, such as $10 off.
 - **Free shipping** — the shipping charge is waived.
 
-You can add limits to any code: how many times it can be used in total, how many times one customer can use it, when it starts and ends, a minimum purchase, and a cap on how much it can take off.
+You can add limits to any code: how many times it can be used in total (so a single-use code really is single-use), how many times one customer can use it, when it starts and ends, a minimum purchase, and a cap on how much it can take off.
 
 Typical uses are a welcome offer for new customers, a seasonal sale, a code for an influencer or partner, a "free shipping this weekend" promotion, or a thank-you code for a loyal customer.
 
@@ -49,7 +49,7 @@ The list shows every code you've created, with these columns:
 | --- | --- |
 | **Code** | The code. Click it to edit. |
 | **Discount** | "20% off", "$10.00 off", or "Free shipping". |
-| **Usage** | How many times it has been used. If you set a limit, it reads like "3 / 10". |
+| **Usage** | How many times it has been used. If you set a limit, it reads like "3 / 10". Uses that are still pending show in brackets, like "1 / 1 (1 pending)". See [How Uses Are Counted](#how-uses-are-counted). |
 | **Expires** | The expiration date, or "No expiry". |
 | **Status** | One of the four statuses below. |
 
@@ -64,7 +64,7 @@ On a phone, the Discount, Usage, Expires, and Status details sit in a line under
 | **Active** | The code is switched on and is inside its dates. Shoppers can use it. |
 | **Scheduled · [date]** | The code is switched on but its **Start Date** is in the future. It starts working on that date. |
 | **Expired** | Its **Expiration Date** has passed. |
-| **Inactive** | The code is switched off, or it has been used up to its **Usage Limit**. |
+| **Inactive** | The code is switched off, or its finished uses (not counting pending ones) have reached its **Usage Limit**. |
 
 ### Search, Filter, and Sort
 
@@ -145,8 +145,8 @@ All of these are optional. Leave a box blank for "no limit".
 
 | Setting | What it does |
 | --- | --- |
-| **Usage Limit** | The most times the code can be used by all customers combined. Blank means unlimited. |
-| **Limit uses per customer** | The most times one customer can use it. Blank means unlimited. Customers are told apart by their email address, and orders that were cancelled don't count against them. |
+| **Usage Limit** | The most times the code can be used by all customers combined. Blank means unlimited. Open checkouts and bank payments that are still clearing count toward it, so two shoppers can't both get a single-use code. |
+| **Limit uses per customer** | The most times one customer can use it. Blank means unlimited. Customers are told apart by their email address. That customer's open checkouts and pending bank payments with the code count, and orders that were cancelled don't. |
 | **Start Date** | The first day the code works. Leave it blank to start right away. A future date makes the code **Scheduled**. |
 | **Expiration Date** | The last day the code works. Blank means it never expires. See [How Expiry Works](#how-expiry-works) below. |
 | **Minimum purchase (USD)** | The item subtotal must reach this amount before the code applies. |
@@ -184,7 +184,9 @@ You pick an **Expiration Date** with no time of day. At checkout, the code keeps
 
 When you open the **Discounts** list, SimplePress also tidies up by switching off codes that are done. A code with an **Expiration Date** is only switched off after its last day is over, so it stays active through the whole last day, including when you open the list that day. After that, it shows as **Expired**.
 
-The same tidy-up switches off any code that has reached its **Usage Limit**. Those show as **Inactive**, and codes past their date show as **Expired**. Nothing is deleted. The code and its usage count stay in your list.
+The same tidy-up switches off any code whose finished uses have reached its **Usage Limit**. Those show as **Inactive**, and codes past their date show as **Expired**. Nothing is deleted. The code and its usage count stay in your list.
+
+A code that is full only because of pending checkouts stays **Active**. If those checkouts don't complete, the uses are given back and the code can be used again.
 
 ---
 
@@ -207,12 +209,12 @@ The **Discount code** box is on the **checkout page**, in the order summary besi
 | Message | When it happens |
 | --- | --- |
 | Discount code not found | The code doesn't exist or was typed wrong. |
-| This discount code is no longer active | The code is switched off, or was switched off by the tidy-up (which happens after a code's last day, or when it reaches its usage limit). |
+| This discount code is no longer active | The code is switched off, or was switched off by the tidy-up (which happens after a code's last day, or when its finished uses reach the usage limit). |
 | This code isn't active yet | The **Start Date** is still in the future. |
 | This discount code has expired | The **Expiration Date** has passed. |
-| This discount code has reached its usage limit | The code has been used as many times as the **Usage Limit** allows. |
+| This discount code has reached its usage limit | The code has no uses left. That includes uses held by checkouts that are still open or bank payments that are still clearing. The shopper sees this when they continue to payment. |
 | Minimum purchase of $X.XX required | The cart is below the **Minimum purchase**. |
-| You've already used this code the maximum number of times | The customer has hit **Limit uses per customer**. This is checked against their email address, so it usually appears when they go on to pay. |
+| You've already used this code the maximum number of times | The customer has hit **Limit uses per customer**, counting their open and pending checkouts with the code. This is checked against their email address, so it usually appears when they go on to pay. Their own checkout that they just went back from doesn't count against them. |
 | Enter a discount code | They clicked **Apply** with the box empty. |
 | Your cart is empty | They clicked **Apply** with nothing in the cart. |
 | Too many requests. Please try again later. | Too many codes were tried in a short time. |
@@ -221,9 +223,20 @@ When a code is rejected, the message appears in red under the box and the order 
 
 ![Checkout with a rejected discount code](/images/discounts-and-coupons/checkout-code-error.png)
 
-### When a Use Is Counted
+### How Uses Are Counted
 
-A code's **Usage** number goes up only when an order is **paid and completed**. Trying a code at checkout, or starting a payment and walking away, doesn't use it up. Limit uses per customer counts that customer's earlier orders with the code, and ignores cancelled ones.
+A code's use is counted as soon as the shopper goes to the payment page with it, not when the order is placed. Here is what happens next:
+
+- **While the checkout is open** (up to 30 minutes), or while a bank payment is clearing (up to 14 days), that use is **held**. It shows as **pending** in the **Usage** column.
+- **If the shopper walks away, the checkout times out, or a bank payment fails,** the held use is given back automatically and the code can be used again.
+- **If the shopper goes back from the payment page** (to change their cart, for example) **and continues again,** their earlier checkout is closed and its held use is handed straight to the new one. They can keep using their own code, even a single-use or once-per-customer code. A checkout they already paid for, including a bank payment that's still clearing, is never closed this way.
+- **When the order is placed** (card) or the bank payment clears, the use becomes final.
+
+This means a **Usage Limit** can't be passed by several shoppers checking out at the same time, or by pending bank payments. A single-use code is really single-use.
+
+<Callout type="info" title="Reading the Usage column">
+The first number counts every use, including held ones. When some are held, the list adds how many in brackets. For example, "1 / 1 (1 pending)" means the code's one use is held by a checkout that's still open or a bank payment that's still clearing. **Pending** means the shopper hasn't finished paying yet. If they don't, the use is given back and the number drops.
+</Callout>
 
 ---
 

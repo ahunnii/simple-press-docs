@@ -5,7 +5,7 @@ description: Publish articles, news, and announcements on your storefront, and s
 
 ## Overview
 
-The blog lets you publish articles, news, announcements, or any long-form writing on your storefront. Each post gets its own page at `/blog/[slug]`, and all published posts appear on a listing page at `/blog`. You can write a post now and **schedule** it to go live later.
+The blog lets you publish articles, news, announcements, or any long-form writing on your storefront. Each post gets its own page at `/blog/[slug]`, and all published posts appear on a listing page at `/blog`. You can write a post now and **schedule** it to go live later (within about 15 minutes of the time you pick).
 
 Owners and Managers can manage the blog. Staff can't open it.
 
@@ -114,7 +114,12 @@ Slugs must be unique across your **blog posts, pages, and policies**.
 2. Pick a date and time in **Schedule publish**.
 3. Click **Save changes**.
 
-The post shows as **Scheduled** in the list (use the **Scheduled** status filter to find them), and SimplePress publishes it automatically at that time. To cancel, clear the date.
+The post shows as **Scheduled** in the list (use the **Scheduled** status filter to find them), and SimplePress publishes it automatically after that time. To cancel, clear the date.
+
+Two things to know about the timing:
+
+- **The time you pick is in the time zone of the computer or phone you're scheduling from.** It is not the **Time Zone** in your [General Settings](/docs/general-settings#time-zone). The note under the field ("Scheduled for ...") shows the time in your device's time zone.
+- **It can go live up to about 15 minutes late.** SimplePress checks for scheduled posts about every 15 minutes, so a post set for 9:00 AM appears at the first check after 9:00.
 
 ### Publish date and ordering
 

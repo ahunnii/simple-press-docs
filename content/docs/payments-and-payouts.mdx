@@ -12,7 +12,7 @@ This page explains how that works:
 - how a payment becomes a payout, and how long it takes;
 - what you pay in fees;
 - where to see your money;
-- refunds, and other ways to get paid;
+- refunds, bank debits and other delayed payment methods, and other ways to get paid;
 - what happens when Stripe pauses payments; and
 - what to do when a customer disputes a charge.
 
@@ -93,6 +93,55 @@ For the full steps, see [Orders](/docs/orders#refunds).
 
 ---
 
+## Bank debits and other delayed payment methods
+
+Checkout shows shoppers whichever payment methods are switched on in your Stripe account. Cards, Apple Pay, Google Pay and Link are paid on the spot. **Delayed methods** are paid days later: bank debits (ACH Direct Debit, "US bank account"), bank transfers, and voucher methods. These are supported, and you can leave them on.
+
+<Callout type="info" title="Orders from bank payments appear once the money clears">
+When a shopper pays by bank, they see an **Order received** page that says their bank payment is processing, and they get a **Your order is processing** email. **No order appears in your Orders list until the money actually clears.** ACH usually takes about 4 business days. Other methods can take longer.
+</Callout>
+
+### What happens while it's processing
+
+- **The items are held.** They can't be sold to someone else while the payment clears, for up to 14 days.
+- **A discount code is held too.** If the shopper used one, that use is held while the payment clears, so a limited code can't be used up by someone else. If the payment fails, the use is given back and the code works again. See [How Uses Are Counted](/docs/discounts-and-coupons#how-uses-are-counted).
+- **You'll only see the payment in Stripe.** In your Stripe Dashboard, open **Payments**. It shows as **Pending** or **Processing**.
+- **There's nothing for you to do.** You don't need to create an order or contact the customer.
+
+### When the payment clears
+
+The order appears in your Orders list as **Paid**, like any other order. Stock comes off. The customer gets the usual order confirmation, and you get the usual new-order email.
+
+### If the payment fails
+
+No order is created, and the held items are released. Any discount code the shopper used is given back too. The shopper gets a **Your payment didn't go through** email that invites them to order again. You and your managers get a **Bank payment failed** alert email. You don't need to do anything. See [Emails You Receive](/docs/email-preview#emails-you-receive).
+
+### Good to know
+
+- A method that takes longer than 14 days to settle, such as some bank transfers and vouchers, may release the hold. In rare cases the item could sell out before the order appears.
+- Donations on your donate page still take cards only.
+- Subscriptions (recurring checkout) work as they always have.
+- You can reword the two shopper emails in **Admin → Emails**: **Bank Payment Processing** and **Bank Payment Failed**. See [Notification Emails](/docs/email-preview).
+
+### Choosing which payment methods to offer
+
+If you'd rather only take instant payments, you can switch the delayed ones off in Stripe:
+
+1. Sign in to your [Stripe Dashboard](https://dashboard.stripe.com).
+2. Click the **gear icon** (Settings), then open **Payment methods**.
+3. Look through the list. Switch off any bank debit, bank transfer or voucher method you don't want. Leave cards and wallets on.
+
+If you don't see the setting, or Stripe has turned something on that you didn't choose, email help@generativejustice.org.
+
+### A customer says they paid but there's no order
+
+1. In your Stripe Dashboard, open **Payments** and find the payment (search by their email or amount).
+2. If it shows **Pending** or **Processing**, it's a bank payment that hasn't cleared yet. The order will appear on its own when it clears. Tell the customer to expect it in a few business days.
+3. If it shows **Succeeded** and there's still no order after a day, email help@generativejustice.org.
+4. For a payment made before bank debits were supported, the order may never appear. If you can fill it, create a [manual order](/docs/orders#creating-a-manual-order) with the same items. Set **Payment** to **Paid** (stock comes off when it's Paid), and tick **Send order confirmation email to customer**. The money is already in your Stripe account. A manual order doesn't take a second payment. If you can't fill the order, refund the payment from the Stripe Dashboard. A refund issued only in Stripe doesn't appear on any order in SimplePress, because there isn't one.
+
+---
+
 ## Other ways to get paid
 
 Checkout goes through Stripe only. You can still take cash, check, Venmo, Cash App, Zelle and more through manual orders, invoices and your donate page. These never go through Stripe, so there's no Stripe fee, and they don't appear in What Stripe took or in your payouts. See [Other ways to get paid](/docs/integrations#other-ways-to-get-paid).
@@ -102,6 +151,8 @@ Checkout goes through Stripe only. You can still take cash, check, Venmo, Cash A
 ## When Stripe pauses payments
 
 Sometimes Stripe pauses charges on an account. This usually happens when it needs identity or business verification, more documents, or a response to a dispute review. While charges are paused, **checkout fails for every shopper**.
+
+Shoppers don't see a warning up front. Your checkout page loads as normal, and they fill in their details. Only when they click **Continue to Payment** does Stripe refuse to start the payment, and they see the generic message "Failed to create checkout session. Please try again." Nothing on your storefront says that payments are paused, so shoppers may simply assume the store is broken. If fixing it with Stripe will take a while, you can post a [banner](/docs/banner-and-popup) saying orders are on hold, or use [Maintenance Mode](/docs/maintenance-mode).
 
 SimplePress tells you in three ways:
 
