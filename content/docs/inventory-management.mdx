@@ -98,7 +98,7 @@ Go to **Inventory** in the admin sidebar. The page has up to three tabs: **Items
 - **Category:** All categories, or one of yours.
 - **Sort:** Name A–Z (the default), Name Z–A, Newest, Oldest, Lowest stock, Highest stock, Most units sold, Fewest units sold, Most products, Fewest products, SKU A–Z, Category A–Z.
 
-The list shows 25 items per page. The **Low or out of stock** filter uses only each item's own **Low-stock threshold**. An item with no threshold set counts as "low" only once it is out of stock. (The dashboard widget works a little differently; see [Low-Stock Alerts](#low-stock-alerts).)
+The list shows 25 items per page. The **Low or out of stock** filter uses only each item's own **Low-stock threshold**. An item with no threshold set counts as "low" only once it is out of stock. (The Dashboard's low stock cards work a little differently; see [Low-Stock Alerts](#low-stock-alerts).)
 
 **Columns.** Narrow screens show fewer columns; the rest appear as the window gets wider.
 
@@ -436,16 +436,16 @@ You'll need to fulfil these orders by hand: restock and ship, or contact the cus
 
 ## Low-Stock Alerts
 
-### Dashboard widget
+### Dashboard cards
 
-The **Dashboard** has a **Low Stock Alerts** card showing what needs attention first.
+The **Dashboard** can show a **Low stock alerts** card listing what needs attention first, and a **Low stock** card with just the count. They're two of the cards you can add when you [customize your Dashboard](/docs/dashboard#customizing-your-dashboard), and **Low stock alerts** is in the standard layout.
 
-![The Dashboard's Low Stock Alerts card listing products and inventory items that are running low, with a Manage Stock button](/images/dashboard/low-stock.png)
+![The Dashboard's Low stock alerts card listing the products and variants that are running low, lowest first, with a "+ 64 more low on stock" line at the bottom](/images/dashboard/low-stock.png)
 
 - A published product (or variant) with **Track Inventory** on appears when its stock is at or below its own **Low Inventory Threshold**, or **10** if you never set one. Drafts and products already below zero from backorders are left out.
 - A **stock-type item** appears the same way: its own **Low-stock threshold**, or 10 if none is set. It's shown as "Inventory item" with "N left", and clicking it opens the item. Items appear whether or not their linked products are published. Rental items never appear, because "2 on hand" may just mean the rest are out with customers.
-- Within each group, the lowest stock comes first. The card shows up to 5 products and up to 5 items.
-- **Manage Stock** opens your products list.
+- Within each group, the lowest stock comes first. A Large (2×2) card shows 5 rows and a Full-width (4×2) card shows 10, with a "+N more" link when more are low.
+- Click the card's title to open your products list.
 
 The dashboard falls back to 10 when no threshold is set, but the Items page's **Low or out of stock** filter doesn't. See [The Items page](#the-items-page).
 

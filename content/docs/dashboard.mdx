@@ -1,25 +1,21 @@
 ---
 title: Dashboard
-description: Your admin home screen, with sales numbers, orders that need attention, low-stock alerts, and quick links.
+description: Your admin home screen, with sales numbers, orders that need attention, low-stock alerts, and quick links. Choose and arrange the cards to fit how you work.
 ---
 
 ## Overview
 
 The Dashboard is your admin home screen. It answers three questions at a glance: how is the store doing, what needs my attention, and where do I go next?
 
-It's mostly a window onto your store. It shows you what's happening and gives you shortcuts, and you make changes on the pages it links to. The one thing you can change from here is hiding the Search readiness strip (see [Search Readiness](#search-readiness)).
-
-![The full Dashboard, with the setup card, Needs Attention, sales cards, Recent Orders, Low Stock Alerts, the revenue chart and Top Products](/images/dashboard/dashboard-full-page.png)
-
-*The whole Dashboard on a store with a few orders. Your own page shows only the cards that apply to you.*
+It's mostly a window onto your store. It shows you what's happening and gives you shortcuts, and you make changes on the pages it links to. What you can change from here is the Dashboard itself: you choose which cards appear, how big they are, and what time period they cover (see [Customizing Your Dashboard](#customizing-your-dashboard)). You can also hide the Search readiness strip (see [Search Readiness](#search-readiness)).
 
 To open it any time, click **Dashboard** at the top of the admin sidebar.
 
-> **Where signing in takes you:** When you go to your admin, SimplePress sends you to the [Setup Guide](/docs/launch-checklist) until three things are done: Stripe is connected, you have at least one product, and a custom domain is set. After that, you land on the Dashboard. The Setup Guide has a **Continue to dashboard** button if you want to skip ahead. See [Getting back to the Setup Guide](#getting-back-to-the-setup-guide).
+> **Where signing in takes you:** When you go to your admin, SimplePress sends you to the [Setup Guide](/docs/launch-checklist) until every **Required** step on it is done. Which steps those are depends on your kind of business. For a store that sells products, they include Stripe, a first product, and a custom domain. After that, you land on the Dashboard. The Setup Guide has a **Continue to dashboard** button if you want to skip ahead. See [Getting back to the Setup Guide](#getting-back-to-the-setup-guide).
 
-> **Who can see it:** Owners and Managers. Staff don't have a Dashboard. When a Staff member signs in, they go straight to Orders, and they only see Orders, Customers and Inventory in the sidebar. See [Team & Roles](/docs/team-and-roles).
+> **Who can see it:** Owners and Managers. Each person has their own layout for each store. Staff don't have a Dashboard. When a Staff member signs in, they go straight to Orders, and they only see Orders, Customers and Inventory in the sidebar. See [Team & Roles](/docs/team-and-roles).
 
-> **Time periods:** The numbers on the Dashboard use rolling windows, not the calendar year. "7 Days" means the last seven days and "30 Days" means the last thirty days. "Today" means since midnight in your store's time zone, and the days along the revenue chart are your store's days too. There's no custom date range here. For deeper reports, see [Finances](/docs/finances).
+> **Time periods:** Each card has its own time range, which you can change in edit mode. Ranges follow your store's time zone, and there's no custom date range here. See [How time ranges work](#how-time-ranges-work). For deeper reports, see [Finances](/docs/finances).
 
 ---
 
@@ -37,7 +33,7 @@ You won't see this banner in normal use. It only appears when Stripe has confirm
 
 ## The Buttons at the Top
 
-Four buttons sit at the top right, next to the welcome message:
+Five buttons sit at the top right, next to the welcome message:
 
 | Button         | What it does                                                                |
 | -------------- | --------------------------------------------------------------------------- |
@@ -45,10 +41,11 @@ Four buttons sit at the top right, next to the welcome message:
 | **New Order**    | Opens the form to create an order by hand, for phone, wholesale, or in-person sales. See [Orders](/docs/orders). |
 | **Customize**    | Opens the Site Editor, where you edit your pages and look.                |
 | **View Store**   | Opens your live storefront in a new tab, on your custom domain if you have one. |
+| **Edit dashboard** | Lets you choose, arrange and resize your cards. See [Customizing Your Dashboard](#customizing-your-dashboard). |
 
 **Add Product** and **New Order** only show when the Products and Orders features are turned on. See [Feature toggles](/docs/feature-flags).
 
-![The four buttons at the top of the Dashboard: Add Product, New Order, Customize and View Store](/images/dashboard/quick-actions.png)
+![The buttons at the top of the Dashboard: Edit dashboard, Add Product, New Order, Customize and View Store](/images/dashboard/quick-actions.png)
 
 *The buttons at the top right of the Dashboard.*
 
@@ -56,19 +53,24 @@ Four buttons sit at the top right, next to the welcome message:
 
 ## Finish Setting Up Your Store
 
-New stores see a **Finish setting up your store** card at the top. It shows a progress bar, "N of 5 steps complete", and a **Next:** line naming the next step to tackle. The five steps are:
+New stores see a **Finish setting up your store** card at the top. It shows a progress bar, "N of M steps complete", and a **Next:** line naming the next step to tackle. The card follows your [Setup Guide](/docs/getting-started#your-setup-guide), so the steps depend on your kind of business: selling products, services, informational, or donations. A store that sells products might see steps like these:
 
 1. **Store created.** Already done when you arrive.
-2. **Connect payment processing.** Connect Stripe so you can take payments.
-3. **Connect a custom domain.** Use your own web address instead of the temporary one.
+2. **Connect a custom domain.** Use your own web address instead of the temporary one.
+3. **Connect payment processing.** Connect Stripe so you can take payments.
 4. **Add your first product.**
-5. **Customize your storefront.** Add a logo or edit your pages in the Site Editor.
+5. **Set up sales tax** and **set up shipping or pickup.**
+6. **Add your contact info**, **publish your store policies**, and **customize your storefront.** These are optional for a store that sells products.
 
-Click **Continue setup** to open the Setup Guide, which shows all five steps with buttons to complete each one, a link to preview your store, and links to this documentation and to support. The card disappears once every step is done.
+Required steps come up as **Next:** before optional ones.
+
+Click **Continue setup** to open the Setup Guide, which shows every step with buttons to complete each one, a link to preview your store, and links to this documentation and to support. The card disappears once every step is done.
 
 ![The Finish setting up your store card showing 4 of 5 steps complete, the next step, and the Continue setup button](/images/dashboard/finish-setup-card.png)
 
 *This store has four of five steps done, and the next one is connecting a custom domain.*
+
+Stores set up before the tailored Setup Guide keep their original five steps: store created, Stripe, custom domain, first product, and customize.
 
 See [Getting Started](/docs/getting-started) and the [Launch checklist](/docs/launch-checklist) for a full walkthrough of the setup steps.
 
@@ -77,7 +79,7 @@ See [Getting Started](/docs/getting-started) and the [Launch checklist](/docs/la
 You can open the Setup Guide again whenever you like, even after you've finished setup:
 
 - Click **Setup Guide** in the sidebar, just below **Settings**.
-- While Stripe isn't connected, you have no products yet, or you don't have a custom domain, a small **Almost there!** box at the bottom of the sidebar says "Complete setup to start selling" and has a **Finish setup** button. It goes away once Stripe is connected, you have a product, and you have a custom domain. Staff don't see this box; Owners and Managers do.
+- While any **Required** step is still open, a small **Almost there!** box at the bottom of the sidebar says "Complete setup to start selling" and has a **Finish setup** button. It goes away once every Required step is done. Staff don't see this box; Owners and Managers do.
 - Press the search shortcut described under [Finding Things Fast](#finding-things-fast) and choose **View setup guide**.
 
 ![The admin sidebar, ending with Settings and Setup Guide just above your account name](/images/dashboard/welcome-sidebar.png)
@@ -115,17 +117,17 @@ Hiding the strip only hides it from the Dashboard. You can still open the full r
 
 ## Needs Attention
 
-When something is waiting on you, colored cards appear in a strip below the setup and search cards. Each card is clickable and takes you straight to the right list. Cards only appear when there's something to do.
+When something is waiting on you, colored reminders appear in a strip below the setup and search cards. They stay pinned at the top and aren't part of the cards you arrange. Each reminder is clickable and takes you straight to the right list. Reminders only appear when there's something to do.
 
-| Card                            | What it says                                                                  | Where it takes you                          |
+| Reminder                        | What it says                                                                  | Where it takes you                          |
 | ------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------- |
 | **N orders to fulfill**         | "Paid but not yet shipped." Customers have paid, but the order hasn't shipped or been handed over yet. | The Orders list, filtered to **Open**, **Unfulfilled** and **Paid**. |
 | **N orders awaiting payment**   | "Pending payment confirmation." Orders were started but payment hasn't been confirmed yet. | The Orders list, filtered to pending payment. |
 | **No store policies published** | "Add a Terms of Service & Refund Policy." Your Terms of Service or Refund Policy is missing, empty, or not published. | **Site Setup → Policies**.                  |
 
-Cancelled and refunded orders aren't counted in the first two cards.
+Cancelled and refunded orders aren't counted in the first two reminders.
 
-> **Partially shipped orders:** The "to fulfill" number counts only open, paid orders that haven't shipped at all. Partially shipped orders aren't counted, so the number always matches the list the card opens. It also matches the **Needs fulfillment** card on the Orders page. To see partially shipped orders, use the **Fulfillment** filter on the Orders page and choose **Partially Fulfilled**.
+> **Partially shipped orders:** The "to fulfill" number counts only open, paid orders that haven't shipped at all. Partially shipped orders aren't counted, so the number always matches the list the card opens. It also matches the **Needs fulfillment** card on the Orders page and the **Orders to fulfill** card you can add to your Dashboard. To see partially shipped orders, use the **Fulfillment** filter on the Orders page and choose **Partially Fulfilled**.
 
 ![The Needs Attention card reading 20 orders to fulfill, Paid but not yet shipped](/images/dashboard/needs-attention.png)
 
@@ -139,51 +141,147 @@ If **Shopping Cart & Checkout** is turned off for your store, a **Cart is disabl
 
 ---
 
-## Sales Numbers
+## Customizing Your Dashboard
 
-A row of cards sums up your sales. Dollar amounts include tax and shipping.
+The cards below the pinned reminders are yours to arrange. You choose which numbers and lists appear, how big each one is, and what time period it covers.
 
-### Revenue Today
+Your layout belongs to you. Each Owner and Manager has their own Dashboard layout for each store, so changing yours doesn't change anyone else's. Staff don't see the Dashboard at all.
 
-Money from paid orders placed since midnight in your store's time zone, minus any refunds. Underneath you'll see "All time (incl. tax & shipping)" with your all-time revenue, and a **Full breakdown →** link to [the Finances page](/docs/finances).
+New people start with the standard layout:
 
-### Revenue (7 Days)
+| Card                              | Time range    |
+| --------------------------------- | ------------- |
+| **Net revenue**                   | Today         |
+| **Gross revenue**                 | Last 7 days   |
+| **Orders**                        | Last 7 days   |
+| **Average order**                 | Last 30 days  |
+| **Recent orders**                 | Latest orders |
+| **Low stock alerts**              | Right now     |
+| **Revenue chart**                 | Last 30 days  |
+| **Top products**                  | Last 30 days  |
 
-Sales from the last seven days, with "Last 7 days, paid orders" underneath. If you refunded anything in that time, the line also shows how much. Above that line is a small comparison, such as "▲ 14% vs prior 7 days" in green when it's up or "▼ 6% vs prior 7 days" in red when it's down. A dash ("— vs prior 7 days") means there's nothing from the earlier period to compare against.
+![The full Dashboard in its standard layout: the setup card and orders-to-fulfill reminder, four number cards, Recent orders, Low stock alerts, the Revenue chart and Top products, with the Edit dashboard button at the top right](/images/dashboard/dashboard-full-page.png)
 
-### Orders (7 Days)
+*The standard layout on a store with a few orders. Your own page shows only the cards you chose.*
 
-How many orders came in over the last seven days, compared to the seven days before, plus "All time:" with the total number of orders your store has ever received. This counts every order placed, including ones still waiting on payment.
+> **What stays put:** The setup checklist, the "orders to fulfill" reminder, and the oversold-items warning stay pinned at the top of the Dashboard. They aren't cards, so you can't move or remove them.
 
-### Avg. Order Value
+### Editing your layout
 
-What a customer spends per paid order, averaged over the last 30 days, compared to the 30 days before ("vs prior 30 days"). Underneath it says, for example, "30-day avg · 10 paid orders", so you can see how many orders the average is based on.
+1. Click **Edit dashboard** at the top of the Dashboard.
+2. An editing bar appears with **Add card**, **Reset to default**, **Cancel** and **Save**, plus a counter such as "8 / 24 cards". You can have up to 24 cards.
+3. Make your changes (see below). Dashed outlines show the open spaces in the grid.
+4. Click **Save** to keep them.
 
-### Conversion Rate
+![The Dashboard in edit mode: the Editing dashboard bar with Add card, Reset to default, Cancel and Save, a size chip and handle on every card, and dashed open cells with an Add card tile below the last card](/images/dashboard/dashboard-edit-mode.png)
 
-This card only appears if you've turned on **Analytics** under **Settings → Features** and connected Umami analytics for your store under **Settings → Integrations**. It shows the share of your visitors from the last 30 days who placed a paid order, with a note like "12 paid orders / 640 visitors · 30 days." It stays hidden until your store has recorded visitors. If analytics can't connect for a moment, the card shows a dash with "Analytics can't connect right now" or "Analytics is temporarily unavailable" instead of a number.
+*Edit mode. Every card shows a drag handle, a settings button and its size. The dashed cells at the bottom are open space.*
 
-See [Integrations](/docs/integrations) for connecting Umami, and [Analytics](/docs/analytics) for what the numbers mean.
+**Your changes aren't kept until you press Save.** If you try to leave the page with unsaved changes, SimplePress asks first. **Cancel** throws away everything you changed since you started editing.
 
-![The row of sales cards: Revenue Today, Revenue (7 Days), Orders (7 Days) and Avg. Order Value, with a green comparison arrow on the average order value](/images/dashboard/sales-cards.png)
+**Reset to default** puts back the standard set of cards shown above. It asks you to confirm first. As with any other change, you still need to press **Save** afterward.
 
-*The sales cards. This store has nothing to compare against for the 7-day cards yet, so they show a dash.*
+### Adding a card
 
-> **Refunds:** Seven-day and thirty-day revenue show what you sold and, separately, what you refunded. The up and down arrows compare your totals after refunds, so a big refund will pull the arrow down even if the headline number looks high.
+Click **Add card** and pick from the list. Cards are grouped by what they're about (see [The Cards You Can Add](#the-cards-you-can-add)). Once you've reached 24 cards, remove one before adding another.
+
+You can add the same card more than once, with different settings. For example, you could show **Net revenue** for this month and again for all time.
+
+![The Add a card window listing cards under Orders and revenue, each with a small size preview, a description and its default size and time range, and an On dashboard label on the ones you already have](/images/dashboard/add-card-dialog.png)
+
+*The Add a card window. Cards you already have are marked "On dashboard", and you can still add them again.*
+
+### Moving cards around
+
+- **On a computer or tablet,** drag a card by its handle and drop it where you want it.
+- **On a phone,** use the up and down arrows on each card.
+
+The card menu also has **Move to start**, **Move earlier**, **Move later** and **Move to end**.
+
+![The Dashboard in edit mode on a phone, with the Add, Reset, Cancel and Save buttons at the top and up and down arrows and a settings button on each card](/images/dashboard/edit-mode-phone.png)
+
+*Edit mode on a phone. Each card has up and down arrows instead of a drag handle.*
+
+### Changing a card
+
+While you're editing, each card shows a sliders icon. Click it to open that card's settings:
+
+- **Size.** Small (1×1), Wide (2×1), Large (2×2) or Full width (4×2). Each card offers only the sizes that make sense for it. A Wide number card also shows a small trend line.
+- **Time range.** Today, This week (starts Monday), This month, This year, Last 7 days, Last 30 days, Last 90 days, or All time. Cards that show "right now" things, such as Low stock alerts, don't use a time range.
+- **Compare to previous period.** On by default. The card shows a green ▲ or red ▼ with the change compared to the same stretch of the previous period, for example "vs last week". It isn't available for **All time**, or for cards that show a "right now" count.
+- **Move** and **Remove.** Remove takes the card off your Dashboard. You can add it back any time.
+
+![A card's settings menu open under the Gross revenue card, with Size (Small or Wide), Time range, Compare to previous period, move options and Remove card](/images/dashboard/card-settings-menu.png)
+
+*A card's settings menu. The ranges and size choices differ a little from card to card.*
+
+![The Gross revenue card set to Wide (2×1) and Last 30 days, with a small trend line beside the number](/images/dashboard/wide-card-trend.png)
+
+*The same Gross revenue card after choosing Wide and Last 30 days. The trend line shows how the number moved across the period.*
+
+![The row of four number cards: Net revenue (Today), Gross revenue (Last 7 days), Orders (Last 7 days) and Average order (Last 30 days), with a red down arrow and percentage on Average order](/images/dashboard/sales-cards.png)
+
+*Number cards with their comparisons. Where the store has nothing to compare against, a card shows a dash. Average order has earlier sales to compare with, so it shows a red ▼ for a drop.*
+
+### How time ranges work
+
+Time ranges follow your store's time zone, which you set under [General Settings](/docs/general-settings). "To date" ranges count from the start of the period up to right now:
+
+- **Today** is since midnight.
+- **This week** starts on Monday.
+- **This month** and **This year** start on the 1st.
+- **Last 7 / 30 / 90 days** means that many calendar days, **including today**. "Last 7 days" is today plus the six days before it.
+- **All time** is everything since your store began.
+
+Because ranges are "to date," a comparison early in the week or month compares a short stretch to the same short stretch of the previous period, so it's like for like.
+
+> **Numbers may look different from the old Dashboard.** Revenue now matches your [Finances](/docs/finances) page and leaves out cancelled orders. And "Last N days" now means N calendar days including today, in your store's time zone, instead of a rolling window. If a total moved a little after this change, that's why.
 
 ---
 
-## Recent Orders
+## The Cards You Can Add
 
-Shows your six most recent orders, newest first. Each row has the order number, a status label, the customer's name, how long ago it was placed, and the total. Click any row to open that order. Click **View All** to open the full Orders list.
+Only cards for features that are turned on for your store appear in the **Add card** list. If you turn a feature off, its cards are hidden from your Dashboard, and they come back, with your settings, when you turn the feature back on. See [Feature toggles](/docs/feature-flags).
 
-If you have no orders yet, this card says "No orders yet" and explains that orders will appear once customers start purchasing.
+### Orders and revenue
 
----
+| Card                   | What it shows                                                                                         |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Gross revenue**      | Money from paid orders in the period, before refunds. Includes tax and shipping.                      |
+| **Net revenue**        | Gross revenue minus refunds. This matches your [Finances](/docs/finances) page. Cancelled orders aren't counted. |
+| **Refunds**            | How much you refunded in the period.                                                                  |
+| **Orders**             | How many orders were placed in the period.                  |
+| **Average order**      | Net revenue divided by the number of paid orders, so you see what a customer spends per order.       |
+| **Orders to fulfill**  | Paid orders waiting to be shipped or handed over.                                                     |
+| **Awaiting payment**   | Orders started but not yet paid.                                                                      |
+| **Orders fulfilled**   | Of the orders placed in the period, how many have been fulfilled.                                     |
+| **Orders cancelled**   | Of the orders placed in the period, how many were cancelled.                                          |
+| **Recent orders**      | Your most recent orders, newest first, with order number, status, customer, how long ago, and total.  |
+| **Revenue chart**      | A chart of revenue over the period, day by day.                                                       |
+| **Top products**       | Your best sellers by revenue in the period, with photo, units sold and revenue.                       |
 
-## Low Stock Alerts
+On **Recent orders**, click any row to open that order, or click the card's title to open the full Orders list. With no orders yet, it says "No orders yet."
 
-Lists items that are running low so you can restock before you sell out. Each row shows how many are "N left." The list shows up to five products or variants, lowest first, followed by any [inventory items](/docs/inventory-management) that are running low.
+On **Top products**, a store with no sales in the period sees "No sales data yet."
+
+**Revenue chart.** Hover over a bar to see that day's total. Days with no sales show as zero, so a quiet store sees a mostly flat chart rather than an empty message. For the full picture of where the money went, see [Finances](/docs/finances).
+
+![The Revenue chart (Last 30 days) bar chart above the Top products list](/images/dashboard/revenue-top-products.png)
+
+*The Revenue chart and Top products cards.*
+
+> **Refunds:** Net revenue shows what you sold after refunds. The up and down arrows compare your totals after refunds, so a big refund will pull the arrow down even if the gross number looks high.
+
+### Inventory
+
+| Card                    | What it shows                                                                |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| **Low stock**           | A count of products and items that are running low.                          |
+| **Low stock alerts**    | The list of what's running low, lowest first, so you can restock before you sell out. |
+
+### Low Stock Alerts
+
+The **Low stock alerts** card lists items that are running low. Each row shows how many are "N left." The list shows up to five products or variants, lowest first, followed by any [inventory items](/docs/inventory-management) that are running low. The **Low stock** count card uses the same rules.
 
 **How "low" is decided:**
 
@@ -196,37 +294,75 @@ What's included:
 - Published products and variants that have **Track Inventory** turned on. Inventory items show "Inventory item" under their name.
 - Inventory items you've set up as stock. Rental items aren't included, because a rental showing a low number may just mean the rest are out with customers.
 
-Click an inventory item to open its details. Click **Manage Stock** to open your products and update quantities. A red warning icon on an inventory item means it's at zero or below.
+Click an inventory item to open its details. Click the card's title to open your products and update quantities. A red warning icon on an inventory item means it's at zero or below.
 
 When nothing is running low, the card shows "All stock levels are good!" and "No products are running low."
 
-![The Low Stock Alerts card, with product variants showing 0 left and an inventory item showing 5 left](/images/dashboard/low-stock.png)
+![The Low stock alerts card, with five product variants showing 0 left and a "+ 64 more low on stock" line at the bottom](/images/dashboard/low-stock.png)
 
-*Low Stock Alerts. The last row is an inventory item, marked "Inventory item."*
+*Low stock alerts. Inventory items that are running low follow the products and variants, marked "Inventory item."*
+
+These cards need the [Inventory](/docs/inventory-management) features turned on.
+
+### Donations
+
+| Card                  | What it shows                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------- |
+| **Donations**         | The total given in the period.                                                                  |
+| **Gifts**             | How many gifts were made.                                                                       |
+| **Donors**            | How many different people gave, counted by email address. Gifts without an email aren't counted. |
+| **Average gift**      | The total given divided by the number of gifts.                                                                          |
+
+See [Donations](/docs/donations).
+
+### Invoices
+
+| Card                      | What it shows                                    |
+| ------------------------- | ------------------------------------------------ |
+| **Invoices outstanding**  | Invoices that have been sent and not yet paid.   |
+| **Invoices overdue**      | Unpaid invoices that are past their due date.    |
+| **Invoices collected**    | Money collected from invoices in the period.     |
+
+See [Invoices](/docs/invoices).
+
+### Subscriptions
+
+| Card                          | What it shows                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------------- |
+| **Active subscribers**        | How many people have an active subscription.                                    |
+| **Monthly recurring revenue** | What your subscriptions bring in each month. This matches the estimate on your [Subscriptions](/docs/subscriptions) page. |
+
+### Customers
+
+| Card                    | What it shows                                                                              |
+| ----------------------- | ------------------------------------------------------------------------------------------ |
+| **New customers**       | People who became customers in the period.                                                 |
+| **Total customers**     | Everyone in your [Customers](/docs/customers) list.                                        |
+| **Quote requests**      | Quote requests received in the period. See [Quote Calculators](/docs/quote-calculators).   |
+| **Form submissions**    | Submissions made through your website forms. Imported submissions aren't counted. See [Forms](/docs/forms). |
+
+### Traffic
+
+The traffic cards need **Analytics** turned on under **Settings → Features**, and Umami analytics connected for your store under **Settings → Integrations**.
+
+| Card                | What it shows                                              |
+| ------------------- | ---------------------------------------------------------- |
+| **Visitors**        | How many people visited your storefront in the period.     |
+| **Conversion rate** | The share of your visitors who placed a paid order.        |
+
+### Conversion Rate
+
+The **Conversion rate** card shows the share of visitors in the period who placed a paid order, with a note such as "12 paid orders / 640 visitors." It stays hidden until your store has recorded visitors. If analytics can't connect for a moment, the card shows a dash with "Analytics can't connect right now" or "Analytics is temporarily unavailable" instead of a number.
+
+See [Integrations](/docs/integrations) for connecting Umami, and [Analytics](/docs/analytics) for what the numbers mean.
 
 ---
 
 ## Oversold Items
 
-If a customer bought more of something than you had in stock during the last 30 days, a red **Oversold items need attention** box appears. It lists up to ten affected items, how many were in stock at the time, and a link to each order so you can decide whether to restock, substitute, or contact the customer.
+If a customer bought more of something than you had in stock during the last 30 days, a red **Oversold items need attention** box appears at the top of the Dashboard. It lists up to ten affected items, how many were in stock at the time, and a link to each order so you can decide whether to restock, substitute, or contact the customer.
 
-This box only appears when it happens, and it clears itself once the 30-day window passes.
-
----
-
-## Revenue Chart and Top Products
-
-### Revenue (Last 30 Days)
-
-A bar chart with one bar for each of the last 30 days. Hover over a bar to see that day's total. Days with no sales show as zero, so a quiet store sees a mostly flat chart rather than an empty message. Above the chart is your 30-day total, the refunded amount and net total when there were refunds, and an arrow comparing it to the previous 30 days.
-
-### Top Products (Last 30 Days)
-
-Your five best sellers by revenue over the last 30 days, with each product's photo, how many units sold, and the revenue it brought in. When there are no sales yet, this card says "No sales data yet."
-
-![The Revenue (Last 30 Days) bar chart above the Top Products list](/images/dashboard/revenue-top-products.png)
-
-*The revenue chart and Top Products list.*
+This box only appears when it happens, and it clears itself once the 30-day window passes. It stays pinned at the top and isn't one of your cards.
 
 ---
 
@@ -245,19 +381,34 @@ Shopping Cart & Checkout is turned off for your store, so customers can't add it
 Stripe has disabled charges on your account, so shoppers can't check out. Click **Fix in Stripe** to see what Stripe needs from you, or **Details** to open **Settings → Integrations**. The banner clears once Stripe turns charges back on. See [Payments & Payouts](/docs/payments-and-payouts#when-stripe-pauses-payments).
 
 **The numbers look different from my Stripe account.**
-The Dashboard shows orders recorded in SimplePress, using rolling time windows. Stripe reports on its own schedule, and payouts arrive after payments. See [Payments & Payouts](/docs/payments-and-payouts) and [Finances](/docs/finances).
+The Dashboard shows orders recorded in SimplePress, over the time range set on each card. Stripe reports on its own schedule, and payouts arrive after payments. See [Payments & Payouts](/docs/payments-and-payouts) and [Finances](/docs/finances).
 
-**A product I'm low on isn't showing in Low Stock Alerts.**
+**A product I'm low on isn't showing in Low stock alerts.**
 The product must be published and have **Track Inventory** turned on. Products that aren't tracked are always treated as in stock. Also check its **Low Inventory Threshold**: the product only shows once its stock is at or below that number (or 10, if you haven't set one).
 
 **I hid Search readiness and want it back.**
 Go to **Settings → Features** and turn on **Search readiness on dashboard**.
 
-**I don't see the Conversion Rate card.**
-It needs the **Analytics** feature turned on, Umami analytics connected under **Settings → Integrations**, and at least some visitors recorded in the last 30 days.
+**I don't see the Conversion rate or Visitors card.**
+They need the **Analytics** feature turned on, Umami analytics connected under **Settings → Integrations**, and at least some visitors recorded in the period.
+
+**A card I want isn't in the Add card list, or one I had disappeared.**
+Cards only appear for features that are turned on. Check **Settings → Features**. If you turned a feature off, its cards are hidden, and they return, with your settings, when you turn it back on.
+
+**I can't add another card.**
+You can have up to 24 cards. The counter in the editing bar shows how many you have. Remove one, then add the new one.
+
+**My changes disappeared.**
+Changes are only kept when you press **Save**. **Cancel** and leaving the page without saving both throw them away.
+
+**My Dashboard layout is different from another Owner's or Manager's.**
+That's expected. Each person has their own layout for each store.
+
+**My revenue numbers changed.**
+Revenue now matches the Finances page and leaves out cancelled orders, and "Last N days" now counts N calendar days including today in your store's time zone. See [How time ranges work](#how-time-ranges-work).
 
 **I signed in and ended up on the Setup Guide instead of the Dashboard.**
-Your store is still missing Stripe, a product, or a custom domain. Finish those, or click **Continue to dashboard** on the Setup Guide. See the [Launch checklist](/docs/launch-checklist).
+One or more **Required** steps on your Setup Guide are still open. Which steps those are depends on your kind of business. For a store that sells products, they include Stripe, a product, and a custom domain. Finish them, or click **Continue to dashboard** on the Setup Guide. See the [Launch checklist](/docs/launch-checklist).
 
 **A team member can't see the Dashboard.**
 Staff don't have access to it. Change their role to Manager if they need it. See [Team & Roles](/docs/team-and-roles).
@@ -273,9 +424,11 @@ Staff don't have access to it. Change their role to Manager if they need it. See
 | Start a new product or manual order from the Dashboard                  | Yes                                                               |
 | Hide the Search readiness strip                                         | Yes (it applies to everyone on your team; turn it back on in Settings → Features) |
 | Search for orders, customers, and products from anywhere in the admin   | Yes                                                               |
-| Choose a custom date range                                              | No. The Dashboard uses fixed windows: today, 7 days, and 30 days  |
-| Choose which cards appear or rearrange them                             | No                                                                |
-| Hide the setup or Needs Attention cards                                 | No. They disappear on their own when there's nothing to show      |
+| Choose a custom date range                                              | No. Each card uses one of the preset ranges, from Today to All time |
+| Choose which cards appear, resize them, or rearrange them               | Yes, in **Edit dashboard**. Your layout is yours alone; up to 24 cards |
+| Show the same card twice with different time ranges                     | Yes                                                               |
+| Change another person's Dashboard layout                                | No. Each Owner and Manager has their own                          |
+| Hide the setup checklist or Needs Attention reminders                   | No. They're pinned, and disappear on their own when there's nothing to show |
 | Change when something counts as low stock                               | Yes, per product (**Low Inventory Threshold**) or per inventory item (**Low stock alert at**). Without one, the cutoff is 10 |
 | Export Dashboard numbers                                                | No. Use Finances and the Orders export for reports                |
 | Show the Dashboard to Staff                                             | No. Staff go to Orders. Use the Manager role for dashboard access |

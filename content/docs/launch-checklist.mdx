@@ -1,18 +1,18 @@
 ---
 title: Launch checklist
-description: Finish the Setup Guide and work through the go-live checklist so your store is ready to take real orders.
+description: Finish the Setup Guide and work through the go-live checklist so your store is ready to go live.
 ---
 
 ## Overview
 
-Getting your store ready to sell comes down to a handful of steps. SimplePress tracks most of them for you on the **Setup Guide** page, and this page walks through the rest, so you know exactly what to check before you tell customers you're open.
+Getting your store ready comes down to a handful of steps. SimplePress tracks most of them for you on the **Setup Guide** page, and this page walks through the rest, so you know exactly what to check before you tell customers you're open.
 
-Here's the short version. Come back to it any time:
+Your Setup Guide is tailored to your kind of business, so your list may be shorter than the one below. See [Your Setup Guide](/docs/getting-started#your-setup-guide) for how that works. Here's the short version for a store that sells products. Come back to it any time:
 
 - [ ] **Connect your own domain** (like `myshop.com`). Required before you start selling. See [Custom domain](#1-connect-your-custom-domain).
 - [ ] **Connect Stripe** so customers can pay by card. See [Stripe](#2-connect-stripe).
-- [ ] **Add at least one product** and **make the storefront yours** with a logo and your own words and photos. See [The Setup Guide](#the-setup-guide).
-- [ ] **Publish your policies**, at least Terms of Service and Returns & Refunds. See [Policies](#3-publish-your-policies).
+- [ ] **Add at least one product**, **set up sales tax**, and **set up shipping or pickup**. See [The Setup Guide](#the-setup-guide).
+- [ ] **Add your contact info**, **publish your policies** (at least Terms of Service and Returns & Refunds), and **make the storefront yours** with a logo and your own words and photos. See [Policies](#3-publish-your-policies).
 - [ ] **Make sure Maintenance Mode is off.** See [Maintenance Mode](#4-turn-maintenance-mode-off), or [Maintenance Mode & Coming Soon](/docs/maintenance-mode) for every option.
 - [ ] **Place a test order** and walk through it as a customer would. See [Test order](#5-place-a-test-order).
 
@@ -30,15 +30,29 @@ The Setup Guide is your store's to-do list for getting started. It opens on its 
 
 *The Setup Guide. Steps that still need doing have a button to do them right there.*
 
-At the top, **Setup Progress** shows how many of the five steps are done (for example, "3 of 5 steps completed") with a progress bar. The steps are:
+At the top, **Setup Progress** shows how many steps are done (for example, "3 of 7 steps completed") with a progress bar. Each step is marked **Required** or **Optional**. Steps for features your store doesn't use don't appear.
+
+The SimplePress team picks your store's kind of business when we set it up: **Sells products**, **Services**, **Informational**, or **Donations / nonprofit**. That choice decides which steps you see. The table in [Getting started](/docs/getting-started#your-setup-guide) shows the usual setup for each kind. We can change the list for your store if you ask.
+
+**Photo:** The Setup Guide with a Required step and an Optional step side by side, and the Mark as done button on the sales tax step.
+
+### The steps
 
 | Step | What it's for | When it's checked off |
 | ---- | ------------- | --------------------- |
-| **Store Created** | Your store exists. | Always done. |
-| **Connect Payment Processing** | Lets customers pay by card. Click **Connect with Stripe** to sign in to Stripe and link your account. | As soon as your Stripe account is connected. |
-| **Connect a Custom Domain (Required)** | Puts your store on your own web address. You can add your domain right on this step. | As soon as you add a domain. It still has to pass the DNS check before customers can use it (see [below](#1-connect-your-custom-domain)). |
-| **Add Your First Product** | Gives customers something to buy. Click **Add Product**. | When your store has at least one product. |
-| **Customize Your Storefront** | Makes the site look like your business. Use **Brand Identity** to upload your logo, or **Site Editor** to change your homepage's words and photos. | When you've uploaded a logo **or** saved any change in the Site Editor. |
+| **Store created** | Your store exists. | Always done. |
+| **Connect a custom domain** | Puts your store on your own web address. You can add your domain right on this step. | As soon as you add a domain. It still has to pass the DNS check before customers can use it (see [below](#1-connect-your-custom-domain)). |
+| **Connect payment processing** | Lets customers pay by card. Click **Connect with Stripe** to sign in to Stripe and link your account. | As soon as your Stripe account is connected. |
+| **Add your first product** | Gives customers something to buy. Click **Add Product**. | When your store has at least one product. |
+| **Set up sales tax** | Makes sure checkout charges the right tax. Opens the [Tax Guide](/docs/finances#the-tax-guide). | When automatic sales tax is turned on (**Settings → Integrations**, see [Tax](/docs/tax)), **or** when you review your tax setup and click **Mark as done**. |
+| **Set up shipping or pickup** | Tells customers how they'll get their order. See [Shipping](/docs/shipping). | When you change shipping from the default free shipping, or turn on in-store pickup, **or** when you click **Mark as done**. |
+| **Add your first service** | Lists what you offer. See [Services](/docs/services). | When your store has at least one service. |
+| **Set up donations** | Lets people give. See [Donations](/docs/donations). | When Stripe is connected, or you've saved a Venmo or Cash App handle. |
+| **Add your contact info** | Lets customers reach you. Add it in **Settings → General**. | When you've saved a phone number, a support email, or a street address. |
+| **Publish your store policies** | Gives customers your terms and returns rules. See [Policies](#3-publish-your-policies). | When both your **Terms of Service** and **Returns & Refunds** policies are published and have content. |
+| **Customize your storefront** | Makes the site look like your business. Use **Brand Identity** to upload your logo, or **Site Editor** to change your homepage's words and photos. | When you've uploaded a logo **or** saved any change in the Site Editor. |
+
+You won't see every row. Your Setup Guide only lists the steps that apply to your kind of business.
 
 On the right side of the page you'll also find:
 
@@ -50,16 +64,22 @@ When every step is done, a **Setup Complete** badge appears at the top of the pa
 
 ### When the Setup Guide opens
 
-Until your store has Stripe connected, at least one product, **and** a custom domain, opening your admin takes you to the Setup Guide instead of the Dashboard. Once all three are in place, you land on the Dashboard as usual.
+Until every **Required** step is done, opening your admin takes you to the Setup Guide instead of the Dashboard. That includes signing in and accepting your invitation. Once all the Required steps are done, you land on the Dashboard as usual. Optional steps never hold you back.
 
 You're never stuck there. Click **Continue to dashboard** near the top of the page to go straight to the rest of your admin at any time. The Setup Guide can't be dismissed or hidden, but it doesn't block anything.
+
+<Callout type="info" title="Set up before this change?">
+  Stores set up earlier keep their original five steps: store created, Stripe, custom domain, first product, and customize. Stripe, a domain, and a first product are required. Customize is optional.
+</Callout>
 
 ### Getting back to it
 
 - Click **Setup Guide** near the bottom of the admin sidebar.
 - Open the command palette (the search box at the top of any admin page, or `Cmd + K` / `Ctrl + K`) and choose **View setup guide**.
 - On the Dashboard, click **Continue setup** on the **Finish setting up your store** card. The card shows how many steps are done and what's next, and disappears once every step is complete.
-- Until Stripe is connected, you have a product, and you have a custom domain, an **Almost there!** box at the bottom of the sidebar has a **Finish setup** button too. Staff don't see this box; Owners and Managers do.
+- Until every Required step is done, an **Almost there!** box at the bottom of the sidebar has a **Finish setup** button too. Staff don't see this box; Owners and Managers do.
+
+The Dashboard card and the sidebar box follow the same list as your Setup Guide.
 
 ![The "Finish setting up your store" card on the Dashboard, with a progress bar, the next step, and a Continue setup button](/images/launch-checklist/dashboard-setup-card.png)
 
@@ -69,7 +89,7 @@ You're never stuck there. Click **Continue to dashboard** near the top of the pa
 
 ## Going Live
 
-The Setup Guide covers the basics. Before you announce your store, go through these five checks as well.
+The Setup Guide covers the basics. Before you announce your store, go through these five checks as well. If your store doesn't sell products, skip the ones that don't apply to you.
 
 ### 1. Connect your custom domain
 
