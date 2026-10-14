@@ -51,7 +51,7 @@ Start with **START HERE.html** once the ZIP is unzipped. It opens in any web bro
 | **Photos/** | Every photo and video you uploaded, in folders by where it's used: Branding, Products (one folder per product), Collections, Galleries, Blog, Pages, Services, Events, Testimonials, Product reviews, Videos, and Site sections. Photos that couldn't be downloaded don't stop the export. They're listed in **START HERE.html**. People's profile photos are not included. |
 | **Photos/Media Library/** | Files you uploaded but aren't used anywhere on your site. |
 | **Photos/Template & stock images/** | Images shown on your site that you didn't upload. Check the rights before you reuse them. |
-| **Spreadsheets/** | CSV files for products, collections, customers, addresses, orders, order items, discounts, reviews, testimonials, FAQs, invoices (with line items and payments), quotes, form entries, rewards members and points history, subscriptions, donations, inventory, email subscribers, [services](/docs/services) (with their offerings), events, and shipping rates. Open them in Excel, Numbers, or Google Sheets. A spreadsheet only appears if you have something in it. The exceptions are **products**, **customers** and **orders**, which are always there, even if they only have a header row. |
+| **Spreadsheets/** | CSV files for products, collections, customers, addresses, orders, order items, discounts, reviews, testimonials, FAQs, invoices (with line items and payments), quotes, form entries, rewards members and points history, subscriptions, donations, inventory, email subscribers, [services](/docs/services) (with their offerings), events, and shipping rates. Open them in Excel, Numbers, or Google Sheets. **products.csv** has an **Option groups** column that lists each product's [product options](/docs/product-options), like "Charms; Engraving", and **order-items.csv** has an **Options** column with what the customer chose, like "Charms: Star, Moon; Engraving: “AB”". (The **Options** column in products.csv is the product's variant options, such as Size.) A spreadsheet only appears if you have something in it. The exceptions are **products**, **customers** and **orders**, which are always there, even if they only have a header row. |
 | **Import files/** | Ready-to-import product files for Shopify, Wix, Squarespace, Square, and WordPress/WooCommerce. Also includes a WordPress file with your pages and blog posts. If you have no products, the product files are left out. |
 | **For developers/** | Raw data files for a developer or designer who wants the full data. |
 | **Licenses/** | Who owns what. Your content belongs to you. SimplePress, including its templates, is open source under the AGPL-3.0 license. |
@@ -102,6 +102,8 @@ Maple Street Bakery - Site Export - 2026-10-09/
     ├── LICENSE-AGPL-3.0.txt
     └── NOTICE.txt
 ```
+
+> **Note:** Product options don't travel in the import files. Other platforms' product files can't carry them, so products arrive without their options. The spreadsheets and the guides keep a record of what each product had and what customers chose, so you can recreate them with your new platform's add-ons or product options feature. See [Product Options](/docs/product-options).
 
 > **Note:** Product import files link to photos on your current site. Import them while your old site is still online, or upload the photos yourself from the **Photos** folder.
 

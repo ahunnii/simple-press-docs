@@ -71,8 +71,9 @@ The Subscribe option does not appear on a product page when:
 - the product is marked as coming soon,
 - the product or the chosen variant is out of stock,
 - Subscriptions is turned off for your store,
-- no repeat schedule is ticked on the product, or
-- the items in a delivery would cost less than $0.50 after the Subscribe & save discount (the lowest amount Stripe can charge).
+- no repeat schedule is ticked on the product,
+- the items in a delivery would cost less than $0.50 after the Subscribe & save discount (the lowest amount Stripe can charge), or
+- the product has [Product options](/docs/product-options). A product customers build or personalize is bought through the cart instead.
 
 If your Stripe account isn't connected yet, the panel still shows on the product page. When a customer clicks it, they see "Subscriptions aren't available right now". Connect Stripe before you start offering subscriptions (see [Stripe](/docs/stripe)).
 
@@ -337,6 +338,7 @@ To stop billing a subscriber, cancel their subscription — turning the feature 
 - Set different subscription prices or schedules for individual variants
 - Change a subscriber's product, quantity, price, or delivery address — they would need to cancel and subscribe again
 - Use discount codes on subscriptions
+- Offer a subscription on a product that has [product options](/docs/product-options)
 - Skip a delivery on a customer's behalf (the customer does this themselves), or set a pause with an end date from the admin
 - Get an automatic refund when you cancel — cancelling never refunds money already collected, so refund the order separately if needed
 - Take subscriptions without a connected Stripe account

@@ -52,6 +52,7 @@ These are the features that have a switch on your Features page. The **On by def
 | **Payments** | Yes | Orders, Shopping Cart & Checkout | Lets customers pay for their purchase. See [Payments & Payouts](/docs/payments-and-payouts) and [Finances](/docs/finances). |
 | **Inventory Management** | Yes | Nothing | Track stock levels, manage standalone inventory items, and get low-stock alerts. Works without Products, so it's handy for supplies and rentals you don't sell directly. See [Inventory Management](/docs/inventory-management). |
 | **Rental Check-outs** | No | Inventory Management | Check rentable items out to events or clients and back in, with due dates, partial returns, and damaged or lost tracking. |
+| **Product options & personalization** | No | Products, Shopping Cart & Checkout | Let customers build or personalize a product: pick from groups of options (colors, charms, add-ons) that can add to the price, and type custom text such as an engraving. Set it up under **Products → edit → Options**. See [Product Options](/docs/product-options). |
 | **[Coupons & Discounts](/docs/discounts-and-coupons)** | No | Shopping Cart & Checkout | Create discount codes and promotional offers. See [Discounts and Coupons](/docs/discounts-and-coupons). |
 | **Collections** | No | Products | Group products into collections and show them on your site. See [Collections](/docs/collections). |
 | **[Wishlist](/docs/wishlist-and-back-in-stock)** | Yes | Products | Lets shoppers save products to a wishlist, with heart icons on product cards and a wishlist page. See [Wishlist & Back-in-Stock Alerts](/docs/wishlist-and-back-in-stock). |
@@ -132,7 +133,7 @@ Re-enabling Products restores everything. Your products and orders are all prese
 - **Checkout** off: customers can still fill a cart, but there's no way to check out. Use this if you want shoppers to browse and build a cart but not buy yet.
 - Payments off also stops checkout from starting.
 
-Turning **Shopping Cart & Checkout** off also grays out the features that need it: Checkout, Coupons & Discounts and Payments, and through Payments, Product Subscriptions. Discounts leaves your sidebar, and Finances does too unless Donations is on.
+Turning **Shopping Cart & Checkout** off also grays out the features that need it: Checkout, Product options & personalization, Coupons & Discounts and Payments, and through Payments, Product Subscriptions. Discounts leaves your sidebar, and Finances does too unless Donations is on.
 
 ### Disabling Orders
 
@@ -154,6 +155,19 @@ Turning Orders off also grays out Payments and Rewards Program (both need Orders
 - The Check-outs tab in Inventory is hidden. If units are still checked out, the Items page shows a banner linking to them.
 - New check-outs can't be created.
 - Existing check-outs remain viewable and can still be checked in.
+
+### Disabling Product Options
+
+With **Product options & personalization** off, your option setup is kept but customers no longer see it:
+
+- Products that have options still sell, as plain products at the base price. The option pickers are gone, and no add-on prices are charged.
+- Items already in shoppers' carts that were built with options are removed.
+- Orders already placed keep their choices. They still show on the order, the packing slip and the emails.
+- The **Options** tab disappears from the product page. Your options aren't deleted, so turning the switch back on brings everything back.
+
+![The Settings → Features page with the Product options & personalization row in the E-Commerce section, switched on](/images/feature-flags/product-options-switch.png)
+
+See [Product Options](/docs/product-options#if-you-turn-it-off).
 
 ### Disabling Collections
 

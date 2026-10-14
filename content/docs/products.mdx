@@ -67,7 +67,7 @@ Click **Add Product** to create a product, or click a product's name to edit it.
 
 You can also press **Cmd+Enter** (Mac) or **Ctrl+Enter** (Windows) to save.
 
-The form has up to four tabs: **Basics**, **Collections** (only when [Collections](/docs/collections) is on), **SEO**, and **Product page**. If a field on a tab has a problem when you save, that tab shows a red dot.
+The form has up to five tabs: **Basics**, **Collections** (only when [Collections](/docs/collections) is on), **Options** (only when [Product options](/docs/product-options) is on), **SEO**, and **Product page**. If a field on a tab has a problem when you save, that tab shows a red dot.
 
 ---
 
@@ -104,7 +104,7 @@ If the product has variants, the card says pricing is managed per variant, and t
 
 ### Subscriptions
 
-This card only appears when **Product Subscriptions** is switched on in **Settings → Features** (it's off by default). Turn on **Offer as a subscription**, choose the **Cadence** options customers can pick, and set a **Subscribe & save** discount from 0 to 90 percent. See [Subscriptions](/docs/subscriptions).
+This card only appears when **Product Subscriptions** is switched on in **Settings → Features** (it's off by default). Turn on **Offer as a subscription**, choose the **Cadence** options customers can pick, and set a **Subscribe & save** discount from 0 to 90 percent. See [Subscriptions](/docs/subscriptions). A product that has [Product options](/docs/product-options) can't be sold as a subscription.
 
 ### Shipping weight
 
@@ -232,6 +232,18 @@ This tab appears when [Collections](/docs/collections) is on. Search for a colle
 
 ---
 
+## The Options tab
+
+Use **Options** when customers should build or personalize a product: pick a chain color, choose up to three charms, or type an engraving. Each option can add to the price, and a choice can even use another product's stock. Variants are the versions you stock and sell (a size or a color). Options are the choices a customer makes on top of that.
+
+This tab only appears when **Product options & personalization** is on in **Settings → Features**. On a new product, save it first. Changes on this tab save right away, without pressing **Save** on the product.
+
+![The Options tab for a Charm Necklace, listing the Chain, Charms and Engraving options with Edit buttons and the Create a new option button](/images/product-options/options-tab.png)
+
+The full guide, including choices, a free charm, engraving, tracking stock and what shoppers see, is on the [Product Options](/docs/product-options) page.
+
+---
+
 ## The SEO tab
 
 The SEO tab controls how the product shows up in Google and when someone shares its link.
@@ -296,7 +308,7 @@ You can also publish and unpublish several products at once from the list. To go
 
 ### Duplicating
 
-**Duplicate** (in the row menu, or **More Options** on the product) makes a copy named "Name (Copy)". The copy is saved as a **draft** and its SKUs are cleared, so nothing goes live until you publish it.
+**Duplicate** (in the row menu, or **More Options** on the product) makes a copy named "Name (Copy)". The copy is saved as a **draft** and its SKUs are cleared, so nothing goes live until you publish it. If the product has [options](/docs/product-options), the copy uses the same ones. They're shared with the original, not copied, so editing an option later changes it on both.
 
 ### Resetting
 
@@ -309,6 +321,8 @@ Delete from the row menu or from **More Options → Delete**. A confirmation app
 **Deleting a product removes:** its variants, photos, collection memberships, reviews, and back-in-stock requests.
 
 **Deleting a product keeps:** your past orders, and your inventory history. Orders still show what the customer bought.
+
+If the product is used as a choice in another product's [options](/docs/product-options#deleting-a-product-thats-used-as-a-choice), deleting it deletes that choice too. The delete dialog warns you first: "This product is used as an option on N product(s). Deleting it removes that option."
 
 ---
 
@@ -367,6 +381,7 @@ Products live at `/shop` (the whole catalog) and `/shop/your-product` (one produ
 
 **On the product page**, you'll see the photos, price, any variant choices, and an add-to-cart button. Below that, the **Details** section holds your Additional information, and your Feature highlights show as badges.
 
+- **Products with options** show the option pickers (swatches, picture tiles, text boxes) above the add-to-cart button, and the price updates as the shopper chooses. See [What shoppers see](/docs/product-options#what-shoppers-see).
 - **Coming soon** products show an amber "Coming Soon" notice instead of add-to-cart, and sort to the end of the shop.
 - **Out of stock** products (Track Inventory on, zero left, backorders off) show a disabled **Out of Stock** button and a form to be emailed when it's back, if Back-in-stock is on.
 - With **Allow Backorders** on, a product with no stock left shows "Backordered — ships when available" and can still be bought.
@@ -391,6 +406,7 @@ Owners and Managers can create, edit, duplicate, publish, and delete products. O
 - Add products with up to 10 photos each
 - Pick photos from your Media Library, or upload from your device
 - Offer sizes, colors, and other options as variants, up to 100 combinations
+- Let customers personalize a product with [product options](/docs/product-options): picked choices that add to the price, and typed text like an engraving
 - Keep a product as a draft, or schedule it to go live later
 - Duplicate a product as a starting point
 - Group products into collections, and set SEO titles and descriptions for each
@@ -405,6 +421,7 @@ Owners and Managers can create, edit, duplicate, publish, and delete products. O
 - Change an order's items or prices after checkout. The product details are saved at the time of purchase
 - Check out a "Coming soon" or unpublished product, even with stock on hand
 - Set an automatic redirect from an old product URL to a new one
-- Add custom fields beyond what the product form offers
+- Add custom fields beyond what the product form offers (product options cover choices and typed text, not free-form fields)
+- Sell a product that has options as a subscription
 - Access or edit another store's products
 - Customize email templates that mention product data

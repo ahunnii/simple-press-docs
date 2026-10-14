@@ -67,6 +67,10 @@ The list shows 25 orders per page. If nothing matches, you'll see "No orders mat
 
 Each row shows the **Order** number and the date it was placed, the **Customer**'s name and email, the number of **Items**, the **Total**, the **Status**, and a **View** button that opens the order.
 
+When an order includes products with [options](/docs/product-options) (a chosen chain, an engraving), the row says so. On a phone the line reads "2 items with options". On a computer, the **Items** column adds a one-line summary under the count that starts with the first option and is cut short when it's long, and hovering over it shows the full text.
+
+![The Orders list. Most rows show just a count like 1 item or 2 items, but one row shows 1 item with a line under it that starts Chain: Rose gold chain · Charms: and is cut short](/images/orders/orders-list-options.png)
+
 Next to the status you may see extra badges:
 
 | Badge | Means |
@@ -146,7 +150,7 @@ The order page's title shows the order number (for example "Order #1030"), the s
 
 **On the left:**
 
-- **Order Items**: each product with its variant, SKU, quantity and price, then the subtotal, any discount (with the code used), shipping, tax and total. While an order is partially shipped, each item shows **Shipped**, **N of M shipped** or **Not shipped**.
+- **Order Items**: each product with its variant, SKU, quantity and price, then the subtotal, any discount (with the code used), shipping, tax and total. If the customer chose [product options](/docs/product-options), each choice is listed under its item with its price (see [Options on orders](#options-on-orders)). While an order is partially shipped, each item shows **Shipped**, **N of M shipped** or **Not shipped**.
 - If something was oversold, a red **Oversold items in this order** alert lists each item and how many were in stock at the time of purchase, for example "(0 in stock at time of purchase)". You may want to contact the customer or restock. See [Inventory management](/docs/inventory-management).
 - The card for getting the order to the customer: **Mark as Fulfilled** for shipping orders, or **Ready for Pickup** for pickup orders. It only appears once the order is paid.
 
@@ -157,6 +161,30 @@ The order page's title shows the order number (for example "Order #1030"), the s
 - **Shipping Address**, or **Pickup Location** for pickup orders.
 - **Notes**: your private note and the customer's note from checkout.
 - **Payment**: the payment status, the **Method** (Card, Cash, Check or Manual), the refund reason if there is one, the Stripe **Payment ID** for card payments, and the refund button.
+
+---
+
+## Options on orders
+
+When a customer builds a product with [product options](/docs/product-options), SimplePress records exactly what they chose on the order. You'll see it in these places:
+
+- **Order detail.** Under each item in **Order Items**, every group is listed with the customer's picks, such as "Charms: Heart (included), Star" and "Engraving: “AB”", with the add-on price for each.
+- **Fulfillment.** The **Mark as Fulfilled** card lists the same lines without prices, so you know what to pack.
+- **Packages.** Once an order has packages, each package's contents read like "Charm Necklace (Gold) [Chain: Gold · Charms: Heart, Star]".
+- **Printing.** The **Invoice** shows the options with prices. The **Packing Slip** shows them without prices.
+- **Emails.** The order confirmation to your customer and the **New Order** alert to you list each item's choices as "Group: value +$X".
+
+![The Order Items card of an order, with a Charm Necklace line listing Chain: Rose gold chain +$6.00, Charms: Heart (included), Moon +$12.00 and Engraving: “Amy” +$5.00 under the item name, with the line total of $65.00 and the subtotal, shipping, tax and total below](/images/orders/order-item-options.png)
+
+*The order detail page. Each choice sits under its item, with its add-on price.*
+
+![A packing slip with a Charm Necklace row listing Chain: Rose gold chain, Charms: Heart (included), Moon and Engraving: “Amy” under the item name, and no prices](/images/orders/packing-slip-options.png)
+
+*The packing slip lists the choices but leaves out prices.*
+
+The order keeps its own copy of what was chosen. If you later edit or delete the option, or turn **Product options & personalization** off, existing orders still show what the customer picked. Customers see the choices on their account order page and on the order status page.
+
+If a choice used another product's stock, refunding or cancelling an order with **Return items to inventory** ticked puts that stock back too. See [Inventory management](/docs/inventory-management#option-choices-that-use-another-products-stock).
 
 ---
 
@@ -389,7 +417,19 @@ After saving, you land on the new order.
 | **Notes** | **Internal Notes**, visible to admins only (up to 2,000 characters). |
 | **Payment & Fulfillment** | **Payment**: Pending, Paid, Failed or Refunded. **Payment Method**: Card, Cash or Check, or leave it on "Manual (default)". **Fulfillment**: Unfulfilled, Fulfilled or Partially Fulfilled. The order status is worked out from these. |
 | **Additional Charges** | Flat **Shipping**, **Tax** and **Discount** amounts in dollars. Tax isn't calculated for you on manual orders. |
-| **Order Items** | Click **Add Item**, then search "Search by name, SKU, or variant…". Pick a variant if the product has them, and set the **Quantity**. Prices fill in from your catalog. Or click **Enter subtotal directly** to type one amount instead of listing items, and **Select items instead** to switch back. |
+| **Order Items** | Click **Add Item**, then search "Search by name, SKU, or variant…". Pick a variant if the product has them, and set the **Quantity**. Prices fill in from your catalog. If the product has [options](/docs/product-options), the **Choose options** dialog opens right away (see below). Or click **Enter subtotal directly** to type one amount instead of listing items, and **Select items instead** to switch back. |
+
+### Products with options
+
+When you add a product that has [options](/docs/product-options), a **Choose options** dialog opens so you can fill in the customer's choices: a chain, charms, an engraving. Click **Save options** when you're done.
+
+![The Choose options dialog for a Charm Necklace on the manual order form, with Rose gold chain picked under Chain *, Heart (Included) and Moon (+$12.00) chosen under Charms, "Amy" typed as the engraving, and Each $65.00 at the bottom above the Cancel and Save options buttons](/images/orders/manual-order-options.png)
+
+*The dialog is the same picker shoppers use, so required options and minimums apply.*
+
+The item's row then shows an **Edit options** button (it reads **Choose options** until you've chosen), a summary of what you picked, or "No options chosen", and a price like "$40.00 each with options". If a required option is missing you'll see "Choose options" on the row, and trying to save shows "Choose options for every product that needs them." If an item's options stop fitting, the row says "These options need attention — open them to fix."
+
+Prices are checked again when you save the order, so they follow your current option prices. Stock limits are **not** enforced in this dialog, so check stock yourself for choices that use another product's stock.
 
 **Good to know:**
 
@@ -405,14 +445,14 @@ SimplePress sends these automatically, using your store's name and logo:
 
 | Email | Sent when |
 | ----- | --------- |
-| **Order Confirmation** | A customer checks out, or you tick the confirmation box on a manual order. Pickup orders get a pickup version. |
+| **Order Confirmation** | A customer checks out, or you tick the confirmation box on a manual order. Pickup orders get a pickup version. It lists each item's [product options](/docs/product-options). |
 | **Order Shipped** | You fulfill with a tracking number, once per package. |
 | **Order Fulfilled** | You fulfill the whole order without tracking. |
 | **Ready for Pickup** | You click **Mark Ready for Pickup**. |
 | **Order Refunded** | You refund (or mark as refunded) with **Notify customer by email** ticked. |
 | **Order Cancelled** | You cancel with **Notify customer by email** ticked. |
 
-You get a **New Order** email yourself each time a customer checks out.
+You get a **New Order** email yourself each time a customer checks out, with each item's options listed too.
 
 To see what each one looks like, open **Notification Emails** in the admin sidebar. See [Email previews](/docs/email-preview).
 

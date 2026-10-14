@@ -54,6 +54,14 @@ This search only covers products, and only on the shop page. There's no search a
 Other templates, including custom ones, may place search and sorting somewhere else, call them something different, or add controls (some add a price slider, or show filters on collection pages too). Search still only looks at product names and descriptions.
 </Callout>
 
+### Choosing options
+
+If you've set up [product options](/docs/product-options) on a product, shoppers choose them on the product page before adding it to the cart: a chain color, a few charms, a line of engraving. The price updates as they choose, and each choice shows "+$5.00", **Included** or **Sold out**. If something required is missing, a short message under that option says what to do (for example "Choose your chain"), and **Add to Cart** takes them to it. A "Your selections" list shows their picks as small chips.
+
+![A Charm Necklace product page with Chain swatches, Charm picture tiles, an Engraving box, a row of chips showing the shopper's picks, and a price that has changed with the choices](/images/product-options/storefront-customizer.png)
+
+*The Default template. Other templates draw the picker their own way.*
+
 ### The cart
 
 In the cart, shoppers can:
@@ -65,6 +73,7 @@ In the cart, shoppers can:
 Some things to know about the cart:
 
 - **It's saved in the shopper's browser, not their account.** If they leave and come back on the same phone or computer, the cart is still there. If they switch devices or clear their browser data, the cart starts out empty. This applies to signed-in shoppers too.
+- **Products with options get a line for each build.** A necklace with a Heart charm and the same necklace with Moon and Flower charms are two lines. Identical builds merge into one line. Each line lists the choices, such as "Charms: Moon, Flower (included) +$12.00".
 - **It keeps itself up to date.** If you change a price, the cart shows the new price. If an item sells out or you unpublish it, it's removed from the cart and the shopper sees a short message.
 - **No buying when it's turned off.** If **Shopping Cart & Checkout** is off, your site works like a catalog. Your products and prices still show, but the Add to Cart button and the cart icon are hidden, and the cart page and checkout are turned off, so nobody can buy.
 
@@ -97,7 +106,7 @@ The checkout page asks for:
 
 There's no box for an order note, gift message, or delivery instructions. Shoppers can't add one at checkout, on Stripe's page, or later. If they need to tell you something ("please gift wrap this"), they can use your Contact page or reply to their order confirmation email. You can then add it to the order yourself as an internal note. See [Orders](/docs/orders#notes).
 
-The order summary shows the subtotal, any discount, shipping, and an **Estimated total**. Tax and the final total are worked out on the next step. A short notice under the button links to SimplePress's Terms of Service, and to your Terms of Service or Refund Policy page if you've published one.
+The order summary shows the subtotal, any discount, shipping, and an **Estimated total**. Items with options list their choices (without prices) under the product name. Tax and the final total are worked out on the next step. A short notice under the button links to SimplePress's Terms of Service, and to your Terms of Service or Refund Policy page if you've published one.
 
 ![The checkout page with contact details, shipping address, discount code box, and order summary](/images/for-your-customers/checkout.png)
 
@@ -388,6 +397,9 @@ Check your spam folder first. Then make sure the email and order number match yo
 
 **"Sign-in (or sign-up) says it couldn't verify my browser."**
 That's Google reCAPTCHA, which runs quietly in the background. Ad blockers, privacy extensions, and some VPNs can block it. Allow our site in your blocker (or turn it off for our site), try another browser, or switch off your VPN. Then try again.
+
+**"Can I change my engraving (or other options) after I've ordered?"**
+Options can't be changed once an order is placed. Contact the store as soon as you can, with your order number, and they can sort it out with you.
 
 **"Can I add a gift message or a note to my order?"**
 There's no note box at checkout. Send us a message through our Contact page, or reply to your order confirmation email, as soon as you've ordered, and we'll add it to your order.

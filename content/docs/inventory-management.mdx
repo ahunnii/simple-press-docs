@@ -201,6 +201,13 @@ Once linked, the note "Individual inventory tracking is disabled while an invent
 - A product that was linked to a rental item before this rule still shows that link, so you can unlink it. Saving other changes on it works as usual.
 - If Inventory Management is switched off, the selector only appears on a product that's already linked, so you can unlink it.
 
+### Option choices that use another product's stock
+
+With [Product options](/docs/product-options), a choice such as a charm can use a product's stock instead of having its own. In the option editor, set the choice's **Price** to **Use a product** and pick the product (and the variant, if it has any). Each item ordered with that choice uses **1 unit** of the linked product or variant. The stock is held while the customer pays and taken off when the payment goes through. The choice shows **Sold out** once it runs out.
+
+- **Use a draft product** when the charm isn't something you sell on its own. A draft never shows in your shop, but its stock still counts.
+- **Refunds and cancellations** put the stock back when you tick **Return items to inventory**, even if you've since edited or deleted the option.
+
 ### How item stock shows on the storefront
 
 The storefront works out how many of a linked product a customer can buy from the item's count and the product's units-consumed value:
@@ -417,6 +424,7 @@ Stock is also deducted for:
 - **Manual orders** created with the payment status **Paid**. A manual order saved as **Pending** takes no stock.
 - **Pending manual orders switched to Paid.** On the order, open **More Options → Override Status → Payment Status** and choose **Paid**. That's the moment the sale happens, so stock is deducted (and the customer's order count and loyalty points are updated). No confirmation email is sent. Paid is one-way: you can't switch an order back to Pending, so cancel it instead.
 - **Subscription renewal orders**, when each renewal is created.
+- **Option choices linked to a product.** When an order with a necklace and its Star charm is paid, the linked Star Charm product's stock goes down by one for each necklace ordered with a star. See [Option choices that use another product's stock](#option-choices-that-use-another-products-stock).
 
 ---
 
@@ -479,7 +487,7 @@ Each alert fires **once per down-cycle**:
 
 When you cancel or refund an order, the dialog can include a **Return items to inventory** checkbox.
 
-- **Checked:** Stock is restored for every line on the order, in full, even for a partial refund. For item-linked products, the matching units go back onto the item. These show as "Return" rows in the history and reduce the item's net units sold.
+- **Checked:** Stock is restored for every line on the order, in full, even for a partial refund. For item-linked products, the matching units go back onto the item. Linked [option choices](#option-choices-that-use-another-products-stock) get their stock back too. These show as "Return" rows in the history and reduce the item's net units sold.
 - **Unchecked:** Stock isn't restored. Use this if the customer is keeping the item, the product was damaged, or you don't want to re-list it.
 
 The box starts **checked** when you cancel and **unchecked** when you refund.
@@ -496,10 +504,11 @@ See [Orders](/docs/orders) for full details on refunds and cancellations.
 
 ## Feature Switches
 
-Both are in **Settings > Features**.
+These are in **Settings > Features**.
 
 - **Inventory Management** is on by default. It's independent of Products, so you can manage items even with Products off, for supplies and rentables that aren't sold on your storefront. If you turn it off, the **Inventory** page is replaced by a "feature disabled" message.
 - **Rental Check-outs** is off by default and requires Inventory Management. See [Rental Check-outs](#rental-check-outs) for what it adds and what happens when it's off.
+- **Product options & personalization** is off by default and needs Products and Shopping Cart & Checkout. It's what lets a choice use another product's stock. See [Product Options](/docs/product-options).
 
 ---
 

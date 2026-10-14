@@ -1,0 +1,430 @@
+---
+title: Product Options
+description: Let customers build or personalize a product, with pick-from-choices options that can add to the price and type-some-text options like engraving.
+---
+
+## Overview
+
+Product options let a customer build or personalize a product before it goes in the cart. They can pick from groups of choices, such as a chain color or a set of charms, and type a short message, such as an engraving. Each choice can add to the price, be free, or draw down the stock of another product.
+
+This page uses one example all the way through: a **Charm Necklace** with three options.
+
+| Option | What the customer does | Price |
+| --- | --- | --- |
+| **Chain** | Picks one color swatch. It's required. | Included in the base price |
+| **Charms** | Picks up to 3 picture tiles. Their cheapest pick is free. The **Star** charm uses the stock of a separate "Star Charm" product. | Each charm adds to the price, except the free one |
+| **Engraving** | Types up to 20 characters. | +$5, only if they type something |
+
+### Options or variants?
+
+They sound alike, but they do different jobs.
+
+- **Variants** are the versions of a product you stock and sell, like a Gold or Silver necklace. Each variant has its own price and stock. See [Products](/docs/products#variants).
+- **Options** are choices a customer makes on top of the product, like which charms to add. They belong to the product, and they add to its price.
+
+You can use both on the same product. The Charm Necklace can have Gold and Silver variants **and** the three options above.
+
+<Callout type="info" title="Product options is off by default">
+Turn it on under **Settings → Features**. See [Turning on Product options](#turning-on-product-options).
+</Callout>
+
+---
+
+## Turning on Product options
+
+Go to **Settings → Features** and switch on **Product options & personalization**. It's in the **E-Commerce** section. The switch needs **Products** and **Shopping Cart & Checkout** to be on. See [Feature flags](/docs/feature-flags).
+
+![The Settings → Features page with the Product options & personalization switch turned on in the E-Commerce section](/images/feature-flags/product-options-switch.png)
+
+Two things to know:
+
+- **Your storefront doesn't show options when the cart is off.** If **Shopping Cart & Checkout** is switched off, your site works like a catalog and no option pickers appear. Switching the cart off also switches Product options off.
+- **Nothing changes until you add options.** Products that don't have any options look and sell exactly as before.
+
+Turning it off again is covered in [If you turn it off](#if-you-turn-it-off).
+
+---
+
+## The Options tab
+
+Once the switch is on, every product's edit page gets an **Options** tab. The tabs run in this order: **Basics**, **Collections** (only when [Collections](/docs/collections) is on), **Options**, **SEO**, and **Product page**.
+
+![The Options tab for the Charm Necklace, listing Chain (3 choices, with a Required badge), Charms (5 choices, Used on 2 products) and Engraving (Text box), each with up and down arrows, an Edit button and a remove button, above the Add an option you've already made dropdown and the Create a new option button](/images/product-options/options-tab.png)
+
+<video src="/videos/product-options/create-option.webm" poster="/videos/product-options/create-option-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*A short clip on the Charm Bracelet: creating a **Birthstone** option as Color swatches (At least 0, At most 2, First ones free 1) with Garnet and Sapphire at +$8.00 each. On the storefront, Garnet then shows **Included** and Sapphire adds $8, taking the price from $36.00 to $44.00.*
+
+**Save the product first.** A brand-new product shows "Save this product first, then come back to add options." Once the product is saved, you can add options.
+
+**Changes on this tab save right away.** You don't need to press **Save** on the product. Adding, editing, reordering and removing options all happen as you click.
+
+Each option in the list shows:
+
+- Its **name**, plus its internal label in brackets if you gave it one
+- "Text box" for a type-some-text option, or "N choices" for a pick-from-choices option
+- A **Required** badge, if customers must answer it
+- "Used on N products", if you've reused it on other products
+
+At the end of each row are up and down arrows to change the order, an **Edit** button, and an X that removes the option from this product. The order here is the order customers see on the product page.
+
+Below the list you can:
+
+- Pick **Add an option you've already made** to reuse an option from another product. This dropdown only appears when there's an option that isn't on this product yet. See [Reusing an option](#reusing-an-option-on-other-products).
+- Click **Create a new option**. The new option is added to this product automatically.
+
+Options are set per product, so a necklace and a bracelet can have completely different ones. You don't have to reuse anything.
+
+---
+
+## Pick-from-choices options
+
+Click **Create a new option** (or **Edit** on an existing one). The dialog is titled **New option** or **Edit option**.
+
+![The Edit option dialog for Charms, with a Shared option notice at the top because Charms is on two products, the name Charms, help text, Pick from choices selected, At least 0, At most 3, First ones free 1, the Picture tiles look, and a list of choices below, each with a photo, an Available switch and a price](/images/product-options/option-editor-choices.png)
+
+### The basics
+
+- **Name** — what customers see, like "Charms" or "Chain". Up to 80 characters.
+- **Internal label (optional)** — only you see this. It's handy if two options share a name, for example two different "Colors" options for different products.
+- **Help text (optional)** — a short note shown under the name. Up to 300 characters.
+- **What do customers do?** — **Pick from choices** or **Type some text**. This page is about the first one. The second is covered in [Type-some-text options](#type-some-text-options).
+- **Customers must answer this** — turn it on to make the option required. The Chain is required, so nobody can add a necklace to the cart without picking one.
+
+### How many can they pick?
+
+Under **How many can they pick?** you set:
+
+- **At least** — the fewest choices a customer must pick.
+- **At most** — the most they can pick. Set it to 1 for a single pick, or higher to let them pick several.
+- **First ones free** — "Their cheapest picks cost nothing." If you set this to 1, the customer's single cheapest pick costs nothing, and the rest are charged as normal. Despite the name, it's the **cheapest** picks that are free, not the first ones the shopper clicks.
+
+**Example: "first charm free."** Set **At least** to 0, **At most** to 3, and **First ones free** to 1. A customer can pick no charms, or up to 3, and the cheapest one they pick is free.
+
+<Callout type="info" title="The cheapest picks are free, not the first ones clicked">
+Say Moon costs $12 and Flower costs $10, with **First ones free** set to 1. If a shopper picks Moon and then Flower, Flower shows **Included** and Moon adds $12.00. It doesn't matter which one they clicked first. If two picks cost the same, the one that comes first in your list is the free one.
+</Callout>
+
+The dialog checks your numbers when you save. It stops you if **At least** is more than the number of choices ("Minimum picks can't be more than the number of choices") or more than **At most**, or if **First ones free** is more than **At most**.
+
+### Look
+
+**Look** decides how the choices are drawn on the product page:
+
+| Look | Best for |
+| --- | --- |
+| **Picture tiles** | Choices with photos, like charms |
+| **Color swatches** | Choices with a color, like chain finishes |
+| **Simple list** | Plain text choices |
+
+### Choices
+
+The **Choices** section lists what customers can pick. "Each choice can have a photo or color, and its own price." Click **Add choice** to add one. A new option starts with no choices ("No choices yet. Add the first one."), and you need at least one to save. An option can have up to 60 choices.
+
+Each choice has:
+
+- **Name** — what the customer sees, such as "Heart" or "Gold".
+- **Color** — pick one with the color picker or type a hex code like `#d4af37`. It's shown as a swatch. **Clear** removes it. If you leave it empty, the box reads "No color".
+- **Photo** — click **Add photo** (or **Photo** once there's one). With the Media Library on, you can choose **Upload from device** or **Choose from library**. Photos must be under 5 MB. **Remove** takes the photo off.
+- **Available** — an on/off switch. See [Sold out choices](#sold-out-choices).
+- **Price** — either **Add-on price** or **Use a product**.
+
+**Add-on price** is the simple one. Type the extra amount in dollars, like 12 for $12.00. It says "Added to the price", and the hint "Use $0.00 for a free choice." tells you how to make a choice free. Prices run from $0 to $10,000.
+
+### Sold out choices
+
+Turning **Available** off does **not** hide the choice. It still shows on the product page, greyed out and marked **Sold out**, and customers can't pick it. This is useful when a charm is temporarily out. Turn **Available** back on and it's pickable again.
+
+---
+
+## Tracking stock with "Use a product"
+
+By default a choice has an add-on price and no stock of its own. If a choice is something you actually count, like a charm you only have 5 of, you can tie it to a product.
+
+Change a choice's **Price** dropdown to **Use a product**. The price and stock now come from one of your products.
+
+![A choice named Star set to Use a product, showing the linked Star Charm product with a Draft badge and Currently $14.00, the Change product and Unlink buttons, and the Charge a different price for this choice switch turned on with a Price for this choice of 12](/images/product-options/choice-use-a-product.png)
+
+- Click **Choose a product** (or **Change product** later) and search your products by name, SKU or slug. Until you pick one, the choice says "No product chosen yet."
+- The picker shows the first 20 matches. A product with variants appears as one row per variant, like "Star Charm — Gold".
+- Once linked, the choice shows the product's name, a **Draft** badge if it isn't published, and its price as "Currently $X".
+- If the product has variants, a **Which variant?** box appears and asks you to **Choose a variant**. Star Charm has no variants, so the picture above doesn't show it.
+- **Unlink** disconnects the product, and the choice goes back to an add-on price.
+- Switch on **Charge a different price for this choice** to use **Price for this choice** instead of the linked product's own price. Leave it off and the choice costs whatever the linked product costs.
+
+<Callout type="info" title="Use a draft product to count charms you don't sell on their own">
+The linked product can be a **draft**. A draft is never listed in your shop, but its stock still counts. So you can make a draft product called "Star Charm", give it 5 in stock, and link the Star choice to it. Customers can only buy a star charm as part of a necklace. The Star Charm itself never appears in your shop.
+</Callout>
+
+### How the stock moves
+
+- Each time a customer orders a necklace with the Star charm, **1 unit** of the linked product is used for each necklace. Two necklaces with a star each use 2.
+- The stock is held while the customer pays, and taken off when the payment goes through. Paid [manual orders](/docs/orders#creating-a-manual-order) take it off too.
+- **Refund, cancel and Mark as Refunded** can put the stock back, when you tick **Return items to inventory**. This works from what the order recorded, so it still works if you've since edited or deleted the option.
+- When the linked product runs out, the choice becomes **Sold out** on the product page.
+- A linked product that is coming soon also makes the choice **Sold out**. A linked product that is unpublished (a draft) does **not**. It counts as available as long as it has stock.
+
+For more about stock counts and restocking, see [Inventory management](/docs/inventory-management#option-choices-that-use-another-products-stock).
+
+---
+
+## Type-some-text options
+
+Choose **Type some text** under **What do customers do?** for an engraving, a name, or a short message.
+
+![The Edit option dialog for Engraving, with Type some text selected, a Text box section with Longest answer 20, Example text e.g. Amy, and Extra charge 5](/images/product-options/option-editor-text.png)
+
+The name, internal label, help text and **Customers must answer this** work the same as before. A text option adds three fields:
+
+- **Longest answer** — "Characters allowed." The default is 100 and the most is 500. For the engraving, we set 20.
+- **Example text** — "Faded hint inside the box." For example "e.g. Amy". Up to 120 characters.
+- **Extra charge** — "Added only when they type something." If a customer leaves the box empty on an optional text option, they aren't charged. The engraving here has an extra charge of $5.
+
+The box is a single line. If a customer pastes in a line break, it becomes a space.
+
+---
+
+## Reusing an option on other products
+
+You can use the same option on more than one product. Open the second product's **Options** tab and pick the option from **Add an option you've already made**. The dropdown's placeholder is "Choose an option…".
+
+![The Add an option you've already made dropdown open on a product's Options tab, listing an option that is not on this product yet](/images/product-options/reuse-option.png)
+
+Reused options are **shared**, not copied:
+
+- The option now shows "Used on N products" in the list.
+- **Editing it changes it everywhere.** When you open a shared option, a **Shared option** alert says "Changes here apply to all N products that use this option."
+- Removing it from one product leaves it on the others.
+
+![The Edit option dialog for the shared Charms option, with a Shared option alert saying changes apply to all 2 products that use this option](/images/product-options/shared-option.png)
+
+**Duplicating a product** re-attaches the same shared options to the copy. They aren't duplicated, so editing one later still changes both. See [Duplicating](/docs/products#duplicating).
+
+If you want a version that can change on its own, create a new option on the second product with **Create a new option** instead.
+
+---
+
+## Removing vs. deleting an option
+
+There are two different actions:
+
+- **Remove from this product** — the X at the end of the option's row. It takes the option off this product only. The option still exists, and still appears in the **Add an option you've already made** dropdown. A toast says "Option removed from this product".
+- **Delete option** — inside the editor, at the bottom. It deletes the option for good and takes it off every product that uses it. A confirmation reads "Delete “Charms”?" and "It will be removed from N product(s). Past orders keep what customers chose. This can't be undone."
+
+**Past orders always keep what the customer chose**, whatever you remove or delete.
+
+<Callout type="info" title="There's no page that lists every option">
+Options only show on the products they're attached to. If you removed an option from every product and now want to delete it, add it back to a product from the **Add an option you've already made** dropdown, click **Edit**, then **Delete option**.
+</Callout>
+
+### Deleting a product that's used as a choice
+
+If you delete a product that a choice is linked to (like the Star Charm), **the choice is deleted too**. The product's delete dialog warns you first: "This product is used as an option on N product(s). Deleting it removes that option." When you delete several products at once, the warning is worded to match.
+
+![The Delete product dialog for Star Charm, with the warning "This product is used as an option on 2 products. Deleting it removes that option." above the Cancel and Delete buttons](/images/product-options/delete-warning.png)
+
+If you only delete a single **variant** of a linked product, the choice isn't deleted. It becomes **Sold out** until you pick another variant.
+
+---
+
+## What shoppers see
+
+On the product page, a customer sees the options between the product's variant buttons and the quantity box and **Add to Cart** button. For a product without variants, they sit above the quantity and **Add to Cart**. The picker only shows on products that have options. Coming-soon and out-of-stock simple products don't show it.
+
+![A Charm Necklace product page on the Default template. Under the Gold and Silver variant buttons are Chain swatches, Charm picture tiles labeled Included, plus-price or Sold out, an Engraving box with Amy typed in, and a row of chips for the shopper's picks. The price has gone up to $65.00 from the $42.00 base](/images/product-options/storefront-customizer.png)
+
+*The Default template. Other templates draw the picker in their own style, but it works the same way.*
+
+- **The price updates as they choose.** The big price shows the base price plus the add-ons. A compare-at price and the savings badge update too.
+- **Each option shows its name,** with an asterisk (`*`) if it's required, then the help text.
+- **A count line** under multi-pick options, like "2 of 3 · 1 included".
+- **Each choice shows its price:** "+$5.00", **Included** for the free ones (the cheapest picks), or **Sold out**.
+- **Text options** show "+$5.00" next to the name, a one-line box, and a counter like "4 / 20".
+- **Optional single-pick options** get a small **Clear** link, like "Clear gift wrap", so the shopper can undo their pick.
+- **A "Your selections" list** under the options shows their picks as small chips with the photo or color and the name. Text answers are shown in quotes. It has no visible heading, but screen readers read it as "Your selections".
+
+### Messages
+
+If something is missing, the shopper sees a plain message under that option. Messages show once an option has been touched, or all at once when they click **Add to Cart**, which also moves them to the first problem.
+
+Only a required option, or one that doesn't meet its rules, shows a message. An optional option the shopper hasn't touched stays quiet. On a fresh page with the Charm Necklace's three options, **Add to Cart** shows only "Choose your chain", because Charms and Engraving are optional.
+
+| Situation | Message |
+| --- | --- |
+| A required option is empty | "Choose your chain" |
+| Fewer than the minimum | "Choose at least 2 charms" |
+| Single-pick option with more than one | "Choose just one chain" |
+| More than the maximum | "Choose up to 3 charms" |
+| A required text box is empty | "Enter your engraving" |
+| Text is too long | "Engraving can be up to 20 characters" |
+| A choice was turned off | "Star isn't available right now" |
+| A linked product is out of stock | "Star is sold out" |
+| A linked product has some stock | "Only 2 left of Star" |
+| Too many picks overall | "You can choose up to 3 options. Remove one to pick another." |
+
+![The Charm Necklace product page after clicking Add to Cart without choosing a chain, with the red message Choose your chain under the Chain swatches, and the Initial charm tile greyed out and marked Sold out](/images/product-options/storefront-messages.png)
+
+Option names are lower-cased in the middle of these sentences, so the Chain option reads "Choose your chain".
+
+### Why a choice shows Sold out
+
+A choice is **Sold out** when its linked product is out of stock, when you turned **Available** off, or when a linked product is marked coming soon. It's dimmed, and it can't be clicked.
+
+![The Charm Necklace product page on a phone, with the Chain swatches and Charm tiles fitted to the narrow screen, the tiles wrapping onto a second row, a Silver chain, Heart and Flower picked, and Flower marked Included](/images/product-options/storefront-phone.png)
+
+*On a phone, the options fit the narrow screen and the tiles wrap onto more rows. Here the shopper picked Heart ($12) and Flower ($10), so Flower, the cheaper one, is the free one.*
+
+### On shop pages
+
+On the Default template, a product card is a link to the product page, so cards work the same as ever. A few templates have a quick-add button on cards. For a product with options, they show a link to the product page instead of adding it straight to the cart: **View options** on Elegant, **Choose options** on Happy Bamboo, and an eye icon on Modern. A shopper has to choose before anything is added.
+
+---
+
+## In the cart and at checkout
+
+- **Each different build is its own line.** A necklace with a Heart charm and an engraving and a necklace with Moon and Flower charms are two lines. Two identical builds merge into one line with a quantity of 2.
+- **Cart lines list the choices and their prices,** such as "Chain: Gold chain", "Charms: Heart (included)" and `Engraving: “Amy” +$5.00`, or "Charms: Moon, Flower (included) +$12.00". The line's price is shown on the right.
+- **Adding to the cart shows a short notice.** On the Default template, **Add to cart** shows "Charm Necklace added to cart" and the cart icon takes the shopper to the cart page. Some templates have a slide-out cart instead.
+- **The checkout order summary** lists the same lines, without prices.
+- **Stripe's payment page** shows a one-line description for each item, like "Chain: Gold · Charms: Heart, Star".
+
+![The cart page with two Charm Necklace lines. The first lists Chain: Gold chain, Charms: Heart (included) and Engraving: “Amy” +$5.00. The second lists Chain: Silver chain and Charms: Moon, Flower (included) +$12.00. Each line has its own price, with the order summary beside them](/images/product-options/cart-builds.png)
+
+![The checkout Order Summary listing the same two Charm Necklace builds, with their chain, charm and engraving lines under the product name and no prices on those lines](/images/product-options/checkout-summary.png)
+
+Prices are checked again when someone goes to pay, using your current options. If you change a price or a choice while something is in a cart:
+
+- "Some prices in your cart were updated." appears when a price moved.
+- "Some items in your cart are no longer available and were removed." appears when a build can't be bought anymore, for example a required option was added, or a choice was deleted.
+
+### Subscriptions
+
+A product with options **can't be sold as a subscription**. The Subscribe panel is hidden on its page. See [Subscriptions](/docs/subscriptions#when-the-subscribe-option-is-hidden).
+
+---
+
+## On orders, packing slips and emails
+
+Options show up wherever you see the order's items:
+
+- Under each item on the **order detail** page, with prices.
+- On the **fulfillment** form and in shipment lists, without prices.
+- On the **packing slip**, without prices, so you know what to pack. The invoice shows them with prices.
+- In **order lists**, as a hint ("with options") on the row.
+- In the **order confirmation email** and your **new order alert**, listing each item's choices.
+
+Shoppers see them on their account order page, the order status page, and their data download. See [Orders](/docs/orders#options-on-orders) for the details and screenshots.
+
+---
+
+## If you turn it off
+
+If you switch **Product options & personalization** off:
+
+- **Products with options still sell, as plain products at the base price.** The option pickers are gone from the product page, and the add-ons aren't charged.
+- **Builds already in shoppers' carts are removed** the next time the cart is checked.
+- **Existing orders keep their choices.** They still show on the order, packing slip and emails.
+- **Your options aren't deleted.** Turn the switch back on and they're all still there.
+- The **Options** tab disappears from the product page while it's off.
+
+Turning off **Shopping Cart & Checkout** also turns options off. See [Feature flags](/docs/feature-flags#disabling-product-options).
+
+---
+
+## Who can manage options
+
+**Owners and Managers** can create, edit, reuse and delete options, and choose options when creating a [manual order](/docs/orders#creating-a-manual-order).
+
+**Staff** can't open **Products**, so they can't change options. They can still see each order's choices on the order, on fulfillment, and on packing slips. See [Team and Roles](/docs/team-and-roles).
+
+---
+
+## Limits
+
+- Up to **60 choices** per option.
+- Names are up to 80 characters. Help text is up to 300. Example text is up to 120.
+- A text option accepts up to 500 characters (100 by default), on one line.
+- A price runs from $0 to $10,000, and can't be negative.
+- Choice photos must be under 5 MB.
+
+---
+
+## Can and can't
+
+**You can:**
+
+- Offer pick-from-choices options with swatches, picture tiles or a simple list
+- Make options required, set a minimum and maximum, and make a customer's cheapest picks free
+- Add a price to a choice, or leave it free
+- Add a text option, like an engraving, with a character limit and an extra charge
+- Tie a choice to another product so its stock counts down, including a draft product that is never listed
+- Reuse an option on several products
+- Choose options when you create a manual order
+
+**You can't:**
+
+- Let customers upload a photo of their own
+- Show an option only when another option has a certain answer (no conditional options)
+- Let a customer pick the same choice twice in one option. To allow two of the same charm, add the charm as two separate choices
+- Set different options for each variant. Options belong to the whole product
+- Sell a product with options as a subscription
+- See a list of every option in your store on one page
+- Change what a customer chose after they've ordered. Past orders are a record. To change an engraving, contact the customer and make a new manual order
+
+---
+
+## Frequently asked questions
+
+**Can a customer pick the same charm twice?**
+No. Each choice can be picked once per option. If you want to offer two of the same charm, add it as two choices ("Heart" and "Heart (second)") or make a separate option.
+
+**Why does a choice say Sold out?**
+Either **Available** is switched off on that choice, its linked product is out of stock, or the linked product is marked coming soon. Check the choice in the option editor, and the linked product's stock under **Products** or **Inventory**.
+
+**Can I offer a free charm?**
+Yes. Set **At least** to 0, **At most** to 3, and **First ones free** to 1. The customer's cheapest pick is free.
+
+**Can I give a charm a price without linking it to a product?**
+Yes. Leave the **Price** dropdown on **Add-on price** and type the amount. Only choose **Use a product** when you want the charm's stock to count down.
+
+**I deleted a product and one of my choices disappeared. Why?**
+A choice that was linked to that product is deleted along with it. The delete dialog warns you first. Past orders keep what the customer picked.
+
+**I edited an option on one product and another product changed too.**
+The option is shared, so edits apply to every product that uses it. Create a new option on the second product if you want it to be separate.
+
+**Why don't I see the Options tab?**
+Turn on **Product options & personalization** under **Settings → Features**. It needs Products and Shopping Cart & Checkout to be on. The tab also asks you to save a new product first.
+
+**Do my customers see "Sold out" on a draft product?**
+No. The draft product is never shown in your shop. Only the choice that uses it shows, and it says **Sold out** when the draft runs out of stock.
+
+**Does it work on every template?**
+Yes. The picker looks different on each template, but the choices, prices and messages are the same. See [Templates](/docs/templates#what-changes-and-what-stays).
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Products"
+		description="Photos, variants, pricing, stock and publishing."
+		href="/docs/products"
+	/>
+	<Card
+		title="Inventory Management"
+		description="Stock counts, shared items and restocking."
+		href="/docs/inventory-management"
+	/>
+	<Card
+		title="Orders"
+		description="See the choices on orders, slips and emails, and create manual orders."
+		href="/docs/orders"
+	/>
+	<Card
+		title="Feature Flags"
+		description="Turn Product options on or off."
+		href="/docs/feature-flags"
+	/>
+</Cards>
