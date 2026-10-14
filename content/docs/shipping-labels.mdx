@@ -1,0 +1,243 @@
+---
+title: Shipping labels with Pirate Ship
+description: Buy a discounted shipping label on Pirate Ship, then bring the tracking number back to SimplePress so your customer gets their shipping email.
+---
+
+## Overview
+
+<Callout type="info" title="SimplePress doesn't buy or print shipping labels">
+You buy the label on Pirate Ship, then come back to SimplePress and record the tracking number. Pirate Ship is free to sign up for, and it sells discounted USPS and UPS postage. You pay only for the labels you buy. We suggest it because it's simple for a small store, and SimplePress has a button on the fulfillment form that opens it for you.
+</Callout>
+
+This page walks through the whole round trip, start to finish. You'll copy the customer's address, paste it into Pirate Ship, buy the label, and bring the tracking number back.
+
+<video src="/videos/shipping-labels/round-trip.webm" poster="/videos/shipping-labels/round-trip-poster.png" controls muted playsInline className="rounded-lg border" />
+
+*About a minute, start to finish: copy the address, open Pirate Ship, create a single label, paste, set up the package, get rates, buy the label, then paste the tracking number into SimplePress and click Mark as Fulfilled & Send Email.*
+
+### The round trip in 30 seconds
+
+1. In SimplePress, open the order and click **Copy address** on the **Mark as Fulfilled** card (or **Copy** on the **Shipping Address** card).
+2. Click **Open PirateShip**. It opens Pirate Ship's label form in a new tab.
+3. Paste the address. Pirate Ship fills in the form.
+4. Choose the package type, then enter the size and weight.
+5. Click **Get Rates**, pick a service, and click **Buy Label**. Print the label.
+6. Copy the tracking number.
+7. Back in SimplePress, paste it into **Tracking Number** and click **Mark as Fulfilled & Send Email**.
+
+<Callout type="warn" title="The last step is the one people forget">
+Pirate Ship and SimplePress don't talk to each other. Buying a label doesn't tell SimplePress anything. Until you finish step 7, your customer gets no shipping email and the order stays in **Needs fulfillment**.
+</Callout>
+
+---
+
+## Before your first label
+
+You only do this once.
+
+- **A free Pirate Ship account.** Sign up at pirateship.com. Pirate Ship may ask you to tick a "Verify you are human" box when you sign in.
+- **Your Ship From address.** This is the return address printed on your labels. Pirate Ship asks for it when you create the account. You can change it later under **Settings** in Pirate Ship.
+- **A payment method in Pirate Ship.** On a new account, the last step before buying says "You need to add a Payment Method". Add one there. You can't buy a label until you do.
+- **A scale and a tape measure.** You'll need the packed weight and the outside size of every box.
+- **A printer.** Plain paper and tape works. A 4×6 label printer also works if you have one.
+- **Optional: real product weights in SimplePress.** If you use weight-based shipping rates, set a **Package weight** on each product. It isn't needed for buying labels. See [Shipping weight](/docs/products#shipping-weight).
+
+---
+
+## Step 1: Copy the customer's address in SimplePress
+
+1. Go to **Orders**. The **Needs fulfillment** card at the top lists paid orders that haven't shipped yet. See [Queue cards](/docs/orders#queue-cards).
+2. Open the order.
+3. Click **Copy address** on the **Mark as Fulfilled** card, under the items. The **Copy** button on the **Shipping Address** card does the same thing. You'll see "Address copied".
+
+![The Shipping Address card on an order, with the Address copied message after clicking Copy](/images/shipping-labels/copy-address.png)
+
+*The Copy button puts the customer's name and full address on your clipboard in one go.*
+
+Pickup orders don't have a Shipping Address card and don't need a label. See [Local pickup orders](/docs/orders#local-pickup-orders).
+
+---
+
+## Step 2: Open Pirate Ship
+
+On the same card, with **Include tracking information** ticked, it says "Need a shipping label? Copy the address, then buy discounted postage on Pirate Ship." Click **Open PirateShip**. Pirate Ship opens in a new tab, straight on its **Create a Shipping Label** form.
+
+![The Mark as Fulfilled card with the note Need a shipping label? Copy the address, then buy discounted postage on Pirate Ship, and the Copy address and Open PirateShip buttons](/images/shipping-labels/open-pirateship.png)
+
+*Keep this SimplePress tab open. You'll come back to it at the end.*
+
+If Pirate Ship asks you to sign in, do that. If you land on the **Ship** page instead of the label form, click **Create a Single Label**. On a brand-new account, the page says "Welcome Aboard Pirate Ship!" and offers **Create Your First Label** instead.
+
+![Pirate Ship's Ship page for a new account, with Create a Single Label, Upload a Spreadsheet and Import from Integrations, and the Create Your First Label button](/images/shipping-labels/ps-ship-page.png)
+
+*Pirate Ship's Ship page on a new account. The other two choices are for shipping many orders at once. For one order, use Create a Single Label.*
+
+Keep the copied address on your clipboard; you'll paste it next.
+
+---
+
+## Step 3: Paste the address
+
+On the **Create a Shipping Label** page, the quickest way is to press **⌘V** (Mac) or **Ctrl+V** (Windows) right when the page opens, before you click anything. Pirate Ship opens a box with the address already in it.
+
+If that doesn't happen, click **Paste Address** next to **Ship To** and paste into the box.
+
+Pirate Ship reads the address and fills in the form. The filled fields turn light blue.
+
+![Pirate Ship's Create a Shipping Label page with the Paste Address box holding Jordan Rivera, 343 S Fifth Ave, Ann Arbor, MI 48104, US, and the Name and Address fields filled in blue](/images/shipping-labels/ps-paste-address.png)
+
+*The text SimplePress copies, pasted into Pirate Ship.*
+
+Check **Name**, **Address**, **City**, **State** and **Zipcode** against the order before you move on.
+
+<Callout type="info" title="Leave Email blank">
+Pirate Ship can email your customer their tracking if you add their email. SimplePress sends its own shipping email when you mark the order fulfilled, so filling this in can mean your customer gets two emails. Leave it empty.
+</Callout>
+
+---
+
+## Step 4: Package type, size and weight
+
+Further down the form, **Ship From** shows your saved address. Next is **Type of Packaging**, then the size and weight.
+
+![Pirate Ship's package section with the Ship From address, Type of Packaging set to Box or Rigid Packaging, dimensions of 10 by 8 by 4 inches, and a weight of 1 pound 4 ounces](/images/shipping-labels/ps-package.png)
+
+*A box measuring 10 × 8 × 4 inches that weighs 1 lb 4 oz.*
+
+### Which package type?
+
+| What you're sending | Choose |
+| --- | --- |
+| Anything in a box, including a box you made or reused | **Box or Rigid Packaging** |
+| A mailer, padded envelope, poly bag or soft pack | **Envelope, Padded Envelope, Poly Bag, Soft Pack, or Box in a Bag** |
+| A tube, or something an odd shape | **Tube or Irregular Packaging** |
+| A free USPS Priority Mail box or envelope | The matching **USPS Priority Mail** flat rate choice, such as **Medium Flat Rate Box** or **Flat Rate Envelope** |
+
+Flat rate boxes and envelopes come free from USPS, and you don't need to measure them. Pirate Ship doesn't ask for dimensions on those.
+
+### Size and weight tips
+
+- **Weigh the box once it's packed,** with the product, padding and tape inside it. Don't weigh the product alone.
+- **Round the weight up** to the next ounce.
+- **Measure the outside of the box** in inches: length × width × height. Don't measure the product.
+- **Get it right.** If the weight or size you enter is wrong, the carrier can charge you an adjustment afterward. Pirate Ship's help center has the details.
+- **Tick Save Package** to keep these package settings for next time.
+
+### Hazardous materials
+
+Tick **Hazardous Materials** if you're shipping something like perfume, nail polish or hair spray. If you sell beauty or skincare products, check this box when it applies. Pirate Ship lists the items it covers right next to the checkbox. If you're not sure, check with Pirate Ship or your carrier before you ship.
+
+---
+
+## Step 5: Get rates and buy the label
+
+1. Click **Get Rates**. Pirate Ship takes a few seconds to load the prices.
+2. Under **Choose a Service**, pick the one you want. Use **Sort by** to put the **Best**, **Cheapest**, **USPS** or **UPS** choices first.
+
+![Pirate Ship's rates page for Jordan Rivera, with UPS Ground marked BEST at $7.41 against a $16.60 retail price, and a link to switch to USPS for 66 cents more](/images/shipping-labels/ps-rates.png)
+
+*Pirate Ship shows the retail price struck through next to your price.*
+
+Pirate Ship may tidy the address at the top of this page, for example changing "Fifth" to "5th" or adding four extra digits to the ZIP code. That's normal.
+
+3. Under **Finish Purchase**, check the **Ship Date** and the **Total Cost**.
+4. Click **Buy Label**.
+
+![Pirate Ship's Finish Purchase step with the Ship Date, a Total Cost of $7.41, the message You need to add a Payment Method, and the Buy Label button](/images/shipping-labels/ps-buy-label.png)
+
+*On a new account, add a payment method before the Buy Label button will work.*
+
+Then print the label and stick it on the box. Pirate Ship's help center covers printing in detail.
+
+If you change your mind before buying, use **Previous Step** to go back, or **Cancel & Delete Label** to start over.
+
+---
+
+## Step 6: Find the tracking number
+
+Every USPS and UPS label has a tracking number.
+
+- **On the label.** It's printed under the barcode.
+- **In Pirate Ship.** It's shown on the shipment.
+
+Copy it now. Later, you can find it again on Pirate Ship's **Ship** page. Find the shipment there, or search by name, address or tracking number, and open it. Pirate Ship's help center explains tracking in more detail.
+
+---
+
+## Step 7: Record it in SimplePress and mark the order fulfilled
+
+Go back to the SimplePress tab with the order open.
+
+1. Paste the number into **Tracking Number**. The **Carrier** fills itself in, and "Detected from tracking number" appears underneath.
+2. Click **Mark as Fulfilled & Send Email**.
+
+![The Mark as Fulfilled card with a USPS tracking number pasted in, USPS detected from the tracking number, and the Mark as Fulfilled & Send Email button](/images/shipping-labels/paste-tracking.png)
+
+*Paste the number and SimplePress works out the carrier.*
+
+You'll see a confirmation such as "Order fulfilled and shipping email sent to customer". Your customer gets the **Order Shipped** email with a tracking link, and the order moves to **Fulfilled**, and **Completed** if it's paid.
+
+<Callout type="warn">
+If you skip this step, nothing happens on the SimplePress side. The customer doesn't get a shipping email, and the order stays in **Needs fulfillment** even though the box is on its way.
+</Callout>
+
+A few related things:
+
+- **More than one box?** Click **Add Additional Tracking Information** to add each package. See [More than one box](/docs/orders#more-than-one-box).
+- **Only some of the items?** Untick **Ship all remaining items**. See [Partial shipments](/docs/orders#partial-shipments).
+- **Typed the number wrong?** You can fix it after the order is fulfilled. See [After it's fulfilled](/docs/orders#after-its-fulfilled).
+
+---
+
+## Common questions
+
+**Can SimplePress buy labels for me?**
+No. SimplePress doesn't buy or print labels, and the **Open PirateShip** button only opens Pirate Ship's label form in a new tab. Buy the label there, then bring the tracking number back.
+
+**Do I have to use Pirate Ship?**
+No. Use any carrier's website, or take the box to the post office. All SimplePress needs is the tracking number. If you ship without one, untick **Include tracking information** and your customer gets a "your order has been fulfilled" email instead. See [Fulfilling and tracking](/docs/orders#fulfilling-and-tracking).
+
+**I typed the wrong address, or bought the wrong label.**
+Pirate Ship lets you void a label you haven't used and get a refund. See Pirate Ship's help center for how it works and how long it takes. Then buy a new label and use its tracking number in SimplePress.
+
+The pencil on the order's **Shipping Address** card fixes SimplePress's copy of the address. It doesn't change a label you've already bought. See [Shipping address](/docs/orders#shipping-address).
+
+**My customer changed their address after I bought the label.**
+The label has the old address, so it can't be changed. Void it in Pirate Ship if it hasn't been used, and buy a new one with the new address. Then update the address on the order, so your records match.
+
+**Can I ship an order in several boxes, or ship only part of it?**
+Yes. Buy a label for each box, then add each tracking number to the same fulfillment form. See [More than one box](/docs/orders#more-than-one-box) and [Partial shipments](/docs/orders#partial-shipments).
+
+**What about pickup orders?**
+They don't need a label. Open the order and click **Mark Ready for Pickup**. See [Local pickup orders](/docs/orders#local-pickup-orders).
+
+**Does Pirate Ship save my customers?**
+It doesn't have an address book. It does fill in recipients you've shipped to in the last 3 months when you start a single label. For everyone else, paste the address each time.
+
+**I forgot to mark an order fulfilled.**
+Open **Orders** and click the **Needs fulfillment** card. The order will be there. Open it, paste in the tracking number, and click **Mark as Fulfilled & Send Email**. Your customer gets their tracking email then, even if the box shipped days ago.
+
+**Can my staff do this?**
+Yes. Staff can see the order, copy the address, and mark orders fulfilled with tracking. They can't edit the address. See [Team & roles](/docs/team-and-roles) and [For staff](/docs/for-staff).
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Orders"
+		description="Fulfilling, tracking, partial shipments and refunds."
+		href="/docs/orders"
+	/>
+	<Card
+		title="Shipping"
+		description="What you charge customers for delivery, and pickup."
+		href="/docs/shipping"
+	/>
+	<Card
+		title="Owner routines"
+		description="What to check daily, weekly and monthly."
+		href="/docs/owner-routines"
+	/>
+</Cards>
