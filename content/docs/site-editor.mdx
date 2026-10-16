@@ -1,6 +1,6 @@
 ---
 title: Site Editor
-description: Edit your storefront's words, pictures, sections, and theme while you watch a live preview, then publish when you're ready.
+description: Edit your storefront's words, pictures, sections, and style while you watch a live preview, then publish when you're ready.
 ---
 
 ## Overview
@@ -38,9 +38,9 @@ On a computer, the editor has a bar across the top and three columns underneath.
 | Area                 | What it does                                                                                                                                                                            |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Top bar**          | Exit button, your store name and template, the page picker, the Desktop / Tablet / Mobile preview buttons, **Notes**, your save status, **Discard** (only shown when you have unpublished changes), and **Publish**. |
-| **Sections list**    | Left column. Lists every editable section on the page you're viewing, then the **Site-wide** sections (header, footer, and so on), shortcuts to other admin pages, and **Theme** if your template has one. |
+| **Sections list**    | Left column. Lists every editable section on the page you're viewing, then the **Site-wide** sections (header, footer, and so on), shortcuts to other admin pages, and **Style** under **Design**. |
 | **Live preview**     | Middle. Your actual storefront page, showing your draft changes. Hover over any part of it to see an **Edit** label, and click to edit that section.                                       |
-| **Editing panel**    | Right column. Opens when you pick a section, the Theme, Notes, or one of your own pages. Only one panel is open at a time. Close it with the X.                                            |
+| **Editing panel**    | Right column. Opens when you pick a section, Style, Notes, or one of your own pages. Only one panel is open at a time. Close it with the X.                                            |
 
 If a page has nothing to edit, the Sections list says "No editable sections on this page." A section with nothing to change says "This section has no editable fields."
 
@@ -89,7 +89,7 @@ Depending on your template and the section, you may see these kinds of fields:
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Text**            | A single line, such as a headline, button label, or tagline.                                                                                         |
 | **Paragraph**       | A few lines of plain text, such as an intro or description.                                                                                          |
-| **Rich text**       | Formatted writing with bold, italics, headings, lists, links, and images. An **Insert elements** menu can add a Gallery, Embed, Quote calculator, or Form, but each one only appears when that feature is switched on in **Settings → Features**. (Banner, popup, and policy editors don't have it.) |
+| **Rich text**       | Formatted writing with bold, italics, headings, lists, links, and images, plus rows and columns and collapsible sections. An **Insert elements** menu can add a Gallery, Embed, Quote calculator, or Form, but each one only appears when that feature is switched on in **Settings → Features**. (The banner, popup, and policy editors leave out rows, collapsible sections, and these extras.) See [Text Editor](/docs/text-editor). |
 | **Link**            | A web address for a button or link. Use a page on your site (like `/shop`) or a full address (like `https://example.com`).                         |
 | **Image**           | One photo. Upload one or choose from your Media Library. See [Images and Videos](#images-and-videos).                                               |
 | **Video**           | One video file. Upload one or choose from your Media Library.                                                                                       |
@@ -164,25 +164,43 @@ Image and video fields show the picture (or video) you've uploaded, with options
 | ---------- | ------------------------------------------------------------------------------------------ | -------- |
 | File size  | Up to 5MB. Large phone photos are resized automatically, and iPhone (HEIC) photos are converted. | Up to 50MB |
 
+Pictures you add inside a rich-text field work differently. Use the **Image** button in its toolbar, drag a photo into the text, or paste one in. Those can be up to 25MB, and big photos are shrunk automatically. See [Adding pictures](/docs/text-editor#adding-pictures).
+
 Everything you upload in the Site Editor also shows up in your Media Library, so you can reuse it elsewhere.
 
 ![An image field with the Replace image menu open, offering Upload from device and Choose from library](/images/site-editor/replace-image-menu.png)
 
 ---
 
-## Theme
+## Style
 
-Some templates come with a **Theme** option, under **Design** at the bottom of the Sections list. It lets you restyle your whole site in a couple of clicks:
+The **Style** panel sits under **Design** at the bottom of the Sections list. It holds the settings that affect your whole site. You'll find it on every template, but what's inside depends on the template.
+
+### Color palettes and fonts
+
+Some templates come with color palettes and font pairings that restyle your whole site in a couple of clicks:
 
 - **Color palette:** choose from a few color schemes designed for your template. Each one shows three color dots.
 - **Fonts:** choose from a few font pairings designed for your template.
 - **Original** (at the top of each list) returns that part to the template's standard design.
 
-The choices are limited on purpose. Each one has been checked to look good with your template. Theme changes are part of your draft, so you can try them all in the preview before publishing.
+The choices are limited on purpose. Each one has been checked to look good with your template. Style changes are part of your draft, so you can try them all in the preview before publishing.
 
-If you don't see **Theme** in the Sections list, your template doesn't offer theme presets. Your logo and checkout accent color are set on the [Brand & Appearance](/docs/storefront-and-branding) page instead.
+If your template doesn't offer palettes or font pairings, those lists won't appear in the Style panel. Your logo and checkout accent color are set on the [Brand & Appearance](/docs/storefront-and-branding) page instead.
 
-![The Theme panel showing the color palette choices and font pairings, with Original selected](/images/site-editor/theme-panel.png)
+### Text width on wide pages
+
+Pages set to **Wide** (see [Page width](/docs/pages-and-policies#content-tab)) run their pictures, rows, and columns across the full content width. The text on those pages keeps a comfortable reading width by default. To change how wide that text runs across your whole site, open **Text width on wide pages** in the Style panel and pick one:
+
+- **Readable** (the default) keeps lines at a comfortable reading width.
+- **Roomy** lets the text run a little wider.
+- **Full** lines the text up with your rows and columns.
+
+It only affects custom pages set to **Wide**, and never the text inside rows and columns. It has no effect on the Default, Modern, Sledge and Builders templates, which always use the full width. Like other Style changes, it's part of your draft until you publish.
+
+On templates without color palettes or font pairings, the Style panel holds only **Text width on wide pages**.
+
+![The Style panel on the Default template, with Color palette choices (Original, Slate, Forest, Burgundy and Ochre), Fonts (Original, All Poppins and All Inter), and Text width on wide pages set to Readable](/images/site-editor/style-panel.png)
 
 ---
 
@@ -261,7 +279,7 @@ There is no single "reset everything" button. Here's how to undo different kinds
 | What you want to undo                                 | How                                                                                                                                  |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Everything you've changed since your last publish     | Click **Discard**.                                                                                                                    |
-| A theme color palette or font choice                  | Open **Theme** and choose **Original**.                                                                                               |
+| A color palette or font choice                        | Open **Style** and choose **Original**.                                                                                               |
 | A slider                                              | Click its **Reset** button.                                                                                                          |
 | A list you've customized                              | Delete all of its rows. Your site goes back to the template's built-in rows (if it has them).                                        |
 | A hidden section                                      | Click the eye icon again to show it.                                                                                                 |
@@ -277,9 +295,11 @@ Pages you've created under **Pages**, and blog posts if you use the [Blog](/docs
 
 - **Title** (required: changes can't be saved while it's empty)
 - **Excerpt**, the short summary
-- **Content**, the full page body, with the same rich-text editor you use elsewhere in your admin
+- **Content**, the full page body, with the same [text editor](/docs/text-editor) you use elsewhere in your admin. The Content editor here has no **Video** button.
 
 ![The Site Editor with a custom page open, and its Title, Excerpt, and Content panel on the right](/images/site-editor/custom-page-panel.png)
+
+**Page width** (Standard or Wide) isn't here. You set it on the page's own admin screen under **Pages**.
 
 These edits use the same draft as the rest of the editor. They show in the preview right away and go live when you click **Publish**.
 
@@ -329,7 +349,7 @@ What happens to your Site Editor work:
 
 - **Each template keeps its own content.** The words, photos, and lists you set up belong to the template you set them up in. After switching, the editor shows the new template's sections and built-in content. You'll need to fill those in again.
 - **Your old content isn't deleted.** If you switch back, it comes back.
-- **Theme choices are designed for one template.** A palette or font pairing from your old template usually won't apply to the new one, which starts with its original design (if it offers a Theme at all). The exception is a preset with the same name in both templates (some templates share presets such as Forest or Terracotta), which can carry over.
+- **Style choices are designed for one template.** A palette or font pairing from your old template usually won't apply to the new one, which starts with its original design (if it offers color or font choices at all). The exception is a preset with the same name in both templates (some templates share presets such as Forest or Terracotta), which can carry over.
 - **Hidden sections can carry over.** Whether a section is shown or hidden is remembered by the section's name, not by template. If you hid the homepage hero in your old template and the new one has a section by the same name, it starts out hidden.
 - **Everything outside the editor stays the same**, including products, pages, blog posts, galleries, your logo, navigation, and settings.
 
@@ -344,7 +364,7 @@ After switching, open the Site Editor and go through each page, including which 
 - Edit any text, image, video, link, color, and list your template offers, on every page and in the site-wide header and footer
 - See every change in a live preview at desktop, tablet, and mobile sizes before it goes live
 - Hide and show sections that your template allows to be hidden
-- Choose a curated color palette and font pairing (on templates that offer a Theme)
+- Choose a curated color palette and font pairing (on templates that offer them), and set the text width on wide pages, in the Style panel
 - Edit the title, summary, and content of your own pages and blog posts
 - Save a draft, come back later from any device, and publish when you're ready
 - Send notes, with photos, to the SimplePress team

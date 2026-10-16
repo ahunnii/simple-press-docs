@@ -76,11 +76,12 @@ The **Page Content** card has:
 - **What is the page title?** _(required)_: the page's heading on your storefront.
 - **Provide a short description of the page**: the excerpt. Shown under the title on the Default template, and used as the fallback meta description if you don't write one on the SEO tab.
 - **Cover image**: "Shown as the page hero on supported templates". The Default template doesn't show it as a hero, but it's still used as the picture that appears when the page is shared on social media. Choose **Upload from device**, or **Choose from library** if the [Media Library](/docs/media-library) is turned on.
-- **Write out your page content**: the full page body in the rich text editor (see [Rich-Text Tools](#rich-text-tools)).
+- **Page width**: **Standard** (the default) keeps the page in your template's usual reading column. **Wide** uses the template's full content width, which suits pages built with [rows and columns](/docs/text-editor#rows-and-columns), galleries, or tables. On a Wide page, text still keeps a comfortable reading width by default. You can change how wide that text runs for your whole site under **Site Editor → Style → Text width on wide pages** (see [Style](/docs/site-editor#style)). Page width only exists for custom pages, not blog posts or policies, and it isn't in the Site Editor. It has no effect on the Default, Modern, Sledge and Builders templates, which always use the full width. Older pages that use the legacy sidebar layout show it greyed out.
+- **Write out your page content**: the full page body in the [text editor](/docs/text-editor).
 
 Under the title you'll see the page's **Storefront URL**, like `/our-story`, with an **Edit in SEO** link. The URL itself isn't on this tab.
 
-![The page editor Content tab with title, Storefront URL line, short description, cover image and rich text editor](/images/pages-and-policies/page-content-tab.png)
+![The page editor Content tab with title, Storefront URL line, short description, cover image, the Page width select and the text editor](/images/pages-and-policies/page-content-tab.png)
 
 #### SEO Tab
 
@@ -134,27 +135,7 @@ The **More Options** menu in the editor toolbar has:
 
 ### Rich-Text Tools
 
-The content editor (used for pages, blog posts, and policies) includes:
-
-- Headings, bold, italic, underline, and strikethrough
-- Text color, links, and lists
-- Block quotes, code, code blocks, and dividers
-- Tables
-- Images and video
-- An **Insert elements** menu for adding richer blocks
-
-Some **Insert elements** options only appear when that feature is switched on in **Settings → Features** (see [Feature Flags](/docs/feature-flags)):
-
-- **Gallery**: drop in a photo gallery. See [Galleries](/docs/galleries).
-- **Embed**: show an outside widget, such as a booking page or a map, on the page. See [Embeds](/docs/embeds).
-- **Quote calculator**: add a quote calculator. See [Quote Calculators](/docs/quote-calculators).
-- **Form**: add one of your forms. See [Forms](/docs/forms).
-
-If you don't see one of these in the menu, its feature is off. The policy editor doesn't have these inserts.
-
-If you insert one of these but never finish choosing what it shows (for example, an Embed box you leave empty or a Form box with no form picked), it's left out when the page saves, so no empty box appears on your site.
-
-While a picture you dropped or pasted into the text is still uploading, the save button reads **Uploading…** and waits. It's ready again as soon as the upload finishes.
+The page body uses the text editor. It handles formatting, pictures, links and buttons, rows and columns, collapsible sections, and tables. When the matching feature is on, it can also drop in galleries, forms, and embeds. See [Text Editor](/docs/text-editor) for every tool.
 
 ---
 
@@ -172,7 +153,7 @@ Custom pages live at `yourstore.com/[slug]` and use your template's page layout,
 - "Last updated" and the date
 - An automatic **On this page** contents list, when your page has H2 or H3 headings
 
-Other templates lay pages out their own way. See [Templates](/docs/templates).
+Other templates lay pages out their own way. See [Templates](/docs/templates). A page set to **Wide** uses the template's full content width, and [rows and columns](/docs/text-editor#rows-and-columns) stack into a single column on phones.
 
 Pages are **not added to your navigation automatically**. To link one from your header or footer, go to **Site Setup → Navigation** and add it as a menu item.
 
@@ -199,7 +180,7 @@ Each policy has a fixed URL that you can't change, and no page or post can use t
 
 ### Editing and Saving
 
-Click a tab, then write in the **Policy Content** editor. When you're done with any or all of the tabs, click **Save content** to save them together. **Reset** discards unsaved changes. The **Unsaved Changes** badge only appears when you've actually changed something, and **Reset** clears it.
+Click a tab, then write in the **Policy Content** editor. It's the basic text editor: formatting, pictures, and links, but no rows, collapsible sections, or **Insert elements** extras (see [Text Editor](/docs/text-editor#where-youll-find-it)). When you're done with any or all of the tabs, click **Save content** to save them together. **Reset** discards unsaved changes. The **Unsaved Changes** badge only appears when you've actually changed something, and **Reset** clears it.
 
 If you haven't published Terms of Service or a Refund Policy yet, a banner reads **No published Terms of Service or Refund Policy**. Checkout tells buyers they're agreeing to your Terms, so publish at least the Terms and Refunds tabs. The same nudge appears on your dashboard. Hiding the Terms or Refunds policy brings that banner back.
 
@@ -208,6 +189,8 @@ If you haven't published Terms of Service or a Refund Policy yet, a banner reads
 Each tab has a **Use Template** button. It loads a starter written from your current store settings: business name and contact details, where you ship and how you charge for it, pickup (if enabled), and which features are on. It's a snapshot. If you change shipping or features later, the saved policy doesn't update until you load the template again.
 
 - If the tab already has text, a **Replace [policy name]?** box asks first. Choose **Keep current** or **Use Template**.
+- The **Privacy** template changes with your features. When [Email Marketing](/docs/email-marketing) is on, it adds a line about collecting "Your email address and name when you sign up for our newsletter or choose to receive marketing emails at checkout, plus a record of when and how you agreed", and one about sending marketing emails only with the person's consent. It also always lists "Email delivery providers that send our order emails and, when enabled, our marketing emails on our behalf" among the people you share information with.
+- **Turned on Email Marketing after you saved your Privacy Policy?** Click **Use Template** on the Privacy tab again to pick up those lines, then review and save. The saved policy doesn't change by itself.
 - After a template loads, a **Review before publishing** note appears. Anything shown like `[X] days` or `[your jurisdiction]` still needs your input, and the template is not legal advice. Read it through and edit it for your business.
 
 ![A policy tab after Use Template, with the Review before publishing note and placeholders shown in code style](/images/pages-and-policies/policy-use-template.png)
@@ -258,6 +241,8 @@ Your **Privacy Policy** and **Terms of Service** pages automatically end with a 
 - Change a page's URL slug (just remember there's no redirect)
 - Set SEO details per page
 - Edit page text in the Site Editor
+- Lay a page out in rows and columns, add collapsible sections, or add space between blocks (see [Text Editor](/docs/text-editor))
+- Set a custom page to **Wide**
 - Start all four policies from a template
 - Hide or remove a policy
 

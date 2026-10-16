@@ -9,7 +9,7 @@ description: See who shops with you, review their orders, keep private notes, ad
 
 You don't add customers by hand, and you can't edit their name, email, phone or addresses. Customers manage those details themselves from their own account on your storefront.
 
-> **Who can do what:** Owners and Managers can edit notes, adjust points and anonymize customers. Staff can view the list and each customer's orders, but they don't see the **Notes** card, the **Anonymize customer** button or **Adjust points**. (They still see a "Deletion requested" or "Anonymized on" notice if one applies.) See [Team and Roles](/docs/team-and-roles).
+> **Who can do what:** Owners and Managers can edit notes, adjust points, anonymize customers and mark a customer as unsubscribed from marketing emails. Staff can view the list and each customer's orders, and they see the **Email marketing** card, but only to read it: they don't see the **Mark as unsubscribed** button, the **Notes** card, the **Anonymize customer** button or **Adjust points**. (They still see a "Deletion requested" or "Anonymized on" notice if one applies.) See [Team and Roles](/docs/team-and-roles).
 
 ---
 
@@ -23,7 +23,7 @@ Open **Customers** in your admin sidebar (`/admin/customers`).
 ### Summary cards
 
 - **Total Customers**: everyone in your customer list.
-- **All customers accepting marketing**: how many have opted in to marketing emails.
+- **All customers accepting marketing**: how many have opted in to marketing emails and can be emailed. It leaves out customers who are suppressed or anonymized, so it matches the **Audience** card on the Email Marketing page.
 
 ### The table
 
@@ -34,7 +34,7 @@ The list shows 25 customers per page.
 | **Customer** | Their name, with their email address underneath. A **Deletion requested** or **Anonymized** badge appears here when it applies. |
 | **Orders** | How many orders they've placed. |
 | **Total Spent** | Their lifetime spend across those orders. |
-| **Marketing** | A **Subscribed** badge if they've opted in to marketing emails, otherwise "—". |
+| **Marketing** | A grey **Subscribed** badge if they've opted in to marketing emails, or an orange **Suppressed** badge if the email provider has stopped your marketing emails to them. Everyone else shows "—". |
 | **Joined** | The date their customer record was created. |
 | **View** | Opens their detail page. |
 
@@ -51,7 +51,14 @@ Type a name or email into **Search customers…** and press **Search**. Use **Fi
 | **Privacy** | All customers, Deletion requested, Anonymized |
 | **Sort** | Newest, Oldest, Name A–Z, Name Z–A, Most orders, Highest spend |
 
+The **Accepts marketing** choice goes by whether the customer opted in, so it can include customers who are suppressed. The **Audience** card on the Email Marketing page shows who can actually be emailed.
+
 If nothing matches, you'll see "No customers match your filters" with a **Clear filters** button. A brand-new store shows "No customers yet".
+
+![The Customers list with a grey Subscribed badge on some customers and an orange Suppressed badge on one](/images/customers/customers-list-marketing.png)
+*The Marketing column: **Subscribed** in grey, **Suppressed** in orange, and "—" for everyone else.*
+
+On a phone, the Marketing column is folded into the line under each customer's name. It reads "Subscribed", "Unsubscribed", "Not subscribed", or "Suppressed: Bounced", "Suppressed: Marked as spam" or "Suppressed: Blocked by provider".
 
 ---
 
@@ -66,19 +73,52 @@ Click **View** on any row. The top of the page shows the customer's name and a "
 
 This reuses the same table you see on the Orders page: order number, items, total and status. Orders that include [product options](/docs/product-options) say "with options" next to the item count. Click an order to open it. If the customer hasn't ordered, you'll see "No orders yet. This customer hasn't placed any orders."
 
-![A customer detail page with two orders listed under Order History and an Opted in marketing badge](/images/customers/customer-detail-orders.png)
-*A customer with order history and marketing turned on.*
+![A customer detail page with three orders listed under Order History and the Email marketing card down the right](/images/customers/email-marketing-card.png)
+*A customer with order history. The **Email marketing** card down the right shows their status and **Recent activity**.*
 
 ### The cards on the right
 
 | Card | What it shows or lets you do |
 | --- | --- |
-| **Customer** | Name, Email, Phone, and a **Marketing** badge reading **Opted in** or **Opted out**. |
+| **Customer** | Name, Email and Phone. |
+| **Email marketing** | Their marketing status, when they joined the list, and their **Recent activity**. Owners and Managers also get a **Mark as unsubscribed** button. See [The Email marketing card](#the-email-marketing-card). |
 | **Summary** | **Total Orders** and **Total Spent**. |
 | **Rewards** | Their points balance and a history of points earned and spent. Owners and Managers get an **Adjust points** button. |
 | **Invoices** | Their recent invoices, with a **New invoice** button. |
 | **Notes** | Private notes about the customer. |
 | **Privacy** | Deletion requests and the **Anonymize customer** button. |
+
+### The Email marketing card
+
+This card sits under the **Customer** card and shows where this person stands with your marketing emails.
+
+- A badge shows their status: **Subscribed**, **Unsubscribed**, **Not subscribed** or **Suppressed**, such as "Suppressed: Bounced", "Suppressed: Marked as spam" or "Suppressed: Blocked by provider". Suppressed wins over everything else.
+- A **Suppressed** customer also sees this note: "We've stopped sending marketing emails to this address because the email provider reported a problem with it. Order emails like receipts are not affected."
+- **Joined the list** shows how and when they agreed, such as "Checkout" and the date. The ways are "Checkout", "Newsletter sign-up form", "Account preferences", "Resubscribed from email link" and "Account (before consent tracking)".
+- **Unsubscribed** shows the date they opted out, and **Emails stopped** shows the date the email provider stopped your emails. Each row only appears when it applies.
+
+**Recent activity** lists the last 10 changes to their email preferences, newest first, each with a date. If a change came from one of your campaigns, you also see the line From the email "[subject]". The labels are:
+
+| Kind | What you may see |
+| --- | --- |
+| Joined | "Subscribed at checkout", "Subscribed from the sign-up form", "Subscribed in their account", "Subscribed in their account (before consent tracking)", "Resubscribed from an email link" |
+| Left | "Unsubscribed from email link", "Unsubscribed from their mail app", "Unsubscribed by you", "Unsubscribed in their account" |
+| Email provider | "Marked as spam", "Email bounced", "Blocked by the email provider", "Emails turned back on" |
+
+If nothing has been recorded, the card says "No activity recorded yet. Changes to this customer's email preferences will show up here." The activity starts from when this feature was added, so customers who were already subscribed start with an empty list.
+
+SimplePress also keeps the IP address and browser used for each change, and the exact wording the person was shown when they agreed. That is kept for your protection and is never shown in your admin.
+
+#### Mark as unsubscribed
+
+If someone asks you to stop emailing them, by reply, phone or in person, open their page and click **Mark as unsubscribed** on the **Email marketing** card. A box asks "Mark as unsubscribed?" with the text "Stop sending marketing emails to [name]? Use this when someone asks you by reply, phone or in person. They can resubscribe themselves later." Click **Mark as unsubscribed** to confirm, or **Cancel**. A message says "[name] will no longer get marketing emails." If it fails, you'll see "Couldn't unsubscribe this customer."
+
+![The Mark as unsubscribed box asking "Mark as unsubscribed?" with Cancel and Mark as unsubscribed buttons](/images/customers/mark-unsubscribed-dialog.png)
+
+- Only Owners and Managers see the button. Staff can read the card but not change it.
+- The button only shows while the customer is **Subscribed**. It isn't shown for anonymized customers.
+- It only ever turns marketing **off**. You can't sign anyone up.
+- Their address also goes on your do-not-email list, so abandoned checkout reminders stop too.
 
 ### Rewards
 
@@ -106,8 +146,10 @@ Customer records are created for you. A person is added to your list when they:
 - have a manual order or an invoice created for them;
 - leave a review or a testimonial;
 - join your rewards program;
-- save an address; or
-- subscribe to something on your store.
+- save an address;
+- subscribe to something on your store;
+- confirm a newsletter sign-up (they appear even if they've never bought anything); or
+- receive an abandoned checkout reminder. That creates a record marked **Not subscribed**, with 0 orders, so you can see who was emailed.
 
 > **Creating an account doesn't add someone to the list.** A shopper who signs up but never does any of the things above won't appear in Customers yet.
 
@@ -148,14 +190,29 @@ On a phone, the account menu becomes a row of tabs across the top.
 
 ## Marketing Emails
 
-Marketing is always the customer's choice. You can see each customer's status, but you can't change it for them.
+Marketing is always the customer's choice. You can see each customer's status, and you can stop emails to someone who asks, but you can never sign anyone up.
 
-- Customers **opt in** by turning on the **Marketing Emails** switch on their **Preferences** page. It reads **Subscribed** when on and **Unsubscribed** when off.
-- It's **off by default**. Checking out doesn't sign anyone up.
-- The switch only works once the customer has a customer record. A brand-new account with no record yet sees "Place your first order to enable email preferences."
-- Clicking the unsubscribe link at the bottom of one of your emails turns it off. So does anonymizing the customer.
+Customers **opt in** in one of these ways:
 
-Customers who are opted in show a **Subscribed** badge on the list, and they're the ones who receive broadcasts from **[Email Marketing](/docs/email-marketing)**. That feature is off by default; turn it on in **Features**. See [Feature Flags](/docs/feature-flags).
+- **At checkout.** When [Email Marketing](/docs/email-marketing) is on, the checkout page has an **Email me news and offers** box, just above the pay button. The subscription sign-up page (`/subscribe`) has it too. It starts unticked. They're added when their payment goes through.
+- **With a newsletter sign-up form** on your site (on templates that have one, such as Elegant and Wealth). They get a confirmation email and are only added after they click the confirm button. Someone who signs up this way appears in your Customers list even if they haven't bought anything.
+- **From their account.** They turn on the **Marketing Emails** switch on their **Preferences** page, next to the sentence "Receive news, promotions, and updates from [store]." It reads **Subscribed** when on and **Unsubscribed** when off, and they see "You're now subscribed to marketing emails." or "You've unsubscribed from marketing emails." when they flip it. The switch keeps working even if you turn Email Marketing off. It only works once the customer has a customer record. A brand-new account with no record yet sees "Place your first order to enable email preferences."
+- **By resubscribing.** After unsubscribing, they can click **Resubscribe** on the page they land on.
+
+Nobody is opted in automatically, and checking out without ticking the box doesn't sign anyone up.
+
+Customers **opt out** in these ways:
+
+- **The unsubscribe link** at the bottom of one of your emails. It opens a page where they press **Unsubscribe** to confirm. Opening the link alone changes nothing.
+- **The unsubscribe button in their mail app.** Many mail apps show their own **Unsubscribe** button at the top of the email. It works in the background, with no page.
+- **The switch** on their Preferences page.
+- **You.** An Owner or Manager can use **Mark as unsubscribed**, as described above.
+
+Anonymizing a customer also opts them out. A customer who marks one of your emails as spam is opted out and **suppressed**, and a customer whose address bounces is suppressed too. Suppressed customers aren't emailed again. See [Bounces and Spam Reports](/docs/email-marketing#bounces-and-spam-reports).
+
+Customers who are opted in show a **Subscribed** badge on the list, and they're the ones who receive campaigns from **[Email Marketing](/docs/email-marketing)**. A suppressed customer shows an orange **Suppressed** badge instead, and won't be emailed. The **Audience** card on the Email Marketing page shows the true number. That feature is off by default; turn it on in **Features**. See [Feature Flags](/docs/feature-flags).
+
+Your opted-in list, with how and when each person agreed, can be downloaded from the **Audience** card on the Email Marketing page. See [Exporting the List](/docs/email-marketing#exporting-the-list).
 
 ---
 
@@ -163,7 +220,7 @@ Customers who are opted in show a **Subscribed** badge on the list, and they're 
 
 Shoppers can handle two privacy tasks themselves, under **Data & Privacy** on their Preferences page:
 
-- **Download my data** gives them a copy of their personal data.
+- **Download my data** gives them a copy of their personal data. It includes their marketing status and the full history of when they joined or left your list, with the IP address and browser recorded for each change.
 - **Request account deletion** flags their record for you.
 
 When a customer asks to be deleted, a **Deletion Requested** alert appears on their detail page, and a **Deletion requested** badge shows next to their name on the list. You can find all of them with **Filters → Privacy → Deletion requested**.
@@ -175,7 +232,7 @@ To act on a request, open the customer and use the **Privacy** card. Only Owners
 1. Click **Anonymize customer**.
 2. In the "Anonymize this customer?" box, read the warning and click **Anonymize**.
 
-Anonymizing scrubs the customer's name, email, phone and saved addresses and removes their personal details from their reviews and testimonials. Their orders stay in your records, anonymized, so your sales and tax history remain complete. Afterwards the card says "Anonymized on" followed by the date.
+Anonymizing scrubs the customer's name, email, phone and saved addresses, removes their personal details from their reviews and testimonials, and erases their email address from your Email Marketing campaign history. It also takes them off your marketing list and deletes their consent history. If they had unsubscribed or were suppressed, their address is remembered in coded form on your do-not-email list, so reminders or a re-created record won't email them. Their orders stay in your records, anonymized, so your sales and tax history remain complete. Afterwards the card says "Anonymized on" followed by the date.
 
 > **Anonymizing can't be undone.** There's no way to bring back the customer's details once you confirm, so check that you've picked the right person.
 
@@ -185,14 +242,14 @@ There is no **Delete** button. Anonymizing is how you remove someone's personal 
 
 ## Exporting Your Customers
 
-There's no export button on the Customers page, and you can't tag customers. Your customer information is included in **Settings → Data & Export**, which downloads your whole site as one ZIP file. Customers appear there as spreadsheets. See [Data & Export](/docs/data-and-export).
+There's no export button on the Customers page, and you can't tag customers. Your customer information is included in **Settings → Data & Export**, which downloads your whole site as one ZIP file. Customers appear there as spreadsheets, and so do your opted-in email subscribers. A customer's consent history (the **Recent activity** list) isn't included in any export. See [Data & Export](/docs/data-and-export).
 
 ---
 
 ## What You Can't Do
 
 - **Edit names, emails, phone numbers or addresses.** Customers update these themselves.
-- **Change someone's marketing choice.** Only the customer can.
+- **Sign someone up for marketing.** Only the customer can opt in. You can only mark a customer as unsubscribed.
 - **Delete a customer.** Use **Anonymize customer** instead.
 - **Merge duplicates.** If the same person used two email addresses, they stay as two customers.
 - **Create a customer by hand.** Start an order or an invoice instead and the record is created for you.

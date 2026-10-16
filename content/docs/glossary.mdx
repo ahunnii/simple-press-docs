@@ -13,7 +13,7 @@ New to SimplePress? This page explains the words you'll run into in your admin a
 
 ### Abandoned checkout email
 
-An automatic email sent to a shopper who gave you their email address during checkout but didn't finish buying. It's off until you switch it on, and you can edit its wording. See [Email Marketing](/docs/email-marketing#abandoned-checkout-emails).
+An automatic email sent to a shopper who gave you their email address during checkout but didn't finish buying. It's off until you switch it on, and you can edit its wording. It carries an **Unsubscribe** link and your business mailing address, so it only sends once you've added a full address in **Settings → General**, and it isn't sent to anyone who has unsubscribed. See [Email Marketing](/docs/email-marketing#abandoned-checkout-emails).
 
 ### Admin
 
@@ -35,10 +35,6 @@ A "notify me" form on a sold-out product. A shopper enters their email, and Simp
 
 Two ways to get a message in front of every visitor. The **banner** is a thin bar across the top of your site. The **popup** is a window that appears over your homepage. Switch them on under **Settings → Features**, then set them up and show or hide them on one page. See [Banner and Popup](/docs/banner-and-popup).
 
-### Broadcast (email marketing)
-
-A one-off email you write once and send to every customer who opted in to marketing, such as an announcement or a newsletter. See [Email Marketing](/docs/email-marketing).
-
 ### Business hours
 
 The days and times you're open, shown on your contact page on most templates and shared with search engines if you choose. Set them under **Settings → Business Hours**. See [Business Hours](/docs/business-hours).
@@ -47,6 +43,14 @@ The days and times you're open, shown on your contact page on most templates and
 
 ## C
 
+### Campaign (email marketing)
+
+A one-off email you write once and send to every customer who opted in to marketing, such as an announcement or a newsletter. Every campaign you send is kept in a history with the results for each person. See [Email Marketing](/docs/email-marketing).
+
+### Collapsible section
+
+A block of text with a title that visitors click to open and close, handy for FAQs and long details. You add one from the **Insert elements** menu in the text editor. On your storefront it always starts closed. See [Text Editor](/docs/text-editor#collapsible-sections).
+
 ### Collection
 
 A group of products with its own page on your storefront, such as "Summer Drop" or "Gifts under $25". A product can belong to more than one collection. See [Collections](/docs/collections).
@@ -54,6 +58,10 @@ A group of products with its own page on your storefront, such as "Summer Drop" 
 ### Command palette
 
 The search box at the top of every admin page (or `Cmd + K` / `Ctrl + K`). Use it to jump to any page, start a common task, or look up an order, customer, or product. See [Finding Your Way Around the Admin](/docs/admin-basics#searching-and-jumping-around).
+
+### Consent history
+
+The log of when a customer joined or left your marketing emails, how it happened (checkout, a sign-up form, their account, an email link, or you), and when their emails were stopped because of a bounce or spam report. You see the latest ten entries under **Recent activity** on the customer's **Email marketing** card. It starts when the feature does, so people who subscribed earlier start empty, and it isn't included in your exports. See [Customers](/docs/customers) and [Email Marketing](/docs/email-marketing).
 
 ### Coupon / discount
 
@@ -83,9 +91,17 @@ A way to pay that settles days later instead of right away, such as a bank debit
 
 When a customer asks their bank to reverse a card payment. Stripe holds the money while you respond with evidence. See [Disputes](/docs/payments-and-payouts#disputes).
 
+### Do-not-email list
+
+SimplePress's memory of addresses that must not get your marketing emails or abandoned checkout reminders, such as people who unsubscribed or whose address bounced. It's kept even if you anonymize the customer or they sign up again with a new record, so a stray email can't go out to them. See [Email Marketing](/docs/email-marketing) and [Customers](/docs/customers).
+
 ### Donation
 
 A one-time gift or tip a shopper sends through your store's donate page, by card through Stripe or through Venmo or Cash App. You can call it Donate, Tip or Support. See [Donations & tips](/docs/donations).
+
+### Double opt-in
+
+A newsletter sign-up that needs a second step. When someone fills in a sign-up form on your site, SimplePress emails them a link, and they're only subscribed after they press **Confirm subscription**. Checking the box at checkout or turning on the switch in their account subscribes them straight away. See [Email Marketing](/docs/email-marketing).
 
 ### Draft vs. published
 
@@ -183,6 +199,10 @@ An **order** is created when a customer completes checkout (or when you add one 
 
 ## P
 
+### Page width
+
+A setting on each custom page: **Standard** keeps the page in your template's usual reading column, and **Wide** uses the full content width. Blog posts and policies don't have it. See [Pages & Policies](/docs/pages-and-policies#content-tab).
+
 ### Payout
 
 Money Stripe sends from your Stripe balance to your bank account. Payments from customers sit as pending, then become available, then are paid out. See [Payments and Payouts](/docs/payments-and-payouts).
@@ -223,6 +243,10 @@ An invisible check on sign-in, sign-up, password reset, and some forms that tell
 
 A single-use discount code a customer gets when they trade points for a reward. They enter it at checkout like any other code. See [Rewards Program](/docs/rewards).
 
+### Row (columns)
+
+A block in the text editor that puts your text, pictures, or buttons side by side in two, three, or four columns. On phones, the columns stack into one. See [Text Editor](/docs/text-editor#rows-and-columns).
+
 ---
 
 ## S
@@ -255,6 +279,10 @@ The full-screen editor where you change your storefront's words, pictures, and s
 
 The admin area under **Content** where you set up things you configure once and rarely change. Its cards are **Brand & Appearance** (template, logo, favicon, social links), **Policies**, **Navigation**, **SEO & Meta**, **FAQ** (see [FAQ](/docs/faq)), and **Banner & Popup**. See [Brand & Appearance](/docs/storefront-and-branding).
 
+### Space (text editor)
+
+An empty gap you add between blocks from the **Insert elements** menu in the text editor, sized Small, Medium, or Large. It shows as a striped box while you edit and as plain space on your site. See [Text Editor](/docs/text-editor#adding-space).
+
 ### Storefront
 
 The public website your customers see and shop on, as opposed to the admin. See [Storefront and Branding](/docs/storefront-and-branding).
@@ -263,6 +291,10 @@ The public website your customers see and shop on, as opposed to the admin. See 
 
 Stripe is the payment company that processes your customers' card payments. **Connecting** your Stripe account to SimplePress is what lets customers pay you, and your money goes to your Stripe account, then to your bank. See [Stripe](/docs/stripe).
 
+### Style panel
+
+The **Style** panel in the [Site Editor](/docs/site-editor#style), under **Design**. It holds the settings that affect your whole site: color palettes and font pairings (on templates that offer them) and the **Text width on wide pages** choice.
+
 ### Subdomain
 
 The free web address every store gets at signup, such as `yourstore.simplepress.co`. You can build and test on it, but you need your own custom domain before you start selling. Once a custom domain is active, visitors to the subdomain are sent on to it. See [Domain](/docs/domain).
@@ -270,6 +302,10 @@ The free web address every store gets at signup, such as `yourstore.simplepress.
 ### Subscription
 
 A product customers receive and pay for automatically on a repeating schedule, like every month. Each charge shows up as a normal order. See [Subscriptions](/docs/subscriptions).
+
+### Suppressed (email marketing)
+
+A customer you no longer email because their address bounced, they marked one of your emails as spam, or the email provider blocked the address. It happens automatically, and they show an orange **Suppressed** badge in the Customers list and on their **Email marketing** card. Order emails like receipts still go out. See [Bounces and Spam Reports](/docs/email-marketing#bounces-and-spam-reports).
 
 ### Suspended / closed store
 
@@ -290,6 +326,10 @@ The overall design and layout of your storefront. Switching templates doesn't de
 ### Template fields
 
 The named content slots inside your template, such as a homepage headline or an About photo. You edit them in the [Site Editor](/docs/site-editor), not in a separate screen. [Template Fields](/docs/template-fields) explains what each field type accepts.
+
+### Text editor
+
+The formatted-writing box used for page content, blog posts, and other longer text (also called rich text). It handles headings, pictures, links and buttons, rows and columns, and more. See [Text Editor](/docs/text-editor).
 
 ---
 

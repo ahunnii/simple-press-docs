@@ -26,7 +26,7 @@ This page is a reference for the kinds of fields you'll run into. Which ones you
 | --------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------- |
 | [Text](#text)                           | A single line, such as a headline or button label         | Shows the template's built-in wording until you change it   |
 | [Paragraph](#paragraph)                 | A few lines of plain text                                 | No formatting                                               |
-| [Rich text](#rich-text)                 | Formatted writing with headings, lists, links, and images | **Insert elements** only offers features you've turned on   |
+| [Rich text](#rich-text)                 | Formatted writing with headings, lists, links, images, rows and columns, collapsible sections, and spaces | **Insert elements** only offers features you've turned on   |
 | [Link](#link)                           | A web address for a button or link                        | A page on your site like `/shop`, or a full `https://` address |
 | [Color](#color)                         | A color picker                                            | **Clear** removes the color                                 |
 | [Number and slider](#number-and-slider) | A number, or a slider with a live readout                 | Sliders have **Reset**                                      |
@@ -57,9 +57,9 @@ A taller box for a few lines of plain text, such as an intro or description. It 
 
 ## Rich text
 
-A formatted editor for longer writing. The toolbar covers the usual things: text styles and headings, bold and italics, lists, links, and text color. Images go in right where you want them, and you upload them from the editor itself.
+A formatted editor for longer writing. The toolbar covers the usual things: text styles and headings, bold and italics, text color, lists, text alignment, and links. Images go in right where you want them, and you upload them from the editor itself. For sizing pictures, links and buttons, rows and columns, collapsible sections, and the 25MB picture limit, see [Text Editor](/docs/text-editor).
 
-The **Insert elements** menu adds extras to the text. It always offers a few basics (**Code block**, **Blockquote**, **Divider**, **Table**). The rest only appear when you've switched on the matching feature in **Settings → Features** (see [Feature Flags](/docs/feature-flags)):
+The **Insert elements** menu adds extras to the text. It always offers **Code block**, **Blockquote**, **Divider**, **Table**, **Columns**, **Collapsible section**, and **Space**. The rest only appear when you've switched on the matching feature in **Settings → Features** (see [Feature Flags](/docs/feature-flags)):
 
 | Menu item            | Appears when you've turned on |
 | -------------------- | ----------------------------- |
@@ -68,11 +68,11 @@ The **Insert elements** menu adds extras to the text. It always offers a few bas
 | **Quote calculator** | Quote Calculator              |
 | **Form**             | Forms                         |
 
-Banner, popup, and policy editors don't have this menu.
+The banner, popup, and policy editors have the same toolbar, but their **Insert elements** menu only offers the basics (**Code block**, **Blockquote**, **Divider**, **Table**): no rows, collapsible sections, spaces, galleries, embeds, quote calculators, or forms. See [Where you'll find it](/docs/text-editor#where-youll-find-it).
 
-![A rich text field with the Insert elements menu open, listing Code block, Blockquote, Divider, Gallery, Embed, Quote calculator, Form, and Table](/images/template-fields/richtext-field.png)
+![A rich text field with its toolbar, including the Text alignment button, and the Insert elements menu open, listing Code block, Blockquote, Divider, Gallery, Embed, Quote calculator, Form, Table, Columns, and Collapsible section](/images/template-fields/richtext-field.png)
 
-*The Insert elements menu is the **+** button at the end of the toolbar. This store has Galleries, Embeds, the Quote Calculator, and Forms switched on, so all of them appear.*
+*The Insert elements menu is the **+** button near the end of the toolbar. This store has Galleries, Embeds, the Quote Calculator, and Forms switched on, so all of them appear.*
 
 <Callout type="info" title="Galleries in template sections">
   To show a gallery in a template section, look for a [Gallery picker](#gallery-picker) field. If your template doesn't have one, insert the gallery into one of your own pages instead. See [Galleries](/docs/galleries).
@@ -287,7 +287,7 @@ When a section shows things that live elsewhere in your admin (products, testimo
 
 Each template keeps its own field values, so the words, photos, and lists you set up belong to the template you set them up in. After you switch, the editor shows the new template's sections and built-in content, and your old content comes back if you switch back.
 
-A couple of things can carry over: a section you hid stays hidden if the new template has a section with the same name, and a theme preset with the same name in both templates can carry over too. See [Switching Templates](/docs/site-editor#switching-templates) and [Templates](/docs/templates) for the details.
+A couple of things can carry over: a section you hid stays hidden if the new template has a section with the same name, and a color palette or font pairing (from the Style panel) with the same name in both templates can carry over too. See [Switching Templates](/docs/site-editor#switching-templates) and [Templates](/docs/templates) for the details.
 
 ---
 

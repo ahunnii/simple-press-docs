@@ -103,6 +103,7 @@ The checkout page asks for:
 - **Delivery:** if you offer in-store pickup, they choose **Ship to address** or **In-store pickup**. Pickup shows your pickup location and any instructions you've written, and there's no shipping charge.
 - **Shipping address:** if they're shipping. Signed-in shoppers with saved addresses can pick one instead of typing it out.
 - **Discount code:** only when **Coupons & Discounts** is on. They type a code and click **Apply**. If the code works, they see how much they saved. If it doesn't, they see a message explaining why (for example, it expired or the order is below the minimum). Only one code can be used per order. Rewards codes go in this same box. See [Discounts and Coupons](/docs/discounts-and-coupons).
+- **Email me news and offers:** only when **Email Marketing** is on. It's a tick box directly above the pay button, and it starts **unticked**, so shoppers opt in on purpose. If they tick it, they're added to your marketing list once their payment goes through. Leaving it unticked doesn't affect anyone already on your list. The same box appears on the subscription sign-up page (`/subscribe`), above **Continue to secure checkout**. Donation forms don't have it. See [Marketing Emails](#marketing-emails).
 
 There's no box for an order note, gift message, or delivery instructions. Shoppers can't add one at checkout, on Stripe's page, or later. If they need to tell you something ("please gift wrap this"), they can use your Contact page or reply to their order confirmation email. You can then add it to the order yourself as an internal note. See [Orders](/docs/orders#notes).
 
@@ -237,7 +238,7 @@ A few details shoppers sometimes ask about:
 
 - **No "reorder" button.** To buy the same thing again, they add it to the cart from your shop.
 - **Order statuses** shown to shoppers are Open, Completed, Cancelled, and Refunded.
-- **Marketing emails:** the only place a shopper opts in to your marketing emails is the **Preferences** tab, and only after they've placed at least one order. They can opt out at any time there, or with the unsubscribe link in any marketing email. You can see each customer's choice but can't change it. See [Customers](/docs/customers).
+- **Marketing emails:** shoppers can switch marketing emails on or off any time on the **Preferences** tab, once they have a customer record (after an order or a newsletter sign-up). They can also opt in at checkout or with a newsletter sign-up form, and opt out with the unsubscribe link in any marketing email. You can see each customer's choice. You can mark a customer as unsubscribed if they ask you to, but you can't sign anyone up. Anyone who gets an abandoned checkout reminder also gets a customer record in your admin, marked as not subscribed. See [Marketing Emails](#marketing-emails) and [Customers](/docs/customers).
 - **Deleting their data:** if a shopper clicks **Request account deletion** on the Preferences tab, the request shows up on that customer's page in your admin under **Privacy**. You finish the request by anonymizing the customer there. Their past orders stay in your records, anonymized, for tax and legal reasons.
 
 ---
@@ -344,6 +345,63 @@ Your **Contact** page has a form that emails you directly. When you hit Reply, y
 
 ---
 
+## Marketing Emails
+
+When you turn on **Email Marketing**, shoppers get three ways to hear from you, and always a way to stop.
+
+### How shoppers join
+
+- **At checkout.** An unticked box reads **Email me news and offers from** your store name. It sits directly above the pay button on the checkout page (**Continue to Payment** on the Default template), on every template. The subscription sign-up page (`/subscribe`) has it too, above **Continue to secure checkout**.
+- **With a newsletter form.** Some templates have a sign-up form: Elegant (on the homepage and the blog page) and Wealth (in the footer, asking for first name, last name and email). Sledge, Glove and Default don't have one. Under every form is a short note: "We'll email you a link to confirm. Unsubscribe anytime." and a **Privacy policy** link. The link goes to your own privacy policy when you've published one, and to SimplePress's otherwise.
+- **From their account.** The **Marketing Emails** switch on the **Preferences** tab, next to the sentence "Receive news, promotions, and updates from [store]." When they flip it, they see "You're now subscribed to marketing emails." or "You've unsubscribed from marketing emails." The switch keeps working even if you turn Email Marketing off.
+
+If Email Marketing is off, the checkout box isn't shown. Elegant's sign-up form says "Newsletter sign-ups aren't open yet — thanks for your interest, and please check back soon." and Wealth's shows a short "coming soon" message.
+
+### The newsletter confirmation
+
+Signing up with a form is a two-step process, so nobody can be added by someone else typing their address.
+
+1. After the shopper enters their email, the form says "Check your inbox to confirm your subscription." If someone tries too many times, they see "Too many attempts. Please try again in a little while."
+2. They get an email with the subject **Confirm your subscription to** your store name. The heading is "Confirm your subscription". It says "Someone asked to get news and offers from [store] at this email address. Click the button below to confirm it was you." and has a **Confirm subscription** button. At the bottom: "This link expires in 7 days. If you didn't sign up, you can ignore this email and you won't be subscribed."
+3. The button opens a page on your site: "Confirm your subscription to [store]" and "Press the button to get news and offers from [store] at [email]." They press **Confirm subscription** again and see "You're subscribed" and "Thanks! You'll now get news and offers from [store]. You can unsubscribe from any email we send."
+
+Until they press that button, they're not on your list. If they unsubscribe after asking for the email, the old link no longer works.
+
+### Unsubscribing and resubscribing
+
+Every marketing email has an **Unsubscribe** link at the bottom, and most mail apps also show their own one-click **Unsubscribe** button at the top. Abandoned checkout reminders have both too.
+
+- **The link in the email.** Opening it changes nothing yet. The shopper lands on a page with your store's logo (or your store's name if you have no logo) that asks "Unsubscribe from [store]?" and says "Click to stop marketing emails from [store]. Order and account emails aren't affected." They press **Unsubscribe**, and only then are they unsubscribed. This is true for abandoned checkout reminders as well: someone who never subscribed to your list still sees the page, and pressing **Unsubscribe** stops future reminders to their address.
+- **The button in the mail app.** It works in the background with no page. The shopper is unsubscribed straight away.
+
+![The unsubscribe confirm page with the store's logo, the heading "Unsubscribe from [store]?" and an Unsubscribe button](/images/for-your-customers/unsubscribe-confirm.png)
+
+After they press **Unsubscribe**, the page says "You're unsubscribed from [store] emails" and "You won't receive any more marketing emails from [store]. Order and account emails aren't affected." If they clicked by accident, there's a **Resubscribe** button under "Changed your mind?". It puts them back on your list, and the page says "Welcome back". Resubscribe only shows while Email Marketing is on, and only to people who had subscribed. Someone who only received a reminder isn't offered it. They would sign up again on your site.
+
+![The page after unsubscribing, with the "You're unsubscribed" heading and the Resubscribe button](/images/for-your-customers/unsubscribed-done.png)
+
+Unsubscribing also puts the address on your do-not-email list, so no more marketing emails or abandoned checkout reminders go to it. See [Email Marketing](/docs/email-marketing#unsubscribing).
+
+Here is every page the link can show:
+
+| Page | What it says | Notes |
+| --- | --- | --- |
+| Unsubscribe confirm | "Unsubscribe from [store]?" and "Click to stop marketing emails from [store]. Order and account emails aren't affected." | **Unsubscribe** button ("Unsubscribing..." while it works). |
+| Unsubscribed | "You're unsubscribed from [store] emails" and "You won't receive any more marketing emails from [store]. Order and account emails aren't affected." | "Changed your mind?" and **Resubscribe**, only when the feature is on and only for people who had subscribed. |
+| Resubscribed | "Welcome back" and "You're subscribed to [store] emails again." | |
+| Newsletter confirm | "Confirm your subscription to [store]" and "Press the button to get news and offers from [store] at [email]." | **Confirm subscription**, then "You're subscribed". |
+| Invalid link | "This link isn't valid" and "Please use the link from the latest email we sent you." | The link was changed or damaged. |
+| Expired link | "This link has expired" and "Confirmation links only last 7 days. Sign up again on the [store] website to get a fresh one." | Newsletter confirmation links only. |
+| Email sign-ups off | "Email sign-up isn't available" and "[store] isn't accepting email sign-ups right now." | Email Marketing is off. |
+
+![The expired link page saying "This link has expired" and that confirmation links only last 7 days](/images/for-your-customers/link-expired.png)
+
+A link that is missing its code or has been changed shows a plain page headed "Invalid link": "This unsubscribe link is missing a token. Please use the link from your email." (or "...invalid or has been tampered with. Please contact support if you believe this is an error."). The same page appears if a shopper opens the sample unsubscribe link in a preview in your admin. If a link is one of your test emails, the page says "This is a test email".
+
+---
+
+---
+
 ## Emails Your Customers Receive
 
 Every customer email shows your logo (or your business name, if you haven't added a logo). It comes from "*Your Business* via SimplePress", and replies go to the **Owner Email** in your General settings (invoice, form, and quote emails use your **Support Email** instead). The two sign-in emails, **Verify your email** and **Reset your password**, are the exception: they have no reply address, so replies don't reach you.
@@ -360,7 +418,7 @@ You can preview most of these emails, and change the subject line and opening pa
 | **Ready for Pickup**                    | You mark a pickup order ready                                                                    | No                                                                                      |
 | **Order Refunded**                      | You issue a full or partial refund                                                               | Yes, untick **Notify customer by email** when refunding                                 |
 | **Order Cancelled**                     | You cancel an order                                                                              | Yes, untick **Notify customer by email** when cancelling                                |
-| **Abandoned Checkout**                  | A shopper reached the payment page but didn't pay within 30 minutes                              | It's **off** until you turn on **Send this email** for it in Notification Emails        |
+| **Abandoned Checkout**                  | A shopper reached the payment page but didn't pay within 30 minutes. It has an **Unsubscribe** link, isn't sent to anyone who unsubscribed, and needs your store's full mailing address | It's **off** until you turn on **Send this email** for it in Notification Emails        |
 | **Order status link**                   | A shopper asks for one on the `/order-status` page                                               | No                                                                                      |
 | **Back in stock**                       | A product someone asked about can be bought again                                                | Turn off **Back-in-Stock Notifications**                                                |
 | **Subscription confirmed**              | A shopper subscribes                                                                             | No                                                                                      |
@@ -378,7 +436,8 @@ You can preview most of these emails, and change the subject line and opening pa
 | **Quote request received**              | Someone submits a quote calculator                                                               | Yes, turn off **Email the visitor a confirmation** in that calculator's settings        |
 | **Final quote**                         | You send a final quote                                                                           | Only sent when you send it                                                              |
 | **Testimonial invite**                  | You send a testimonial invite                                                                    | Only sent when you send it                                                              |
-| **Marketing emails**                    | You send a broadcast with **Email Marketing** (only to customers who opted in)                   | Only sent when you send it. Every one has an unsubscribe link                           |
+| **Confirm your subscription**           | A visitor fills in a newsletter sign-up form on your site (Elegant and Wealth templates)         | No, but they aren't signed up until they click the button in it                         |
+| **Marketing emails**                    | You send a campaign with **Email Marketing** (only to customers who opted in)                    | Only sent when you send it. Every one has an unsubscribe link                           |
 
 ---
 
@@ -426,7 +485,13 @@ Sign in, open **Rewards** in your account, and redeem a reward. You'll get a one
 On the product page, enter your email in the **Notify me** box. We'll email you once when it's available again.
 
 **"How do I stop your marketing emails?"**
-Click **Unsubscribe** at the bottom of any marketing email, or sign in and turn off marketing emails on the **Preferences** tab in your account.
+Click **Unsubscribe** at the bottom of any marketing email, then press the **Unsubscribe** button on the page that opens. You'll see a page confirming it. You can also sign in and turn off marketing emails on the **Preferences** tab in your account.
+
+**"I unsubscribed by mistake."**
+On the page you see after pressing **Unsubscribe**, press **Resubscribe**. Or sign in and switch on marketing emails on the **Preferences** tab.
+
+**"I signed up for the newsletter but nothing came."**
+Check your spam folder for an email called **Confirm your subscription to** the store's name, and click the button in it, then press **Confirm subscription** on the page that opens. The link lasts 7 days. After that, sign up again.
 
 **"Please delete my account and data."**
 Sign in, go to **Preferences**, and click **Request account deletion**, or just ask us. Your personal details are removed, but past orders are kept, anonymized, for tax records.

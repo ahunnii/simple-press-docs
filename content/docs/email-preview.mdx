@@ -26,7 +26,7 @@ You can't send yourself a test email from here, and you can't rewrite the body o
 
 In your admin sidebar, open **Content → Notification Emails**. You can also type "notification" into the search box at the top of the admin to jump straight there.
 
-The page is titled **Notification Emails**: "Preview your transactional emails and customize the subject line and intro text of customer-facing ones". "Transactional" just means automatic emails that go out when something happens, such as an order or a payment. They are not marketing emails. For newsletters, see [Email Marketing](/docs/email-marketing).
+The page is titled **Notification Emails**: "Preview your transactional emails and customize the subject line and intro text of customer-facing ones". "Transactional" just means automatic emails that go out when something happens, such as an order or a payment. They are not marketing emails, with one exception: the **Abandoned Checkout** reminder is listed here, but it is sent like a marketing email. It has an **Unsubscribe** link and your mailing address in its footer, and it isn't sent to anyone who unsubscribed. For newsletters, see [Email Marketing](/docs/email-marketing).
 
 The page has two columns:
 
@@ -71,7 +71,7 @@ The tables below group the emails by topic. On the page itself, the buttons sit 
 | **Order Cancelled** | Customer | You cancel an order and leave **Notify customer by email** ticked. | Subject and intro |
 | **Bank Payment Processing** | Customer | A shopper pays by bank (such as ACH Direct Debit) and the money hasn't cleared yet. The order appears once it clears. See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods). | Subject and intro |
 | **Bank Payment Failed** | Customer | A bank payment fails. No order is created, and the shopper is invited to order again. | Subject and intro |
-| **Abandoned Checkout** | Customer | A shopper reached the payment page, left an email address, and didn't pay within about 30 minutes. **Off until you turn it on.** | Subject and intro, plus the **Send this email** switch |
+| **Abandoned Checkout** | Customer | A shopper reached the payment page, left an email address, and didn't pay within about 30 minutes. **Off until you turn it on.** It needs your full business address, and it isn't sent to anyone who has unsubscribed. | Subject and intro, plus the **Send this email** switch |
 | **Back in Stock** | Customer | A sold-out item that a shopper asked about can be bought again. | No |
 
 The **Order Confirmation (pickup)** button is a second view of the same email, so changes you make to one apply to both.
@@ -156,7 +156,7 @@ See [Rewards Program](/docs/rewards).
 | **Reset Password** | Whoever asked | They use **Forgot password**. | No |
 
 <Callout type="info" title="Not every email is on this page">
-  A few other automatic emails don't have a button here: payment dispute alerts, payments paused, new review alerts, the two inventory item alerts, new form entries, donation notices, the confirmation a form visitor can get, team invitations, order status links, and the test send in Email Marketing. You can't preview or reword them from this page. They are all listed in [Emails You Receive](#emails-you-receive) or in the customer emails guide.
+  A few other automatic emails don't have a button here: payment dispute alerts, payments paused, new review alerts, the two inventory item alerts, new form entries, donation notices, the confirmation a form visitor can get, team invitations, order status links, the campaigns you send and their test sends in Email Marketing, and the newsletter sign-up confirmation. You can't preview or reword them from this page. They are all listed in [Emails You Receive](#emails-you-receive) or in the customer emails guide.
 </Callout>
 
 ---
@@ -191,7 +191,7 @@ Here is every automatic email that comes to **you** (or your team), in one place
 | **Invoices past due** | A daily check finds invoices that went overdue in the last 7 days. You get one email per store. See [Invoices](/docs/invoices). | Owner Email | Yes: **Email me when an invoice becomes past due** in your invoice settings (on by default) |
 | **Weekly invoice digest** | Monday morning in your store's time zone. Skipped if there is nothing to report. | Owner Email | Yes: **Weekly summary every Monday morning** in your invoice settings (on by default) |
 | **Team invitation** | You invite someone to your team. The invitation is good for 14 days. | The person you invited. Replies go to your Owner Email. | No |
-| **Broadcast test** | You click **Send test to myself** in Email Marketing. | You (the signed-in user) | It only happens when you ask |
+| **Campaign test** | You click **Send test to myself** on a campaign in Email Marketing. | You (the signed-in user) | It only happens when you ask |
 | **Verify email and reset password** | You create an account or use **Forgot password**. | You | No |
 
 <Callout type="info" title="Switching these off">
@@ -284,7 +284,15 @@ The switch takes effect right away. You'll see "Abandoned checkout emails are no
 
 The switch controls whether the email goes out at all, not just how it looks. While it's off, shoppers who leave checkout never get a reminder, no matter what you've written in the subject and intro.
 
-![The Customize "Abandoned Checkout" card with the Send this email switch, the Subject and Intro text fields and the Save changes and Reset to default buttons, above a preview of the email](/images/email-marketing/abandoned-checkout-settings.png)
+Under the switch is a note: "Reminders include an unsubscribe link and your mailing address, and are not sent to people who unsubscribed. Add a full mailing address in Business settings or reminders won't send."
+
+If you haven't set a full mailing address, an orange **Business address needed** warning appears too: "Reminders won't send until you add a full mailing address: a street, city, and state or ZIP, or a PO box." Click **Go to business settings** to add it. See [Business address](/docs/general-settings#business-address).
+
+![The Customize "Abandoned Checkout" card with the Send this email switch, the note about the unsubscribe link and mailing address, the Subject and Intro text fields and the Save changes and Reset to default buttons, above a preview of the email](/images/email-marketing/abandoned-settings-note.png)
+
+![The orange Business address needed warning with a Go to business settings button](/images/email-marketing/abandoned-address-warning.png)
+
+The preview shows the footer a real reminder carries: an **Unsubscribe** link, then your store name and mailing address. The address line only shows if you've set an address. The **Unsubscribe** link in the preview is a sample with no code in it, so clicking it opens a plain **Invalid link** page that says "This unsubscribe link is missing a token. Please use the link from your email." Real reminders have a working link.
 
 For when it sends, who it reaches, and what it says, see [Abandoned Checkout Emails](/docs/email-marketing#abandoned-checkout-emails) in Email Marketing.
 
