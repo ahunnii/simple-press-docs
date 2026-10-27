@@ -1,11 +1,11 @@
 ---
 title: Media Library
-description: Browse, upload, download, and clean up every image and video in your store.
+description: Browse, upload, download, and clean up every image, video, and PDF in your store.
 ---
 
 ## Overview
 
-The Media Library shows every image and video uploaded to your store, whether it was added on a product, a gallery, a page, or here directly. Use it to find, download, and clean up files. You can also upload a batch of photos up front and pick them later wherever you need them.
+The Media Library shows every image, video, and PDF uploaded to your store, whether it was added on a product, a gallery, a page, or here directly. Use it to find, download, and clean up files. You can also upload a batch of photos up front and pick them later wherever you need them.
 
 ---
 
@@ -14,7 +14,7 @@ The Media Library shows every image and video uploaded to your store, whether it
 Go to **Media Library** in the admin sidebar. Files appear as a grid of cards with a thumbnail, file name, size, upload date, and a usage badge.
 
 - **Filters:** the **Filters** button opens the Type, Usage, and Sort menus.
-- **Type:** Images, Videos, Logo, Favicon, Testimonials, Gallery, or Other
+- **Type:** Images, Videos, Documents, Logo, Favicon, Testimonials, Gallery, or Other
 - **Usage:** each card shows one badge:
   - **In use (N):** the file is shown in N places on your store.
   - **Inactive template:** only used by a template you're no longer using.
@@ -22,8 +22,11 @@ Go to **Media Library** in the admin sidebar. Files appear as a grid of cards wi
 - **Usage filter:** **In Use**, **Inactive template only**, or **Unused**.
 - **Sort:** Newest first, Oldest first, Name A–Z, Name Z–A, Largest file, or Smallest file. The library shows 24 files per page.
 - **Search:** by file name, or by where a file is used. For example, searching a product's name finds its photos.
+- **PDFs** show under the **Documents** filter as a PDF tile. Each tile has **Open** (opens the PDF in a new browser tab), **Copy link**, **Download**, and **Delete**.
 
 Photos you add to the choices in [product options](/docs/product-options) count as in use too. Their usage reads "Product option “Charms”", with the choice's name. Hover over a usage badge to see exactly where a file is used. Each entry in that list links to the place it's used.
+
+Product videos uploaded from a product are kept in the library too, so you can reuse them (MP4, WebM or MOV). Their usage reads **Product video**, and a video's poster image reads **Product video poster**.
 
 ![The Media Library grid with usage badges, and the hover card listing where a file is used](/images/media-library/media-grid.png)
 
@@ -31,12 +34,12 @@ Photos you add to the choices in [product options](/docs/product-options) count 
 
 ## Uploading Images
 
-Owners and managers can click **Upload images** to add photos straight to the library.
+Owners and managers can click **Upload images or PDFs** to add photos and PDFs straight to the library.
 
 - Drag and drop images into the upload area, or click to choose them. The dialog reads **Up to 50 images at a time, 5MB each**.
 - Up to **50 images** at a time. If you pick more, the first 50 upload and a notice tells you to add the rest afterwards.
 - Large phone photos are resized automatically and HEIC photos are converted. Any image still over 5MB is skipped and listed by name.
-- Only images can be uploaded here. Other files are skipped with a message. Videos are still added where they're used, such as an event or a video page.
+- Images and PDFs can be uploaded here. Other files are skipped with a message. Videos are still added where they're used, such as an event or a video page. PDFs have their own limits, see [Uploading PDFs](#uploading-pdfs).
 - Keep the window open until it finishes. It shows **Preparing photos…** while your photos get ready, then **Uploading… x of y done** with a progress bar.
 - If every photo uploads, the window closes and your new images appear at the top of the library. If some don't, the window stays open with a summary: how many uploaded, plus the lists **Too large (over 5MB) — skipped** and **Failed to upload**. Click **Done** when you've read it.
 
@@ -48,17 +51,35 @@ Owners and managers can click **Upload images** to add photos straight to the li
 
 ---
 
+## Uploading PDFs
+
+Upload PDFs such as menus, price lists, forms, or brochures the same way you upload photos. Click **Upload images or PDFs**, then drop your PDFs into the upload area or click to choose them.
+
+- Up to **5 PDFs** at a time, **20MB** each.
+- A file that isn't really a PDF is rejected with "That file isn't a real PDF."
+- Your file name stays in the link, so a file named `annual-report-2025.pdf` gets a link ending in `-annual-report-2025.pdf`.
+
+---
+
 ## Using Library Images
 
 Anywhere you can add an image in the admin, open the upload menu and choose **Choose from library**. That includes product images, collection images, galleries, pages, blog posts, [services](/docs/services) (cover images and service item images), events, SEO images, the homepage popup image, your logo and favicon, template content fields, and videos, including a video inserted into rich text. It also appears for pictures inside the text editor: pages, blog posts, policies, the popup message, a product's **Additional information**, Site Editor text fields, and the Site Editor page panel. The banner message is the exception, since its picture box has no library option. Product images and galleries let you select several at once.
 
 The same image can be used in as many places as you like.
 
+## Linking to a PDF
+
+Link to a PDF you've uploaded instead of uploading it again. Wherever you see a **Choose a file** button, it lists your PDFs, searchable and newest first. Click **Upload a PDF** in that list to add a new one on the spot. Picking a PDF fills in the link for you. The button appears in three places:
+
+- **Text editor:** in the link box, open **Link to a page on your site** and choose **Link to a file**. See [Text Editor](/docs/text-editor#linking-to-a-pdf).
+- **Template link fields:** every link field in [Template Fields](/docs/template-fields) and the [Site Editor](/docs/site-editor) has **Choose a file**, including link fields inside lists. The Impact page's **PDF link** is one example.
+- **Navigation:** menu items, sub-items, and footer quick links each have **Choose a file**. See [Navigation](/docs/navigation).
+
 ---
 
 ## How Files Are Kept
 
-- **Images uploaded in the Media Library stay until you delete them here.** Removing one from a product or gallery, or deleting that product or gallery, never removes it from your library. Library uploads are never cleaned up automatically.
+- **Images and PDFs uploaded in the Media Library stay until you delete them here.** Removing one from a product or gallery, or deleting that product or gallery, never removes it from your library. Library uploads are never cleaned up automatically.
 - **Images uploaded directly on a product or gallery** are cleaned up automatically once nothing uses them any more.
 - **Photos attached to Site Editor notes** are kept separately and never show in the library.
 
@@ -68,6 +89,7 @@ The same image can be used in as many places as you like.
 
 - **Download** saves a copy of the file to your computer. The button reads **Getting link…** while the file is prepared.
 - **Delete** is only available for files that aren't in use by your active setup. For a file that is in use, the button is disabled and hovering shows **Cannot delete — file is in use by your active setup**. Remove the file from everywhere it's used first; the usage badge shows where. Clicking **Delete** on any other file asks **Delete file?** before it's removed. Deleting is permanent.
+- **A PDF is in use** when it's linked from page text, a menu or footer link, a template field, the banner or popup, or an email campaign. Its **Delete** button stays disabled until those links are removed. That way links never break, including links in emails people already received.
 - **A file used only by an inactive template** can be deleted. Deleting it also clears the leftover template fields that pointed to it.
 - **Your current logo and favicon** are protected. Replace them by uploading a new one in branding settings. An old logo or favicon file you've replaced (for example a logo.png after you uploaded a logo.svg) can be deleted like any other file.
 - **Bulk delete** (owners only): tick the cards, or use **Select all on page**, then click **Delete**. When more files match your filters, a **Select all N files** option also appears. You can delete up to 25 files at a time, and the Delete button is disabled if more than 25 are selected. Any selected files that are in use are skipped and stay selected, so you can see which ones survived.

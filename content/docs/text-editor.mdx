@@ -7,13 +7,15 @@ description: Format text, add pictures, links, and buttons, and lay out rows, co
 
 The text editor is the writing box you use all over SimplePress. It's where you write your pages, blog posts, and policies, and it shows up in the Site Editor and on product pages too. It works much like a word processor: type your text, then use the toolbar across the top to style it.
 
-Besides headings, lists, and colors, the editor lets you:
+Besides headings and lists, the editor lets you:
 
 - Add **pictures**, size them, and describe them for screen readers
 - Add **links** to your own pages or other websites, and turn a link into a **button**
 - Lay content out in **rows and columns**, such as a photo beside a paragraph
 - Tuck details into **collapsible sections** that visitors click to open
 - Add **tables**, and extras like galleries, embeds, quote calculators, and forms
+- Move paragraphs, pictures, rows, and sections up or down the page
+- Type **/** on an empty line to open a quick menu of everything you can add
 
 How your text looks on your live site depends on your template. SimplePress usually builds each business its own custom template, and **Default**, **Modern**, and **Elegant** are ready-made starting points. The editor itself works the same everywhere. The pictures on this page were taken on the Default template.
 
@@ -44,7 +46,7 @@ A few things to know:
 
 - **A product's Description is plain text**, not this editor. Use **Additional information** on the **Product page** tab for formatted text, pictures, and rows.
 - If a row, collapsible section, or space already exists in a box that doesn't offer them, it still shows on your site.
-- **The email campaign message uses an email-safe version.** Email programs can't show everything a web page can, so it has fewer tools: **Heading 1** to **Heading 3** only, no **Code** in **More formatting**, a set of email-safe text colors, and only **Blockquote** and **Divider** in **Insert elements** (no tables or code blocks). Links, buttons, pictures, lists, and text alignment all still work. See [Email Marketing](/docs/email-marketing).
+- **The email campaign message uses an email-safe version.** Email programs can't show everything a web page can, so it has fewer tools: **Heading 1** to **Heading 3** only, no **Code** in **More formatting**, a **Text color** menu with email-safe colors, and a shorter **Insert elements** menu: **Blockquote**, **Divider**, **Button**, **Products** (product cards from your shop) and **Space** (no tables or code blocks). Links, buttons, pictures, lists, and text alignment all still work. **Button** and **Products** are only in email. See [Building your email](/docs/email-marketing#building-your-email).
 
 ---
 
@@ -52,16 +54,16 @@ A few things to know:
 
 The toolbar runs along the top of the editor. On a narrow screen it scrolls sideways, so swipe or scroll it to see the rest. Hover over any button to see its name and keyboard shortcut.
 
-![The text editor toolbar, from left to right: the Text styles menu, Bold, Italic, Underline, the More formatting menu, Text color, the Lists menu, the Text alignment menu, Link, Image, Video, and the plus-shaped Insert elements menu](/images/text-editor/toolbar.png)
+![The text editor toolbar, from left to right: Undo, Redo, the Text styles menu, Bold, Italic, Underline, the More formatting menu, the Lists menu, the Text alignment menu, Link, Image, Video, and the plus-shaped Insert elements menu](/images/text-editor/toolbar.png)
 
 From left to right:
 
 | Button | What it does |
 | --- | --- |
+| **Undo**, **Redo** | Takes back your last change, or puts it back. The keyboard shortcuts are ⌘Z and ⌘⇧Z (Ctrl+Z and Ctrl+Shift+Z on Windows). These buttons are handy on phones and tablets, which don't have a keyboard shortcut. |
 | **Text styles** | Switches the line between **Normal Text** and **Heading 1** to **Heading 6** |
 | **Bold**, **Italic**, **Underline** | Styles the selected words |
-| **More formatting** (three dots) | **Strikethrough**, **Code**, and **Clear formatting** |
-| **Text color** | Colors the selected words |
+| **More formatting** (three dots) | **Strikethrough**, **Code**, **Highlight**, **Superscript**, **Subscript**, and **Clear formatting** |
 | **Lists** | **Numbered list** or **Bullet list** |
 | **Text alignment** | **Align left**, **Align center**, or **Align right** |
 | **Link** (tooltip: Insert link) | Adds or changes a link. See [Links](#links). |
@@ -85,14 +87,15 @@ Most pages already show their title as the main heading, so start your own headi
 Select some words and click **Bold**, **Italic**, or **Underline**. The **More formatting** menu has:
 
 - **Strikethrough**, for crossed-out text like an old price
+- **Highlight**, for a soft yellow background behind the words
+- **Superscript**, for small raised text, like 1st or m²
+- **Subscript**, for small lowered text, like H₂O
 - **Code**, for short bits of code or text you want shown exactly
 - **Clear formatting**, which takes all of these styles off the selected words
 
-### Text color
+Highlight, Superscript, and Subscript show on your site and in email campaigns.
 
-Select some words, click **Text color**, and pick a swatch. There are three rows of seven colors: strong colors, softer colors, and very light ones. **Default** puts the words back to your template's normal text color.
-
-Use color sparingly. Light colors can be hard to read on a light background.
+Text on your website always uses your template's colors, so pages, products, and blog posts don't have a text color button. Colored text that was already on your pages isn't deleted, but it shows in your template's colors. Only the email campaign editor has **Text color**, with a set of email-safe colors.
 
 ### Lists
 
@@ -108,11 +111,30 @@ Alignment works on paragraphs and headings. It doesn't move pictures. To move a 
 
 ### Adding space
 
-Press Enter on an empty line to add a blank line between paragraphs, pictures, or other blocks. Each blank line shows on your site as one line of space. Press Shift+Enter to start a new line inside the same paragraph, with no extra gap. Blank lines at the very start or end of the page don't show on your site.
+Press Enter on an empty line to add a blank line between paragraphs, pictures, or other blocks. Each blank line shows on your site as one line of space. Press Shift+Enter to start a new line inside the same paragraph, with no extra gap. Blank lines at the very start or end of the page don't show on your site, and neither does the empty line at the bottom of a column or collapsible section.
 
 For a set gap, open **Insert elements** (the **+** menu) and choose **Space**. It shows in the editor as a striped box. Click it to pick **Small**, **Medium**, or **Large**, or click the trash icon to remove it. On your site the box is invisible: only the space shows. **Large** gets a little shorter on phones. You can also add a space inside a row column or a collapsible section.
 
 ![A selected Space block in the editor, a striped box labelled Space between a paragraph and a row, with its toolbar above it showing Small, Medium (selected) and Large, and a red trash icon](/images/text-editor/spacer-bubble.png)
+
+---
+
+## Moving things around
+
+Point at any paragraph, heading, list, picture, row, or collapsible section, and two small buttons appear in the left margin:
+
+- **+** adds a fresh line right below it and opens the quick insert menu (see [Quick insert](#quick-insert))
+- A dotted grip (⋮⋮) labelled **Drag to move** moves that piece. Drag the grip up or down the page. You can drop the piece into a column or between columns.
+
+Click the grip to open a small menu with **Move up**, **Move down**, **Duplicate**, and **Delete**.
+
+To move the piece your cursor is in without the mouse, press ⌥↑ or ⌥↓ (Alt+↑ or Alt+↓ on Windows).
+
+To move a whole row, point at the row's edge until its buttons appear. Rows don't nest, so you can't drop a row inside a column of another row.
+
+<Callout type="info" title="Phones and tablets">
+  These buttons don't appear on touch screens, so you can't drag pieces around on a phone or tablet. To move something there, cut it and paste it where you want it.
+</Callout>
 
 ---
 
@@ -136,6 +158,10 @@ Photos can be up to 25MB. Big photos are shrunk automatically, so you don't need
 - **"[name] is too big"** means the file is over 25MB.
 
 New pictures go in at **full width, centered**. While a picture is uploading, the save button reads **Uploading…** and waits until it's done.
+
+### Typing after a picture
+
+Every column and collapsible section always keeps an empty line at the bottom, so you can click below the last picture and start typing. That empty line doesn't show on your site. To add a line right below any piece, point at it and click the **+** button in the left margin (see [Moving things around](#moving-things-around)).
 
 ### Sizing and placing a picture
 
@@ -228,6 +254,10 @@ Links saved as a path, like `/contact`, keep working if you move your store to a
 
 Links to your own pages open in the same tab. Turn on **Open in New Tab** if you want one to open in a new tab instead.
 
+### Linking to a PDF
+
+To link to a PDF, open **Link to a page on your site** and choose **Link to a file**. Pick one of your PDFs from the list, or click **Upload a PDF** to add a new one. The **URL** fills in, the link text fills in if it's empty, and **Open in New Tab** turns on. See [Media Library](/docs/media-library#linking-to-a-pdf).
+
 ### Links to other websites
 
 When you type an address on another website, **Open in New Tab** turns on by itself, so visitors don't lose your site. Turn it off if you'd rather the link open in the same tab. Older links to other websites, saved before this switch worked for them, still open in a new tab, and their switch shows on.
@@ -299,12 +329,14 @@ You can change the layout at any time. Nothing gets lost:
 - **More columns**: empty columns are added at the end.
 
 <Callout type="warn" title="Remove row deletes everything in it">
-  The red **Remove row** button takes out the whole row **and everything inside it**, including text and pictures. To keep the content, move it out of the row first. If you remove a row by mistake, press ⌘Z (Ctrl+Z on Windows) right away to undo.
+  The red **Remove row** button takes out the whole row **and everything inside it**, including text and pictures. To keep the content, move it out of the row first. If you remove a row by mistake, click **Undo** in the toolbar (or press ⌘Z, or Ctrl+Z on Windows) right away.
 </Callout>
 
 ### Pictures in a column
 
 A picture in a column sizes against its column, not the whole page. **Full** fills the column, and **M** is half the column. So a **Full** picture in a narrow column is still small on the page.
+
+Each column keeps an empty line under its last picture, so you can keep typing there. See [Typing after a picture](#typing-after-a-picture).
 
 ### How rows look on phones
 
@@ -385,7 +417,7 @@ Tables suit things like price lists or class schedules. Keep them to a few colum
 
 ## Insert elements
 
-The **Insert elements** menu is the **+** button at the end of the toolbar.
+The **Insert elements** menu is the **+** button at the end of the toolbar. You can also add most of the same things by typing **/** on an empty line (see [Quick insert](#quick-insert)).
 
 ![The Insert elements menu open, listing Code block, Blockquote, Divider, Gallery, Embed, Quote calculator, Form, Table, Columns, Collapsible section and Space](/images/text-editor/insert-elements-menu.png)
 
@@ -417,6 +449,21 @@ If you insert one of these but never finish choosing what it shows (for example,
 
 ---
 
+## Quick insert
+
+On an empty line, type `/` to open a menu of everything you can add: **Heading 1** to **Heading 3**, **Bullet list**, **Numbered list**, **Blockquote**, **Code block**, **Divider**, **Image**, **Video**, **Gallery**, **Embed**, **Quote calculator**, **Form**, **Table**, **Columns**, **Collapsible section**, and **Space**. Only the items turned on for that field appear.
+
+![The quick insert menu open under a line where / has just been typed, with the Text group listing Heading 1 (highlighted), Heading 2, Heading 3, Bullet list, Numbered list, Blockquote and Code block, and more items further down the list](/images/text-editor/slash-menu.png)
+
+- Keep typing to narrow the list. For example, type `/tab` for **Table**.
+- Use ↑ and ↓ to move through the list, and press Enter to pick one.
+- Press Esc to close the menu without adding anything.
+- **Image** and **Video** open the same picture and video windows as the toolbar buttons.
+
+Inside a column, **Columns** isn't offered, because rows don't nest. In the email campaign editor, the list is shorter: **Heading 1** to **3**, lists, **Blockquote**, **Divider**, **Image**, **Button**, **Products** and **Space**.
+
+---
+
 ## Keyboard shortcuts
 
 These shortcuts are for a Mac. On Windows, use Ctrl instead of ⌘ and Alt instead of ⌥.
@@ -428,6 +475,9 @@ These shortcuts are for a Mac. On Windows, use Ctrl instead of ⌘ and Alt inste
 | `⌘U` | Underline |
 | `⌘⇧S` | Strikethrough |
 | `⌘E` | Code |
+| `⌘⇧H` | Highlight |
+| `⌘.` | Superscript |
+| `⌘,` | Subscript |
 | `⌘\` | Clear formatting |
 | `⌘⌥0` | Normal Text |
 | `⌘⌥1` to `⌘⌥6` | Heading 1 to Heading 6 |
@@ -441,6 +491,8 @@ These shortcuts are for a Mac. On Windows, use Ctrl instead of ⌘ and Alt inste
 | `⌘⌥-` | Divider |
 | `⌘Z` | Undo |
 | `⌘⇧Z` | Redo |
+| `⌥↑` | Move the piece your cursor is in up (Alt+↑ on Windows) |
+| `⌥↓` | Move the piece your cursor is in down (Alt+↓ on Windows) |
 
 ---
 
@@ -448,7 +500,8 @@ These shortcuts are for a Mac. On Windows, use Ctrl instead of ⌘ and Alt inste
 
 **You can:**
 
-- Use headings, bold, italic, underline, strikethrough, colors, lists, and alignment
+- Use headings, bold, italic, underline, strikethrough, highlights, superscript and subscript, lists, and alignment
+- Move paragraphs, pictures, rows, and sections up or down the page on a computer, or use **Cut** and paste on any device
 - Add pictures from your device, your Media Library, or a web link, and set them to S, M, L, or Full
 - Add alt text to every picture
 - Link to your own pages, blog posts, other websites, email addresses, phone numbers, and text messages
@@ -457,7 +510,7 @@ These shortcuts are for a Mac. On Windows, use Ctrl instead of ⌘ and Alt inste
 - Lay out content in rows of 2, 3, or 4 columns, or narrow and wide pairs, and change the layout without losing anything
 - Add collapsible sections, tables, quotes, dividers, and code blocks
 - Add galleries, embeds, quote calculators, and forms when those features are on
-- Undo and redo with ⌘Z and ⌘⇧Z
+- Undo and redo with the **Undo** and **Redo** buttons, or with ⌘Z and ⌘⇧Z
 
 **You cannot:**
 
@@ -466,6 +519,8 @@ These shortcuts are for a Mac. On Windows, use Ctrl instead of ⌘ and Alt inste
 - Pick an exact pixel width for a picture. Use S, M, L, Full, or the drag handles.
 - Move a picture with the **Text alignment** menu. Use the picture's own toolbar.
 - Change a button's color or pick colors per button. Buttons follow your template.
+- Pick text colors on your website. Your template sets them. Only the email campaign editor has **Text color**.
+- Drag pieces around the page on a phone or tablet
 - Add rows or collapsible sections to policies, the banner, the popup, or the maintenance message
 - Use **Page width** on blog posts or policies. It's only on your own custom pages.
 - Use this editor for a product's **Description**, which is plain text
@@ -492,10 +547,13 @@ Click the link, choose **Edit link**, turn off **Open in New Tab**, and click **
 They're still there. Pictures added before the S, M, L, and Full sizes keep their exact width until you click a size or drag a handle. After that they use the new sizes, which also fit phones better.
 
 **Can I undo a mistake?**
-Yes. Press ⌘Z (Ctrl+Z on Windows) to undo, and ⌘⇧Z to redo. This works while you're still in the editor, before you leave the page. In the page editor, **More Options → Reset** also throws away everything since your last save.
+Yes. Click **Undo** at the start of the toolbar, or press ⌘Z (Ctrl+Z on Windows). **Redo** and ⌘⇧Z (Ctrl+Shift+Z on Windows) put back what you undid. On a phone or tablet, use the **Undo** and **Redo** buttons. This works while you're still in the editor, before you leave the page. In the page editor, **More Options → Reset** also throws away everything since your last save.
 
 **I removed a row and lost what was in it.**
-**Remove row** deletes everything in the row. Press ⌘Z right away to bring it back. If you've already saved, re-add the content by hand.
+**Remove row** deletes everything in the row. Click **Undo** in the toolbar, or press ⌘Z (Ctrl+Z on Windows), right away to bring it back. If you've already saved, re-add the content by hand.
+
+**I don't see the + and ⋮⋮ buttons in the margin, or I can't drag things around.**
+Those buttons don't appear on touch screens such as phones and tablets. To move something there, cut it and paste it where you want it. On a computer, point at the piece to see the buttons. See [Moving things around](#moving-things-around).
 
 **Why can't I find Gallery or Form in the Insert elements menu?**
 Their features are off, or you're in an editor that doesn't offer them. Turn them on in **Settings → Features** (see [Feature Flags](/docs/feature-flags)).

@@ -1,19 +1,21 @@
 ---
 title: Email Marketing
-description: Write a campaign, send it to customers who opted in, and see how it went. Also covers the abandoned checkout email for shoppers who leave before paying.
+description: Write a campaign, choose who gets it, send it now or schedule it, and see how it went. Also covers your email style and the abandoned checkout email for shoppers who leave before paying.
 ---
 
 ## Overview
 
-Email Marketing lets you write one email, called a **campaign**, and send it to every customer who has agreed to hear from you. It is built for simple, occasional messages, such as:
+Email Marketing lets you write one email, called a **campaign**, and send it to customers who have agreed to hear from you. You can send it to everyone on your list, or only to a group, such as people who bought a certain product. It is built for simple, occasional messages, such as:
 
 - A **new product or menu** announcement
 - A **sale or holiday hours** reminder
 - A short **monthly newsletter**
 
-You write the email, send yourself a test, and send it. Sending happens in the background over the next few minutes, so you can leave the page. Every campaign you send is kept in a history, with the results for each person.
+You pick a starting point, write the email, choose who gets it, send yourself a test, and then send it now or schedule it for later. Sending happens in the background over the next few minutes, so you can leave the page. Every campaign you send is kept in a history, with the results for each person.
 
-Only customers who chose to receive your emails get a campaign. They can opt in at checkout, with a sign-up form on your site, or from their account. See [Who Receives Your Campaigns](#who-receives-your-campaigns).
+Your emails also match your store. The **Email style** page sets the colors, font, header and footer. See [Your email style](#your-email-style).
+
+Only customers who chose to receive your emails get a campaign, however you narrow the list. They can opt in at checkout, with a sign-up form on your site, or from their account. See [Who Receives Your Campaigns](#who-receives-your-campaigns) and [Choosing who gets it](#choosing-who-gets-it).
 
 This page also covers the **abandoned checkout email**, a separate automatic message for shoppers who start paying and then leave. It is not part of Email Marketing and has its own switch. See [Abandoned Checkout Emails](#abandoned-checkout-emails).
 
@@ -31,11 +33,11 @@ This page also covers the **abandoned checkout email**, a separate automatic mes
 
 In your admin sidebar, open **Marketing → Email Marketing**. You can also type "Send email marketing" into the search box at the top of the admin to jump straight there. The sidebar link and search entry only appear once the feature is on.
 
-The page is titled **Email Marketing** ("Send a one-off announcement or newsletter to your opted-in customers"). It has a **New campaign** button, an **Audience** card, and a **Campaign history** list.
+The page is titled **Email Marketing** ("Send a one-off announcement or newsletter to your opted-in customers"). It has an **Email style** button, a **New campaign** button, an **Audience** card, and a **Campaign history** list. The **Audience** card here counts everyone who has opted in. You choose a smaller group for each campaign when you write it.
 
 ![The Email Marketing page with the New campaign button, the Audience card showing a count and an Export CSV button, and the Campaign history table with campaigns in different states](/images/email-marketing/marketing-page.png)
 
-When the feature is off, the same page shows the notice and keeps your history and export:
+When the feature is off, the same page shows the notice and keeps your history and export. The **Email style** and **New campaign** buttons are hidden:
 
 ![The Email Marketing page with the "Email marketing is turned off" notice and its Settings → Features button above the Audience card and Campaign history](/images/email-marketing/marketing-feature-off.png)
 
@@ -46,10 +48,10 @@ When the feature is off, the same page shows the notice and keeps your history a
 Three things have to be true before a campaign can go out. You can write and save drafts before any of them are.
 
 1. **Email Marketing is switched on** in **Settings → Features**.
-2. **Your business address is filled in.** The law requires a mailing address in marketing emails, and SimplePress prints yours in the footer of every campaign. A full address means a **street, a city, and a state or ZIP**. A P.O. box works as the street. Add it under **Settings → General** in the **Business address** card. See [General Settings](/docs/general-settings#business-address). Until you do, an orange **Business address needed** notice appears on the campaign page. It says "Add a full mailing address before sending: a street, city, and state or ZIP, or a PO box. The law requires a postal address in marketing emails." It has a **Go to business settings** button, and the send button stays greyed out.
+2. **Your business address is filled in.** The law requires a mailing address in marketing emails, and SimplePress prints yours in the footer of every campaign. A full address means a **street, a city, and a state or ZIP**. A P.O. box works as the street. Add it under **Settings → General** in the **Business address** card. See [General Settings](/docs/general-settings#business-address). Until you do, an orange **Business address needed** notice appears on the campaign page. It says "Add a full mailing address before sending: a street, city, and state or ZIP, or a PO box. The law requires a postal address in marketing emails." It has a **Go to business settings** button, and the **Send now** and **Schedule…** buttons stay greyed out.
 
 ![The campaign page with the orange Business address needed notice and its Go to business settings button](/images/email-marketing/address-needed.png)
-3. **At least one customer has opted in.** With nobody on the list, you can save a draft but not send it.
+3. **The audience you chose has at least one person in it.** If nobody has opted in, or nobody matches the group you picked, you can save a draft but not send or schedule it. See [Choosing who gets it](#choosing-who-gets-it).
 
 ---
 
@@ -62,7 +64,7 @@ Your audience is every customer who:
 - Has not been anonymized, and
 - Has not been **suppressed**. Suppressed means their address bounced or they marked an email from you as spam, so SimplePress stopped emailing them. See [Bounces and Spam Reports](#bounces-and-spam-reports).
 
-The **Audience** card shows how many people that is ("4 customers opted in to marketing emails"). If nobody has opted in yet, it says "No customers have opted in yet. Customers join by ticking the marketing box at checkout, signing up through the newsletter form on your site (they confirm by email), or in their account preferences."
+This is the most any campaign can reach. When you write a campaign you can narrow it to a smaller group, but you can never reach someone who isn't on this list. The **Audience** card on the Email Marketing page shows how many people that is ("4 customers opted in to marketing emails"). If nobody has opted in yet, it says "No customers have opted in yet. Customers join by ticking the marketing box at checkout, signing up through the newsletter form on your site (they confirm by email), or in their account preferences."
 
 ### How Customers Opt In
 
@@ -71,6 +73,7 @@ You can't add people to the list yourself. Customers join in one of these ways:
 - **At checkout.** When Email Marketing is on, your checkout page shows a box that reads **Email me news and offers from** your store name. It sits directly above the pay button on every template (on the Default template, above **Continue to Payment**). It starts **unticked**, so a shopper has to tick it on purpose. They are added once their payment goes through. Leaving it unticked never removes someone who already opted in. The same box appears on the subscription sign-up page, above **Continue to secure checkout**. Donation forms don't have it.
 - **With a sign-up form on your site.** Some templates have a newsletter sign-up form. The visitor types their email and gets a confirmation email. They are **only added after they click the confirm button** in it. This is called double opt-in, and it stops anyone from signing up someone else's address. The link in the email lasts 7 days. After that, they need to sign up again. See the list of templates below.
 - **From their account.** A signed-in customer opens **Preferences** and switches on **Marketing Emails**. The sentence beside the switch reads "Receive news, promotions, and updates from" your store name, and it then shows **Subscribed**. A message confirms: "You're now subscribed to marketing emails." Switching it off says "You've unsubscribed from marketing emails." This switch keeps working even when the Email Marketing feature is off.
+- **From an invite after a move.** If your store came from another website, our team can bring your old contact list over. Each person who was subscribed there gets one invite, and joins only if they click **Yes, keep me on the list**. See [Bring Your List From Your Old Website](#bring-your-list-from-your-old-website).
 - **By changing their mind.** After unsubscribing, a customer who had subscribed before can click **Resubscribe** on the page they land on. See [Unsubscribing](#unsubscribing).
 
 ![The Marketing Emails card on a customer's Preferences page with the switch on and Subscribed showing](/images/email-marketing/customer-preferences-card.png)
@@ -109,6 +112,45 @@ Things to know:
 - **Opting in is never automatic.** A customer who bought from you without ticking the box or visiting **Preferences** is not on the list.
 
 Customers who opted in before consent was tracked (through their account) stay on the list. Their source is recorded as an earlier account setting.
+
+### Bring Your List From Your Old Website
+
+If your store moves to SimplePress from Wix, Shopify, Square, Squarespace or another platform, our team can bring your old contact list over during the move. You can't upload the list yourself. Send us the export file from your old site, and we handle the import.
+
+Menu names can change, but the export is usually found under these menus:
+
+- **Wix:** Contacts → Export (CSV)
+- **Shopify:** Customers → Export → CSV
+- **Square:** Customers → Export customers
+- **Squarespace:** the subscriber list from Email campaigns, or the Profiles export
+
+Each person is handled by the status the file gives them from your old site:
+
+- **Subscribed** people get **one** email asking "Still want to hear from [store]?", with a **Yes, keep me on the list** button. Only people who click it join your email list. Doing nothing means they get no marketing email. The invite is sent once per import and is never repeated.
+- **Unsubscribed** people are blocked from your marketing email for good, even if they're already customers here.
+- **Contacts with no clear status** get no invite.
+
+Some files, such as a Squarespace or Mailchimp subscriber list, are only a list of subscribers and have no status column. For those, our team can mark the whole file as subscribed or as unsubscribed. We never do this for a list of all your customers, because not everyone on it chose to hear from you.
+
+Imported contacts are never added to your email list. They appear in [Customers](/docs/customers) with a grey **Imported, not confirmed** label (your old site had them subscribed, and the invite hasn't gone out) or **Imported** label (everyone else). The label goes away once the person joins your list. If someone already has a customer record here with the same email address, that record isn't changed at all.
+
+Each invite includes your store's postal address and an unsubscribe link, like every marketing email. Sending it needs a full business address, the same rule as campaigns. See [Before You Send](#before-you-send).
+
+Expect only some people to click. That's normal, and it protects your store's email reputation.
+
+Once at least one import exists, Owners and Managers can follow each one under **Customers → Import history**. The button only appears after an import, and Staff never see it. The page has a row for each import with these columns:
+
+- **File**: the file name, with the date, where it came from (Wix, Shopify, Square, or Spreadsheet), and who imported it underneath
+- **Added**: how many contacts were added
+- **Blocked**: how many were blocked from marketing email
+- **Invite**: "No one to invite", a **Not sent** badge, or the invite's send status with the number of people
+- **Joined**: how many people have joined your list from the invite so far
+
+On a phone, **Added**, **Blocked**, and **Joined** are hidden. Each row has a **View invite** action. A note at the bottom says: "Imported contacts are not on your email list. They join only if they click join in the invite email. Anyone who was unsubscribed on the old site is blocked from marketing email for good."
+
+![The Import history page under Customers, with a row for each import showing the file, contacts added, contacts blocked, the invite, and how many people have joined](/images/customers/import-history.png)
+
+The invite also shows in your campaign history, and when you open it, with an **Invite** badge. It has no **Duplicate** or **Unschedule** actions, because it is sent for you.
 
 ### Seeing Who Opted In
 
@@ -157,9 +199,95 @@ Whenever someone unsubscribes, SimplePress also adds their address to your store
 
 ---
 
+## Your email style
+
+Your campaigns can look like your store. Open **Marketing → Email Marketing** and click **Email style** at the top. The page explains itself: "How your marketing emails look. Until you change something, your emails use the [template name] template's colors and font. Receipts and other order emails aren't affected."
+
+Every template comes with its own default look, so a store that never touches this page still gets emails that feel like its website. Change only what you want to change.
+
+**Photo:** The Email style page with the Colors and font card and the Header and footer card on the left and a live email preview on the right, with the Desktop and Mobile switch above it.
+
+### What you can change
+
+**Colors and font**
+
+| Setting | What it does |
+| --- | --- |
+| **Accent color** | The color of buttons and links. Use the color picker, or type a 6-digit hex code like `#1f2937`. |
+| **Page background** | The color around the email, behind the white message card. |
+| **Font** | **Sans** (clean, like Helvetica or Arial) or **Serif** (classic, like Georgia). Each option shows a sample. |
+
+**Header and footer**
+
+| Setting | What it does |
+| --- | --- |
+| **Header** | What shows at the top: **Logo, centered**, **Logo, left**, or **Store name**. If you haven't added a logo yet, the page says "Add a logo in Brand & Appearance to use a logo header; until then your store name is shown." |
+| **Logo size** | **Small**, **Medium** or **Large**. It's greyed out when the header is **Store name** or you have no logo. |
+| **Show social links** | Adds links to your social profiles in the footer. The switch lists the ones it will use. To add or change them, use the **Brand & Appearance** link beside it, or see [Brand & Appearance](/docs/storefront-and-branding#footer--social-links). If you haven't added any, it says so. |
+| **Footer note** | An optional line, up to 200 characters, such as "Handmade in Ann Arbor, Michigan." It sits above the unsubscribe link. A counter shows how many characters you've used. |
+
+Your business name, address and **Unsubscribe** link always stay in the footer. You can't remove them. See [What Customers See](#what-customers-see).
+
+### Contrast hints
+
+The page checks that your colors are easy to read.
+
+- **Button text is hard to read.** If the words on your buttons are hard to see against your accent color, an orange notice appears with the contrast number and a suggestion to try a darker or lighter accent. SimplePress picks white or dark button text for you, whichever reads better. You can still save, but pick a stronger color if you can.
+- **Links will use dark gray so they stay readable.** If your accent color is too light to read as text on white, links in the email use dark gray instead. Buttons keep your accent color.
+
+### The preview, saving and resetting
+
+The **Preview** on the right shows a sample email and updates as you change things. Use **Desktop** and **Mobile** above it to see both. It's only a sample, not a real campaign.
+
+Click **Save** at the top to keep your changes. The badge next to the title says **Unsaved Changes** until you do, then **Saved**. **Discard** throws away what you haven't saved. A message confirms "Email style saved".
+
+**Reset to template default** (it names your template) removes your saved choices. A box asks "Reset to the [template] default?" and explains that your saved colors, font, header and footer settings are removed. Click **Reset** to go ahead or **Keep my settings** to go back. A message confirms "Email style reset".
+
+Good to know:
+
+- **Only marketing emails use this style.** Receipts, order updates, and other automatic emails keep their standard look. The abandoned checkout reminder does too.
+- **It applies to campaigns you send from now on.** Campaigns you already sent aren't changed.
+- **Your style is kept as you saved it.** If you saved a style, a later change to your template's defaults won't shift it. Resetting brings the template's look back.
+- **Test emails and previews use your saved style.** So you can check it before a real send.
+
+---
+
+## Starting points
+
+Click **New campaign** and you land on a page called **New campaign**: "Pick a starting point. Everything is editable, and nothing is saved until you save the draft." Pick a card to open the editor with that layout already filled in.
+
+**Photo:** The New campaign page with five starting point cards: Start from scratch, Sale, New arrival, Event and Newsletter.
+
+| Starting point | What you get |
+| --- | --- |
+| **Start from scratch** | An empty page. |
+| **Sale** | A big headline, a line for the details, and a **Shop the sale** button that links to your shop. |
+| **New arrival** | A headline, a short intro, a Products block to show what's new, and a sign-off. Only shown when the **Products** feature is on. |
+| **Event** | The event name, **When** and **Where** lines, a short description, and an **RSVP** button that links to your contact page. |
+| **Newsletter** | A short hello, two stories separated by lines, and a **Quick notes** list. |
+
+Everything in **[square brackets]** is a placeholder. Replace each one with your own words, in the subject line, the preview text and the message, before you send. Read the email through (and send yourself a test) to catch any brackets you missed. Also check the buttons: the **Sale** button goes to your shop and the **Event** button goes to your contact page, so change the address if you want them to go somewhere else.
+
+If the subject, preview text or message still has text in [brackets], an amber note appears on the campaign page and in the **Send** and **Schedule** boxes: "Your email still has placeholder text in [brackets]. Replace it before sending." The note doesn't block sending, but read the email through before you do.
+
+Nothing is saved until you click **Save draft**. If you pick a starting point and change your mind, go **Back** and pick another.
+
+### Duplicating a campaign
+
+To reuse an email you already wrote, copy it. You can duplicate **any** campaign, whether it's a draft, scheduled, sent or canceled.
+
+- On the Email Marketing page, click the **⋯** button at the end of a row in **Campaign history** and choose **Duplicate**.
+- Or open the campaign and click **Duplicate** at the top.
+
+A message says "Copied to a new draft" and the copy opens. It has the subject "Copy of" followed by the original subject, the same message and the same audience. Nothing else is copied: no send time, no results. Edit it, then send or schedule it as usual. Duplicate is also the way to fix a campaign that **Failed**.
+
+**Duplicate** is hidden while Email Marketing is turned off.
+
+---
+
 ## Writing a Campaign
 
-Click **New campaign**. The page has an **Audience** card, which tells you how many customers will get the email, and a **Compose** card.
+Click **New campaign** and pick a [starting point](#starting-points). The editor has an **Audience** card, where you choose who gets the email (see [Choosing who gets it](#choosing-who-gets-it)), and a **Compose** card.
 
 | Field | What to enter | Limit |
 | --- | --- | --- |
@@ -167,11 +295,11 @@ Click **New campaign**. The page has an **Audience** card, which tells you how m
 | **Preview text (optional)** | A short teaser shown next to the subject in most inboxes. | 200 characters |
 | **Message** | The body of the email. Required to send. | |
 
-The **Message** box is a rich text editor, so you can format your text, add links, and add pictures, much like writing a page on your site. The email arrives with your logo (or your business name, if you have no logo) at the top. Your business name and address, and an **Unsubscribe** link, are added at the bottom for you. The line under the box says so: "Headings, lists, links, images and colors are supported. Your business address and an unsubscribe link are added at the bottom automatically."
+The **Message** box is a rich text editor, so you can format your text, add links, and add pictures, much like writing a page on your site. The email arrives with your header at the top and your footer at the bottom, as set on the [Email style](#your-email-style) page. Your business name and address, and an **Unsubscribe** link, are added at the bottom for you. The line under the box says so: "Headings, lists, links, images and colors are supported. Your business address and an unsubscribe link are added at the bottom automatically."
 
-At the top of the page there is a **Back** button, the campaign's subject, a **Draft** badge (it changes to **Unsaved Changes** when you've edited something), and the **Save draft** button. The test and send buttons are at the bottom.
+At the top of the page there is a **Back** button, the campaign's subject, a **Draft** badge (it changes to **Unsaved Changes** when you've edited something), and the **Save draft** button. The test, **Schedule…** and **Send now** buttons are at the bottom.
 
-![The campaign page with the Audience card and the Compose card filled in, showing the Subject, Preview text and the Message editor with formatting, a link and an image](/images/email-marketing/composer.png)
+**Photo:** The campaign editor with the Audience card on top, then the Compose card with the Subject, Preview text and a Message that includes a Products block.
 
 #### The editor's toolbar
 
@@ -180,26 +308,24 @@ At the top of the page there is a **Back** button, the campaign's subject, a **D
 - **Text color.** Seven colors that look right in email: Black, Gray, Red, Orange, Green, Blue and Purple.
 - **Lists and alignment.** Numbered list, bullet list, and align left, center or right.
 - **Link.** Enter the web address, optional display text, and pick a style: **Link**, **Button** or **Outline button**. A button makes a big, clickable button in the email. You can also choose **Open in New Tab**. Links to pages on your own site, such as "/contact" or a page you pick from the page list, are turned into full links to your website in the email.
-- **Image.** Upload a picture from your computer, or click **Choose from library** if the media library is turned on. The **Send** button stays greyed out while an image is uploading.
-- **Insert menu.** A quote block or a divider line.
+- **Image.** Upload a picture from your computer, or click **Choose from library** if the media library is turned on. The **Send** and **Schedule** buttons stay greyed out while an image is uploading.
+- **Insert menu.** A quote block, a divider line, and three blocks made for email: **Button**, **Products** and **Space**. See [Building your email](#building-your-email).
 
 Email can't show everything a web page can. Tables, columns, galleries, embeds, video and code blocks aren't available. If something is pasted in that the email can't show, an amber box under the editor lists what will be left out. It starts "Some content can't be shown in email and will be left out:". For example: "An image without a public https address was left out. Re-add it from your computer or the media library." Or, for a link that isn't a web address, an email address or a page on your site: "Links must be web addresses (https://…), email addresses (mailto:) or pages on your site; other links were removed."
 
-Click **Preview email** under the editor to see how the message will look, and **Hide preview** to close it.
-
-![The Preview email view with the amber box listing content that will be left out](/images/email-marketing/composer-preview.png)
+Click **Preview email** under the editor to see the whole email as your customers will, and **Hide preview** to close it. See [Previewing your email](#previewing-your-email).
 
 If a field is empty or too long, a message appears under it, such as "Subject is required", "Subject must be 200 characters or fewer", "Write a message", or "Preview text must be 200 characters or fewer". If the message is too big, you'll see "The message is too large. Remove some content and try again." Remove some text or pictures and try again.
 
 <video src="/videos/email-marketing/write-and-send.webm" poster="/videos/email-marketing/write-and-send-poster.png" controls muted playsInline className="rounded-lg border" />
 
-*Creating a campaign, formatting the text, adding a button link and an image, previewing the email, and opening the send confirmation.*
+*Creating a campaign, formatting the text, adding a button link and an image, previewing the email, and opening the send confirmation. This clip was recorded before the starting points, audience choices and Schedule button were added.*
 
 ### Saving a Draft
 
 Click **Save draft** at the top of the page. A message confirms "Draft saved". You only need a subject to save a draft. The message can wait.
 
-Drafts appear in your **Campaign history** with a **Draft** badge. Click one to keep editing. Changes aren't kept until you click **Save draft**.
+Your audience choice is saved with the draft. Drafts appear in your **Campaign history** with a **Draft** badge. Click one to keep editing. Changes aren't kept until you click **Save draft**.
 
 To get rid of a draft, open it and click **Delete draft**. A box asks "Delete this draft?" and tells you it hasn't been sent to anyone. Only drafts can be deleted. Once a campaign has been sent, it stays in your history.
 
@@ -211,6 +337,7 @@ Be aware of these details:
 
 - The test goes to the email address of the **account you're signed in with**, not necessarily the store's owner email. If a Manager sends it, it goes to the Manager's inbox.
 - The subject starts with **[TEST]**.
+- It uses your [email style](#your-email-style), and any Products block shows your current products, like the real send. A test goes only to you, whatever audience you chose.
 - The **Unsubscribe** link at the bottom is only a sample. Clicking it opens a page titled "This is a test email" that says nothing was changed. Real customers get a working link.
 - The "Test email sent" message only means SimplePress handed the email off. If it doesn't show up within a few minutes, check the spam folder. If the test fails, you see an error message instead: "The test email couldn't be sent. Please try again."
 - If you send a lot of tests in a short time, you'll see "Too many test emails. Please try again later." Wait a bit and try again.
@@ -219,16 +346,161 @@ Be aware of these details:
 ### Sending to Your Audience
 
 1. Write your **Subject** and **Message**.
-2. Send yourself a test and read it on your phone.
-3. Click **Send to N customers** (the button shows your real audience size, for example **Send to 4 customers**). It is greyed out if you have no full business address, nobody has opted in, the subject or message is empty, or an image is still uploading.
-4. A box asks **Send to 4 customers?** It repeats your subject and warns that emails already delivered can't be taken back. Click **Send campaign** to go ahead, or **Cancel** to go back.
-5. A message appears at the corner of the screen: "Campaign queued for 4 customers. It will finish sending in the background." You land on the campaign's own page, where you can watch it go out.
+2. In the **Audience** card, choose who should get it. The default is **All subscribers**. See [Choosing who gets it](#choosing-who-gets-it).
+3. Send yourself a test and read it on your phone.
+4. Click **Send now**. It is greyed out if you have no full business address, nobody matches the audience you chose, the subject or message is empty, an image is still uploading, or a Products block has no products in it. When a Products block is the reason, a hint under the buttons says "Choose products for the product block, or remove it." (To send later instead, click **Schedule…**. See [Scheduling a campaign](#scheduling-a-campaign).)
+5. A box asks **Send to 4 people?** It repeats your subject, names the audience you chose, and warns that emails already delivered can't be taken back. Click **Send campaign** to go ahead, or **Cancel** to go back.
+6. A message appears at the corner of the screen: "Campaign queued for 4 people. It will finish sending in the background." You land on the campaign's own page, where you can watch it go out.
 
-![The "Send to 4 customers?" confirmation box over the campaign page](/images/email-marketing/send-confirm.png)
+**Photo:** The "Send to 4 people?" confirmation box over the campaign page, showing the subject and the Audience line.
 
-Once you send, the campaign is **frozen**. You can't edit its subject or message. If you spot a mistake, cancel it (see below) and start a new campaign.
+Once you send, the campaign is **frozen**. You can't edit its subject or message. If you spot a mistake, cancel it (see below) and start a new campaign. [Duplicate](#duplicating-a-campaign) makes that quick.
+
+If the products in a Products block go away after you click send, you may see "A product block has no products to show. Pick products for it or remove it before sending." Fix the block and try again.
 
 **You can leave the page.** Sending keeps going in the background. A list of a few dozen people takes a minute or two. A few hundred takes a few minutes, and very large lists take longer. SimplePress sends in batches, so it is normal for the campaign to show progress for a while.
+
+---
+
+## Building your email
+
+Besides text, pictures and links, the campaign editor has blocks made for email. Open the **Insert elements** (**+**) menu on the toolbar, or type **/** on an empty line, and pick one. See the [Text Editor](/docs/text-editor) guide for how the menu works.
+
+### Products
+
+Show up to **4** of your products, each with its photo, name, price and a button to its page.
+
+1. Choose **Products**. A block appears that says "Feature up to 4 products with a button to each one's page."
+2. Click **Choose products**. A window called **Add products** opens: "Choose up to 4 products to feature. Each shows its photo, name and price with a button to its page."
+3. Search for products by name, click to select up to four, and click **Add products**. (The window says **Update products** when you're changing a block.)
+
+One product shows as a big card. Two to four show as cards two to a row. A sale price shows next to the regular price, which is crossed out.
+
+Point at the block to see its small toolbar: **Change products**, a **Button** field for the button's words (it says **Shop now** unless you change it, up to 40 characters), and a trash button to remove the block.
+
+**Photo:** A campaign message with a Products block showing three product cards, and the block's small toolbar with Change products, the Button text field and the trash button.
+
+What to know about Products:
+
+- **Prices, photos and names are refreshed when the email sends.** The block always shows your shop as it is at that moment, so a price change after you wrote the email is picked up. The same is true of a test email and the preview.
+- **Hidden or deleted products are left out.** Only published products are shown. If a product you picked is no longer available, it's left out and an amber note tells you, for example: "Lavender Candle" is no longer available and was left out.
+- **A block with no products can't be sent.** If every product in a block is gone, **Send now** and **Schedule…** stay greyed out until you pick new products or remove the block, and a hint says "Choose products for the product block, or remove it." A block also comes out empty if your shop is turned off: "Your shop is turned off, so product blocks were left out."
+- **It needs the Products feature.** The **Products** block only appears when **Products** is switched on under **Settings → Features**. The **New arrival** starting point also needs it.
+- **Limits.** Up to 4 products per block, and about 40 different products in one email.
+
+### Button
+
+Choose **Button** to add a button on its own line. It starts as **Shop now** and links to your homepage, and the link box opens so you can type your own words and address right away. Buttons use your [accent color](#your-email-style), so they match the rest of your emails. It's the same as choosing **Button** in the **Link** box.
+
+### Space
+
+Choose **Space** to add a gap between pieces of the email. It starts **Medium**. Click the space in the editor to change it to **Small**, **Medium** or **Large**, or to remove it. See [Adding space](/docs/text-editor#adding-space) in the Text Editor guide.
+
+### Previewing your email
+
+Click **Preview email** under the message to see the whole email the way your customers will: the header, your message, and the footer with your address and **Unsubscribe** link, all in your [saved email style](#your-email-style). It updates a moment after you stop typing.
+
+Use **Desktop** and **Mobile** above the preview to switch between a wide inbox and a phone-sized one. Check both. Many people read on their phones.
+
+The note under the preview says "Shown with your email style, business address and unsubscribe footer." Links in the preview don't open. Click **Hide preview** to close it.
+
+**Photo:** The Preview email view showing the full email with the Mobile and Desktop switch above it.
+
+---
+
+## Choosing who gets it
+
+At the top of the editor, the **Audience** card lets you pick who the campaign goes to.
+
+| Choice | Who it includes |
+| --- | --- |
+| **All subscribers** | Everyone who has opted in. This is the default. |
+| **Customers who've ordered** | Subscribers who have placed at least one order. |
+| **Subscribers who haven't ordered** | Subscribers who have never placed an order. A good group for a first-purchase welcome. |
+| **Bought specific products** | Subscribers who bought at least one of the products you pick (up to 20). |
+| **Haven't ordered in…** | Past customers who haven't ordered for 30, 60, 90 or 180 days. Pick the number of days. It starts at 90. |
+| **Signed up in the last…** | Subscribers who joined your list in the last 7, 30 or 90 days. Pick the number of days. It starts at 30. |
+
+**Photo:** The Audience card with the six choices, Bought specific products selected with two product chips, and the line "≈ 42 people opted in to marketing emails will receive this."
+
+For **Bought specific products**, click **Choose products**. A window asks you to search and pick products. It says "Email people who bought any of up to 20 products. Only paid orders count." Products that are no longer for sale can be picked too, since someone may have bought them earlier. The ones that aren't published say **Not published**. Your picks show as chips under the choice, and you can click the **x** on a chip to remove one, or **Change products** to open the window again. This choice needs the **Products** feature, so it's greyed out with "Turn on products to pick by purchase." when Products is off.
+
+A few notes about how orders count:
+
+- Only orders that were **paid** count (a free checkout counts too). Canceled, refunded, unpaid and failed orders don't.
+- **Haven't ordered in…** only includes people who have ordered before and not recently. Someone who has never ordered isn't in it. Use **Subscribers who haven't ordered** for them.
+- **Signed up in the last…** goes by when the person joined your marketing list, not when they first became a customer.
+
+### The count
+
+Under the choices, a live count shows how many people will get the email, for example "≈ 42 people opted in to marketing emails will receive this." It updates a moment after each change. A few other messages you might see:
+
+- **Finish choosing to see how many people this reaches.** You picked **Bought specific products** but haven't chosen any yet.
+- **No one matches yet. You can save this as a draft, but not send it.** Pick a wider audience, or wait until more people match.
+- **Couldn't count this audience. Try again in a moment.**
+
+### Good to know
+
+- **Only people subscribed to marketing are ever included.** Every choice starts from your list of opted-in customers and narrows it. No choice can reach someone who hasn't agreed to hear from you.
+- **People who unsubscribed, bounced, or marked an email as spam are always left out.** See [Bounces and Spam Reports](#bounces-and-spam-reports).
+- **The audience is worked out when the email actually goes out.** If you click **Send now**, that's right away. If you schedule the campaign, SimplePress checks who matches at the scheduled time, not when you wrote it. Someone who subscribes after you schedule, and matches, gets the email. Someone who unsubscribes, or no longer matches, doesn't. The number you see now is an estimate.
+- **The audience is saved with the draft.** [Duplicating](#duplicating-a-campaign) a campaign copies it too.
+- **The campaign's page keeps a record.** The **Email content** card shows the audience as a short label such as "All subscribers", "Customers who've ordered", "Bought Lavender Candle", "Haven't ordered in 90 days" or "Signed up in the last 30 days".
+
+---
+
+## Scheduling a campaign
+
+Instead of **Send now**, you can pick a time. Click **Schedule…** next to **Send now**. It's available under the same conditions as **Send now**.
+
+**Photo:** The "Schedule this campaign" box with a date, a time, the store time zone note, and the line "Sends within about 15 minutes of ...".
+
+1. In the box called **Schedule this campaign**, choose a **Date** and a **Time**. The time list goes in 15-minute steps. It starts at tomorrow at 9:00 AM.
+2. Check the time zone note. Times are always in **your store's time zone**, not your computer's. It says, for example, "Times are in Eastern Time — Detroit (America/Detroit), your store's time zone." You can change your time zone in [General Settings](/docs/general-settings#time-zone).
+3. Read the line below the time: "Sends within about 15 minutes of Oct 23, 2026, 9:00 AM to ≈42 people (All subscribers)."
+4. Click **Schedule campaign**. SimplePress saves your draft first. A message confirms "Scheduled for" and the time, and you land on the campaign's page.
+
+What to know:
+
+- **Pick a time between 10 minutes and 90 days from now.** If it's too soon you'll see "Pick a time at least 10 minutes from now." If it's too far away, "Pick a time within the next 90 days."
+- **It sends within about 15 minutes of your time.** Scheduled campaigns are picked up by a check that runs about every 15 minutes, so a 9:00 AM campaign goes out at the first check after 9:00. Plan for that, especially for a sale that starts at an exact time.
+- **A scheduled campaign is locked.** Its message and audience can't change while it waits.
+- **The campaign page for a scheduled campaign** shows a **Scheduled** card: "Goes out within about 15 minutes of [time]." and "Audience: [audience]. Who is included is worked out when it sends, so the number of recipients can change before then. It's locked while scheduled; unschedule it to make changes." There are no results yet, because nothing has been sent. Below it, the page shows the whole email as a preview, with your current email style and up-to-date products, so you can check it before it goes out.
+- **In Campaign history,** a scheduled campaign has a **Scheduled** badge, and its **Date** column says **Sends** and the time.
+
+**Photo:** A scheduled campaign's page with the Scheduled card, the email preview, and the Duplicate and Unschedule to edit buttons.
+
+### Changing or canceling a scheduled campaign
+
+On the campaign's page you'll find two buttons:
+
+- **Unschedule to edit.** A box asks "Unschedule to edit?" and explains: "This moves the campaign back to your drafts so you can change it. Schedule it again when you're ready." Click **Unschedule** to go ahead, or **Keep scheduled** to leave it as is. It moves back to your drafts right away, and a message says "Unscheduled. It's back in your drafts." Make your changes, then schedule it again. You can also choose **Unschedule** from the **⋯** menu on its row in Campaign history.
+- **Duplicate.** Makes a copy as a new draft and leaves the scheduled one alone.
+
+If you try to unschedule just as the campaign starts sending, you see "This campaign is no longer scheduled — it may have already started sending." Open the campaign to see where it is. Once it is sending, use **Cancel campaign** instead. See [Canceling a Campaign](#canceling-a-campaign).
+
+### If something changes before it sends
+
+SimplePress checks the campaign again at the scheduled time. If something isn't right, it doesn't send, and the campaign is marked **Failed**. A red box on its page titled **Something went wrong while sending** says why. To fix it, [duplicate](#duplicating-a-campaign) the campaign, fix the problem, and send or schedule the copy.
+
+| What the box says | What happened and what to do |
+| --- | --- |
+| Not sent: the business address was missing at the scheduled time. Marketing emails must include a postal address — add a full address in Settings and send it again. | Your business address was removed or incomplete. Add a full address in [General Settings](/docs/general-settings#business-address), then duplicate and send. |
+| Not sent: this campaign's audience was no longer valid at the scheduled time. Duplicate it, pick the audience again, and send it. | The saved audience couldn't be read. Duplicate the campaign and choose the audience again. |
+| Not sent: the message was empty at the scheduled time. | The message had no content. Duplicate it and write one. |
+| Not sent: a product block in the message had no products left to show at the scheduled time (they were removed, hidden, or the shop is turned off). | Every product in a Products block was gone. Pick new products or remove the block in a copy. |
+| Email marketing was turned off when this campaign was scheduled to send. Turn it back on, then duplicate the campaign to send it. | Email Marketing was still switched off 24 hours after the scheduled time. Turn it back on under **Settings → Features**, then duplicate the campaign and send it. |
+| No one matched this campaign's audience when it was time to send, so nothing went out. | Everyone in the audience had unsubscribed, bounced, or no longer matched when the campaign came due. Duplicate it, pick a wider audience, and send it. |
+| Not sent: this campaign couldn't be queued at its scheduled time. | Something went wrong on our side. Duplicate and try again. |
+| We couldn't send this campaign. Duplicate it and try again, or contact support. | SimplePress kept trying and gave up. Duplicate it and try again, and email [help@generativejustice.org](mailto:help@generativejustice.org) if it keeps happening. |
+
+**If your store is paused at the scheduled time,** the campaign isn't sent. It waits as **Scheduled** and goes out late once your store is back. If it is still waiting **24 hours** after the scheduled time, it's marked **Failed** with the note "The store was paused when this campaign was scheduled to send." Duplicate it to send it again.
+
+**If Email Marketing is off at the scheduled time,** the campaign waits the same way and goes out late once you turn the feature back on. If the feature is still off 24 hours after the scheduled time, it's marked **Failed** with the note "Email marketing was turned off when this campaign was scheduled to send."
+
+**If a scheduled send hits a problem and will retry,** the campaign stays **Scheduled** and its page shows an amber note titled **We hit a problem sending this**, such as "Not sent yet: something went wrong at the scheduled time. We'll keep trying for a while." SimplePress tries again at the next check, and no action is needed. If it keeps failing, the campaign is marked **Failed** (see the last row of the table above).
+
+**If nobody matches at send time,** for example everyone who matched has since unsubscribed, nothing goes out. The campaign is marked **Failed** with the note "No one matched this campaign's audience when it was time to send, so nothing went out." Duplicate it, pick a wider audience, and send it.
 
 ---
 
@@ -241,8 +513,8 @@ The **Campaign history** list on the Email Marketing page keeps every campaign, 
 | Column | What it means |
 | --- | --- |
 | **Subject** | The subject line. Click it to open the campaign. |
-| **Status** | **Draft**, **Queued**, **Sending**, **Sent**, **Failed** or **Canceled**. |
-| **Date** | When it was queued, or when the draft was started. Shown in your store's time zone. |
+| **Status** | **Draft**, **Scheduled**, **Queued**, **Sending**, **Sent**, **Failed** or **Canceled**. |
+| **Date** | When it was queued, or when the draft was started. A scheduled campaign says **Sends** and the time it will go out. Shown in your store's time zone. |
 | **Recipients** | How many customers it was sent to. |
 | **Delivered** | How many emails reached an inbox. |
 | **Bounced** | How many addresses couldn't be reached. |
@@ -251,7 +523,9 @@ The **Campaign history** list on the Email Marketing page keeps every campaign, 
 
 On a phone, the list shows just the subject, status, date and recipient count. Open a campaign to see the rest. If you have a long history, click **Load more** at the bottom.
 
-**Failed** means something went wrong while the campaign was sending. A red box on the campaign page explains what.
+At the end of each row, the **⋯** button opens a small menu with **Duplicate** and, for a scheduled campaign, **Unschedule**.
+
+**Failed** means something went wrong while the campaign was sending, or when a scheduled campaign came due. A red box on the campaign page explains what. See [If something changes before it sends](#if-something-changes-before-it-sends).
 
 Numbers keep changing for a little while after a send, as inboxes report back. A bounce or a spam report can show up hours later.
 
@@ -259,11 +533,11 @@ Numbers keep changing for a little while after a send, as inboxes report back. A
 
 ### The Campaign Page
 
-Click a sent campaign to see how it did. At the top, you see its status, when it was sent, and **who sent it** (for example "Sent Sep 24, 2026, 3:05 PM · by Jordan"). Below that:
+Click a sent campaign to see how it did. At the top, you see its status, when it was sent, and **who sent it** (for example "Sent Sep 24, 2026, 3:05 PM · by Jordan"). A **Duplicate** button sits at the top right. Below that:
 
 - **Progress.** While it's sending, a bar shows how many batches have gone out, and the page updates by itself.
 - **Result numbers.** **Recipients**, **Accepted** (handed off to the email service), **Delivered**, **Bounced**, **Marked as spam** and **Unsubscribed**. **Waiting to send**, **Failed**, **Skipped** and **Canceled** appear only when they're more than zero.
-- **Email content.** The subject, preview text and message that were sent.
+- **Email content.** The subject, preview text, audience and message that were sent.
 - **Recipients.** One row per person, with their email, a status, the time, and any error. Use the **Status** filter to look at one group, such as only the people whose email bounced. If someone unsubscribed from this campaign, the word "Unsubscribed" appears beside their address.
 
 Each recipient has one of these statuses:
@@ -284,7 +558,7 @@ Each recipient has one of these statuses:
 
 ### Canceling a Campaign
 
-If a campaign is **Queued** or **Sending**, a **Cancel campaign** button appears at the top of its page. A box asks "Cancel this campaign?" and explains that sending stops right away for everyone who hasn't been emailed yet. Click **Cancel campaign** to stop, or **Keep sending** to go back.
+If a campaign is **Queued** or **Sending**, a **Cancel campaign** button appears at the top of its page. A campaign that is only **Scheduled** hasn't started, so there's nothing to cancel. Use **Unschedule to edit** on its page instead, or **Unschedule** from its row's **⋯** menu. See [Scheduling a campaign](#scheduling-a-campaign). A box asks "Cancel this campaign?" and explains that sending stops right away for everyone who hasn't been emailed yet. Click **Cancel campaign** to stop, or **Keep sending** to go back.
 
 <Callout type="warn" title="Canceling can't recall emails already sent">
   Emails that already went out stay in people's inboxes. A canceled campaign can't be restarted. If you want to send it again, start a new campaign. People who hadn't been emailed yet show as **Canceled** in the recipients list.
@@ -294,7 +568,7 @@ If a campaign is **Queued** or **Sending**, a **Cancel campaign** button appears
 
 ## What Customers See
 
-Customers receive an email from **your store name via SimplePress**. If they reply, the reply goes to your store's **Owner Email** from [General Settings](/docs/general-settings). It has your logo and name at the top, your message, and a small grey footer:
+Customers receive an email from **your store name via SimplePress**. If they reply, the reply goes to your store's **Owner Email** from [General Settings](/docs/general-settings). It has the header you chose on the [Email style](#your-email-style) page (your logo or your store's name) at the top, your message, and a small grey footer. If you turned on social links or wrote a footer note, they sit in the footer too:
 
 > You received this email because you opted in to marketing emails from [your store]. Unsubscribe
 >
@@ -314,7 +588,7 @@ Unsubscribing happens when they press the button, or when they use the one-click
 
 Some other pages a customer might see:
 
-- **An old or broken link.** "This link isn't valid" with "Please use the link from the latest email we sent you." Or, if the link is too old, "This link has expired". Confirmation links only last 7 days.
+- **An old or broken link.** "This link isn't valid" with "Please use the link from the latest email we sent you." Or, if the link is too old, "This link has expired". The page says "Confirmation links only last a limited time." and asks the shopper to sign up again on your store to get a fresh one.
 - **Feature off.** "Email sign-up isn't available".
 - **A failure.** "We couldn't unsubscribe you right now. Please try again."
 
@@ -340,6 +614,9 @@ You don't have to do anything. If a suppressed person opts in again on their own
 - **Put the point in the subject.** "Fresh batch Saturday" works better than "Newsletter".
 - **Use preview text.** It's the second line people see in their inbox, so use it for a short teaser instead of leaving it blank.
 - **Keep it short.** A few short paragraphs and one clear thing to do, such as a link to your shop, works best.
+- **Aim it.** A sale for past customers can go to **Customers who've ordered**. A first-purchase nudge can go to **Subscribers who haven't ordered**. A "we miss you" can go to **Haven't ordered in…**. A smaller group that's right for the message beats a big list that's not.
+- **Check the phone preview.** Switch the preview to **Mobile** before you send.
+- **Set your email style once.** Pick your colors and header on the Email style page and every campaign after that matches your store.
 - **Don't over-send.** Once or twice a month is plenty. People who feel flooded will unsubscribe, or report you as spam.
 - **Grow the list on purpose.** The checkout box does the work for you. You can also mention your newsletter on your site, at the counter, or in order follow-ups.
 - **Watch your bounces.** A campaign with many bounces or spam reports is a sign the list is stale or people don't remember signing up.
@@ -437,6 +714,8 @@ You can turn Email Marketing on or off yourself. While it's off:
 - **Email Marketing** disappears from your admin sidebar. If you open the page, it shows the **Email marketing is turned off** notice, and the **New campaign** button is hidden. Your campaign history, the Audience card and **Export CSV** stay visible.
 - You can't save, test or send campaigns. If you open a draft or **New campaign**, you're sent back to the Email Marketing page. Campaigns that were already sent, or are sending, can still be opened.
 - A campaign that is mid-send **pauses** and picks up again when you turn the feature back on. You can still cancel it while the feature is off.
+- A **Scheduled** campaign waits. If the feature is still off 24 hours after its scheduled time, the campaign is marked **Failed**. You can still **Unschedule to edit** it while the feature is off, but **Duplicate** is hidden.
+- The **Email style** page and the **Email style** button are hidden, and you can't change your email style.
 - Your checkout page stops showing the "Email me news and offers" box, and newsletter sign-up forms on your site stop taking sign-ups. A customer's account switch keeps working.
 - Your opted-in customers and their choices are kept, you can still export the list, and the unsubscribe page still works. Turn the feature back on and everything is ready.
 
@@ -450,9 +729,14 @@ See [Feature Flags](/docs/feature-flags).
 
 **You can:**
 
-- Write a campaign with formatting, links and images, and save it as a draft
-- Send yourself a test first
-- Send a campaign to everyone who opted in, and let it finish in the background
+- Start from a ready-made layout (Sale, New arrival, Event or Newsletter), or from a blank page
+- Write a campaign with formatting, links, images, buttons, spacing and product cards, and save it as a draft
+- Preview the whole email on desktop and mobile widths, and send yourself a test
+- Choose your colors, font, header, social links and footer note on the Email style page
+- Send a campaign to everyone who opted in, or only to a group: customers, people who haven't ordered, people who bought certain products, people who haven't ordered in a while, or recent sign-ups
+- Send it now, or schedule it from 10 minutes up to 90 days ahead
+- Unschedule a scheduled campaign to edit it before it goes out
+- Duplicate any campaign into a new draft
 - Cancel a campaign while it's still sending
 - See every campaign you've sent, who sent it, and how each person's email went
 - See who has opted in, on the Customers list and each customer's page
@@ -463,11 +747,13 @@ See [Feature Flags](/docs/feature-flags).
 
 **You cannot:**
 
-- Add customers to the list, or opt anyone in for them (you can only opt someone out)
-- Import a mailing list
-- Send to only some customers, or split your list into groups
-- Schedule a campaign for later
-- Edit a campaign after you send it, or recall emails that already went out
+- Add customers to the list, or opt anyone in for them (you can only opt someone out). People join only by clicking, including the invite after a move.
+- Import a mailing list yourself. Our team can bring your old list over during a move; see [Bring Your List From Your Old Website](#bring-your-list-from-your-old-website).
+- Save your own groups or tags, or pick people one by one (you choose from the six audience choices each time)
+- Reach someone who hasn't opted in, whatever audience you pick
+- Schedule a campaign more than 90 days ahead, or less than 10 minutes ahead
+- Edit a campaign while it's scheduled (use **Unschedule to edit** first), after you send it, or recall emails that already went out
+- Change the look of order emails and other automatic emails with the Email style page, or remove the address and unsubscribe link from the footer
 - Restart a canceled campaign
 - Edit the unsubscribe footer (on campaigns or abandoned checkout reminders), or send marketing to someone who unsubscribed
 - Send more than one abandoned checkout reminder
@@ -480,10 +766,37 @@ See [Feature Flags](/docs/feature-flags).
 Opting in is up to each customer. Until a customer ticks the box at checkout, confirms a sign-up form, or switches on **Marketing Emails** in their account, they aren't on the list. Buying something doesn't do it. Check the box is showing at checkout, and that your template has a sign-up form if you're counting on one.
 
 **Can I import my old mailing list?**
-No. There's no import. People can only join themselves.
+Not yourself. There's no upload in your admin. When your store moves to SimplePress, our team can bring your old list over from an export file. Each person who was subscribed there gets one invite, and only people who click **Yes, keep me on the list** join. See [Bring Your List From Your Old Website](#bring-your-list-from-your-old-website).
 
-**The Send button is greyed out.**
-Check five things: Email Marketing is on, you've added a full business address (a street, city, and state or ZIP; an orange notice tells you if not), at least one customer has opted in, the subject and message are both filled in, and no image is still uploading.
+**The Send now and Schedule… buttons are greyed out.**
+Check five things: Email Marketing is on, you've added a full business address (a street, city, and state or ZIP; an orange notice tells you if not), the audience you chose has at least one person in it (the line under the choices says "No one matches yet" if not), the subject and message are both filled in, no image is still uploading, and no Products block is empty. If a Products block is the reason, the hint under the buttons reads "Choose products for the product block, or remove it." Pick products for it or remove it.
+
+**My audience is smaller than my list.**
+You probably picked a group. Check the **Audience** card at the top of the editor: it starts at **All subscribers**, and the other choices narrow it. The count under the choices shows who it reaches. Anyone who unsubscribed, bounced or marked an email as spam is always left out.
+
+**Can I email only the people who bought a certain product?**
+Yes. Choose **Bought specific products**, click **Choose products**, and pick up to 20. Anyone on your list with a paid order for at least one of them is included. This needs the **Products** feature to be on.
+
+**Does the audience get set when I schedule, or when it sends?**
+When it sends. SimplePress works out who matches at the scheduled time, so people who subscribed since then are included and people who unsubscribed are not. The count you see while writing is an estimate.
+
+**I scheduled a campaign and it says Failed.**
+Open it. The red box explains what was wrong at the scheduled time, such as a missing business address, an empty message, a Products block with nothing left to show, or nobody matching the audience. Click **Duplicate**, fix the problem in the copy, and send or schedule it again. See [If something changes before it sends](#if-something-changes-before-it-sends).
+
+**My campaign didn't go out at the exact time I picked.**
+Scheduled campaigns send within about 15 minutes of the time you chose, because they're picked up by a check that runs about every 15 minutes. If your store was paused, it goes out late once your store is back.
+
+**What time zone does scheduling use?**
+Your store's time zone from [General Settings](/docs/general-settings#time-zone). The Schedule box names it under the time. Your computer's time zone doesn't matter.
+
+**Why is a product missing from my email, or showing a different price?**
+Product blocks are rebuilt from your shop when the email sends, so they always show your current price, photo and name. A product that's unpublished or deleted is left out, and an amber note under the editor tells you. Switch the product back to published and it's included again.
+
+**Do my receipts and order emails use my email style?**
+No. The Email style page only changes marketing emails you send as campaigns. Receipts, order updates and the abandoned checkout reminder keep their standard look.
+
+**How do I reuse last month's email?**
+Open it, or find it in **Campaign history**, and click **Duplicate**. You get a new draft called "Copy of" and the old subject, with the same message and audience.
 
 **My test email never came.**
 It goes to the email address of the account you're signed in with. The message that appears after you click **Send test to myself** shows the exact address. Check that inbox, and your spam folder. If you saw an error message instead, try again.

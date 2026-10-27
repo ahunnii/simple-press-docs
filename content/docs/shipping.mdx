@@ -1,22 +1,23 @@
 ---
 title: Shipping
-description: Choose how you charge for delivery, set up pickup, pick the countries you sell to, and tell customers about delivery times and returns.
+description: Choose how you charge for delivery, set up pickup or local delivery, pick the countries you sell to, and tell customers about delivery times and returns.
 ---
 
 ## Overview
 
-**Settings → Shipping** is where you decide what you charge customers for delivery, whether they can pick up in person, which countries you sell to, and what you tell shoppers about delivery times and returns.
+**Settings → Shipping** is where you decide what you charge customers for delivery, whether they can pick up in person or have you deliver nearby, which countries you sell to, and what you tell shoppers about delivery times and returns.
 
 Owners and Managers can open it. Staff can't. See [Team & roles](/docs/team-and-roles).
 
-If your store sells products, **Set up shipping or pickup** is a step on your [Setup Guide](/docs/launch-checklist#the-steps). It ticks off once you change shipping from the default free shipping or turn on in-store pickup. If free shipping is what you want, review this page and click **Mark as done** on the step.
+If your store sells products, **Set up shipping or pickup** is a step on your [Setup Guide](/docs/launch-checklist#the-steps). It ticks off once you change shipping from the default free shipping, turn on in-store pickup, or turn on local delivery. If free shipping is what you want, review this page and click **Mark as done** on the step.
 
 The page has these cards, top to bottom:
 
 1. **Shipping**: your shipping charges and the in-store pickup switch.
 2. **Countries you sell to**.
-3. **Delivery times**.
-4. **Returns**.
+3. **Local delivery**: deliver orders yourself to customers who live near you.
+4. **Delivery times**.
+5. **Returns**.
 
 If you pick **Zone + weight rates**, three extra cards appear for setting up your zones.
 
@@ -143,6 +144,104 @@ Choose which countries show up as shipping destinations at checkout.
 
 ---
 
+## Local delivery
+
+Use **Local delivery** when you drop orders off yourself to customers who live near you. Shoppers choose **Local delivery** at checkout when their address is inside your delivery radius. You deliver the order, then mark it delivered in your admin.
+
+Local delivery is a card on **Settings → Shipping**, below the shipping charges and above **Delivery times**. It isn't a feature flag, so there's nothing to switch on in your feature list. Owners and Managers can edit it.
+
+![The Local delivery card with the radius, fee, closer prices and instructions](/images/shipping/local-delivery-card.png)
+
+### Turn it on
+
+Switch on **Offer local delivery** ("Customers inside your delivery radius can pick this instead of shipping."). The other fields only appear once it's on.
+
+It works alongside every shipping mode (free, flat rate, threshold and zone + weight), and alongside in-store pickup. Pickup and local delivery are separate options, and you can have both on at once.
+
+### The fields
+
+| Field | What it means |
+| ----- | ------------- |
+| **Deliver from ZIP** | The ZIP code you measure distance from. Leave it blank to use the ZIP of your business address from [General Settings](/docs/general-settings#business-address). After you save, it shows "Measuring from [City], [ST]" so you can check it found the right place. |
+| **Delivery radius (miles)** | How far you'll deliver, from 1 to 100 miles. |
+| **Delivery fee** | What a customer pays for delivery. Type `0` for free delivery. If you add closer prices, this is the price for the farthest ring. The most you can enter is $10,000. |
+| **Minimum order (optional)** | The smallest order you'll deliver. Leave it blank for no minimum. |
+| **Closer prices (optional)** | Charge less (or nothing) for customers nearer to you. See below. |
+| **Delivery days & instructions** | Something like "I deliver Tuesday and Thursday evenings. I'll text you when I'm on my way." Up to 1000 characters. |
+
+The instructions are shown to customers at checkout and in their confirmation email.
+
+### Closer prices
+
+By default everyone inside your radius pays the **Delivery fee**. Click **Add a closer price** to charge less for customers who live nearer. Each row reads "Within [N] miles" and a price. You can add up to three, and each distance must be smaller than your radius and used only once.
+
+**Example:** delivery radius `15`, **Delivery fee** `5.00`, and two closer prices: within 5 miles is `0`, within 10 miles is `3.00`. The card shows the summary as you type: "Free within 5 mi · $3.00 within 10 mi · $5.00 up to 15 mi".
+
+| Where the customer lives | They pay |
+| ------------------------ | -------- |
+| Within 5 miles | Free |
+| Between 5 and 10 miles | $3.00 |
+| Between 10 and 15 miles | $5.00 (the **Delivery fee**) |
+| More than 15 miles away | Local delivery isn't offered |
+
+At checkout the customer pays the nearest closer price that covers them. If none does, they pay the main **Delivery fee**. A customer exactly at your radius counts as inside it.
+
+### How distance is worked out
+
+- It's the straight-line distance between the center of your ZIP code and the center of the customer's ZIP code. Your address stays private.
+- Because it uses ZIP centers, the distance is approximate near the edge of your radius. A customer just inside or just outside might land on the other side of the line.
+- Shoppers never see the distance or your ZIP code. They only see whether you deliver to them, and the price.
+- It's for US addresses only.
+
+### Minimum order, discounts and free shipping
+
+- The **Minimum order** is checked against the subtotal **before discounts**. A $30 cart with a $10 coupon still meets a $25 minimum.
+- Your store's free shipping threshold (the **Flat rate** option with a threshold, or the zone + weight threshold) doesn't apply to local delivery. The customer still pays your **Delivery fee**.
+- A discount code of the **Free shipping** type does cover the delivery fee. See [Discounts and Coupons](/docs/discounts-and-coupons).
+
+### Subscriptions
+
+Subscription products can't use local delivery. They still ship or are picked up.
+
+### Saving
+
+Use the page's **Save changes** button in the toolbar. You'll see "Saving local delivery..." and then "Local delivery settings updated successfully". If a field has a problem, a toast reads "Fix the highlighted local delivery fields". If saving fails, it reads "Failed to update local delivery". A half-finished shipping charges form doesn't stop you saving only this card.
+
+### Messages you might see
+
+| Message | What to do |
+| ------- | ---------- |
+| "Enter a 5-digit ZIP code" | Fix **Deliver from ZIP**. |
+| "We couldn't find that ZIP code." | The ZIP isn't recognized. Check it for typos. |
+| "Enter the ZIP code you deliver from (your business address has no ZIP yet)" | Type a ZIP in **Deliver from ZIP**, or add a ZIP to your business address in General Settings. |
+| "Enter how far you deliver, from 1 to 100 miles" | Fill in **Delivery radius (miles)** while local delivery is on. |
+| "Enter a whole number from 1 to 100 miles" | Use a whole number, with no decimals. |
+| "Enter a valid delivery fee (e.g. 5.00, or 0)" | Type a dollar amount, or `0` for free. |
+| "Enter a valid minimum order amount" | Type a dollar amount, or leave it blank. |
+| "You can add up to 3 closer prices." | Remove a row before adding another. |
+| "Enter your delivery radius first." | Type the radius, then add closer prices. |
+| "Must be less than your [N]-mile radius." | A closer price's distance has to be smaller than your radius. |
+| "Each distance can only be used once." | Two rows have the same distance. Change one. |
+| "Enter a price (e.g. 3.00, or 0 for free)" | Fill in the price on that row. |
+| "That price is too high" | Lower it. The most is $10,000. |
+| "Keep this under 1000 characters" | Shorten **Delivery days & instructions**. |
+
+### What customers see
+
+- **At checkout.** The **Delivery** card adds a **Local delivery** button next to **Ship to address** (and **In-store pickup**, if it's on). See [What Your Customers See](/docs/for-your-customers#step-1-your-checkout-page).
+
+  ![Checkout with Local delivery chosen, showing the ZIP check and delivery details](/images/shipping/checkout-local-delivery.png)
+
+- **In the confirmation email**, with their delivery address and your instructions.
+- **When you deliver it**, you mark the order delivered. See [Orders](/docs/orders#local-delivery-orders).
+
+### Other places it shows up
+
+- Your **Shipping policy** template gains a **Local Delivery** section describing your radius, prices, minimum and instructions. See [Pages and Policies](/docs/pages-and-policies).
+- **Download your site** includes a **Local delivery** block in your site details. See [Data and Export](/docs/data-and-export).
+
+---
+
 ## Delivery times and returns
 
 These two cards are always on the page. They don't change what you charge. They give shoppers (and Google's product listings) a clearer picture of what to expect.
@@ -192,10 +291,11 @@ At checkout, shipping shows as Free, a dollar amount, or **In-store pickup (free
 | Price by US state and by weight with zones. | Use live carrier rates (such as a real-time USPS or UPS quote). |
 | Waive shipping with a Free shipping coupon. | Price shipping by country: only US destinations are supported. |
 | Offer in-store pickup with its own location and instructions. | Turn pickup on without instructions. |
-| Show delivery times and a returns policy. | Ship outside the United States. |
+| Deliver locally within up to 100 miles, with up to three cheaper rings closer to you. | Show shoppers the distance, or use local delivery for subscriptions. |
+| Show delivery times and a returns policy. | Ship outside the United States, or offer local delivery outside it. |
 
 <Cards>
-  <Card title="Orders" href="/docs/orders" description="Fulfill orders, add tracking and mark pickups ready." />
+  <Card title="Orders" href="/docs/orders" description="Fulfill orders, add tracking, mark pickups ready and mark local deliveries delivered." />
   <Card title="Shipping labels with Pirate Ship" href="/docs/shipping-labels" description="Buy a discounted label and bring the tracking number back." />
   <Card title="Business Hours" href="/docs/business-hours" description="Publish your opening hours." />
   <Card title="General Settings" href="/docs/general-settings" description="Your business address, used for pickup if you leave the location blank." />

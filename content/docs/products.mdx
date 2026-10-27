@@ -127,59 +127,83 @@ Stock counts, adjustments, and the Inventory pages themselves are covered in [In
 
 ## Product images
 
-The **Product Images** card is on the **Basics** tab. It shows how many photos you've used, like "3 of 10 images". A product can have up to 10.
+The **Photos & videos** card is on the **Basics** tab. It shows how many items you've used, like "3 of 10 items · 1 of 3 videos". A product can have up to 10 items in all, and up to 3 of them can be videos.
 
-![The Product Images card with the Add images menu open, showing Upload from device and Choose from library](/images/products/images-add-menu.png)
+![The Photos & videos card with the Add menu open, showing Upload from device and Choose from library](/images/products/images-add-menu.png)
 
 ### Adding photos
 
-Click **Select images** (or **Add images** once you already have some). What happens next depends on whether the **Media Library** is on:
+With no photos yet, the card says "No photos yet" and "Drag and drop photos or videos here, or click to select several (JPG, PNG, WebP, MP4, WebM, MOV)", with a **Select files** button. Once you have some, the button at the top right of the card reads **Add**. What happens next depends on whether the **Media Library** is on:
 
 - **Media Library on** — a menu opens with **Upload from device** and **Choose from library**.
 - **Media Library off** — your computer's file picker opens straight away.
 
-You can also drag photos from your computer and drop them anywhere on the card. You can add several at a time.
+You can also drag photos or videos from your computer and drop them anywhere on the card. You can add several at a time.
 
 Media Library is on by default. It can be switched on or off in **Settings → Features**. See [Media Library](/docs/media-library).
 
 ### Choosing from the library
 
-**Choose from library** opens the **Choose images** window. It lists everything in your Media Library.
+**Choose from library** opens the **Choose photos or videos** window. It lists everything in your Media Library.
 
-![The Choose images window with a search box, a grid of library pictures with two selected, and the "2 selected · 6 left" footer with Cancel and Add 2 images](/images/products/choose-images-dialog.png)
+![The Choose photos or videos window with a search box, a grid of library pictures with two selected, and the "2 selected" footer with Cancel and Add 2 items](/images/products/choose-images-dialog.png)
 
-- Use **Search by filename…** to find a picture.
-- Click pictures to select them. Pictures already on this product are tagged **Added**.
-- The footer shows "N selected · M left", where M is how many more photos the product has room for.
-- Click **Add N images** to add them, or **Cancel** to back out.
+- Use **Search by filename…** to find a picture or video.
+- Click items to select them. Ones already on this product are tagged **Added**.
+- The footer shows "N selected · M left", where M is how many more items the product has room for.
+- Click **Add N items** to add them, or **Cancel** to back out.
 
-If you try to pick more than will fit, you'll see "You can add N more images", or "You can't add any more images" when the product is full. Pictures from the library are already hosted, so they're added right away. There's nothing to upload.
+If you try to pick more than will fit, you'll see "You can add N more items", or "You can't add any more items" when the product is full. For videos, you'll see "You can add N more videos" or "You can't add any more videos". Items from the library are already hosted, so they're added right away. There's nothing to upload. To add something new from your computer, use **Upload from device** instead. To upload a video, use **Upload from device**.
 
 ### Photos from your device
 
-Photos from your computer or phone are prepared first (you'll see "Preparing photos…"):
+Photos from your computer or phone are prepared first (you'll see "Preparing photos…" on the button, or "Checking videos…" when a video is included):
 
 - **HEIC** photos, like the ones iPhones take, are converted automatically.
 - Large photos are shrunk to a maximum of 2,560 pixels and compressed.
 - After that, each photo must be **under 5 MB**. Most phone photos fit.
 
-These photos are shown as previews only. The upload happens when you click **Save changes**, and the card reminds you: "Pending images upload when you save."
+These files are shown as previews only. The upload happens when you click **Save changes**, and the card reminds you: "Pending files upload when you save."
 
 ### Limits and skipped files
 
-- At 10 photos, you'll see "This product already has 10 images — remove one to add more".
-- If you add more than will fit, the extra ones are skipped: "Added X of Y images — products can have at most 10 (Z skipped)".
-- A file that isn't a picture is skipped: `Skipped "<file>": not an image`.
+- At 10 items, you'll see "This product already has 10 photos and videos — remove one to add more".
+- If you add more than will fit, the extra ones are skipped: "Added X of Y — products can have at most 10 photos and videos (Z skipped)".
+- A file that isn't a photo or video is skipped: `Skipped "<file>": not a photo or video`.
 - A photo still over the size limit after processing is skipped: `Skipped "<file>": must be less than 5MB`.
-- A library picture that's already on the product is skipped: "Skipped images that are already in the gallery".
-- If you drop files while photos are still being prepared, you'll see "Still preparing photos — try again in a moment".
+- A library item that's already on the product is skipped: "Skipped items that are already in the gallery".
+- If you drop files while they are still being prepared, you'll see "Still preparing files — try again in a moment".
 
 ### Order, alt text, and removing
 
-- **Reorder** by dragging a photo by its handle. You can also reorder with the keyboard.
-- The **first photo is the primary image**. It's the one on your product card and the shop grid. The card marks it "Primary image".
+- **Reorder** by dragging an item by its handle. You can also reorder with the keyboard.
+- The **first item is the primary photo**. It's the one on your product card and the shop grid. Under it, the card says "Primary photo — shown on product cards and at checkout".
 - **Alt Text** — describe each photo ("Describe this image..."). It helps people using screen readers, and helps search engines. See [Accessibility and Your Site](/docs/accessibility) for tips on writing it.
-- Click the red **X** on a photo to remove it from the product. The change is saved when you click **Save changes**.
+- Click the red **X** on an item to remove it from the product. The change is saved when you click **Save changes**.
+
+### Add a video
+
+You can add up to 3 videos to a product, alongside its photos. Each video can be up to 50 MB, in MP4, WebM, or MOV format. Videos count toward the same 10-item limit as photos.
+
+1. In the **Photos & videos** card, click **Add** (or **Select files** if the card is empty). Choose **Upload from device** to pick a file from your computer, or **Choose from library** to use a video that's already in your Media Library.
+2. Wait for "Checking videos…" to finish. If a video is over 50 MB, you'll see `"<file>" is over 50MB.`
+3. Click **Save changes** to keep it on the product.
+
+SimplePress takes a still picture from the video for you. Shoppers see it until the video starts playing. In the card, a video shows a play icon and its length on its thumbnail, and the line "Plays muted on a loop in your shop" under it.
+
+![The Photos & videos card with a video in the list, showing the play icon, the Description field, and the primary photo note](/images/products/photos-and-videos-card.png)
+
+A few things to know:
+
+- **The first item must be a photo.** It's the picture on your product cards, in the cart and at checkout, in emails, in search results, and in link previews. You can't drag a video into the first spot, and a product with videos needs at least one photo. If you try, you'll see "The first item must be a photo — it's what shows on product cards and at checkout.", "Add a photo before adding videos.", or "Moved a photo to the front — the first item must be a photo."
+- **Describe each video.** Every video has a **Description** field ("What the video shows..."), like alt text. Screen readers read it out loud, so say what the video shows.
+- **iPhone videos may not upload.** Videos recorded in iPhone's "High Efficiency" format (HEVC) can't play in Chrome or Firefox, so SimplePress turns them away with this message: "This video uses HEVC (iPhone 'High Efficiency') and won't play in Chrome or Firefox. Export it as MP4 (H.264), or set iPhone Settings → Camera → Formats → Most Compatible."
+- **Where videos show.** Every template, including Default, shows videos in the product's picture gallery. The video plays silently on a loop while it's on screen, with buttons to pause and turn the sound on. Visitors who have asked their device to reduce motion see the still picture with a play button instead. Opening the enlarged view plays the video with sound and full controls. Videos are never used as a variant's picture.
+- **In your Media Library.** In the Media Library's list of where a file is used, a video shows as **Product video** and its still picture as **Product video poster**. See [Media Library](/docs/media-library).
+
+![A product page on the Default template with a video as one of the gallery slides](/images/products/storefront-product-video.png)
+
+When you download your site, product videos are in the **Videos** folder. The import files for moving to Shopify, Wix, Squarespace, or WooCommerce carry photos only, because those platforms don't take videos in their import files.
 
 ---
 
@@ -210,7 +234,7 @@ Each variant row has:
 - **Compare At** — the crossed-out original price for this variant.
 - **Stock** — this variant's quantity. It matters when **Track Inventory** is on.
 - **SKU** and **Barcode** (UPC/EAN/GTIN) — optional codes.
-- **Image** — pick one of the product's own gallery photos for the variant (**Pick a gallery image**, or **None**). Upload the photos in **Product Images** first.
+- **Image** — pick one of the product's own gallery photos for the variant (**Pick a gallery image**, or **None**). Upload the photos in **Photos & videos** first.
 
 ### Bulk edit
 
@@ -221,6 +245,26 @@ Tick the checkboxes on several variants. A **Bulk edit:** bar appears with:
 - **Delete selected**
 
 ![The Product Variants table with several rows ticked and the Bulk edit bar showing Set Price, Set Qty, and Delete selected](/images/products/variants-bulk-edit.png)
+
+### Color swatches
+
+If one of your options is named **Color**, **Colors**, **Colour**, **Colours**, **Colorway**, **Shade**, **Shades**, or **Finish** (capital letters don't matter), a **Color swatches** section appears in the **Product Variants** card. It says: "Pick the exact color shown for each color on your store. Leave on Auto to match by name."
+
+There is one row for each value of that option, such as Red or Hunter Green. Each row has a small preview dot, the name, and a note about where the color comes from:
+
+- **Automatic** — SimplePress matched the name to a built-in color. It knows about 75 common color names. It tries the whole name first, then the longest run of words it knows. That's why Hunter Green gets its own green and doesn't just turn into plain Green, and "Gold with Stones" becomes gold.
+- **Custom** — you picked the color yourself.
+- **No automatic match** — SimplePress doesn't recognize the name (the preview dot is hatched). Pick a color yourself to fix it.
+
+To set a color yourself, click the color picker in the row, or type a color in the box next to it. The box says **Auto** until you set one. It accepts a color like `#ff8800` or `ff8800`, and the short form `#f80` too. If it can't read what you typed, you'll see "Enter a color like #ff8800". To go back to the automatic color, click **Use auto**. That button appears once you've set a custom color.
+
+You can save up to 100 color swatches. If you go over, you'll see "Use at most 100 color swatches". Custom colors for names you no longer use are removed when you save the product.
+
+![The Color swatches section with a row for each color, showing Automatic, Custom, and No automatic match](/images/products/variant-color-swatches.png)
+
+<Callout type="info" title="Not every template shows color dots">
+The swatches editor shows for every template, but only templates that show color dots for variants use these colors. The Default template doesn't. If you're not sure whether yours does, ask the SimplePress team.
+</Callout>
 
 ---
 

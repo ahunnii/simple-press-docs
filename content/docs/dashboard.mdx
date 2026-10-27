@@ -124,6 +124,7 @@ When something is waiting on you, colored reminders appear in a strip below the 
 | **N orders to fulfill**         | "Paid but not yet shipped." Customers have paid, but the order hasn't shipped or been handed over yet. | The Orders list, filtered to **Open**, **Unfulfilled** and **Paid**. |
 | **N orders awaiting payment**   | "Pending payment confirmation." Orders were started but payment hasn't been confirmed yet. | The Orders list, filtered to pending payment. |
 | **No store policies published** | "Add a Terms of Service & Refund Policy." Your Terms of Service or Refund Policy is missing, empty, or not published. | **Site Setup → Policies**.                  |
+| **N testimonials waiting for approval** | Customers sent testimonials that you haven't approved or hidden yet. Only shown when [Testimonials](/docs/testimonials) is on. | **Testimonials**. |
 
 Cancelled and refunded orders aren't counted in the first two reminders.
 
@@ -135,10 +136,6 @@ Cancelled and refunded orders aren't counted in the first two reminders.
 
 See [Orders](/docs/orders) for how to fulfill orders and [Pages & Policies](/docs/pages-and-policies) for writing your policies.
 
-### The "Cart is disabled" notice
-
-If **Shopping Cart & Checkout** is turned off for your store, a **Cart is disabled** notice appears at the top of the Dashboard. Customers can't add items to a cart while it's off. Go to **Settings → Features** to turn it back on. See [Feature toggles](/docs/feature-flags).
-
 ---
 
 ## Customizing Your Dashboard
@@ -147,7 +144,7 @@ The cards below the pinned reminders are yours to arrange. You choose which numb
 
 Your layout belongs to you. Each Owner and Manager has their own Dashboard layout for each store, so changing yours doesn't change anyone else's. Staff don't see the Dashboard at all.
 
-New people start with the standard layout:
+New people start with a layout that fits your kind of business. Stores that sell products start with the standard layout:
 
 | Card                              | Time range    |
 | --------------------------------- | ------------- |
@@ -164,6 +161,16 @@ New people start with the standard layout:
 
 *The standard layout on a store with a few orders. Your own page shows only the cards you chose.*
 
+Stores that don't sell products start with cards that fit them instead:
+
+| Kind of business | Starting cards |
+| ---------------- | -------------- |
+| **Donations / nonprofit** | Donations, Gifts, Donors, Average gift, Email subscribers, Form submissions, Visitors, Upcoming events, Trend chart (Donations) |
+| **Services** | Form submissions, Quote requests, Invoices outstanding, Invoices collected, Upcoming events, Testimonials to approve, New customers, Visitors, Trend chart (Form submissions) |
+| **Informational** | Visitors, Form submissions, Upcoming events, Testimonials to approve, Email subscribers, New customers, Total customers, Trend chart (Visitors) |
+
+A card only appears when the feature behind it is on. For example, **Visitors** needs Analytics and **Upcoming events** needs Events. If some starting cards are hidden, the Dashboard fills out the top row with other number cards your store can show, so there are no gaps. If none of your features have cards yet, the Dashboard says so and links to **Settings → Features**.
+
 > **What stays put:** The setup checklist, the "orders to fulfill" reminder, and the oversold-items warning stay pinned at the top of the Dashboard. They aren't cards, so you can't move or remove them.
 
 ### Editing your layout
@@ -179,17 +186,17 @@ New people start with the standard layout:
 
 **Your changes aren't kept until you press Save.** If you try to leave the page with unsaved changes, SimplePress asks first. **Cancel** throws away everything you changed since you started editing.
 
-**Reset to default** puts back the standard set of cards shown above. It asks you to confirm first. As with any other change, you still need to press **Save** afterward.
+**Reset to default** puts back the starting cards for your kind of business, shown above. It asks you to confirm first. As with any other change, you still need to press **Save** afterward.
 
 ### Adding a card
 
-Click **Add card** and pick from the list. Cards are grouped by what they're about (see [The Cards You Can Add](#the-cards-you-can-add)). Once you've reached 24 cards, remove one before adding another.
+Click **Add card** and pick from the list. Cards are grouped by what they're about (see [The Cards You Can Add](#the-cards-you-can-add)), and the **Charts** group sits at the top of the window. Once you've reached 24 cards, remove one before adding another.
 
 You can add the same card more than once, with different settings. For example, you could show **Net revenue** for this month and again for all time.
 
-![The Add a card window listing cards under Orders and revenue, each with a small size preview, a description and its default size and time range, and an On dashboard label on the ones you already have](/images/dashboard/add-card-dialog.png)
+![The Add a card window with the Charts group at the top (Revenue chart, marked On dashboard, and Trend chart), then cards under Orders and revenue, each with a small size preview, a description and its default size and time range](/images/dashboard/add-card-dialog.png)
 
-*The Add a card window. Cards you already have are marked "On dashboard", and you can still add them again.*
+*The Add a card window. Charts come first. Cards you already have are marked "On dashboard", and you can still add them again.*
 
 ### Moving cards around
 
@@ -206,7 +213,7 @@ The card menu also has **Move to start**, **Move earlier**, **Move later** and *
 
 While you're editing, each card shows a sliders icon. Click it to open that card's settings:
 
-- **Size.** Small (1×1), Wide (2×1), Large (2×2) or Full width (4×2). Each card offers only the sizes that make sense for it. A Wide number card also shows a small trend line.
+- **Size.** Small (1×1), Wide (2×1), Large (2×2) or Full width (4×2). Each card offers only the sizes that make sense for it. A Wide number card also shows a small trend line. **Visitors** does too, and **Conversion rate** doesn't.
 - **Time range.** Today, This week (starts Monday), This month, This year, Last 7 days, Last 30 days, Last 90 days, or All time. Cards that show "right now" things, such as Low stock alerts, don't use a time range.
 - **Compare to previous period.** On by default. The card shows a green ▲ or red ▼ with the change compared to the same stretch of the previous period, for example "vs last week". It isn't available for **All time**, or for cards that show a "right now" count.
 - **Move** and **Remove.** Remove takes the card off your Dashboard. You can add it back any time.
@@ -243,6 +250,63 @@ Because ranges are "to date," a comparison early in the week or month compares a
 
 Only cards for features that are turned on for your store appear in the **Add card** list. If you turn a feature off, its cards are hidden from your Dashboard, and they come back, with your settings, when you turn the feature back on. See [Feature toggles](/docs/feature-flags).
 
+### Charts
+
+These cards draw numbers over time. They sit in the **Charts** group at the top of the **Add card** window.
+
+| Card                | What it shows                                                                                 |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| **Revenue chart**   | A chart of revenue over the period, day by day.                                               |
+| **Trend chart**     | One number from your store, plotted over time. You choose which number under **Shows**.       |
+
+**Revenue chart.** Hover over a bar to see that day's total. Days with no sales show as zero, so a quiet store sees a mostly flat chart rather than an empty message. For the full picture of where the money went, see [Finances](/docs/finances).
+
+![The Revenue chart (Last 30 days) bar chart above the Top products list](/images/dashboard/revenue-top-products.png)
+
+*The Revenue chart, with the Top products list beneath it.*
+
+**Trend chart.** A Trend chart plots one number over time, so you can see whether it's climbing or slipping. Add as many as you like, for example one for **Donations** and one for **Visitors**. A Trend chart never shows the "On dashboard" label in the Add card window.
+
+- **Bars and lines.** Totals and counts, such as Donations or Orders, draw as bars. Averages (Average order and Average gift) draw as a line. A day or month with no orders or gifts has no average, so the line leaves a gap there instead of dropping to zero.
+- **Title.** The card's title follows what it shows, for example "Donations over time." Clicking the title opens the same page as that number's own card.
+- **The big number.** The number at the top always matches that number's own card for the same range.
+- **Comparison.** With **Compare to previous period** on, the big number shows the ▲ or ▼ change, and a dashed line shows the previous period behind the bars or line.
+- **Time range.** Every range except **Today**, the same as the Revenue chart. The default is **Last 30 days**. This year and All time show one bar per month instead of one per day.
+- **Size.** **Large (2×2)**, which takes half the width of the Dashboard, or **Full width (4×2)**. A new Trend chart starts full width.
+- **Visitors.** Each day counts people separately, so daily visitors can add up to more than the total at the top. The chart says so under the number.
+- **Turned-off features.** If the feature behind the chosen number is turned off, the chart is hidden until you turn it back on, like other cards.
+
+![The Orders over time Trend chart for the last 30 days: 11 orders, up 267% on the prior 30 days, with orange bars for each day's orders and a dashed grey line for the previous period](/images/dashboard/trend-chart.png)
+
+*A full-width Trend chart showing Orders. The dashed line is the previous 30 days.*
+
+![The Average order over time Trend chart for This year: $58.44, drawn as a line with a dot for each month from May to October](/images/dashboard/trend-chart-line.png)
+
+*The same card set to Average order and This year. Averages draw as a line, one point per month.*
+
+**The Shows list.** Each Trend chart has a **Shows** list, grouped the same way as the **Add card** window. Only numbers whose feature is turned on appear.
+
+| Group                    | Numbers you can chart                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------ |
+| **Orders and revenue**   | Gross revenue, Net revenue, Refunds, Orders, Average order, Orders fulfilled, Orders cancelled          |
+| **Donations**            | Donations, Gifts, Donors, Average gift                                                                  |
+| **Invoices**             | Invoices collected                                                                                      |
+| **Customers**            | New customers, Quote requests, Form submissions                                                         |
+| **Traffic**              | Visitors                                                                                                |
+
+**To change what a Trend chart shows:**
+
+1. Click **Edit dashboard** at the top of the Dashboard.
+2. Click the settings button (the sliders icon) on the Trend chart.
+3. In the **Shows** list, which appears above **Size**, pick the number you want.
+4. Click **Save**.
+
+![A Trend chart's settings menu: the Shows list grouped under Orders and revenue, Donations, Invoices, Customers and Traffic with Orders selected, then the Size choices Large (2×2) and Full width (4×2)](/images/dashboard/trend-chart-shows-menu.png)
+
+*The top of a Trend chart's settings menu. Time range, comparison, move and remove options sit below Size.*
+
+**Starting cards.** Donations / nonprofit, Services and Informational stores start with a full-width Trend chart after their number cards. It shows Donations, Form submissions and Visitors respectively. Stores that sell products keep the standard layout with the Revenue chart. See [Customizing Your Dashboard](#customizing-your-dashboard).
+
 ### Orders and revenue
 
 | Card                   | What it shows                                                                                         |
@@ -257,18 +321,11 @@ Only cards for features that are turned on for your store appear in the **Add ca
 | **Orders fulfilled**   | Of the orders placed in the period, how many have been fulfilled.                                     |
 | **Orders cancelled**   | Of the orders placed in the period, how many were cancelled.                                          |
 | **Recent orders**      | Your most recent orders, newest first, with order number, status, customer, how long ago, and total.  |
-| **Revenue chart**      | A chart of revenue over the period, day by day.                                                       |
 | **Top products**       | Your best sellers by revenue in the period, with photo, units sold and revenue.                       |
 
 On **Recent orders**, an order that includes [product options](/docs/product-options) adds "· with options" to its row. Click any row to open that order, or click the card's title to open the full Orders list. With no orders yet, it says "No orders yet."
 
 On **Top products**, a store with no sales in the period sees "No sales data yet."
-
-**Revenue chart.** Hover over a bar to see that day's total. Days with no sales show as zero, so a quiet store sees a mostly flat chart rather than an empty message. For the full picture of where the money went, see [Finances](/docs/finances).
-
-![The Revenue chart (Last 30 days) bar chart above the Top products list](/images/dashboard/revenue-top-products.png)
-
-*The Revenue chart and Top products cards.*
 
 > **Refunds:** Net revenue shows what you sold after refunds. The up and down arrows compare your totals after refunds, so a big refund will pull the arrow down even if the gross number looks high.
 
@@ -340,6 +397,9 @@ See [Invoices](/docs/invoices).
 | **Total customers**     | Everyone in your [Customers](/docs/customers) list.                                        |
 | **Quote requests**      | Quote requests received in the period. See [Quote Calculators](/docs/quote-calculators).   |
 | **Form submissions**    | Submissions made through your website forms. Imported submissions aren't counted. See [Forms](/docs/forms). |
+| **Upcoming events**     | Published events that haven't ended yet. Needs [Events](/docs/events) turned on.             |
+| **Testimonials to approve** | Testimonials waiting for you to approve or hide them. Needs [Testimonials](/docs/testimonials) turned on. |
+| **Email subscribers**   | Customers who can get your marketing emails right now. This matches the count on your Email Marketing page. Needs [Email Marketing](/docs/email-marketing) turned on. |
 
 ### Traffic
 
@@ -374,9 +434,6 @@ Press **Command + K** on a Mac or **Ctrl + K** on Windows, or click the "Search�
 
 ## Troubleshooting
 
-**I see a "Cart is disabled" notice at the top.**
-Shopping Cart & Checkout is turned off for your store, so customers can't add items to a cart. Go to **Settings → Features** and turn it on. See [Feature toggles](/docs/feature-flags).
-
 **I see a "Payments are paused" banner.**
 Stripe has disabled charges on your account, so shoppers can't check out. Click **Fix in Stripe** to see what Stripe needs from you, or **Details** to open **Settings → Integrations**. The banner clears once Stripe turns charges back on. See [Payments & Payouts](/docs/payments-and-payouts#when-stripe-pauses-payments).
 
@@ -397,6 +454,9 @@ Cards only appear for features that are turned on. Check **Settings → Features
 
 **I can't add another card.**
 You can have up to 24 cards. The counter in the editing bar shows how many you have. Remove one, then add the new one.
+
+**I don't see Trend chart in the Add card list.**
+None of the features it can chart are turned on. Turn on at least one of Orders, Donations, Invoices, Quote Calculator, Forms or Analytics under **Settings → Features**.
 
 **My changes disappeared.**
 Changes are only kept when you press **Save**. **Cancel** and leaving the page without saving both throw them away.

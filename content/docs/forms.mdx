@@ -14,6 +14,8 @@ Typical uses:
 - A **client intake form** before a first appointment
 - A **sign-up sheet** for a class, a waitlist, or a volunteer day
 
+If a form is only for some people, such as a grant or a program with rules about who can apply, you can ask a few yes/no [screening questions](#the-screening-questions-card) first. Visitors who don't qualify get links to other help instead of the form.
+
 You build a form once, then insert it into one of your pages or blog posts, much like a [gallery](/docs/galleries). A form doesn't get a page or link of its own. See [Putting a Form on Your Site](#putting-a-form-on-your-site).
 
 <Callout type="info" title="Forms is off by default">
@@ -62,7 +64,7 @@ The three-dot menu at the end of each row has:
 
 ## Building a Form
 
-Click **New form**. The builder has a toolbar across the top, the **Form** and **Fields** cards on the left, and the **Preview** and **After submit** cards on the right. (On narrower screens, they stack in one column.)
+Click **New form**. The builder has a toolbar across the top, the **Form**, **Fields**, and **Screening questions** cards on the left, and the **Preview** and **After submit** cards on the right. (On narrower screens, they stack in one column.)
 
 <video src="/videos/forms/build-a-form.webm" poster="/videos/forms/build-a-form-poster.png" controls muted playsInline className="rounded-lg border" />
 
@@ -200,9 +202,43 @@ When you pick a new **Type** for a field, a box asks you to confirm, for example
 
 Click **Change type** to go ahead, or **Cancel**.
 
+### The Screening Questions Card
+
+Screening questions are short yes/no questions a visitor answers **before** they see the form. Use them when a form is only for some people, such as a grant open only to local businesses or a program with age or residency rules. A visitor who doesn't qualify sees your message, with buttons to other help if you add them, instead of the form. A visitor who answers every question the right way sees the form.
+
+Turn on **Ask screening questions first** to set them up. If you turn it off later, your questions are kept, and turning it back on brings them back.
+
+- **Introduction** (optional, up to 500 characters): a line shown above the questions, such as "A few quick questions to make sure this grant is the right fit."
+- **Questions**: click **Add question** for each one, up to 15. Visitors see them in this order.
+
+Questions fold up like your fields do. A folded question shows its number, the question, and which answer continues (**Continues on Yes** or **Continues on No**). Click it to open it. A new question opens on its own, and saved ones start folded. Use the arrows on the left to reorder a question. The **⋯** menu has **Duplicate**, which adds a copy right below with the same answer and message, and **Delete**. If something in a folded question needs fixing, it shows a red **Needs attention** badge.
+
+Each question has:
+
+- **Question** (required, up to 300 characters): the yes/no question, such as "Is your business based in Detroit?"
+- **Answer that continues to the form**: **Yes** or **No**. This is the answer that lets the visitor move on. It starts as **Yes**. Choose **No** for questions where "no" is the answer you want, such as "Are you behind on a loan with us right now?"
+- **Message if they answer the other way** (optional): what a visitor sees if they give the other answer, such as "This grant is only open to Detroit businesses right now." Leave it blank to use the **Default message**. Add a button to point them somewhere more useful, such as another program, a free workshop, or your contact page.
+
+All three messages on this card (each question's message, the **Default message**, and **Shown when they qualify**) use the same text editor as your pages. You can add headings, bold text, lists, links, and pictures. To add a button, add a link and set its **Style** to **Button** or **Outline button** (see [Buttons](/docs/text-editor#buttons)). A link to one of your own pages, such as `/contact`, opens in the same tab, and a full web address opens in a new tab. Forms, galleries, videos, quote calculators, and embeds can't go inside these messages.
+
+![The Screening questions card with Ask screening questions first switched on, an introduction, and three questions. The first is open: "Is your business based in Detroit?", Yes as the answer that continues, and a message for anyone who answers No with a "See other funding programs" button. The other two are folded, showing "Continues on Yes" and "Continues on No"](/images/forms/screening-card-questions.png)
+
+Below the questions:
+
+- **Default message**: shown to anyone who doesn't qualify on a question that has no message of its own. It starts as "Thanks for your answers — this form isn't the right fit for you right now." If you clear it, visitors see that same sentence.
+- **Shown when they qualify**: an optional **Message**, shown above the form once a visitor has passed every question. It's a good place for your phone number, office hours, or what happens after they apply.
+
+![The bottom of the Screening questions card: the Default message, and the Shown when they qualify box with the text editor holding a bold "Great news, you qualify!", a line with a phone number, and a "Read the grant guidelines" button](/images/forms/screening-card-messages.png)
+
+If **Ask screening questions first** is on but there are no questions, the form won't save and says "Add at least one screening question or turn screening off".
+
+To see how visitors experience the questions, see [Screening Questions on Your Site](#screening-questions-on-your-site).
+
 ### The Preview Card
 
 The **Preview** card shows the form as visitors will see it, and updates as you work. You can type into it and click the submit button to test your required fields and see your success message. Nothing is sent or saved. Click **Reset preview** to clear it.
+
+If the form has screening questions, the preview starts with them, so you can click through them as a visitor would. Click **Skip to form** to jump straight to the form, and **Restart screening** to go back to the first question.
 
 If two fields share a label or something else needs fixing, the preview says **Fix errors to preview** until you fix it.
 
@@ -267,6 +303,31 @@ When a visitor clicks the button:
 - If everything is fine, the form is replaced by your **Success message**.
 
 ![The same page after sending the form: the form is replaced by the success message](/images/forms/success-message.png)
+
+#### Screening Questions on Your Site
+
+If the form has [screening questions](#the-screening-questions-card), visitors see those first, where the form would be. The rest of your page shows as normal.
+
+- The questions come **one at a time**, with your introduction above them, "Question 1 of 3" and so on, and big **Yes** and **No** buttons. From the second question on, a **Back** link returns to the one before.
+- An answer that **continues** moves on to the next question.
+- The **other answer** stops there. The visitor sees that question's message (or your default message), including any buttons you added. A **Change my answer** button takes them back to the question, in case they tapped the wrong one.
+- After **every question passes**, your "Shown when they qualify" message appears, with the form right under them. Sending the form replaces all of it with your success message, as usual.
+
+![A page on the Wealth template showing the first screening question, "Is your business based in Detroit?", with Yes and No buttons under the introduction](/images/forms/screening-question.png)
+
+![The same page after a visitor answered No to "Have you been in business for at least one year?": the question's message about the free workshops, Join a free workshop and Talk to us buttons, and a Change my answer button](/images/forms/screening-not-a-fit.png)
+
+![The same page after passing every question: the "Great news, you qualify!" message with a phone number and a Read the grant guidelines button, then the Grant application form](/images/forms/screening-qualified.png)
+
+![On a phone: the message for a visitor whose business isn't in Detroit, with a See other funding programs button and Change my answer](/images/forms/screening-phone.png)
+
+If a visitor who has qualified refreshes the page, or comes back to it in the same browser tab, they go straight to the form. A new tab or a later visit starts again at the first question.
+
+Screening answers aren't saved. Entries, spreadsheets, and emails only include the form's own questions. Every entry you receive came from someone who passed, so you don't need to ask the screening questions again.
+
+<Callout type="warn" title="A guide, not a lock">
+  Screening questions steer visitors toward the right place. They aren't a security check. Someone determined to see the form could get past them, so don't use them to keep information private. Read each application as usual.
+</Callout>
 
 #### "This Form Is Not Available"
 
@@ -432,6 +493,7 @@ Note the last row: a Manager can't delete individual entries, but a Manager **ca
 - **Name your button.** "Send inquiry" or "Apply now" tells people what happens better than "Submit".
 - **Duplicate to start a new version.** Make a copy, change it while it's a draft, then swap it into your page when it's ready.
 - **Use quantities for bundles.** For a bouquet or party-pack request, use a **Picture choice** with **Several, with quantities** and a **Maximum total**, so visitors can't ask for more than you can make.
+- **Give "no" somewhere to go.** When a screening question turns someone away, add a message and a link or two, such as another program, a free workshop, or your contact page, so they leave with a next step.
 - **Tag as you go.** Tags like "Booked" or "Follow up" make it easy to filter and export just the entries you need.
 
 ---
@@ -459,6 +521,7 @@ See [Feature Flags](/docs/feature-flags).
 - Build as many forms as you like, each with up to 50 questions of twelve types
 - Make questions required, add help text, and limit dates to today or later
 - Let visitors pick colors or photos, and say how many of each (for example, 3 red balloons and 2 gold)
+- Ask up to 15 yes/no screening questions before the form, with a message (and buttons) for anyone who doesn't qualify
 - Place a form on any page or blog post, or in a rich-text field in the Site Editor, and use the same form in several places
 - Get an email for each new entry, sent to a different address per form if you like
 - Send visitors a confirmation email with a copy of their answers
@@ -471,7 +534,8 @@ See [Feature Flags](/docs/feature-flags).
 - Give a form its own page or a shareable link. It has to be placed on a page.
 - Put a form on another website
 - Let visitors upload files or photos, or sign their name
-- Show or hide questions based on earlier answers, or split a form into steps
+- Show or hide questions based on earlier answers, or split a form into steps. (Screening questions all come before the form; they can't change which questions the form asks.)
+- Ask screening questions with answers other than yes or no, or keep the screening answers with an entry
 - Take payments through a form
 - Send entries to more than one notify address, or to other apps automatically
 - Change the look of the form beyond what your template does
@@ -492,6 +556,12 @@ Nothing. Each entry keeps the questions and answers as they were when it was sen
 
 **I'm not getting the notification emails.**
 Check the form's **Notify email** in the **After submit** card, then your Support Email in [General Settings](/docs/general-settings#support-email). Also check your spam folder. Your entries are always saved in your admin, even if an email doesn't arrive.
+
+**Can I see how people answered the screening questions?**
+No. Screening answers aren't saved, so they don't appear in your entries or spreadsheets. If you need an answer on record, ask it as a regular question in the form too, for example a required **Single checkbox** that says "My business is based in Detroit."
+
+**Do screening questions stop people who don't qualify from applying?**
+They turn most people in the right direction, but they aren't a lock. Someone could go back and change their answers, or get past them in other ways. Check each application as you normally would. See [Screening Questions on Your Site](#screening-questions-on-your-site).
 
 **Are form entries included when I download my site?**
 Yes. The [Download your site](/docs/data-and-export) file includes a spreadsheet of entries for each form that has any.

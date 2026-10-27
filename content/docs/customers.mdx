@@ -148,7 +148,8 @@ Customer records are created for you. A person is added to your list when they:
 - join your rewards program;
 - save an address;
 - subscribe to something on your store;
-- confirm a newsletter sign-up (they appear even if they've never bought anything); or
+- confirm a newsletter sign-up (they appear even if they've never bought anything);
+- come over from your old website, when our team imports your contact list during a move (see [Imported Contacts](#imported-contacts)); or
 - receive an abandoned checkout reminder. That creates a record marked **Not subscribed**, with 0 orders, so you can see who was emailed.
 
 > **Creating an account doesn't add someone to the list.** A shopper who signs up but never does any of the things above won't appear in Customers yet.
@@ -156,6 +157,29 @@ Customer records are created for you. A person is added to your list when they:
 When a shopper creates an account or verifies their email, SimplePress looks for an existing customer record with the same email and links it to their account. If they ordered as a guest earlier, those orders are already attached to them, so there's nothing for you to do.
 
 Customer Accounts is always on and managed by SimplePress. You don't need to switch it on.
+
+### Imported Contacts
+
+When a store moves to SimplePress, our team can import its old contact list. Each imported person appears in your Customers list with a grey label:
+
+- **Imported, not confirmed** — your old site had them subscribed, but the invite email hasn't gone out yet.
+- **Imported** — everyone else.
+
+The label goes away once the person joins your email list from the invite. Imported contacts are never added to your email list on their own, and an existing customer with the same email address is left exactly as it was.
+
+On an imported customer's page, the **Email marketing** card shows the same label and a note: "Brought over from your previous site. They only join your email list if they choose to in the invite email." Their activity can include "Subscribed from the invite after your store moved" and "Unsubscribed on your previous site".
+
+Once your store has had at least one import, Owners and Managers see an **Import history** button on the Customers page. Staff never see it, and neither does a store with no imports. The page ("Contact lists brought over from a previous website") has a row for each import with these columns:
+
+| Column | What it shows |
+| --- | --- |
+| **File** | The file name, with the date, where it came from (Wix, Shopify, Square, or Spreadsheet), and who imported it underneath |
+| **Added** | How many contacts were added |
+| **Blocked** | How many were blocked from marketing email |
+| **Invite** | "No one to invite", a **Not sent** badge, or the invite's send status with the number of people, such as "12 people" |
+| **Joined** | How many people have joined your email list from the invite so far |
+
+**Added**, **Blocked**, and **Joined** are hidden on a phone. Each row has a **View invite** action, which opens that import's invite. A note at the bottom of the page says: "Imported contacts are not on your email list. They join only if they click join in the invite email. Anyone who was unsubscribed on the old site is blocked from marketing email for good." With no imports yet, the page says "No imports yet". See [Bring Your List From Your Old Website](/docs/email-marketing#bring-your-list-from-your-old-website) in Email Marketing.
 
 ---
 
@@ -210,7 +234,7 @@ Customers **opt out** in these ways:
 
 Anonymizing a customer also opts them out. A customer who marks one of your emails as spam is opted out and **suppressed**, and a customer whose address bounces is suppressed too. Suppressed customers aren't emailed again. See [Bounces and Spam Reports](/docs/email-marketing#bounces-and-spam-reports).
 
-Customers who are opted in show a **Subscribed** badge on the list, and they're the ones who receive campaigns from **[Email Marketing](/docs/email-marketing)**. A suppressed customer shows an orange **Suppressed** badge instead, and won't be emailed. The **Audience** card on the Email Marketing page shows the true number. That feature is off by default; turn it on in **Features**. See [Feature Flags](/docs/feature-flags).
+Customers who are opted in show a **Subscribed** badge on the list, and they're the ones who receive campaigns from **[Email Marketing](/docs/email-marketing)**. Each campaign can go to all of them or to a smaller group, such as people who have ordered or haven't ordered yet. A suppressed customer shows an orange **Suppressed** badge instead, and won't be emailed. The **Audience** card on the Email Marketing page shows the true number. That feature is off by default; turn it on in **Features**. See [Feature Flags](/docs/feature-flags).
 
 Your opted-in list, with how and when each person agreed, can be downloaded from the **Audience** card on the Email Marketing page. See [Exporting the List](/docs/email-marketing#exporting-the-list).
 

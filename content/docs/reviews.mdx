@@ -48,7 +48,7 @@ The table has these columns:
 
 | Column | What it shows |
 | --- | --- |
-| **Review** | The star rating, a **Verified** badge when it applies, the headline, the first lines of the text, up to three photo thumbnails, and how many people found it helpful |
+| **Review** | The star rating, a **Verified** badge when it applies, the headline, the first lines of the text, up to three photo thumbnails, how many people found it helpful, and a small **Replied** marker under the text if you have replied |
 | **Reviewer** | Name, email, and reviewer title |
 | **Product** | The product reviewed (click it to open the product) |
 | **Source** | **Customer** or **Owner added** |
@@ -96,6 +96,7 @@ What you see depends on the review:
 | Action | When it shows |
 | --- | --- |
 | **Edit** | Owner-added reviews only |
+| **Reply** or **Edit reply** | Every review. It says **Edit reply** once you have replied (see [Replying to a Review](#replying-to-a-review)) |
 | **Approve** | Pending reviews |
 | **Unapprove** | Published reviews |
 | **Hide** or **Unhide** | Every review |
@@ -180,6 +181,46 @@ Reviews written by customers can't be edited. You can only approve, hide, or del
 
 ---
 
+## Replying to a Review
+
+You can answer any review publicly, whether it is a thank-you, an answer to a question, or a reply to a complaint. Your reply shows under the review on the product page, as a response from your store.
+
+1. Open **Reviews** and click the **…** menu at the end of the review's row.
+2. Choose **Reply**. (If you have already replied, the first item says **Edit reply**.)
+3. In the **Reply to review** box, read the review shown at the top (the stars, the name, the product, and the comment).
+4. Type your answer in **Your reply**.
+5. Click **Post reply**.
+
+The box explains: "Shown publicly under this review on the product page, as a response from your business." A counter under the field shows how many characters you have used, such as 0 / 2000. A reply can be up to 2,000 characters. If you click **Post reply** with the field empty, you are asked to write a reply first.
+
+![The Reply to review box with the review at the top, the Your reply field, and the Post reply button](/images/reviews/reply-dialog.png)
+
+<Callout type="info" title="Replying to a review that isn't public yet">
+If the review is still **Pending** or **Hidden**, the box tells you: "This review isn't public yet — your reply will show once it's approved and visible." You can write the reply now. Shoppers see it only once the review itself shows on your store.
+</Callout>
+
+### Editing or Removing a Reply
+
+- **Edit reply.** Open the **…** menu and choose **Edit reply**. The box says **Edit reply**, shows who wrote the reply and when ("Replied by [name] · [date]", or "your team" if no name is on it), and the button reads **Save reply**. Editing keeps the original reply date.
+- **Remove reply.** In the same box, click **Remove reply**. A **Remove reply?** box asks you to confirm: "Your reply to [customer name] will no longer appear under their review. The review itself isn't changed." Click **Remove reply** again to confirm, or **Cancel** to keep it.
+
+Each review can have one reply. To say something different, edit the reply you already have.
+
+### What Shoppers See
+
+On the product page, your reply is indented under the review. It is labeled "Response from [your store name] · 3 days ago", with the time counting from when you posted it. It shows your store's name, not the name of the person on your team who wrote it. Replies show on the Default template and on every template that has a reviews section.
+
+![A product review with the store's reply indented underneath, labeled Response from the store](/images/reviews/storefront-owner-reply.png)
+
+### Good to Know
+
+- Owners and Managers can reply. Staff can't, since they can't open **Reviews**.
+- Replying isn't tied to the **Product Reviews** switch in **Settings → Features**.
+- The reviewer is not emailed when you reply. Your reply only shows on the product page.
+- Your replies are included in the reviews spreadsheet in [Download Your Site](/docs/data-and-export), in the **Owner reply** and **Reply date** columns.
+
+---
+
 ## What Customers See
 
 These are the details for the Default template. Other templates lay reviews out their own way, but they follow the same rules: only approved reviews show, and shoppers write reviews through the same steps.
@@ -198,7 +239,7 @@ The reviews section sits near the bottom of each product page, under a small lab
 - **Write a Review** button
 - **The reviews.** Ten at first, then a **Load more reviews** button that shows how many are left and adds ten more each time
 
-Each review shows the stars, a **Verified Purchase** badge when it applies, the headline, the review text, the reviewer's name, how long ago it was added, and **Helpful?** thumbs-up and thumbs-down buttons with counts.
+Each review shows the stars, a **Verified Purchase** badge when it applies, the headline, the review text, the reviewer's name, how long ago it was added, and **Helpful?** thumbs-up and thumbs-down buttons with counts. If you have replied, your reply shows indented underneath (see [Replying to a Review](#replying-to-a-review)).
 
 ![The reviews section of a product page with the average rating, breakdown bars, sort menu, Write a Review button, and the first reviews](/images/reviews/reviews-product-page.png)
 
@@ -324,13 +365,13 @@ Owners and Managers can switch it on or off. Turning it off hides the reviews se
 - Find reviews by search, status, source, and sort order
 - Add reviews yourself, with a backdated date, a reviewer title, and the Verified Purchase badge
 - Edit the reviews you added
+- Reply publicly to reviews (one reply each)
 - Choose whether an owner-added review is published or pending
 - Change the Reviews label and heading on the Default product page
 
 **You cannot:**
 
 - Edit a review a customer wrote
-- Reply to reviews
 - Add photos or video to a review, or let shoppers attach them
 - Let customers edit or delete their own review
 - Let a customer review the same product twice

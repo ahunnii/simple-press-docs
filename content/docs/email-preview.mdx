@@ -45,7 +45,7 @@ A preview is a sample. Nothing is sent when you click a button.
 
 - **Your logo and store name** are real. If you haven't uploaded a logo, the email shows your store name as text instead. Add one under **Site Setup → Brand & Appearance**.
 - **Customer names, addresses, products, amounts and codes** are made-up samples (for example "John Doe" or "Jane Smith"). Buttons and links in a preview are samples too.
-- **Order numbers and items:** if your store has any orders, several previews use details from one of your real orders: **Order Confirmation**, **Order Confirmation (pickup)**, **Ready for Pickup**, **Order Fulfilled (no tracking)**, **Order Refunded**, **Order Cancelled** and the two **New Order** emails use the real order number. The **New Order** emails also use the real totals, and **Abandoned Checkout** shows real items. The first order the page finds is used, not necessarily the newest. When [Product options](/docs/product-options) is on, the **Order Confirmation** and **New Order (owner)** previews also add sample choices to the first item (see the note under the table below). **Order Shipped** always shows order number 1001, and other amounts (such as the refund amount on **Order Refunded**) are samples. If you have no orders yet, the page uses order number 1001 and a "Sample Product".
+- **Order numbers and items:** if your store has any orders, several previews use details from one of your real orders: **Order Confirmation**, **Order Confirmation (pickup)**, **Order Confirmation (local delivery)**, **Ready for Pickup**, **Order Fulfilled (no tracking)**, **Order Refunded**, **Order Cancelled** and the two **New Order** emails use the real order number. The **New Order** emails also use the real totals, and **Abandoned Checkout** shows real items. The first order the page finds is used, not necessarily the newest. When [Product options](/docs/product-options) is on, the **Order Confirmation** and **New Order (owner)** previews also add sample choices to the first item (see the note under the table below). **Order Shipped** always shows order number 1001, and other amounts (such as the refund amount on **Order Refunded**) are samples. If you have no orders yet, the page uses order number 1001 and a "Sample Product".
 - **Customized wording shows up as you type.** If you change a subject or intro, the preview updates a moment later, before you save. A line above the preview, **Subject:**, shows the subject line customers will see. If you haven't written your own subject, that line shows the standard subject the real email uses. For example, the pickup confirmation reads "Order #1015 confirmed — pickup details inside" (the number comes from the order the preview uses, or is 1001 if you have no orders), **Subscription Updated** reads "Your subscription is paused" or "Your subscription is back on", and the subscription emails name the sample product, such as "Your Premium Coffee Pack subscription is confirmed". Invoice previews show the sample invoice number.
 
 ---
@@ -64,6 +64,7 @@ The tables below group the emails by topic. On the page itself, the buttons sit 
 | --- | --- | --- | --- |
 | **Order Confirmation** | Customer | Payment goes through, including each subscription renewal. For orders you create by hand, only if you choose to send it. | Subject and intro |
 | **Order Confirmation (pickup)** | Customer | Same email, for pickup orders. It adds the pickup location and instructions. | Subject and intro (shared with **Order Confirmation**) |
+| **Order Confirmation (local delivery)** | Customer | Same email, for local delivery orders. It adds the delivery address and your delivery days & instructions. | Subject and intro (shared with **Order Confirmation**) |
 | **Ready for Pickup** | Customer | You click **Mark Ready for Pickup** on a pickup order. | Subject and intro |
 | **Order Shipped** | Customer | You add a shipment with a tracking number. | Subject and intro |
 | **Order Fulfilled (no tracking)** | Customer | An order becomes fully fulfilled without tracking numbers. | Subject and intro |
@@ -74,7 +75,7 @@ The tables below group the emails by topic. On the page itself, the buttons sit 
 | **Abandoned Checkout** | Customer | A shopper reached the payment page, left an email address, and didn't pay within about 30 minutes. **Off until you turn it on.** It needs your full business address, and it isn't sent to anyone who has unsubscribed. | Subject and intro, plus the **Send this email** switch |
 | **Back in Stock** | Customer | A sold-out item that a shopper asked about can be bought again. | No |
 
-The **Order Confirmation (pickup)** button is a second view of the same email, so changes you make to one apply to both.
+The **Order Confirmation (pickup)** and **Order Confirmation (local delivery)** buttons are extra views of the same email, so changes you make to any of the three apply to all of them.
 
 **Choices on order emails.** When an order includes products with [options](/docs/product-options), **Order Confirmation** and your **New Order** alert list each item's choices under its name, as "Group: value +$X". The payment processing, payment failed and abandoned checkout emails show them in one short line. While **Product options & personalization** is on, the **Order Confirmation** and **New Order (owner)** previews add sample choices to the first item of the order the preview uses: Charms: Heart (included), Star +$12.00, and Engraving “Amy” +$5.00. If one of that order's items already has real choices, the preview leaves it alone. The product name and price in the preview are the real item's, so the choices may not suit it.
 
@@ -90,7 +91,7 @@ These are sent to you, not to customers. Customers never see them, and none of t
 
 | Button | When it's sent |
 | --- | --- |
-| **New Order (owner)** | A new order is paid. |
+| **New Order (owner)** | A new order is paid. For a local delivery order it shows **Fulfillment: Local delivery** and a **Deliver to** block with the delivery address and your instructions. |
 | **New Order (subscription)** | A subscription order comes in, such as a renewal. It also shows the subscription schedule. |
 | **Contact Form** | A visitor sends your contact form. It goes to your **Support Email**. Replying to it writes back to the visitor. |
 | **Low Inventory Alert (owner)** | A product's stock drops to its low-inventory number (set on the product). |
@@ -253,7 +254,7 @@ You can edit several emails before saving. **Save changes** keeps all of your ed
 
 Once you save, your wording is used in the real emails from then on. Emails already sent are not changed. If you resend an email from an order later, it uses your wording as it is at that moment.
 
-- A custom **Subject** replaces the standard subject, including for the pickup version of the order confirmation.
+- A custom **Subject** replaces the standard subject, including for the pickup and local delivery versions of the order confirmation.
 - **Intro text** appears near the top of the email, under the heading. The rest of the email (items, totals, buttons, footer) stays the same.
 - If you leave a field blank, the standard wording is used for that field.
 

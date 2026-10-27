@@ -1,0 +1,200 @@
+---
+title: Site Search
+description: Let visitors search your whole site from a box in the header, with results for products, services, pages, blog posts, events, FAQs and collections.
+---
+
+## Overview
+
+Site search puts a search icon in your header. Visitors click it, type a few letters, and see matching products, services, pages, blog posts, events, FAQs and collections right away. They can also open a full results page.
+
+It works on every template, on computers and on phones. You don't build or maintain anything. Whatever you've already published is searchable.
+
+<Callout type="info" title="Site search is off by default">
+  Nothing changes on your site until you turn it on. Go to **Settings → Features** and switch on **Site search** (see [Turning it on](#turning-it-on)).
+</Callout>
+
+---
+
+## Turning it on
+
+1. Go to **Settings → Features**.
+2. Find **Site search** in the **Content** section.
+3. Switch it on.
+
+Changes take effect right away, and there's no save button. Owners and Managers can do this (see [Team and Roles](/docs/team-and-roles)). Site search doesn't need any other feature.
+
+**Photo:** The Settings → Features page with the Site search row in the Content section, switched on.
+
+When you switch it off, the search icon and the `/search` page go away. There's nothing to clean up, because search reads your existing content. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## What your visitors see
+
+### The search icon
+
+Once Site search is on, a **search icon** (a magnifying glass) appears in your header. On phones it sits in the top bar or, when the bar is full, as the first item in your menu, depending on your template.
+
+Some templates already had a magnifying glass that jumped to the shop. Once Site search is on, that icon opens the new search box instead.
+
+### The quick search box
+
+Click the icon to open the search box. Visitors can also press **/** or **⌘K** (**Ctrl+K** on Windows) from any page.
+
+- Results appear as they type, starting at **2 letters**.
+- Results are grouped by type: **Products** (with a photo and price), **Services**, **Pages** (including blog posts), **Events**, **FAQs** and **Collections**.
+- **Up and down arrow keys** move through the results, **Enter** opens the one that's highlighted, and **Esc** clears the box (press it again to close).
+- **See all results** at the bottom opens the full results page.
+
+![The quick search box open over the homepage, with "skin" typed in and results grouped under Products, Services, Pages and FAQs](/images/site-search/quick-search-desktop.png)
+
+![The quick search box on a phone, filling the screen, with grouped results and a See all 8 results link at the bottom](/images/site-search/quick-search-phone.png)
+
+<Callout type="info" title="Shortcuts only work on your storefront">
+  `/` and ⌘K open the search box for your visitors. They don't open anything in your admin. (Your admin has its own search; see [Finding Your Way Around the Admin](/docs/admin-basics#searching-and-jumping-around).)
+</Callout>
+
+### The results page
+
+**See all results** opens the full results page at `yourstore.com/search?q=your-words`. Visitors can also go there directly or share the link.
+
+- **Tabs** across the top show a count for each type: **All**, **Products**, **Services** and so on.
+- **Products** are shown as a grid of photos with names and prices.
+- **Everything else** is a list. Each result has a title and a short text preview, with the words the visitor typed highlighted.
+- It works on phones.
+- When the box is empty, the page shows popular links and suggestions instead of a blank screen.
+
+![The search results page on a computer, with the search box, tabs with counts, and a grid of matching products](/images/site-search/results-page-desktop.png)
+
+![The search results page on a phone, with the tabs and a two-column product grid](/images/site-search/results-page-phone.png)
+
+<video src="/videos/site-search/quick-search.webm" poster="/videos/site-search/quick-search-poster.png" controls muted playsInline className="rounded-lg border" />
+
+---
+
+## What gets searched
+
+| Type | What's searched |
+| --- | --- |
+| **Products** | Product names, descriptions and SKUs |
+| **Collections** | Collection names and descriptions |
+| **Services** | Service names, descriptions, and the items listed inside a service |
+| **Events** | Names, descriptions and locations of upcoming events |
+| **Pages & blog posts** | Titles, summaries (excerpts), SEO descriptions and the body text |
+| **FAQs** | Questions and answers |
+
+Searching SKUs is handy for you too. If you give customers a product code, they can type it in.
+
+---
+
+## What's never shown
+
+Visitors only find what they could already find by browsing your site. Site search never shows:
+
+- **Anything unpublished.** Hidden products, draft pages and draft blog posts don't appear.
+- **Drafts and unsaved edits from the Site Editor.** Search only knows what's published.
+- **Scheduled items before they go live.** A blog post scheduled for next week shows up after it publishes.
+- **Archived or past events.** Only upcoming events are searchable.
+- **Anything from a feature that's switched off.** Turn off Blog and your posts disappear from search. Turn off Services, Events or Collections and those results go too. They come back when you turn the feature back on.
+
+---
+
+## How results are ordered
+
+The order of the groups follows the **business type** you chose when you set up your store:
+
+- **Stores that sell products** see Products first.
+- **Service businesses** see Services first.
+- **Informational and nonprofit sites** see Pages (including blog posts) first.
+
+---
+
+## How matching works
+
+- **Every word counts.** If a visitor types two words, a result has to contain both. "blue dress" finds items that mention blue and dress, wherever they appear.
+- **Simple plurals match.** "dresses" finds "dress", and "candles" finds "candle".
+- **Typos aren't fixed.** "dres" or "candel" won't find anything. This is why using the words your customers use matters (see below).
+
+---
+
+## Tips for being found
+
+Search can only find what you've written. A few habits help a lot:
+
+- **Give products and services clear titles.** "Linen summer dress" beats "Style 42".
+- **Fill in summaries.** Add an excerpt to blog posts and pages, and a description to products and services. These are searched and shown in results.
+- **Write SEO descriptions.** The one on each page's **SEO** tab is searched too (see [SEO](/docs/seo)).
+- **Phrase FAQ questions the way customers ask them.** "How long does shipping take?" matches what people type. "Delivery timeframes" may not (see [FAQ](/docs/faq)).
+- **Use the words customers search for.** If shoppers say "sofa" and your page says "couch", add both words somewhere on the page.
+- **Add SKUs** to products if customers know them.
+
+---
+
+## Search and Google
+
+Your `/search` results page is **hidden from Google** on purpose, so lists of search results don't clutter Google with near-duplicate pages. You don't need to do anything for this.
+
+Having site search also lets Google show a search box for your site in its results, in some cases. Whether and when Google does that is up to Google.
+
+Your products, pages and posts are found by Google the usual way. Site search doesn't change that. See [SEO](/docs/seo).
+
+---
+
+## Things to know
+
+- **You can't use `search` as a page address.** `search` is now reserved for the results page, so a custom page can't have it as its slug (see [Pages & Policies](/docs/pages-and-policies)). If you already made a page at `/search`, give it a different address before you turn Site search on.
+- **Site search isn't a menu item.** The icon shows up in your header by itself. You don't add it under **Site Setup → Navigation** (see [Navigation](/docs/navigation)).
+- **The shop page keeps its own search.** The "Search products…" box on `/shop` still only looks at products. Site search is the one that covers your whole site.
+- **It's for your visitors.** Site search doesn't search orders or customers.
+
+---
+
+## Feature flag
+
+| Feature | Default | Where to toggle | Requires |
+| --- | --- | --- | --- |
+| **Site search** | Off | Settings → Features (Content) | Nothing |
+
+---
+
+## Can and can't
+
+**You can:**
+
+- Turn site search on or off at any time
+- Rely on it to search products, services, pages, blog posts, events, FAQs and collections
+- Send visitors a link straight to a search, such as `yourstore.com/search?q=gift`
+
+**You can't:**
+
+- Choose which pages or products are searchable, other than by publishing or unpublishing them
+- Fix visitors' typos or set up synonyms
+- Change the order of the result groups yourself (it follows your business type)
+- Put the search icon in your menu, or move it
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="Feature Flags"
+		description="Turn parts of your store on or off."
+		href="/docs/feature-flags"
+	/>
+	<Card
+		title="What your customers see"
+		description="Your shopper's experience from start to finish."
+		href="/docs/for-your-customers"
+	/>
+	<Card
+		title="SEO & Search Readiness"
+		description="Help Google find and show your store."
+		href="/docs/seo"
+	/>
+	<Card
+		title="FAQ"
+		description="Questions and answers visitors can find."
+		href="/docs/faq"
+	/>
+</Cards>

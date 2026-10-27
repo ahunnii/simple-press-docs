@@ -78,6 +78,7 @@ Next to the status you may see extra badges:
 | **Awaiting payment** | Payment hasn't come in yet. |
 | **Partially fulfilled** | Some items have shipped and some haven't. |
 | **Pickup** | The customer chose in-store pickup. |
+| **Local delivery** | The customer chose local delivery, so you drop the order off yourself. See [Local delivery orders](#local-delivery-orders). |
 | **Subscription** | The order came from a product subscription. |
 | **Oversold** | At least one item sold more units than you had in stock. |
 | **Disputed** (red) | The customer has disputed the card payment with their bank. See [Disputes](/docs/payments-and-payouts#disputes). |
@@ -127,7 +128,7 @@ Each order carries three separate statuses. The **status** is the big picture. *
 | ------ | ------------- |
 | **Unfulfilled** | Nothing has shipped or been handed over yet. |
 | **Partially Fulfilled** | Some items have shipped and some haven't. |
-| **Fulfilled** | Everything has shipped, or a pickup order is ready. |
+| **Fulfilled** | Everything has shipped, a pickup order is ready, or a local delivery order has been delivered. |
 
 ---
 
@@ -141,7 +142,7 @@ Click **View** on any row to open the order.
 
 **Along the top:**
 
-- The order date, plus a **Payment:** badge and a **Fulfillment:** badge. **Pickup**, **Oversold** and **Subscription** badges appear when they apply. The Subscription badge links to the subscription.
+- The order date, plus a **Payment:** badge and a **Fulfillment:** badge. **Pickup**, **Local delivery**, **Oversold** and **Subscription** badges appear when they apply. The Subscription badge links to the subscription.
 - Buttons for **Packing Slip**, **Invoice** and **More Options**.
 
 <Callout type="info">
@@ -150,15 +151,15 @@ The order page's title shows the order number (for example "Order #1030"), the s
 
 **On the left:**
 
-- **Order Items**: each product with its variant, SKU, quantity and price, then the subtotal, any discount (with the code used), shipping, tax and total. If the customer chose [product options](/docs/product-options), each choice is listed under its item with its price (see [Options on orders](#options-on-orders)). While an order is partially shipped, each item shows **Shipped**, **N of M shipped** or **Not shipped**.
+- **Order Items**: each product with its variant, SKU, quantity and price, then the subtotal, any discount (with the code used), shipping (labeled **Local delivery** on a local delivery order), tax and total. If the customer chose [product options](/docs/product-options), each choice is listed under its item with its price (see [Options on orders](#options-on-orders)). While an order is partially shipped, each item shows **Shipped**, **N of M shipped** or **Not shipped**.
 - If something was oversold, a red **Oversold items in this order** alert lists each item and how many were in stock at the time of purchase, for example "(0 in stock at time of purchase)". You may want to contact the customer or restock. See [Inventory management](/docs/inventory-management).
-- The card for getting the order to the customer: **Mark as Fulfilled** for shipping orders, or **Ready for Pickup** for pickup orders. It only appears once the order is paid.
+- The card for getting the order to the customer: **Mark as Fulfilled** for shipping orders, **Ready for Pickup** for pickup orders, or **Mark as Delivered** for local delivery orders. It only appears once the order is paid.
 
 **On the right:**
 
 - **Order Status**: the status (Open, Completed and so on), a short hint about what's next, and the order's shipments once it has any.
 - **Customer Information**: name, email and phone (if given).
-- **Shipping Address**, or **Pickup Location** for pickup orders.
+- **Shipping Address**, **Pickup Location** for pickup orders, or **Delivery Address** for local delivery orders.
 - **Notes**: your private note and the customer's note from checkout.
 - **Payment**: the payment status, the **Method** (Card, Cash, Check or Manual), the refund reason if there is one, the Stripe **Payment ID** for card payments, and the refund button.
 
@@ -261,6 +262,31 @@ When the order is packed and waiting:
 2. In the **Ready for Pickup** card, click **Mark Ready for Pickup**.
 
 The customer is emailed straight away that their order is ready, with your pickup location and instructions. The order is marked **Fulfilled**, and **Completed** if it's paid. The Order Status card then reads "Customer notified — ready for pickup."
+
+---
+
+## Local delivery orders
+
+If a customer chose local delivery, the order shows a **Local delivery** badge in the Orders list and on the order page. The total line reads **Local delivery** instead of Shipping, and the card where the shipping address would be is called **Delivery Address**. It shows the address you'll drive to, plus your **Delivery days & instructions (shown to customer)**, taken from your [Local delivery settings](/docs/shipping#local-delivery). Local delivery orders have no carrier, so there's no tracking box and no tracking panel.
+
+![A local delivery order with a Local delivery badge, a Mark as Delivered card with a Copy address button, and a Delivery Address card showing your delivery instructions](/images/orders/local-delivery-order.png)
+
+*Local delivery orders get a Mark as Delivered card instead of the shipping form.*
+
+When you're ready to drop it off:
+
+1. Open the order. The **Mark as Delivered** card sits under the order items. It only appears once the order is paid.
+2. Click **Copy address** to copy the address for your maps app.
+3. Deliver the order.
+4. Click **Mark as Delivered & Send Email**.
+
+The customer gets the usual fulfilled email, letting them know the order was delivered. The blue note on the card reads "Marking this order as delivered will send an email to [customer email] letting them know the order was delivered." The order is marked **Fulfilled**, and **Completed** if it's paid. The Order Status card then reads "Delivered — customer notified."
+
+If you're delivering part of the order, untick **Deliver all remaining items**, set how many of each item you're dropping off, and click **Fulfill Selected Items**. A partial delivery only emails the customer once it completes the whole order. See [Partial shipments](#partial-shipments).
+
+<Callout type="info">
+You can edit the instructions any time under Settings → Shipping, but the card on an order always shows your current wording.
+</Callout>
 
 ---
 
@@ -385,7 +411,7 @@ Click **Packing Slip** or **Invoice** at the top of an order. Each opens a print
 | What it shows | Packing slip | Invoice |
 | ------------- | :----------: | :-----: |
 | Your logo, name, address and contact details | Yes | Yes |
-| **Ship To** address (or **Pickup Order** for pickup) | Yes | Yes |
+| **Ship To** address (or **Pickup Order** for pickup, or **Local Delivery To** for local delivery) | Yes | Yes |
 | Items with **SKU** and **Qty** | Yes | Yes |
 | **Unit Price** and line **Total** | No | Yes |
 | Payment status, and subtotal, discount, shipping, tax and total | No | Yes |
@@ -412,8 +438,8 @@ After saving, you land on the new order.
 | Card | What you fill in |
 | ---- | ---------------- |
 | **Customer Information** | **Name** and **Email** (both required), or click **Find existing customer** to search your customers. Tick **Send order confirmation email to customer** to email them a confirmation. |
-| **Delivery** | **Method**: "Ship to customer" or "In-store pickup". **Order Date**: leave it blank for today, or pick an earlier date to backdate a sale. |
-| **Shipping Address** | Optional, for shipping orders only. Click **Add address**. Recipient Name defaults to the customer's name. |
+| **Delivery** | **Method**: "Ship to customer", "Local delivery" or "In-store pickup". Under it, a note explains the choice: for local delivery it reads "Local delivery orders should carry the address you'll drive to."  **Order Date**: leave it blank for today, or pick an earlier date to backdate a sale. |
+| **Shipping Address** | Optional, for shipping and local delivery orders (the card is called **Delivery Address** for local delivery). Click **Add address**. Recipient Name defaults to the customer's name. |
 | **Notes** | **Internal Notes**, visible to admins only (up to 2,000 characters). |
 | **Payment & Fulfillment** | **Payment**: Pending, Paid, Failed or Refunded. **Payment Method**: Card, Cash or Check, or leave it on "Manual (default)". **Fulfillment**: Unfulfilled, Fulfilled or Partially Fulfilled. The order status is worked out from these. |
 | **Additional Charges** | Flat **Shipping**, **Tax** and **Discount** amounts in dollars. Tax isn't calculated for you on manual orders. |
@@ -445,14 +471,14 @@ SimplePress sends these automatically, using your store's name and logo:
 
 | Email | Sent when |
 | ----- | --------- |
-| **Order Confirmation** | A customer checks out, or you tick the confirmation box on a manual order. Pickup orders get a pickup version. It lists each item's [product options](/docs/product-options). |
+| **Order Confirmation** | A customer checks out, or you tick the confirmation box on a manual order. Pickup orders get a pickup version, and local delivery orders show a **Delivery Address** with your delivery instructions. It lists each item's [product options](/docs/product-options). |
 | **Order Shipped** | You fulfill with a tracking number, once per package. |
-| **Order Fulfilled** | You fulfill the whole order without tracking. |
+| **Order Fulfilled** | You fulfill the whole order without tracking, including a local delivery order you mark delivered. |
 | **Ready for Pickup** | You click **Mark Ready for Pickup**. |
 | **Order Refunded** | You refund (or mark as refunded) with **Notify customer by email** ticked. |
 | **Order Cancelled** | You cancel with **Notify customer by email** ticked. |
 
-You get a **New Order** email yourself each time a customer checks out, with each item's options listed too.
+You get a **New Order** email yourself each time a customer checks out, with each item's options listed too. For a local delivery order it shows **Fulfillment: Local delivery** and a **Deliver to** block with the address and your instructions.
 
 To see what each one looks like, open **Notification Emails** in the admin sidebar. See [Email previews](/docs/email-preview).
 

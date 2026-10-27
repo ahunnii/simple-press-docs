@@ -67,8 +67,8 @@ Usually one of these:
 - **Checkout or Payments is switched off** under **Settings → Features**. See [Feature Flags](/docs/feature-flags#what-happens-when-you-disable-a-feature).
 
 **There's no Add to Cart button on my store.**
-**Shopping Cart & Checkout** is switched off, so your shop works as a catalog. A **Cart is disabled** notice also shows on your Dashboard.
-**Fix:** turn it on under **Settings → Features**. See [The "Cart is disabled" notice](/docs/dashboard#the-cart-is-disabled-notice).
+**Shopping Cart & Checkout** is switched off, so your shop works as a catalog.
+**Fix:** turn it on under **Settings → Features**. See [Feature Flags](/docs/feature-flags).
 
 **A customer's discount code doesn't work.**
 The message they see tells you why: not found, not active yet, expired, used up (including uses held by open checkouts), or below the minimum purchase.
@@ -156,9 +156,21 @@ See [Team & Roles troubleshooting](/docs/team-and-roles#troubleshooting).
 They only go out when your store has a full mailing address, and never to someone who has unsubscribed or whose address the email provider has stopped (it bounced or was marked as spam).
 **Fix:** check **Settings → General → Business address** for a street, a city, and a state or ZIP. If the shopper clicked **Unsubscribe** in an earlier email, they won't get reminders again, and that's on purpose. See [Email Marketing](/docs/email-marketing) and [Business address](/docs/general-settings#business-address).
 
-**The Send button on a campaign is greyed out.**
-Usually your business address is incomplete: campaigns need a street, a city, and a state or ZIP. It also stays greyed out while a picture in the message is still uploading.
-**Fix:** add the address under **Settings → General**, or wait for the upload to finish. See [Email Marketing](/docs/email-marketing) and [Business address](/docs/general-settings#business-address).
+**The Send now and Schedule… buttons on a campaign are greyed out.**
+Usually your business address is incomplete: campaigns need a street, a city, and a state or ZIP. They also stay greyed out while a picture in the message is still uploading, when the subject or message is empty, when a Products block has no products in it (a hint under the buttons says "Choose products for the product block, or remove it."), or when nobody matches the audience you picked (the line under the audience choices says "No one matches yet").
+**Fix:** add the address under **Settings → General**, wait for the upload to finish, pick products for the Products block or remove it, or choose a wider audience. See [Email Marketing](/docs/email-marketing) and [Business address](/docs/general-settings#business-address).
+
+**A scheduled campaign says Failed.**
+When a scheduled campaign comes due, SimplePress checks it again. If your business address is gone, the message is empty, a Products block has nothing left to show, or nobody matches the audience any more, the campaign isn't sent and is marked **Failed**. A red box on its page says why. A store that stayed paused for more than a day after the scheduled time fails too, and so does one where Email Marketing stayed switched off that long.
+**Fix:** open the campaign, click **Duplicate**, fix the problem in the copy (for example, pick a wider audience), and send or schedule it again. See [If something changes before it sends](/docs/email-marketing#if-something-changes-before-it-sends).
+
+**A scheduled campaign shows an amber "We hit a problem sending this" note.**
+SimplePress hit a hiccup at the scheduled time and will try again at the next check, about every 15 minutes. The campaign stays **Scheduled**.
+**Fix:** nothing to do. If it later shows a red **Failed** box instead, follow the steps above, or email [help@generativejustice.org](mailto:help@generativejustice.org) if it keeps happening.
+
+**The campaign page says my email still has placeholder text in [brackets].**
+The subject, preview text or message still has text in square brackets, such as text left from a starting point. The note doesn't stop you from sending.
+**Fix:** replace each bracketed part with your own words, then send yourself a test. See [Starting points](/docs/email-marketing#starting-points).
 
 ---
 

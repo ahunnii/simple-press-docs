@@ -21,6 +21,7 @@ Some parts only show up when a feature is turned on under **Settings → Feature
 | **[Back-in-Stock Notifications](/docs/wishlist-and-back-in-stock)**              | Yes            | A "Notify me" form on sold-out products                                           |
 | **Customer Accounts**                        | Yes            | Sign-up, sign-in, and the account area (only the platform team can turn this off) |
 | **Product Subscriptions**                    | No             | A Subscribe option on products you set up for it                                  |
+| **[Site search](/docs/site-search)**         | No             | A search icon in the header and a search results page                             |
 | **[Rewards Program](/docs/rewards)**                          | No             | A Rewards tab where shoppers earn and redeem points                               |
 | **Invoices**                                 | No             | An Invoices tab in the account area                                               |
 | **Donations**                                | No             | A Donate page                                                                     |
@@ -48,10 +49,10 @@ On the Default template, your `/shop` page has a filter panel on the left and a 
 
 The shop shows 12 products per page, with **Previous**, **Next** and page numbers below. If nothing matches, shoppers see "No products match your filters." with a **Clear filters** link.
 
-This search only covers products, and only on the shop page. There's no search across your blog, events, services or pages. If shoppers ask for one, point them to your menu.
+This search only covers products, and only on the shop page. To let shoppers search your whole site (blog, events, services, pages and FAQs too), turn on [Site Search](#searching-your-site).
 
 <Callout type="info" title="Other templates lay this out differently">
-Other templates, including custom ones, may place search and sorting somewhere else, call them something different, or add controls (some add a price slider, or show filters on collection pages too). Search still only looks at product names and descriptions.
+Other templates, including custom ones, may place search and sorting somewhere else, call them something different, or add controls (some add a price slider, or show filters on collection pages too). This shop search still only looks at product names and descriptions.
 </Callout>
 
 ### Choosing options
@@ -100,16 +101,19 @@ Shoppers don't need an account to check out. Guest checkout is always available.
 The checkout page asks for:
 
 - **Contact information:** email, full name, and phone number (all required).
-- **Delivery:** if you offer in-store pickup, they choose **Ship to address** or **In-store pickup**. Pickup shows your pickup location and any instructions you've written, and there's no shipping charge.
-- **Shipping address:** if they're shipping. Signed-in shoppers with saved addresses can pick one instead of typing it out.
+- **Delivery:** if you offer in-store pickup or local delivery, a **Delivery** card appears. They choose **Ship to address**, **In-store pickup** or **Local delivery**, depending on what you've turned on. Pickup shows your pickup location and any instructions you've written, and there's no shipping charge. With only plain shipping on, the card doesn't appear.
+  - **Local delivery** shows a short description under the button, such as "Free delivery within 5 miles." or "$5.00 delivery within 15 miles." If you've set closer prices it reads "Delivery within 15 miles, from $3.00." (or "from Free."), and if you've set a minimum it adds "Orders over $25.00." Once they've entered a ZIP code, the page briefly says "Checking your ZIP…" and then "Great — we deliver to you." (or an error, see the table below). Your **Delivery days & instructions** appear under a **Delivery details** heading. Shoppers never see the distance. See [Shipping](/docs/shipping#local-delivery).
+- **Shipping address:** if they're shipping or choosing local delivery. Signed-in shoppers with saved addresses can pick one instead of typing it out. For local delivery the heading reads **Delivery Address**, and it needs a full street address. The phone number is required for local delivery, so you can reach them when you arrive. After the address is checked, it's locked, with the note "We check delivery from this address. Make changes here before continuing to payment." To change it, they go back and fix it before paying.
 - **Discount code:** only when **Coupons & Discounts** is on. They type a code and click **Apply**. If the code works, they see how much they saved. If it doesn't, they see a message explaining why (for example, it expired or the order is below the minimum). Only one code can be used per order. Rewards codes go in this same box. See [Discounts and Coupons](/docs/discounts-and-coupons).
 - **Email me news and offers:** only when **Email Marketing** is on. It's a tick box directly above the pay button, and it starts **unticked**, so shoppers opt in on purpose. If they tick it, they're added to your marketing list once their payment goes through. Leaving it unticked doesn't affect anyone already on your list. The same box appears on the subscription sign-up page (`/subscribe`), above **Continue to secure checkout**. Donation forms don't have it. See [Marketing Emails](#marketing-emails).
 
 There's no box for an order note, gift message, or delivery instructions. Shoppers can't add one at checkout, on Stripe's page, or later. If they need to tell you something ("please gift wrap this"), they can use your Contact page or reply to their order confirmation email. You can then add it to the order yourself as an internal note. See [Orders](/docs/orders#notes).
 
-The order summary shows the subtotal, any discount, shipping, and an **Estimated total**. Items with options list their choices (without prices) under the product name. Tax and the final total are worked out on the next step. A short notice under the button links to SimplePress's Terms of Service, and to your Terms of Service or Refund Policy page if you've published one.
+The order summary shows the subtotal, any discount, shipping, and an **Estimated total**. For local delivery the shipping line is labeled **Delivery** and reads "Enter your ZIP" until they type one, then "Free" or the price, or "Not available" if you don't deliver to them. Items with options list their choices (without prices) under the product name. Tax and the final total are worked out on the next step. A short notice under the button links to SimplePress's Terms of Service, and to your Terms of Service or Refund Policy page if you've published one.
 
 ![The checkout page with contact details, shipping address, discount code box, and order summary](/images/for-your-customers/checkout.png)
+
+![Checkout with Local delivery chosen, showing the delivery check, the locked Delivery Address and your delivery details](/images/shipping/checkout-local-delivery.png)
 
 ### Step 2: Secure payment with Stripe
 
@@ -124,6 +128,7 @@ Stripe's page also shows the shopper's address (if they're shipping) and a phone
 - **Free shipping or a flat rate:** they can edit the address on Stripe's page.
 - **Zone + weight rates:** the address is locked on Stripe's page, because the shipping price was worked out from the address they gave you. To change it, they click back to your checkout page, fix it, and continue again.
 - **In-store pickup:** no address is asked for.
+- **Local delivery:** the address is locked on Stripe's page, because your checkout page already checked it against your delivery radius. To change it, they click back to your checkout page. The charge appears there as a shipping line named "Local delivery".
 
 See [Shipping](/docs/shipping#zone--weight-rates).
 
@@ -142,6 +147,20 @@ If something stops a shopper from reaching Stripe's payment page, a red message 
 | "The following items were out of stock or no longer available and have been removed from your cart: [item names]." | An item sold out, was unpublished, is marked coming soon, or is being held by another shopper's unfinished checkout. SimplePress takes it out of the cart for them. | Check the product's stock and **Published** switch. Held items go back on sale within 30 minutes. |
 | "Complete shipping address is required" | The address is missing a part, or the country isn't one you ship to. | Check **Countries you sell to** in [Shipping](/docs/shipping#countries-you-sell-to). |
 | "Shipping to this country is not available" | Zone + weight shipping only: the country isn't one you ship to. | Same as above. |
+| "We only deliver within [N] miles. Choose another option." | Local delivery: the shopper's ZIP is outside your radius. | Nothing, or raise your radius in [Shipping](/docs/shipping#local-delivery). |
+| "Local delivery starts at $[Y]." | The subtotal (before discounts) is under your **Minimum order**. | Nothing. They add more items. |
+| "We couldn't find that ZIP code." | Local delivery: the ZIP isn't recognized. | Nothing. They check the ZIP and try again. |
+| "Local delivery is only available in the US." | The delivery address is outside the US. | Nothing. They choose another option. |
+| "Local delivery isn't available right now." | Local delivery is turned off, or there's no usable ZIP to measure from. | Check the **Local delivery** card in [Shipping](/docs/shipping#local-delivery). |
+| "We couldn't check local delivery right now. Please try again." | The ZIP check failed for a moment. | Nothing. A retry usually works. |
+| "Please fill in all required delivery fields" | Local delivery: part of the delivery address is empty. | Nothing. They fill it in and try again. |
+| "Still checking local delivery for your ZIP code. Please try again in a moment." | They clicked **Continue to Payment** before the ZIP check finished. | Nothing. They wait a moment and try again. |
+| "Enter your ZIP code to check local delivery." | They chose local delivery but haven't entered a ZIP. | Nothing. |
+| "This address is outside our local delivery area. Please choose another option." | The address failed the delivery check when they paid. | Nothing. They choose another option. |
+| "Local delivery is not available for this store" | They chose local delivery, but you've since turned it off. | Turn it back on in [Shipping](/docs/shipping#local-delivery), or ask them to choose another option. |
+| "Complete delivery address is required" | The delivery address is missing a part. | Nothing. They fill it in. |
+| "A phone number is required for local delivery" | The phone number is empty. | Nothing. They add one. |
+| "Too many delivery checks. Please try again later." | One internet connection checked delivery more than 30 times in a minute. | Nothing. They wait a minute and try again. |
 | "In-store pickup is not available for this store" | They chose pickup, but you've since turned pickup off. | Turn pickup back on in [Shipping](/docs/shipping#in-store-pickup), or ask them to choose delivery. |
 | "Invalid or expired discount code" | The code they applied no longer exists. | Check the code in [Discounts and Coupons](/docs/discounts-and-coupons). Other code messages are listed there too. |
 | "Checkout is not available for this store." | **Shopping Cart & Checkout** (or a feature it depends on) is switched off. | Check **Settings → Features**. See [Feature Flags](/docs/feature-flags). |
@@ -165,11 +184,12 @@ Once payment goes through, shoppers land on an **Order Confirmed!** page. It tha
 
 ![The Order Confirmed page with the next-steps list](/images/for-your-customers/order-confirmed.png)
 
-A few moments later they get the **Order Confirmation** email with their items, totals, and shipping address. The email has a **View Order Status** button they can use at any time, no account needed. From there:
+A few moments later they get the **Order Confirmation** email with their items, totals, and shipping address (or delivery address, for local delivery, along with your delivery instructions). The email has a **View Order Status** button they can use at any time, no account needed. From there:
 
 - When you add a shipment with tracking, they get an **Order Shipped** email with the carrier, tracking number, and a tracking link.
 - If you mark the order fulfilled without tracking, they get an **Order Fulfilled** email.
 - For pickup orders, they get a **Ready for Pickup** email when you mark the order ready.
+- For local delivery orders, when you mark the order delivered and choose to send the email, they get the usual fulfilled email, letting them know it was delivered.
 
 See [Orders](/docs/orders) for how to do each of these on your side.
 
@@ -271,6 +291,19 @@ So when a customer says the link never came:
 To help them yourself, open the order in [Orders](/docs/orders), check the email on it, and use **Resend Order Confirmation** from **More Options** (the confirmation email has the **View Order Status** button). See [Resending emails](/docs/orders#resending-emails).
 
 > **Tip:** Most templates don't link to `/order-status` in the menu. If guests often ask how to find their order, add an "Order status" link to your footer or navigation.
+
+---
+
+## Searching your site
+
+When **[Site search](/docs/site-search)** is on, a search icon appears in your header on computers and phones. Shoppers can also press **/** or **⌘K** (**Ctrl+K** on Windows) to open it.
+
+- They type at least 2 letters and results appear as they go, grouped into products (with a photo and price), services, pages and blog posts, events, FAQs and collections.
+- **See all results** opens the full results page at `/search`, with a tab for each type and short previews with their words highlighted.
+- Only published things show up. Drafts, scheduled posts, past events and anything from a feature you've switched off are left out.
+- It matches whole words, and simple plurals work ("dresses" finds "dress"), but it doesn't fix typos.
+
+If a shopper says they can't find something, check that it's published and that your wording uses the words they'd search for. See [Site Search](/docs/site-search) for tips.
 
 ---
 
@@ -391,10 +424,10 @@ Here is every page the link can show:
 | Resubscribed | "Welcome back" and "You're subscribed to [store] emails again." | |
 | Newsletter confirm | "Confirm your subscription to [store]" and "Press the button to get news and offers from [store] at [email]." | **Confirm subscription**, then "You're subscribed". |
 | Invalid link | "This link isn't valid" and "Please use the link from the latest email we sent you." | The link was changed or damaged. |
-| Expired link | "This link has expired" and "Confirmation links only last 7 days. Sign up again on the [store] website to get a fresh one." | Newsletter confirmation links only. |
+| Expired link | "This link has expired" and "Confirmation links only last a limited time. Sign up again on the [store] website to get a fresh one." | Newsletter confirmation links (7 days) and the "Still want to hear from [store]?" invite after a move (30 days). |
 | Email sign-ups off | "Email sign-up isn't available" and "[store] isn't accepting email sign-ups right now." | Email Marketing is off. |
 
-![The expired link page saying "This link has expired" and that confirmation links only last 7 days](/images/for-your-customers/link-expired.png)
+![The expired link page saying "This link has expired" and that confirmation links only last a limited time](/images/for-your-customers/link-expired.png)
 
 A link that is missing its code or has been changed shows a plain page headed "Invalid link": "This unsubscribe link is missing a token. Please use the link from your email." (or "...invalid or has been tampered with. Please contact support if you believe this is an error."). The same page appears if a shopper opens the sample unsubscribe link in a preview in your admin. If a link is one of your test emails, the page says "This is a test email".
 
@@ -414,7 +447,7 @@ You can preview most of these emails, and change the subject line and opening pa
 | **Reset your password**                 | A shopper clicks Forgot password                                                                 | No                                                                                      |
 | **Order Confirmation**                  | Payment goes through (including each subscription renewal)                                       | No. For orders you create by hand, you choose whether to send it                        |
 | **Order Shipped**                       | You add a shipment with a tracking number                                                        | No                                                                                      |
-| **Order Fulfilled**                     | You mark an order fulfilled without tracking                                                     | No                                                                                      |
+| **Order Fulfilled**                     | You mark an order fulfilled without tracking, including a local delivery order you mark delivered | No                                                                                      |
 | **Ready for Pickup**                    | You mark a pickup order ready                                                                    | No                                                                                      |
 | **Order Refunded**                      | You issue a full or partial refund                                                               | Yes, untick **Notify customer by email** when refunding                                 |
 | **Order Cancelled**                     | You cancel an order                                                                              | Yes, untick **Notify customer by email** when cancelling                                |
