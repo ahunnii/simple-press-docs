@@ -16,8 +16,8 @@ From top to bottom, the page shows:
 1. **Money in**: what customers paid, from your orders.
 2. **Donations** (or **Tips**, or **Contributions**), if you take them.
 3. **What Stripe took**: fees, refunds and payouts on the Stripe side.
-4. **Recent Payouts**: the last five payouts to your bank.
-5. **INFORM Act Compliance**: your progress toward the federal seller thresholds.
+4. **Recent payouts**: the last five payouts to your bank.
+5. **INFORM Act compliance**: your progress toward the federal seller thresholds.
 6. **Set aside**: the sales tax you've collected.
 
 A few things to know:
@@ -25,7 +25,7 @@ A few things to know:
 - **Only Owners and Managers can see Finances.** Staff don't have it in their sidebar, and they're sent to Orders if they open the link. See [Team & roles](/docs/team-and-roles).
 - **It needs Payments or Donations.** Finances shows in the sidebar when either feature is on in **Settings → Features**. If both are off, it is hidden, and opening the link shows "Payments is not enabled for this business". Payments also switches off by itself when Products, Orders or Shopping Cart & Checkout is off, so a store with only Donations on keeps Finances. See [Feature flags](/docs/feature-flags).
 - **Old links still work.** The admin used to have a separate **Payments** page. Any bookmark or link to it now opens Finances.
-- **Most of the page needs Stripe.** Money in works from your own orders, so it always shows. The Stripe cards ask you to connect Stripe first. See [Integrations](/docs/integrations).
+- **Most of the page needs Stripe.** Money in works from your own orders, so it always shows. The Stripe cards ask you to connect Stripe first. See [Payments & Payouts](/docs/payments-and-payouts).
 
 <Callout type="info" title="We are not tax advisors or accountants">
 
@@ -58,15 +58,15 @@ The range selector sits at the top right of the page. It has six options:
 
 ![The range selector open, listing Last 7 days, Last 30 days, Last 90 days, Year to date, Calendar year 2026 and Calendar year 2025 (ticked)](/images/finances/range-selector.png)
 
-Next to the range selector, a **Tax Guide** button opens the [Tax Guide](#the-tax-guide). It only shows when Payments is on.
+Next to the range selector, a **Tax guide** button opens the [Tax Guide](#the-tax-guide). It only shows when Payments is on.
 
 The range you pick is saved in the page's web address, so you can bookmark a view or share the link with another Owner or Manager.
 
 **Some figures ignore the range.** These always show the same thing, whatever you pick:
 
-- **Recent Payouts** always shows your last five payouts.
+- **Recent payouts** always shows your last five payouts.
 - **Available now** and **Pending** in What Stripe took show your Stripe balance right now.
-- The **INFORM Act Compliance** card always covers the last 12 months, up to and including today.
+- The **INFORM Act compliance** card always covers the last 12 months, up to and including today.
 - The **year to date** tile in Set aside always counts from January 1 of this year, even when you're looking at last year.
 
 ---
@@ -165,7 +165,7 @@ The figures won't always add up to the cent. A fee Stripe charges on a payout it
 
 | You see | What it means |
 | ------- | ------------- |
-| "Connect your Stripe account in Settings → Integrations to see what Stripe took." | Stripe isn't connected. The link takes you to [Integrations](/docs/integrations). |
+| "Connect your Stripe account in Settings → Payments to see what Stripe took." | Stripe isn't connected. The link takes you to [Payments & Payouts](/docs/payments-and-payouts#connecting-stripe). |
 | A red **Stripe figures temporarily unavailable** alert | SimplePress couldn't reach Stripe. Money in isn't affected, because it comes from your own orders. Refresh in a few minutes. |
 | A red **Some Stripe figures could not be loaded** alert | Part of the request to Stripe failed. Any tile showing $0 may be missing data, not truly zero. Refresh to try again. |
 | "This range has more Stripe transactions than we can fetch in one pass, so these totals are partial." | The range has more than 5,000 Stripe transactions. Pick a shorter range for exact figures. |
@@ -178,25 +178,25 @@ This card lists the last five payouts Stripe sent to your bank account, newest f
 
 ![The Recent Payouts card listing five payouts with Amount, a green Paid status badge, and Estimated Arrival dates](/images/finances/recent-payouts.png)
 
-Each row shows the **Amount**, the **Status** and the **Estimated Arrival** date.
+Each row shows the **Amount**, the **Status** and the **Estimated arrival** date.
 
 | Status | What it means |
 | ------ | ------------- |
 | **Paid** (green) | The money has reached your bank. |
-| **In Transit** (blue) | Stripe has sent it and it's on the way. |
+| **In transit** (blue) | Stripe has sent it and it's on the way. |
 | **Pending** (grey) | Stripe has queued it but hasn't sent it yet. |
 | **Failed** (red) | The payout didn't go through. Check your bank details in Stripe. |
 | **Canceled** (red) | The payout was stopped before it left Stripe. |
 
-If you haven't had a payout yet, or Stripe can't be reached, the card says "No payouts yet." If Stripe isn't connected, it asks you to connect it in **Settings → Integrations**.
+If you haven't had a payout yet, or Stripe can't be reached, the card says "No payouts yet." If Stripe isn't connected, it asks you to connect it in **Settings → Payments**.
 
-For your full payout history, open your Stripe Dashboard. There's no link from this card; use **Open Dashboard** in **Settings → Integrations**. See [Payments & Payouts](/docs/payments-and-payouts) for how payouts work.
+For your full payout history, open your Stripe Dashboard. There's no link from this card; use **Open dashboard** in **Settings → Payments**. See [Payments & Payouts](/docs/payments-and-payouts) for how payouts work.
 
 ---
 
 ## INFORM Act compliance
 
-The **INFORM Act Compliance** card is an early-warning gauge. It shows how much you've sold in the last 12 months against two numbers from a federal law, the INFORM Consumers Act, and nudges you to finish Stripe's verification before you might need it. You can jump straight to it in your admin at `/admin/finances#inform`.
+The **INFORM Act compliance** card is an early-warning gauge. It shows how much you've sold in the last 12 months against two numbers from a federal law, the INFORM Consumers Act, and nudges you to finish Stripe's verification before you might need it. You can jump straight to it in your admin at `/admin/finances#inform`.
 
 ![The INFORM Act Compliance card with a grey Below Threshold badge and two green bars: Sales, last 12 months and Revenue, last 12 months](/images/finances/inform-card.png)
 
@@ -213,15 +213,15 @@ Each bar is **green** below 75%, turns **amber** from 75%, and turns **red** at 
 
 | Badge | What it means |
 | ----- | ------------- |
-| **Below Threshold** (grey) | You haven't reached both numbers yet. |
+| **Below threshold** (grey) | You haven't reached both numbers yet. |
 | **Verified** (green) | You've reached both numbers, and Stripe has your onboarding details. |
-| **Action Required** (red) | You've reached both numbers, and Stripe says your onboarding details aren't complete. |
-| **Threshold Reached** (grey) | You've reached both numbers, but SimplePress couldn't check with Stripe (for example, Stripe isn't connected). |
+| **Action required** (red) | You've reached both numbers, and Stripe says your onboarding details aren't complete. |
+| **Threshold reached** (grey) | You've reached both numbers, but SimplePress couldn't check with Stripe (for example, Stripe isn't connected). |
 
 ### The alerts at the top of the page
 
-- **Approaching INFORM Act Threshold** (amber) appears once either bar reaches **75%** but you haven't reached both numbers, if Stripe hasn't confirmed your details yet. It's the same point where the bar turns amber. Its **Start Verification** button opens Stripe.
-- **Seller Verification Required** (red) appears once you reach both numbers and Stripe says your details aren't complete. Its **Complete Verification** button opens Stripe.
+- **Approaching INFORM Act threshold** (amber) appears once either bar reaches **75%** but you haven't reached both numbers, if Stripe hasn't confirmed your details yet. It's the same point where the bar turns amber. Its **Start verification** button opens Stripe.
+- **Seller verification required** (red) appears once you reach both numbers and Stripe says your details aren't complete. Its **Complete verification** button opens Stripe.
 
 Both buttons open your Stripe account's settings in a new tab. Finish whatever Stripe asks for there.
 
@@ -252,7 +252,7 @@ Both tiles take refunds off the same way, so a refunded order's tax isn't counte
 
 ### "Automatic tax is off"
 
-If Automatic Tax Collection is off, an alert titled **Automatic tax is off** appears in this card. It warns that checkout may not be collecting the right amount of sales tax everywhere you sell, then says: "Turn it on in Settings → Integrations once Stripe Tax is set up — see the Tax Guide for the steps." The **Settings → Integrations** link opens the page with the switch, in the Stripe Connect card. The **Tax Guide** link opens [the Tax Guide](#the-tax-guide).
+If Automatic Tax Collection is off, an alert titled **Automatic tax is off** appears in this card. It warns that checkout may not be collecting the right amount of sales tax everywhere you sell, then says: "Turn it on in Settings → Payments once Stripe Tax is set up — see the Tax Guide for the steps." The **Settings → Payments** link opens the page with the switch, in the Stripe card. The **Tax guide** link opens [the Tax Guide](#the-tax-guide).
 
 You need to set up Stripe Tax in your Stripe account before that switch will turn on. See [Tax](/docs/tax) for the steps, in order.
 
@@ -260,12 +260,12 @@ You need to set up Stripe Tax in your Stripe account before that switch will tur
 
 ## The Tax Guide
 
-The **Tax Guide** is a reading page in your admin about sales tax and how it connects to Stripe. It isn't in the sidebar, and it needs the Payments feature. If Payments is off (for example because Products is off), the Tax Guide isn't available and its links on Finances are hidden. To open it:
+The **Tax guide** is a reading page in your admin about sales tax and how it connects to Stripe. It isn't in the sidebar, and it needs the Payments feature. If Payments is off (for example because Products is off), the Tax Guide isn't available and its links on Finances are hidden. To open it:
 
-- click the **Tax Guide** button at the top of Finances, next to the range selector;
+- click the **Tax guide** button at the top of Finances, next to the range selector;
 - press **Cmd+K** (or **Ctrl+K**) and type "Tax Guide" (it's under **Actions**);
-- click a **Tax Guide** or **tax guide** link on the Set aside card; or
-- click **Set up taxes →** next to the Automatic Tax Collection switch in **Settings → Integrations**.
+- click a **Tax guide** or **tax guide** link on the Set aside card; or
+- click **Set up taxes →** next to the Automatic Tax Collection switch in **Settings → Payments**.
 
 An old link to **Settings → Tax** also opens it.
 
@@ -308,7 +308,7 @@ The guide is general information, not tax advice. Its setup steps match [Tax](/d
 - See invoice payments, QuickBooks invoices, or Venmo and Cash App money that wasn't logged as a manual order
 - Download Finances as a spreadsheet. Your Stripe Dashboard has reports and exports.
 - Give Staff access to Finances
-- Change tax or payout settings here. Tax is in **Settings → Integrations**, and payouts are in Stripe.
+- Change tax or payout settings here. Tax is in **Settings → Payments**, and payouts are in Stripe.
 
 ---
 

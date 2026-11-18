@@ -10,6 +10,7 @@ Every time a customer checks out on your storefront, a new order appears under *
 From an order you can:
 
 - ship it and send the customer tracking, in one package or several;
+- buy and print a shipping label for it, if you've connected Shippo;
 - let a local pickup customer know their order is ready;
 - issue a full or partial refund;
 - cancel it, with or without returning the items to stock;
@@ -26,7 +27,7 @@ Orders is on by default and needs **Products** turned on. If Orders is switched 
 
 ## The Orders list
 
-![The Orders page with Export CSV and Create Manual Order buttons, three queue cards (Open orders, Needs fulfillment, Awaiting payment), a search bar with a Filters button, and a table of orders](/images/orders/orders-list.png)
+![The Orders page with Export CSV and Add order buttons, three queue cards (Open orders, Needs shipping, Awaiting payment), a search bar with a Filters button, and a table of orders](/images/orders/orders-list.png)
 
 *The Orders list. The cards at the top are shortcuts to the orders that need you.*
 
@@ -37,7 +38,7 @@ Three cards across the top count the orders that need attention across your whol
 | Card | Shows |
 | ---- | ----- |
 | **Open orders** | Every order with the status Open. |
-| **Needs fulfillment** | Open orders that haven't shipped or been handed over yet. |
+| **Needs shipping** | Paid orders that still have items to ship or hand over, oldest first. Orders where only some items have shipped are included. |
 | **Awaiting payment** | Open orders where the payment hasn't come in yet. |
 
 The card you're viewing gets a ring around it. The numbers always count your whole store, even while you're searching or filtering.
@@ -48,17 +49,19 @@ Type in the box that says "Search by customer, email, or order number…" and cl
 
 ### Filters and sorting
 
-![The Filters popover open on the Orders page, with Status, Fulfillment, Payment and Sort dropdowns](/images/orders/orders-filters.png)
+![The Filters popover on the Orders page with the Status, Fulfillment, Payment, Date and Sort dropdowns, and the Date list open showing Today, Last 7 days, This month, Last month and All time](/images/orders/orders-filters.png)
 
-*Filters narrow the list by any of the three statuses and change the sort order.*
+*Filters narrow the list by status, fulfillment, payment, date and more, and change the sort order.*
 
 Click **Filters** to narrow the list:
 
 | Filter | Options |
 | ------ | ------- |
 | **Status** | All Statuses, Open, Completed, Cancelled, Refunded |
-| **Fulfillment** | All Fulfillment, Unfulfilled, Partially Fulfilled, Fulfilled |
+| **Fulfillment** | All Fulfillment, Unfulfilled, Partially Fulfilled, Fulfilled, Needs shipping |
 | **Payment** | All Payments, Awaiting Payment, Paid, Failed, Refunded, Disputed |
+| **Sold** | Online and in person, Online, In person |
+| **Date** | Today, Last 7 days, This month, Last month, All time (the default) |
 | **Sort** | Newest (the default), Oldest, Highest total, Lowest total |
 
 The list shows 25 orders per page. If nothing matches, you'll see "No orders match your filters" with a **Clear filters** button. A brand-new store shows "No orders yet" instead.
@@ -82,16 +85,17 @@ Next to the status you may see extra badges:
 | **Subscription** | The order came from a product subscription. |
 | **Oversold** | At least one item sold more units than you had in stock. |
 | **Disputed** (red) | The customer has disputed the card payment with their bank. See [Disputes](/docs/payments-and-payouts#disputes). |
+| **Delivery issue** | A package with a label bought through Shippo couldn't be delivered or was sent back. Open the order and check its tracking. See [Tracking and delivered emails](/docs/shipping-labels#tracking-and-delivered-emails). |
 
 There are no bulk actions on the list. You fulfill, refund or cancel one order at a time.
 
 ### Exporting to a spreadsheet
 
-![The Export CSV and Create Manual Order buttons](/images/orders/export-button.png)
+![The Export CSV and Add order buttons](/images/orders/export-button.png)
 
 *Export CSV downloads whatever the list is currently showing.*
 
-Click **Export CSV** to download a spreadsheet of every order that matches your current search and filters (all pages, not just the one on screen). The file is named `orders-your-store-name-date.csv`, and a message confirms how many orders were exported.
+Click **Export CSV** to download a spreadsheet of every order that matches your current search and filters (all pages, not just the one on screen). That includes the **Date** filter. To export last month's orders, pick **Last month** first. The file is named `orders-your-store-name-date.csv`, and a message confirms how many orders were exported.
 
 The columns are: Order Number, Date, Customer Name, Customer Email, Status, Payment Status, Fulfillment Status, Delivery Method, Subtotal, Shipping, Tax, Discount, Total, Refund Amount, Discount Code, Item Count, Items, and Shipping Address.
 
@@ -116,7 +120,7 @@ Each order carries three separate statuses. The **status** is the big picture. *
 
 | Status | What it means |
 | ------ | ------------- |
-| **Awaiting Payment** (shown as Pending on the order page) | No payment has come in yet. |
+| **Awaiting payment** (shown as Pending on the order page) | No payment has come in yet. |
 | **Paid** | Payment received. |
 | **Failed** | The payment didn't go through. Stripe sets this. |
 | **Refunded** | The full amount has been refunded, or the customer won a dispute (even one for part of the order). |
@@ -127,7 +131,7 @@ Each order carries three separate statuses. The **status** is the big picture. *
 | Status | What it means |
 | ------ | ------------- |
 | **Unfulfilled** | Nothing has shipped or been handed over yet. |
-| **Partially Fulfilled** | Some items have shipped and some haven't. |
+| **Partially fulfilled** | Some items have shipped and some haven't. |
 | **Fulfilled** | Everything has shipped, a pickup order is ready, or a local delivery order has been delivered. |
 
 ---
@@ -136,14 +140,14 @@ Each order carries three separate statuses. The **status** is the big picture. *
 
 Click **View** on any row to open the order.
 
-![An open order showing the Order Items card, the Mark as Fulfilled card, and cards on the right for Order Status, Customer Information, Shipping Address, Notes and Payment](/images/orders/order-detail.png)
+![An open order with the Back button, order title, Payment: Paid and Fulfillment: Unfulfilled badges and the Packing slip, Invoice and More options buttons, then the Order items, Shipping address and Mark as Fulfilled cards on the left and Order status, Payment, Customer information and Notes on the right](/images/orders/order-detail.png)
 
 *A paid order that's ready to ship.*
 
 **Along the top:**
 
 - The order date, plus a **Payment:** badge and a **Fulfillment:** badge. **Pickup**, **Local delivery**, **Oversold** and **Subscription** badges appear when they apply. The Subscription badge links to the subscription.
-- Buttons for **Packing Slip**, **Invoice** and **More Options**.
+- Buttons for **Packing slip**, **Invoice** and **More options**.
 
 <Callout type="info">
 The order page's title shows the order number (for example "Order #1030"), the same number used in the Orders list, on the packing slip and invoice, and in your customer's emails.
@@ -151,17 +155,22 @@ The order page's title shows the order number (for example "Order #1030"), the s
 
 **On the left:**
 
-- **Order Items**: each product with its variant, SKU, quantity and price, then the subtotal, any discount (with the code used), shipping (labeled **Local delivery** on a local delivery order), tax and total. If the customer chose [product options](/docs/product-options), each choice is listed under its item with its price (see [Options on orders](#options-on-orders)). While an order is partially shipped, each item shows **Shipped**, **N of M shipped** or **Not shipped**.
+- **Order items**: each product with its variant, SKU, quantity and price, then the subtotal, any discount (with the code used), shipping (labeled **Local delivery** on a local delivery order), tax and total. If the customer chose [product options](/docs/product-options), each choice is listed under its item with its price (see [Options on orders](#options-on-orders)). While an order is partially shipped, each item shows **Shipped**, **N of M shipped** or **Not shipped**.
 - If something was oversold, a red **Oversold items in this order** alert lists each item and how many were in stock at the time of purchase, for example "(0 in stock at time of purchase)". You may want to contact the customer or restock. See [Inventory management](/docs/inventory-management).
-- The card for getting the order to the customer: **Mark as Fulfilled** for shipping orders, **Ready for Pickup** for pickup orders, or **Mark as Delivered** for local delivery orders. It only appears once the order is paid.
+- **Shipping address** (or **Delivery address** on a local delivery order): where the order is going. It sits right above the label and shipping controls so you can check it as you ship. Use **Copy** to copy it, and the pencil to change it.
+- **Shipping labels**: on a paid shipping order, when you've connected Shippo. Buy, print and manage labels here. See [Buy a label with Shippo](#buy-a-label-with-shippo).
+- The card for getting the order to the customer: **Mark as Fulfilled** for shipping orders, **Ready for pickup** for pickup orders, or **Mark as Delivered** for local delivery orders. It only appears once the order is paid. While Shippo is connected, the shipping version folds into an **Enter tracking manually instead** button.
+- **Shipments**: each package sent so far, once the order has any. See [Shipments](#shipments).
 
 **On the right:**
 
-- **Order Status**: the status (Open, Completed and so on), a short hint about what's next, and the order's shipments once it has any.
-- **Customer Information**: name, email and phone (if given).
-- **Shipping Address**, **Pickup Location** for pickup orders, or **Delivery Address** for local delivery orders.
+- **Order status**: the status (Open, Completed and so on) and a short hint about what's next.
+- **Payment**: right under Status. It shows the payment status, the **Method** (Card, Cash, Check or Manual), the refund reason if there is one, the Stripe **Payment ID** for card payments, and the refund button.
+- **Customer information**: name, email and phone (if given). Tap the email to write to them, or the phone number to call.
+- **Pickup location** for pickup orders.
 - **Notes**: your private note and the customer's note from checkout.
-- **Payment**: the payment status, the **Method** (Card, Cash, Check or Manual), the refund reason if there is one, the Stripe **Payment ID** for card payments, and the refund button.
+
+![An order's cards: Order items and Shipping address above Mark as Fulfilled on the left, and Order status, Payment, Customer information and Notes stacked on the right](/images/orders/order-layout.png)
 
 ---
 
@@ -169,10 +178,10 @@ The order page's title shows the order number (for example "Order #1030"), the s
 
 When a customer builds a product with [product options](/docs/product-options), SimplePress records exactly what they chose on the order. You'll see it in these places:
 
-- **Order detail.** Under each item in **Order Items**, every group is listed with the customer's picks, such as "Charms: Heart (included), Star" and "Engraving: “AB”", with the add-on price for each.
+- **Order detail.** Under each item in **Order items**, every group is listed with the customer's picks, such as "Charms: Heart (included), Star" and "Engraving: “AB”", with the add-on price for each.
 - **Fulfillment.** The **Mark as Fulfilled** card lists the same lines without prices, so you know what to pack.
 - **Packages.** Once an order has packages, each package's contents read like "Charm Necklace (Gold) [Chain: Gold · Charms: Heart, Star]".
-- **Printing.** The **Invoice** shows the options with prices. The **Packing Slip** shows them without prices.
+- **Printing.** The **Invoice** shows the options with prices. The **Packing slip** shows them without prices.
 - **Emails.** The order confirmation to your customer and the **New Order** alert to you list each item's choices as "Group: value +$X".
 
 ![The Order Items card of an order, with a Charm Necklace line listing Chain: Rose gold chain +$6.00, Charms: Heart (included), Moon +$12.00 and Engraving: “Amy” +$5.00 under the item name, with the line total of $65.00 and the subtotal, shipping, tax and total below](/images/orders/order-item-options.png)
@@ -185,13 +194,16 @@ When a customer builds a product with [product options](/docs/product-options), 
 
 The order keeps its own copy of what was chosen. If you later edit or delete the option, or turn **Product options & personalization** off, existing orders still show what the customer picked. Customers see the choices on their account order page and on the order status page.
 
-If a choice used another product's stock, refunding or cancelling an order with **Return items to inventory** ticked puts that stock back too. See [Inventory management](/docs/inventory-management#option-choices-that-use-another-products-stock).
+If a choice used another product's stock, refunding an order with that item set to return, or cancelling with **Return items to inventory** ticked, puts that stock back too. See [Inventory management](/docs/inventory-management#option-choices-that-use-another-products-stock).
 
 ---
 
 ## Fulfilling and tracking
 
-SimplePress doesn't buy shipping labels for you. You ship the order the way you normally would, then record it here so your customer gets an email with their tracking. We recommend Pirate Ship; see [Shipping labels with Pirate Ship](/docs/shipping-labels).
+There are two ways to ship an order:
+
+- **Buy the label here.** If you've connected Shippo, buy and print the label from the order. The tracking number is added and the customer is emailed for you. See [Buy a label with Shippo](#buy-a-label-with-shippo).
+- **Ship it your own way,** then record the tracking number here so your customer gets an email with it. The steps below cover this. For buying a discounted label on Pirate Ship, see [Shipping labels](/docs/shipping-labels#buy-labels-on-pirate-ship).
 
 <video src="/videos/orders/fulfill-order.webm" poster="/videos/orders/fulfill-order-poster.png" controls muted playsInline className="rounded-lg border" />
 
@@ -206,7 +218,7 @@ SimplePress doesn't buy shipping labels for you. You ship the order the way you 
 
 *The fulfillment card, ready to send. The blue note tells you exactly who will be emailed.*
 
-You'll see a confirmation message that tells you which email went out, for example "Order fulfilled and shipping email sent to customer". The order's fulfillment changes to **Fulfilled**, and if it's paid, its status changes to **Completed**. If the email fails to send, a warning says so, and you can resend it from **More Options**.
+You'll see a confirmation message that tells you which email went out, for example "Order fulfilled and shipping email sent to customer". The order's fulfillment changes to **Fulfilled**, and if it's paid, its status changes to **Completed**. If the email fails to send, a warning says so, and you can resend it from **More options**.
 
 ### Carriers and tracking links
 
@@ -217,18 +229,46 @@ You'll see a confirmation message that tells you which email went out, for examp
 
 ### Need a label?
 
-When tracking is included, the card shows "Need a shipping label? Copy the address, then buy discounted postage on Pirate Ship." Click **Copy address** to copy the shipping address, then **Open PirateShip** to open Pirate Ship's label form in a new tab. For the full walkthrough (copying the address, package size and weight, finding the tracking number), see [Shipping labels with Pirate Ship](/docs/shipping-labels).
+When tracking is included and Shippo isn't connected, the card shows "Need a shipping label? Copy the address, then buy discounted postage on Pirate Ship." Click **Copy address** to copy the shipping address, then **Open PirateShip** to open Pirate Ship's label form in a new tab. For the full walkthrough (copying the address, package size and weight, finding the tracking number), see [Buy labels on Pirate Ship](/docs/shipping-labels#buy-labels-on-pirate-ship).
+
+If the **Shipping labels** feature is on but Shippo isn't connected yet, the note ends with a **Buy labels here — connect Shippo** link to **Settings → Shipping**. Staff, who can't connect Shippo, see "Ask an Owner or Manager to connect Shippo to buy labels here." instead.
+
+### Buy a label with Shippo
+
+With the **Shipping labels** feature on and Shippo connected, a paid shipping order has a **Shipping labels** card above the fulfillment controls.
+
+1. Click **Buy shipping label**.
+2. Check the address, choose the items in this box, the box and the weight, and tick **Signature confirmation** or **Insurance** if you want them. Click **Get rates**.
+3. Pick a service and click **Next**.
+4. Leave **Email tracking to the customer** ticked, and click **Buy label for $X**.
+5. Click **Print label**, and **Packing slip** if you want one.
+
+The label adds a package to the **Shipments** card and counts its items as shipped. Once everything has shipped, the order is **Fulfilled**. Each label has a **Print** button and a **More** menu to **Void label**, **Void and buy a replacement**, or **Reship lost or damaged items**. Owners and Managers also get **Create return label**. For every step, see [Shipping labels](/docs/shipping-labels#buy-labels-in-simplepress-with-shippo).
+
+![The Shipping labels card with a USPS Ground Advantage label row, its tracking number and Print and More buttons, and the Shipments card below with Package 1 marked Label and a Packing slip link](/images/shipping-labels/order-with-label.png)
+
+To record a package you sent another way, click **Enter tracking manually instead** under the card.
 
 ### More than one box
 
-Click **Add Additional Tracking Information** to add another package to the same form. Each package gets its own carrier and tracking number, and the customer gets one shipping email per package.
+Click **Add additional tracking information** to add another package to the same form. Each package gets its own carrier and tracking number, and the customer gets one shipping email per package.
 
 ### After it's fulfilled
 
-Once the order is fulfilled, the **Order Status** card lists each package: "Package 1 — 2 hours ago", the carrier, the tracking number, a **Track Package →** link, and (for partial shipments) what was in the box, such as "Contains: 2× Crystal – Gold Chain".
+Each package you've sent is listed on the **Shipments** card, under the fulfillment controls. You can fix a tracking number or add another package there. See [Shipments](#shipments).
 
-- **Fix a typo:** click the pencil next to a package, correct the carrier or number, and click **Save Changes**. No email is sent for a correction.
-- **Add another package later:** click **Add Additional Tracking**, fill it in, and click **Add & Send Email**. The customer is emailed only if you entered a tracking number.
+---
+
+## Shipments
+
+The **Shipments** card appears on a shipping order once it has a package or is fulfilled. Each package shows "Package 1 — 2 hours ago", the carrier, the tracking number, a **Track Package →** link, and (for partial shipments) what was in the box, such as "Contains: 2× Crystal – Gold Chain". If it was sent without tracking, it says "No tracking".
+
+With the **Shipping labels** feature on, each package also has a **Packing slip** link that prints a slip for just that box. A package from a Shippo label has a **Label** badge and its tracking status, such as **In transit** or **Delivered**. A voided package is crossed out and marked **Voided package**.
+
+- **Fix a typo:** click the pencil next to a package, correct the carrier or number, and click **Save changes**. Tick **Email the customer the updated tracking** to send them the corrected tracking in a new **Order Shipped** email. Leave it unticked and no email is sent ("Shipment updated. No email sent").
+- **Add another package later:** click **Add additional tracking**, fill in the carrier and tracking number, and click **Add & send email**. The customer gets an **Order Shipped** email for it.
+
+Packages from a Shippo label don't have a pencil. To change one, use **More** on the label in the **Shipping labels** card. See [Void, replace or reship a label](/docs/shipping-labels#void-replace-or-reship-a-label).
 
 ---
 
@@ -238,19 +278,19 @@ If some items ship now and the rest later:
 
 1. On the fulfillment card, untick **Ship all remaining items**.
 2. Under **Items in this package**, set how many of each item are in this box. Each line shows how many are left to ship, for example "of 2".
-3. Click **Fulfill Selected Items & Send Email** (or **Fulfill Selected Items** if you unticked tracking).
+3. Click **Fulfill Selected Items & Send Email** (or **Fulfill selected items** if you unticked tracking).
 
-The order becomes **Partially Fulfilled**, and each item shows whether it has shipped. The card is renamed **Fulfill Remaining Items** so you can ship the rest when it's ready. If you're shipping several boxes at once, each package you add gets its own items list ("Package 2", "Package 3"…).
+The order becomes **Partially fulfilled**, and each item shows whether it has shipped. The card is renamed **Fulfill remaining items** so you can ship the rest when it's ready. If you're shipping several boxes at once, each package you add gets its own items list ("Package 2", "Package 3"…).
 
 <Callout type="info">
-A partial shipment **with** tracking emails the customer that tracking straight away. A partial shipment **without** tracking sends no email; the customer hears from you once the whole order is fulfilled. The button reads **Fulfill Selected Items** (without "& Send Email"), and the confirmation says "Partial shipment recorded. No email sent".
+A partial shipment **with** tracking emails the customer that tracking straight away. A partial shipment **without** tracking sends no email; the customer hears from you once the whole order is fulfilled. The button reads **Fulfill selected items** (without "& Send Email"), and the confirmation says "Partial shipment recorded. No email sent".
 </Callout>
 
 ---
 
 ## Local pickup orders
 
-If a customer chose in-store pickup, the order shows a **Pickup** badge, and you'll see a **Pickup Location** card where the shipping address would be. It shows your pickup location (or, if you left that blank, your business address from General Settings) and any pickup instructions. If it says "No pickup location configured.", add one in your shipping settings. See [Shipping](/docs/shipping).
+If a customer chose in-store pickup, the order shows a **Pickup** badge, and you'll see a **Pickup location** card on the right. It shows your pickup address (your business address from General Settings, unless you set a different pickup address) and any pickup instructions. If it says "No pickup location configured.", add your address in General Settings or a pickup address in your shipping settings. See [Shipping](/docs/shipping).
 
 ![A pickup order with a Pickup badge, a Ready for Pickup card with a Mark Ready for Pickup button, and a Pickup Location card](/images/orders/pickup-order.png)
 
@@ -259,7 +299,7 @@ If a customer chose in-store pickup, the order shows a **Pickup** badge, and you
 When the order is packed and waiting:
 
 1. Open the order.
-2. In the **Ready for Pickup** card, click **Mark Ready for Pickup**.
+2. In the **Ready for pickup** card, click **Mark ready for pickup**.
 
 The customer is emailed straight away that their order is ready, with your pickup location and instructions. The order is marked **Fulfilled**, and **Completed** if it's paid. The Order Status card then reads "Customer notified — ready for pickup."
 
@@ -267,7 +307,7 @@ The customer is emailed straight away that their order is ready, with your picku
 
 ## Local delivery orders
 
-If a customer chose local delivery, the order shows a **Local delivery** badge in the Orders list and on the order page. The total line reads **Local delivery** instead of Shipping, and the card where the shipping address would be is called **Delivery Address**. It shows the address you'll drive to, plus your **Delivery days & instructions (shown to customer)**, taken from your [Local delivery settings](/docs/shipping#local-delivery). Local delivery orders have no carrier, so there's no tracking box and no tracking panel.
+If a customer chose local delivery, the order shows a **Local delivery** badge in the Orders list and on the order page. The total line reads **Local delivery** instead of Shipping, and the address card is called **Delivery Address**. It shows the address you'll drive to, plus your **Delivery days & instructions (shown to customer)**, taken from your [Local delivery settings](/docs/shipping#local-delivery). Local delivery orders have no carrier, so there's no tracking box and no tracking panel.
 
 ![A local delivery order with a Local delivery badge, a Mark as Delivered card with a Copy address button, and a Delivery Address card showing your delivery instructions](/images/orders/local-delivery-order.png)
 
@@ -282,7 +322,7 @@ When you're ready to drop it off:
 
 The customer gets the usual fulfilled email, letting them know the order was delivered. The blue note on the card reads "Marking this order as delivered will send an email to [customer email] letting them know the order was delivered." The order is marked **Fulfilled**, and **Completed** if it's paid. The Order Status card then reads "Delivered — customer notified."
 
-If you're delivering part of the order, untick **Deliver all remaining items**, set how many of each item you're dropping off, and click **Fulfill Selected Items**. A partial delivery only emails the customer once it completes the whole order. See [Partial shipments](#partial-shipments).
+If you're delivering part of the order, untick **Deliver all remaining items**, set how many of each item you're dropping off, and click **Fulfill selected items**. A partial delivery only emails the customer once it completes the whole order. See [Partial shipments](#partial-shipments).
 
 <Callout type="info">
 You can edit the instructions any time under Settings → Shipping, but the card on an order always shows your current wording.
@@ -296,14 +336,14 @@ The refund button lives at the bottom of the **Payment** card on the right. It a
 
 ### Orders paid by card (through Stripe)
 
-1. Click **Issue Refund**.
+1. Click **Issue refund**.
 2. **Refund amount** starts at the most you can refund (shown as "max $X"). Lower it for a partial refund. You'll see "Partial refund — customer keeps the difference".
 3. Optionally pick a **Reason**: Customer requested refund, Duplicate order, or Fraudulent order. It's shown on the order afterwards.
-4. Tick **Return items to inventory** if the items are coming back and you want them counted as stock again. It's off by default.
+4. Under **Return to inventory**, choose how many of each item are coming back to stock. Each item that tracks stock has a quantity box, from 0 up to however many are still left to return. Items already returned show **Already returned**. A full refund fills in every item, and a partial refund starts every item at 0. Set an item to 0 if it isn't coming back, like a lost package. A line above the buttons confirms what will happen, either "Returning N items to inventory" or "Nothing will be returned to inventory".
 5. **Notify customer by email** is on by default. Untick it if you don't want to send the refund email.
-6. Click **Issue Full Refund** (or **Refund $X** for a partial amount).
+6. Click **Issue full refund** (or **Refund $X** for a partial amount).
 
-![The Issue Refund dialog with a partial amount of $20.00 entered, a reason dropdown, Return items to inventory and Notify customer by email checkboxes, and a Refund $20.00 button](/images/orders/refund-dialog.png)
+![The Issue Refund dialog with a partial amount of $20.00 entered, a reason dropdown, a Return to inventory list with a quantity box for each item (1 of 2 and 0 of 2), a Notify customer by email checkbox, the line "Returning 1 item to inventory", and a Refund $20.00 button](/images/orders/refund-dialog.png)
 
 *A partial refund. The money goes back to the customer's card through Stripe, and this can't be undone.*
 
@@ -312,6 +352,19 @@ The refund button lives at the bottom of the **Payment** card on the right. It a
 - **Full refund:** the order's status and payment both become **Refunded**.
 - **Partial refund:** the order stays **Open** (or **Completed** if it was fully fulfilled), and payment stays **Paid**. On a cancelled order, a partial refund leaves it **Cancelled**. There's no separate "partially refunded" status. The refunded amount shows on the invoice and in the export's Refund Amount column.
 - You can refund in several steps. Each time, the maximum is whatever hasn't been refunded yet.
+- An item can only be returned to stock once. Across several refunds and a cancellation, SimplePress never lets you return more than the order contained.
+- Clicking **Refund** twice, or submitting from two browser tabs, refunds only once.
+- If Stripe refunds the money but SimplePress then fails to save it, the message names the Stripe refund. It's safe to try again from the same window. It won't refund a second time.
+
+### Refunds made in the Stripe Dashboard
+
+If you refund a payment directly in your Stripe Dashboard instead, SimplePress still updates the order. The customer gets one refund email, and rewards points are taken back in proportion to the amount refunded. Stock is **not** returned automatically, so adjust it by hand. See [Inventory management](/docs/inventory-management).
+
+### Orders paid on an earlier Stripe account
+
+If you've switched Stripe accounts, an older order is refunded on the account that took the payment, as long as that account is still linked to your store. The refund works the same way as above.
+
+If that account is no longer linked, SimplePress can't send the refund. The **Issue refund** button is replaced by a note: "This payment was taken on a Stripe account that's no longer connected to this store. Refund it from the Stripe Dashboard of the account that took the payment, then mark the order refunded here." Refund the customer in that account's Stripe Dashboard, then click **Mark as Refunded** to record it on the order.
 
 ### Orders paid another way
 
@@ -321,7 +374,7 @@ For cash, check or other manual payments, the button reads **Mark as Refunded**.
 **Mark as Refunded** only records the refund in SimplePress. No money moves, so pay the customer back yourself first. It always records a full refund.
 </Callout>
 
-On a cancelled order, neither refund dialog offers **Return items to inventory**, because cancelling already offered to restock.
+On a cancelled order, neither refund dialog offers to return items to inventory, because cancelling already offered to restock.
 
 ### Rewards points
 
@@ -331,11 +384,11 @@ If you run a rewards program, refunding an order (fully or partly) takes back th
 
 ## Cancelling an order
 
-1. Open the order and click **More Options → Cancel Order**.
+1. Open the order and click **More options → Cancel order**.
 2. In the **Cancel Order #N** dialog, choose:
    - **Return items to inventory** (ticked by default) puts the items back in stock. It doesn't appear if the order has already had a refund; use the refund's restock option instead. It also doesn't appear for an order that was never paid (Pending), because nothing was taken out of stock.
    - **Notify customer by email** (ticked by default) sends the cancellation email.
-3. Click **Cancel Order**, or **Go back** to leave it alone.
+3. Click **Cancel order**, or **Go back** to leave it alone.
 
 ![The Cancel Order dialog with Return items to inventory and Notify customer by email both ticked, a red warning, and Go back and Cancel Order buttons](/images/orders/cancel-dialog.png)
 
@@ -344,39 +397,40 @@ If you run a rewards program, refunding an order (fully or partly) takes back th
 Things to know:
 
 - **Cancelling doesn't refund.** If the customer paid, issue the refund first (see [Refunds](#refunds)), then cancel.
-- **You can't cancel an order once any of it has shipped** (Fulfilled or Partially Fulfilled). **Cancel Order** disappears from the menu at that point.
+- **You can't cancel an order once any of it has shipped** (Fulfilled or Partially Fulfilled). **Cancel order** disappears from the menu at that point.
 - Cancelled orders can't be reopened.
+- Cancelling or marking an order refunded a second time is blocked with an "already cancelled" or "already refunded" message, and stock only goes back once.
 
 ---
 
 ## Changing a status by hand
 
-Sometimes you need to correct a status, for example when a customer paid in cash after you created the order. Use **More Options → Override Status**.
+Sometimes you need to correct a status, for example when a customer paid in cash after you created the order. Use **More options → Override status**.
 
-![The More Options menu showing Resend Emails with Resend Order Confirmation, Override Status with Payment Status and Fulfillment Status, and Cancel Order](/images/orders/more-options.png)
+![The More Options menu showing Resend Emails with Resend Order Confirmation, Override status with Payment Status and Fulfillment Status, and Cancel Order](/images/orders/more-options.png)
 
 *The More Options menu.*
 
 | Override | Choices | Notes |
 | -------- | ------- | ----- |
-| **Payment Status** | Pending, Paid | **Paid** is one-way. Once an order is Paid, **Pending** is greyed out, and to back out of a paid sale you cancel the order instead. **Paid** is also blocked once an order has had any refund. To mark something refunded, use the refund button in the Payment card. On a **Disputed** order both choices are greyed out with the note "dispute open"; Stripe settles the status when the dispute closes. |
-| **Fulfillment Status** | Unfulfilled, Partially Fulfilled, Fulfilled | **Unfulfilled** resets every item to "not shipped" and brings back the fulfillment form. A Completed order goes back to **Open**. |
+| **Payment status** | Pending, Paid | **Paid** is one-way. Once an order is Paid, **Pending** is greyed out, and to back out of a paid sale you cancel the order instead. **Paid** is also blocked once an order has had any refund. To mark something refunded, use the refund button in the Payment card. On a **Disputed** order both choices are greyed out with the note "dispute open"; Stripe settles the status when the dispute closes. |
+| **Fulfillment status** | Unfulfilled, Partially Fulfilled, Fulfilled | **Unfulfilled** resets every item to "not shipped" and brings back the fulfillment form. A Completed order goes back to **Open**. |
 
 - You can't set the order status (Open, Completed and so on) directly. It follows from payment and fulfillment.
-- Overrides don't email the customer. The one exception to "status only" is switching a manual order from **Pending** to **Paid**: that takes the items out of stock, adds the order to the customer's order count and total spent, and awards rewards points, just as if you'd saved it as Paid. To send emails, use the fulfillment form, **Mark Ready for Pickup**, or the refund and cancel options instead.
+- Overrides don't email the customer. The one exception to "status only" is switching a manual order from **Pending** to **Paid**: that takes the items out of stock, adds the order to the customer's order count and total spent, and awards rewards points, just as if you'd saved it as Paid. To send emails, use the fulfillment form, **Mark ready for pickup**, or the refund and cancel options instead.
 - Overrides aren't available on cancelled orders.
-- There's no "Mark as Unfulfilled" button. To undo a fulfillment, use **Override Status → Fulfillment Status → Unfulfilled**. The packages you recorded stay listed on the order.
+- There's no "Mark as Unfulfilled" button. To undo a fulfillment, use **Override status → Fulfillment status → Unfulfilled**. The packages you recorded stay listed on the order.
 
 ### Resending emails
 
-The top of **More Options** offers **Resend Emails** that fit the order's state:
+The top of **More options** offers **Resend emails** that fit the order's state:
 
 | Option | Shown when |
 | ------ | ---------- |
-| **Resend Order Confirmation** | The order is paid. |
-| **Resend Shipped Email** (one per package) | A package has a tracking number. |
-| **Resend Fulfilled Email** | The order was fulfilled without tracking. |
-| **Resend Refund Email** | The order is fully refunded. |
+| **Resend order confirmation** | The order is paid. |
+| **Resend shipped email** (one per package) | A package has a tracking number. |
+| **Resend fulfilled email** | The order was fulfilled without tracking. |
+| **Resend refund email** | The order is fully refunded. |
 
 ---
 
@@ -386,15 +440,15 @@ The top of **More Options** offers **Resend Emails** that fit the order's state:
 
 The **Notes** card holds two things:
 
-- **Internal Note** "(not visible to customer)": a private note for you and your team. Click **Edit** (or the note itself), type, and click **Save**.
-- **Customer Note**: a note that came with the order. You can read it but not edit it. Checkout has no note box, so most orders won't show one. Shoppers who want to add instructions usually reach you through your contact form or by email, so put what they tell you in the Internal Note.
+- **Internal note** "(not visible to customer)": a private note for you and your team. Click **Edit** (or the note itself), type, and click **Save**.
+- **Customer note**: a note that came with the order. You can read it but not edit it. Checkout has no note box, so most orders won't show one. Shoppers who want to add instructions usually reach you through your contact form or by email, so put what they tell you in the Internal Note.
 
 Manual orders start with "[Manual Order]" at the top of the internal note.
 
 ### Shipping address
 
-- Click **Copy** to copy the whole address for a label site. You'll see "Address copied". For the whole label process, see [Shipping labels with Pirate Ship](/docs/shipping-labels).
-- Click the pencil to open **Edit Shipping Address** and fix a typo. If the order has no address, the dialog is **Add Shipping Address**. You can only add an address when the order is linked to a customer.
+- Click **Copy** to copy the whole address for a label site. You'll see "Address copied". For the whole label process, see [Shipping labels](/docs/shipping-labels).
+- Click the pencil to open **Edit shipping address** and fix a typo. If the order has no address, the dialog is **Add shipping address**. You can only add an address when the order is linked to a customer.
 
 Editing the address only updates the order in SimplePress. It doesn't change a label you've already bought.
 
@@ -402,20 +456,20 @@ Editing the address only updates the order in SimplePress. It doesn't change a l
 
 ## Printing a packing slip or invoice
 
-Click **Packing Slip** or **Invoice** at the top of an order. Each opens a printable page with **Back to Order** and **Print** buttons.
+Click **Packing slip** or **Invoice** at the top of an order. Each opens a printable page with **Back to order** and **Print** buttons.
 
-![A packing slip for order #1030 with the store's logo and address, a Ship To address, a Customer block, and an Item / SKU / Qty table](/images/orders/packing-slip.png)
+![A packing slip for order #1043 with the store's logo and address, a Ship To address, a Customer block, and an Item / SKU / Qty table](/images/orders/packing-slip.png)
 
 *The packing slip leaves out prices, so it's safe to put in the box.*
 
 | What it shows | Packing slip | Invoice |
 | ------------- | :----------: | :-----: |
 | Your logo, name, address and contact details | Yes | Yes |
-| **Ship To** address (or **Pickup Order** for pickup, or **Local Delivery To** for local delivery) | Yes | Yes |
+| **Ship to** address (or **Pickup order** for pickup, or **Local delivery to** for local delivery) | Yes | Yes |
 | Items with **SKU** and **Qty** | Yes | Yes |
-| **Unit Price** and line **Total** | No | Yes |
+| **Unit price** and line **Total** | No | Yes |
 | Payment status, and subtotal, discount, shipping, tax and total | No | Yes |
-| **Refunded** and **Amount Due** lines | No | Yes, when there's been a refund |
+| **Refunded** and **Amount due** lines | No | Yes, when there's been a refund |
 
 The **Invoice** here is a printable receipt for this order. To send a bill a customer pays online, see [Invoices](/docs/invoices).
 
@@ -425,9 +479,9 @@ The **Invoice** here is a printable receipt for this order. To send a bill a cus
 
 Use a manual order for a phone order, a market stall sale, a wholesale order, or anything that didn't go through your checkout. No card payment is taken. You collect payment however you normally would.
 
-1. On the Orders page, click **Create Manual Order**.
-2. Fill in the **New Manual Order** page (cards described below).
-3. Click **Save changes**. The badge next to the title reads **Unsaved Changes** until you save, and **Reset** clears the form.
+1. On the Orders page, click **Add order**.
+2. Fill in the **Add order** page (cards described below).
+3. Click **Save changes**. The badge next to the title reads **Unsaved changes** until you save, and **Reset** clears the form.
 
 After saving, you land on the new order.
 
@@ -437,13 +491,13 @@ After saving, you land on the new order.
 
 | Card | What you fill in |
 | ---- | ---------------- |
-| **Customer Information** | **Name** and **Email** (both required), or click **Find existing customer** to search your customers. Tick **Send order confirmation email to customer** to email them a confirmation. |
-| **Delivery** | **Method**: "Ship to customer", "Local delivery" or "In-store pickup". Under it, a note explains the choice: for local delivery it reads "Local delivery orders should carry the address you'll drive to."  **Order Date**: leave it blank for today, or pick an earlier date to backdate a sale. |
-| **Shipping Address** | Optional, for shipping and local delivery orders (the card is called **Delivery Address** for local delivery). Click **Add address**. Recipient Name defaults to the customer's name. |
-| **Notes** | **Internal Notes**, visible to admins only (up to 2,000 characters). |
-| **Payment & Fulfillment** | **Payment**: Pending, Paid, Failed or Refunded. **Payment Method**: Card, Cash or Check, or leave it on "Manual (default)". **Fulfillment**: Unfulfilled, Fulfilled or Partially Fulfilled. The order status is worked out from these. |
-| **Additional Charges** | Flat **Shipping**, **Tax** and **Discount** amounts in dollars. Tax isn't calculated for you on manual orders. |
-| **Order Items** | Click **Add Item**, then search "Search by name, SKU, or variant…". Pick a variant if the product has them, and set the **Quantity**. Prices fill in from your catalog. If the product has [options](/docs/product-options), the **Choose options** dialog opens right away (see below). Or click **Enter subtotal directly** to type one amount instead of listing items, and **Select items instead** to switch back. |
+| **Customer information** | **Name** and **Email** (both required), or click **Find existing customer** to search your customers. Tick **Send order confirmation email to customer** to email them a confirmation. |
+| **Delivery** | **Method**: "Ship to customer", "Local delivery" or "In-store pickup". Under it, a note explains the choice: for local delivery it reads "Local delivery orders should carry the address you'll drive to."  **Order date**: leave it blank for today, or pick an earlier date to backdate a sale. |
+| **Shipping address** | Optional, for shipping and local delivery orders (the card is called **Delivery address** for local delivery). Click **Add address**. Recipient Name defaults to the customer's name. |
+| **Notes** | **Internal notes**, visible to admins only (up to 2,000 characters). |
+| **Payment & Fulfillment** | **Payment**: Pending, Paid, Failed or Refunded. **Payment method**: Card, Cash or Check, or leave it on "Manual (default)". **Fulfillment**: Unfulfilled, Fulfilled or Partially Fulfilled. The order status is worked out from these. |
+| **Additional charges** | Flat **Shipping**, **Tax** and **Discount** amounts in dollars. Tax isn't calculated for you on manual orders. |
+| **Order items** | Click **Add item**, then search "Search by name, SKU, or variant…". Pick a variant if the product has them, and set the **Quantity**. Prices fill in from your catalog. If the product has [options](/docs/product-options), the **Choose options** dialog opens right away (see below). Or click **Enter subtotal directly** to type one amount instead of listing items, and **Select items instead** to switch back. |
 
 ### Products with options
 
@@ -459,7 +513,7 @@ Prices are checked again when you save the order, so they follow your current op
 
 **Good to know:**
 
-- **Stock, the customer's order history totals and rewards points change when the order is Paid.** That happens either when you save it as Paid, or later, when you switch it from Pending to Paid with **More Options → Override Status → Payment Status → Paid**.
+- **Stock, the customer's order history totals and rewards points change when the order is Paid.** That happens either when you save it as Paid, or later, when you switch it from Pending to Paid with **More options → Override status → Payment status → Paid**.
 - Saving creates a customer from the name and email, or updates the existing customer with that email. See [Customers](/docs/customers).
 - Manual orders show up in the Orders list with everything else. The Payment card's **Method** tells you how it was paid.
 
@@ -472,15 +526,17 @@ SimplePress sends these automatically, using your store's name and logo:
 | Email | Sent when |
 | ----- | --------- |
 | **Order Confirmation** | A customer checks out, or you tick the confirmation box on a manual order. Pickup orders get a pickup version, and local delivery orders show a **Delivery Address** with your delivery instructions. It lists each item's [product options](/docs/product-options). |
-| **Order Shipped** | You fulfill with a tracking number, once per package. |
+| **Order Shipped** | You fulfill with a tracking number, once per package. Also when you buy a Shippo label with **Email tracking to the customer** ticked, or fix a tracking number with **Email the customer the updated tracking** ticked. |
+| **Order Delivered** | A package with a Shippo label is delivered, if **Email customers when their package is delivered** is on in [Shipping settings](/docs/shipping#delivered-emails). Once per package. |
+| **Return Label** | You click **Email return label to customer** on a Shippo return label. See [Return labels](/docs/shipping-labels#return-labels). |
 | **Order Fulfilled** | You fulfill the whole order without tracking, including a local delivery order you mark delivered. |
-| **Ready for Pickup** | You click **Mark Ready for Pickup**. |
+| **Ready for Pickup** | You click **Mark ready for pickup**. |
 | **Order Refunded** | You refund (or mark as refunded) with **Notify customer by email** ticked. |
 | **Order Cancelled** | You cancel with **Notify customer by email** ticked. |
 
-You get a **New Order** email yourself each time a customer checks out, with each item's options listed too. For a local delivery order it shows **Fulfillment: Local delivery** and a **Deliver to** block with the address and your instructions.
+You get a **New Order** email yourself each time a customer checks out, with each item's options listed too. For a local delivery order it shows **Fulfillment: Local delivery** and a **Deliver to** block with the address and your instructions. If a package with a Shippo label can't be delivered or is sent back, you and your managers get a "Delivery problem on order #…" email.
 
-To see what each one looks like, open **Notification Emails** in the admin sidebar. See [Email previews](/docs/email-preview).
+To see what each one looks like, open **Settings → Customer emails**. See [Email previews](/docs/email-preview).
 
 ---
 
@@ -490,6 +546,8 @@ To see what each one looks like, open **Notification Emails** in the admin sideb
 | ------ | :---: | :-----: | :---: |
 | See the Orders list and open orders | Yes | Yes | Yes |
 | Fulfill, add or edit tracking, Mark Ready for Pickup | Yes | Yes | Yes |
+| Buy, print, void and replace Shippo labels | Yes | Yes | Yes |
+| Create and email Shippo return labels | Yes | Yes | No |
 | Override the fulfillment status | Yes | Yes | Yes |
 | Print packing slips and invoices | Yes | Yes | Yes |
 | Read the customer's checkout note | Yes | Yes | Yes |
@@ -503,17 +561,17 @@ To see what each one looks like, open **Notification Emails** in the admin sideb
 | Edit the shipping address | Yes | Yes | No |
 | See the Stripe Payment ID | Yes | Yes | No |
 
-Staff only see the controls they can use: no **Export CSV**, **Create Manual Order**, refund buttons, shipping-address pencil, or payment, resend and cancel options in **More Options** (they keep **Override Status → Fulfillment Status**). See [Team & roles](/docs/team-and-roles).
+Staff only see the controls they can use: no **Export CSV**, **Add order**, refund buttons, shipping-address pencil, or payment, resend and cancel options in **More options** (they keep **Override status → Fulfillment status**). See [Team & roles](/docs/team-and-roles).
 
 ---
 
 ## Common questions
 
 **Why isn't the fulfillment form showing?**
-The order isn't paid yet. Once you've been paid, use **More Options → Override Status → Payment Status → Paid**, and the form appears.
+The order isn't paid yet. Once you've been paid, use **More options → Override status → Payment status → Paid**, and the form appears.
 
 **I marked an order fulfilled by mistake. How do I undo it?**
-**More Options → Override Status → Fulfillment Status → Unfulfilled**. The fulfillment form comes back. The customer has already had their email, so let them know if anything changed.
+**More options → Override status → Fulfillment status → Unfulfilled**. The fulfillment form comes back. The customer has already had their email, so let them know if anything changed.
 
 **Can I edit the items or prices on an order after it's placed?**
 No. Refund the difference for a price change. For a different item, cancel and create a new manual order.
@@ -522,10 +580,14 @@ No. Refund the difference for a price change. For a different item, cancel and c
 No, neither is possible.
 
 **Can I cancel an order after it has shipped?**
-No. Once any part of an order is fulfilled, **Cancel Order** isn't offered. Refund it instead, ticking **Return items to inventory** if the items came back.
+No. Once any part of an order is fulfilled, **Cancel order** isn't offered. Refund it instead, ticking **Return items to inventory** if the items came back.
 
 **Can SimplePress print shipping labels?**
-No. Buy labels from PirateShip (there's a button on the fulfillment form) or your carrier, then paste the tracking number into the order. For a step-by-step guide, see [Shipping labels with Pirate Ship](/docs/shipping-labels).
+Yes, if you turn on **Shipping labels** and connect your Shippo account. You buy and print the label from the order, and the tracking is added for you. Otherwise, buy labels from Pirate Ship (there's a button on the fulfillment form) or your carrier, then paste the tracking number into the order. See [Shipping labels](/docs/shipping-labels).
 
 **Can I fulfill or cancel lots of orders at once?**
 Not yet. Each order is handled on its own page.
+
+## Orders from Square register sales
+
+Sales rung up on a Square register appear here marked **In person**, with the customer shown as **Walk-in (Square)**. You can't refund those orders or change their status in SimplePress. Refund them in Square, and the refund shows up on the order. See [Sell in Person with Square](/docs/sell-in-person-with-square).

@@ -18,10 +18,11 @@ The page has these cards, top to bottom:
 3. **Local delivery**: deliver orders yourself to customers who live near you.
 4. **Delivery times**.
 5. **Returns**.
+6. **Shipping labels** and **Boxes and mailers**: only when the **Shipping labels** feature is on. See [Shipping labels](#shipping-labels) and [Boxes and mailers](#boxes-and-mailers).
 
 If you pick **Zone + weight rates**, three extra cards appear for setting up your zones.
 
-For how to pack, ship and track orders once they come in, see [Orders](/docs/orders). To buy a discounted label and bring the tracking number back, see [Shipping labels with Pirate Ship](/docs/shipping-labels).
+For how to pack, ship and track orders once they come in, see [Orders](/docs/orders). To buy labels from an order with Shippo, or on Pirate Ship, see [Shipping labels](/docs/shipping-labels).
 
 ---
 
@@ -71,7 +72,7 @@ When you select it, three cards appear:
 ![Origin state, the Auto-generate starter rates button, and the Weight tiers](/images/shipping/zone-weight-editor.png)
 
 1. Pick your **Origin state**: the state you ship from.
-2. Click **Auto-generate starter rates** to fill in a starting set of zones and prices based on that state. You can edit everything afterwards, so treat it as a first draft.
+2. Click **Auto-generate starter rates** to fill in a starting set of zones and prices based on that state. You can edit everything afterwards, so treat it as a first draft. If you already have zones, SimplePress asks before replacing them, and your free shipping threshold is kept.
 3. Under **Weight tiers**, edit the weight bands. Each tier has a **Label**, a **Min (lb)** and a **Max (lb)**. The last tier has no maximum. Click **Add tier** for more.
 
 **Zone rate matrix**
@@ -88,7 +89,7 @@ Each row is a **zone**: a group of states that share prices. Give it a **Zone na
 | **Free shipping threshold (USD) — optional** | If the subtotal reaches this amount, shipping is free. Leave it blank to turn it off. |
 | **Default item weight (lb)** | The weight used for any product that doesn't have a weight of its own. Pick a cautious number so heavy orders aren't undercharged. |
 
-Set each product's real weight in the product's **Package weight** box. See [Products](/docs/products#shipping-weight).
+Set each product's real weight in the product's **Package weight** box. See [Products](/docs/products#weight--dimensions).
 
 To save, you need at least one weight tier, at least one zone, a valid origin state and a valid fallback rate.
 
@@ -104,18 +105,20 @@ A discount code of the **Free shipping** type waives the shipping charge in ever
 
 Turn on **In-store pickup** ("Let customers choose pickup at checkout (no shipping charge).") if customers can collect their orders from you. Pickup orders pay no shipping.
 
-When it's on, two boxes appear:
+When it's on, a pickup box appears. It starts from details you've already given SimplePress:
 
-![The pickup fields: location, and pickup hours and instructions](/images/shipping/pickup-fields.png)
+![The pickup box showing the Business address and Opening hours (each with an Edit in General link), the Use a different pickup address switch, the optional Pickup instructions box, and the "Customers see at checkout and in emails" preview](/images/shipping/pickup-fields.png)
 
-| Field | What to enter |
-| ----- | ------------- |
-| **Pickup location** | Where customers collect. Leave it blank to use your business address from [General Settings](/docs/general-settings#business-address). |
-| **Pickup hours & instructions** | When and how, for example "Mon–Fri 10am–6pm. Ring the bell at the side entrance." **Required.** |
+| Part | What it does |
+| ---- | ------------ |
+| **Business address** | Your pickup address. It comes from [General Settings](/docs/general-settings#business-address). Click **Edit in General** to change it, or **Add it in General** if it's empty. |
+| **Opening hours** | Your pickup hours. They come from your [opening hours](/docs/business-hours) in General Settings. Click **Edit in General** to change them. |
+| **Use a different pickup address** | A switch. Turn it on if customers collect somewhere else, such as a studio or a market stall. A **Pickup address** box appears. Turn it off again to go back to your business address. |
+| **Pickup instructions (optional)** | Extra words for the customer, such as "Ring the bell at the side entrance." They're shown after your opening hours. If your pickup days or times are different from your opening hours, write them here, and they replace your opening hours. |
 
-If you leave the instructions blank, SimplePress asks for them with a message under the box: "Add pickup hours/instructions so customers know when to collect their order". The box is selected for you, a toast reading "Fix the highlighted shipping fields" appears, and nothing is saved until you add them. This works the same in every shipping mode, including **Zone + weight rates**.
+Under these, a box reads **Customers see at checkout and in emails**. It shows the address and the hours or instructions exactly as customers will read them. If it says "No hours or instructions yet", customers won't know when to come. Add opening hours in General, or write instructions.
 
-![The inline error under the pickup instructions box](/images/shipping/pickup-required-error.png)
+Pickup instructions are optional. You can turn pickup on without them. This works the same in every shipping mode, including **Zone + weight rates**.
 
 ### What customers see
 
@@ -123,14 +126,14 @@ If you leave the instructions blank, SimplePress asks for them with a message un
 
   ![The Delivery card at checkout with Ship to address and In-store pickup](/images/shipping/checkout-delivery-card.png)
 
-- **When they choose pickup.** Checkout shows your **Pickup location** and your instructions, and the order summary reads "In-store pickup (free)".
+- **When they choose pickup.** Checkout shows your pickup address and your hours or instructions, and the order summary reads "In-store pickup (free)".
 
   ![Checkout with In-store pickup chosen, showing the pickup location, instructions, and the summary](/images/shipping/checkout-pickup.png)
 
 - **In their confirmation email**, in a **Pickup Details** section.
-- **In the Ready for Pickup email.** When their order is ready, open it in your admin and click **Mark Ready for Pickup**. The customer is emailed straight away, with your pickup location and instructions. See [Orders](/docs/orders#local-pickup-orders).
+- **In the Ready for Pickup email.** When their order is ready, open it in your admin and click **Mark ready for pickup**. The customer is emailed straight away, with your pickup address and hours or instructions. See [Orders](/docs/orders#local-pickup-orders).
 
-Pickup times are separate from [Business Hours](/docs/business-hours).
+Pickup uses your [opening hours](/docs/business-hours) unless you write different times in **Pickup instructions**.
 
 ---
 
@@ -265,9 +268,87 @@ The **Save changes** button at the top saves everything on the page in one go. I
 
 ---
 
+## Shipping labels
+
+This card only appears when the **Shipping labels** feature is on (see [Feature flags](/docs/feature-flags)). It sets up buying labels from an order with your Shippo account. See [Shipping labels](/docs/shipping-labels).
+
+The card starts with a **Shippo account** section, where you connect Shippo. It used to be on the Integrations page. See [Connect Shippo](#connect-shippo) below.
+
+Until Shippo is connected, the card says "Connect Shippo to verify this address and buy labels." You can fill in the rest before you connect.
+
+![The Shipping labels card with the Shippo account section at the top (Connected badge, "Connected since" line and Disconnect button), above the Ship-from address with the Use my business address button, the Verified by Shippo line, the Label size choices with 4x6 PDF picked, and the Email customers when their package is delivered switch turned on](/images/shipping/shipping-labels-card.png)
+
+### Connect Shippo
+
+The **Shippo account** section at the top of the card shows a badge:
+
+| Badge | What it means | What you see |
+| --- | --- | --- |
+| **Not configured** | Shipping labels aren't set up for your store yet. | A note to contact help@generativejustice.org and a grayed-out **Connect Shippo** button. |
+| **Not connected** | Ready to link. | A **Connect Shippo** button. Click it, sign in to Shippo (or create an account) and approve the connection. You come back to this page. |
+| **Connected** | Linked and working. | Since when, and by whom, plus a tracking line and **Disconnect**. |
+| **Needs reconnect** | Shippo no longer accepts the saved connection. | A **Reconnect Shippo** alert and a **Reconnect** button. You can't buy new labels until you reconnect. Labels you already bought stay on your orders. |
+
+When connected, the card shows either **Tracking: live updates** or **Tracking: checks every few hours**. To disconnect, click **Disconnect** and confirm **Disconnect Shippo?** Labels you already bought stay on your orders. Labels are billed to your Shippo account.
+
+### Ship-from address
+
+Where your packages ship from. It's printed on your labels as the return address, and you need it before you can buy a label. The first time you open the card, it's filled in from your business name, address, phone and email in [General Settings](/docs/general-settings). Click **Use my business address** to copy your business address in again.
+
+| Field | Notes |
+| ----- | ----- |
+| **Name** | Who is shipping. |
+| **Company (optional)** | Your business name, if you want it on the label. |
+| **Street address**, **Apt, suite, etc. (optional)**, **City**, **State**, **ZIP code** | A US address. Labels can only be bought for US shipments for now. |
+| **Phone** | "Carriers require a phone number." |
+| **Email** | Your contact email. |
+
+When you save with Shippo connected, Shippo checks the address:
+
+- **Verified by Shippo** under the fields means it's good.
+- **Shippo suggests this address** shows a corrected version. Click **Use suggested address**, then save again, or click **Keep mine**.
+- **Shippo couldn't verify this address** means it's saved, but labels may be rejected until it's fixed.
+
+### Label size
+
+Choose how labels print when you click **Print**:
+
+- **4x6 PDF**: for thermal label printers. Most common.
+- **8.5x11 PDF**: for a regular home or office printer.
+- **ZPL**: for Zebra printers. Advanced.
+
+### Delivered emails
+
+**Email customers when their package is delivered** is on to start with. When a label bought through Shippo shows as delivered, your customer gets an **Order Delivered** email. It's sent once per package, and never for return labels. Turn it off if you'd rather not send it. It doesn't affect packages you add tracking for by hand.
+
+This card saves with **Save changes** at the top of the page, along with everything else. You'll see "Shipping label settings saved".
+
+---
+
+## Boxes and mailers
+
+This card also only appears when the **Shipping labels** feature is on. It holds "the packages you ship in". When you buy a label, you pick one of these and its size and weight fill in.
+
+![The Boxes and mailers card with two saved boxes, Small mailer marked Default and Medium box with a Make default button, each showing its size and empty weight, and the Add a box button](/images/shipping/boxes-card.png)
+
+To add one, click **Add a box** and fill in:
+
+- **Name**, such as "Small mailer".
+- **Length**, **Width** and **Height**, with a **Size unit** of **Inches** or **Centimeters**. Use the outside size.
+- **Empty weight** and its **Unit** (oz, lb, g or kg): the weight of the empty box with its padding. SimplePress adds it to the items' weight when it works out a package weight.
+- **Use as my default box**: the box picked first when you buy a label.
+
+Then click **Add box**.
+
+Each saved box shows its size and empty weight, such as "10 x 8 x 4 in · 3 oz empty". Use **Make default**, **Edit**, or the trash button to change it. Deleting a box doesn't change labels you already bought. You can save up to 30 boxes.
+
+Changes on this card save straight away. They don't need **Save changes**.
+
+---
+
 ## Saving
 
-Use **Save changes** in the toolbar. The badge shows **Saved** or **Unsaved Changes**. There's no Reset button on this page.
+Use **Save changes** in the toolbar. The badge shows **Saved** or **Unsaved changes**. There's no Reset button on this page. Save stays unavailable until something changes.
 
 When it works, you'll see "Shipping settings updated successfully", and "Delivery and returns settings updated successfully" if you changed those cards.
 
@@ -288,16 +369,16 @@ At checkout, shipping shows as Free, a dollar amount, or **In-store pickup (free
 | You can | You can't |
 | ------- | --------- |
 | Offer free, flat-rate, threshold or zone + weight shipping. | Set a different shipping rate per product or variant. |
-| Price by US state and by weight with zones. | Use live carrier rates (such as a real-time USPS or UPS quote). |
+| Price by US state and by weight with zones. | Charge customers live carrier rates (such as a real-time USPS or UPS quote) at checkout. Shippo rates are only for buying your own labels. |
 | Waive shipping with a Free shipping coupon. | Price shipping by country: only US destinations are supported. |
-| Offer in-store pickup with its own location and instructions. | Turn pickup on without instructions. |
+| Offer in-store pickup from your business address, or from a different address. | Set pickup hours in two places. Use your opening hours, or write different times in the pickup instructions. |
 | Deliver locally within up to 100 miles, with up to three cheaper rings closer to you. | Show shoppers the distance, or use local delivery for subscriptions. |
-| Show delivery times and a returns policy. | Ship outside the United States, or offer local delivery outside it. |
+| Show delivery times and a returns policy, and buy labels with Shippo. | Ship outside the United States, or offer local delivery outside it. |
 
 <Cards>
   <Card title="Orders" href="/docs/orders" description="Fulfill orders, add tracking, mark pickups ready and mark local deliveries delivered." />
-  <Card title="Shipping labels with Pirate Ship" href="/docs/shipping-labels" description="Buy a discounted label and bring the tracking number back." />
-  <Card title="Business Hours" href="/docs/business-hours" description="Publish your opening hours." />
-  <Card title="General Settings" href="/docs/general-settings" description="Your business address, used for pickup if you leave the location blank." />
+  <Card title="Shipping labels" href="/docs/shipping-labels" description="Buy labels from an order with Shippo, or on Pirate Ship." />
+  <Card title="Business Hours" href="/docs/business-hours" description="Add your opening hours. Pickup uses them." />
+  <Card title="General Settings" href="/docs/general-settings" description="Your business address and opening hours, used for pickup." />
   <Card title="Discounts and Coupons" href="/docs/discounts-and-coupons" description="Create free shipping codes." />
 </Cards>

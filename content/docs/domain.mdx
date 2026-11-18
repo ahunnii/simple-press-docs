@@ -15,7 +15,11 @@ To get there, open **Settings → Domain**. Owners and Managers can open it. Sta
   Once your custom domain is **Active**, anyone who visits your store at the old SimplePress address is sent on to your custom domain automatically. Your admin still works at the old address too. See [Launch Checklist](/docs/launch-checklist#1-connect-your-custom-domain).
 </Callout>
 
-The page has two cards: **Default Subdomain** and **Custom Domain**. There's no Save button. Each action happens when you click its own button.
+<Callout type="info" title="Moving from another site?">
+  [Redirects](/docs/redirects) (old address to new page) work for addresses that reach SimplePress: your SimplePress address and your custom domain. If you're keeping the same domain, they start working as soon as the domain is **Active**. Old links on a different domain need that domain forwarded here first. See [Old links on a different domain](/docs/redirects#old-links-on-a-different-domain).
+</Callout>
+
+The page has two cards: **Default subdomain** and **Custom domain**. There's no Save button. Each action happens when you click its own button.
 
 ---
 
@@ -26,8 +30,8 @@ Buy your domain from any registrar you like (Namecheap, GoDaddy, Cloudflare, Squ
 ![The Default Subdomain card with an Active badge, and the empty Custom Domain form](/images/domain/domain-empty.png)
 
 1. Go to **Settings → Domain**.
-2. In **Domain Name**, type your domain without `http://` or `www`. For example, `myshop.com`.
-3. Click **Add Custom Domain**.
+2. In **Domain name**, type your domain without `http://` or `www`. For example, `myshop.com`.
+3. Click **Add custom domain**.
 
 SimplePress changes everything you type to lowercase. It tells you if something's wrong:
 
@@ -50,7 +54,7 @@ When it works, the message says "Domain added! Configure DNS and verify below." 
 
 ## Add the DNS records
 
-After you add your domain, the card shows **DNS Configuration Required** with two **A records**: one with the name `@` and one with the name `www`.
+After you add your domain, the card shows **DNS configuration required** with two **A records**: one with the name `@` and one with the name `www`.
 
 ![The Pending DNS state with the DNS records to add and the Verify DNS and Remove Domain buttons, shown with an example domain](/images/domain/domain-pending.png)
 
@@ -105,7 +109,7 @@ Adding your domain is also what ticks the domain step on your Setup Guide. Every
 | **Active** (on Default Subdomain) | Default Subdomain card | Your free address is working. It's always there. |
 | **Pending DNS** | Custom Domain card | Your domain is saved. It's waiting for DNS records and **Verify DNS**. |
 | **Active** | Custom Domain card | Your domain is verified. |
-| **Not Configured** | Custom Domain card | The domain exists but isn't set up. You normally won't see this. |
+| **Not configured** | Custom Domain card | The domain exists but isn't set up. You normally won't see this. |
 
 If you haven't added a custom domain, the Custom Domain card has no badge at all. It's just the empty form.
 
@@ -119,9 +123,9 @@ You can remove your domain at any time, whether it's still pending or already ac
 
 ![The Remove Custom Domain dialog, shown with an example domain](/images/domain/domain-remove-dialog.png)
 
-1. On the Custom Domain card, click **Remove Domain**.
+1. On the Custom Domain card, click **Remove domain**.
 2. Read the dialog. It says your domain "will stop working right away, and your store will be served from its default subdomain again."
-3. Click **Remove Domain** to confirm, or **Cancel** to stay as you are.
+3. Click **Remove domain** to confirm, or **Cancel** to stay as you are.
 
 You'll see "Custom domain removed. Your store is back on its subdomain." You can add a new domain at any time. To switch to a different one, remove the old one first, then add the new one.
 
@@ -163,5 +167,5 @@ Yes. It goes through Pending DNS and Active again.
   <Card title="Launch Checklist" href="/docs/launch-checklist" description="Everything to do before you start selling." />
   <Card title="Maintenance Mode & Coming Soon" href="/docs/maintenance-mode" description="Keep your store closed while you finish up." />
   <Card title="General Settings" href="/docs/general-settings" description="Business name, contact details and address." />
-  <Card title="Integrations" href="/docs/integrations" description="Connect Stripe so you can take payments." />
+  <Card title="Payments" href="/docs/payments-and-payouts" description="Connect Stripe so you can take payments." />
 </Cards>

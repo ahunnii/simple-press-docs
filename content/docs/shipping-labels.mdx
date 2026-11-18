@@ -1,23 +1,187 @@
 ---
-title: Shipping labels with Pirate Ship
-description: Buy a discounted shipping label on Pirate Ship, then bring the tracking number back to SimplePress so your customer gets their shipping email.
+title: Shipping labels
+description: Buy and print shipping labels right from an order with your own Shippo account, or buy them on Pirate Ship and bring the tracking number back.
 ---
 
 ## Overview
 
-<Callout type="info" title="SimplePress doesn't buy or print shipping labels">
-You buy the label on Pirate Ship, then come back to SimplePress and record the tracking number. Pirate Ship is free to sign up for, and it sells discounted USPS and UPS postage. You pay only for the labels you buy. We suggest it because it's simple for a small store, and SimplePress has a button on the fulfillment form that opens it for you.
-</Callout>
+There are two ways to get a shipping label for an order:
 
-This page walks through the whole round trip, start to finish. You'll copy the customer's address, paste it into Pirate Ship, buy the label, and bring the tracking number back.
+| | Buy in SimplePress with Shippo | Buy on Pirate Ship (or any carrier) |
+| --- | --- | --- |
+| Where you buy | On the order page, in a **Buy shipping label** window | On Pirate Ship's website, in another tab |
+| Who you pay | Shippo bills the label to your own Shippo account | Pirate Ship or the carrier |
+| Tracking number | Added to the order for you | You copy it back into the order |
+| Customer's shipping email | Sent when the label is bought (you can untick it) | Sent when you click **Mark as Fulfilled & Send Email** |
+| Extras | Saved box sizes, address check, insurance, signature, void and refund, return labels, a "delivered" email | Whatever Pirate Ship offers |
+| Set up | Turn on **Shipping labels**, connect Shippo, add a ship-from address | A free Pirate Ship account |
+
+Buying in SimplePress needs the **Shipping labels** feature turned on and a Shippo account connected. Until then, the fulfillment card on each order points you to Pirate Ship. If **Shipping labels** is on but Shippo isn't connected yet, that same note ends with a **Buy labels here — connect Shippo** link that takes you to **Settings → Shipping**.
+
+Either way, labels are for orders being shipped. Pickup and local delivery orders don't need one. See [Local pickup orders](/docs/orders#local-pickup-orders) and [Local delivery orders](/docs/orders#local-delivery-orders).
+
+---
+
+## Buy labels in SimplePress with Shippo
+
+[Shippo](https://goshippo.com/) is a shipping service that sells discounted USPS, UPS and other carrier labels. Once your Shippo account is connected, you can buy a label from the order page without leaving SimplePress. The tracking number goes on the order, and your customer gets their shipping email automatically.
+
+### Set up once
+
+1. **Turn on Shipping labels.** Go to **Settings → Features** and switch on **Shipping labels**. It's off by default, and it needs **Orders** turned on. See [Feature flags](/docs/feature-flags).
+2. **Connect Shippo.** Go to **Settings → Shipping**. At the top of the **Shipping labels** card, in the **Shippo account** section, click **Connect Shippo**. Shippo opens so you can sign in (or create an account) and approve the connection. You come back to SimplePress with a "Shippo connected" message. Labels are billed to your Shippo account, not to SimplePress. See [Connect Shippo](/docs/shipping#connect-shippo).
+3. **Add your ship-from address.** On the same **Shipping labels** card, fill in the **Ship-from address**. This is where packages ship from and the return address on your labels. You can't buy a label until it's filled in. See [Shipping labels settings](/docs/shipping#shipping-labels).
+4. **Add your boxes (optional, but it saves time).** On the same page, add the boxes and mailers you ship in to the **Boxes and mailers** card. Mark the one you use most as your default. See [Boxes and mailers](/docs/shipping#boxes-and-mailers).
+5. **Add product weights (optional).** If every item in a package has a **Package weight**, SimplePress adds them up with the empty box weight for you. See [Shipping weight](/docs/products#weight--dimensions).
+
+Only an Owner or Manager can connect Shippo and change these settings.
+
+If the **Shippo shipping labels** card says "Shipping labels aren't set up for your store yet", contact us at help@generativejustice.org and we'll set it up. SimplePress support can also email you a "Connect Shippo to buy shipping labels" link that opens the card and starts connecting.
+
+### Buy a label from an order
+
+Open a paid order that's being shipped. With Shippo connected, a **Shipping labels** card sits under the order items. Its **Live** badge means real postage.
+
+![A paid order with no label yet: the Order Items card, then the Shipping labels card with the Buy shipping label button, No labels bought for this order yet, and Shipping charged $5.99 · Labels $0.00, with the Enter tracking manually instead button underneath](/images/shipping-labels/order-shipping-labels-card.png)
+
+Click **Buy shipping label**. The **Buy shipping label** window walks you through four steps.
+
+#### Step 1: Check the address
+
+SimplePress asks the carrier to check the customer's shipping address.
+
+- If it's fine, you'll see "The address looks good." and the window moves on by itself.
+- If the carrier suggests a small fix, such as a ZIP+4 or a street name spelled its way, you'll see each change. Click **Use suggested address** to update the order's address and carry on, **Buy anyway** to keep it as it is, or **Edit address** to close the window and fix it with the pencil on the order's **Shipping address** card.
+- If the carrier can't confirm the address at all, you'll see "The carrier could not confirm this address." with the same choices. Check with the customer before buying a label to a bad address.
+- If the check itself fails, click **Try again** or **Continue without checking**.
+
+#### Step 2: Package
+
+- **Items in this package.** Every item that still needs to ship is ticked. Untick an item, or use the **−** and **+** buttons, to put only some items in this box. Buy another label for the rest.
+- **Box.** Your default box is already picked. Choose another saved box, or **Custom size** and type the length, width and height (in or cm). If you haven't saved any boxes, a link takes you to **Settings → Shipping** to add some.
+- **Weight.** When every item has a weight, the lb and oz fill in: "Worked out from the items and the empty box. You can change it." If an item has no weight, its name is listed with a link to the product. Weigh the packed box and type the weight. If you change a worked-out weight, **Use calculated weight** puts it back.
+- **Extras.** Tick **Signature confirmation** if someone has to sign for it. Tick **Insurance** to cover loss or damage. The amount starts at the value of the items in the box, and you can change it. The carrier may bill insurance separately from the label price.
+
+![The Buy shipping label window on Step 2 of 4: Package, with the items in this package ticked, the default box picked, the weight worked out from the items, and the Signature confirmation and Insurance checkboxes](/images/shipping-labels/buy-label-step2-package.png)
+
+Click **Get rates**.
+
+#### Step 3: Choose a shipping service
+
+You'll see "Getting rates from the carriers..." and then a list of services, cheapest first, each with its price and roughly how many days it takes. The cheapest one is picked for you. Choose another if you like, then click **Next**.
+
+![The Buy shipping label window on Step 3 of 4: Choose a shipping service, listing UPS and USPS services with their delivery times and prices, cheapest first, with UPS Ground marked Cheapest and selected, and Back and Next buttons](/images/shipping-labels/buy-label-step3-rates.png)
+
+If "No shipping rates came back.", go **Back** and check the package size and weight, or check which carriers are turned on in your Shippo account.
+
+#### Step 4: Confirm and buy
+
+Check the summary: service, price, items, package size and weight, and any signature or insurance.
+
+**Email tracking to the customer** is ticked. Leave it ticked and your customer gets the **Order Shipped** email with the tracking link as soon as the label is bought. Untick it if you'll tell them yourself.
+
+![The Buy shipping label window on Step 4 of 4: the summary of service, price, items and package, the Email tracking to the customer box ticked, and the Buy label button](/images/shipping-labels/buy-label-step4-confirm.png)
+
+Click **Buy label for $X**. If the carrier takes a moment, you'll see "Finishing up with the carrier...". If it takes longer than a minute, you can close the window. SimplePress keeps checking in the background, and the label shows up on the order when it's ready. Don't buy it again.
+
+#### Label ready
+
+When you see **Label ready**, click **Print label**. The label opens in a new tab in the size you picked in **Settings → Shipping**. Click **Packing slip** for a packing slip with just this box's items. Then click **Done**.
+
+You'll also see a message such as "Label bought and the customer was emailed."
+
+### What buying a label does to the order
+
+- The label is listed on the **Shipping labels** card with the carrier, service, price, date, the tracking number (with a copy button and **Track package**), and a **Print** button to print it again.
+- A package is added to the order's **Shipments** card, with a **Label** badge and its tracking status. See [Shipments](/docs/orders#shipments).
+- The items in the box count as shipped. Once every item has shipped, the order is **Fulfilled**, and **Completed** if it's paid. If some items are left, it's **Partially fulfilled**, and **Buy shipping label** starts with just the remaining items.
+- At the bottom of the card, a line compares what you spent with what the customer paid, for example "Shipping charged $8.00 · Labels $7.41". It turns amber with "(labels cost more than the customer paid for shipping)" when labels cost more.
+
+![The Shipping labels card with a USPS Ground Advantage label row showing its price and date, the tracking number with a copy button and Track package, and Print and More buttons, then Shipping charged $8.00 · Labels $5.87. Below it, the Shipments card with Package 1 marked Label and a Packing slip link, and two packages added by hand](/images/shipping-labels/order-with-label.png)
+
+You don't need the **Mark as Fulfilled** card for labels you buy here. While Shippo is connected, it folds away into an **Enter tracking manually instead** button. Use that for a package you sent another way.
+
+### More than one box
+
+Buy one label per box. In Step 2, tick only what goes in this box. When you open **Buy shipping label** again, it starts with what's left. Each label adds its own package and sends its own shipping email.
+
+### Test labels
+
+If the **Shipping labels** card shows a **Test** badge instead of **Live**, your Shippo connection is in test mode. Test labels aren't real postage and can't be mailed. Each one shows a **Test** badge. On a test connection, **Email tracking to the customer** starts unticked ("Test label — the customer isn't emailed unless you check this."). A store connected with **Connect Shippo** is Live.
+
+### Void, replace or reship a label
+
+Each label has a **More** menu. What's in it depends on the label.
+
+| Choose | What happens |
+| --- | --- |
+| **Void label** | Asks the carrier to refund the label. The package is marked not shipped, and its items go back to unfulfilled so you can ship them again. The label shows **Refund requested**, then **Refunded**. |
+| **Void and buy a replacement** | Voids the label and opens **Buy shipping label** with the same items and box, so you can fix a wrong service or size. The order stays marked as shipped. |
+| **Buy replacement label** | Shown when you voided a label for a replacement but closed the window before buying one. |
+| **Mark package not shipped** | Also shown in that case. The items go back to unfulfilled so you can ship them another way. |
+| **Reship lost or damaged items** | Buys a new label for items that already shipped. It's marked **Replacement package** and doesn't change what's marked shipped. |
+| **Check refund status** | Asks Shippo about a refund that's still pending. |
+| **Mark delivery issue resolved** | Clears a **Delivery problem** or **Returned to sender** warning once you've dealt with it. |
+
+While Shippo is disconnected or needs reconnecting, **Void label** and **Void and buy a replacement** are greyed out with "Reconnect Shippo first".
+
+Shippo handles the refund. For USPS it can take up to 2–3 weeks.
+
+If the carrier has already scanned the label, it may refuse the refund. The label then says "Carrier rejected the refund — the label was likely used", and the package stays marked as shipped. If the package really isn't going anywhere, record it with manual fulfillment.
+
+A label that has been voided can't be printed again.
+
+### Return labels
+
+You can send a customer a prepaid label to send items back. Only an Owner or Manager can do this.
+
+1. Open the order and click **Create return label** on the **Shipping labels** card. The button shows once something on the order has shipped.
+2. The window starts at the package step with the items that can be returned. Choose the items, box and weight, then get rates and buy, as above. There's no address step, because it uses the address the order shipped to.
+3. On **Label ready**, click **Email return label to customer**. The customer gets a **Return Label** email with a link to the label and its tracking number. You can also **Print label** and pass it on yourself.
+
+Buying a return label doesn't email the customer by itself. To send it later, or again, use **More → Email return label to customer** (or **Resend return label**). The label row shows when it was emailed.
+
+A return label needs a returns policy that allows it. Under **Returns** in **Settings → Shipping**, **Return policy** must be **Accept returns** and **How customers return items** must be **By mail** or **Either**. See [Delivery times and returns](/docs/shipping#delivery-times-and-returns). It also has to be within your return window, counted from the delivery date (or the ship date if there isn't one). Final sale items and items that haven't shipped can't be returned. If the order doesn't qualify, clicking **Create return label** tells you why, for example "Return window ended on Dec 1, 2026", with a **Set your return policy** link.
+
+A return label doesn't refund the order. When the items come back, refund it as usual. See [Refunds](/docs/orders#refunds). The **Label ready** step reminds you what your policy says, such as "You pay for return shipping", or "Your policy charges a $5.00 return fee — subtract it from their refund". If your policy charges for returns, the customer's email says so too.
+
+### Tracking and delivered emails
+
+Labels bought through Shippo track themselves. Each label shows a badge: **Label created**, **In transit**, **Delivered**, **Returned to sender** or **Delivery problem**. The **Shippo account** section in **Settings → Shipping** says whether you get live updates or checks every few hours.
+
+- **Delivered email.** When a package is delivered, your customer gets an **Order Delivered** email, once per label. To turn this off, untick **Email customers when their package is delivered** in **Settings → Shipping**. Return labels never send it.
+- **Delivery problems.** If a package can't be delivered or is sent back, you and your managers get an email ("Delivery problem on order #…"), and the order shows a **Delivery issue** badge in the Orders list. The customer isn't emailed. Once you've sorted it out, use **More → Mark delivery issue resolved**.
+
+To see what these emails look like, open **Settings → Customer emails**. See [Email previews](/docs/email-preview).
+
+### If something goes wrong
+
+- **"Add a ship-from address in Settings → Shipping."** Fill in the **Shipping labels** card. See [Shipping labels settings](/docs/shipping#shipping-labels).
+- **"Labels are US-only for now."** Labels can only be bought for orders shipping within the United States. Ship anything else another way and add the tracking by hand.
+- **"Every item already has a label or tracking."** Everything on the order has shipped. To send something again, use **More → Reship lost or damaged items** on a label.
+- **"Your Shippo connection stopped working"** or **"Shippo is disconnected."** Click the **Reconnect Shippo** link, which takes you to **Settings → Shipping**, to buy labels again. Staff see "Ask an Owner or Manager to reconnect it to buy labels." instead. Labels you already bought stay listed on the order.
+- **"The label could not be bought."** The reason is shown underneath. Click **Back to rates**, change what's needed and try again.
+- **"Shippo charged for this label but we couldn't record it"** with a **Needs review** badge. Use **More → Void label** if you don't need it. Its items can't go on another label until it's voided.
+
+---
+
+## Buy labels on Pirate Ship
+
+If you haven't connected Shippo, or you prefer Pirate Ship, buy the label there and bring the tracking number back. Pirate Ship is free to sign up for, and it sells discounted USPS and UPS postage. You pay only for the labels you buy.
+
+This section walks through the whole round trip, start to finish. You'll copy the customer's address, paste it into Pirate Ship, buy the label, and bring the tracking number back.
 
 <video src="/videos/shipping-labels/round-trip.webm" poster="/videos/shipping-labels/round-trip-poster.png" controls muted playsInline className="rounded-lg border" />
 
 *About a minute, start to finish: copy the address, open Pirate Ship, create a single label, paste, set up the package, get rates, buy the label, then paste the tracking number into SimplePress and click Mark as Fulfilled & Send Email.*
 
+<Callout type="info" title="With Shippo connected">
+While Shippo is connected, the Pirate Ship note is hidden. To use Pirate Ship anyway, click **Enter tracking manually instead** under the **Shipping labels** card, and use **Copy** on the **Shipping address** card to copy the address.
+</Callout>
+
 ### The round trip in 30 seconds
 
-1. In SimplePress, open the order and click **Copy address** on the **Mark as Fulfilled** card (or **Copy** on the **Shipping Address** card).
+1. In SimplePress, open the order and click **Copy address** on the **Mark as Fulfilled** card (or **Copy** on the **Shipping address** card).
 2. Click **Open PirateShip**. It opens Pirate Ship's label form in a new tab.
 3. Paste the address. Pirate Ship fills in the form.
 4. Choose the package type, then enter the size and weight.
@@ -26,12 +190,10 @@ This page walks through the whole round trip, start to finish. You'll copy the c
 7. Back in SimplePress, paste it into **Tracking Number** and click **Mark as Fulfilled & Send Email**.
 
 <Callout type="warn" title="The last step is the one people forget">
-Pirate Ship and SimplePress don't talk to each other. Buying a label doesn't tell SimplePress anything. Until you finish step 7, your customer gets no shipping email and the order stays in **Needs fulfillment**.
+Pirate Ship and SimplePress don't talk to each other. Buying a label doesn't tell SimplePress anything. Until you finish step 7, your customer gets no shipping email and the order stays in **Needs shipping**.
 </Callout>
 
----
-
-## Before your first label
+### Before your first label
 
 You only do this once.
 
@@ -40,25 +202,19 @@ You only do this once.
 - **A payment method in Pirate Ship.** On a new account, the last step before buying says "You need to add a Payment Method". Add one there. You can't buy a label until you do.
 - **A scale and a tape measure.** You'll need the packed weight and the outside size of every box.
 - **A printer.** Plain paper and tape works. A 4×6 label printer also works if you have one.
-- **Optional: real product weights in SimplePress.** If you use weight-based shipping rates, set a **Package weight** on each product. It isn't needed for buying labels. See [Shipping weight](/docs/products#shipping-weight).
+- **Optional: real product weights in SimplePress.** If you use weight-based shipping rates, set a **Package weight** on each product. It isn't needed for buying labels on Pirate Ship. See [Shipping weight](/docs/products#weight--dimensions).
 
----
+### Step 1: Copy the customer's address in SimplePress
 
-## Step 1: Copy the customer's address in SimplePress
-
-1. Go to **Orders**. The **Needs fulfillment** card at the top lists paid orders that haven't shipped yet. See [Queue cards](/docs/orders#queue-cards).
+1. Go to **Orders**. The **Needs shipping** card at the top lists paid orders that haven't shipped yet. See [Queue cards](/docs/orders#queue-cards).
 2. Open the order.
-3. Click **Copy address** on the **Mark as Fulfilled** card, under the items. The **Copy** button on the **Shipping Address** card does the same thing. You'll see "Address copied".
+3. Click **Copy address** on the **Mark as Fulfilled** card, under the items. The **Copy** button on the **Shipping address** card does the same thing. You'll see "Address copied".
 
 ![The Shipping Address card on an order, with the Address copied message after clicking Copy](/images/shipping-labels/copy-address.png)
 
 *The Copy button puts the customer's name and full address on your clipboard in one go.*
 
-Pickup orders don't have a Shipping Address card and don't need a label. See [Local pickup orders](/docs/orders#local-pickup-orders).
-
----
-
-## Step 2: Open Pirate Ship
+### Step 2: Open Pirate Ship
 
 On the same card, with **Include tracking information** ticked, it says "Need a shipping label? Copy the address, then buy discounted postage on Pirate Ship." Click **Open PirateShip**. Pirate Ship opens in a new tab, straight on its **Create a Shipping Label** form.
 
@@ -74,13 +230,11 @@ If Pirate Ship asks you to sign in, do that. If you land on the **Ship** page in
 
 Keep the copied address on your clipboard; you'll paste it next.
 
----
-
-## Step 3: Paste the address
+### Step 3: Paste the address
 
 On the **Create a Shipping Label** page, the quickest way is to press **⌘V** (Mac) or **Ctrl+V** (Windows) right when the page opens, before you click anything. Pirate Ship opens a box with the address already in it.
 
-If that doesn't happen, click **Paste Address** next to **Ship To** and paste into the box.
+If that doesn't happen, click **Paste Address** next to **Ship to** and paste into the box.
 
 Pirate Ship reads the address and fills in the form. The filled fields turn light blue.
 
@@ -94,9 +248,7 @@ Check **Name**, **Address**, **City**, **State** and **Zipcode** against the ord
 Pirate Ship can email your customer their tracking if you add their email. SimplePress sends its own shipping email when you mark the order fulfilled, so filling this in can mean your customer gets two emails. Leave it empty.
 </Callout>
 
----
-
-## Step 4: Package type, size and weight
+### Step 4: Package type, size and weight
 
 Further down the form, **Ship From** shows your saved address. Next is **Type of Packaging**, then the size and weight.
 
@@ -104,7 +256,7 @@ Further down the form, **Ship From** shows your saved address. Next is **Type of
 
 *A box measuring 10 × 8 × 4 inches that weighs 1 lb 4 oz.*
 
-### Which package type?
+#### Which package type?
 
 | What you're sending | Choose |
 | --- | --- |
@@ -115,7 +267,7 @@ Further down the form, **Ship From** shows your saved address. Next is **Type of
 
 Flat rate boxes and envelopes come free from USPS, and you don't need to measure them. Pirate Ship doesn't ask for dimensions on those.
 
-### Size and weight tips
+#### Size and weight tips
 
 - **Weigh the box once it's packed,** with the product, padding and tape inside it. Don't weigh the product alone.
 - **Round the weight up** to the next ounce.
@@ -123,13 +275,11 @@ Flat rate boxes and envelopes come free from USPS, and you don't need to measure
 - **Get it right.** If the weight or size you enter is wrong, the carrier can charge you an adjustment afterward. Pirate Ship's help center has the details.
 - **Tick Save Package** to keep these package settings for next time.
 
-### Hazardous materials
+#### Hazardous materials
 
 Tick **Hazardous Materials** if you're shipping something like perfume, nail polish or hair spray. If you sell beauty or skincare products, check this box when it applies. Pirate Ship lists the items it covers right next to the checkbox. If you're not sure, check with Pirate Ship or your carrier before you ship.
 
----
-
-## Step 5: Get rates and buy the label
+### Step 5: Get rates and buy the label
 
 1. Click **Get Rates**. Pirate Ship takes a few seconds to load the prices.
 2. Under **Choose a Service**, pick the one you want. Use **Sort by** to put the **Best**, **Cheapest**, **USPS** or **UPS** choices first.
@@ -151,9 +301,7 @@ Then print the label and stick it on the box. Pirate Ship's help center covers p
 
 If you change your mind before buying, use **Previous Step** to go back, or **Cancel & Delete Label** to start over.
 
----
-
-## Step 6: Find the tracking number
+### Step 6: Find the tracking number
 
 Every USPS and UPS label has a tracking number.
 
@@ -162,9 +310,7 @@ Every USPS and UPS label has a tracking number.
 
 Copy it now. Later, you can find it again on Pirate Ship's **Ship** page. Find the shipment there, or search by name, address or tracking number, and open it. Pirate Ship's help center explains tracking in more detail.
 
----
-
-## Step 7: Record it in SimplePress and mark the order fulfilled
+### Step 7: Record it in SimplePress and mark the order fulfilled
 
 Go back to the SimplePress tab with the order open.
 
@@ -178,47 +324,67 @@ Go back to the SimplePress tab with the order open.
 You'll see a confirmation such as "Order fulfilled and shipping email sent to customer". Your customer gets the **Order Shipped** email with a tracking link, and the order moves to **Fulfilled**, and **Completed** if it's paid.
 
 <Callout type="warn">
-If you skip this step, nothing happens on the SimplePress side. The customer doesn't get a shipping email, and the order stays in **Needs fulfillment** even though the box is on its way.
+If you skip this step, nothing happens on the SimplePress side. The customer doesn't get a shipping email, and the order stays in **Needs shipping** even though the box is on its way.
 </Callout>
 
 A few related things:
 
-- **More than one box?** Click **Add Additional Tracking Information** to add each package. See [More than one box](/docs/orders#more-than-one-box).
+- **More than one box?** Click **Add additional tracking information** to add each package. See [More than one box](/docs/orders#more-than-one-box).
 - **Only some of the items?** Untick **Ship all remaining items**. See [Partial shipments](/docs/orders#partial-shipments).
-- **Typed the number wrong?** You can fix it after the order is fulfilled. See [After it's fulfilled](/docs/orders#after-its-fulfilled).
+- **Typed the number wrong?** You can fix it after the order is fulfilled. See [Shipments](/docs/orders#shipments).
+
+---
+
+## Who can do what
+
+| Action | Owner | Manager | Staff |
+| ------ | :---: | :-----: | :---: |
+| Turn on **Shipping labels**, connect or disconnect Shippo | Yes | Yes | No |
+| Change the ship-from address, label size, delivered email and boxes | Yes | Yes | No |
+| Buy, print, void and replace labels, reship items | Yes | Yes | Yes |
+| Create and email return labels | Yes | Yes | No |
+| Copy the address and mark orders fulfilled with tracking (Pirate Ship) | Yes | Yes | Yes |
+
+Staff don't see the **Create return label** button. They can't edit the shipping address either. If the address check finds a problem, Staff see "To change the address, ask an Owner or Manager to edit it on the order, then buy the label again." instead of an **Edit address** button. See [Team & roles](/docs/team-and-roles) and [For staff](/docs/for-staff).
 
 ---
 
 ## Common questions
 
 **Can SimplePress buy labels for me?**
-No. SimplePress doesn't buy or print labels, and the **Open PirateShip** button only opens Pirate Ship's label form in a new tab. Buy the label there, then bring the tracking number back.
+Yes, once you connect Shippo. See [Buy labels in SimplePress with Shippo](#buy-labels-in-simplepress-with-shippo). Without Shippo, the **Open PirateShip** button only opens Pirate Ship's label form in a new tab. Buy the label there, then bring the tracking number back.
 
-**Do I have to use Pirate Ship?**
+**Who do I pay for Shippo labels?**
+Shippo. Labels are billed to your Shippo account, and Shippo handles refunds for voided labels. SimplePress doesn't charge you for labels.
+
+**Do I have to use Shippo or Pirate Ship?**
 No. Use any carrier's website, or take the box to the post office. All SimplePress needs is the tracking number. If you ship without one, untick **Include tracking information** and your customer gets a "your order has been fulfilled" email instead. See [Fulfilling and tracking](/docs/orders#fulfilling-and-tracking).
 
 **I typed the wrong address, or bought the wrong label.**
-Pirate Ship lets you void a label you haven't used and get a refund. See Pirate Ship's help center for how it works and how long it takes. Then buy a new label and use its tracking number in SimplePress.
+For a Shippo label, use **More → Void and buy a replacement** on the label. For a Pirate Ship label, void it in Pirate Ship if you haven't used it and get a refund (see Pirate Ship's help center), then buy a new label and use its tracking number in SimplePress.
 
-The pencil on the order's **Shipping Address** card fixes SimplePress's copy of the address. It doesn't change a label you've already bought. See [Shipping address](/docs/orders#shipping-address).
+The pencil on the order's **Shipping address** card fixes SimplePress's copy of the address. It doesn't change a label you've already bought. See [Shipping address](/docs/orders#shipping-address).
 
 **My customer changed their address after I bought the label.**
-The label has the old address, so it can't be changed. Void it in Pirate Ship if it hasn't been used, and buy a new one with the new address. Then update the address on the order, so your records match.
+The label has the old address, so it can't be changed. Update the address on the order first. Then, for a Shippo label, use **More → Void and buy a replacement**. For a Pirate Ship label, void it in Pirate Ship if it hasn't been used and buy a new one.
 
 **Can I ship an order in several boxes, or ship only part of it?**
-Yes. Buy a label for each box, then add each tracking number to the same fulfillment form. See [More than one box](/docs/orders#more-than-one-box) and [Partial shipments](/docs/orders#partial-shipments).
+Yes. With Shippo, buy one label per box and choose the items for each. With Pirate Ship, buy a label for each box, then add each tracking number to the same fulfillment form. See [More than one box](/docs/orders#more-than-one-box) and [Partial shipments](/docs/orders#partial-shipments).
+
+**Can I buy labels for orders going outside the US?**
+Not with Shippo in SimplePress yet. Ship them another way and add the tracking by hand.
 
 **What about pickup orders?**
-They don't need a label. Open the order and click **Mark Ready for Pickup**. See [Local pickup orders](/docs/orders#local-pickup-orders).
+They don't need a label. Open the order and click **Mark ready for pickup**. See [Local pickup orders](/docs/orders#local-pickup-orders).
 
 **Does Pirate Ship save my customers?**
 It doesn't have an address book. It does fill in recipients you've shipped to in the last 3 months when you start a single label. For everyone else, paste the address each time.
 
 **I forgot to mark an order fulfilled.**
-Open **Orders** and click the **Needs fulfillment** card. The order will be there. Open it, paste in the tracking number, and click **Mark as Fulfilled & Send Email**. Your customer gets their tracking email then, even if the box shipped days ago.
+Open **Orders** and click the **Needs shipping** card. The order will be there. Open it, paste in the tracking number, and click **Mark as Fulfilled & Send Email**. Your customer gets their tracking email then, even if the box shipped days ago. Labels bought with Shippo mark the order for you, so this only happens with labels bought elsewhere.
 
-**Can my staff do this?**
-Yes. Staff can see the order, copy the address, and mark orders fulfilled with tracking. They can't edit the address. See [Team & roles](/docs/team-and-roles) and [For staff](/docs/for-staff).
+**What happens to my labels if I disconnect Shippo?**
+Labels you already bought stay on your orders. You can't buy new ones until you reconnect.
 
 ---
 
@@ -232,8 +398,13 @@ Yes. Staff can see the order, copy the address, and mark orders fulfilled with t
 	/>
 	<Card
 		title="Shipping"
-		description="What you charge customers for delivery, and pickup."
+		description="What you charge customers, your ship-from address and your boxes."
 		href="/docs/shipping"
+	/>
+	<Card
+		title="Connect Shippo"
+		description="Connect or reconnect your Shippo account in Shipping."
+		href="/docs/shipping#connect-shippo"
 	/>
 	<Card
 		title="Owner routines"

@@ -66,27 +66,67 @@ To see what you've paid, open the **What Stripe took** card on [Finances](/docs/
 - what customers paid, from your orders (**Money in**);
 - Stripe's fees, refunds and payouts for the same period (**What Stripe took**);
 - your Stripe balance right now (**Available now** and **Pending**); and
-- your last five payouts and their status (**Recent Payouts**).
+- your last five payouts and their status (**Recent payouts**).
 
 Only Owners and Managers can see Finances. See [Finances](/docs/finances).
 
-**Your Stripe Dashboard** has the full detail: every payment, every payout, reports and exports. To open it, go to **Settings → Integrations** and click **Open Dashboard** in the Stripe Connect card. It opens in a new tab.
+**Your Stripe Dashboard** has the full detail: every payment, every payout, reports and exports. To open it, go to **Settings → Payments** and click **Open dashboard** in the Stripe card. It opens in a new tab.
 
-![The Stripe Connect card showing Connected, the Account ID, Open Dashboard and Disconnect buttons, and the Automatic Tax Collection switch](/images/integrations/stripe-connected.png)
+![The Stripe Connect card on Settings → Payments, with the Online checkout and Connected badges, the Account ID, Open Dashboard and Disconnect buttons, and the Automatic Tax Collection switch](/images/payments-and-payouts/settings-payments.png)
 
 *Open Dashboard takes you to your Stripe account.*
 
 ---
 
+## Connecting Stripe
+
+Connect and disconnect Stripe on **Settings → Payments**. Only Owners can do either. Managers can see the status.
+
+To connect:
+
+1. Click **Connect with Stripe** on the Stripe card.
+2. Sign in to Stripe, or create an account, and authorize the connection.
+3. Stripe sends you back to SimplePress. A "Stripe connected" message appears, and the card shows **Connected** and your Stripe Account ID.
+
+SimplePress keeps only your Stripe Account ID. It never sees your Stripe password.
+
+If something goes wrong, a message tells you what happened:
+
+| Message | What it means |
+| ------- | ------------- |
+| Failed to initiate Stripe connection. Please try again. | SimplePress couldn't start the connection. Wait a moment and click **Connect with Stripe** again. |
+| Stripe connection cancelled | You backed out on Stripe's page. Nothing was connected. |
+| We couldn't finish connecting your Stripe account. Please try again. | Stripe approved the connection, but SimplePress couldn't finish it. Try again. |
+| Stripe didn't send back an authorization, so your account wasn't connected. Please try again. | Stripe sent you back without approving. Try again. |
+| Stripe connection failed. Please try again. | Something went wrong on Stripe's side. Stripe's own explanation shows under the message. |
+
+The badge in the corner of the Stripe card shows where things stand:
+
+- **Not connected**: checkout is off, and customers can't place orders.
+- **Connected**: checkout is live.
+- **Charges paused**: Stripe has paused charges, usually because it needs verification, documents, or a reply to a dispute. Checkout fails for every shopper until you fix it in Stripe. The warning clears on its own within a few minutes after Stripe turns charges back on.
+
+To disconnect, click **Disconnect** and confirm. Checkout turns off right away, and you can't refund card payments from SimplePress until you reconnect. Existing orders stay as they are. Your Stripe account itself isn't closed or changed.
+
+The **Automatic Tax Collection** switch is on the same page. Set up Stripe Tax first, then see [Tax](/docs/tax).
+
+Settings → Payments also lists each payment provider with its role. Stripe handles **Online checkout**, so its card shows that label. Stripe is the only provider for now, so there's no provider picker. If a provider can't do something an enabled feature needs, a notice appears on Settings → Payments, next to that feature's switch on the Features page, and as a banner across the admin. With Stripe, you won't see one.
+
+---
+
 ## Refunds
 
-You refund card orders from the order page in SimplePress. Click **Issue Refund** in the order's **Payment** card. The money goes back to the customer's card through Stripe, and it comes out of your Stripe balance.
+You refund card orders from the order page in SimplePress. Click **Issue refund** in the order's **Payment** card. The money goes back to the customer's card through Stripe, and it comes out of your Stripe balance.
 
 A few things to know:
 
 - For cash, check and other manual orders, **Mark as Refunded** only records the refund. No money moves, so pay the customer back yourself.
 - You can't refund an order while its payment is **Disputed**. See [Disputes](#disputes).
+- Clicking **Refund** twice, or submitting from two tabs, refunds only once. If the refund goes through in Stripe but SimplePress can't save it, the message names the Stripe refund, and you can safely retry from the same window.
+- If you refund in your Stripe Dashboard instead, the order still updates, the customer gets one refund email and rewards points are taken back, but stock isn't returned automatically. Adjust it by hand.
+- Sometimes a refund looks fine at first and then fails at the customer's bank. When that happens, SimplePress sets the order back to **Paid** (or **Cancelled**, if you had cancelled it) and emails you. It leaves stock and rewards points as they were. Contact the customer and refund again.
 - Donation refunds are done in your Stripe Dashboard, not in SimplePress.
+- If you switched Stripe accounts without disconnecting first, a refund goes back on the account that took the payment. If that account was disconnected, or is now connected to a different store, the **Refund** button is replaced by a note to refund from that account's Stripe Dashboard. **Mark as Refunded** still works, but it moves no money.
 - Refunds show in **Refunds issued** under Money in on Finances, and in the **Refunds** tile under What Stripe took.
 
 For the full steps, see [Orders](/docs/orders#refunds).
@@ -118,10 +158,11 @@ No order is created, and the held items are released. Any discount code the shop
 
 ### Good to know
 
+- If you switched to a different Stripe account while a bank payment was still clearing, the order is still created when it clears. Its internal note says which earlier Stripe account took the payment. To refund it, open that account's Stripe Dashboard.
 - A method that takes longer than 14 days to settle, such as some bank transfers and vouchers, may release the hold. In rare cases the item could sell out before the order appears.
 - Donations on your donate page still take cards only.
 - Subscriptions (recurring checkout) work as they always have.
-- You can reword the two shopper emails in **Admin → Emails**: **Bank Payment Processing** and **Bank Payment Failed**. See [Notification Emails](/docs/email-preview).
+- You can reword the two shopper emails in **Settings → Customer emails**: **Bank Payment Processing** and **Bank Payment Failed**. See [Notification Emails](/docs/email-preview).
 
 ### Choosing which payment methods to offer
 
@@ -146,6 +187,17 @@ If you don't see the setting, or Stripe has turned something on that you didn't 
 
 Checkout goes through Stripe only. You can still take cash, check, Venmo, Cash App, Zelle and more through manual orders, invoices and your donate page. These never go through Stripe, so there's no Stripe fee, and they don't appear in What Stripe took or in your payouts. See [Other ways to get paid](/docs/integrations#other-ways-to-get-paid).
 
+### Other ways to pay (Settings → Payments)
+
+At the bottom of **Settings → Payments** is an **Other ways to pay** list: "Bank transfer, Venmo, Cash App, Zelle, cash or check." You set these up once. Then:
+
+- **Invoices** let you choose which ones to offer on each invoice. See [Invoices](/docs/invoices#payment-methods).
+- **Your donate page** shows your first Venmo and your first Cash App next to card donations. On the **Donations** settings page they appear read-only. See [Donations](/docs/donations#venmo--cash-app).
+
+Click **Add payment method**, pick a type, fill in the details, then click **Save** under the list. You can add up to 10. Use the arrows to reorder them.
+
+![The Other ways to pay list with Venmo, Cash App and Zelle methods, each with up and down arrows, edit and delete buttons, above the Add payment method button and the Reset and Save buttons](/images/payments-and-payouts/other-ways-to-pay.png)
+
 ---
 
 ## When Stripe pauses payments
@@ -156,17 +208,17 @@ Shoppers don't see a warning up front. Your checkout page loads as normal, and t
 
 SimplePress tells you in three ways:
 
-- **A red strip across the top of every admin page** that reads "**Payments are paused.** Stripe has disabled charges on your account, so checkout is failing for every shopper." Click **Fix in Stripe** to see what Stripe needs, or **Details** to open **Settings → Integrations**. Staff don't see the strip, and it can't be dismissed.
-- **A Charges paused badge** on the Stripe Connect card in **Settings → Integrations**, with a red alert titled "Stripe has paused charges on this account".
+- **A red strip across the top of every admin page** that reads "**Payments are paused.** Stripe has disabled charges on your account, so checkout is failing for every shopper." Click **Fix in Stripe** to see what Stripe needs, or **Details** to open **Settings → Payments**. Staff don't see the strip, and it can't be dismissed.
+- **A Charges paused badge** on the Stripe card in **Settings → Payments**, with a red alert titled "Stripe has paused charges on this account".
 - **An email** with the subject "Action required: [your store] can't accept payments".
 
 ![The payments paused email: Your store can't accept payments, with the status Charges disabled — checkout is failing and a Resolve in Stripe button](/images/payments-and-payouts/payments-disabled-email.png)
 
-*The email has a **Resolve in Stripe** button and a link to Settings → Integrations.*
+*The email has a **Resolve in Stripe** button and a link to Settings → Payments.*
 
-The email goes to the **Owner Email** in **Settings → General** and to every team member with the **Owner** or **Manager** role. Staff don't get it. Each person gets their own copy. See [General Settings](/docs/general-settings#owner-email) and [Team & roles](/docs/team-and-roles). For every email that comes to you, see [Emails You Receive](/docs/email-preview#emails-you-receive). The email is sent once, when charges are first paused. It isn't repeated, and no email is sent when charges come back.
+The email goes to the **Owner email** in **Settings → General** and to every team member with the **Owner** or **Manager** role. Staff don't get it. Each person gets their own copy. See [General Settings](/docs/general-settings#owner-email) and [Team & roles](/docs/team-and-roles). For every email that comes to you, see [Emails You Receive](/docs/email-preview#emails-you-receive). The email is sent once, when charges are first paused. It isn't repeated, and no email is sent when charges come back.
 
-**To fix it,** sign in to Stripe and complete whatever it asks for. Once Stripe turns charges back on, everything clears itself within a few minutes. You don't need to reconnect Stripe or change your store. See [Integrations](/docs/integrations).
+**To fix it,** sign in to Stripe and complete whatever it asks for. Once Stripe turns charges back on, everything clears itself within a few minutes. You don't need to reconnect Stripe or change your store. See [Connecting Stripe](#connecting-stripe).
 
 ---
 
@@ -192,16 +244,17 @@ The email shows:
 - **Respond by**, the deadline, when Stripe gives one; and
 - a **Respond in Stripe** button that opens your disputes in Stripe.
 
-Like the payments paused email, it goes to the **Owner Email** in **Settings → General** and to every Owner and Manager on your team, each in their own copy. Stripe also emails the owner of your Stripe account. See [Emails You Receive](/docs/email-preview#emails-you-receive) for all of your alert emails in one place.
+Like the payments paused email, it goes to the **Owner email** in **Settings → General** and to every Owner and Manager on your team, each in their own copy. Stripe also emails the owner of your Stripe account. See [Emails You Receive](/docs/email-preview#emails-you-receive) for all of your alert emails in one place.
 
 ### What happens to the order
 
 - The order's payment changes to **Disputed**. The order page shows "Payment: Disputed". The order status itself doesn't change.
 - A note is added to the order's internal notes with the amount, the reason and the respond-by date. Staff can't see internal notes.
-- While the payment is disputed, the refund button and the fulfillment and **Mark Ready for Pickup** controls are hidden.
+- You get one internal note and one alert email per dispute update, even if Stripe sends the same notice again.
+- While the payment is disputed, the refund button and the fulfillment and **Mark ready for pickup** controls are hidden.
 - The order stays in **Money in** on Finances at its full value until the dispute closes.
 - In the Orders list, the order shows a red **Disputed** badge. To see every disputed order, open **Filters** and set **Payment** to **Disputed**. See [Orders](/docs/orders).
-- You can't change the payment status while the dispute is open. In **More Options → Override Status → Payment Status**, the choices are greyed out with the note "dispute open". SimplePress updates the status for you when Stripe closes the dispute.
+- You can't change the payment status while the dispute is open. In **More options → Override status → Payment status**, the choices are greyed out with the note "dispute open". SimplePress updates the status for you when Stripe closes the dispute.
 
 ### How to respond
 
@@ -249,7 +302,7 @@ Many disputes happen because a customer doesn't recognise a charge or can't find
 
 - Take card payments that go straight to your own Stripe account, with no SimplePress fee
 - See your balance, fees, refunds and last five payouts on [Finances](/docs/finances)
-- Open your Stripe Dashboard from **Settings → Integrations**
+- Open your Stripe Dashboard from **Settings → Payments**
 - Refund card orders from the order page
 - Get an email when Stripe pauses payments or a customer disputes a charge
 - Find disputed orders with the **Disputed** payment filter in Orders
@@ -295,3 +348,7 @@ Many disputes happen because a customer doesn't recognise a charge or can't find
 		href="/docs/tax"
 	/>
 </Cards>
+
+## Square register sales
+
+Card sales at a Square register don't go through Stripe. They land in your orders through the Square connection, not through this page's payouts. Refunds for those sales are made in Square. See [Sell in Person with Square](/docs/sell-in-person-with-square).

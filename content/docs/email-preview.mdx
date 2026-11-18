@@ -5,7 +5,7 @@ description: See how your store's automatic emails look, and change the subject 
 
 ## Overview
 
-SimplePress sends a lot of emails for you: order confirmations, shipping notices, refund notices, invoices, alerts when stock runs low, and more. The **Notification Emails** page lets you see every one of them, and change the wording of many.
+SimplePress sends a lot of emails for you: order confirmations, shipping notices, refund notices, invoices, alerts when stock runs low, and more. The **Customer emails** card in **Settings** opens a page, titled **Notification Emails**, where you can see every one of them and change the wording of many.
 
 On this page you can:
 
@@ -24,9 +24,9 @@ You can't send yourself a test email from here, and you can't rewrite the body o
 
 ## Where to Find It
 
-In your admin sidebar, open **Content → Notification Emails**. You can also type "notification" into the search box at the top of the admin to jump straight there.
+In your admin, open **Settings**, then click **Customer emails**. You can also type "notification" into the search box at the top of the admin to jump straight there.
 
-The page is titled **Notification Emails**: "Preview your transactional emails and customize the subject line and intro text of customer-facing ones". "Transactional" just means automatic emails that go out when something happens, such as an order or a payment. They are not marketing emails, with one exception: the **Abandoned Checkout** reminder is listed here, but it is sent like a marketing email. It has an **Unsubscribe** link and your mailing address in its footer, and it isn't sent to anyone who unsubscribed. For newsletters, see [Email Marketing](/docs/email-marketing).
+The page is titled **Notification emails**: "Preview your transactional emails and customize the subject line and intro text of customer-facing ones". "Transactional" just means automatic emails that go out when something happens, such as an order or a payment. They are not marketing emails, with one exception: the **Abandoned Checkout** reminder is listed here, but it is sent like a marketing email. It has an **Unsubscribe** link and your mailing address in its footer, and it isn't sent to anyone who unsubscribed. For newsletters, see [Email Marketing](/docs/email-marketing).
 
 The page has two columns:
 
@@ -34,6 +34,8 @@ The page has two columns:
 - **Preview** on the right: shows the email you picked. If the email can be customized, a **Customize** card appears above the preview.
 
 Until you click a button, the preview area says "Select a template to preview".
+
+![The Settings page with a card for each area, including the Customer emails card (Preview the automatic emails customers get) at the bottom left](/images/email-preview/customer-emails-settings.png)
 
 ![The Notification Emails page with the Templates list on the left, the Customize "Order Confirmation" card and the Order Confirmation email in the Preview card on the right](/images/email-preview/email-preview-page.png)
 
@@ -43,7 +45,7 @@ Until you click a button, the preview area says "Select a template to preview".
 
 A preview is a sample. Nothing is sent when you click a button.
 
-- **Your logo and store name** are real. If you haven't uploaded a logo, the email shows your store name as text instead. Add one under **Site Setup → Brand & Appearance**.
+- **Your logo and store name** are real. If you haven't uploaded a logo, the email shows your store name as text instead. Add one under **Site Setup → Brand & appearance**.
 - **Customer names, addresses, products, amounts and codes** are made-up samples (for example "John Doe" or "Jane Smith"). Buttons and links in a preview are samples too.
 - **Order numbers and items:** if your store has any orders, several previews use details from one of your real orders: **Order Confirmation**, **Order Confirmation (pickup)**, **Order Confirmation (local delivery)**, **Ready for Pickup**, **Order Fulfilled (no tracking)**, **Order Refunded**, **Order Cancelled** and the two **New Order** emails use the real order number. The **New Order** emails also use the real totals, and **Abandoned Checkout** shows real items. The first order the page finds is used, not necessarily the newest. When [Product options](/docs/product-options) is on, the **Order Confirmation** and **New Order (owner)** previews also add sample choices to the first item (see the note under the table below). **Order Shipped** always shows order number 1001, and other amounts (such as the refund amount on **Order Refunded**) are samples. If you have no orders yet, the page uses order number 1001 and a "Sample Product".
 - **Customized wording shows up as you type.** If you change a subject or intro, the preview updates a moment later, before you save. A line above the preview, **Subject:**, shows the subject line customers will see. If you haven't written your own subject, that line shows the standard subject the real email uses. For example, the pickup confirmation reads "Order #1015 confirmed — pickup details inside" (the number comes from the order the preview uses, or is 1001 if you have no orders), **Subscription Updated** reads "Your subscription is paused" or "Your subscription is back on", and the subscription emails name the sample product, such as "Your Premium Coffee Pack subscription is confirmed". Invoice previews show the sample invoice number.
@@ -65,9 +67,11 @@ The tables below group the emails by topic. On the page itself, the buttons sit 
 | **Order Confirmation** | Customer | Payment goes through, including each subscription renewal. For orders you create by hand, only if you choose to send it. | Subject and intro |
 | **Order Confirmation (pickup)** | Customer | Same email, for pickup orders. It adds the pickup location and instructions. | Subject and intro (shared with **Order Confirmation**) |
 | **Order Confirmation (local delivery)** | Customer | Same email, for local delivery orders. It adds the delivery address and your delivery days & instructions. | Subject and intro (shared with **Order Confirmation**) |
-| **Ready for Pickup** | Customer | You click **Mark Ready for Pickup** on a pickup order. | Subject and intro |
+| **Ready for Pickup** | Customer | You click **Mark ready for pickup** on a pickup order. | Subject and intro |
 | **Order Shipped** | Customer | You add a shipment with a tracking number. | Subject and intro |
 | **Order Fulfilled (no tracking)** | Customer | An order becomes fully fulfilled without tracking numbers. | Subject and intro |
+| **Order Delivered** | Customer | Tracking on a Shippo label shows the package was delivered. You can switch it off with **Email customers when their package is delivered** in **Settings → Shipping**. Shown here only when the **Shipping labels** feature is on. See [Tracking and delivered emails](/docs/shipping-labels#tracking-and-delivered-emails). | Subject and intro |
+| **Return Label** | Customer | You email a return label to the customer, from **Label ready** or the label's **More** menu. Shown here only when the **Shipping labels** feature is on. See [Return labels](/docs/shipping-labels#return-labels). | Subject and intro |
 | **Order Refunded** | Customer | You refund an order and leave **Notify customer by email** ticked. | Subject and intro |
 | **Order Cancelled** | Customer | You cancel an order and leave **Notify customer by email** ticked. | Subject and intro |
 | **Bank Payment Processing** | Customer | A shopper pays by bank (such as ACH Direct Debit) and the money hasn't cleared yet. The order appears once it clears. See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods). | Subject and intro |
@@ -87,13 +91,13 @@ For the shopper's side of these emails, and how to turn each off, see [Emails Yo
 
 ### Alerts for You
 
-These are sent to you, not to customers. Customers never see them, and none of them can be customized. Most go to your **Owner Email** (set in your General settings). The **Contact Form** email goes to your **Support Email** instead. For who gets what, and which ones you can switch off, see [Emails You Receive](#emails-you-receive) below.
+These are sent to you, not to customers. Customers never see them, and none of them can be customized. Most go to your **Owner email** (set in your General settings). The **Contact Form** email goes to your **Support email** instead. For who gets what, and which ones you can switch off, see [Emails You Receive](#emails-you-receive) below.
 
 | Button | When it's sent |
 | --- | --- |
 | **New Order (owner)** | A new order is paid. For a local delivery order it shows **Fulfillment: Local delivery** and a **Deliver to** block with the delivery address and your instructions. |
 | **New Order (subscription)** | A subscription order comes in, such as a renewal. It also shows the subscription schedule. |
-| **Contact Form** | A visitor sends your contact form. It goes to your **Support Email**. Replying to it writes back to the visitor. |
+| **Contact Form** | A visitor sends your contact form. It goes to your **Support email**. Replying to it writes back to the visitor. |
 | **Low Inventory Alert (owner)** | A product's stock drops to its low-inventory number (set on the product). |
 | **Out of Stock Alert (owner)** | A product's stock reaches zero. |
 | **Out of Stock — Backorders On (owner)** | A product reaches zero, but it still takes orders because backorders are on. |
@@ -168,21 +172,22 @@ Here is every automatic email that comes to **you** (or your team), in one place
 
 **Who gets what:**
 
-- Most alerts go to your **Owner Email**, which you set in **Settings → General**. See [General Settings](/docs/general-settings#owner-email).
-- **Payment disputes**, **payments paused** and **bank payment failed** also go to every Owner and Manager on your team, each in their own copy.
+- Most alerts go to your **Owner email**, which you set in **Settings → General**. See [General Settings](/docs/general-settings#owner-email).
+- **Payment disputes**, **payments paused**, **bank payment failed** and **delivery problems** also go to every Owner and Manager on your team, each in their own copy.
 - **Staff** don't get any of these emails. See [Team and Roles](/docs/team-and-roles).
 - Other alerts, such as new orders and low stock, go to the Owner Email address only, not to Managers.
 
 | Email | When it's sent | Who gets it | Can you turn it off? |
 | --- | --- | --- | --- |
 | **New order** | A customer's checkout is paid, or a subscription renewal is paid. Orders you create by hand don't send it. | Owner Email | No |
-| **Low stock** (product) | A sale brings a product to or below its **Low Inventory Threshold**. Sent once, until you restock. See [Inventory](/docs/inventory-management#low-stock-alerts). | Owner Email | Leave the threshold blank on the product |
+| **Low stock** (product) | A sale brings a product to or below its **Low inventory threshold**. Sent once, until you restock. See [Inventory](/docs/inventory-management#low-stock-alerts). | Owner Email | Leave the threshold blank on the product |
 | **Out of stock** (product) | A product's stock reaches 0. There is a separate version for products that still take backorders. | Owner Email | Only by not tracking inventory for that product |
 | **Inventory item low** | An inventory item reaches its **Low-stock threshold (optional)**. | Owner Email | Leave the threshold blank on the item |
 | **Inventory item out** | An inventory item reaches 0. | Owner Email | No |
 | **Bank payment failed** | A shopper's bank payment fails. No order is created and the held items are released. You don't need to do anything. See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods). | Owner Email and every Owner and Manager | No |
 | **Payment dispute** | A customer disputes a payment. No email is sent when the dispute closes. See [Disputes](/docs/payments-and-payouts#disputes). | Owner Email and every Owner and Manager | No |
 | **Payments paused** | Stripe pauses charges on your account. Sent once. | Owner Email and every Owner and Manager | No |
+| **Delivery problem on order #…** | A Shippo label's tracking reports a delivery problem (a failed delivery or a return to sender). Sent once per problem, with a link to the order. The order shows a **Delivery issue** badge. See [If something goes wrong](/docs/shipping-labels#if-something-goes-wrong). | Owner Email and every Owner and Manager | No |
 | **New review** | A customer submits a review. Reviews you add yourself don't send it. See [Reviews](/docs/reviews). | Owner Email | Only by turning Reviews off |
 | **Contact form message** | A visitor sends your contact form. | Support Email (Owner Email if no Support Email is set). Replies go to the visitor. | No |
 | **Form entry** | A visitor submits one of your custom forms. See [Forms](/docs/forms). | The form's **Notify email**, then your Support Email, then your Owner Email. | You can send it somewhere else, but not turn it off. Entries are always saved in your admin. |
@@ -235,7 +240,7 @@ Both fields are **plain text**. Anything that looks like web code, such as `<b>`
 
 ### Step by Step
 
-1. Open **Content → Notification Emails**.
+1. Open **Settings → Customer emails**.
 2. In the **Templates** list, click the email you want, for example **Order Confirmation**.
 3. Find the **Customize "Order Confirmation"** card above the preview. Under the title is a short note on when this email is sent.
 4. Type your own **Subject**. The standard subject is shown greyed out in the box as a guide, and it matches what customers get. Use these placeholders where they make sense:
@@ -341,7 +346,7 @@ Subject and intro are plain text only. Remove anything that looks like web code,
 Those are samples. Only your logo, store name, and the order number and items of the order-based previews come from your store. Real emails use the real customer's details.
 
 **My logo isn't in the preview.**
-Upload one under **Site Setup → Brand & Appearance**. Until then, the email shows your store name as text.
+Upload one under **Site Setup → Brand & appearance**. Until then, the email shows your store name as text.
 
 **Where do I turn off abandoned checkout emails?**
 Open **Abandoned Checkout** in the **Templates** list and switch **Send this email** off.

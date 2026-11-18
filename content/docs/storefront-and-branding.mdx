@@ -1,11 +1,11 @@
 ---
 title: Brand & Appearance
-description: Set your logo, favicon, template, checkout color, footer tagline, and social links, and find the rest of your Site Setup.
+description: Set your template, checkout accent color, logo, and favicon, and find the rest of your Site Setup.
 ---
 
 ## Overview
 
-**Brand & Appearance** is where you set the parts of your store that make it look like yours: which template it uses, your logo, your favicon (the little icon in a browser tab), a tagline for the footer, and links to your social profiles. It lives inside **Site Setup**, the hub for the store-wide settings you configure once and rarely change.
+**Brand & appearance** is where you set the parts of your store that make it look like yours: which template it uses, your checkout accent color, your logo, and your favicon (the little icon in a browser tab). It's all visuals. Your footer tagline and social profiles moved to [Header & Footer](/docs/navigation#footer-tagline-and-social-profiles). It lives inside **Site Setup**, the hub for the store-wide settings you configure once and rarely change.
 
 Day-to-day wording, pictures, section order, colors, and fonts are edited in the [Site Editor](/docs/site-editor), not here.
 
@@ -17,31 +17,32 @@ Day-to-day wording, pictures, section order, colors, and fonts are edited in the
 
 ## Getting Here
 
-In your admin sidebar, the **Content** group has two entries for your storefront:
+In your admin sidebar, the **Website** group has two entries for your storefront:
 
 - **Site Editor**: change what your site says and shows. See [Site Editor](/docs/site-editor).
-- **Site Setup**: the one-time setup hub, described as "Brand, navigation, search listing, and policies."
+- **Site Setup**: the one-time setup hub for the store-wide settings you configure once.
 
 Open **Site Setup** and you'll see a card for each area:
 
 | Card | What it's for |
 |---|---|
-| **Brand & Appearance** | Template, logo, favicon, footer tagline, social links. This page. |
+| **Brand & appearance** | Template, accent color, logo, favicon. This page. |
 | **Policies** | Privacy, Terms, Refunds, Shipping. See [Pages and Policies](/docs/pages-and-policies). |
-| **Navigation** | Your header menu and footer links. See [Navigation](/docs/navigation). |
-| **SEO & Meta** | How your store appears in search results and when shared. See [SEO & Search Readiness](/docs/seo). |
+| **Header & footer** | Your header menu, footer links, footer tagline, social profiles, and the donate link. See [Header & Footer](/docs/navigation). |
 | **FAQ** | Add and manage the questions and answers shown on your storefront. |
-| **Banner & Popup** | Your announcement banner and homepage popup. Shown only when the banners or popups feature is on. See [Banner & Popup](/docs/banner-and-popup). |
+| **Banner & popup** | Your announcement banner and homepage popup. Shown only when the banners or popups feature is on. See [Banner & Popup](/docs/banner-and-popup). |
 
-![The Site Setup page with a card for each area](/images/storefront-and-branding/site-setup.png)
+**SEO & Meta** and **Redirects** used to be cards here. They moved to **Marketing → Get Found Online**, which has **Overview**, **SEO & Meta** and **Redirects** tabs. See [SEO & Search Readiness](/docs/seo) and [Redirects](/docs/redirects).
+
+![The Site Setup page with five cards: Brand & appearance, Policies, Header & footer, FAQ, and Banner & popup](/images/storefront-and-branding/site-setup.png)
 
 ---
 
 ## Brand & Appearance
 
-Click the **Brand & Appearance** card. The page has three cards: **Site Visuals**, **Business Branding**, and **Footer & social links**.
+Click the **Brand & appearance** card. The page has two cards: **Site visuals**, and **Logo & favicon**.
 
-![The Brand & Appearance page with the Site Visuals, Business Branding and Footer & social links cards](/images/storefront-and-branding/brand-appearance.png)
+![The Brand & appearance page with the Site visuals card (Select a template, Checkout accent color, Site Editor link) and the Logo & favicon card](/images/storefront-and-branding/brand-appearance.png)
 
 ### Site Visuals
 
@@ -57,7 +58,7 @@ This card is headed "How does your site look to people?" and has:
 
 A template switch isn't applied until you save (see [Saving](#saving)). If your store doesn't have access to the template you picked, saving fails with "This template is not available for your store."
 
-### Business Branding
+### Logo & favicon
 
 #### Logo
 
@@ -105,30 +106,9 @@ A few things to know about favicons:
 - If you leave the favicon blank, your logo is used. If there's no logo either, the SimplePress icon is used.
 - Browsers and Google cache favicons, so a new icon can take a while to appear everywhere.
 
-### Footer & social links
-
-- **Footer tagline**: shown in your storefront footer. Use it for a mission statement or a short blurb about your business. Up to 500 characters.
-- **Social Links**: Instagram, Threads, Facebook, Twitter / X, LinkedIn, TikTok, Pinterest, and YouTube. Fill in only the ones you use; only those appear in your footer. Each link must be a full address starting with `http://` or `https://`, for example `https://instagram.com/yourstore`. If you paste a link that doesn't start with one of those, you'll see "Must be an http(s) URL".
-
-If a link looks like it belongs in a different box, an amber note appears under it, such as "This looks like a Facebook link, not Instagram. You can still save it." (or "This doesn't look like an Instagram link. You can still save it." when it looks like no social network at all). It's only a heads-up. It doesn't stop you from saving.
-
-![The Footer & social links card with the social link boxes and the Google Business Profile link](/images/storefront-and-branding/footer-social-links.png)
-
-Your marketing emails use these social links too, when **Show social links** is on in [Email Marketing → Email style](/docs/email-marketing#your-email-style). Your logo (set above) is the one used in the email header.
-
-The links in your footer's quick-links column are set separately. See [Navigation](/docs/navigation#footer-quick-links).
-
-#### Google Business Profile
-
-Below the social links is a **Google Business Profile link** box. Your Google Business Profile is the listing that shows your business on Google Maps. If you have one, paste your listing's link here. The **Share** button on your listing in Google Maps gives you one (the box shows an example that starts `https://maps.google.com/?cid=…`). The link is optional, and it isn't shown anywhere on your site. It gives Google one more hint that this site and your profile belong together.
-
-The most important step happens on Google, not here: set the profile's website to this site's address, and use the same business name on both. See [SEO & Search Readiness](/docs/seo) for more on how your store appears on Google.
-
-All the social links you save, and your Google Business Profile link, are also given to search engines as your store's profiles.
-
 ### Saving
 
-All three cards save together with one button. The top bar shows an **Unsaved Changes** badge when you have edits, and **Saved** when everything is current.
+Both cards save together with one button. The top bar shows an **Unsaved changes** badge when you have edits, and **Saved** when everything is current.
 
 - **Save changes** saves everything on the page, including a template switch.
 - **Reset** throws away your unsaved edits and returns to the last saved state.
@@ -138,13 +118,13 @@ All three cards save together with one button. The top bar shows an **Unsaved Ch
 
 ## SEO & Meta
 
-**SEO & Meta** controls how your store shows up in search results and when your link is shared. It has four tabs, **Score**, **Your store**, **Individual pages**, and **Search engines**, with a live preview beside the fields. See [SEO & Search Readiness](/docs/seo) for the full guide.
+**SEO & Meta** controls how your store shows up in search results and when your link is shared. It's now under **Marketing → Get Found Online**, on the **SEO & Meta** tab. It has four tabs of its own, **Score**, **Your store**, **Individual pages**, and **Search engines**, with a live preview beside the fields. See [SEO & Search Readiness](/docs/seo) for the full guide.
 
 ---
 
-## Navigation and Menus
+## Header and Footer
 
-Your header menu and footer links have their own page, **Site Setup → Navigation**. See [Navigation](/docs/navigation) for adding links, dropdowns, Quick Add, and footer quick links.
+Your header menu and footer links have their own page, **Site Setup → Header & footer**. It also holds your footer tagline and social profiles. See [Header & Footer](/docs/navigation) for adding links, dropdowns, Quick Add, footer quick links, and social profiles.
 
 ---
 
@@ -171,8 +151,8 @@ Need something changed that you can't do yourself? Email help@generativejustice.
 - Switch templates and save the change from Brand & Appearance
 - Upload a logo (including SVG), set its alt text, and remove or replace it
 - Upload one favicon and let SimplePress make every size
-- Set the footer tagline and up to eight social links, plus your Google Business Profile link
 - Pick the checkout accent color
+- Set your footer tagline and social profiles in Header & footer (see [Header & Footer](/docs/navigation))
 - Tune your search title, description, and share image in SEO & Meta (see [SEO & Search Readiness](/docs/seo))
 
 **You cannot:**

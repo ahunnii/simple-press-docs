@@ -67,12 +67,12 @@ The search box at the top of the page (**Command + K** on a Mac, **Ctrl + K** on
 
 ### As a Manager
 
-You land on the **Dashboard** and see the whole sidebar. You can add and edit products, refund and cancel orders, edit pages in the Site Editor, change settings, and connect Stripe.
+You land on the **Dashboard** and see the whole sidebar. You can add and edit products, refund and cancel orders, edit pages in the Site Editor, change settings, and see your Stripe status and change the automatic tax switch. Only an Owner can connect or disconnect Stripe.
 
 A Manager can't:
 
 - invite people, change roles or remove anyone from the team (you can see who's on it under **Settings → Team**);
-- download the whole site under **Settings → Data & Export**;
+- download the whole site under **Settings → Data & export**;
 - turn on or use the products CSV export;
 - delete many things at once, or delete form entries and quote requests.
 
@@ -90,7 +90,7 @@ Here's a typical round of packing and shipping. Every step works for Staff, Mana
 
 ### 1. Find what needs shipping
 
-Open **Orders** and click the **Needs fulfillment** card at the top. It shows paid orders that haven't shipped or been handed over yet. To work oldest first, click **Filters** and set **Sort** to **Oldest**. See [Queue cards](/docs/orders#queue-cards) and [Filters and sorting](/docs/orders#filters-and-sorting).
+Open **Orders** and click the **Needs shipping** card at the top. It shows paid orders that haven't shipped or been handed over yet. To work oldest first, click **Filters** and set **Sort** to **Oldest**. See [Queue cards](/docs/orders#queue-cards) and [Filters and sorting](/docs/orders#filters-and-sorting).
 
 Look at the badges next to each order's status before you start. See [Reading a row](/docs/orders#reading-a-row).
 
@@ -101,13 +101,15 @@ Look at the badges next to each order's status before you start. See [Reading a 
 
 ### 2. Print a packing slip
 
-Click **View** to open the order, then click **Packing Slip** at the top. Click **Print**. The packing slip lists the items, SKUs and quantities, with no prices, so it's safe to put in the box. See [Printing a packing slip or invoice](/docs/orders#printing-a-packing-slip-or-invoice).
+Click **View** to open the order, then click **Packing slip** at the top. Click **Print**. The packing slip lists the items, SKUs and quantities, with no prices, so it's safe to put in the box. See [Printing a packing slip or invoice](/docs/orders#printing-a-packing-slip-or-invoice).
 
 ### 3. Pack it and get a label
 
-SimplePress doesn't buy shipping labels. Use whatever the store normally uses. If you need one, the order page has an **Open PirateShip** button for discounted postage. See [Need a label?](/docs/orders#need-a-label)
+If the store has **Shipping labels** turned on and Shippo connected, the order has a **Buy shipping label** button. Check the address, pick the items, box and weight, choose a service and buy. The tracking number is added and the customer is emailed for you, so you can skip step 4. You can also print and void labels and reship items from the label's **More** menu. Return labels are Owner and Manager only. See [Buy a label with Shippo](/docs/orders#buy-a-label-with-shippo) and [Shipping labels](/docs/shipping-labels).
 
-To copy the shipping address for a label site, click **Copy** on the **Shipping Address** card. For the full walkthrough, see [Shipping labels with Pirate Ship](/docs/shipping-labels).
+Otherwise, use whatever the store normally uses. The order page has an **Open PirateShip** button for discounted postage. See [Need a label?](/docs/orders#need-a-label)
+
+To copy the shipping address for a label site, click **Copy** on the **Shipping address** card. For the full walkthrough, see [Buy labels on Pirate Ship](/docs/shipping-labels#buy-labels-on-pirate-ship).
 
 ### 4. Mark it fulfilled
 
@@ -115,20 +117,20 @@ To copy the shipping address for a label site, click **Copy** on the **Shipping 
 2. Paste the **Tracking Number**. The **Carrier** fills itself in for USPS, UPS, FedEx and DHL.
 3. Click **Mark as Fulfilled & Send Email**.
 
-The customer gets an email with their tracking link, and the order moves to **Completed**. Shipping in more than one box? Click **Add Additional Tracking Information** to add another package. See [Fulfilling and tracking](/docs/orders#fulfilling-and-tracking) and [More than one box](/docs/orders#more-than-one-box).
+The customer gets an email with their tracking link, and the order moves to **Completed**. Shipping in more than one box? Click **Add additional tracking information** to add another package. See [Fulfilling and tracking](/docs/orders#fulfilling-and-tracking) and [More than one box](/docs/orders#more-than-one-box).
 
-**Shipping only some of the items?** Untick **Ship all remaining items** and set how many of each item are in this box. The order shows as **Partially Fulfilled** until you ship the rest. See [Partial shipments](/docs/orders#partial-shipments).
+**Shipping only some of the items?** Untick **Ship all remaining items** and set how many of each item are in this box. The order shows as **Partially fulfilled** until you ship the rest. See [Partial shipments](/docs/orders#partial-shipments).
 
-**Typed the tracking number wrong?** Click the pencil next to the package on the **Order Status** card, fix it, and click **Save Changes**. No email goes out for a correction. See [After it's fulfilled](/docs/orders#after-its-fulfilled).
+**Typed the tracking number wrong?** Click the pencil next to the package on the **Shipments** card, fix it, and click **Save changes**. No email goes out unless you tick **Email the customer the updated tracking**. See [Shipments](/docs/orders#shipments).
 
-**Marked the wrong order?** Use **More Options → Override Status → Fulfillment Status → Unfulfilled**. The customer has already had their email, so let the owner know. See [Changing a status by hand](/docs/orders#changing-a-status-by-hand).
+**Marked the wrong order?** Use **More options → Override status → Fulfillment status → Unfulfilled**. The customer has already had their email, so let the owner know. See [Changing a status by hand](/docs/orders#changing-a-status-by-hand).
 
 ### 5. Local pickup orders
 
-Pickup orders show a **Ready for Pickup** card instead of the shipping form. When the order is packed and waiting:
+Pickup orders show a **Ready for pickup** card instead of the shipping form. When the order is packed and waiting:
 
 1. Open the order.
-2. Click **Mark Ready for Pickup**.
+2. Click **Mark ready for pickup**.
 
 The customer is emailed straight away with the pickup location and instructions. See [Local pickup orders](/docs/orders#local-pickup-orders).
 
@@ -136,7 +138,7 @@ The customer is emailed straight away with the pickup location and instructions.
 
 If the store rents out items, **Inventory** has a **Check-outs** tab.
 
-- **Sending items out:** click **New check-out**, enter the event or client, add the rental items and how many, and click **Create check-out**. See [Creating a check-out](/docs/inventory-management#creating-a-check-out).
+- **Sending items out:** click **Add check-out**, enter the event or client, add the rental items and how many, and click **Create check-out**. See [Creating a check-out](/docs/inventory-management#creating-a-check-out).
 - **Items coming back:** open the check-out and click **Check in**. Record what came back, and anything damaged or lost. See [Checking items in](/docs/inventory-management#checking-items-in).
 - **Counting stock:** use **Use**, **Restock** or **Adjust** on an item to keep the count right. See [Use, Restock and Adjust](/docs/inventory-management#use-restock-and-adjust).
 

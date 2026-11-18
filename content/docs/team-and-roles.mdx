@@ -43,12 +43,13 @@ Find your own role in this table to see what you'll have access to, or use it to
 | **Bulk delete** (selecting many items and deleting them at once)                      | Yes   | No      | No                              |
 | **Forms and Quotes**: read entries and requests                                       | Yes   | Yes     | No                              |
 | **Forms and Quotes**: delete entries and requests                                     | Yes   | No      | No                              |
-| **Site Editor, Site Setup, Pages, Blog, Media Library, Notification Emails**          | Yes   | Yes     | No                              |
+| **Site Editor, Site Setup, Pages, Blog, Media**                                       | Yes   | Yes     | No                              |
 | **Email Marketing**                                                                   | Yes   | Yes     | No                              |
 | **Finances and Analytics**                                                            | Yes   | Yes     | No                              |
-| **Connecting or disconnecting Stripe**                                                | Yes   | Yes     | No                              |
-| **Settings**: General, Shipping, Business Hours, Domain, Features, Integrations, Maintenance Mode, and the Donations, Invoices and Rewards tabs (when those features are on) | Yes | Yes | No |
-| **Data & Export**: Download your site                                                 | Yes   | No      | No                              |
+| **Connecting or disconnecting Stripe**                                                | Yes   | No      | No                              |
+| **Settings**: General, Shipping, Domain, Features, Payments (except connecting Stripe, above), Integrations, Maintenance Mode, Customer emails, and the Donations, Invoices and Rewards tabs (when those features are on) | Yes | Yes | No |
+| **Get Found Online**: SEO & Meta and Redirects                                        | Yes   | Yes     | No                              |
+| **Data & export**: Download your site                                                 | Yes   | No      | No                              |
 | **Products CSV export**: switch it on in Features, and export products               | Yes   | No      | No                              |
 | **Team**: see who's on the team                                                       | Yes   | Yes (view only) | No                      |
 | **Team**: invite, change roles, remove people, revoke invitations                     | Yes   | No      | No                              |
@@ -61,6 +62,7 @@ A few notes on this table:
 - **Staff can see order totals** (subtotal, tax, shipping, discounts, and total) because they need them for packing slips. They can't see the internal note on an order, and they can't see Stripe payment details.
 - **Staff can't see private notes on customers or what items cost you.**
 - **Deleting one thing is different from deleting many.** A Manager can delete a single product, page, discount, and so on. Bulk delete, and deleting form entries or quote requests, are Owner-only because they can't be undone.
+- **Stripe connection is Owner-only.** Managers can see whether Stripe is connected and change the automatic tax switch, but only an Owner can connect or disconnect the account.
 - **Exporting products is Owner-only.** The **Products CSV export** switch under **Settings → Features** and the export itself both need an Owner. A Manager who tries the switch sees "Only the store owner can turn Products CSV export on or off."
 
 ![The admin sidebar as a Staff member sees it, with only Orders, Customers, Inventory and Get Help](/images/team-and-roles/staff-sidebar.png)
@@ -89,8 +91,8 @@ You can change a role at any time, so it's fine to start with the smaller role a
 The page shows:
 
 - **Members:** everyone who has access, with their name, email, and role. Your own row is marked **(you)**. A short summary of the three roles sits above the table.
-- **Pending Invitations:** invitations you've sent that haven't been accepted yet, with the date each one expires.
-- **Expired Invitations:** invitations that went unanswered for too long. This card only appears if you have any.
+- **Pending invitations:** invitations you've sent that haven't been accepted yet, with the date each one expires.
+- **Expired invitations:** invitations that went unanswered for too long. This card only appears if you have any.
 
 Managers see the same page, but with a note that team management is Owner-only and without the buttons.
 
@@ -99,10 +101,10 @@ Managers see the same page, but with a note that team management is Owner-only a
 ## Inviting Someone
 
 1. Go to **Settings → Team**.
-2. Click **Invite Member**.
+2. Click **Invite member**.
 3. Enter the person's **Email Address**. Use the address they'll actually sign in with.
 4. Choose a **Role**: Manager, Staff, or Owner. A short description of the selected role appears under the dropdown.
-5. Click **Send Invite**.
+5. Click **Send invite**.
 
 ![The Invite Team Member dialog with an email typed and the Role list open](/images/team-and-roles/invite-dialog.png)
 
@@ -112,7 +114,7 @@ Managers see the same page, but with a note that team management is Owner-only a
 
 SimplePress emails the person an invitation from your store's name. It says which role they've been offered and has an **Accept Invitation** button. If you reply to that email, the reply goes to your store's owner email address.
 
-You'll see "Invitation sent!" when the invite goes out. It then waits in **Pending Invitations** until it is accepted, revoked, or expires.
+You'll see "Invitation sent!" when the invite goes out. It then waits in **Pending invitations** until it is accepted, revoked, or expires.
 
 ![The Pending Invitations card with one Staff invitation, its expiry date, and a Revoke button](/images/team-and-roles/pending-invites.png)
 
@@ -167,7 +169,16 @@ Only Owners can do this.
 2. In the **Members** table, find the person.
 3. Use the dropdown in their **Role** column to pick Owner, Manager, or Staff.
 
-The change saves right away and you'll see a "Role updated" message. You can't change your own role. To step down from Owner, see [Handing Over Ownership](#handing-over-ownership).
+Changing between Manager and Staff saves right away and you'll see a "Role updated" message. Making someone an Owner, or taking Owner away from someone, asks you to confirm first:
+
+- Making someone an Owner opens **Make [name] an Owner?** with the note "Owners have full control, including payments and team." Click **Change role** to confirm, or **Cancel** to leave their role as it was.
+- Taking Owner away opens **Change [name] from Owner?** with the note "They will lose full control, including payments and team management." Click **Change role** or **Cancel**.
+
+Nothing changes until you click **Change role**. You can't change your own role.
+
+![The Make Jordan Rivera an Owner? dialog over the Members table, with the note "Owners have full control, including payments and team." and Cancel and Change role buttons](/images/team-and-roles/make-owner-confirm.png)
+
+To step down from Owner, see [Handing Over Ownership](#handing-over-ownership).
 
 ![The Role dropdown open on a team member, with Owner, Manager and Staff](/images/team-and-roles/role-dropdown.png)
 
@@ -197,7 +208,7 @@ You can't remove yourself from the Members table.
 If you invited the wrong email, or changed your mind:
 
 1. Go to **Settings → Team**.
-2. In **Pending Invitations**, click **Revoke** next to the invitation.
+2. In **Pending invitations**, click **Revoke** next to the invitation.
 3. Confirm in the dialog.
 
 ![The Revoke confirmation dialog, with Keep invite and Revoke invite buttons](/images/team-and-roles/revoke-dialog.png)
@@ -206,7 +217,7 @@ The invite link stops working right away. You can send a new invitation to the s
 
 ### Resend an invitation
 
-If an invitation expired before it was accepted, it moves to **Expired Invitations**. Click **Resend** next to it to send a fresh invitation to the same email with the same role. You'll see "Invitation resent". The old row stays in **Expired Invitations** for now. That's normal, and the new invitation shows up under **Pending Invitations**.
+If an invitation expired before it was accepted, it moves to **Expired invitations**. Click **Resend** next to it to send a fresh invitation to the same email with the same role. You'll see "Invitation resent". The old row stays in **Expired invitations** for now. That's normal, and the new invitation shows up under **Pending invitations**.
 
 Pending invitations don't have a Resend button. If a pending invitation never arrived, and the email didn't show a **Copy link** button, **Revoke** it and send a new one.
 
@@ -237,7 +248,7 @@ The invitation was created, but the email didn't go out. The warning has a **Cop
 They're signed in with another account. They can click **Sign in with different account**, then sign in or create an account using the exact email address you invited.
 
 **They see "This invite has expired."**
-Invitations last 14 days. Click **Resend** under **Expired Invitations**.
+Invitations last 14 days. Click **Resend** under **Expired invitations**.
 
 **They see "This invite has already been used."**
 The invitation was accepted already or you revoked it. Check the **Members** table to see whether they're on the team, and invite them again if not.

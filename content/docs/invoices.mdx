@@ -46,7 +46,7 @@ Creating, editing, sending, sending reminders and deleting drafts are paused unt
 
 Before your first invoice, go to **Settings → Invoices** (`/admin/settings/invoices`). Everything here prefills new invoices, and you can change any of it on a single invoice while you build it. Click **Save changes** when you're done.
 
-![Settings → Invoices, with the Numbering, Defaults, Reminders and Payment methods cards](/images/invoices/invoice-settings.png)
+![Settings → Invoices with the Settings tabs on top and the Numbering, Defaults, Reminders and Payment methods cards, the last one pointing to Payments → Other ways to pay](/images/invoices/invoice-settings.png)
 
 *Invoice settings. The "Next invoice" line under Numbering previews the number your next invoice will get.*
 
@@ -80,11 +80,14 @@ Customers never get automatic reminder emails. The only reminders they receive a
 
 ### Payment methods
 
-Payment methods are how customers pay you: the account details and instructions that appear on the invoice. Add the ones you accept:
+Payment methods are how customers pay you: the account details and instructions that appear on the invoice. You set them up once, in **Settings → Payments**, under **Other ways to pay**. The same list is used for invoices and for your [donate page](/docs/donations). The **Payment methods** card on the Invoices settings page just points you there.
 
-1. Under **Payment methods**, click **Add payment method**.
-2. Pick a **Type** and fill in the details.
-3. Click **Save**.
+Add the ones you accept:
+
+1. Go to **Settings → Payments** and find **Other ways to pay**. (On the Invoices settings page, click the **Payments → Other ways to pay** link.)
+2. Click **Add payment method**.
+3. Pick a **Type** and fill in the details.
+4. Click **Add** (it reads **Done** when you're editing a method). Then click **Save** under the list. This list has its own **Save** button, and nothing is saved until you click it. You'll see "Other ways to pay saved".
 
 ![The Add payment method dialog with the Type dropdown open, listing Bank transfer, PayPal, Venmo, Cash App, Zelle, Cash or check and Other](/images/invoices/payment-method-dialog.png)
 
@@ -96,13 +99,13 @@ Every type also has an optional **Label**. You see it in your list, and emails u
 | --- | --- | --- |
 | **Bank transfer** | Account holder name, Bank name, Routing number, Account number, Account type (Checking or Savings), SWIFT / BIC, Additional instructions | Account numbers are masked in your admin list. On the customer's invoice page they're shown in full, with copy buttons. |
 | **PayPal** | PayPal.Me username or link, and/or PayPal email | Fill in at least one. The **Pay with PayPal** button only appears when you give a PayPal.Me username. |
-| **Venmo** | Venmo username | Filled in for you from your donation settings if you've set a Venmo handle there. |
-| **Cash App** | $Cashtag | Filled in for you from your donation settings if you've set a Cashtag there. |
+| **Venmo** | Venmo username | Your first Venmo also shows on your donate page. |
+| **Cash App** | $Cashtag | Your first Cash App also shows on your donate page. |
 | **Zelle** | Zelle email or phone, Recipient name | The recipient name is the name customers see in their banking app. |
 | **Cash or check** | Payable to, Mailing address, Additional instructions | |
 | **Other** | Title (for example, "Wire transfer"), Instructions | For anything else you accept. |
 
-You can save up to 10 payment methods. Use the arrows to move a method up or down, the pencil to edit it, and the bin to remove it. The order here is the order customers see on the invoice. There's no on/off switch; you choose which methods to offer on each invoice while you build it.
+You can save up to 10 payment methods. Use the arrows to move a method up or down, the pencil to edit it, and the bin to remove it. The order here is the order customers see on the invoice. If you set up a Venmo or Cash App for donations before this list existed, it's already in the list. Save once to use it on invoices too. There's no on/off switch; you choose which methods to offer on each invoice while you build it.
 
 <Callout type="info" title="Your account details stay private">
   Payment details are stored encrypted. The full details only appear on the secure invoice page your customer opens, never in emails.
@@ -118,13 +121,13 @@ You can save up to 10 payment methods. Use the arrows to move a method up or dow
 
 You can start a new invoice from any of these places:
 
-- **Invoices → New invoice** (`/admin/invoices/new`);
-- a customer's page, with the **New invoice** button on their **Invoices** card (see [Customers](/docs/customers));
+- **Invoices → Add invoice** (`/admin/invoices/new`);
+- a customer's page, with the **Add invoice** button on their **Invoices** tab (see [Customers](/docs/customers));
 - the command palette (`Cmd + K` / `Ctrl + K`), by choosing **New invoice**.
 
 The header shows the number the invoice will get, such as **INV-0007 (assigned on save)**. The number is only taken once you save.
 
-![The New invoice page, with Customer and Line items on the left and a live preview of the invoice on the right](/images/invoices/invoice-builder.png)
+![The New invoice page with the Customer card (including the Due dropdown), Line items, Discount & tax, Payment methods and Notes & terms cards on the left, and a live invoice preview with the Total on the right](/images/invoices/invoice-builder.png)
 
 *As you fill in the form, the preview on the right shows exactly what your customer will see.*
 
@@ -133,6 +136,8 @@ The header shows the number the invoice will get, such as **INV-0007 (assigned o
 Click **Find existing customer** and search by name or email, or type a **Customer name**, **Email** and (optionally) **Phone**. Click **Add billing address** if you want an address on the invoice (Street address, Apt/suite, City, State, ZIP).
 
 SimplePress links the invoice to the customer with that email, or creates a new customer record if there isn't one yet. While the invoice is a draft, you can still change who it's for.
+
+The **Due date** is in this same card, under the customer. Choose **Due on receipt**, **Net 7**, **Net 15**, **Net 30**, **Net 60** or **Custom date**. Preset terms are counted from the day you send the invoice, not the day you create it.
 
 ### Line items
 
@@ -148,13 +153,9 @@ Quantities can have up to three decimal places (handy for hours, like 1.5). If y
 
 Under **Discount**, choose **No discount**, **Amount ($)** or **Percent (%)**, then enter the discount. Set the **Tax rate** as a percentage. Tax is worked out after the discount.
 
-### Due date
-
-Choose **Due on receipt**, **Net 7**, **Net 15**, **Net 30**, **Net 60** or **Custom date**. Preset terms are counted from the day you send the invoice, not the day you create it.
-
 ### Payment methods
 
-Each payment method you saved in settings appears with a checkbox, and all of them start ticked. Untick any you don't want to offer on this invoice. If you untick every method, a note warns you, and the invoice page asks your customer to contact you to pay, showing your store email and phone.
+Each payment method on your **Other ways to pay** list (**Settings → Payments**) appears with a checkbox, and all of them start ticked. Untick any you don't want to offer on this invoice. If you untick every method, a note warns you, and the invoice page asks your customer to contact you to pay, showing your store email and phone.
 
 ### Notes & terms
 
@@ -292,7 +293,7 @@ Click **Cancel invoice** to confirm, or **Keep invoice** to back out. Any paymen
 
 ### Print
 
-Click **Print** to open a printer-friendly version, then use its **Print** button (or **Back to Invoice** to return). To get a PDF, choose "Save as PDF" in your browser's print window. SimplePress doesn't create a PDF file itself.
+Click **Print** to open a printer-friendly version, then use its **Print** button (or **Back to invoice** to return). To get a PDF, choose "Save as PDF" in your browser's print window. SimplePress doesn't create a PDF file itself.
 
 ---
 
@@ -368,7 +369,7 @@ QuickBooks invoices aren't in the log; their history lives in QuickBooks. Delete
 | Payment receipt ("Payment received for invoice INV-0001") | When you record a payment with **Email receipt to customer** ticked. |
 | Cancellation ("Invoice INV-0001 has been cancelled") | When you cancel with the email option ticked. |
 
-You can change the subject lines of **Invoice Sent** and **Invoice Reminder** under **Notification Emails**. See [Email Previews](/docs/email-preview).
+You can change the subject lines of **Invoice Sent** and **Invoice Reminder** under **Settings → Customer emails**. See [Email Previews](/docs/email-preview).
 
 **To you** (switch these on or off in **Settings → Invoices**):
 
@@ -470,7 +471,7 @@ Click **Refresh statuses** to check QuickBooks for payments right away. If **Sen
 
 You can also send a QuickBooks invoice from the **Invoices** page:
 
-- Click the arrow next to **New invoice** and choose **Issue via QuickBooks**. If QuickBooks Invoicing is your only invoicing feature, **New invoice** opens the QuickBooks dialog directly.
+- Click the arrow next to **Add invoice** and choose **Issue via QuickBooks**. If QuickBooks Invoicing is your only invoicing feature, **Add invoice** opens the QuickBooks dialog (titled **New invoice**) directly.
 - Or open the command palette and choose **New QuickBooks invoice**.
 
 ![The New invoice split button with its menu open, showing Issue via QuickBooks](/images/invoices/qbo-issue-menu.png)

@@ -15,6 +15,7 @@ Your Setup Guide is tailored to your kind of business, so your list may be short
 - [ ] **Add your contact info**, **publish your policies** (at least Terms of Service and Returns & Refunds), and **make the storefront yours** with a logo and your own words and photos. See [Policies](#3-publish-your-policies).
 - [ ] **Make sure Maintenance Mode is off.** See [Maintenance Mode](#4-turn-maintenance-mode-off), or [Maintenance Mode & Coming Soon](/docs/maintenance-mode) for every option.
 - [ ] **Place a test order** and walk through it as a customer would. See [Test order](#5-place-a-test-order).
+- [ ] **Bring your old links with you**, if you're moving from another site. See [Old links](#6-bring-your-old-links-with-you).
 
 <video src="/videos/launch-checklist/welcome-tour.webm" poster="/images/launch-checklist/welcome.png" controls muted playsInline className="rounded-lg border" />
 
@@ -30,11 +31,11 @@ The Setup Guide is your store's to-do list for getting started. It opens on its 
 
 *The Setup Guide. Steps that still need doing have a button to do them right there.*
 
-At the top, **Setup Progress** shows how many steps are done (for example, "3 of 7 steps completed") with a progress bar. Each step is marked **Required** or **Optional**. Steps for features your store doesn't use don't appear.
+At the top, **Setup progress** shows how many steps are done (for example, "3 of 7 steps completed") with a progress bar. Each step is marked **Required** or **Optional**. Steps for features your store doesn't use don't appear.
 
 The SimplePress team picks your store's kind of business when we set it up: **Sells products**, **Services**, **Informational**, or **Donations / nonprofit**. That choice decides which steps you see. The table in [Getting started](/docs/getting-started#your-setup-guide) shows the usual setup for each kind. We can change the list for your store if you ask.
 
-**Photo:** The Setup Guide with a Required step and an Optional step side by side, and the Mark as done button on the sales tax step.
+![Setup Guide steps with Required badges on Connect Payment Processing and Add Your First Product, and an Optional badge on Customize Your Storefront](/images/launch-checklist/setup-guide-steps.png)
 
 ### The steps
 
@@ -43,24 +44,24 @@ The SimplePress team picks your store's kind of business when we set it up: **Se
 | **Store created** | Your store exists. | Always done. |
 | **Connect a custom domain** | Puts your store on your own web address. You can add your domain right on this step. | As soon as you add a domain. It still has to pass the DNS check before customers can use it (see [below](#1-connect-your-custom-domain)). |
 | **Connect payment processing** | Lets customers pay by card. Click **Connect with Stripe** to sign in to Stripe and link your account. | As soon as your Stripe account is connected. |
-| **Add your first product** | Gives customers something to buy. Click **Add Product**. | When your store has at least one product. |
-| **Set up sales tax** | Makes sure checkout charges the right tax. Opens the [Tax Guide](/docs/finances#the-tax-guide). | When automatic sales tax is turned on (**Settings → Integrations**, see [Tax](/docs/tax)), **or** when you review your tax setup and click **Mark as done**. |
+| **Add your first product** | Gives customers something to buy. Click **Add product**. If you already have products but all of them are drafts, the step reads **Publish your first product**, says "You have N drafts. Publish one so customers can see it.", and the button becomes **Go to products**. | When at least one product is **published**. A draft doesn't count. |
+| **Set up sales tax** | Makes sure checkout charges the right tax. Opens the [Tax Guide](/docs/finances#the-tax-guide). | When automatic sales tax is turned on (**Settings → Payments**, see [Tax](/docs/tax)), **or** when you review your tax setup and click **Mark as done**. |
 | **Set up shipping or pickup** | Tells customers how they'll get their order. See [Shipping](/docs/shipping). | When you change shipping from the default free shipping, or turn on in-store pickup or local delivery, **or** when you click **Mark as done**. |
-| **Add your first service** | Lists what you offer. See [Services](/docs/services). | When your store has at least one service. |
-| **Set up donations** | Lets people give. See [Donations](/docs/donations). | When Stripe is connected, or you've saved a Venmo or Cash App handle. |
+| **Add your first service** | Lists what you offer. See [Services](/docs/services). If you only have drafts, it reads **Publish your first service**, with the same "You have N drafts" note and a **Go to services** button. | When at least one service is **published**. A draft doesn't count. |
+| **Set up donations** | Lets people give. See [Donations](/docs/donations). | When Stripe is connected, or you've saved a Venmo or Cash App under **Settings → Payments → Other ways to pay**. |
 | **Add your contact info** | Lets customers reach you. Add it in **Settings → General**. | When you've saved a phone number, a support email, or a street address. If you plan to send marketing emails or abandoned checkout reminders, add your full mailing address too (street, city, and state or ZIP). Both kinds of email need it and won't send without it. |
 | **Publish your store policies** | Gives customers your terms and returns rules. See [Policies](#3-publish-your-policies). | When both your **Terms of Service** and **Returns & Refunds** policies are published and have content. |
-| **Customize your storefront** | Makes the site look like your business. Use **Brand Identity** to upload your logo, or **Site Editor** to change your homepage's words and photos. | When you've uploaded a logo **or** saved any change in the Site Editor. |
+| **Customize your storefront** | Makes the site look like your business. Use **Brand identity** to upload your logo, or **Site Editor** to change your homepage's words and photos. | When you've uploaded a logo **or** saved any change in the Site Editor. |
 
 You won't see every row. Your Setup Guide only lists the steps that apply to your kind of business.
 
 On the right side of the page you'll also find:
 
-- **Preview Your Store**, with a **View Storefront** button that opens your site the way customers see it.
-- **Quick Actions**: shortcuts to **Add Product**, **Store Settings**, and **Edit Content**.
-- **Need Help?**, with links to this **Documentation** and to **Contact Support**.
+- **Preview your store**, with a **View storefront** button that opens your site the way customers see it.
+- **Quick actions**: shortcuts to **Add product**, **Store settings**, and **Edit content**.
+- **Need Help?**, with links to this **Documentation** and to **Contact support**.
 
-When every step is done, a **Setup Complete** badge appears at the top of the page.
+When every step is done, a **Setup complete** badge appears at the top of the page.
 
 ### When the Setup Guide opens
 
@@ -96,7 +97,7 @@ The Setup Guide covers the basics. Before you announce your store, go through th
 Your store starts out on a free SimplePress address (something like `yourstore.simplepress.co`). That's perfect while you're building and testing, but **you need your own domain connected before you start selling.** It's what customers will remember, and it's what your receipts, links, and search listings should point to.
 
 1. Go to **Settings → Domain** (or use the domain step on the Setup Guide).
-2. Type your domain without `https://` or `www`, for example `myshop.com`, and click **Add Custom Domain** (on the Setup Guide, the button is called **Add Domain**).
+2. Type your domain without `https://` or `www`, for example `myshop.com`, and click **Add custom domain** (on the Setup Guide, the button is called **Add domain**).
 3. Sign in to the company you bought your domain from (Namecheap, GoDaddy, Squarespace Domains, and so on) and add the **two A records** shown in your admin: one with the name `@` and one with the name `www`, both pointing to the address shown. On the Setup Guide, each value has a copy button.
 4. Come back and click **Verify DNS**.
 
@@ -116,15 +117,15 @@ Your free SimplePress address keeps working even after your domain is live: anyo
 
 Stripe is how card payments reach your bank account. Without it, customers can browse and add to their cart, but when they go to check out they see a "checkout unavailable" message instead of a way to pay.
 
-1. Go to **Settings → Integrations**.
-2. In the **Stripe Connect** card, click **Connect with Stripe** and follow Stripe's steps.
+1. Go to **Settings → Payments**.
+2. In the **Stripe** card, click **Connect with Stripe** and follow Stripe's steps.
 3. When you come back, the card shows **Connected**.
 
 If the card ever shows **Charges paused**, Stripe needs more information from you. Sign in to your Stripe Dashboard to see what it's asking for.
 
-![Settings → Integrations, showing the Stripe Connect card](/images/launch-checklist/stripe.png)
+![Settings → Payments, showing the Stripe Connect card](/images/launch-checklist/stripe.png)
 
-*The Stripe Connect card shows Connected once your account is linked.*
+*The Stripe card shows Connected once your account is linked.*
 
 New to Stripe? [Stripe Setup](/docs/stripe) walks you through getting your account ready, including adding your bank account.
 
@@ -134,7 +135,7 @@ Customers expect to find your terms, returns, privacy, and shipping rules, and t
 
 1. Go to **Site Setup → Policies**.
 2. There's a tab for each policy: **Privacy**, **Terms**, **Refunds**, and **Shipping**.
-3. On each tab, click **Use Template** to load a starter version (**Privacy Policy**, **Terms of Service**, **Returns & Refunds**, or **Shipping Policy**). It fills in what SimplePress already knows from your settings, like your store name and contact details.
+3. On each tab, click **Use template** to load a starter version (**Privacy Policy**, **Terms of Service**, **Returns & Refunds**, or **Shipping Policy**). It fills in what SimplePress already knows from your settings, like your store name and contact details.
 4. Read it through and fill in anything that still needs your input. The starters are a helpful beginning, not legal advice.
 5. Click **Save content**. Saved policies go live right away, as long as **Show on your site** is on.
 
@@ -152,7 +153,7 @@ Maintenance Mode hides your whole storefront behind a single page while you work
 
 When it's on, every storefront page (home, shop, products, cart, and checkout) is replaced by either an **Under maintenance** or a **Coming soon** page, and nobody can place an order. Search engines are also told to skip your site while it's on. You (and any Managers on your team) can still preview the real site while signed in, so it's easy to forget it's on.
 
-1. Go to **Settings → Maintenance Mode**.
+1. Go to **Settings → Maintenance mode**.
 2. Make sure **Enable maintenance mode for my storefront** is switched off.
 3. Click **Save changes**.
 
@@ -177,6 +178,17 @@ If your store is connected to a real Stripe account, this is a real charge. Use 
 
 [For Your Customers](/docs/for-your-customers) shows each step a shopper goes through, and [Orders](/docs/orders) covers fulfilling and refunding.
 
+### 6. Bring your old links with you
+
+If you're moving from Wix, Squarespace, WordPress or another site, your old pages probably had different web addresses. Anyone who clicks an old link, including people coming from Google, would see "page not found" unless you redirect it.
+
+1. Go to **Marketing → Get Found Online → Redirects**.
+2. Click **Import list** and paste a two-column list: old address, then the page on your new store it should lead to. Or click **Add redirect** for a few.
+3. Check the preview, then add them.
+4. Open a few old links in a private window to make sure they land on the right page.
+
+This works once your domain is pointing at SimplePress (step 1). If your old links were on a different domain, see [Old links on a different domain](/docs/redirects#old-links-on-a-different-domain). If your store is new and nothing was shared before, skip this step. Full details are in [Redirects](/docs/redirects).
+
 ---
 
 ## Related Pages
@@ -186,6 +198,11 @@ If your store is connected to a real Stripe account, this is a real charge. Use 
 		title="Getting started"
 		description="What to have ready, and how setting up your store works."
 		href="/docs/getting-started"
+	/>
+	<Card
+		title="Redirects"
+		description="Send old web addresses to the right pages."
+		href="/docs/redirects"
 	/>
 	<Card
 		title="Custom Domain"

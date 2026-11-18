@@ -17,7 +17,7 @@ Owners and Managers can manage the blog. Staff can't open it.
 
 ## The Blog Posts List
 
-In the admin sidebar, go to **Content → Blog**. The page is titled **Blog Posts**, and each row shows the post's cover image, title, excerpt, and `/slug`, plus its **Published** date and **Status**.
+In the admin sidebar, go to **Website → Blog**. The page is titled **Blog posts**, and each row shows the post's cover image, title, excerpt, and `/slug`, plus its **Published** date and **Status**.
 
 ![The Blog Posts list with search, Filters, and a Published date column](/images/blog/blog-list.png)
 
@@ -44,25 +44,25 @@ Deleting asks you to confirm and is permanent.
 
 ## Creating a Blog Post
 
-Click **Create Blog Post**. The editor has a toolbar across the top and two tabs: **Content** and **SEO**.
+Click **Add blog post**. The editor has a toolbar across the top and two tabs: **Content** and **SEO**.
 
 The toolbar has:
 
-- A status label: **Unsaved Changes** or **Saved**
-- The **Published** switch. **New posts start Published**, so switch it off before you save if you're not ready, or if you want to schedule it.
+- A status label: **Unsaved changes** or **Saved**
+- The **Published** switch. New posts start as a **Draft** (the switch is off), so switch it on when you're ready to publish. Leave it off if you want to schedule the post.
 - A **More Options** menu: **View on storefront** (published posts only), **Reset** (throws away unsaved changes), and **Delete** (saved posts only)
 - **Save & create another** (new posts only)
 - **Save changes**
 
 ### Content Tab
 
-The **Post Content** card has:
+The **Post content** card has:
 
-- **What is the post title?** _(required)_: the headline on the listing and post pages.
+- **Title** _(required)_: the headline on the listing and post pages.
 - **Publish date**: the date used to order your posts. "Leave blank to use the date the post was created."
 - **Schedule publish**: a date and time. Only appears while **Published** is off (see [Scheduling a Post](#scheduling-a-post)).
-- **Provide a short description of the post**: the excerpt. Shown on listing cards and used as the fallback meta description.
-- **Upload an image that represents this post**: the post's cover image, shown on the listing card and at the top of the post. Choose **Upload from device**, or **Choose from library** if the [Media Library](/docs/media-library) is turned on.
+- **Short description**: the excerpt. Shown on listing cards and used as the fallback meta description.
+- **Cover image**: the post's cover image, shown on the listing card and at the top of the post. Choose **Upload from device**, or **Choose from library** if the [Media Library](/docs/media-library) is turned on.
 - **Write out your post content**: the full post in the [text editor](/docs/text-editor).
 
 Under the title you'll see the post's **Storefront URL** with an **Edit in SEO** link. The slug itself is on the SEO tab.
@@ -79,12 +79,12 @@ Blog posts don't have a **Page width** setting. That's only for custom pages (se
 
 ### SEO Tab
 
-- **Meta Tags**:
-  - **URL Slug** _(required)_: the post's address, `yourstore.com/blog/[slug]`.
-  - **Meta Title**: shown in browser tabs and search results. Falls back to the post title.
-  - **Meta Description**: the search snippet. Falls back to the excerpt.
-- **Open Graph Image**: the picture used when the post is shared on social media.
-- **Search Result Preview** and **Social Media Preview**: how the post may look in Google and when shared.
+- **Meta tags**:
+  - **URL slug** _(required)_: the post's address, `yourstore.com/blog/[slug]`.
+  - **Meta title**: shown in browser tabs and search results. Falls back to the post title.
+  - **Meta description**: the search snippet. Falls back to the excerpt.
+- **Open Graph image**: the picture used when the post is shared on social media.
+- **Search result preview** and **Social media preview**: how the post may look in Google and when shared.
 
 ![The post editor SEO tab with URL Slug, Meta Title, Meta Description, Open Graph Image and the two preview cards](/images/blog/post-seo-tab.png)
 
@@ -93,10 +93,10 @@ Blog posts don't have a **Page width** setting. That's only for custom pages (se
 - **Before the post is published or scheduled**, the slug follows the title as you type.
 - **Once it's been published**, changing the title doesn't change the URL. The Content tab shows "Title changed — the URL hasn't." with an **Update URL** button.
 - **Setting a schedule locks the slug**, because the post will go live on its own without you reopening the editor. The form says "the URL is locked from here on, so it won't follow further title edits."
-- If you change the slug of a saved post, the SEO tab warns "Heads up — this will change the post's URL."
+- If you change the slug of a saved post, the SEO tab shows a checkbox, **Send the old link to the new one**, with the old and new address. It's on by default for a published post and off for a draft.
 
-<Callout type="warn" title="Changing a URL breaks old links">
-  SimplePress does **not** create a redirect. Anyone with the old link will land on a "not found" page, and navigation menu items won't follow the rename. Update them under **Site Setup → Navigation**.
+<Callout type="info" title="Changing a URL is safe, but update your menu">
+  When you change a saved post's URL and leave **Send the old link to the new one** ticked, bookmarks and search results keep working. You can see and edit the redirect under **Get Found Online → Redirects**. See [Redirects](/docs/redirects). Navigation menu items don't follow the rename, so update them under **Site Setup → Header & footer**.
 </Callout>
 
 Slugs must be unique across your **blog posts, pages, and policies**.
@@ -120,7 +120,7 @@ The post shows as **Scheduled** in the list (use the **Scheduled** status filter
 
 Two things to know about the timing:
 
-- **The time you pick is in the time zone of the computer or phone you're scheduling from.** It is not the **Time Zone** in your [General Settings](/docs/general-settings#time-zone). The note under the field ("Scheduled for ...") shows the time in your device's time zone.
+- **The time you pick is in the time zone of the computer or phone you're scheduling from.** It is not the **Time zone** in your [General Settings](/docs/general-settings#time-zone). The note under the field ("Scheduled for ...") shows the time in your device's time zone.
 - **It can go live up to about 15 minutes late.** SimplePress checks for scheduled posts about every 15 minutes, so a post set for 9:00 AM appears at the first check after 9:00.
 
 ### Publish date and ordering
@@ -154,7 +154,7 @@ The design adapts to your active [template](/docs/templates). On the **Default**
 
 - Create, edit, publish, unpublish, schedule, and delete posts
 - Backdate or change a post's Publish date
-- Change a post's URL slug (there's no redirect)
+- Change a post's URL slug (you choose whether the old address redirects)
 - Set SEO details per post
 - Insert galleries and other elements into post content
 - Edit post text in the Site Editor

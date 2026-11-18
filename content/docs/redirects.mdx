@@ -1,0 +1,222 @@
+---
+title: Redirects
+description: Send visitors from an old web address to the right page on your site. Add them one at a time, import a list from a spreadsheet, and see the ones you choose to keep when you change a link.
+---
+
+## Overview
+
+A redirect sends anyone who opens an old web address to a new one. Visitors don't see an error, and Google learns that the page moved, so the new page can keep what the old one earned in search.
+
+You need redirects when:
+
+- You moved to SimplePress from Wix, Squarespace, WordPress or another site, and your old pages had different addresses.
+- You changed a page's, product's, collection's or blog post's address.
+- You want an old link (from a flyer, a post or another website) to land on a specific page.
+
+<Callout type="info" title="Owners and Managers only">
+  Redirects is part of Get Found Online, which only Owners and Managers can open. Staff members can't. See [Team and Roles](/docs/team-and-roles).
+</Callout>
+
+<Callout type="info" title="Always on">
+  Redirects has no feature switch. It is available on every store.
+</Callout>
+
+---
+
+## Where to Find It
+
+Go to **Marketing → Get Found Online** and click the **Redirects** tab. Redirects used to be a card in Site Setup. The list shows every redirect on your store, whether you added it, imported it, or SimplePress created it for you. Use the search box to find one by either address.
+
+Each row shows:
+
+- **Old address**: the link people still use.
+- **Goes to**: where visitors end up.
+- **Type**: **Automatic** for redirects you kept when you changed a link, or **Imported** for ones that came from a list or a store transfer. Ones you typed in have no badge.
+- A warning if the new address points at a page that doesn't exist.
+
+![The Redirects screen in Get Found Online with the Overview, SEO & Meta and Redirects tabs, the Import list and Add redirect buttons, and three redirects: /about-us going to /contact and /spring-sale-2025 going to /spring-sale, both marked Imported, with "This page doesn't exist" under /spring-sale, and /old-shop going to /shop with no badge because it was added by hand](/images/redirects/redirects-list.png)
+
+*Two imported redirects and one added by hand. The warning under /spring-sale means that page doesn't exist yet.*
+
+---
+
+## Adding a Redirect
+
+1. Click **Add redirect**.
+2. In **Old address**, paste the old link. You can paste the whole link (`https://oldsite.com/about-us`) or just the part after the domain (`/about-us`).
+3. In **New address**, type a page on your site (`/about`) or a full link to another site (`https://example.com/page`).
+4. Click **Add redirect** at the bottom of the box.
+
+![The Add redirect box with https://oldsite.com/about-us as the Old address, /about as the New address, and the Matches and Sends visitors to lines below each one](/images/redirects/add-redirect.png)
+
+The box checks your entries as you type and tells you if something won't work.
+
+### How the Old Address Is Matched
+
+SimplePress ignores some differences, so one redirect covers all of these:
+
+- Capital letters. `/About-Us` and `/about-us` are the same.
+- A slash on the end. `/about-us/` and `/about-us` are the same.
+- Anything after a `?` or a `#`. `/about-us?ref=news` is matched as `/about-us`.
+
+If a visitor's link has a `?` part (for example `?utm_source=email`) and your new address doesn't, the visitor's `?` part is carried over to the new page. If your new address already has its own, yours is used.
+
+### What You Can't Redirect
+
+- **Your home page (`/`).** It is always a live page.
+- **An address that is already a live page on your site.** You'll see "already a live page: the redirect would never be used." Redirects only run when an address would otherwise show "page not found". To redirect a live page, change or unpublish that page first.
+- **System addresses**, such as your admin, sign-in, account and checkout pages.
+
+If your new address points at a page that doesn't exist (for example you typed the slug wrong, or the page is still a draft), the redirect still saves, and its row shows a warning so you can fix it.
+
+---
+
+## Importing a List
+
+If you have more than a few, import them all at once.
+
+1. Make a two-column list in a spreadsheet: the old address in the first column, the new address in the second. A header row is fine, and so is leaving it out.
+2. Click **Import list**.
+3. Paste the rows into the box, or upload a CSV file.
+4. Click **Preview**. Nothing is saved yet. Each row lands in one of four groups:
+   - **Ready**: will be added.
+   - **Already there**: you already have this exact redirect.
+   - **Conflicts**: you already have a redirect for that old address that goes somewhere else. Switch on **Replace redirects that already exist** to overwrite it, or leave it to keep what you have.
+   - **Can't use**: the row has a problem, such as a live page, a loop, or a link that isn't an address. The preview says why.
+5. When the preview looks right, click **Add N redirects**.
+
+![The Import redirects box with three rows pasted into Your list, the Replace redirects that already exist switch, and a preview showing 3 ready with an Add 3 redirects button](/images/redirects/import-preview.png)
+
+Limits: up to 2,000 rows in one import, and up to 5,000 redirects on your store.
+
+### Chains and Loops
+
+SimplePress tidies up lists that point at each other. If one row sends `/a` to `/b` and another sends `/b` to `/c`, the first one is changed to go straight to `/c`, so visitors make one hop instead of two. A list that sends a page in a circle (`/a` to `/b` to `/a`) is refused.
+
+---
+
+## Automatic Redirects
+
+When you change the web address (URL slug) of a **product**, **collection**, **page**, **blog post** or **service** that is already saved, SimplePress asks whether to send the old link to the new one. A checkbox, **Send the old link to the new one**, appears under the URL Slug field with the old and new address. It's on by default for something that's published, so old links, bookmarks and search results keep working. It's off for a draft, because nobody can have the link yet. Tick or untick it, then save. The redirects you keep show up in the list with an **Automatic** badge.
+
+A misspelled address on a brand-new item is the usual reason to untick it: there's nothing to send anyone away from.
+
+If you change the address again later, the earlier redirects are updated to point at the newest address, so visitors still arrive in one hop. That happens whether or not you tick the box for the new change.
+
+You can **edit** an automatic redirect. Once you do, it becomes a regular redirect that you manage yourself. You can also **delete** one. Deleting it means the old link shows "page not found" again.
+
+<Callout type="info" title="Events">
+  An event keeps the address it got when you first saved it, so there is nothing to redirect. If you need an old link to land somewhere else, add the redirect yourself here.
+</Callout>
+
+Menu items store an address, not the page, so a redirect doesn't change them. After changing an address, update your menu under **Site Setup → Header & footer**. See [Header & Footer](/docs/navigation).
+
+---
+
+## Moving From Another Site
+
+If your old site's addresses are different from the ones on SimplePress, this is the step that keeps your search ranking and old links alive.
+
+1. Make a list of your old page addresses. Your old site's sitemap, or your Google Search Console report of pages that get visits, are good places to start.
+2. Next to each one, write the page on your new site it should lead to.
+3. Import the list as described above.
+4. Open a few of the old links in a private window to check they land where you expect.
+
+Redirects only work for addresses that reach SimplePress. That means your SimplePress address and your connected [custom domain](/docs/domain). If you're keeping the same domain (for example `myshop.com` moves from Wix to SimplePress), you're set once the domain is pointing here.
+
+### Old Links on a Different Domain
+
+If your old links were on a different domain, for example a second domain you used before, that domain has to reach SimplePress first. There are two ways:
+
+- **Forward the domain at your registrar.** Most registrars (Namecheap, GoDaddy and others) have "domain forwarding". Point it at your SimplePress domain and choose the option that **keeps the path**, so `old.com/about-us` goes to `yourstore.com/about-us`.
+- **Ask us.** Email [help@generativejustice.org](mailto:help@generativejustice.org) and we can point the old domain at our servers.
+
+Then add the page-by-page redirects here, using the paths from the old site.
+
+<Callout type="warn" title="Leave email records alone">
+  If you get email at the old domain, don't touch its MX or TXT records when you set up forwarding. Those keep your email working.
+</Callout>
+
+---
+
+## Good to Know
+
+- **They're permanent.** Redirects tell Google the page moved for good (a 301/308 redirect). Search engines pass the old page's standing to the new one. That's what you want for a move or a rename. It's not the right tool for something temporary.
+- **Links with a slash on the end take two quick hops.** A visitor who opens `/old-page/` is first sent to `/old-page` and then to your redirect. Google handles this fine.
+- **Links like `/?p=123` can't be redirected.** They point at your home page, which is always live. This is common with old WordPress links. The best you can do is make sure the home page is a good place to land.
+- **A redirect only runs when the old address would show "page not found".** If you later create a page at that address, the page wins.
+
+---
+
+## Store Transfer and Leaving
+
+- Redirects travel with a [store transfer](/docs/data-and-export), so a copy of your store keeps them.
+- [Download Your Site](/docs/data-and-export) includes a **redirects.csv** spreadsheet in **Spreadsheets/**. If you move to another host, give it to them. They can set up the same redirects there.
+
+---
+
+## What You Can and Can't Do
+
+**You can:**
+
+- Add, edit and delete redirects, one at a time or by importing a list
+- Paste a full old link or just the part after the domain
+- Redirect to another page on your site or to a different website
+- Edit or delete the automatic ones
+- Search the list and spot redirects that point at missing pages
+
+**You cannot:**
+
+- Redirect your home page, or an address that is already a live page
+- Redirect admin, sign-in, account or checkout addresses
+- Use wildcards or "redirect everything under /blog" rules. Each old address needs its own row
+- Add more than 5,000 redirects, or import more than 2,000 rows at once
+- Redirect old links on another domain until that domain reaches SimplePress
+- Redirect links like `/?p=123` that point at your home page
+- Open Redirects as a Staff member
+
+---
+
+## Frequently Asked Questions
+
+**Do I need a redirect when I rename a product or page?**
+Not by hand. When you change the address of a product, collection, page, blog post or service, the editor asks whether to send the old link to the new one, and ticks the box for you if it's published. Events keep their address, so they don't need one.
+
+**Why won't it let me redirect an address?**
+Usually because that address is a live page on your site. Redirects only apply where visitors would otherwise see "page not found". Unpublish or rename the live page first, then add the redirect.
+
+**Will redirects keep my Google ranking?**
+They tell Google the page moved, which is the best you can do. Rankings can still dip for a few weeks after a move while Google catches up.
+
+**I imported a list and some rows were skipped.**
+Check the preview groups. **Already there** means you had it. **Conflicts** means that old address already goes somewhere else. **Can't use** includes the reason for each row.
+
+**Do I have to delete a redirect if I don't need it any more?**
+No, but you can. An unused redirect does no harm.
+
+---
+
+## Related Pages
+
+<Cards>
+	<Card
+		title="SEO"
+		description="Web addresses, titles, descriptions and search readiness."
+		href="/docs/seo"
+	/>
+	<Card
+		title="Custom Domain"
+		description="Connect your own domain so old links can reach your store."
+		href="/docs/domain"
+	/>
+	<Card
+		title="Download Your Site"
+		description="Get a full copy of your store, including your redirects."
+		href="/docs/data-and-export"
+	/>
+	<Card
+		title="Launch Checklist"
+		description="Everything to check before you go live."
+		href="/docs/launch-checklist"
+	/>
+</Cards>

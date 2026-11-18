@@ -27,7 +27,7 @@ Maple Street Bakery - Site Export - 2026-10-09.zip
 
 ## Downloading Your Site
 
-1. Go to **Settings → Data & Export** in the admin sidebar.
+1. Go to **Settings → Data & export** in the admin sidebar.
 2. Click **Download your site**.
 3. Wait while the file is prepared. The page says "Preparing your download", and stores with many photos can take a minute or two. There's no progress bar. **Keep the page open** until the file saves.
 4. When you see "Your download is ready.", find the ZIP in your Downloads folder. Unzip it. Your browser may unzip it for you.
@@ -51,7 +51,7 @@ Start with **START HERE.html** once the ZIP is unzipped. It opens in any web bro
 | **Photos/** | Every photo and video you uploaded, and your PDFs (filed the same way), in folders by where they're used: Branding, Products (one folder per product), Collections, Galleries, Blog, Pages, Services, Events, Testimonials, Product reviews, Videos, and Site sections. Photos that couldn't be downloaded don't stop the export. They're listed in **START HERE.html**. People's profile photos are not included. |
 | **Photos/Media Library/** | Files you uploaded but aren't used anywhere on your site. |
 | **Photos/Template & stock images/** | Images shown on your site that you didn't upload. Check the rights before you reuse them. |
-| **Spreadsheets/** | CSV files for products, collections, customers, addresses, orders, order items, discounts, reviews, testimonials, FAQs, invoices (with line items and payments), quotes, form entries, rewards members and points history, subscriptions, donations, inventory, email subscribers, [services](/docs/services) (with their offerings), events, and shipping rates. Open them in Excel, Numbers, or Google Sheets. The **email subscribers** sheet lists customers who opted in to marketing emails, with where each person opted in (checkout, a newsletter form, their account and so on) and the date. It leaves out anyone suppressed after a bounce or spam report, and it appears only if you have opted-in subscribers. See [Email Marketing](/docs/email-marketing#exporting-the-list). In **customers.csv**, the **Accepts marketing emails** column is the plain yes or no a customer chose, so a suppressed customer can still say Yes there. A customer's consent history (their **Recent activity**) isn't in any export. **products.csv** has an **Option groups** column that lists each product's [product options](/docs/product-options), like "Charms; Engraving", and **order-items.csv** has an **Options** column with what the customer chose, like "Charms: Star, Moon; Engraving: “AB”". (The **Options** column in products.csv is the product's variant options, such as Size.) **reviews.csv** has **Owner reply** and **Reply date** columns for any reviews you've replied to, and **orders.csv** shows **Local delivery** as the delivery method on local delivery orders. A spreadsheet only appears if you have something in it. The exceptions are **products**, **customers** and **orders**, which are always there, even if they only have a header row. |
+| **Spreadsheets/** | CSV files for products, collections, customers, addresses, orders, order items, discounts, reviews, testimonials, FAQs, invoices (with line items and payments), quotes, form entries, rewards members and points history, subscriptions, donations, inventory, email subscribers, [services](/docs/services) (with their offerings), events, and shipping rates, and [redirects](/docs/redirects) (**redirects.csv**, your old-address-to-new-page list; give it to your next host so they can set up the same redirects). Open them in Excel, Numbers, or Google Sheets. The **email subscribers** sheet lists customers who opted in to marketing emails, with where each person opted in (checkout, a newsletter form, their account and so on) and the date. It leaves out anyone suppressed after a bounce or spam report, and it appears only if you have opted-in subscribers. See [Email Marketing](/docs/email-marketing#exporting-the-list). In **customers.csv**, the **Accepts marketing emails** column is the plain yes or no a customer chose, so a suppressed customer can still say Yes there. A customer's consent history (their **Recent activity**) isn't in any export. **products.csv** has an **Option groups** column that lists each product's [product options](/docs/product-options), like "Charms; Engraving", and **order-items.csv** has an **Options** column with what the customer chose, like "Charms: Star, Moon; Engraving: “AB”". (The **Options** column in products.csv is the product's variant options, such as Size.) **reviews.csv** has **Owner reply** and **Reply date** columns for any reviews you've replied to, and **orders.csv** shows **Local delivery** as the delivery method on local delivery orders. A spreadsheet only appears if you have something in it. The exceptions are **products**, **customers** and **orders**, which are always there, even if they only have a header row. |
 | **Import files/** | Ready-to-import product files for Shopify, Wix, Squarespace, Square, and WordPress/WooCommerce. Also includes a WordPress file with your pages and blog posts. If you have no products, the product files are left out. |
 | **For developers/** | Raw data files for a developer or designer who wants the full data. |
 | **Licenses/** | Who owns what. Your content belongs to you. SimplePress, including its templates, is open source under the AGPL-3.0 license. |
@@ -159,6 +159,9 @@ No. Payments are processed through your own Stripe account, so the download does
 **What about my domain?**
 The download doesn't change or transfer your domain name. Read the **Keeping your domain name** guide in the **Guides/** folder before you change where your domain points.
 
+**Do my redirects come with me?**
+Yes. They're in **Spreadsheets/redirects.csv**, as a list of old address and new address. A new host can use it to set up the same redirects, so old links to your site keep working after you move. It's there only if you have redirects. See [Redirects](/docs/redirects).
+
 **Why does the download take a minute?**
 Stores with many photos take longer because every photo, video, and PDF is included. Keep the page open until the download starts.
 
@@ -172,6 +175,7 @@ Stores with many photos take longer because every photo, video, and PDF is inclu
 | Download as often as you like, for free | Yes |
 | Keep selling while you download | Yes |
 | Let a Manager or Staff member download it | No. It includes customer records |
+| Include your redirects (**redirects.csv**) | Yes, if you have any |
 | Pick which parts to include | No. You get everything |
 | Export only your products | Yes, from the Products page (Owners only, with **Products CSV export** on) |
 | Import products yourself | No. The SimplePress team does product imports |

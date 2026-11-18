@@ -23,11 +23,11 @@ Events is for *telling people when and where to find you*. It does not sell tick
 
 ## Where to Find It
 
-In your admin sidebar, go to **Content → Events**. The page is titled **Events**, with the line "Manage the markets, pop-ups, and dates shown on your site".
+In your admin sidebar, go to **Website → Events**. The page is titled **Events**, with the line "Manage the markets, pop-ups, and dates shown on your site".
 
 You can also use the admin's search and type **Add event** to jump straight to a blank form.
 
-If you haven't added anything yet, you'll see **No events yet** ("Add a market, pop-up, or workshop date so shoppers can see when to find you.") with an **Add Your First Event** button.
+If you haven't added anything yet, you'll see **No events yet** ("Add a market, pop-up, or workshop date so shoppers can see when to find you.") with an **Add event** button.
 
 ![The Events page in your admin before any events exist, with the No events yet message and the Add Your First Event button](/images/events/events-empty.png)
 
@@ -79,20 +79,20 @@ Publish, Unpublish, Archive, and Unarchive work on up to 100 events at a time, a
 
 ## Adding an Event
 
-1. Go to **Content → Events** and click **Add Event**.
-2. Fill in **Basic Information**, **When**, and **Details** (described below).
-3. Make sure the **Published** switch at the top is how you want it. **New events start Published**, so switch it off first if you're not ready to show it.
+1. Go to **Website → Events** and click **Add event**.
+2. On the **Details** tab, fill in **Basic information**, **When**, and **Details** (described below). The form also has an **SEO** tab (see [The SEO tab](#the-seo-tab)).
+3. Make sure the **Published** switch at the top is how you want it. New events start as a **Draft**, so switch it on when you're ready to show the event.
 4. Click **Save changes**.
 
 After you save a new event, SimplePress opens it for editing so you can keep going. Click **Back** at the top left to return to the list.
 
-The top bar of the form shows the event name and a status label (**Draft** for a new event, **Unsaved Changes** while you're editing, **Saved** once it's saved). Next to the **Published** switch is a **More Options** menu:
+The top bar of the form shows the event name and a status label (**Draft** for a new event, **Unsaved changes** while you're editing, **Saved** once it's saved). Next to the **Published** switch is a **More Options** menu:
 
 - **View on storefront** opens the event's public page (or the Events page if the event isn't published yet).
 - **Reset** throws away your unsaved changes.
 - **Delete** (saved events only) removes the event after you confirm.
 
-![An event's form with the toolbar (Published switch, More Options menu, Save changes), the Basic Information card with a flier photo, and the Details card beside it](/images/events/event-form-top.png)
+![A new event form with the Details and SEO tabs, the Basic information card (Event name, Description, Flier or cover media), the Details card (Location, Link, Price), and the When card with Start and End](/images/events/event-form-top.png)
 
 ### Basic Information
 
@@ -111,7 +111,7 @@ The flier is uploaded when you click **Save changes**, so if you leave without s
 - **Start** *(required)*: the date and time the event starts.
 - **End**: optional ("Optional — leave blank for a single point in time"). If you fill it in, it must be on or after the start, or you'll see "End must be on or after the start."
 
-Under the date boxes, a note says **Times are shown to visitors in** your store's time zone, with a **Settings → General** link. The time you type is always understood as your store's own time, so it won't shift for visitors elsewhere. To change your time zone, go to [General Settings](/docs/general-settings) and edit **Time Zone**. You can't set a different time zone for one event.
+Under the date boxes, a note says **Times are shown to visitors in** your store's time zone, with a **Settings → General** link. The time you type is always understood as your store's own time, so it won't shift for visitors elsewhere. To change your time zone, go to [General Settings](/docs/general-settings) and edit **Time zone**. You can't set a different time zone for one event.
 
 ![The When card of the event form with the All day switch off, Start and End filled in, and the time-zone note with its Settings → General link](/images/events/event-form-bottom.png)
 
@@ -125,8 +125,20 @@ Under the date boxes, a note says **Times are shown to visitors in** your store'
 
 ### The Web Address of an Event
 
-Each event gets its own address, like `yourstore.com/events/summer-night-market`, made from the event name when you first save it. The address **doesn't change** if you rename the event later, so links you've already shared keep working.
+Each event gets its own address, like `yourstore.com/events/summer-night-market`, made from the event name when you first save it. The address **doesn't change** if you rename the event later, so links you've already shared keep working. There's no box for it, because it can't be edited.
 
+### The SEO tab
+
+The **SEO** tab controls how the event shows up in Google and when someone shares its link.
+
+![The SEO tab of an event, with the Meta tags card (Meta title and Meta description), the Open Graph image card, and the Search result preview and Social media preview cards](/images/events/event-seo-tab.png)
+
+- **Meta title** — the title in search results and browser tabs. Aim for 50 to 60 characters. Leave it blank to use the event name.
+- **Meta description** — the summary in search results. Aim for 150 to 160 characters; the field allows up to 200. Leave it blank to use the event description.
+- **Open Graph image** — the picture used when the event is shared. Leave it empty to use the event's cover photo.
+- **Search result preview** and **Social media preview** show roughly how the event will look in Google and when it's shared.
+
+An event's web address isn't shown here, because it never changes.
 ---
 
 ## Editing and Deleting
@@ -241,7 +253,7 @@ Two limits to know about:
 Once Events is on, you can link to it from your navigation.
 
 - On the **Default** template's starter menu (**Shop, About, Services, Events, Reviews, Donate, Contact**), **Events** is included automatically while Events is on and you haven't saved a menu of your own. Other templates have their own starter menus.
-- In **Site Setup → Navigation**, the **Quick Add** card has an **Events** button under **Common Pages**. It appears only when Events is on. Click it, then click **Save navigation**. See [Navigation](/docs/navigation).
+- In **Site Setup → Header & footer**, the **Quick add** card has an **Events** button under **Common pages**. It appears only when Events is on. Click it, then click **Save changes**. See [Header & Footer](/docs/navigation).
 - You can also type `/events` as the address of a custom menu link.
 
 If you switch Events off, links to `/events` are hidden from your header and footer automatically, so visitors never land on a "not found" page. The links come back when you switch it on again.
@@ -256,7 +268,7 @@ Search engines read your events as structured data, which can help them understa
 - Past events' own pages stay listed so old links keep working.
 - When someone shares an event link, the event name, description, and flier photo are used for the preview. A flier **video** isn't used as a preview picture, so add a photo if sharing matters for that event.
 
-You can't edit an event's search title or description separately. They're taken from the event name and description.
+You can change an event's search title, description and share picture on its **SEO** tab. If you leave them blank, they're taken from the event name, description and cover photo.
 
 ---
 
@@ -267,7 +279,7 @@ You can't edit an event's search title or description separately. They're taken 
 - **Use the QR code for in-person events.** Put your Events page on a screen or a tablet at your booth so passersby can scan it.
 - **Write the price note the way you'd say it.** "Free", "$10 at the door", or "Pay what you can". Remember it's only text and doesn't collect any money.
 - **Plan ahead with drafts.** Switch **Published** off while you're still working on the details, then publish when you're ready. Use **Publish** in the bulk bar to release a whole season at once.
-- **Check your time zone once.** Go to **Settings → General** and make sure **Time Zone** matches where your events are.
+- **Check your time zone once.** Go to **Settings → General** and make sure **Time zone** matches where your events are.
 
 ---
 
@@ -325,4 +337,4 @@ No. The web address is set when you first save the event and stays the same, so 
 Not directly. Put the link to your ticket seller, sign-up form, or Facebook event in the **Link** field. You can also sell tickets as a product if you have [Products](/docs/products) turned on, and link to that product.
 
 **Can I edit an event from the Site Editor?**
-No, only the page's wording. Use **Content → Events** to edit events themselves.
+No, only the page's wording. Use **Website → Events** to edit events themselves.

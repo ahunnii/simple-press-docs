@@ -1,11 +1,11 @@
 ---
 title: General Settings
-description: Set your business name, time zone, contact emails, phone number and address. These details show up on your storefront, in your emails and in search results.
+description: Set your business name, time zone, contact emails, phone number, address and opening hours. These details show up on your storefront, in your emails and in search results.
 ---
 
 ## Overview
 
-**General Settings** is where you keep the basic facts about your business: its name, your time zone, the email addresses customers and SimplePress use to reach you, your phone number and your address.
+**General** is where you keep the basic facts about your business: its name, your time zone, the email addresses customers and SimplePress use to reach you, your phone number, your address and your opening hours.
 
 The **Add your contact info** step on your [Setup Guide](/docs/launch-checklist#the-steps) ticks off once you've saved a phone number, a support email, or a street address here.
 
@@ -15,27 +15,19 @@ The page has three cards:
 
 | Card | What's in it |
 | ---- | ------------ |
-| **Business Information** | Business Name, Store Slug and Time Zone. |
-| **Contact Details** | Owner Email, Support Email and Phone Number. |
-| **Business address** | Street, city, state and ZIP, plus an optional map pin. |
+| **Business information** | Business Name and Time Zone. |
+| **Contact details** | Owner Email, Support Email and Phone Number. |
+| **Location & hours** | Street, city, state and ZIP, an optional map pin, and your opening hours. |
 
 ---
 
 ## Business Information
 
-![The Business Information card with Business Name, Store Slug and Time Zone](/images/general-settings/general-business-info.png)
+![The Business Information card with Business Name and Time Zone](/images/general-settings/general-business-info.png)
 
 ### Business Name
 
 The name of your business. It's required. It appears in your storefront header and footer, and in the emails your customers get from you, such as order confirmations, shipping notices and refunds. A change takes effect as soon as you save.
-
-### Store Slug
-
-Your slug is your store's internal ID. SimplePress sets it when your store is created, based on your business name, and it's **greyed out** here because it can't be changed.
-
-<Callout type="info" title="The slug is not your web address">
-  Your slug and your web address are separate things. Your address (your free subdomain, or your own domain once you connect one) is managed under **Settings → Domain**. The two can look alike, but changing one never changes the other. See [Custom Domain](/docs/domain).
-</Callout>
 
 ### Time Zone
 
@@ -50,7 +42,7 @@ SimplePress uses your time zone to show times the way you and your shoppers expe
 - Invoice due dates.
 - The launch date and time in [Maintenance Mode & Coming Soon](/docs/maintenance-mode).
 
-Your [Business Hours](/docs/business-hours) are the exception. They are shown exactly as you type them and are never converted to another time zone.
+Your [opening hours](/docs/business-hours) are the exception. They are shown exactly as you type them and are never converted to another time zone.
 
 ---
 
@@ -60,7 +52,7 @@ Your [Business Hours](/docs/business-hours) are the exception. They are shown ex
 
 ### Owner Email
 
-Your **Owner Email** is the business's main contact address. The help text calls it "not a public facing email", and it isn't printed in your storefront footer. But it isn't entirely private either, so use an address you're comfortable with customers occasionally seeing.
+Your **Owner email** is the business's main contact address. The help text calls it "not a public facing email", and it isn't printed in your storefront footer. But it isn't entirely private either, so use an address you're comfortable with customers occasionally seeing.
 
 - **Alerts come here.** Most store alerts go to your Owner Email, such as new orders, low stock and new quote requests. Disputes and "payments paused" alerts go to the Owner Email **and** to every Owner and Manager on your team. See [Emails You Receive](/docs/email-preview#emails-you-receive).
 - **Customers can reply to it.** The emails your customers get (order confirmations, shipping notices, refunds, "ready for pickup" and others) use your Owner Email as their **Reply-To** address. When a customer hits Reply, it lands here.
@@ -72,7 +64,7 @@ Your **Owner Email** is the business's main contact address. The help text calls
 
 ### Support Email
 
-Your **Support Email** is the public address customers use to reach you. It's required, so you can't save the page without one. It's shown on your storefront (the help text says so), and contact form messages are sent to it. See [Contact Form](/docs/contact-form).
+Your **Support email** is the public address customers use to reach you. It's required, so you can't save the page without one. It's shown on your storefront (the help text says so), and contact form messages are sent to it. See [Contact Form](/docs/contact-form).
 
 On the Default template, it appears in the footer as an envelope icon next to your social icons, and on your Contact page. Use a dedicated support address you check often.
 
@@ -86,27 +78,31 @@ Your public business phone number. It's optional. Where it shows depends on the 
 
 ---
 
-## Business address
+## Location & hours
 
-The **Business address** card holds your address in four boxes: **Street Address**, **City**, **State** and **ZIP**. They're split out so search engines can understand where you are. Your storefront shows the address as one line.
+The **Location & hours** card says "Where and when customers can find you." Your contact page, footer, pickup orders and search engines all use what you put here. It holds your address, an optional map pin, and your opening hours.
+
+### Business address
+
+Start with your address in four boxes: **Street address**, **City**, **State** and **ZIP**. They're split out so search engines can understand where you are. Your storefront shows the address as one line.
 
 Underneath, a line reads **Shown on your site as:** followed by how your address will look to visitors. Check it before you save.
 
-![The Business address card with the four address boxes, the Shown on your site as line, and the Map pin section](/images/general-settings/business-address.png)
+![The Location & hours card with the Street address, City, State and ZIP boxes, the Shown on your site as line, the Map pin section, and the Opening hours rows with the Add hours row button](/images/general-settings/location-and-hours.png)
 
-If your store was set up before the address was split into four boxes, your old one-line address is in the **Street Address** box. Move the city, state and ZIP into their own boxes when you get a chance.
+If your store was set up before the address was split into four boxes, your old one-line address is in the **Street address** box. Move the city, state and ZIP into their own boxes when you get a chance.
 
 Leave the address blank if you don't want one shown. The catch: marketing emails need an address (see below), so a blank address means those emails can't go out.
 
-### Your address and marketing emails
+#### Your address and marketing emails
 
-The law requires a mailing address in marketing emails, so SimplePress prints your business address at the bottom of every [email campaign](/docs/email-marketing) and every abandoned checkout reminder. To send either one, your address needs a **Street Address**, a **City**, and a **State** or **ZIP**. A PO box in the **Street Address** box works.
+The law requires a mailing address in marketing emails, so SimplePress prints your business address at the bottom of every [email campaign](/docs/email-marketing) and every abandoned checkout reminder. To send either one, your address needs a **Street address**, a **City**, and a **State** or **ZIP**. A PO box in the **Street address** box works.
 
-If your store has an older one-line address that's still in the **Street Address** box, it still counts as long as it's at least 10 characters long and has a number or a comma in it.
+If your store has an older one-line address that's still in the **Street address** box, it still counts as long as it's at least 10 characters long and has a number or a comma in it.
 
 If the address is blank or incomplete, campaigns can't be sent or scheduled (the **Send now** and **Schedule…** buttons stay greyed out) and abandoned checkout reminders are skipped. Email Marketing shows a warning with a **Go to business settings** button when this happens. See [Email Marketing](/docs/email-marketing) for the rest of the setup.
 
-### Map pin (optional)
+#### Map pin (optional)
 
 The **Map pin (optional)** section takes a **Latitude** and a **Longitude**. Fill in both or leave both blank. If you fill in only one, SimplePress asks for the other before it will save.
 
@@ -115,9 +111,13 @@ The easiest way to get the numbers: open [Google Maps](https://maps.google.com),
 What the pin does depends on your site design:
 
 - **Some templates show a map**, usually on the homepage or the Contact page, and use your pin for it. The **Default template shows no map**, so the pin won't add one there.
-- **Search engines can use it.** The pin helps them place your business when **Local presence** is set to **Storefront** on the **Search engines** tab of **Site Setup → SEO & Meta**. See [SEO](/docs/seo).
+- **Search engines can use it.** The pin helps them place your business when **Local presence** is set to **Storefront** on the **Search engines** tab of **Get Found Online → SEO & Meta**. See [SEO](/docs/seo).
 
 If you're not sure whether your template shows a map, leave the pin blank. It's safe to skip.
+
+### Opening hours
+
+Below the map pin is **Opening hours**. Here you tell customers when you're open. For the full guide, see [Business Hours](/docs/business-hours). It's also where your pickup times come from if you offer [in-store pickup](/docs/shipping#in-store-pickup).
 
 ---
 
@@ -127,7 +127,7 @@ Click **Save changes** in the top toolbar, or press **Cmd+Enter** (**Ctrl+Enter*
 
 ![The toolbar with the Unsaved Changes badge, Reset and Save changes buttons](/images/general-settings/unsaved-toolbar.png)
 
-- The badge beside the page title reads **Saved** or **Unsaved Changes**.
+- The badge beside the page title reads **Saved** or **Unsaved changes**.
 - **Reset** throws away everything you haven't saved and goes back to the last saved version. It's hidden on narrow screens.
 - If you try to leave with unsaved edits, your browser asks you to confirm.
 
@@ -139,14 +139,15 @@ If a box isn't valid, SimplePress highlights it and tells you what to fix. For e
 
 | You can | You can't |
 | ------- | --------- |
-| Rename your business any time. | Change your store slug. |
+| Rename your business any time. | Change your web address here. It's under **Settings → Domain**. |
 | Pick the time zone your business runs in. | Save without a Support Email. |
 | Set separate Owner and Support emails. | Change your sign-in email here (the Owner Email is only a contact address). |
 | Add a phone number and a structured address. | Make your Owner Email completely hidden: it's the Reply-To on customer emails. |
 | Add a map pin. | Make your hours follow your time zone: hours show as typed. |
+| Add your opening hours. | Give pickup its own hours here. Use the pickup instructions in **Shipping** for that. |
 
 <Cards>
-  <Card title="Business Hours" href="/docs/business-hours" description="Publish your opening hours on your contact page." />
+  <Card title="Business Hours" href="/docs/business-hours" description="Add your opening hours, shown on your contact page." />
   <Card title="Custom Domain" href="/docs/domain" description="Connect your own web address." />
   <Card title="Emails You Receive" href="/docs/email-preview#emails-you-receive" description="Which alerts go to your Owner Email, and which go to your team." />
   <Card title="SEO" href="/docs/seo" description="Local presence, and how your address and phone feed search results." />

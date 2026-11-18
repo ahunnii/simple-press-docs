@@ -1,0 +1,157 @@
+---
+title: Sell in Person with Square
+description: How register sales from Square Point of Sale, Square for Retail, Square for Restaurants or Terminal come into your SimplePress orders, how stock stays in step, and what to do about refunds, linking and common problems.
+---
+
+## Overview
+
+If you ring up sales on a Square register, SimplePress can bring them into your orders. Each register sale becomes a paid order marked **In person**, and stock for linked products goes down with it. Stock you change in SimplePress goes back to Square on the next sync, so the two counts stay close.
+
+This page covers:
+
+- what has to be turned on, and who can do what;
+- choosing the Square location you sell from;
+- linking your products to Square items;
+- what a register sale looks like in your orders;
+- refunds and returns;
+- items sold in packs, and items Square won't take stock counts for;
+- how stock stays in sync;
+- messages on the Square card; and
+- troubleshooting.
+
+Online checkout still runs on Stripe. Square handles only the register. See [Payments & Payouts](/docs/payments-and-payouts).
+
+---
+
+## Before you start
+
+- **In-person sales with Square is a pilot.** A SimplePress admin turns it on for your store. You can't switch it on yourself. Once it is on, the Square card appears on **Settings → Payments**.
+- **Only the store owner can connect or disconnect Square.** Managers can see its status.
+- You need a Square account with at least one active location, and products you sell there.
+
+![The Square card on Settings → Payments with a Not connected badge, a line explaining that register sales show up in Orders and stock is sent back to Square, and a Connect Square button](/images/sell-in-person-with-square/square-card-not-connected.png)
+
+---
+
+## Connect Square
+
+1. Go to **Settings → Payments** and find the **Square** card.
+2. Click **Connect Square**. Square opens so you can sign in and approve access.
+3. You return to SimplePress. The card shows **Connected** and your Square account ID.
+
+Connecting only starts the link. Sales that happened before you connected are not imported.
+
+To stop, click **Disconnect Square** and confirm. SimplePress stops bringing in Square sales and stops sending stock counts to Square. Orders that already came in stay in your list, and your item links are kept in case you reconnect.
+
+![The Square card with In-person sales and Connected badges, the Square account ID, the Square location, when sales and stock last synced, Sync now and Manage linked items buttons with "3 items linked", and a Disconnect Square button](/images/sell-in-person-with-square/square-card-connected.png)
+
+---
+
+## Choose your location
+
+SimplePress syncs sales from one Square location. If your Square account has only one active location, SimplePress picks it for you. If you have more than one, choose the one you sell from under **Square location**. Sales and stock from other locations are ignored.
+
+SimplePress records money in US dollars, so it only syncs a location that sells in US dollars. If you pick a location that sells in another currency, the card says "SimplePress only supports Square locations that sell in US dollars." and the location isn't synced. Pick a US-dollar location instead.
+
+Switching location starts fresh. Only sales from then on at the new location come in, and stock is recounted there.
+
+If the card asks you to pick the Square location you sell from, choose one. If it says your saved location is no longer active, pick another. If it says your Square account has no active locations, add or reactivate one in the Square Dashboard, then click **Check again**.
+
+---
+
+## Link your items
+
+Each Square item needs to be matched to a product before its stock can change. Click **Manage linked items** on the Square card, or go to **Settings → Payments → Square items**. The page has four tabs:
+
+- **Linked** lists items already matched to a product.
+- **Suggested** lists likely matches, found by exact SKU first, then by name and variation. Click **Link** on one, or **Link all SKU matches**.
+- **Sold but not linked** lists items sold in Square with no product. Click **Link** to match one, or **Dismiss** to hide it until it sells again.
+- **Not in Square** lists products that aren't in Square yet. Select them and click **Copy to Square**.
+
+**Copy to Square** creates the item in Square with its name, SKU and price. It doesn't copy photos, and later price changes in SimplePress are not sent to Square.
+
+Linking doesn't change stock for past sales. An item sold before you linked it doesn't lower stock now.
+
+![The Square items page with the Linked, Suggested, Sold but not linked and Not in Square tabs, showing the Linked tab with three Square items, the product each is linked to, Synced stock and an Unlink button](/images/sell-in-person-with-square/square-items-tabs.png)
+
+---
+
+## Selling at an event
+
+Ring up sales on the register as you normally would. A register sale becomes an order when it was made on Square Point of Sale, Square for Retail, Square for Restaurants or a Square Terminal at your synced location, after you connected. Sales from Square Online, Invoices and Virtual Terminal are ignored.
+
+Each register sale:
+
+- is marked **In person** in the Orders list, and the customer is shown as **Walk-in (Square)**;
+- is completed and paid, with prices, discounts, tax and tip taken from Square. The tip appears in the order note;
+- sends no emails, because Square sends the receipt, and earns no reward points.
+
+The order page shows a **Sold in person on Square** card with the location and receipt number, how it was paid (cash or card) and the Square order ID. The items are in the usual **Order items** card. Refunds and returns for these sales are done in Square. To see only register sales, set the **Sold** filter on the Orders list to **In person**.
+
+![An order marked In person, with the item and total on the left, Walk-in (Square) as the customer, and the Sold in person on Square card showing the location, "Paid by cash." and the Square order ID](/images/sell-in-person-with-square/in-person-order.png)
+
+---
+
+## Refunds and returns
+
+Refund a Square sale in Square, either on your register or in the Square Dashboard. SimplePress can't refund a Square sale, and these orders can't be edited by hand. The refund panel says so, and the refund shows up on the order automatically.
+
+- A return of items puts those items back in stock.
+- A refund of an amount with no items is recorded on the order, but it doesn't restock anything.
+
+---
+
+## How stock stays in sync
+
+- **Register sales** lower stock for linked items.
+- **SimplePress owns stock.** Edit stock in SimplePress. A count changed in Square is replaced with the SimplePress number at the hourly stock check, or when you click **Sync now**. Items Square sold in the last 10 minutes wait for the next check, so a sale still on its way isn't counted twice.
+- **Online sales** lower the Square count within seconds. In the worst case it can take about 15 minutes.
+- **Open online checkouts** hold their items. Square shows them as taken while a shopper is paying, and they come back if the checkout is abandoned (within about 30 minutes).
+- **Selling more than you have** stops stock at 0. The sale is still recorded.
+- **Sync now** on the Square card runs a sync straight away. The card shows **Synced through** for sales and **Last sent to Square** for stock.
+
+<Callout type="warning" title="Check stock after busy events">
+If you save a product while an in-person sale comes in, the stock number in the form can overwrite that sale's change. After a busy event, check the stock on the products you sold.
+</Callout>
+
+---
+
+## Items sold in packs
+
+Some Square for Retail Plus stores sell a pack made from singles, such as a 6-pack stocked as single cans. Square calls this a stock conversion.
+
+- **Link the single item, not the pack.** Square keeps the pack's stock through the single, so the pack can't be linked.
+- **Selling a pack** takes the matching number of singles out of stock in SimplePress. Selling one 6-pack takes 6 singles. The order note says how many came off.
+- **Returns** put those singles back.
+- If the single isn't linked yet, it appears under **Sold but not linked**, named something like "Soda - Single (sold as 6-pack)". Link it.
+
+<Callout type="warning" title="Selling by the ounce, foot or other part of a unit">
+If a pack doesn't come out to whole units, such as selling by the ounce from a 1 lb bag, SimplePress doesn't track it. Square keeps that count. Watch the online stock for those items, because SimplePress's number can stay higher than Square's and an online order could oversell it.
+</Callout>
+
+---
+
+## When Square won't take stock counts for an item
+
+Square refuses stock counts for some items, such as a pack stocked from singles. When that happens, SimplePress stops syncing that item and shows a message naming it. Other items keep syncing. To fix it, either unlink the item, or link the item it's stocked from instead (for a pack, the single).
+
+---
+
+## Messages on the Square card
+
+- **A sale couldn't be imported.** The card names the sale. SimplePress keeps retrying it. Until it comes in, stock for its items isn't checked against Square.
+- **A sale in another currency.** The card says a Square sale in that currency won't be imported, because SimplePress only records sales in US dollars. The sale doesn't become an order.
+
+---
+
+## Troubleshooting
+
+- **A sale is missing.** Check that it was rung up on Square Point of Sale, Square for Retail, Square for Restaurants or a Square Terminal at your synced location, after you connected. Online, invoice and virtual terminal sales don't come in. Click **Sync now**, or wait for the next automatic sync.
+- **The card says Needs reconnecting.** Square stopped accepting SimplePress's access, so sales and stock aren't syncing. Click **Reconnect Square** and approve access again.
+- **A notice says items sold in Square aren't linked.** Those sales didn't change stock. Open **Sold but not linked** and link each item.
+- **The card says SimplePress only supports US-dollar locations.** Pick a Square location that sells in US dollars. See [Choose your location](#choose-your-location).
+- **Square reported a problem.** The message under the card says what Square returned. Fix that, then click **Sync now**.
+- **The card says Not used for in-person sales.** Square is connected, but the store isn't sending register sales through it. Click **Use Square for in-person sales** to turn it on.
+- **Stock looks wrong after an event.** Check the products you sold, and correct the count in SimplePress. See the warning above.
+
+For more on orders, see [Orders](/docs/orders). For stock, see [Inventory Management](/docs/inventory-management).

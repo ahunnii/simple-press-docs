@@ -25,7 +25,7 @@ If Stripe ever turns off charges on your account, a banner appears across the to
 
 **Payments are paused.** Stripe has disabled charges on your account, so checkout is failing for every shopper.
 
-It has two links: **Fix in Stripe** opens your Stripe dashboard in a new tab, and **Details** opens **Settings → Integrations**. The banner can't be dismissed. It goes away on its own once Stripe turns charges back on. Staff members don't see it.
+It has two links: **Fix in Stripe** opens your Stripe dashboard in a new tab, and **Details** opens **Settings → Payments**. The banner can't be dismissed. It goes away on its own once Stripe turns charges back on. Staff members don't see it.
 
 You won't see this banner in normal use. It only appears when Stripe has confirmed a problem with your account.
 
@@ -37,15 +37,15 @@ Five buttons sit at the top right, next to the welcome message:
 
 | Button         | What it does                                                                |
 | -------------- | --------------------------------------------------------------------------- |
-| **Add Product**  | Opens the form to create a new product. See [Products](/docs/products).     |
-| **New Order**    | Opens the form to create an order by hand, for phone, wholesale, or in-person sales. See [Orders](/docs/orders). |
+| **Add product**  | Opens the form to create a new product. See [Products](/docs/products).     |
+| **New order**    | Opens the form to create an order by hand, for phone, wholesale, or in-person sales. See [Orders](/docs/orders). |
 | **Customize**    | Opens the Site Editor, where you edit your pages and look.                |
-| **View Store**   | Opens your live storefront in a new tab, on your custom domain if you have one. |
+| **View store**   | Opens your live storefront in a new tab, on your custom domain if you have one. |
 | **Edit dashboard** | Lets you choose, arrange and resize your cards. See [Customizing Your Dashboard](#customizing-your-dashboard). |
 
-**Add Product** and **New Order** only show when the Products and Orders features are turned on. See [Feature toggles](/docs/feature-flags).
+**Add product** and **New order** only show when the Products and Orders features are turned on. See [Feature toggles](/docs/feature-flags).
 
-![The buttons at the top of the Dashboard: Edit dashboard, Add Product, New Order, Customize and View Store](/images/dashboard/quick-actions.png)
+![The buttons at the top of the Dashboard: Edit dashboard, Add product, New order, Customize and View store](/images/dashboard/quick-actions.png)
 
 *The buttons at the top right of the Dashboard.*
 
@@ -82,7 +82,7 @@ You can open the Setup Guide again whenever you like, even after you've finished
 - While any **Required** step is still open, a small **Almost there!** box at the bottom of the sidebar says "Complete setup to start selling" and has a **Finish setup** button. It goes away once every Required step is done. Staff don't see this box; Owners and Managers do.
 - Press the search shortcut described under [Finding Things Fast](#finding-things-fast) and choose **View setup guide**.
 
-![The admin sidebar, ending with Settings and Setup Guide just above your account name](/images/dashboard/welcome-sidebar.png)
+![The admin sidebar with Dashboard at the top, then the Sell, Catalog, Website, Marketing and Insights groups with a few counts beside Orders, Quotes, Invoices and Forms, and Settings, Setup Guide and Get Help above the account name](/images/dashboard/welcome-sidebar.png)
 
 *The Setup Guide link sits below Settings at the bottom of the sidebar.*
 
@@ -96,7 +96,7 @@ The strip shows:
 
 - A progress bar and your current percentage.
 - A **Next:** hint telling you the single most useful thing to do next.
-- An **Improve search results** button, which opens **Site Setup → SEO & Meta**, where the full report lives.
+- An **Improve search results** button, which opens **Get Found Online → SEO & Meta**, where the full report lives.
 - A small **Hide** button.
 
 The strip disappears by itself once you reach 100%. To see the full report and what each item means, read [SEO & Search Readiness](/docs/seo).
@@ -111,28 +111,39 @@ Click **Hide** to remove the strip from your Dashboard. Hide switches off the **
 
 To bring it back, go to **Settings → Features**, find **Search readiness on dashboard**, and turn it on. This feature is on by default. See [Feature toggles](/docs/feature-flags).
 
-Hiding the strip only hides it from the Dashboard. You can still open the full report any time under **Site Setup → SEO & Meta**.
+Hiding the strip only hides it from the Dashboard. You can still open the full report any time under **Get Found Online → SEO & Meta**.
 
 ---
 
 ## Needs Attention
 
-When something is waiting on you, colored reminders appear in a strip below the setup and search cards. They stay pinned at the top and aren't part of the cards you arrange. Each reminder is clickable and takes you straight to the right list. Reminders only appear when there's something to do.
+When something is waiting on you, colored reminders appear in a strip below the setup and search cards. They stay pinned at the top and aren't part of the cards you arrange. Each reminder is clickable and takes you straight to the right list. Reminders only appear when there's something to do. The most urgent ones come first.
 
-| Reminder                        | What it says                                                                  | Where it takes you                          |
-| ------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------- |
-| **N orders to fulfill**         | "Paid but not yet shipped." Customers have paid, but the order hasn't shipped or been handed over yet. | The Orders list, filtered to **Open**, **Unfulfilled** and **Paid**. |
-| **N orders awaiting payment**   | "Pending payment confirmation." Orders were started but payment hasn't been confirmed yet. | The Orders list, filtered to pending payment. |
-| **No store policies published** | "Add a Terms of Service & Refund Policy." Your Terms of Service or Refund Policy is missing, empty, or not published. | **Site Setup → Policies**.                  |
-| **N testimonials waiting for approval** | Customers sent testimonials that you haven't approved or hidden yet. Only shown when [Testimonials](/docs/testimonials) is on. | **Testimonials**. |
+Most of these counts also show as small numbers next to the matching pages in the sidebar. Low stock doesn't: it shows only here. See [Numbers in the sidebar](/docs/admin-basics#numbers-in-the-sidebar).
 
-Cancelled and refunded orders aren't counted in the first two reminders.
+| Reminder | What it says | Where it takes you |
+| -------- | ------------ | ------------------ |
+| **N payments failed** | "Follow up with the customer." A card payment on an open order didn't go through. | The Orders list, filtered to failed payments. |
+| **N payments disputed** | "A customer is disputing a charge." See [Disputes](/docs/payments-and-payouts#disputes). | The Orders list, filtered to disputed payments. |
+| **N orders to ship** | "Paid, waiting to ship." Customers have paid, but the order hasn't been fully shipped or handed over yet. | The Orders list, filtered to **Needs shipping**, oldest first. |
+| **N orders awaiting payment** | "Pending payment confirmation." Orders were started but payment hasn't been confirmed yet. | The Orders list, filtered to pending payment. |
+| **N check-outs overdue** | "Not back by the due date." Only shown when [Inventory](/docs/inventory-management) rental check-outs are on. | **Inventory → Check-outs**, filtered to overdue. |
+| **N invoices overdue** | "Past the due date and still owed." | The Invoices list, filtered to overdue. |
+| **N new quote requests** | "Not contacted yet." | The Quotes list, filtered to new. |
+| **N new form entries** | "Not read yet." | **Forms**. |
+| **N items low on stock** | "At or below the alert level." | Products, or Inventory if you don't sell products. |
+| **N subscriptions past due** | "A renewal payment didn't go through." | The Subscriptions list, filtered to past due. |
+| **N reviews waiting for approval** | "Review before they appear on your site." | **Reviews**, filtered to pending. |
+| **N testimonials waiting for approval** | "Review before they appear on your site." | **Reviews → Testimonials**, filtered to pending. |
+| **No store policies published** | "Add a Terms of Service & Refund Policy." Your Terms of Service or Refund Policy is missing, empty, or not published. | **Site Setup → Policies**. |
 
-> **Partially shipped orders:** The "to fulfill" number counts only open, paid orders that haven't shipped at all. Partially shipped orders aren't counted, so the number always matches the list the card opens. It also matches the **Needs fulfillment** card on the Orders page and the **Orders to fulfill** card you can add to your Dashboard. To see partially shipped orders, use the **Fulfillment** filter on the Orders page and choose **Partially Fulfilled**.
+A reminder only shows when the feature behind it is on. Cancelled and refunded orders aren't counted in the order reminders.
 
-![The Needs Attention card reading 20 orders to fulfill, Paid but not yet shipped](/images/dashboard/needs-attention.png)
+> **Partially shipped orders:** The "to ship" number counts paid, open orders that still have items to ship, including orders where only some items have shipped. It matches the **Needs shipping** card on the Orders page and the **Orders to fulfill** card you can add to your Dashboard.
 
-*One Needs Attention card. When the other two apply, they appear beside it.*
+![Six Needs attention cards: 26 orders to ship, 1 invoice overdue, 1 new quote request, 1 new form entry, 2 reviews waiting for approval, and Your Privacy Policy needs an update](/images/dashboard/needs-attention.png)
+
+*Needs Attention cards. Only the reminders that apply to your store show up.*
 
 See [Orders](/docs/orders) for how to fulfill orders and [Pages & Policies](/docs/pages-and-policies) for writing your policies.
 
@@ -171,7 +182,7 @@ Stores that don't sell products start with cards that fit them instead:
 
 A card only appears when the feature behind it is on. For example, **Visitors** needs Analytics and **Upcoming events** needs Events. If some starting cards are hidden, the Dashboard fills out the top row with other number cards your store can show, so there are no gaps. If none of your features have cards yet, the Dashboard says so and links to **Settings → Features**.
 
-> **What stays put:** The setup checklist, the "orders to fulfill" reminder, and the oversold-items warning stay pinned at the top of the Dashboard. They aren't cards, so you can't move or remove them.
+> **What stays put:** The setup checklist, the Needs Attention reminders, and the oversold-items warning stay pinned at the top of the Dashboard. They aren't cards, so you can't move or remove them.
 
 ### Editing your layout
 
@@ -342,13 +353,13 @@ The **Low stock alerts** card lists items that are running low. Each row shows h
 
 **How "low" is decided:**
 
-- Each product uses its own **Low Inventory Threshold**, which you set on the product form. Variants use their product's threshold.
+- Each product uses its own **Low inventory threshold**, which you set on the product form. Variants use their product's threshold.
 - Each inventory item uses its own **Low stock alert at** number, set on the item.
 - If you haven't set a number, the cutoff is **10**.
 
 What's included:
 
-- Published products and variants that have **Track Inventory** turned on. Inventory items show "Inventory item" under their name.
+- Published products and variants that have **Track inventory** turned on. Inventory items show "Inventory item" under their name.
 - Inventory items you've set up as stock. Rental items aren't included, because a rental showing a low number may just mean the rest are out with customers.
 
 Click an inventory item to open its details. Click the card's title to open your products and update quantities. A red warning icon on an inventory item means it's at zero or below.
@@ -435,13 +446,13 @@ Press **Command + K** on a Mac or **Ctrl + K** on Windows, or click the "Search�
 ## Troubleshooting
 
 **I see a "Payments are paused" banner.**
-Stripe has disabled charges on your account, so shoppers can't check out. Click **Fix in Stripe** to see what Stripe needs from you, or **Details** to open **Settings → Integrations**. The banner clears once Stripe turns charges back on. See [Payments & Payouts](/docs/payments-and-payouts#when-stripe-pauses-payments).
+Stripe has disabled charges on your account, so shoppers can't check out. Click **Fix in Stripe** to see what Stripe needs from you, or **Details** to open **Settings → Payments**. The banner clears once Stripe turns charges back on. See [Payments & Payouts](/docs/payments-and-payouts#when-stripe-pauses-payments).
 
 **The numbers look different from my Stripe account.**
 The Dashboard shows orders recorded in SimplePress, over the time range set on each card. Stripe reports on its own schedule, and payouts arrive after payments. See [Payments & Payouts](/docs/payments-and-payouts) and [Finances](/docs/finances).
 
 **A product I'm low on isn't showing in Low stock alerts.**
-The product must be published and have **Track Inventory** turned on. Products that aren't tracked are always treated as in stock. Also check its **Low Inventory Threshold**: the product only shows once its stock is at or below that number (or 10, if you haven't set one).
+The product must be published and have **Track inventory** turned on. Products that aren't tracked are always treated as in stock. Also check its **Low inventory threshold**: the product only shows once its stock is at or below that number (or 10, if you haven't set one).
 
 **I hid Search readiness and want it back.**
 Go to **Settings → Features** and turn on **Search readiness on dashboard**.
@@ -489,6 +500,6 @@ Staff don't have access to it. Change their role to Manager if they need it. See
 | Show the same card twice with different time ranges                     | Yes                                                               |
 | Change another person's Dashboard layout                                | No. Each Owner and Manager has their own                          |
 | Hide the setup checklist or Needs Attention reminders                   | No. They're pinned, and disappear on their own when there's nothing to show |
-| Change when something counts as low stock                               | Yes, per product (**Low Inventory Threshold**) or per inventory item (**Low stock alert at**). Without one, the cutoff is 10 |
+| Change when something counts as low stock                               | Yes, per product (**Low inventory threshold**) or per inventory item (**Low stock alert at**). Without one, the cutoff is 10 |
 | Export Dashboard numbers                                                | No. Use Finances and the Orders export for reports                |
 | Show the Dashboard to Staff                                             | No. Staff go to Orders. Use the Manager role for dashboard access |

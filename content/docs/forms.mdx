@@ -32,7 +32,7 @@ You build a form once, then insert it into one of your pages or blog posts, much
 
 ## Where to Find It
 
-In your admin sidebar, go to **Marketing → Forms** (or open `/admin/forms`). You can also type "New form" into the command palette search box at the top of the admin to jump straight to a blank form.
+In your admin sidebar, go to **Website → Forms** (or open `/admin/forms`). You can also type "New form" into the command palette search box at the top of the admin to jump straight to a blank form.
 
 ### The Forms List
 
@@ -47,7 +47,7 @@ The page is titled **Forms**. Each row shows:
 
 The most recently changed forms are at the top. On a phone, the status, entry count, and update time appear under the form's name.
 
-If you have no forms yet, the page says **No forms yet**, with a **Create form** button.
+If you have no forms yet, the page says **No forms yet**, with an **Add form** button.
 
 ![The Forms list with four forms: two published, two drafts, and a "5 new" badge next to Catering inquiry's entry count](/images/forms/forms-list.png)
 
@@ -64,7 +64,7 @@ The three-dot menu at the end of each row has:
 
 ## Building a Form
 
-Click **New form**. The builder has a toolbar across the top, the **Form**, **Fields**, and **Screening questions** cards on the left, and the **Preview** and **After submit** cards on the right. (On narrower screens, they stack in one column.)
+Click **Add form**. The builder has a toolbar across the top, the **Form**, **Fields**, and **Screening questions** cards on the left, and the **Preview** and **After submit** cards on the right. (On narrower screens, they stack in one column.)
 
 <video src="/videos/forms/build-a-form.webm" poster="/videos/forms/build-a-form-poster.png" controls muted playsInline className="rounded-lg border" />
 
@@ -73,8 +73,8 @@ Click **New form**. The builder has a toolbar across the top, the **Form**, **Fi
 ### The Toolbar
 
 - **Back** returns to the Forms list.
-- A status badge shows where the form stands: **Draft** for a new form you haven't saved yet, **Published** or **Unpublished** for a saved form, and **Unsaved Changes** whenever you've edited something you haven't saved.
-- The **Published** switch decides whether visitors can fill out the form. **New forms start unpublished.** Switch it on when you're ready, then save.
+- A status badge shows **Draft** or **Published**, and **Unsaved changes** whenever you've edited something you haven't saved.
+- The **Published** switch decides whether visitors can fill out the form. **New forms start as a draft.** Switch it on when you're ready, then save.
 - The **More Options** menu (⋯) has **Reset**, which throws away your unsaved changes, and **Delete** (saved forms only).
 - **Save** saves the form. When you save a new form, you're taken to its builder page.
 
@@ -251,7 +251,7 @@ This card controls what happens when a visitor sends the form.
 - **Send confirmation email to**: choose one of your **Email** fields to send the visitor a copy of their answers, or keep **Don't send a confirmation**. If the form has no Email field, add one first. When a customer is signed in to their account, that field is filled in with their account email for them.
 - **Confirmation subject** (up to 200 characters): the subject line of the confirmation email. It starts as "We received your submission". You can type `{businessName}` anywhere in it and it's replaced with your business name, for example `Thanks for contacting {businessName}`.
 - **Confirmation message** (up to 2,000 characters): the note at the top of the confirmation email. Line breaks are kept.
-- **Notify email**: where the email about each new entry goes. Leave it blank to use your **Support Email**. Fill it in to send this form's entries somewhere else, such as your catering manager. See [Emails You Receive](/docs/email-preview#emails-you-receive) for who gets each alert.
+- **Notify email**: where the email about each new entry goes. Leave it blank to use your **Support email**. Fill it in to send this form's entries somewhere else, such as your catering manager. See [Emails You Receive](/docs/email-preview#emails-you-receive) for who gets each alert.
 
 The confirmation subject and message can only be edited once you've picked a field under **Send confirmation email to**.
 
@@ -269,7 +269,7 @@ A form doesn't have its own page or link to share. To show it, you insert it int
 
 ### In a Page or Blog Post
 
-1. Go to **Content → Pages** (or **Content → Blog**) and open the page or post. See [Pages & Policies](/docs/pages-and-policies) and [Blog](/docs/blog).
+1. Go to **Website → Pages** (or **Website → Blog**) and open the page or post. See [Pages & Policies](/docs/pages-and-policies) and [Blog](/docs/blog).
 2. Click in the content where you want the form.
 3. Open **Insert elements** (the **+** button at the end of the toolbar) and choose **Form**. You can also click the form button in the toolbar (its tooltip reads **Insert form**). The box is added to the page right away.
 4. The box is titled **Insert Form**. Open **Select a form...** and pick your form. Forms that aren't published yet are marked **(draft)**.
@@ -447,7 +447,7 @@ Each new entry sends an email with the subject **New submission: [form name]**. 
 It goes to the first of these that's set:
 
 1. the form's **Notify email**
-2. your **Support Email** (see [General Settings](/docs/general-settings#support-email))
+2. your **Support email** (see [General Settings](/docs/general-settings#support-email))
 3. the store owner's account email
 
 If the form sends a confirmation email and the visitor filled in that Email field, you can reply to the notification and your reply goes straight to the visitor. Otherwise, replies go to the store owner's email.
@@ -546,7 +546,7 @@ See [Feature Flags](/docs/feature-flags).
 ## Frequently Asked Questions
 
 **Can I link to a form directly, for example from my menu or an email?**
-Not to the form itself. Put the form on a page (for example a page called "Catering"), then link to that page. You can add the page to your menu in [Navigation](/docs/navigation).
+Not to the form itself. Put the form on a page (for example a page called "Catering"), then link to that page. You can add the page to your menu in [Header & Footer](/docs/navigation).
 
 **Why does my page say "This form is not available"?**
 The form is either not published, deleted, or the Forms feature is off. Open the form, switch **Published** on, and save.

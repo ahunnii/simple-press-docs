@@ -32,7 +32,7 @@ You build a calculator once, then insert it into one of your pages, much like a 
 
 ## Where to Find It
 
-In your admin sidebar, go to **Marketing → Quotes** (or open `/admin/quotes`). This is your inbox of quote requests. Click **Manage calculators** at the top to build and edit the calculators themselves (`/admin/quotes/calculators`).
+In your admin sidebar, go to **Sell → Quotes** (or open `/admin/quotes`). This is your inbox of quote requests. Click **Manage calculators** at the top to build and edit the calculators themselves (`/admin/quotes/calculators`).
 
 You can also type "New quote calculator" into the command palette search box at the top of the admin to jump straight to a blank calculator.
 
@@ -40,7 +40,7 @@ You can also type "New quote calculator" into the command palette search box at 
 
 ## The Calculators List
 
-The page is titled **Calculators**: "Build the multi-step forms visitors fill out to request an estimate. Add one to a page from the page editor." Click **New calculator** to start one.
+The page is titled **Calculators**: "Build the multi-step forms visitors fill out to request an estimate. Add one to a page from the page editor." Click **Add quote calculator** to start one.
 
 Each row shows:
 
@@ -51,7 +51,7 @@ Each row shows:
 | **Leads**      | How many quote requests it has collected                                     |
 | **Updated**    | When it was last changed, such as "3 days ago"                              |
 
-On a phone, the status, lead count, and update time appear under the name. If you have no calculators yet, the page says **No calculators yet** with a **New calculator** button.
+On a phone, the status, lead count, and update time appear under the name. If you have no calculators yet, the page says **No calculators yet** with an **Add quote calculator** button.
 
 ![The Calculators list with the Moving Quote row and the New calculator button](/images/quote-calculators/calculators-list.png)
 
@@ -59,7 +59,7 @@ On a phone, the status, lead count, and update time appear under the name. If yo
 
 ## Building a Calculator
 
-Click **New calculator**. The builder has a toolbar across the top. On the left are the cards for what visitors answer and how it's priced: **Calculator**, **Screens**, **Tabs**, **Distance variables** (once you have two location questions), and **Pricing formula**. On the right are **Test it** and **After submit**. On narrower screens, everything stacks in one column.
+Click **Add quote calculator**. The builder has a toolbar across the top. On the left are the cards for what visitors answer and how it's priced: **Calculator**, **Screens**, **Tabs**, **Distance variables** (once you have two location questions), and **Pricing formula**. On the right are **Test it** and **After submit**. On narrower screens, everything stacks in one column.
 
 <video src="/videos/quote-calculators/building-a-calculator.webm" poster="/videos/quote-calculators/building-a-calculator-poster.png" controls muted playsInline className="rounded-lg border" />
 
@@ -70,8 +70,8 @@ Click **New calculator**. The builder has a toolbar across the top. On the left 
 ### The Toolbar
 
 - **Back** returns to the Calculators list.
-- A status badge shows **Draft** for a new calculator you haven't saved, **Published** or **Unpublished** for a saved one, and **Unsaved Changes** whenever you've edited something you haven't saved.
-- The **Published** switch decides whether visitors can use the calculator. **New calculators start unpublished.** Switch it on when you're ready, then save.
+- A status badge shows **Draft** or **Published**, and **Unsaved changes** whenever you've edited something you haven't saved.
+- The **Published** switch decides whether visitors can use the calculator. **New calculators start as a draft.** Switch it on when you're ready, then save.
 - The **More Options** menu (⋮) has **Reset**, which throws away your unsaved changes, and **Delete** (saved calculators only).
 - **Save** saves the calculator. You'll see "Calculator created" or "Calculator saved". A new calculator then opens on its own builder page.
 
@@ -267,7 +267,7 @@ To stop taking new requests but keep the calculator, switch **Published** off in
 A calculator doesn't have its own page or link. To show it, insert it into a page. You can put the same calculator in more than one place, and every copy sends its requests to the same inbox.
 
 1. Make sure the calculator is **Published** and saved.
-2. Go to **Content → Pages** and open the page, or create one, such as "Get a Quote". See [Pages & Policies](/docs/pages-and-policies).
+2. Go to **Website → Pages** and open the page, or create one, such as "Get a Quote". See [Pages & Policies](/docs/pages-and-policies).
 3. Click in the content where you want the calculator.
 4. Click the calculator button in the toolbar (its tooltip reads **Insert quote calculator**), or open **Insert elements** (the **+** button) and choose **Quote calculator**. The box is added to the page right away.
 5. The box is titled **Insert Quote Calculator**: "Select a quote calculator to display in your page". Open **Select a quote calculator...** and pick yours. Calculators that aren't published are marked **(draft)**.
@@ -334,7 +334,7 @@ Every calculator is protected by Google reCAPTCHA, which runs quietly in the bac
 
 ## The Quotes Inbox
 
-Go to **Marketing → Quotes**. The page is titled **Quotes**: "Leads from your quote calculators, ready to follow up on". The newest requests are at the top, 25 per page.
+Go to **Sell → Quotes**. The page is titled **Quotes**: "Leads from your quote calculators, ready to follow up on". The newest requests are at the top, 25 per page.
 
 If you have no requests yet, it says **No quotes yet**: "Quotes land here as soon as a visitor submits one of your calculators. Publish a calculator to start collecting leads."
 
@@ -415,7 +415,7 @@ To record a price without emailing it, click **Save amount**. The inbox then sho
 | **New Quote Request (owner)** | You | "New quote request — [calculator name]" | Every new request |
 | **Final Quote** | The customer | "Your quote from [your business name]", or "An update on your quote request — [your business name]" when you send without an amount | When you click **Send quote**, **Resend quote**, or **Send update** |
 
-- **Quote Request Received** thanks the visitor, repeats their answers, says when you'll get back to them, and includes the estimate only if you chose to show it. If they reply, the reply goes to your **Support Email** (see [General Settings](/docs/general-settings#support-email)), or to the store owner's email if that's blank.
+- **Quote Request Received** thanks the visitor, repeats their answers, says when you'll get back to them, and includes the estimate only if you chose to show it. If they reply, the reply goes to your **Support email** (see [General Settings](/docs/general-settings#support-email)), or to the store owner's email if that's blank.
 - **New Quote Request (owner)** goes to the store owner's account email. It lists the contact details, estimate, and answers (but not your formula) and has a **View quote request** button. Reply to it to write straight to the visitor.
 - **Final Quote** carries your amount, your message, and a copy of their request. Replies go to your Support Email, or the owner's email if that's blank.
 
@@ -466,7 +466,7 @@ Deleting a calculator doesn't delete its requests, so a Manager can't lose leads
 - **Use multipliers for discounts.** An option worth 0.9 that multiplies the total gives 10% off.
 - **Use `max` for a minimum charge** and `round` for tidy whole-dollar prices, for example `round(max(guests * 18, 400))`.
 - **Ask text questions for the details your formula can't price**, such as "Any heavy or unusual items?" They show up in the request for you to read.
-- **Give it its own page.** A page called "Get a Quote" with **Centered on page** layout makes a clean landing spot. Add the page to your menu in [Navigation](/docs/navigation).
+- **Give it its own page.** A page called "Get a Quote" with **Centered on page** layout makes a clean landing spot. Add the page to your menu in [Header & Footer](/docs/navigation).
 
 ---
 

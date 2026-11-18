@@ -79,9 +79,9 @@ Tick the checkboxes on the left to select services. A bar appears with:
 
 ## Creating a Service
 
-Click **Create Service** (or **Create Your First Service** if you have none yet). The editor has a toolbar across the top with:
+Click **Add service**. The editor has a toolbar across the top with:
 
-- A status label: **Draft** (while creating), **Unsaved Changes**, or **Saved**
+- A status label: **Draft** (while creating), **Unsaved changes**, or **Saved**
 - The **Published** switch
 - A **More Options** menu: **View on storefront** (published services only), **Duplicate**, **Reset** (throws away your unsaved changes), and **Delete**
 - **Save changes**
@@ -94,7 +94,7 @@ Below it are four tabs: **Details**, **Specific services**, **SEO**, and **Page 
 
 ### Basic Information
 
-On the **Details** tab, the **Basic Information** card has:
+On the **Details** tab, the **Basic information** card has:
 
 - **Service name** _(required)_: for example "Facial Treatments". Up to 120 characters.
 - **Description**: "Describe what this service group includes…". Shown at the top of the service page. Up to 2,000 characters.
@@ -102,11 +102,13 @@ On the **Details** tab, the **Basic Information** card has:
 
 Under the name, the editor shows the service's **Storefront URL** with an **Edit in SEO** link.
 
-![The Details tab of the service editor with the Basic Information card (name, description, cover image) and the Page Template card](/images/services/service-details.png)
+![The Details tab of the service editor, with the Details, Specific services, SEO and Page content tabs above the Basic information card (Service name, Storefront URL with Edit in SEO, Description and Cover image)](/images/services/service-details.png)
 
 ### Page Template
 
-The **Page Template** card, "Choose how this service's detail page is laid out", lists the layouts your current [template](/docs/templates) offers for service pages. Pick one by clicking its card.
+The **Page template** card, "Choose how this service's detail page is laid out", lists the layouts your current [template](/docs/templates) offers for service pages. Pick one by clicking its card.
+
+While you're creating a new service, the card is on the **Details** tab. Once the service is saved, it moves to the top of the **Page content** tab.
 
 On the Default template there's just one, called **Default**: a clean page with a hero, an intro, the list of specific services, and a closing call-to-action. Other templates may offer several layouts.
 
@@ -114,7 +116,7 @@ On the Default template there's just one, called **Default**: a clean page with 
 
 The **Published** switch in the top toolbar controls whether the service is visible on your storefront. **New services start with Published switched on**, so switch it off before you save if you want to keep working privately.
 
-Unpublished services return a "not found" page to customers, even if they have the direct link.
+Draft services return a "not found" page to customers, even if they have the direct link.
 
 ---
 
@@ -242,7 +244,7 @@ On the Default template, every item card shows a **Book** button, and it stays g
 
 ## Page Content
 
-The **Page content** tab holds extra fields for how the service's page looks. Each layout has its own fields. The tab opens with "Editing page content for the [layout] layout". These fields aren't in the [Site Editor](/docs/site-editor); you edit them here, one service at a time.
+The **Page content** tab starts with the [Page Template](#page-template) picker, then holds extra fields for how the service's page looks. Each layout has its own fields. The tab opens with "Editing page content for the [layout] layout". These fields aren't in the [Site Editor](/docs/site-editor); you edit them here, one service at a time.
 
 On the Default layout the groups are:
 
@@ -279,7 +281,7 @@ Each service's own page shows the service name and description over its top imag
 ### Adding Services to your menu
 
 - The Default template's header and footer show a **Services** link automatically while Services is switched on.
-- To add a dropdown listing each service, go to **Site Setup → Navigation** and use **Quick Add**. In the **Services** group, click **Add Services menu**. It lists published services only. See [Navigation](/docs/navigation) for how to build your menu.
+- To add a dropdown listing each service, go to **Site Setup → Header & footer** and use **Quick add**. In the **Services** group, click **Add Services menu**. It lists published services only. See [Header & Footer](/docs/navigation) for how to build your menu.
 - If you turn Services off, any menu links to `/services` are hidden automatically.
 
 The `/services` page isn't featured on the homepage automatically. Add a link or button there yourself if you want one.
@@ -290,16 +292,16 @@ The `/services` page isn't featured on the homepage automatically. Add a link or
 
 On the **SEO** tab:
 
-- **URL Slug** _(required)_: the end of the service's address. The slug `facial-treatments` gives you `/services/facial-treatments`. Use letters, numbers, dots, dashes, tildes, and underscores. Each slug must be unique, otherwise you'll see "A service with this slug already exists."
-- **Meta Title**: the title in search results. The counter includes your business name; aim for 50–60 characters (the field allows up to 70). Leave blank to use the service name.
-- **Meta Description**: the description in search results. Aim for 150–160 characters (up to 200). Leave blank to use the service description.
-- **Open Graph Image**: the picture used when the page is shared. By default the service's cover image is used; upload a 1200×630 image here only if you want a separate share card.
-- **Search Result Preview** and **Social Media Preview** show roughly how the page will look.
+- **URL slug** _(required)_: the end of the service's address. The slug `facial-treatments` gives you `/services/facial-treatments`. Use letters, numbers, dots, dashes, tildes, and underscores. Each slug must be unique, otherwise you'll see "A service with this slug already exists."
+- **Meta title**: the title in search results. The counter includes your business name; aim for 50–60 characters (the field allows up to 70). Leave blank to use the service name.
+- **Meta description**: the description in search results. Aim for 150–160 characters (up to 200). Leave blank to use the service description.
+- **Open Graph image**: the picture used when the page is shared. By default the service's cover image is used; upload a 1200×630 image here only if you want a separate share card.
+- **Search result preview** and **Social media preview** show roughly how the page will look.
 
-While a service is new or still unpublished, the slug follows the name as you type. Once it's published, renaming the service leaves the URL alone, and the Details tab shows "Name changed — the URL hasn't." with an **Update URL** button if you'd like them to match.
+While a service is new or still a draft, the slug follows the name as you type. Once it's published, renaming the service leaves the URL alone, and the Details tab shows "Name changed — the URL hasn't." with an **Update URL** button if you'd like them to match, then choose whether to send the old link to the new one.
 
-<Callout type="warn" title="Changing a URL breaks old links">
-  If you change a published service's slug, links to the old address (bookmarks, search results, things you've shared) will stop working. SimplePress doesn't create a redirect. The editor warns you before you save.
+<Callout type="warn" title="Untick the redirect and old links stop working">
+  When you change a saved service's slug, a checkbox appears under it: **Send the old link to the new one**. It's on by default for a published service, so bookmarks, search results and things you've shared keep working, and off for a draft. If you untick it on a published service, links to the old address will show "page not found". You can see and edit the redirects you keep under **Marketing → Get Found Online → Redirects**. See [Redirects](/docs/redirects).
 </Callout>
 
 Published services are added to your sitemap automatically, and the `/services` page has its own search settings in your site-wide SEO settings.
@@ -350,7 +352,6 @@ Owners and Managers can create, edit, duplicate, publish, and delete services an
 - Take payment for a service through the storefront or add a service to the cart
 - Calculate tax, discounts, or totals from service prices (they're text)
 - Reorder the services themselves. They appear in the order they were created, and a duplicate goes last
-- Create an automatic redirect when you change a service's URL
 - Use booking codes that need a `<script>`, non-`https` addresses, or an address on your own site
 - Show a booking widget on your site without the Embeds feature
 

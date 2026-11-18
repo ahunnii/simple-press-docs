@@ -5,12 +5,12 @@ description: Close your storefront behind a single "under maintenance" or "comin
 
 ## Overview
 
-**Maintenance Mode** swaps your whole public storefront for one page. Visitors can't browse or buy. You pick which page they see:
+**Maintenance mode** swaps your whole public storefront for one page. Visitors can't browse or buy. You pick which page they see:
 
 - **Under maintenance**: "the site is temporarily unavailable for updates." Good for a short fix or a big update.
 - **Coming soon**: "the store is launching soon." Good while you build, or to build excitement before launch.
 
-To open it, go to **Settings → Maintenance Mode**. Owners and Managers can open it. Staff can't. See [Team & roles](/docs/team-and-roles).
+To open it, go to **Settings → Maintenance mode**. Owners and Managers can open it. Staff can't. See [Team & roles](/docs/team-and-roles).
 
 Your admin dashboard is never affected, and while you're signed in you can still look at the real site.
 
@@ -20,16 +20,18 @@ This is your own switch. Sometimes SimplePress puts the **whole platform** into 
 
 *The page when Maintenance Mode is off. Everyone can see and shop your store.*
 
+The page has two cards. The **Status** card holds the switch and the display type. A second card, **Maintenance page** or **Coming-soon page**, holds the words and picture visitors see. It only appears once the switch is on.
+
 ---
 
 ## Turn it on
 
-1. Go to **Settings → Maintenance Mode**.
+1. Go to **Settings → Maintenance mode**.
 2. Switch on **Enable maintenance mode for my storefront**.
-3. Fill in any of the optional fields below.
-4. Click **Save changes** at the bottom of the card.
+3. Under **Display type**, choose **Under maintenance** or **Coming soon**, then fill in any of the optional fields below.
+4. Click **Save changes** in the top toolbar. **Reset** discards unsaved edits, and Save stays unavailable until you change something.
 
-As soon as you flip the switch, the form opens up with all the options. Nothing changes for visitors yet. It only takes effect after you click **Save changes**.
+As soon as you flip the switch, the display type choice appears, and the page card opens up with all the options. Nothing changes for visitors yet. It only takes effect after you click **Save changes**.
 
 When you save from off to on, SimplePress asks first.
 
@@ -49,20 +51,21 @@ Once it's saved on, a red alert reads **Storefront is currently offline**, with 
 
 ## What you can put on the page
 
-Everything below is optional. Leave a box empty and it's simply left off the page. Only a blank headline is replaced with SimplePress's own wording.
+The **Maintenance page** card (it's called **Coming-soon page** when you choose that display type) says "What visitors read while your storefront is offline." Everything in it is optional. Leave a box empty and it's simply left off the page. Only a blank headline is replaced with SimplePress's own wording.
+
+![The Status card with the maintenance mode switch on and Coming soon selected, above the Coming-soon page card with Overline, Headline, Launch date & time, Location and Flyer image](/images/maintenance-mode/status-and-page.png)
 
 ![The top of the form: Display type, Overline, Headline, Launch date and time, Location and Flyer image](/images/maintenance-mode/maintenance-form-top.png)
 
 | Field | What it does |
 | ----- | ------------ |
-| **Display type** | **Under maintenance** or **Coming soon**. |
 | **Overline (optional)** | A small label above the headline, up to 80 characters. For example "Grand opening" or "Temporarily closed". |
 | **Headline (optional)** | The big heading, up to 160 characters. For example "Something beautiful is on its way." or "We'll be back shortly." If blank, visitors see "Coming soon" or "We'll be back soon". |
 | **Launch date & time (optional)** | **Starts** and **Ends (optional)**. When set, the page shows the date and a live countdown. |
 | **Location (optional)** | Shown next to the date, up to 200 characters. Leave it blank to hide it. |
 | **Flyer image (optional)** | A picture shown above your message. **Upload image**, **Replace image** or **Remove**. JPG, PNG or WebP, up to 5 MB. |
 
-![The bottom of the form: Custom message and Call-to-action button, with the amber notice "Your storefront will go offline when you save" and Save changes](/images/maintenance-mode/maintenance-form-bottom.png)
+![The bottom of the form: Custom message and Call-to-action button, with the amber notice "Your storefront will go offline when you save"](/images/maintenance-mode/maintenance-form-bottom.png)
 
 | Field | What it does |
 | ----- | ------------ |
@@ -80,6 +83,8 @@ The date and time you pick are in **your store's time zone**, the one you chose 
 If you add an end time, it must be after the start time. If you set an end without a start, SimplePress asks for a start date first.
 
 ### If something won't save
+
+These checks run only while Maintenance Mode is switched on, so you can save a half-finished form with it off.
 
 | Message | What to do |
 | ------- | ---------- |
@@ -131,7 +136,7 @@ Click **View your store** to look at the real site: pages, products and services
 
 ![The preview bar reading You're previewing the live site, with View visitor page](/images/maintenance-mode/maintenance-preview-bar.png)
 
-**Checkout stays off even for you.** If you try to check out while previewing, you'll see **Checkout is off** with **Open Maintenance Mode** and **Back to cart** buttons. If you want to place a test order, turn Maintenance Mode off first.
+**Checkout stays off even for you.** If you try to check out while previewing, you'll see **Checkout is off** with **Open maintenance mode** and **Back to cart** buttons. If you want to place a test order, turn Maintenance Mode off first.
 
 ![The Checkout is off page with Open Maintenance Mode and Back to cart](/images/maintenance-mode/maintenance-checkout-off.png)
 
@@ -141,9 +146,9 @@ The sign-in pages and your admin stay reachable the whole time.
 
 ## Turn it off
 
-1. Go to **Settings → Maintenance Mode**.
+1. Go to **Settings → Maintenance mode**.
 2. Switch **Enable maintenance mode for my storefront** off.
-3. Click **Save changes**.
+3. Click **Save changes** in the top toolbar.
 
 Before you save, the amber notice **Your storefront will come back online when you save** shows. After you save, it happens at once. It doesn't ask you to confirm. Your headline, message and other settings are kept, so they'll be there next time you turn it on.
 

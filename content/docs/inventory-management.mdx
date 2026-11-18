@@ -18,20 +18,20 @@ You can use either approach, or both, across different products in your catalog.
 
 ### Where to find it
 
-Go to **Products** in the admin sidebar and open a product. On the **Basics** tab, the **Inventory** card is in the right-hand column, below the images. It starts with the **SKU** and **Barcode (UPC/EAN/GTIN)** fields. If the product has variants, those two fields move to each variant row instead, and the card says so.
+Go to **Products** in the admin sidebar and open a product. On the **Details** tab, find the **Inventory** card. It starts with the **SKU** and **Barcode (UPC/EAN/GTIN)** fields. If the product has variants, those two fields move to each variant row instead, and the card says so.
 
-![The Inventory card on a product's Basics tab with SKU, Barcode, the Inventory item box, Track Inventory switched on, and the Allow Backorders, Inventory Quantity and Low Inventory Threshold fields below](/images/inventory-management/product-inventory-card.png)
+![The Inventory card on a product's Details tab with SKU, Barcode (UPC/EAN/GTIN), and the Inventory item box with Item and Units consumed per purchase, plus a note that individual tracking is off while an inventory item is selected](/images/inventory-management/product-inventory-card.png)
 
 ### The Inventory card fields
 
 After **SKU** and **Barcode** (and, if Inventory Management is on and you have stock items, the **Inventory item** box; see [Linking a product to an item](#linking-a-product-to-an-item)), the card has, in this order:
 
-1. **Track Inventory** ("Enable inventory tracking for this product"). Off by default.
+1. **Track inventory** ("Enable inventory tracking for this product"). Off by default.
    - **Off:** The product is always treated as in stock. Customers can always add it to their cart and check out, whatever quantity you have entered.
    - **On:** SimplePress enforces your stock. Customers can't check out something with no stock left (unless you also allow backorders).
-2. **Allow Backorders** ("Allow customers to order when out of stock"). Only shown while tracking is on. See [Allow Backorders](#allow-backorders) below.
-3. **Inventory Quantity.** The number of units you have on hand. This field is for products without variants; you can't enter a negative number.
-4. **Low Inventory Threshold.** The stock level that triggers a low-stock email. It must be 1 or more; leave it blank for no low-stock email. See [Low-Stock Alerts](#low-stock-alerts).
+2. **Allow backorders** ("Allow customers to order when out of stock"). Only shown while tracking is on. See [Allow Backorders](#allow-backorders) below.
+3. **Inventory quantity.** The number of units you have on hand. This field is for products without variants; you can't enter a negative number.
+4. **Low inventory threshold.** The stock level that triggers a low-stock email. It must be 1 or more; leave it blank for no low-stock email. See [Low-Stock Alerts](#low-stock-alerts).
 
 Tracking is a product-level setting. There is no per-variant toggle, no per-variant backorder rule and no per-variant threshold. If your product line mixes tracked and untracked options, make them separate products.
 
@@ -39,9 +39,9 @@ If you link the product to an inventory item, these individual controls are repl
 
 ### Variants
 
-A product with variants has no single quantity. Each variant has its own **Stock** field in the **Product Variants** card, and these only show while **Track Inventory** is on.
+A product with variants has no single quantity. Each variant has its own **Stock** field in the **Product variants** card, and these only show while **Track inventory** is on.
 
-To set several at once, tick the checkboxes next to the variants. A **Bulk edit:** bar appears with a **Qty** box and a **Set Qty** button (next to a price box and **Set Price**, and a **Delete selected** button). This is handy when you restock a whole product line.
+To set several at once, tick the checkboxes next to the variants. A **Bulk edit:** bar appears with a **Qty** box and a **Set qty** button (next to a price box and **Set price**, and a **Delete selected** button). This is handy when you restock a whole product line.
 
 ![The Product Variants card with two variants ticked and the Bulk edit bar showing the Qty box and the Set Qty button](/images/inventory-management/variant-stock-bulk-edit.png)
 
@@ -120,7 +120,7 @@ At the end of each row, the **⋮** menu stays pinned to the right edge. On wide
 
 ### Creating and editing an item
 
-Click **New item** (or **Edit** in the ⋮ menu). The dialog is titled **New item** or **Edit item**.
+Click **Add item** (or **Edit** in the ⋮ menu). The dialog is titled **New item** or **Edit item**.
 
 - **Type:** **Stock** ("Consumable supplies you use up") or **Rental** ("Items you lend out and get back"). If Rental Check-outs is off, Rental is greyed out with a note to turn it on under **Settings → Features**.
 - **Name** (required), **SKU** (optional), **Category** (optional), **Storage location** (optional).
@@ -187,7 +187,7 @@ If every unit is reserved, a "Nothing available to sell" alert appears.
 
 A simple product (no variants) can draw its stock from a **stock** item. You'll only see the selector if Inventory Management is on and you have at least one stock item.
 
-1. Open the product and find the **Inventory** card on the **Basics** tab.
+1. Open the product and find the **Inventory** card on the **Details** tab.
 2. In the **Inventory item** box, pick an item from **Item**. The default is "None — use individual inventory". Each option reads "[name] ([qty] units)".
 3. Enter how many units the product uses each time it sells in **Units consumed per purchase**.
 4. Save the product.
@@ -232,7 +232,7 @@ Go to **Settings > Features** and switch on **Rental Check-outs**. This adds the
 
 ### Creating a check-out
 
-Go to **Inventory > Check-outs** and click **New check-out**. You can also use **Check out** in a rental item's ⋮ menu to start with that item already added.
+Go to **Inventory > Check-outs** and click **Add check-out**. You can also use **Check out** in a rental item's ⋮ menu to start with that item already added.
 
 ![The New check-out form with an event name, customer, due-back date and notes filled in, and two rental items added with quantities](/images/inventory-management/new-checkout.png)
 
@@ -289,7 +289,7 @@ Click **Check in**. The **Check in items** dialog shows each line with **Returne
 ### When Rental Check-outs is off
 
 - Existing check-outs stay viewable and can still be checked in.
-- You can't create new check-outs. The **New check-out** page shows the "Rental Check-outs" feature-disabled page.
+- You can't create new check-outs. The **Add check-out** page shows the "Rental Check-outs" feature-disabled page.
 - The **Check-outs** tab is hidden. If units are still out, a notice titled "N units are still checked out" appears at the top of the Items tab, linking to "Check them in from the check-outs list".
 - **Rental** is greyed out in the New item dialog, and items can still show as "out" on their detail page.
 
@@ -422,7 +422,7 @@ The same two steps apply to per-product inventory and to items.
 Stock is also deducted for:
 
 - **Manual orders** created with the payment status **Paid**. A manual order saved as **Pending** takes no stock.
-- **Pending manual orders switched to Paid.** On the order, open **More Options → Override Status → Payment Status** and choose **Paid**. That's the moment the sale happens, so stock is deducted (and the customer's order count and loyalty points are updated). No confirmation email is sent. Paid is one-way: you can't switch an order back to Pending, so cancel it instead.
+- **Pending manual orders switched to Paid.** On the order, open **More options → Override status → Payment status** and choose **Paid**. That's the moment the sale happens, so stock is deducted (and the customer's order count and loyalty points are updated). No confirmation email is sent. Paid is one-way: you can't switch an order back to Pending, so cancel it instead.
 - **Subscription renewal orders**, when each renewal is created.
 - **Option choices linked to a product.** When an order with a necklace and its Star charm is paid, the linked Star Charm product's stock goes down by one for each necklace ordered with a star. See [Option choices that use another product's stock](#option-choices-that-use-another-products-stock).
 
@@ -438,7 +438,7 @@ In rare high-traffic moments, a customer can pay for stock that sold out between
 
 It's flagged in a few places: an **Oversold items need attention** banner on the **Dashboard** (last 30 days), an **Oversold items in this order** alert on the order, and a **Some sales could not be deducted** alert on the item's page.
 
-You'll need to fulfil these orders by hand: restock and ship, or contact the customer to arrange a refund or substitution. Products with **Allow Backorders** on never oversell; they keep counting down below zero.
+You'll need to fulfil these orders by hand: restock and ship, or contact the customer to arrange a refund or substitution. Products with **Allow backorders** on never oversell; they keep counting down below zero.
 
 ---
 
@@ -450,7 +450,7 @@ The **Dashboard** can show a **Low stock alerts** card listing what needs attent
 
 ![The Dashboard's Low stock alerts card listing the products and variants that are running low, lowest first, with a "+ 64 more low on stock" line at the bottom](/images/dashboard/low-stock.png)
 
-- A published product (or variant) with **Track Inventory** on appears when its stock is at or below its own **Low Inventory Threshold**, or **10** if you never set one. Drafts and products already below zero from backorders are left out.
+- A published product (or variant) with **Track inventory** on appears when its stock is at or below its own **Low inventory threshold**, or **10** if you never set one. Drafts and products already below zero from backorders are left out.
 - A **stock-type item** appears the same way: its own **Low-stock threshold**, or 10 if none is set. It's shown as "Inventory item" with "N left", and clicking it opens the item. Items appear whether or not their linked products are published. Rental items never appear, because "2 on hand" may just mean the rest are out with customers.
 - Within each group, the lowest stock comes first. A Large (2×2) card shows 5 rows and a Full-width (4×2) card shows 10, with a "+N more" link when more are low.
 - Click the card's title to open your products list.
@@ -461,7 +461,7 @@ The dashboard falls back to 10 when no threshold is set, but the Items page's **
 
 Alerts go to your store's owner email. See [Emails You Receive](/docs/email-preview#emails-you-receive) for all of your alert emails in one place.
 
-**Products.** Set a **Low Inventory Threshold** (1 or more) on a tracked product. When a sale brings stock down to or below it, you get an email with a link to the product. For a product with variants the threshold applies to each variant, and alerts are tracked for the product as a whole.
+**Products.** Set a **Low inventory threshold** (1 or more) on a tracked product. When a sale brings stock down to or below it, you get an email with a link to the product. For a product with variants the threshold applies to each variant, and alerts are tracked for the product as a whole.
 
 **Items.** Set a **Low-stock threshold** on the item. The same logic applies. Item emails link to the **Inventory** page list rather than the item itself. Threshold emails fire only for sales, not for manual adjustments, Use, or check-outs.
 
@@ -558,3 +558,7 @@ Per-product inventory settings are part of editing a product. See [Team and Role
 - Get automatic emails or reminders for overdue check-outs
 - Link a check-out to an invoice or an order
 - Clear a field with a CSV import (blank cells leave values unchanged)
+
+## Stock for Square register sales
+
+When Square is connected, a register sale lowers the stock of its linked products, and stock you edit here is sent back to Square on the next sync. Counts changed in Square are replaced with the SimplePress number at the hourly stock check, or when you click **Sync now**. Items sold before they were linked don't change stock. See [Sell in Person with Square](/docs/sell-in-person-with-square#how-stock-stays-in-sync).

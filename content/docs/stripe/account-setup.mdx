@@ -50,7 +50,7 @@ To change your payout schedule:
 
 You need an Admin or Owner login to change this. See the [Payout schedules FAQ](https://support.stripe.com/questions/payout-schedules-faq) for more.
 
-> SimplePress doesn't change your payout schedule. Your **Finances** page shows your most recent payouts. For the full list, click **Open Dashboard** on **Settings → Integrations** to open your Stripe Dashboard. See [Finances](/docs/finances).
+> SimplePress doesn't change your payout schedule. Your **Finances** page shows your most recent payouts. For the full list, click **Open dashboard** on **Settings → Payments** to open your Stripe Dashboard. See [Finances](/docs/finances).
 
 ---
 
@@ -170,8 +170,8 @@ Stripe Tax is a paid Stripe service, and filing your returns is separate. See [S
 
 Once Stripe Tax is set up:
 
-1. Go to **Settings → Integrations** in your SimplePress admin.
-2. In the **Stripe Connect** card, flip on **Automatic Tax Collection**. It saves right away.
+1. Go to **Settings → Payments** in your SimplePress admin.
+2. In the **Stripe** card, flip on **Automatic Tax Collection**. It saves right away.
 
 SimplePress checks that your Stripe Tax settings are complete. If they aren't, the switch flips back off and a red message tells you what's missing. For the full walkthrough and the exact messages, see [Tax](/docs/tax).
 
@@ -192,14 +192,14 @@ See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#b
 
 ## Step 6 — Connect Stripe to SimplePress
 
-Once your Stripe account is set up, the last step is connecting it to your store. Only an Owner or Manager can do this.
+Once your Stripe account is set up, the last step is connecting it to your store. Only an Owner can do this.
 
-1. In your SimplePress admin, go to **Settings → Integrations**.
-2. In the **Stripe Connect** card, click **Connect with Stripe**.
+1. In your SimplePress admin, go to **Settings → Payments**.
+2. In the **Stripe** card, click **Connect with Stripe**.
 3. Sign in to your Stripe account and authorize the connection.
-4. You'll land back on the Integrations page. A "Stripe connected" message pops up, and the card now shows a **Connected** badge and your Stripe **Account ID**. If something goes wrong, a message tells you what happened. See [Integrations](/docs/integrations#connecting-your-stripe-account) for the list.
+4. You'll land back on the Payments page. A "Stripe connected" message pops up, and the card now shows a **Connected** badge and your Stripe **Account ID**. If something goes wrong, a message tells you what happened. See [Connecting Stripe](/docs/payments-and-payouts#connecting-stripe) for the list.
 
-For full details, see [Integrations](/docs/integrations).
+For full details, see [Payments & Payouts](/docs/payments-and-payouts#connecting-stripe).
 
 ---
 
@@ -213,7 +213,7 @@ Use this to verify everything is in place before going live:
 - [ ] Identity and business verification finished, with no banner or items due in your Stripe Dashboard
 - [ ] Stripe Tax head office address confirmed, and registrations added for the states where you collect (if collecting sales tax)
 - [ ] Payment methods you want switched on in Stripe (bank debits are fine: orders appear once they clear)
-- [ ] Stripe connected to SimplePress, with the **Connected** badge showing on **Settings → Integrations**
+- [ ] Stripe connected to SimplePress, with the **Connected** badge showing on **Settings → Payments**
 - [ ] Automatic Tax Collection switched on in SimplePress (if using Stripe Tax)
 
 ---

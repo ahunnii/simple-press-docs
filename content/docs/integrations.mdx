@@ -1,17 +1,25 @@
 ---
 title: Integrations
-description: "Connect your store to Stripe so you can take card payments, and turn on Umami analytics to see how visitors use your storefront. This is also where you find out about the other ways you can get paid."
+description: "Connect outside services to your store: Stripe for payments, analytics and ad tracking, customer chat, QuickBooks and API keys. This is also where you find out about the other ways you can get paid."
 ---
 
 ## Overview
 
-Connect outside services to your store from **Settings → Integrations**. This page covers three of them:
+Connect outside services to your store from **Settings → Integrations**. The page is split into sections, in this order:
 
-- **Stripe Connect** takes card payments at your checkout. Most of this page is about setting it up.
-- **Umami Analytics** tracks visits to your storefront.
-- **QuickBooks Online** sends deposit and final invoices for quotes. It only appears when QuickBooks Invoicing is turned on.
+- **Payments** is a pointer to **Settings → Payments**, where **Stripe** takes card payments at your checkout. See [Stripe](#stripe) below.
+- **Analytics & tracking** holds **Umami Analytics**, **Google Analytics** and **Meta Pixel**. See [Analytics & tracking](#analytics--tracking).
+- **Customer chat** holds the **Chat assistant** card. See [Chat assistant](#chat-assistant).
+- **Accounting** holds **QuickBooks Online**, which sends deposit and final invoices for quotes. See [QuickBooks Online](#quickbooks-online).
+- **Developer** holds **API keys**. See [API keys](#api-keys).
+
+Shippo shipping labels used to be here too. They're now connected in **Settings → Shipping**. See [Shippo shipping labels](#shippo-shipping-labels).
+
+A section only appears when it has a card for your store, so you won't see an empty heading. **Customer chat** needs the team-managed **Chat assistant** feature. **Accounting** needs **QuickBooks Invoicing** switched on. **Developer** is for Owners only. See [Feature flags](/docs/feature-flags).
 
 Owners and Managers can open this page. Staff can't.
+
+![The top of Settings → Integrations, with the Payments moved to Settings → Payments pointer, the Analytics & tracking heading, a Privacy Policy notice and the Umami Analytics card](/images/integrations/integrations-overview.png)
 
 <Callout type="info" title="Super Important">
 
@@ -23,87 +31,13 @@ Also, we are NOT tax advisors or accountants, and we can't give tax advice. Plea
 
 ---
 
-## Stripe Connect
+## Stripe
 
-Stripe is the payment processor behind your storefront. Until you connect a Stripe account, customers can browse and fill their cart, but they can't check out. They see a "checkout unavailable" message instead. You also can't refund card payments, because the refund goes back through Stripe.
+Stripe is the payment processor behind your storefront. It has its own page now: **Settings → Payments**. Connect your Stripe account there, turn on Automatic Tax Collection, and see your payment providers.
 
-Your money goes straight to your own Stripe account. SimplePress never holds your funds, and never sees or stores customers' card numbers.
+Until Stripe is connected, customers can browse and fill their cart, but they can't check out. Only Owners can connect or disconnect Stripe, and Managers can see its status.
 
-![The Stripe Connect card before an account is linked, with a Not Connected badge and the Connect with Stripe button](/images/integrations/stripe-not-connected.png)
-
-Only Owners and Managers can connect or disconnect Stripe. Staff can't. See [Team & roles](/docs/team-and-roles).
-
-### Connecting your Stripe account
-
-1. Go to **Settings → Integrations**.
-2. In the **Stripe Connect** card, click **Connect with Stripe**.
-3. You'll be sent to Stripe to authorize the connection. Sign in to your existing Stripe account or create a new one.
-4. After you authorize, Stripe sends you back to the page you started from, and a "Stripe connected" message pops up. The card now shows a **Connected** badge and your Stripe **Account ID**.
-
-If something goes wrong, a message tells you what happened:
-
-| Message | What it means |
-| ------- | ------------- |
-| Failed to initiate Stripe connection. Please try again. | SimplePress couldn't start the connection. Wait a moment and click **Connect with Stripe** again. |
-| Stripe connection cancelled | You backed out on Stripe's page. Nothing was connected. Click **Connect with Stripe** when you're ready. |
-| We couldn't finish connecting your Stripe account. Please try again. | Stripe approved the connection, but SimplePress couldn't finish it. Try again. |
-| Stripe didn't send back an authorization, so your account wasn't connected. Please try again. | Stripe sent you back without approving. Try again. |
-| Stripe connection failed. Please try again. | Something else went wrong on Stripe's side. Stripe's own explanation shows under the message. |
-
-> Stripe handles the sign-in and permission step. SimplePress only keeps your Stripe Account ID, not your Stripe password.
-
-Before you connect, it helps to have your bank account, business details and identity verification done in Stripe. See [Stripe Setup](/docs/stripe) for a walkthrough.
-
-![The Stripe Connect card showing Connected, the Account ID, Open Dashboard and Disconnect buttons, and the Automatic Tax Collection switch](/images/integrations/stripe-connected.png)
-
-### The badge on the card
-
-The badge in the top right of the **Stripe Connect** card tells you where things stand:
-
-| Badge | What it means |
-| ----- | ------------- |
-| **Not Connected** | No Stripe account is linked. Checkout is switched off and customers can't place orders. |
-| **Connected** | Your Stripe account is linked and checkout is live. |
-| **Charges paused** | Stripe has paused charges on your account, usually because it needs identity or business verification, more documents, or a reply on a dispute. Checkout fails for every shopper until you fix it in your Stripe Dashboard. |
-
-If charges are paused, a red note on the card reads "Stripe has paused charges on this account", and a strip across the top of your admin says "Payments are paused." The strip has a **Fix in Stripe** link and a **Details** link. Once Stripe turns charges back on, the warning clears on its own within a few minutes. You don't need to reconnect.
-
-### Once connected
-
-- Your Stripe Account ID is shown on the card for reference.
-- Card payments from customer orders are paid out to your Stripe account, then to your bank on Stripe's payout schedule.
-- Click **Open Dashboard** to open your Stripe Dashboard in a new tab.
-
-To see your balance, fees and recent payouts, open **Finances** in your admin sidebar. See [Finances](/docs/finances) and [Payments & Payouts](/docs/payments-and-payouts).
-
-### Automatic Tax Collection
-
-Once Stripe is connected, you'll see an **Automatic Tax Collection** switch in the same card. When it's on, Stripe Tax works out the sales tax for each customer's address and adds it at checkout. Stripe only charges tax in states where you've added a registration in Stripe.
-
-**Before you turn it on**, set up Stripe Tax in your Stripe account: finish your Tax settings, mainly your head office address. If you haven't, the switch flips back off, nothing is saved, and a red message tells you what's missing, with an **Open Stripe Tax Dashboard →** link. Registrations aren't needed for the switch to turn on, but without one Stripe charges no tax.
-
-When the switch is on, the card also shows a **Manage registrations →** link to your Stripe registrations.
-
-A few things to know:
-
-- The switch saves as soon as you click it. There's no Save button.
-- Donations are never taxed, even with the switch on. A gift isn't a sale.
-- Tax isn't calculated for you on orders you create by hand. See [Orders](/docs/orders).
-- Stripe Tax collects the tax. Filing and paying it is up to you, unless you add Stripe's paid filing service. See [Tax](/docs/tax#filing-your-returns).
-
-For a full guide to nexus and setting up Stripe Tax, see [Tax](/docs/tax), or click **Set up taxes →** next to the switch to open the Tax Guide in your admin.
-
-### Disconnecting Stripe
-
-Click **Disconnect** in the Stripe Connect card. A box titled "Disconnect Stripe account?" asks you to confirm: "You won't be able to accept payments until you reconnect a Stripe account." Click **Disconnect** again to go ahead, or **Cancel** to back out.
-
-When you disconnect:
-
-- Checkout turns off right away. Customers can't place new orders.
-- SimplePress also removes its access to your account in Stripe. Your Stripe account itself isn't closed or changed.
-- Existing orders and their history stay as they are.
-- You can't refund card payments from SimplePress until you reconnect.
-- You can click **Connect with Stripe** at any time to link an account again.
+For the steps, the status badges, and what happens when you disconnect, see [Connecting Stripe](/docs/payments-and-payouts#connecting-stripe). For the tax switch, see [Tax](/docs/tax).
 
 ---
 
@@ -111,9 +45,9 @@ When you disconnect:
 
 Stripe handles payments at your online checkout. You can take money other ways, and these don't need Stripe.
 
-- **Manual orders.** For a phone order or an in-person sale, create the order yourself under **Orders** and set the **Payment Method** to Card, Cash or Check. No card is charged. See [Orders](/docs/orders).
-- **Invoices.** Bill a customer directly and list how they can pay you: bank transfer, PayPal, Venmo, Cash App, Zelle, cash or check, or something else. You record the payment when it arrives. Add your methods in **Settings → Invoices**. See [Invoices](/docs/invoices).
-- **Donations.** Your donate page can take card gifts through Stripe, and also show your Venmo username and Cash App cashtag. Venmo and Cash App work even if Stripe isn't connected. See [Donations](/docs/donations).
+- **Manual orders.** For a phone order or an in-person sale, create the order yourself under **Orders** and set the **Payment method** to Card, Cash or Check. No card is charged. See [Orders](/docs/orders).
+- **Invoices.** Bill a customer directly and list how they can pay you: bank transfer, PayPal, Venmo, Cash App, Zelle, cash or check, or something else. You record the payment when it arrives. Add your methods once, in **Settings → Payments** under **Other ways to pay**. See [Invoices](/docs/invoices).
+- **Donations.** Your donate page can take card gifts through Stripe, and also show your Venmo and Cash App. They come from the same **Other ways to pay** list. Venmo and Cash App work even if Stripe isn't connected. See [Donations](/docs/donations).
 
 Customers can't pay with these methods at your normal checkout. Checkout goes through Stripe only. It shows cards plus any other payment methods you've turned on in your Stripe account. Delayed methods such as bank debits are supported too. The order appears once the money clears; see [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods).
 
@@ -133,11 +67,11 @@ To sell products, you need Stripe connected, at least one product, and your own 
 
 **What you can do:**
 
-- Connect a Stripe account from **Settings → Integrations**
+- Connect a Stripe account from **Settings → Payments** (Owners only)
 - See your connected Stripe Account ID
 - Open your Stripe Dashboard directly from the admin
 - Turn Automatic Tax Collection on or off
-- Disconnect your Stripe account
+- Disconnect your Stripe account (Owners only)
 - Take cash, check, Venmo, Cash App, Zelle and similar payments through manual orders, invoices and your donate page
 
 **What you cannot do:**
@@ -150,28 +84,35 @@ To sell products, you need Stripe connected, at least one product, and your own 
 
 ---
 
+## Analytics & tracking
+
+The **Analytics & tracking** section is for tools that show you who visits your store and where your sales come from. It holds three cards: **Umami Analytics**, **Google Analytics** and **Meta Pixel**. You can use any combination.
+
+At the top of the section, a **Privacy Policy** notice appears when your policy doesn't match the tools you've turned on, for example "It doesn't mention Google Analytics yet." It has a button that takes you to **Content → Policies** (**Create a Privacy Policy**, **Open policies** or **Review privacy policy**). Nothing is changed for you. When any of these tools is switched on, a message also reminds you to update your Privacy Policy and offers an **Open policies** button. See [Privacy Policy warnings](/docs/pages-and-policies#privacy-policy-warnings).
+
+Google Analytics and the Meta Pixel show your visitors a cookie banner. Umami doesn't need one. See [Cookie banner and your visitors](/docs/analytics#cookie-banner-and-your-visitors).
+
+---
+
 ## Umami Analytics
 
-Umami is a privacy-focused analytics tool. In the **Umami Analytics** card, it tracks visits, page views, referrers and on-site events (product views, add-to-cart and embed engagement) on your storefront. It does this without third-party cookies or ad-network tracking.
+Umami is a privacy-focused analytics tool run by SimplePress. In the **Umami Analytics** card, it counts visits, page views, where visitors came from, and shop actions like product views, add to cart, checkout and purchases on your storefront. It does this without cookies or ad-network tracking, so it doesn't need the cookie banner.
 
-The tracking script and event data are sent through your own storefront domain, so no third-party script loads in your visitors' browsers.
+The tracking script loads from your own storefront domain, so no third-party script loads in your visitors' browsers. It skips you and your staff while you're signed in.
 
-![The Umami Analytics card with the Website ID field, the Enable Analytics switch, the Enabled badge and the Save Changes button](/images/integrations/umami-card.png)
+![The Umami Analytics card with the On badge and the Collect analytics switch turned on](/images/integrations/umami-card.png)
 
 ### Setting up Umami
 
-SimplePress runs its own Umami instance, so you can't create this yourself. The card says so under **Website ID**: "SimplePress runs its own Umami analytics — you can't create a Website ID yourself. Email help@generativejustice.org with your storefront domain and we'll send you the Website ID to paste here." The Website ID isn't an Umami account ID or an API key.
+Umami is self-serve now. There's no Website ID to paste and nothing to email us about.
 
 1. Go to **Settings → Integrations**.
-2. In the **Umami Analytics** card, paste your **Website ID** into the field.
-3. Turn on **Enable Analytics**.
-4. Click **Save Changes**. You'll see "Umami settings updated."
+2. In the **Analytics & tracking** section, find the **Umami Analytics** card.
+3. Switch on **Collect analytics**.
 
-If you turn on **Enable Analytics** without a Website ID, you'll see "Website ID is required to enable analytics". If the ID isn't valid, you'll see "Enter a valid Umami website ID."
+The switch **saves immediately**. While it works you'll see "Setting up analytics...", then the message **Analytics is on** with a reminder: "Update your Privacy Policy to mention Umami." and an **Open policies** button. Switching it off shows **Analytics is off**. If something goes wrong you'll see "Couldn't update analytics settings" and the switch goes back to where it was.
 
-The badge in the top right of the card shows what is **saved**. It reads **Enabled** when a Website ID is saved and **Enable Analytics** was saved on. Otherwise it reads **Disabled**. If you change the field or the switch, the badge doesn't change yet. An **Unsaved changes** hint appears next to **Save Changes** until you save. Nothing is collected until you click **Save Changes** and see "Umami settings updated."
-
-Once saved and enabled, the tracking script runs on your storefront pages and starts collecting visits right away.
+The badge in the top right of the card reads **On** or **Off**. Once it's on, the tracking script runs on your storefront pages and starts collecting visits right away.
 
 ### What isn't counted
 
@@ -183,31 +124,150 @@ Visits to these places are left out on purpose, so your own work doesn't skew yo
 - invoice pages your customers open from a link
 - the "not permitted" page, and SimplePress's own back-office pages
 
-So you can click around your admin as much as you like without adding to your visit counts. Real visits to your storefront pages are counted.
+You and your staff are also skipped while signed in. Real visits to your storefront pages are counted.
 
 ### Seeing your results
 
-Your results appear on the [Analytics](/docs/analytics) dashboard in your admin. That dashboard is a separate feature, so it only shows up once you turn on **Analytics** under **Settings → Features**. See [Feature flags](/docs/feature-flags).
+Your results appear on the [Analytics](/docs/analytics) dashboard in your admin. That dashboard is a separate feature, so it only shows up once you turn on **Analytics** under **Settings → Features**. The card says so too: "To see results in the admin, the Analytics feature must also be on." See [Feature flags](/docs/feature-flags).
 
 The two settings work independently:
 
-- **Enable Analytics** in the card controls whether data is collected.
+- **Collect analytics** in the card controls whether data is collected.
 - The **Analytics** feature controls whether you can see the dashboard.
 
-If you turn on collection but not the feature, data is collected but you can't view it in the admin yet. If you turn on the feature but not collection, the dashboard shows an **Analytics not connected** message with a link to **Settings → Integrations**.
+If you turn on collection but not the feature, data is collected but you can't view it in the admin yet. If you turn on the feature but not collection, the dashboard says **Analytics is off** with a link to **Settings → Integrations**.
 
 ---
 
 **What you can do:**
 
-- Enter your Umami Website ID
-- Turn analytics collection on or off for your storefront
+- Turn analytics collection on or off for your storefront with one switch
 
 **What you cannot do:**
 
-- Create your own Umami account or Website ID. The SimplePress team provides the Website ID.
 - Count your own admin visits. They're always left out
-- Use a different analytics provider through this card
+
+---
+
+## Google Analytics
+
+The **Google Analytics** card counts visits and sales on your storefront in your own Google Analytics 4 property. You need a Google Analytics account. SimplePress only connects your store to it.
+
+![The Google Analytics card with a Measurement ID typed in, the box for Google's EU user consent policy checked, the Events we send row, and Save changes with Unsaved changes beside it](/images/integrations/google-analytics-card.png)
+
+*The badge still says Off here because the new ID hasn't been saved yet. It changes to On after you click Save changes.*
+
+### Setting it up
+
+1. In Google Analytics, open **Admin**, then **Data streams**, then your **Web** stream, and copy the **Measurement ID**. It looks like `G-ABC123XYZ9`. Keep **Enhanced measurement** on so page changes are counted.
+2. In SimplePress, go to **Settings → Integrations** and find the **Google Analytics** card.
+3. Paste it into **Measurement ID**.
+4. Check **I'll follow Google's EU user consent policy**. This box appears whenever you're saving a new ID, and you can't save without it. There's a **Read the policy** link beside it. You're responsible for your Google Analytics account and for describing it accurately in your Privacy Policy.
+5. Click **Save changes**. You'll see "Google Analytics settings updated" and a reminder to update your Privacy Policy.
+
+If the ID isn't valid you'll see "Enter a valid Measurement ID, like G-ABC123XYZ9". To turn Google Analytics off, clear the field and save. The badge shows **On** or **Off** for what's saved. An **Unsaved changes** hint appears next to **Save changes** until you save.
+
+### What visitors see
+
+Visitors see a cookie banner with an Analytics choice. Google Analytics sets cookies only after a visitor allows **Analytics**, and Google's advertising features only after they allow **Advertising**. Before they choose, or if they reject, Google's Consent Mode still sends Google cookieless pings with their IP address, browser and device details, the page address and the time. Google Analytics never loads for you or your staff while you're signed in, or on admin, sign-in or account pages.
+
+Purchases are reported with the Stripe checkout session ID (starting `cs_`) as the transaction ID. It matches the Stripe session shown on the order.
+
+### Events we send
+
+Open **Events we send** on the card for the list: `view_item`, `add_to_cart`, `remove_from_cart`, `view_cart`, `begin_checkout`, `purchase` (orders, donations and paid subscriptions), `generate_lead` (forms, contact and quote requests), `sign_up` (newsletter), `search` and `embed_engaged`. No names, emails or form answers are included.
+
+To count the important ones as conversions, open Google Analytics, go to **Admin**, then **Events**, and turn on **Mark as key event** for `purchase`, `generate_lead` and `sign_up`. A new event can take a day to appear in that list.
+
+### Server-side tracking (advanced)
+
+Once a Measurement ID is saved, a **Server-side tracking (advanced)** section appears on the card. It's optional.
+
+It also sends each paid order to Google Analytics from SimplePress's server, so sales still count when a shopper's browser blocks Google. It only does this for shoppers who allowed Analytics cookies before checking out, and it uses the same transaction ID as the browser so Google can match the two.
+
+1. In Google Analytics, go to **Admin**, **Data streams**, your web stream, **Measurement Protocol API secrets**, then **Create**.
+2. Paste the secret value into **Measurement Protocol API secret** and click **Save**. You'll see "API secret saved" and a reminder to mention server-side purchase tracking in your Privacy Policy.
+
+A saved secret is never shown again. The section says **On**, with **Replace** and **Remove** buttons. **Remove** asks "Remove secret?" and stops server-side tracking until you save a new one. **Send a test event** checks the event format with Google's validation server. Nothing is recorded in your reports.
+
+---
+
+## Meta Pixel
+
+The **Meta Pixel** card sends your storefront's visits and shopping actions to your own Meta (Facebook and Instagram) account, for measuring and optimizing ads.
+
+![The Meta Pixel card with a Pixel ID typed in, the box for Meta's Business Tools Terms checked, the Events we send row, and Save changes with Unsaved changes beside it](/images/integrations/meta-pixel-card.png)
+
+*The badge changes from Off to On once you save.*
+
+### Setting it up
+
+1. In Meta Events Manager, open **Data sources** and copy your **Pixel ID** (10 to 20 digits).
+2. In SimplePress, go to **Settings → Integrations** and find the **Meta Pixel** card.
+3. Paste it into **Pixel ID**.
+4. Check **I accept Meta's Business Tools Terms**. It appears when you're saving a new ID, and you can't save without it. You're responsible for your Meta account, how you use the data, and describing the Pixel accurately in your Privacy Policy.
+5. Click **Save changes**. You'll see "Meta Pixel settings updated" and a Privacy Policy reminder.
+
+An invalid ID shows "Enter a valid Pixel ID: 10 to 20 digits". Clear the field and save to turn it off.
+
+### What visitors see
+
+Visitors see a cookie banner with an **Advertising** choice. The Pixel loads only after a visitor allows Advertising, and never when their browser sends a Global Privacy Control signal. While it's on, the link at the bottom of your store reads **Your privacy choices** so visitors can opt out at any time. It never loads for you or your staff while you're signed in, or on admin, sign-in or account pages.
+
+If your store uses a SimplePress web address rather than your own domain, the card suggests connecting a custom domain for accurate ad attribution. See [Custom Domain](/docs/domain).
+
+The events sent are `ViewContent`, `AddToCart`, `InitiateCheckout`, `Purchase`, `Donate`, `Subscribe`, `Lead`, `CompleteRegistration` (newsletter) and `Search` (without the search words). Open **Events we send** on the card to see how to check they arrive.
+
+### Server-side tracking (advanced)
+
+Once a Pixel ID is saved, an optional **Server-side tracking (advanced)** section appears. It also sends each paid order to Meta from SimplePress's server, so sales still count when a shopper's browser blocks the Pixel. It only does this for shoppers who allowed Advertising cookies before checking out, with Meta's cookie IDs, their IP address and browser details. No names or email addresses are sent. It uses the same event ID as the Pixel, so Meta counts the purchase once.
+
+1. In Meta Events Manager, open your dataset (pixel), then **Settings**, then **Generate access token** under **Conversions API**.
+2. Paste it into **Conversions API access token** and click **Save**. You'll see "Access token saved".
+
+Once saved, you can **Replace** or **Remove** it, the same as with Google Analytics. To check it works, open your dataset's **Test Events** tab in Events Manager, copy the code under **Server** (like `TEST12345`) into **Test Events code**, and click **Send a test event**.
+
+---
+
+## Chat assistant
+
+The **Chat assistant** card adds a chat button to your storefront. It works with GoHighLevel (LeadConnector) chat widgets. The **Customer chat** section only appears when the **Chat assistant** feature is on for your store. That feature is managed by the SimplePress team. See [Feature flags](/docs/feature-flags).
+
+![The Chat assistant card before setup, with the Off badge, an empty Embed code box, and the two When should chat load? options](/images/integrations/chat-assistant-card.png)
+
+### Setting it up
+
+1. In GoHighLevel, copy your chat widget's embed code.
+2. Go to **Settings → Integrations** and find the **Chat assistant** card in **Customer chat**.
+3. Paste it into **Embed code**. You can paste the full snippet or just the widget ID. SimplePress shows "Recognized: ..., widget ..." and saves only the widget ID. The rest of the paste is ignored.
+4. Choose **When should chat load?**:
+   - **When a visitor taps Chat with us (recommended)**: pages are faster, and the chat tool can't track visitors who never open it. It doesn't need the cookie banner.
+   - **On every page**: needed if GoHighLevel's SMS (A2P) compliance review says the chat widget isn't on your website. The chat tool then loads for every visitor, so it may set cookies and receive visitors' IP addresses before they open it. It isn't part of the cookie banner, so keep your Privacy Policy up to date.
+5. Click **Save changes**. You'll see "Chat assistant saved" and a reminder to update your Privacy Policy.
+
+To change only the loading choice, switch it and click **Save changes**. To take chat off, click **Remove**, then confirm **Remove chat assistant?**
+
+The chat button is hidden while you're signed in, so check it in a private window. It never shows on admin, sign-in, account, checkout or order pages.
+
+---
+
+## Shippo shipping labels
+
+Shippo is no longer connected on this page. You now connect it in **Settings → Shipping**, in the **Shippo account** section at the top of the **Shipping labels** card. That card only appears when **Shipping labels** is switched on under **Settings → Features**. See [Connect Shippo](/docs/shipping#connect-shippo), and [Shipping labels](/docs/shipping-labels) for how to buy a label.
+
+If you open an old link to the Shippo card here, you're taken to the new place.
+
+---
+
+## API keys
+
+The **API keys** card is in the **Developer** section, which only Owners see. It lets another app, such as ProfitMax, read your store's public business details and catalog: name, location, hours, products, prices, services and FAQs. Keys can't see orders, customers or payments.
+
+![The API keys card with a Create key button and one active key, showing when it was Created, when it was Last used, and a Revoke button](/images/integrations/api-keys-card.png)
+
+- **Create key** opens **Create an API key**. Give it a **Name**, then create it. The next screen, **Your new key**, shows the key and your **Site address** once, with copy buttons. "Copy this now — you won't be able to see it again."
+- Each key in the list shows its name, when it was **Created**, and **Last used** (for example "Last used 2 days ago", or "Last used: Never").
+- **Revoke** stops a key. You confirm first, and apps using it stop working right away. A revoked key stays in the list marked **Revoked** with its date.
 
 ---
 
@@ -286,13 +346,18 @@ For how deposit and final invoices work step by step, see [Invoices](/docs/invoi
 	/>
 	<Card
 		title="Feature Flags"
-		description="Turn QuickBooks Invoicing and Analytics on or off."
+		description="Turn QuickBooks Invoicing, Shipping labels and Analytics on or off."
 		href="/docs/feature-flags"
 	/>
 	<Card
 		title="Analytics"
 		description="See the visits Umami collects."
 		href="/docs/analytics"
+	/>
+	<Card
+		title="Shipping Labels"
+		description="Connect Shippo in Shipping, then buy and print labels."
+		href="/docs/shipping-labels"
 	/>
 	<Card
 		title="Stripe Setup"

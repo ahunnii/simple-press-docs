@@ -144,7 +144,7 @@ If something stops a shopper from reaching Stripe's payment page, a red message 
 | ------- | ------------- | --------------- |
 | "Please fill in all required contact fields" / "Please fill in all required shipping fields" | The shopper left email, name, phone, or part of the address empty. | Nothing. They fill it in and try again. |
 | "Your cart is empty" | The cart had nothing in it when they clicked **Continue to Payment**. | Nothing. |
-| "The following items were out of stock or no longer available and have been removed from your cart: [item names]." | An item sold out, was unpublished, is marked coming soon, or is being held by another shopper's unfinished checkout. SimplePress takes it out of the cart for them. | Check the product's stock and **Published** switch. Held items go back on sale within 30 minutes. |
+| "The following items were out of stock or no longer available and have been removed from your cart: [item names]." | An item sold out, became a draft, is marked coming soon, or is being held by another shopper's unfinished checkout. SimplePress takes it out of the cart for them. | Check the product's stock and **Published** switch. Held items go back on sale within 30 minutes. |
 | "Complete shipping address is required" | The address is missing a part, or the country isn't one you ship to. | Check **Countries you sell to** in [Shipping](/docs/shipping#countries-you-sell-to). |
 | "Shipping to this country is not available" | Zone + weight shipping only: the country isn't one you ship to. | Same as above. |
 | "We only deliver within [N] miles. Choose another option." | Local delivery: the shopper's ZIP is outside your radius. | Nothing, or raise your radius in [Shipping](/docs/shipping#local-delivery). |
@@ -165,7 +165,7 @@ If something stops a shopper from reaching Stripe's payment page, a red message 
 | "Invalid or expired discount code" | The code they applied no longer exists. | Check the code in [Discounts and Coupons](/docs/discounts-and-coupons). Other code messages are listed there too. |
 | "Checkout is not available for this store." | **Shopping Cart & Checkout** (or a feature it depends on) is switched off. | Check **Settings → Features**. See [Feature Flags](/docs/feature-flags). |
 | "This store is temporarily unavailable. Please try again later." | [Maintenance Mode](/docs/maintenance-mode) is on, or SimplePress is doing maintenance. | Turn Maintenance Mode off when you're ready to sell. |
-| "Store payment processing not configured" | Stripe isn't connected to your store. This is rare, because the checkout page normally shows "Checkout Unavailable" first. | Connect Stripe in **Settings → Integrations**. |
+| "Store payment processing not configured" | Stripe isn't connected to your store. This is rare, because the checkout page normally shows "Checkout Unavailable" first. | Connect Stripe in **Settings → Payments**. |
 | "Invalid request." | The cart held something checkout can't accept, such as more than 100 of one item. | Ask the shopper to reduce the cart, or email help@generativejustice.org if it keeps happening. |
 | "Too many requests. Please try again later." | One internet connection tried to check out more than 10 times in a minute. | Nothing. They wait a minute and try again. |
 | "We couldn't reach the payment service. Please try again in a moment." | The shopper's connection dropped, or our server sent back something unexpected. | Nothing. A retry usually works. |
@@ -244,13 +244,13 @@ Once signed in, shoppers have an account area with these tabs. Tabs tied to a fe
 | Tab              | Shown when                       | What the shopper can do                                                                                                          |
 | ---------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | **Orders**       | Orders is on                     | See every order with its number, date, status, and total. Open one to see items, totals, tracking links, and the shipping address |
+| **Address Book** | Always (some templates hide it while Checkout is off) | Add, edit, and delete shipping addresses, and choose a default to use at checkout                                               |
 | **Subscriptions**| Product Subscriptions is on      | See their subscriptions and the next delivery date, and open the manage page for each one                                       |
 | **Invoices**     | Invoices is on                   | See invoices you've sent them, with status and balance due, and open each one                                                    |
+| **Rewards**      | Rewards Program is on            | See their points balance, ways to earn, rewards they can redeem, and their codes                                                |
 | **Settings**     | Always                           | Update their name and profile picture                                                                                           |
 | **Security**     | Always                           | Change their password and see where they're signed in                                                                           |
-| **Address Book** | Always (some templates hide it while Checkout is off) | Add, edit, and delete shipping addresses, and choose a default to use at checkout                                               |
 | **Preferences**  | Always                           | Turn your marketing emails on or off, download their data, or ask for their account to be deleted                               |
-| **Rewards**      | Rewards Program is on            | See their points balance, ways to earn, rewards they can redeem, and their codes                                                |
 
 ![The account area with the tab list and the Orders tab showing a few past orders](/images/for-your-customers/account-orders.png)
 
@@ -288,7 +288,7 @@ So when a customer says the link never came:
 - **Check spam, and give it a few minutes.**
 - **Each internet connection can ask 5 times every 15 minutes.** After that they see "Too many requests. Please try again later." and have to wait.
 
-To help them yourself, open the order in [Orders](/docs/orders), check the email on it, and use **Resend Order Confirmation** from **More Options** (the confirmation email has the **View Order Status** button). See [Resending emails](/docs/orders#resending-emails).
+To help them yourself, open the order in [Orders](/docs/orders), check the email on it, and use **Resend order confirmation** from **More options** (the confirmation email has the **View Order Status** button). See [Resending emails](/docs/orders#resending-emails).
 
 > **Tip:** Most templates don't link to `/order-status` in the menu. If guests often ask how to find their order, add an "Order status" link to your footer or navigation.
 
@@ -435,11 +435,28 @@ A link that is missing its code or has been changed shows a plain page headed "I
 
 ---
 
+## Cookie Banner
+
+If you've set up **Google Analytics** or the **Meta Pixel** on **Settings → Integrations**, shoppers see a short cookie banner at the bottom of your storefront the first time they visit. Neither tool loads until they allow it. Stores that only use Umami analytics or no tracking at all show no banner, and neither does the chat assistant on its own.
+
+- **One tool set up:** the banner has **Accept** and **Decline**.
+- **Both set up:** it has **Accept all**, **Reject all** and **Choose**. **Choose** shows two switches, **Analytics** and **Advertising**, and a **Save** button.
+- If a shopper's browser sends a Global Privacy Control signal, advertising stays off and a Pixel-only store doesn't ask them anything.
+- The banner links to your Privacy Policy once you've published one.
+
+Shoppers can change their mind at any time with the small link at the very bottom of every page. It reads **Cookie preferences**, or **Your privacy choices** when the Meta Pixel is on. The tools themselves never load for you or your team while you're signed in.
+
+![The cookie banner across the bottom of a storefront page on a phone, reading "This store uses cookies for analytics and ads, only if you allow them." with Accept all, Reject all and Choose buttons](/images/analytics/cookie-banner-phone.png)
+
+For the setup side, see [Analytics](/docs/analytics#cookie-banner-and-your-visitors) and [Integrations](/docs/integrations#analytics--tracking).
+
+---
+
 ## Emails Your Customers Receive
 
-Every customer email shows your logo (or your business name, if you haven't added a logo). It comes from "*Your Business* via SimplePress", and replies go to the **Owner Email** in your General settings (invoice, form, and quote emails use your **Support Email** instead). The two sign-in emails, **Verify your email** and **Reset your password**, are the exception: they have no reply address, so replies don't reach you.
+Every customer email shows your logo (or your business name, if you haven't added a logo). It comes from "*Your Business* via SimplePress", and replies go to the **Owner email** in your General settings (invoice, form, and quote emails use your **Support email** instead). The two sign-in emails, **Verify your email** and **Reset your password**, are the exception: they have no reply address, so replies don't reach you.
 
-You can preview most of these emails, and change the subject line and opening paragraph of many of them, under **Notification Emails** in your admin. See [Email Preview](/docs/email-preview).
+You can preview most of these emails, and change the subject line and opening paragraph of many of them, under **Settings → Customer emails** in your admin. See [Email Preview](/docs/email-preview).
 
 | Email                                   | When it's sent                                                                                   | Can you turn it off?                                                                    |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
@@ -486,6 +503,9 @@ Orders show up in your account when they were placed with the same email address
 
 **"I asked for an order status link and nothing came."**
 Check your spam folder first. Then make sure the email and order number match your confirmation email exactly. The page says it sent a link even when nothing matched. If you're still stuck, tell us the order number and we'll resend your confirmation.
+
+**"What is the cookie banner asking me?"**
+It asks whether the store may use cookies for analytics (counting visits) and advertising (measuring ads). Nothing loads until they choose to allow it, and they can change their answer from the **Cookie preferences** or **Your privacy choices** link at the bottom of any page.
 
 **"Sign-in (or sign-up) says it couldn't verify my browser."**
 That's Google reCAPTCHA, which runs quietly in the background. Ad blockers, privacy extensions, and some VPNs can block it. Allow our site in your blocker (or turn it off for our site), try another browser, or switch off your VPN. Then try again.

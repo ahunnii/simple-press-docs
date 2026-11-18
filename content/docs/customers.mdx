@@ -22,7 +22,7 @@ Open **Customers** in your admin sidebar (`/admin/customers`).
 
 ### Summary cards
 
-- **Total Customers**: everyone in your customer list.
+- **Total customers**: everyone in your customer list.
 - **All customers accepting marketing**: how many have opted in to marketing emails and can be emailed. It leaves out customers who are suppressed or anonymized, so it matches the **Audience** card on the Email Marketing page.
 
 ### The table
@@ -33,7 +33,7 @@ The list shows 25 customers per page.
 | --- | --- |
 | **Customer** | Their name, with their email address underneath. A **Deletion requested** or **Anonymized** badge appears here when it applies. |
 | **Orders** | How many orders they've placed. |
-| **Total Spent** | Their lifetime spend across those orders. |
+| **Total spent** | Their lifetime spend across those orders. |
 | **Marketing** | A grey **Subscribed** badge if they've opted in to marketing emails, or an orange **Suppressed** badge if the email provider has stopped your marketing emails to them. Everyone else shows "—". |
 | **Joined** | The date their customer record was created. |
 | **View** | Opens their detail page. |
@@ -64,14 +64,14 @@ On a phone, the Marketing column is folded into the line under each customer's n
 
 ## A Customer's Detail Page
 
-Click **View** on any row. The top of the page shows the customer's name and a "Joined" date. The left side holds their order history, and cards down the right side hold everything else.
+Click **View** on any row. The top of the page shows the customer's name and a "Joined" date. The left side holds their order history, and cards down the right side hold everything else. If invoices apply to this customer, the left side has two tabs, **Orders** and **Invoices**.
 
-![A customer's detail page with the Customer and Summary cards, plus Rewards, Invoices, Notes and Privacy cards down the right](/images/customers/customer-detail.png)
-*A customer's detail page. This customer hasn't ordered yet, so Order History is empty.*
+![A customer's detail page with the Orders and Invoices tabs on the left, and the Customer, Summary, Email marketing, Rewards, Notes and Privacy cards down the right](/images/customers/customer-detail.png)
+*A customer's detail page, with their order in the Orders tab.*
 
 ### Order History
 
-This reuses the same table you see on the Orders page: order number, items, total and status. Orders that include [product options](/docs/product-options) say "with options" next to the item count. Click an order to open it. If the customer hasn't ordered, you'll see "No orders yet. This customer hasn't placed any orders."
+This is the **Orders** tab. It reuses the same table you see on the Orders page: order number, items, total and status. Orders that include [product options](/docs/product-options) say "with options" next to the item count. Click an order to open it. If the customer hasn't ordered, you'll see "No orders yet. This customer hasn't placed any orders."
 
 ![A customer detail page with three orders listed under Order History and the Email marketing card down the right](/images/customers/email-marketing-card.png)
 *A customer with order history. The **Email marketing** card down the right shows their status and **Recent activity**.*
@@ -80,17 +80,16 @@ This reuses the same table you see on the Orders page: order number, items, tota
 
 | Card | What it shows or lets you do |
 | --- | --- |
-| **Customer** | Name, Email and Phone. |
+| **Customer** | Name, Email and Phone. Tap the email to write to them, or the phone number to call. |
+| **Summary** | **Total orders** and **Total spent**. It sits right under the Customer card. |
 | **Email marketing** | Their marketing status, when they joined the list, and their **Recent activity**. Owners and Managers also get a **Mark as unsubscribed** button. See [The Email marketing card](#the-email-marketing-card). |
-| **Summary** | **Total Orders** and **Total Spent**. |
 | **Rewards** | Their points balance and a history of points earned and spent. Owners and Managers get an **Adjust points** button. |
-| **Invoices** | Their recent invoices, with a **New invoice** button. |
 | **Notes** | Private notes about the customer. |
 | **Privacy** | Deletion requests and the **Anonymize customer** button. |
 
 ### The Email marketing card
 
-This card sits under the **Customer** card and shows where this person stands with your marketing emails.
+This card sits in the right-hand column and shows where this person stands with your marketing emails.
 
 - A badge shows their status: **Subscribed**, **Unsubscribed**, **Not subscribed** or **Suppressed**, such as "Suppressed: Bounced", "Suppressed: Marked as spam" or "Suppressed: Blocked by provider". Suppressed wins over everything else.
 - A **Suppressed** customer also sees this note: "We've stopped sending marketing emails to this address because the email provider reported a problem with it. Order emails like receipts are not affected."
@@ -128,7 +127,7 @@ The Rewards program itself is switched on in **Features**. See [Feature Flags](/
 
 ### Invoices
 
-The **Invoices** card lists the customer's latest invoices with their number, status, balance and due date. An **Overdue** badge appears on any that are past due. Click **New invoice** to start an invoice for this customer, or **View all invoices** to see everything on your Invoices page. If you've turned Invoices off and the customer has none, the card is hidden. See [Invoices](/docs/invoices).
+The **Invoices** tab, next to **Orders**, lists the customer's latest invoices with their number, status, balance and due date. An **Overdue** badge appears on any that are past due. Click **New invoice** to start an invoice for this customer, or **View all invoices** to see everything on your Invoices page. If you've turned Invoices off and the customer has none, the tab is hidden. See [Invoices](/docs/invoices).
 
 ### Notes
 
@@ -247,7 +246,7 @@ Shoppers can handle two privacy tasks themselves, under **Data & Privacy** on th
 - **Download my data** gives them a copy of their personal data. It includes their marketing status and the full history of when they joined or left your list, with the IP address and browser recorded for each change.
 - **Request account deletion** flags their record for you.
 
-When a customer asks to be deleted, a **Deletion Requested** alert appears on their detail page, and a **Deletion requested** badge shows next to their name on the list. You can find all of them with **Filters → Privacy → Deletion requested**.
+When a customer asks to be deleted, a **Deletion requested** alert appears on their detail page, and a **Deletion requested** badge shows next to their name on the list. You can find all of them with **Filters → Privacy → Deletion requested**.
 
 ### Anonymize a customer
 
@@ -266,7 +265,7 @@ There is no **Delete** button. Anonymizing is how you remove someone's personal 
 
 ## Exporting Your Customers
 
-There's no export button on the Customers page, and you can't tag customers. Your customer information is included in **Settings → Data & Export**, which downloads your whole site as one ZIP file. Customers appear there as spreadsheets, and so do your opted-in email subscribers. A customer's consent history (the **Recent activity** list) isn't included in any export. See [Data & Export](/docs/data-and-export).
+There's no export button on the Customers page, and you can't tag customers. Your customer information is included in **Settings → Data & export**, which downloads your whole site as one ZIP file. Customers appear there as spreadsheets, and so do your opted-in email subscribers. A customer's consent history (the **Recent activity** list) isn't included in any export. See [Data & Export](/docs/data-and-export).
 
 ---
 

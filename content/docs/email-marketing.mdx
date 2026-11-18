@@ -20,7 +20,7 @@ Only customers who chose to receive your emails get a campaign, however you narr
 This page also covers the **abandoned checkout email**, a separate automatic message for shoppers who start paying and then leave. It is not part of Email Marketing and has its own switch. See [Abandoned Checkout Emails](#abandoned-checkout-emails).
 
 <Callout type="info" title="Email Marketing is off by default">
-  Turn it on under **Settings → Features**, in the **Marketing** section. Until you do, the page shows a notice titled **Email marketing is turned off**, with a **Settings → Features** button, and the **New campaign** button is hidden. Past campaigns and your list are still there to look at. See [Feature Flag](#feature-flag).
+  Turn it on under **Settings → Features**, in the **Marketing** section. Until you do, the page shows a notice titled **Email marketing is turned off**, with a **Settings → Features** button, and the **Add campaign** button is hidden. Past campaigns and your list are still there to look at. See [Feature Flag](#feature-flag).
 </Callout>
 
 <Callout type="info" title="Who can use it">
@@ -33,11 +33,11 @@ This page also covers the **abandoned checkout email**, a separate automatic mes
 
 In your admin sidebar, open **Marketing → Email Marketing**. You can also type "Send email marketing" into the search box at the top of the admin to jump straight there. The sidebar link and search entry only appear once the feature is on.
 
-The page is titled **Email Marketing** ("Send a one-off announcement or newsletter to your opted-in customers"). It has an **Email style** button, a **New campaign** button, an **Audience** card, and a **Campaign history** list. The **Audience** card here counts everyone who has opted in. You choose a smaller group for each campaign when you write it.
+The page is titled **Email Marketing** ("Send a one-off announcement or newsletter to your opted-in customers"). It has an **Email style** button, a **Add campaign** button, an **Audience** card, and a **Campaign history** list. The **Audience** card here counts everyone who has opted in. You choose a smaller group for each campaign when you write it.
 
 ![The Email Marketing page with the New campaign button, the Audience card showing a count and an Export CSV button, and the Campaign history table with campaigns in different states](/images/email-marketing/marketing-page.png)
 
-When the feature is off, the same page shows the notice and keeps your history and export. The **Email style** and **New campaign** buttons are hidden:
+When the feature is off, the same page shows the notice and keeps your history and export. The **Email style** and **Add campaign** buttons are hidden:
 
 ![The Email Marketing page with the "Email marketing is turned off" notice and its Settings → Features button above the Audience card and Campaign history](/images/email-marketing/marketing-feature-off.png)
 
@@ -168,7 +168,7 @@ You can't opt a customer in. You can opt one out. See below.
 
 Click **Export CSV** on the **Audience** card to download your opted-in customers as a spreadsheet. A message confirms how many were exported (for example "Exported 12 recipients").
 
-The file is named `marketing-list-` followed by your store name and today's date. It has one row per customer with these columns: **Email**, **First Name**, **Last Name**, **Order Count**, **Total Spent**, **Customer Since**, **Consent Source** and **Consent Date**.
+The file is named `marketing-list-` followed by your store name and today's date. It has one row per customer with these columns: **Email**, **First Name**, **Last Name**, **Order Count**, **Total spent**, **Customer Since**, **Consent Source** and **Consent Date**.
 
 **Consent Source** says how the person opted in: "Checkout", "Newsletter sign-up form", "Account preferences", "Resubscribed from email link", or "Account (before consent tracking)". **Consent Date** says when. Keep this if you ever need to show that someone agreed to hear from you.
 
@@ -205,7 +205,7 @@ Your campaigns can look like your store. Open **Marketing → Email Marketing** 
 
 Every template comes with its own default look, so a store that never touches this page still gets emails that feel like its website. Change only what you want to change.
 
-**Photo:** The Email style page with the Colors and font card and the Header and footer card on the left and a live email preview on the right, with the Desktop and Mobile switch above it.
+![The Email style page with the Colors and font card and the Header and footer card on the left, and the Preview on the right with the Desktop and Mobile switch above a sample email](/images/email-marketing/email-style.png)
 
 ### What you can change
 
@@ -223,7 +223,7 @@ Every template comes with its own default look, so a store that never touches th
 | --- | --- |
 | **Header** | What shows at the top: **Logo, centered**, **Logo, left**, or **Store name**. If you haven't added a logo yet, the page says "Add a logo in Brand & Appearance to use a logo header; until then your store name is shown." |
 | **Logo size** | **Small**, **Medium** or **Large**. It's greyed out when the header is **Store name** or you have no logo. |
-| **Show social links** | Adds links to your social profiles in the footer. The switch lists the ones it will use. To add or change them, use the **Brand & Appearance** link beside it, or see [Brand & Appearance](/docs/storefront-and-branding#footer--social-links). If you haven't added any, it says so. |
+| **Show social links** | Adds links to your social profiles in the footer. The switch lists the ones it will use. To add or change them, use the **Header & footer** link beside it, or see [Header & Footer](/docs/navigation#footer-tagline-and-social-profiles). If you haven't added any, it says so. |
 | **Footer note** | An optional line, up to 200 characters, such as "Handmade in Ann Arbor, Michigan." It sits above the unsubscribe link. A counter shows how many characters you've used. |
 
 Your business name, address and **Unsubscribe** link always stay in the footer. You can't remove them. See [What Customers See](#what-customers-see).
@@ -239,7 +239,7 @@ The page checks that your colors are easy to read.
 
 The **Preview** on the right shows a sample email and updates as you change things. Use **Desktop** and **Mobile** above it to see both. It's only a sample, not a real campaign.
 
-Click **Save** at the top to keep your changes. The badge next to the title says **Unsaved Changes** until you do, then **Saved**. **Discard** throws away what you haven't saved. A message confirms "Email style saved".
+Click **Save** at the top to keep your changes. The badge next to the title says **Unsaved changes** until you do, then **Saved**. **Discard** throws away what you haven't saved. A message confirms "Email style saved".
 
 **Reset to template default** (it names your template) removes your saved choices. A box asks "Reset to the [template] default?" and explains that your saved colors, font, header and footer settings are removed. Click **Reset** to go ahead or **Keep my settings** to go back. A message confirms "Email style reset".
 
@@ -254,9 +254,9 @@ Good to know:
 
 ## Starting points
 
-Click **New campaign** and you land on a page called **New campaign**: "Pick a starting point. Everything is editable, and nothing is saved until you save the draft." Pick a card to open the editor with that layout already filled in.
+Click **Add campaign** and you land on a page called **Add campaign**: "Pick a starting point. Everything is editable, and nothing is saved until you save the draft." Pick a card to open the editor with that layout already filled in.
 
-**Photo:** The New campaign page with five starting point cards: Start from scratch, Sale, New arrival, Event and Newsletter.
+![The New campaign page with five starting point cards: Start from scratch, Sale, New arrival, Event and Newsletter](/images/email-marketing/new-campaign-starting-points.png)
 
 | Starting point | What you get |
 | --- | --- |
@@ -287,7 +287,7 @@ A message says "Copied to a new draft" and the copy opens. It has the subject "C
 
 ## Writing a Campaign
 
-Click **New campaign** and pick a [starting point](#starting-points). The editor has an **Audience** card, where you choose who gets the email (see [Choosing who gets it](#choosing-who-gets-it)), and a **Compose** card.
+Click **Add campaign** and pick a [starting point](#starting-points). The editor has an **Audience** card, where you choose who gets the email (see [Choosing who gets it](#choosing-who-gets-it)), and a **Compose** card.
 
 | Field | What to enter | Limit |
 | --- | --- | --- |
@@ -295,11 +295,11 @@ Click **New campaign** and pick a [starting point](#starting-points). The editor
 | **Preview text (optional)** | A short teaser shown next to the subject in most inboxes. | 200 characters |
 | **Message** | The body of the email. Required to send. | |
 
-The **Message** box is a rich text editor, so you can format your text, add links, and add pictures, much like writing a page on your site. The email arrives with your header at the top and your footer at the bottom, as set on the [Email style](#your-email-style) page. Your business name and address, and an **Unsubscribe** link, are added at the bottom for you. The line under the box says so: "Headings, lists, links, images and colors are supported. Your business address and an unsubscribe link are added at the bottom automatically."
+The **Message** box is a rich text editor, so you can format your text, add links, and add pictures, much like writing a page on your site. You can also add buttons, products and space from the toolbar or by typing **/**. The email arrives with your header at the top and your footer at the bottom, as set on the [Email style](#your-email-style) page. Your business name and address, and an **Unsubscribe** link, are added at the bottom for you. The line under the box says so: "Add headings, lists, links, pictures, buttons, products and space from the toolbar or by typing /. Your business address and an unsubscribe link are added at the bottom automatically."
 
-At the top of the page there is a **Back** button, the campaign's subject, a **Draft** badge (it changes to **Unsaved Changes** when you've edited something), and the **Save draft** button. The test, **Schedule…** and **Send now** buttons are at the bottom.
+At the top of the page there is a **Back** button, the campaign's subject, a **Draft** badge (it changes to **Unsaved changes** when you've edited something), and the **Save draft** button. The test, **Schedule…** and **Send now** buttons are at the bottom.
 
-**Photo:** The campaign editor with the Audience card on top, then the Compose card with the Subject, Preview text and a Message that includes a Products block.
+![The campaign editor with the Unsaved Changes badge and Save draft button at the top, the Audience card with All subscribers chosen, and the Compose card with the Subject, Preview text and a Message that starts with a heading, a paragraph and a Products block](/images/email-marketing/campaign-editor.png)
 
 #### The editor's toolbar
 
@@ -352,7 +352,7 @@ Be aware of these details:
 5. A box asks **Send to 4 people?** It repeats your subject, names the audience you chose, and warns that emails already delivered can't be taken back. Click **Send campaign** to go ahead, or **Cancel** to go back.
 6. A message appears at the corner of the screen: "Campaign queued for 4 people. It will finish sending in the background." You land on the campaign's own page, where you can watch it go out.
 
-**Photo:** The "Send to 4 people?" confirmation box over the campaign page, showing the subject and the Audience line.
+![The "Send to 4 people?" box repeating the subject, the warning that delivered emails can't be taken back, the Audience line, and the Cancel and Send campaign buttons](/images/email-marketing/send-confirm.png)
 
 Once you send, the campaign is **frozen**. You can't edit its subject or message. If you spot a mistake, cancel it (see below) and start a new campaign. [Duplicate](#duplicating-a-campaign) makes that quick.
 
@@ -378,7 +378,7 @@ One product shows as a big card. Two to four show as cards two to a row. A sale 
 
 Point at the block to see its small toolbar: **Change products**, a **Button** field for the button's words (it says **Shop now** unless you change it, up to 40 characters), and a trash button to remove the block.
 
-**Photo:** A campaign message with a Products block showing three product cards, and the block's small toolbar with Change products, the Button text field and the trash button.
+![A campaign message with a Products block showing three product cards, each with a photo, name, price and Shop now button, and the block's small toolbar with Change products, the Button field and the trash button](/images/email-marketing/products-block.png)
 
 What to know about Products:
 
@@ -404,7 +404,7 @@ Use **Desktop** and **Mobile** above the preview to switch between a wide inbox 
 
 The note under the preview says "Shown with your email style, business address and unsubscribe footer." Links in the preview don't open. Click **Hide preview** to close it.
 
-**Photo:** The Preview email view showing the full email with the Mobile and Desktop switch above it.
+![The email preview under the editor with the Hide preview button and the Desktop and Mobile switch above the full email: logo header, message, three product cards, and the footer with the Unsubscribe link and business address](/images/email-marketing/campaign-preview.png)
 
 ---
 
@@ -421,7 +421,7 @@ At the top of the editor, the **Audience** card lets you pick who the campaign g
 | **Haven't ordered in…** | Past customers who haven't ordered for 30, 60, 90 or 180 days. Pick the number of days. It starts at 90. |
 | **Signed up in the last…** | Subscribers who joined your list in the last 7, 30 or 90 days. Pick the number of days. It starts at 30. |
 
-**Photo:** The Audience card with the six choices, Bought specific products selected with two product chips, and the line "≈ 42 people opted in to marketing emails will receive this."
+![The Audience card with the six choices, Bought specific products selected with two product chips and a Change products button, and the count line "≈ 1 person opted in to marketing emails will receive this."](/images/email-marketing/audience-card.png)
 
 For **Bought specific products**, click **Choose products**. A window asks you to search and pick products. It says "Email people who bought any of up to 20 products. Only paid orders count." Products that are no longer for sale can be picked too, since someone may have bought them earlier. The ones that aren't published say **Not published**. Your picks show as chips under the choice, and you can click the **x** on a chip to remove one, or **Change products** to open the window again. This choice needs the **Products** feature, so it's greyed out with "Turn on products to pick by purchase." when Products is off.
 
@@ -453,7 +453,7 @@ Under the choices, a live count shows how many people will get the email, for ex
 
 Instead of **Send now**, you can pick a time. Click **Schedule…** next to **Send now**. It's available under the same conditions as **Send now**.
 
-**Photo:** The "Schedule this campaign" box with a date, a time, the store time zone note, and the line "Sends within about 15 minutes of ...".
+![The Schedule this campaign box with the Date and Time fields, the store time zone note, the line "Sends within about 15 minutes of Nov 18, 2026, 9:00 AM to ≈4 people (All subscribers).", and the Cancel and Schedule campaign buttons](/images/email-marketing/schedule-dialog.png)
 
 1. In the box called **Schedule this campaign**, choose a **Date** and a **Time**. The time list goes in 15-minute steps. It starts at tomorrow at 9:00 AM.
 2. Check the time zone note. Times are always in **your store's time zone**, not your computer's. It says, for example, "Times are in Eastern Time — Detroit (America/Detroit), your store's time zone." You can change your time zone in [General Settings](/docs/general-settings#time-zone).
@@ -568,7 +568,7 @@ If a campaign is **Queued** or **Sending**, a **Cancel campaign** button appears
 
 ## What Customers See
 
-Customers receive an email from **your store name via SimplePress**. If they reply, the reply goes to your store's **Owner Email** from [General Settings](/docs/general-settings). It has the header you chose on the [Email style](#your-email-style) page (your logo or your store's name) at the top, your message, and a small grey footer. If you turned on social links or wrote a footer note, they sit in the footer too:
+Customers receive an email from **your store name via SimplePress**. If they reply, the reply goes to your store's **Owner email** from [General Settings](/docs/general-settings). It has the header you chose on the [Email style](#your-email-style) page (your logo or your store's name) at the top, your message, and a small grey footer. If you turned on social links or wrote a footer note, they sit in the footer too:
 
 > You received this email because you opted in to marketing emails from [your store]. Unsubscribe
 >
@@ -626,7 +626,7 @@ You don't have to do anything. If a suppressed person opts in again on their own
 
 ## Abandoned Checkout Emails
 
-When a shopper starts paying but never finishes, SimplePress can send them one friendly reminder. This is **not** on the **Features** page, and it has nothing to do with the Email Marketing switch. It's a setting on the **Notification Emails** page.
+When a shopper starts paying but never finishes, SimplePress can send them one friendly reminder. This is **not** on the **Features** page, and it has nothing to do with the Email Marketing switch. It's a setting on the **Customer emails** page (**Settings → Customer emails**).
 
 <Callout type="info" title="Off by default">
   Abandoned checkout emails don't send until you switch **Send this email** on. Until then, shoppers who leave never hear from you.
@@ -634,7 +634,7 @@ When a shopper starts paying but never finishes, SimplePress can send them one f
 
 ### Turning It On
 
-1. In your admin sidebar, open **Content → Notification Emails**.
+1. In your admin, open **Settings**, then click **Customer emails**.
 2. In the **Templates** list, click **Abandoned Checkout**.
 3. In the **Customize "Abandoned Checkout"** card, switch **Send this email** on. In the picture below it is still off, which is how it starts.
 
@@ -711,15 +711,15 @@ Click **Save changes** to keep your edits, or **Reset to default** to go back to
 
 You can turn Email Marketing on or off yourself. While it's off:
 
-- **Email Marketing** disappears from your admin sidebar. If you open the page, it shows the **Email marketing is turned off** notice, and the **New campaign** button is hidden. Your campaign history, the Audience card and **Export CSV** stay visible.
-- You can't save, test or send campaigns. If you open a draft or **New campaign**, you're sent back to the Email Marketing page. Campaigns that were already sent, or are sending, can still be opened.
+- **Email Marketing** disappears from your admin sidebar. If you open the page, it shows the **Email marketing is turned off** notice, and the **Add campaign** button is hidden. Your campaign history, the Audience card and **Export CSV** stay visible.
+- You can't save, test or send campaigns. If you open a draft or **Add campaign**, you're sent back to the Email Marketing page. Campaigns that were already sent, or are sending, can still be opened.
 - A campaign that is mid-send **pauses** and picks up again when you turn the feature back on. You can still cancel it while the feature is off.
 - A **Scheduled** campaign waits. If the feature is still off 24 hours after its scheduled time, the campaign is marked **Failed**. You can still **Unschedule to edit** it while the feature is off, but **Duplicate** is hidden.
 - The **Email style** page and the **Email style** button are hidden, and you can't change your email style.
 - Your checkout page stops showing the "Email me news and offers" box, and newsletter sign-up forms on your site stop taking sign-ups. A customer's account switch keeps working.
 - Your opted-in customers and their choices are kept, you can still export the list, and the unsubscribe page still works. Turn the feature back on and everything is ready.
 
-The abandoned checkout email is separate. It has no Features switch; it is controlled only by **Send this email** on the **Notification Emails** page.
+The abandoned checkout email is separate. It has no Features switch; it is controlled only by **Send this email** on the **Customer emails** page (**Settings → Customer emails**).
 
 See [Feature Flags](/docs/feature-flags).
 
@@ -790,7 +790,7 @@ Scheduled campaigns send within about 15 minutes of the time you chose, because 
 Your store's time zone from [General Settings](/docs/general-settings#time-zone). The Schedule box names it under the time. Your computer's time zone doesn't matter.
 
 **Why is a product missing from my email, or showing a different price?**
-Product blocks are rebuilt from your shop when the email sends, so they always show your current price, photo and name. A product that's unpublished or deleted is left out, and an amber note under the editor tells you. Switch the product back to published and it's included again.
+Product blocks are rebuilt from your shop when the email sends, so they always show your current price, photo and name. A product that's a draft or deleted is left out, and an amber note under the editor tells you. Switch the product back to published and it's included again.
 
 **Do my receipts and order emails use my email style?**
 No. The Email style page only changes marketing emails you send as campaigns. Receipts, order updates and the abandoned checkout reminder keep their standard look.

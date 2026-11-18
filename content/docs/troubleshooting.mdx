@@ -58,11 +58,19 @@ That's expected. Staff can only open Orders, Customers and Inventory. Any other 
 SimplePress creates an order once the money has actually been paid. Card payments confirm straight away. Bank payments (such as ACH Direct Debit), bank transfers and vouchers take days to clear, so there's no order until then. The customer sees an **Order received** page and a **Your order is processing** email in the meantime.
 **Fix:** look up the payment in your Stripe Dashboard under **Payments**. If it's **Pending** or **Processing**, it's a bank payment still clearing, and the order will appear on its own when it clears. See [Bank debits and other delayed payment methods](/docs/payments-and-payouts#bank-debits-and-other-delayed-payment-methods). If it shows **Succeeded** and there's still no order after a day, email help@generativejustice.org. If Stripe shows no successful payment, the customer may be seeing a temporary hold that their bank will release. For an older payment that never made an order, you can create the order yourself and save it as **Paid**. See [Creating a manual order](/docs/orders#creating-a-manual-order).
 
+**A customer didn't get every email for an order, or an order seems unfinished.**
+Order emails are sent at most once each, even if something restarts in the middle of checkout. If an order didn't finish, SimplePress completes its emails and rewards points on its own within about 15 minutes.
+**Fix:** wait 15 minutes. If something is still missing, use [Resending emails](/docs/orders#resending-emails).
+
+**I refunded in Stripe and the stock didn't change.**
+Refunds made in the Stripe Dashboard update the order, email the customer and take back rewards points, but they don't return stock.
+**Fix:** adjust the stock by hand. See [Inventory management](/docs/inventory-management). Refunding from the order page in SimplePress lets you choose what goes back.
+
 **Checkout fails for every customer.**
 Usually one of these:
 
 - **Stripe has paused your payments.** A red **Payments are paused** banner shows across the top of your admin. See [When Stripe pauses payments](/docs/payments-and-payouts#when-stripe-pauses-payments).
-- **Stripe isn't connected.** Check **Settings → Integrations**. See [Integrations](/docs/integrations).
+- **Stripe isn't connected.** Check **Settings → Payments**. See [Connecting Stripe](/docs/payments-and-payouts#connecting-stripe).
 - **Maintenance Mode is on.** Checkout stays off for everyone, including you, until you turn it off. See [Maintenance Mode](/docs/maintenance-mode#turn-it-off).
 - **Checkout or Payments is switched off** under **Settings → Features**. See [Feature Flags](/docs/feature-flags#what-happens-when-you-disable-a-feature).
 
@@ -80,7 +88,7 @@ The email and order number they typed must match the order exactly: the email ad
 
 **The Mark as Fulfilled form is missing from an order.**
 The order isn't paid yet, or it's disputed.
-**Fix:** if you've been paid another way, use **More Options → Override Status → Payment Status → Paid**. See [Common questions](/docs/orders#common-questions).
+**Fix:** if you've been paid another way, use **More options → Override status → Payment status → Paid**. See [Common questions](/docs/orders#common-questions).
 
 **My Dashboard numbers don't match Stripe.**
 They're counted differently and on different schedules. See [Dashboard troubleshooting](/docs/dashboard#troubleshooting).
@@ -109,7 +117,7 @@ Links to a switched-off feature hide themselves. Switch off Blog, for example, a
 Common causes:
 
 - **Its feature is switched off.** For example, `/blog` disappears when Blog is off. See [Feature Flags](/docs/feature-flags#what-happens-when-you-disable-a-feature).
-- **Its web address changed.** Old links don't forward to the new one. See [Changing a Web Address](/docs/seo#changing-a-web-address).
+- **Its web address changed.** For products, collections, pages, blog posts and services, the editor asks whether to send the old link to the new one. If it was left unticked, add a redirect. See [Redirects](/docs/redirects).
 - **It isn't published.** Check its **Published** switch.
 
 **My whole store shows "page not found."**
@@ -122,7 +130,7 @@ Many sites block being shown inside other sites.
 
 **Visitors see a maintenance or coming-soon page.**
 Maintenance Mode is on.
-**Fix:** go to **Settings → Maintenance Mode**, switch it off, and click **Save changes**. See [Turn it off](/docs/maintenance-mode#turn-it-off). If your admin shows a maintenance screen too, SimplePress itself is being updated. Wait a little and try again.
+**Fix:** go to **Settings → Maintenance mode**, switch it off, and click **Save changes**. See [Turn it off](/docs/maintenance-mode#turn-it-off). If your admin shows a maintenance screen too, SimplePress itself is being updated. Wait a little and try again.
 
 **My custom domain is stuck on Pending DNS, or shows an error after going Active.**
 **Fix:** check your DNS records and click **Verify DNS** again. After **Active**, the padlock certificate takes a short while. See [Verify your domain](/docs/domain#verify-your-domain) and [The badges](/docs/domain#the-badges).
@@ -140,14 +148,14 @@ Galleries is switched off.
 ## Emails
 
 **Alert emails aren't reaching me.**
-Most alerts go to your **Owner Email** in **Settings → General**. Contact form messages go to your **Support Email**.
+Most alerts go to your **Owner email** in **Settings → General**. Contact form messages go to your **Support email**.
 **Fix:** check both addresses, check your spam folder, and mark the first one "not spam." See [Make sure these reach you](/docs/email-preview#make-sure-these-reach-you).
 
 **I was expecting an email that never came.**
 Some events don't send one, such as a new testimonial, an accepted team invitation, or a manual order. See [Things that don't send an email](/docs/email-preview#things-that-dont-send-an-email).
 
 **A customer says they didn't get their order email.**
-**Fix:** ask them to check spam, and check the email on the order for typos. Then resend it from **More Options**. See [Resending emails](/docs/orders#resending-emails).
+**Fix:** ask them to check spam, and check the email on the order for typos. Then resend it from **More options**. See [Resending emails](/docs/orders#resending-emails).
 
 **A teammate never got their invitation.**
 See [Team & Roles troubleshooting](/docs/team-and-roles#troubleshooting).
@@ -212,11 +220,11 @@ Some changes take effect the moment you save, for everyone, and some can't be un
 | Change | What happens | Read first |
 | --- | --- | --- |
 | **Switching templates** | The new design goes live as soon as you save. Your Site Editor words and photos don't carry over, though they come back if you switch back. | [Switching Templates](/docs/templates#switching-templates) and [in the Site Editor](/docs/site-editor#switching-templates) |
-| **Changing a web address (URL slug)** | Old links, bookmarks and search results get "page not found." Nothing forwards visitors to the new address. | [Changing a Web Address](/docs/seo#changing-a-web-address) |
+| **Changing a web address (URL slug)** | Products, collections, pages, blog posts and services ask whether to send the old link to the new one (on by default when published). Add a redirect yourself if you left it off. | [Redirects](/docs/redirects) |
 | **Removing your custom domain** | Your domain stops working right away. Links, emails and bookmarks that use it break, and your store goes back to its subdomain. | [Remove a custom domain](/docs/domain#remove-a-custom-domain) |
 | **Turning a feature off** | Its pages leave your storefront and admin, and features that depend on it gray out. Your data is kept. | [What Happens When You Disable a Feature](/docs/feature-flags#what-happens-when-you-disable-a-feature) |
 | **Turning on Maintenance Mode** | Visitors see your maintenance page, and nobody can check out, including you. | [Maintenance Mode](/docs/maintenance-mode) |
-| **Disconnecting Stripe** | Checkout turns off right away. You can't refund card payments from SimplePress until you reconnect. | [Disconnecting Stripe](/docs/integrations#disconnecting-stripe) |
+| **Disconnecting Stripe** | Checkout turns off right away. You can't refund card payments from SimplePress until you reconnect. | [Connecting Stripe](/docs/payments-and-payouts#connecting-stripe) |
 | **Removing a team member** | They lose access immediately. To undo it, invite them again. | [Removing a Team Member](/docs/team-and-roles#removing-a-team-member) |
 | **Making someone an Owner** | They can invite and remove anyone, including you. | [Handing Over Ownership](/docs/team-and-roles#handing-over-ownership) |
 | **Deleting a product** | Its variants, photos, reviews and back-in-stock requests are deleted for good. Past orders are kept. To hide it instead, switch **Published** off. | [Deleting](/docs/products#deleting) |

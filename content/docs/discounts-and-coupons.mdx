@@ -10,7 +10,7 @@ Discount codes let you run promotions without changing your prices. You make a s
 There are three kinds of code:
 
 - **Percentage** — a percent off the items in the cart, such as 20% off.
-- **Fixed Amount** — a flat dollar amount off the items, such as $10 off.
+- **Fixed amount** — a flat dollar amount off the items, such as $10 off.
 - **Free shipping** — the shipping charge is waived.
 
 You can add limits to any code: how many times it can be used in total (so a single-use code really is single-use), how many times one customer can use it, when it starts and ends, a minimum purchase, and a cap on how much it can take off.
@@ -62,9 +62,9 @@ On a phone, the Discount, Usage, Expires, and Status details sit in a line under
 | Status | What it means |
 | --- | --- |
 | **Active** | The code is switched on and is inside its dates. Shoppers can use it. |
-| **Scheduled · [date]** | The code is switched on but its **Start Date** is in the future. It starts working on that date. |
-| **Expired** | Its **Expiration Date** has passed. |
-| **Inactive** | The code is switched off, or its finished uses (not counting pending ones) have reached its **Usage Limit**. |
+| **Scheduled · [date]** | The code is switched on but its **Start date** is in the future. It starts working on that date. |
+| **Expired** | Its **Expiration date** has passed. |
+| **Inactive** | The code is switched off, or its finished uses (not counting pending ones) have reached its **Usage limit**. |
 
 ### Search, Filter, and Sort
 
@@ -84,7 +84,7 @@ Tick the box next to one or more codes (or the box in the header to select the w
 
 After **Activate** or **Deactivate**, a message appears with an **Undo** button for a few moments.
 
-**Activate skips expired codes.** If some of the codes you picked have already passed their expiration date, they stay off and you'll see a message such as "2 of 3 discounts activated — 1 expired discount was skipped. Edit the expiry date to bring it back." To bring an expired code back, open it, change the **Expiration Date**, and turn it on.
+**Activate skips expired codes.** If some of the codes you picked have already passed their expiration date, they stay off and you'll see a message such as "2 of 3 discounts activated — 1 expired discount was skipped. Edit the expiry date to bring it back." To bring an expired code back, open it, change the **Expiration date**, and turn it on.
 
 ![Two codes ticked with the bulk action bar showing Activate, Deactivate, and Delete](/images/discounts-and-coupons/discounts-list-bulk-bar.png)
 
@@ -96,24 +96,22 @@ Codes that your [Rewards](/docs/rewards) program creates for customers don't app
 
 ## Creating a Discount Code
 
-1. Click **Create Discount**. If you have no codes yet, the button reads **Create Your First Discount**.
-2. Fill in the three cards: **Discount Code**, **Discount Amount**, and **Restrictions**.
+1. Click **Add discount**.
+2. Fill in the three cards: **Discount**, **Limits**, and **Active dates**.
 3. Use the **Active** switch at the top (it starts on). Turn it off if you want to save the code now and launch it later.
 4. Click **Save changes**.
 
 After saving, you stay on the code's page so you can keep editing.
 
-### Discount Code
+### Discount
 
-Type the code shoppers will enter. It turns to capital letters as you type, so `summer20` becomes `SUMMER20`. Shoppers can type it in any case.
+The **Discount** card holds the code and what it takes off. Start with the **Discount code**. Type the code shoppers will enter. It turns to capital letters as you type, so `summer20` becomes `SUMMER20`. Shoppers can type it in any case.
 
 - Codes are limited to 50 characters.
 - Each code must be different from your other codes. If you reuse one you'll see "A discount code with this code already exists".
 - Short, easy codes work best, using letters and numbers, such as `SAVE20` or `WINTER2026`.
 
-### Discount Amount
-
-Choose a **Type**:
+Then choose a **Type**:
 
 | Type | What to enter | How it works |
 | --- | --- | --- |
@@ -139,22 +137,22 @@ For **Free shipping** codes:
 
 If you switch between types while filling in the form, each type remembers the number you typed for it. A blank amount won't save. You'll see "Amount is required".
 
-### Restrictions
+### Limits and active dates
 
-All of these are optional. Leave a box blank for "no limit".
+The **Limits** card ("Cap how often and on which orders the discount applies") holds the usage limits and the minimum and maximum amounts. The **Active dates** card ("When the code starts and stops working") holds the start and expiration dates. All of these are optional. Leave a box blank for "no limit".
 
 | Setting | What it does |
 | --- | --- |
-| **Usage Limit** | The most times the code can be used by all customers combined. Blank means unlimited. Open checkouts and bank payments that are still clearing count toward it, so two shoppers can't both get a single-use code. |
+| **Usage limit** | The most times the code can be used by all customers combined. Blank means unlimited. Open checkouts and bank payments that are still clearing count toward it, so two shoppers can't both get a single-use code. |
 | **Limit uses per customer** | The most times one customer can use it. Blank means unlimited. Customers are told apart by their email address. That customer's open checkouts and pending bank payments with the code count, and orders that were cancelled don't. |
-| **Start Date** | The first day the code works. Leave it blank to start right away. A future date makes the code **Scheduled**. |
-| **Expiration Date** | The last day the code works. Blank means it never expires. See [How Expiry Works](#how-expiry-works) below. |
+| **Start date** (in Active dates) | The first day the code works. Leave it blank to start right away. A future date makes the code **Scheduled**. |
+| **Expiration date** (in Active dates) | The last day the code works. Blank means it never expires. See [How Expiry Works](#how-expiry-works) below. |
 | **Minimum purchase (USD)** | The item subtotal must reach this amount before the code applies. |
 | **Maximum discount (USD)** | The most the code can take off. Handy for percentage codes, for example 30% off but never more than $50. Not shown for free shipping. |
 
 The Start Date has to be before the Expiration Date, otherwise you'll see "Start date must be before the expiration date".
 
-![The Restrictions card filled in](/images/discounts-and-coupons/discount-restrictions.png)
+![The Add discount form with the Discount card (code, Type and Percentage), the Limits card (Usage limit, Limit uses per customer, Minimum purchase, Maximum discount) and the Active dates card (Start date and Expiration date)](/images/discounts-and-coupons/discount-form.png)
 
 ---
 
@@ -162,7 +160,7 @@ The Start Date has to be before the Expiration Date, otherwise you'll see "Start
 
 ### Editing a Code
 
-Click a code in the list, or open the **⋮** menu at the end of its row and choose **Edit**. You can change anything, including the code itself, as long as it doesn't match another of your codes. Click **Save changes** when you're done. A badge in the top bar shows **Unsaved Changes** or **Saved**.
+Click a code in the list, or open the **⋮** menu at the end of its row and choose **Edit**. You can change anything, including the code itself, as long as it doesn't match another of your codes. Click **Save changes** when you're done. A badge in the top bar shows **Unsaved changes** or **Saved**.
 
 Changes affect new checkouts straight away. Orders that already used the code are not changed.
 
@@ -180,11 +178,11 @@ You're asked to confirm. Shoppers can't use a deleted code, and you can't get it
 
 ## How Expiry Works
 
-You pick an **Expiration Date** with no time of day. At checkout, the code keeps working **through the end of that day**. A code that expires on June 30 can still be used at 11:00 pm on June 30.
+You pick an **Expiration date** with no time of day. At checkout, the code keeps working **through the end of that day**. A code that expires on June 30 can still be used at 11:00 pm on June 30.
 
-When you open the **Discounts** list, SimplePress also tidies up by switching off codes that are done. A code with an **Expiration Date** is only switched off after its last day is over, so it stays active through the whole last day, including when you open the list that day. After that, it shows as **Expired**.
+When you open the **Discounts** list, SimplePress also tidies up by switching off codes that are done. A code with an **Expiration date** is only switched off after its last day is over, so it stays active through the whole last day, including when you open the list that day. After that, it shows as **Expired**.
 
-The same tidy-up switches off any code whose finished uses have reached its **Usage Limit**. Those show as **Inactive**, and codes past their date show as **Expired**. Nothing is deleted. The code and its usage count stay in your list.
+The same tidy-up switches off any code whose finished uses have reached its **Usage limit**. Those show as **Inactive**, and codes past their date show as **Expired**. Nothing is deleted. The code and its usage count stay in your list.
 
 A code that is full only because of pending checkouts stays **Active**. If those checkouts don't complete, the uses are given back and the code can be used again.
 
@@ -210,8 +208,8 @@ The **Discount code** box is on the **checkout page**, in the order summary besi
 | --- | --- |
 | Discount code not found | The code doesn't exist or was typed wrong. |
 | This discount code is no longer active | The code is switched off, or was switched off by the tidy-up (which happens after a code's last day, or when its finished uses reach the usage limit). |
-| This code isn't active yet | The **Start Date** is still in the future. |
-| This discount code has expired | The **Expiration Date** has passed. |
+| This code isn't active yet | The **Start date** is still in the future. |
+| This discount code has expired | The **Expiration date** has passed. |
 | This discount code has reached its usage limit | The code has no uses left. That includes uses held by checkouts that are still open or bank payments that are still clearing. The shopper sees this when they continue to payment. |
 | Minimum purchase of $X.XX required | The cart is below the **Minimum purchase**. |
 | You've already used this code the maximum number of times | The customer has hit **Limit uses per customer**, counting their open and pending checkouts with the code. This is checked against their email address, so it usually appears when they go on to pay. Their own checkout that they just went back from doesn't count against them. |
@@ -232,7 +230,7 @@ A code's use is counted as soon as the shopper goes to the payment page with it,
 - **If the shopper goes back from the payment page** (to change their cart, for example) **and continues again,** their earlier checkout is closed and its held use is handed straight to the new one. They can keep using their own code, even a single-use or once-per-customer code. A checkout they already paid for, including a bank payment that's still clearing, is never closed this way.
 - **When the order is placed** (card) or the bank payment clears, the use becomes final.
 
-This means a **Usage Limit** can't be passed by several shoppers checking out at the same time, or by pending bank payments. A single-use code is really single-use.
+This means a **Usage limit** can't be passed by several shoppers checking out at the same time, or by pending bank payments. A single-use code is really single-use.
 
 <Callout type="info" title="Reading the Usage column">
 The first number counts every use, including held ones. When some are held, the list adds how many in brackets. For example, "1 / 1 (1 pending)" means the code's one use is held by a checkout that's still open or a bank payment that's still clearing. **Pending** means the shopper hasn't finished paying yet. If they don't, the use is given back and the number drops.
@@ -242,13 +240,13 @@ The first number counts every use, including held ones. When some are held, the 
 
 ## Tips
 
-- **Schedule a launch.** Set a **Start Date** and turn **Active** on. The code shows as **Scheduled** and begins by itself.
+- **Schedule a launch.** Set a **Start date** and turn **Active** on. The code shows as **Scheduled** and begins by itself.
 - **Pause, don't delete.** Turn a code off with the **Active** switch so you can use it again next season.
 - **Protect your margin.** Add a **Maximum discount** to percentage codes so a big order can't take off more than you intended.
 - **Make one code per partner.** Give each influencer or partner their own code, like `JANE15`, and check the **Usage** column to see how each one does.
 - **Welcome offers.** Use **Limit uses per customer** set to 1 so people can't use the same code over and over.
 - **Tell people about it.** Codes don't advertise themselves. Put the code in your announcement bar or popup. See [Banner & Popup](/docs/banner-and-popup).
-- **Check the dates.** Set the **Expiration Date** to the last day you want the code to work. It stays active through the end of that day. See [How Expiry Works](#how-expiry-works).
+- **Check the dates.** Set the **Expiration date** to the last day you want the code to work. It stays active through the end of that day. See [How Expiry Works](#how-expiry-works).
 - **Test your code.** Add something to your cart on your own store, go to checkout, and try the code before you share it.
 
 ---
@@ -289,7 +287,7 @@ Owners and Managers can turn it on or off themselves. Turning it off hides the D
 ## Frequently Asked Questions
 
 **A shopper says my code doesn't work. What do I check?**
-Open the code in the Discounts list. Look at its **Status**, then the **Start Date**, **Expiration Date**, **Usage** against the **Usage Limit**, and the **Minimum purchase**. The message the shopper sees in the table above usually points straight to the cause. Also check [how expiry works](#how-expiry-works).
+Open the code in the Discounts list. Look at its **Status**, then the **Start date**, **Expiration date**, **Usage** against the **Usage limit**, and the **Minimum purchase**. The message the shopper sees in the table above usually points straight to the cause. Also check [how expiry works](#how-expiry-works).
 
 **Does a percentage code take money off shipping?**
 No. Percentage and fixed codes take money off the items only. Use a **Free shipping** code to waive shipping.

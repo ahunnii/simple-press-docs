@@ -20,9 +20,9 @@ There are two ways to show a gallery on your site:
 
 ## The Galleries List
 
-Go to **Marketing → Galleries** in your admin sidebar (or open `/admin/galleries`). Each gallery is a card showing a small preview of its photos, its name and description, its layout, and how many images it has. Cards also show when the gallery was last updated.
+Go to **Website → Media** in your admin sidebar and click the **Galleries** tab (or open `/admin/galleries`). Galleries used to have their own sidebar item. Each gallery is a card showing a small preview of its photos, its name and description, its layout, and how many images it has. Cards also show when the gallery was last updated.
 
-Click **New Gallery** at the top to start one. If you have no galleries yet, click **Create Gallery** instead.
+Click **Add gallery** at the top to start one.
 
 ![The Galleries list with two gallery cards showing the Embedded badge, the search box, and the Filters menu open with Layout and Sort](/images/galleries/galleries-list.png)
 
@@ -51,14 +51,14 @@ Click a card to open it, or use the three-dot menu (⋮) on the card:
 
 ## Creating a Gallery
 
-Click **New Gallery**. You can add your photos right on this page, along with the layout and display choices. Nothing is saved or uploaded until you click **Save changes**.
+Click **Add gallery**. You can add your photos right on this page, along with the layout and display choices. Nothing is saved or uploaded until you click **Save changes**.
 
-![The New Gallery page with the Basic Information, Images, Layout, Display Options, and Preview cards](/images/galleries/new-gallery.png)
+![The New Gallery page with the Gallery information, Images, Layout, Display options, and Preview cards](/images/galleries/new-gallery.png)
 
-1. **Basic Information.** Enter a **Gallery Name** (up to 120 characters), such as "Summer Lookbook". The name is for you; customers don't see it unless your template shows it. You can also add a **Description** (up to 1,000 characters). Some templates show the description next to the gallery. SimplePress creates the gallery's URL name for you from the name, so there's nothing else to fill in.
+1. **Gallery information.** Enter a **Name** (up to 120 characters), such as "Summer Lookbook". The name is for you; customers don't see it unless your template shows it. You can also add a **Description** (up to 1,000 characters). Some templates show the description next to the gallery. SimplePress creates the gallery's URL name for you from the name, so there's nothing else to fill in.
 2. **Images.** Click **Add images** and choose **Upload from device** to pick photos from your computer, or **Choose from library** to pick photos you've already uploaded. You can add many at once. New uploads are sent when you click **Save changes**.
 3. **Layout.** Choose how the photos are arranged. See [Layouts](#layouts).
-4. **Display Options.** Choose whether to show captions and whether photos open in a lightbox. See [Display Options](#display-options).
+4. **Display options.** Choose whether to show captions and whether photos open in a lightbox. See [Display Options](#display-options).
 5. **Preview.** A live preview updates as you change settings. Until you pick photos, it shows sample images so you can see how the layout behaves. Once you pick yours, you see your own.
 6. Click **Save changes**. SimplePress uploads your photos, creates the gallery, and takes you to its editor.
 
@@ -76,31 +76,33 @@ To make several galleries in a row, click **Save & create another** instead. The
 
 ## Editing a Gallery
 
-Click a gallery in the list to open its editor. The page title is the gallery's name followed by "Gallery", for example "Summer Lookbook Gallery", with a count of its images beside it. There are two tabs: **Images** and **Settings**.
+Click a gallery in the list to open its editor. The page title is the gallery's name followed by "Gallery", for example "Summer Lookbook Gallery", with a count of its images beside it. There are two tabs: **Images** and **Layout**.
 
 <Callout type="warn" title="Image changes save instantly. Settings need Save changes.">
-  In the **Images** tab, adding, removing, and reordering photos save as soon as you do them. Everything in the **Settings** tab (name, description, layout, display options) is saved only when you click **Save changes**. The status label next to the title shows **Unsaved Changes** until you do.
+  In the **Images** tab, adding, removing, and reordering photos save as soon as you do them. The name and description (at the top of the **Images** tab) and everything in the **Layout** tab (layout, display options) are saved only when you click **Save changes**. The status label next to the title shows **Unsaved changes** until you do.
 </Callout>
 
 ### The Images tab
 
-![The Images tab showing the grid of photos, each with a drag handle and edit and remove buttons](/images/galleries/gallery-images-tab.png)
+The **Gallery information** card at the top holds the gallery's **Name** and **Description**. Below it, the **Images** card holds your photos.
+
+![The Images tab with the Gallery information card (Name and Description) above the Images card, which has the Add images button and a grid of photos](/images/galleries/gallery-images-tab.png)
 
 - **Add photos.** Click **Add images** and choose **Upload from device** or **Choose from library**. You can also drag photos from your computer onto the Images card.
 - **Reorder.** Drag a photo by its handle to move it. The order you set is the order customers see, and it saves as soon as you let go.
-- **Edit a photo.** Click the edit button (the pencil) on a photo to open the **Edit Image** dialog (below). A small blue **ALT** tag in a photo's corner means it already has alt text. The tag ignores leftover file names (such as `download-9.png`) from older uploads, because a file name isn't a description.
+- **Edit a photo.** Click the edit button (the pencil) on a photo to open the **Edit image** dialog (below). A small blue **ALT** tag in a photo's corner means it already has alt text. The tag ignores leftover file names (such as `download-9.png`) from older uploads, because a file name isn't a description.
 - **Remove a photo.** Click the remove button (the red trash can) on a photo. See [Removing a photo](#removing-a-photo).
 
 #### Edit Image
 
-The **Edit Image** dialog shows the photo with two fields:
+The **Edit image** dialog shows the photo with two fields:
 
-- **Alt Text**: a short description of the photo for people using screen readers, and for search engines. It's a good idea to fill this in for every photo. See [Accessibility and Your Site](/docs/accessibility) for tips.
+- **Alt text**: a short description of the photo for people using screen readers, and for search engines. It's a good idea to fill this in for every photo. See [Accessibility and Your Site](/docs/accessibility) for tips.
 - **Caption**: optional text that appears with the photo if **Show captions** is on.
 
-Click **Save Changes** in the dialog to save them. To remove alt text or a caption, empty the box and save. A blank box clears it.
+Click **Save changes** in the dialog to save them. To remove alt text or a caption, empty the box and save. A blank box clears it.
 
-Photos uploaded before June 2026, or carried over from another store, may have their file name saved as alt text. The dialog shows an empty **Alt Text** box for those, with a hint underneath reading `Was "download-9.png" — describe what's in the photo instead.` Type a real description, or save it blank. Either way the file name is cleared.
+Photos uploaded before June 2026, or carried over from another store, may have their file name saved as alt text. The dialog shows an empty **Alt text** box for those, with a hint underneath reading `Was "download-9.png" — describe what's in the photo instead.` Type a real description, or save it blank. Either way the file name is cleared.
 
 ![The Edit Image dialog with the photo preview and the Alt Text and Caption fields](/images/galleries/edit-image-dialog.png)
 
@@ -110,17 +112,17 @@ Click the remove button on a photo and a dialog asks **Remove image from gallery
 
 The photo disappears from the gallery. The picture file itself is also deleted, unless it's saved in your [Media Library](/docs/media-library) or used somewhere else on your store, in which case it stays where it is.
 
-### The Settings tab
+### The Layout tab
 
-The Settings tab holds **Gallery Information** (the name and description), **Layout**, **Display Options**, and a live **Preview**. The options are the same ones you see when creating a gallery, covered in [Layouts](#layouts) and [Display Options](#display-options) below.
+The Layout tab holds **Layout**, **Display options**, and a live **Preview**. The options are the same ones you see when creating a gallery, covered in [Layouts](#layouts) and [Display Options](#display-options) below.
 
-![The Settings tab with Gallery Information, Layout, Display Options, and the Preview card](/images/galleries/gallery-settings-tab.png)
+![The Layout tab with the Layout card (Layout style, Columns, Gap between images, Aspect ratio), the Display options card (Show captions, Enable lightbox), and the Preview card](/images/galleries/gallery-layout-tab.png)
 
 ### More Options
 
 The **More Options** menu in the toolbar has:
 
-- **Reset**: throws away your unsaved settings changes and goes back to the last saved version
+- **Reset**: throws away your unsaved changes to the name, description and layout and goes back to the last saved version
 - **Duplicate**: makes a copy of the gallery
 - **Delete**: see [Deleting a Gallery](#deleting-a-gallery)
 
@@ -128,7 +130,7 @@ The **More Options** menu in the toolbar has:
 
 ## Layouts
 
-Choose a layout under **Layout Style**. Each one arranges the same photos differently.
+Choose a layout under **Layout style**. Each one arranges the same photos differently.
 
 | Layout | What it does |
 | --- | --- |
@@ -142,14 +144,14 @@ Which settings appear depends on the layout you pick:
 
 - **Columns**: 2, 3, 4, or 5 photos side by side on a computer. Narrower screens use fewer. Shown for **Grid** and **Masonry**.
 - **Gap between images (px)**: the space between photos, from 0 to 64. A gap of 0 makes the photos touch. Around 8 to 24 looks good for most galleries. Shown for every layout except **Carousel**.
-- **Aspect Ratio**: crops every photo to the same shape. Shown for **Grid** only. The choices are **1:1 — Square**, **4:3 — Landscape**, **16:9 — Widescreen**, **3:4 — Portrait**, and **Original — Natural size**, which keeps each photo's own proportions.
+- **Aspect ratio**: crops every photo to the same shape. Shown for **Grid** only. The choices are **1:1 — Square**, **4:3 — Landscape**, **16:9 — Widescreen**, **3:4 — Portrait**, and **Original — Natural size**, which keeps each photo's own proportions.
 
 ---
 
 ## Display Options
 
-- **Show captions**: turn on to show each photo's caption. Add captions in each photo's **Edit Image** dialog.
-- **Caption Style** (appears when captions are on): **Always visible** puts a bar over the photo, **Show on hover** shows the bar when someone points at the photo, and **Below image** puts plain text under it. A Carousel always shows captions below the photo, so this setting only affects the other layouts.
+- **Show captions**: turn on to show each photo's caption. Add captions in each photo's **Edit image** dialog.
+- **Caption style** (appears when captions are on): **Always visible** puts a bar over the photo, **Show on hover** shows the bar when someone points at the photo, and **Below image** puts plain text under it. A Carousel always shows captions below the photo, so this setting only affects the other layouts.
 - **Enable lightbox**: when on, customers can click a photo to open it full-screen. Inside the lightbox, the arrow keys move between photos and **Esc** closes it.
 
 ---
@@ -166,7 +168,7 @@ Which settings appear depends on the layout you pick:
 
 The gallery shows up in the page with the layout and options you set in the gallery. To take it out of the page, click the small **X** button beside the picker.
 
-If you haven't made a gallery yet, the box says "No galleries found." and offers a **Create a Gallery** button that opens the New Gallery page in a new tab.
+If you haven't made a gallery yet, the box says "No galleries found." and offers a **Create a Gallery** button that opens the Add gallery page in a new tab.
 
 ![The Insert Gallery box in the page editor with the Select a gallery list open](/images/galleries/insert-gallery-picker.png)
 

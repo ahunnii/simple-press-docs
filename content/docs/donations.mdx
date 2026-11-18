@@ -7,14 +7,14 @@ description: Add a page where people can give you a one-time donation or tip by 
 
 Donations add a page to your site at `/donate` where anyone can give you a one-time gift. They pick an amount, add their name and a message if they like, and pay by card through Stripe. You can also list your Venmo and Cash App so people can send money that way instead.
 
-On a donations or nonprofit store, **Set up donations** is a Required step on your [Setup Guide](/docs/launch-checklist#the-steps). It ticks off once Stripe is connected or you've saved a Venmo or Cash App handle.
+On a donations or nonprofit store, **Set up donations** is a Required step on your [Setup Guide](/docs/launch-checklist#the-steps). It ticks off once Stripe is connected or you've saved a Venmo or Cash App under **Other ways to pay**.
 
 You choose what to call it: **Donate**, **Tip**, or **Support**. A food truck might take tips, a community group might take donations, and an artist might ask for support. The wording follows your choice across the page, the menu link, the Stripe payment page, and the email you get.
 
 Here's the short version:
 
 1. Turn on **Donations** in **Settings → Features**.
-2. Go to **Settings → Donations** and choose your wording, your suggested amounts, and your Venmo or Cash App.
+2. Go to **Settings → Donations** and choose your wording and your suggested amounts. Add your Venmo or Cash App under **Settings → Payments → Other ways to pay**.
 3. Make sure people can find the page: check your menu, and add the link yourself if it isn't there.
 4. Watch gifts come in under **Donations** in the sidebar.
 
@@ -35,7 +35,7 @@ As soon as it's on:
 - **Donations** appears in your admin sidebar, and a **Donations** card appears in **Settings**.
 
 <Callout type="warn" title="Set up a way to pay right away">
-  The page can only take money if Stripe is connected **or** you've added a Venmo or Cash App username. If neither is set up, visitors see "Donations aren't set up yet." and "Check back soon." instead of a way to give. In that case, a red warning at the top of **Settings → Donations** says "Your donation page has no way to pay yet" (it says "tip" or "contribution" if you picked those labels). Turning Donations on isn't blocked, but if Stripe isn't connected yet, add your Venmo or Cash App in **Settings → Donations** as soon as you turn the feature on.
+  The page can only take money if Stripe is connected **or** you've added a Venmo or Cash App under **Other ways to pay**. If neither is set up, visitors see "Donations aren't set up yet." and "Check back soon." instead of a way to give. In that case, a red warning at the top of **Settings → Donations** says "Your donation page has no way to pay yet" (it says "tip" or "contribution" if you picked those labels). Turning Donations on isn't blocked, but if Stripe isn't connected yet, add your Venmo or Cash App in **Settings → Donations** as soon as you turn the feature on.
 </Callout>
 
 If you turn Donations off later, the donate page shows a "not found" page and the automatic menu links go away. A Donate link you added to your own menu or footer links is hidden too. Your record of past donations is kept.
@@ -48,13 +48,13 @@ See [Feature Flags](/docs/feature-flags) for more about turning features on and 
 
 Go to **Settings → Donations** (`/admin/settings/donations`). The page is called **Donations Settings**. Make your changes, then click **Save changes** at the top. **Reset** undoes anything you haven't saved yet.
 
-![The Donations Settings page, with the Label, Preset Amounts, Venmo & Cash App, and Placement cards](/images/donations/donations-settings.png)
+![The Donations settings page, with the Label and Preset amounts cards and a read-only Venmo & Cash App card showing the Venmo handle, a QR code and the donation link](/images/donations/donations-settings.png)
 
-*Donations Settings. A QR code preview appears under your Venmo username once you've typed one in.*
+*Donations Settings. A QR code preview appears under your Venmo username.*
 
-If Stripe isn't connected (or Stripe has paused your payments), a note at the top of the page says **Card donations are disabled until Stripe is connected**, with "Venmo/Cash App options will still be shown to shoppers." Its **Settings → Integrations** button takes you where you connect Stripe. See [Stripe Setup](/docs/stripe).
+If Stripe isn't connected (or Stripe has paused your payments), a note at the top of the page says **Card donations are disabled until Stripe is connected**, with "Venmo/Cash App options will still be shown to shoppers." Its **Settings → Payments** button takes you where you connect Stripe. See [Stripe Setup](/docs/stripe).
 
-If Stripe can't take card payments **and** you haven't saved a Venmo username or Cash App cashtag, a red warning shows instead: "Your donation page has no way to pay yet". It adds "Visitors who open it currently see an empty page. Connect Stripe to accept cards, or add a Venmo username or Cash App cashtag below." (The first word follows your label: "donation", "tip", or "contribution".) Its **Settings → Integrations** button takes you to Stripe. The warning goes away once either one is set up.
+If Stripe can't take card payments **and** you haven't saved a Venmo username or Cash App cashtag, a red warning shows instead: "Your donation page has no way to pay yet". It adds "Visitors who open it currently see an empty page. Connect Stripe to accept cards, or add Venmo or Cash App under Other ways to pay." (The first word follows your label: "donation", "tip", or "contribution".) Its **Settings → Payments** button takes you to Stripe. The warning goes away once either one is set up.
 
 ### Label
 
@@ -80,25 +80,23 @@ Whatever presets you choose, people can always type their own amount instead, fr
 
 ### Venmo & Cash App
 
-These are optional, and they work even if Stripe isn't connected.
+This card is read-only. Your Venmo and Cash App now come from one shared list, **Other ways to pay**, in **Settings → Payments**. The same list is used for your invoices. Click the **Payments → Other ways to pay** link in the card to add or change them. See [Invoices](/docs/invoices#payment-methods) for the steps.
 
-- **Venmo Username**: your Venmo username. You can type it with or without the @.
-- **Cash App Cashtag**: your cashtag. You can type it with or without the $.
+- The card shows your first Venmo and your first Cash App, if you have them. If you have neither, it says "None added yet."
+- They work even if Stripe isn't connected.
+- If you already had a Venmo username or Cash App cashtag here, it appears in the list on the Payments page. Click **Save** there once to keep it in the list.
 
-Once you type a username, a preview shows the QR code and link people will use. Click the link to check it opens the right account before you save.
+For each one, a preview shows the QR code and link people will use. Click the link to check it opens the right account.
 
-### Placement
+### Where the Donate link goes
 
-- **Show link in header navigation**
-- **Show link in footer**
-
-Both are on to start with. Turning a switch on adds a link to that spot, even if you've customized your menu or footer links (unless they already link to the page). Turning a switch off never removes a link you added yourself in **Site Setup → Navigation**. To put the link in a specific spot, see [Adding the link yourself](#adding-the-link-yourself) below, and [Where the Donate link shows up](#where-the-donate-link-shows-up) for how the automatic link is placed.
+The old **Placement** card is gone. A note at the bottom of this page links to **Site Setup → Header & footer**, where you choose whether to show the link in the header menu and the footer. (Those choices only appear there when Donations is on.) See [Where the Donate Link Shows Up](#where-the-donate-link-shows-up) below.
 
 ---
 
 ## Where the Donate Link Shows Up
 
-When a switch is on, the link is added to the end of your header menu or to the end of your footer links. This happens even if you've saved your own menu or footer links in **Site Setup → Navigation**. It's the last item in the phone menu too.
+When a switch is on, the link is added to the end of your header menu or to the end of your footer links. This happens even if you've saved your own menu or footer links in **Site Setup → Header & footer**. It's the last item in the phone menu too.
 
 Pink is the exception for the header. There, the link appears as a button on the right side of the header, not as a menu item.
 
@@ -112,17 +110,17 @@ The automatic link uses the short word from your label: **Donate**, **Tip**, or 
 
 Use this when you want the link in a specific spot, such as inside a dropdown. The switches already add it to the end of your menu and footer, so you don't need to do this to get the link on your site.
 
-1. Go to **Site Setup → Navigation**.
-2. In the **Quick Add** panel, click **Donate** (it shows **Tip** or **Support** if you picked one of those labels). The shortcut only appears while Donations is on.
+1. Go to **Site Setup → Header & footer**.
+2. In the **Quick add** panel, click **Donate** (it shows **Tip** or **Support** if you picked one of those labels). The shortcut only appears while Donations is on.
 3. Move the link where you want it. You can make it a top-level link or drag it into a dropdown.
 4. To put it in your footer as well, use the Quick Add panel in the **Footer quick links** section.
-5. Click **Save navigation**.
+5. Click **Save changes**.
 
 ![A storefront header with the Misc dropdown open, showing Donate as its last item](/images/donations/donate-nav-link.png)
 
-*This store added Donate to its own Misc dropdown in Site Setup → Navigation.*
+*This store added Donate to its own Misc dropdown in Site Setup → Header & footer.*
 
-See [Navigation](/docs/navigation) for more on building your menu.
+See [Header & Footer](/docs/navigation) for more on building your menu.
 
 <Callout type="info" title="Turning Donations off later?">
   A Donate link in your own header menu or footer quick links is hidden automatically while Donations is off. You don't need to remove it. Turn Donations back on and it shows again.
@@ -255,7 +253,7 @@ The link can be missing for a few reasons:
 
 - **Donations** is switched off. Check **Settings → Features**. The link only appears while it's on.
 - The change isn't saved yet. Click **Save changes** at the top of **Settings → Donations**.
-- Your menu already links to the donate page somewhere, such as inside a dropdown. A second link isn't added. Check **Site Setup → Navigation**.
+- Your menu already links to the donate page somewhere, such as inside a dropdown. A second link isn't added. Check **Site Setup → Header & footer**.
 
 See [Adding the link yourself](#adding-the-link-yourself) if you want the link in a specific spot.
 
@@ -290,7 +288,7 @@ In the [Site Editor](/docs/site-editor), on the Donate page, in the **Hero** sec
 		href="/docs/stripe"
 	/>
 	<Card
-		title="Navigation"
+		title="Header & Footer"
 		description="Build your header menu and footer quick links."
 		href="/docs/navigation"
 	/>
