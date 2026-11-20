@@ -243,6 +243,7 @@ In your admin sidebar, under **Marketing**, open **Get Found Online**. It has th
 ![The Get Found Online page with the Overview, SEO & Meta and Redirects tabs, then cards of links: Show up on maps, See your search traffic, Check your site, and See what AI says about you, each link with a short note and an open-in-new-tab icon](/images/seo/get-found-online.png)
 
 - **Show up on maps**: Google Business Profile, Bing Places, and Apple Business. These are for businesses that meet customers in person or serve a local area.
+- **See how people find you on Google** and **Show your products on Google**: cards that connect to Google and show your numbers here. See [See How People Find You on Google](#see-how-people-find-you-on-google).
 - **See your search traffic**: Google Search Console and Bing Webmaster Tools.
 - **Check your site**: your pages on Google, PageSpeed Insights, the Rich Results Test, and your sitemap.
 - **See what AI says about you**: ChatGPT and Perplexity.
@@ -286,6 +287,113 @@ Only your published products are listed. The feed is switched off, and the card 
 Filling in **Brand** and **Manufacturer part number** on your products gives Google more to work with (see [Product details](/docs/products#additional-details)).
 
 ![The Google Shopping card with the note about adding the address in Google Merchant Center as a scheduled fetch, the feed address ending in /feeds/google-merchant.xml, and the Copy button](/images/seo/google-shopping-card.png)
+
+---
+
+## See How People Find You on Google
+
+On **Marketing → Get Found Online**, the **Overview** tab has a card called **See how people find you on Google**. It connects your store to Google Search Console, Google's free report on how your site does in search. Once it's connected, the card shows the numbers right in your admin, so you don't have to set anything up in Google yourself.
+
+**Photo:** The Overview tab with the See how people find you on Google card, before connecting, showing the Connect Google Search button.
+
+SimplePress reads these reports using a Google account of its own (a Google account SimplePress uses to read your reports). You don't share a password or sign in to anything. Only Owners and Managers see the numbers. Staff see a short note instead.
+
+<Callout type="info" title="Your Google account is not needed">
+  You can connect without a Google account. Adding yours later is optional and only lets you open the full Search Console yourself.
+</Callout>
+
+### Connecting
+
+1. Click **Connect Google Search**. Only Owners and Managers see the button; for everyone else the card says "Ask the store owner to connect this."
+2. The card shows progress while SimplePress verifies your site with Google: "Getting ready to verify your site with Google.", then "Waiting for Google to check your site.", then "Verified. Setting up your numbers." This usually finishes within an hour.
+3. Once it's connected, the card fills in. Google needs a few days to collect numbers for a new site, and until then the card says "Google needs a few days to collect numbers."
+
+If you already manage your site in Search Console, Google may email you to say SimplePress was added. That's expected. If you verified your site yourself, you keep your own access.
+
+If something goes wrong, the card says "Something stopped the connection with Google. We'll keep trying, or you can try again now." Click **Try again**.
+
+While your store is in maintenance mode, the card notes that Google can't check your pages.
+
+### What You'll See
+
+**Photo:** The connected card showing the visits line, Searches that found you, Almost on page 1, Pages Google hasn't added yet and Sitemap.
+
+- **A summary line:** how many visits came from Google and how many times your site was shown, for the last few weeks.
+- **Searches that found you (not counting your name):** what people typed to find you without already knowing your store name, with the visits each brought and roughly where you showed up, for example "about #6".
+- **Almost on page 1:** searches where Google shows you around spots 8 to 20. Improving the matching page could move you onto page 1. See [The SEO Tab on Each Item](#the-seo-tab-on-each-item).
+- **Pages Google hasn't added yet:** pages Google hasn't put in its results, each with the reason Google gave.
+- **Sitemap:** whether Google has read your list of pages. The card says things like "Google has read your list of pages." or "Sent to Google. It hasn't read it yet."
+
+Two notes appear when they apply. Numbers run about 3 days behind. And small sites see fewer searches, because Google hides rare searches to protect privacy, so some searches won't show.
+
+### Refreshing
+
+The card says when it was last updated, for example "Last updated 3 hours ago". It also updates by itself every day. Click **Refresh** to check with Google now. You can refresh once every 10 minutes; if you try sooner, you'll see "Just refreshed. Try again in about 10 minutes."
+
+### Opening Search Console Yourself
+
+Under **Open it in Google yourself**, the store **Owner** can click **Add my Google account**. SimplePress adds the email you sign in to SimplePress with, so you can open the full Search Console with your Google account. You'll see an **Open in Google Search Console** link afterward.
+
+- Only the store Owner can do this, and only with their own email address. Managers can't.
+- Up to 3 people can be added. If you reach the limit, remove someone first.
+- Your email must be confirmed first.
+- The Owner is told by email when someone is added, and each added person has a **Remove** button.
+
+### Disconnecting
+
+Click **Disconnect** at the bottom of the card, then confirm. Google stops sharing search numbers with SimplePress, and anyone you added loses Search Console access unless they verified the site themselves. You can connect again at any time.
+
+### Turning It On or Off
+
+The feature is called **Google Search Console** in **Settings → Features**, in the Marketing section. Only the Owner can switch it. Turning it off disconnects the store. See [Feature Flags](/docs/feature-flags).
+
+---
+
+## Show Your Products on Google
+
+Under the Search Console card, a **Show your products on Google** card walks you through getting your products into Google Shopping and search results through Google Merchant Center, which is free.
+
+<Callout type="info">
+  Google Shopping needs your own domain (like yourstore.com). Google won't accept a SimplePress address. If your store doesn't have its own domain yet, the card says so and links to **Settings → Domain**.
+</Callout>
+
+**Photo:** The Show your products on Google card with the feed address, Copy button and numbered steps.
+
+The card shows your product feed address (a list of your products that Google reads) with a **Copy** button. If the feed is off, the card explains why in plain words instead. See [Google Shopping](#google-shopping) for when that happens.
+
+### The Steps
+
+1. **Create a free Merchant Center account** at the link in the card.
+2. **Claim your website (your own domain).** Choose the "HTML tag" option in Merchant Center, then paste the code into the Google verification field in **SEO & Meta**. See [Prove You Own This Store](#prove-you-own-this-store).
+3. **Add the feed address** from the card as a data source, and set it to fetch daily.
+4. **Turn on free listings.**
+5. **Use real photos** of the product a buyer receives. Google can suspend accounts for misleading images.
+6. **See problems Google finds with your products.** In Merchant Center, add the email address shown in the card as a user with **Standard** access, then enter your **Merchant Center ID** (the number at the top of Merchant Center) and click **Connect**. That email belongs to a Google account SimplePress uses to read your reports. It can only read; it can't change anything.
+
+**Photo:** Step 6 showing the email address to add and the Merchant Center ID field.
+
+Rules for connecting:
+
+- The website on your Merchant Center account must be this store's own domain.
+- One Merchant Center account can be connected to one store.
+- If Google says it can't find your account, check that you added the email from the card as a user, and that the ID is right. The message is the same either way.
+
+### Problems Google Finds
+
+**Photo:** The Problems Google finds section with the Account problems and Product problems lists.
+
+Once connected, the card shows how many products Google has and how many are not showing or limited, then:
+
+- **Account problems:** issues with your Merchant Center account, marked **Blocking**, **Needs fixing** or **Suggestion**, with a **Learn more** link.
+- **Product problems:** each product with a status and the reason. **Not showing** means Google isn't listing it. **Limited** means it shows less often. **Note** means Google has a heads-up but it's still listed. Click a product's name to open it in your admin and fix it. If it says "Not found in your store", the product isn't in your catalog any more.
+
+If Google hasn't found anything, the card says "Google hasn't reported any product problems." If you have a lot of products, it shows the ones with the most problems first and tells you how many more there are. It updates daily, and **Refresh** works like on the Search card (once every 10 minutes).
+
+Only Owners and Managers see the problems. Staff see a note that they're visible to owners and managers.
+
+### Disconnecting
+
+Click **Disconnect** and confirm. SimplePress stops reading your Merchant Center. To finish, also remove the SimplePress email from your users in Merchant Center.
 
 ---
 
@@ -384,13 +492,16 @@ You don't need to set any of this up:
 
 ## Feature Flag
 
-SEO & Meta itself has no switch. The dashboard strip has one:
+SEO & Meta itself has no switch. These do:
 
 | Feature | Default | Where to toggle | Requires |
 |---|---|---|---|
 | **Search readiness on dashboard** | On | Settings → Features | Nothing |
+| **Google Search Console** | Off | Settings → Features (Owner only) | Nothing |
 
-It's in the **Marketing** section of **Settings → Features**, and Owners and Managers can turn it on or off. Turning it off only hides the Dashboard strip. See [Feature Flags](/docs/feature-flags).
+**Google Search Console** shows the **See how people find you on Google** card. See [See How People Find You on Google](#see-how-people-find-you-on-google). The Merchant Center part has no switch; it starts when you enter a Merchant Center ID.
+
+The dashboard strip is in the **Marketing** section of **Settings → Features**, and Owners and Managers can turn it on or off. Turning it off only hides the Dashboard strip. See [Feature Flags](/docs/feature-flags).
 
 ---
 
@@ -403,6 +514,7 @@ It's in the **Marketing** section of **Settings → Features**, and Owners and M
 - Give each product, collection, page, blog post, and service its own web address, title, description, and share image
 - Preview how your store looks in Google and when shared, before you save
 - Verify your store with Google Search Console and Bing Webmaster Tools
+- Connect Google Search and Merchant Center to see your searches and product problems in admin
 - Tell search engines whether you're online only, serve an area, or have a storefront, and which areas you serve
 - Allow or block AI assistants from reading your store
 - Share delivery times and return terms with Google
@@ -412,7 +524,7 @@ It's in the **Marketing** section of **Settings → Features**, and Owners and M
 **You cannot:**
 
 - Add keywords. There's no keywords field, because search engines no longer use one.
-- Connect to Google Merchant Center from inside SimplePress. You copy your feed address from the **Google Shopping** card and add it in Merchant Center yourself (see [Google Shopping](#google-shopping)).
+- Create your Merchant Center account for you. You make it yourself and add your feed address (see [Show Your Products on Google](#show-your-products-on-google)).
 - Choose your ranking or pay for placement through SimplePress
 - Edit your sitemap or your list of pages hidden from search
 - Verify ownership by uploading a file. Use the HTML tag or meta tag option.
